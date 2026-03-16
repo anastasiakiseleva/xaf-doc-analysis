@@ -35,6 +35,26 @@ class PipelineIntegrationTester:
             print(f"⚠️  File not found: {filename}")
             return pd.DataFrame()
         return pd.read_parquet(filepath)
+
+    @staticmethod
+    def _safe_list(val):
+        """Coerce parquet list-like values (pyarrow/numpy) into a Python list."""
+        if val is None or (isinstance(val, float) and pd.isna(val)):
+            return []
+        if isinstance(val, list):
+            return val
+        if hasattr(val, 'tolist'):
+            try:
+                res = val.tolist()
+                return res if isinstance(res, list) else list(res)
+            except Exception:
+                return []
+        if hasattr(val, '__iter__') and not isinstance(val, str):
+            try:
+                return list(val)
+            except Exception:
+                return []
+        return []
     
     def test_phase1_to_phase3_consistency(self) -> ValidationResult:
         """
@@ -56,14 +76,13 @@ class PipelineIntegrationTester:
         # Extract all section_ids from Phase 1
         phase1_sections = set()
         for _, row in topics_df.iterrows():
-            sections = row.get('sections', [])
-            if isinstance(sections, list):
-                for section in sections:
-                    if isinstance(section, dict):
-                        section_id = section.get('section_id')
-                        doc_id = row['doc_id']
-                        if section_id:
-                            phase1_sections.add((doc_id, section_id))
+            sections = self._safe_list(row.get('sections', []))
+            for section in sections:
+                if isinstance(section, dict):
+                    section_id = section.get('section_id')
+                    doc_id = row['doc_id']
+                    if section_id:
+                        phase1_sections.add((doc_id, section_id))
         
         # Extract all section_ids from Phase 3
         phase3_sections = set(zip(concepts_df['doc_id'], concepts_df['section_id']))

@@ -1,10 +1,10 @@
 {
   "phase_name": "Rollup Document Metadata",
   "phase_number": 10,
-  "timestamp": "2026-02-14T16:14:23.523247",
-  "passed": false,
+  "timestamp": "2026-03-16T13:05:45.292823",
+  "passed": true,
   "has_warnings": false,
-  "has_errors": true,
+  "has_errors": false,
   "results": [
     {
       "check_name": "Schema validation",
@@ -15,38 +15,37 @@
     },
     {
       "check_name": "Minimum documents",
-      "passed": false,
-      "message": "Row count 5,528 below minimum 8,000",
-      "severity": "error",
+      "passed": true,
+      "message": "Row count 5,427 is within acceptable range",
+      "severity": "info",
       "details": {
-        "row_count": 5528,
-        "min_rows": 8000
+        "row_count": 5427
       }
     },
     {
       "check_name": "Document completeness",
       "passed": true,
-      "message": "All 5528 documents from section metadata are present",
+      "message": "All 5427 documents from section metadata are present",
       "severity": "info",
       "details": null
     },
     {
       "check_name": "Minimum avg tags",
       "passed": true,
-      "message": "Value 6.49 meets threshold >= 3.0",
+      "message": "Value 3.74 meets threshold >= 3.0",
       "severity": "info",
       "details": {
-        "actual_value": 6.488422575976845,
+        "actual_value": 3.738161046618758,
         "threshold_value": 3.0
       }
     },
     {
       "check_name": "Maximum avg tags",
       "passed": true,
-      "message": "Value 6.49 meets threshold <= 12.0",
+      "message": "Value 3.74 meets threshold <= 12.0",
       "severity": "info",
       "details": {
-        "actual_value": 6.488422575976845,
+        "actual_value": 3.738161046618758,
         "threshold_value": 12.0
       }
     },

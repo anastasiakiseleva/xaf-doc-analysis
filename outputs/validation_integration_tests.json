@@ -1,0 +1,63 @@
+{
+  "phase_name": "Pipeline Integration Tests",
+  "phase_number": 0,
+  "timestamp": "2026-03-16T13:05:51.930060",
+  "passed": true,
+  "has_warnings": false,
+  "has_errors": false,
+  "results": [
+    {
+      "check_name": "Phase 1\u21923 consistency",
+      "passed": true,
+      "message": "All 11,240 section IDs in Phase 3 reference valid Phase 1 sections",
+      "severity": "info",
+      "details": {
+        "validated_sections": 11240
+      }
+    },
+    {
+      "check_name": "Phase 3\u21927 consistency",
+      "passed": true,
+      "message": "All 10,379 section IDs in Phase 7 reference valid Phase 3 sections",
+      "severity": "info",
+      "details": {
+        "validated_sections": 10379
+      }
+    },
+    {
+      "check_name": "Phase 7\u219210 rollup",
+      "passed": true,
+      "message": "Tag aggregation looks good for all 20 sampled documents",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Semantic pairs references",
+      "passed": true,
+      "message": "All 60,897 semantic pairs reference valid sections",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "API entities references",
+      "passed": true,
+      "message": "All 3,926 API section references are valid",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Explicit graph references",
+      "passed": true,
+      "message": "All 17,259 graph edges reference valid documents",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Knowledge graph artifact",
+      "passed": true,
+      "message": "knowledge_graph.json loaded: 21,405 nodes, 137,854 edges; missing_endpoints(sample)=0",
+      "severity": "info",
+      "details": null
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "phase_name": "Build Knowledge Graph",
   "phase_number": 13,
-  "timestamp": "2026-03-16T12:38:54.257771",
+  "timestamp": "2026-03-16T13:03:58.874124",
   "passed": true,
-  "has_warnings": true,
+  "has_warnings": false,
   "has_errors": false,
   "results": [
     {
@@ -16,28 +16,28 @@
     {
       "check_name": "Unique node ids",
       "passed": true,
-      "message": "24,759 unique ids / 24,759 nodes",
+      "message": "21,405 unique ids / 21,405 nodes",
       "severity": "info",
       "details": null
     },
     {
       "check_name": "Edge endpoints exist",
-      "passed": false,
-      "message": "1190 edges reference missing nodes (sampled)",
-      "severity": "warning",
+      "passed": true,
+      "message": "All checked edges reference existing nodes",
+      "severity": "info",
       "details": null
     },
     {
       "check_name": "Min nodes",
       "passed": true,
-      "message": "nodes=24,759 (min=12000)",
+      "message": "nodes=21,405 (min=12000)",
       "severity": "info",
       "details": null
     },
     {
       "check_name": "Min edges",
       "passed": true,
-      "message": "edges=208,183 (min=150000)",
+      "message": "edges=137,854 (min=120000)",
       "severity": "info",
       "details": null
     }

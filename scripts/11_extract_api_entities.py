@@ -96,7 +96,7 @@ def parse_api_identifier(api_full_path: str) -> dict:
     }
 
 
-def extract_api_entities(doc_concepts_df: pd.DataFrame) -> tuple:
+def extract_api_entities(doc_concepts_df: pd.DataFrame, uid_map: dict[str, str] | None = None, fallback_to_uid: bool = True) -> tuple:
     """
     Extract unique API entities and document relationships.
     
@@ -104,10 +104,9 @@ def extract_api_entities(doc_concepts_df: pd.DataFrame) -> tuple:
     """
     print("\nExtracting API entities from doc_concepts...")
     
-    # Filter to API sections with extracted APIs
+    # Filter to API sections (do not require extracted APIs to be present)
     api_sections = doc_concepts_df[
-        (doc_concepts_df['is_api'] == True) & 
-        (doc_concepts_df['apis'].notna())
+        (doc_concepts_df['is_api'] == True)
     ].copy()
     
     print(f"  Found {len(api_sections)} API sections")
@@ -139,6 +138,13 @@ def extract_api_entities(doc_concepts_df: pd.DataFrame) -> tuple:
         else:
             concepts = list(concepts_raw)
         
+        # Fallback: if API identifiers weren't extracted (common when patterns.yml is missing),
+        # use the document UID as the API id.
+        if fallback_to_uid and (not apis_list) and uid_map is not None:
+            uid = uid_map.get(str(doc_id))
+            if uid and isinstance(uid, str) and ('.' in uid):
+                apis_list = [uid]
+
         # Parse each API mentioned in this section
         for api_str in apis_list:
             parsed = parse_api_identifier(api_str)
@@ -187,6 +193,16 @@ def extract_api_entities(doc_concepts_df: pd.DataFrame) -> tuple:
     
     api_entities_df = pd.DataFrame(api_entities_list)
     documents_api_df = pd.DataFrame(documents_api)
+
+    # Ensure stable schemas even when empty
+    if api_entities_df.empty:
+        api_entities_df = pd.DataFrame(columns=[
+            'api_id', 'api_name', 'namespace', 'api_type', 'num_sections', 'related_concepts'
+        ])
+    if documents_api_df.empty:
+        documents_api_df = pd.DataFrame(columns=[
+            'section_id', 'doc_id', 'api_id', 'api_name', 'api_type', 'namespace'
+        ])
     
     return api_entities_df, documents_api_df
 
@@ -200,16 +216,23 @@ def print_statistics(api_entities_df, documents_api_df):
     print(f"\nUnique API entities: {len(api_entities_df)}")
     print(f"Document → API relationships: {len(documents_api_df)}")
     
+    if api_entities_df.empty:
+        print("\n(no API entities extracted)")
+        return
+
     print(f"\nAPI Type Distribution:")
-    print(api_entities_df['api_type'].value_counts().to_string())
+    if 'api_type' in api_entities_df.columns:
+        print(api_entities_df['api_type'].value_counts().to_string())
     
     print(f"\nTop 10 Namespaces:")
-    namespace_counts = api_entities_df['namespace'].value_counts()
-    print(namespace_counts.head(10).to_string())
+    if 'namespace' in api_entities_df.columns:
+        namespace_counts = api_entities_df['namespace'].value_counts()
+        print(namespace_counts.head(10).to_string())
     
     print(f"\nAPIs with most documentation sections:")
-    top_documented = api_entities_df.nlargest(10, 'num_sections')[['api_name', 'api_type', 'namespace', 'num_sections']]
-    print(top_documented.to_string())
+    if 'num_sections' in api_entities_df.columns:
+        top_documented = api_entities_df.nlargest(10, 'num_sections')[['api_name', 'api_type', 'namespace', 'num_sections']]
+        print(top_documented.to_string())
 
 
 def main():
@@ -236,6 +259,16 @@ def main():
         action='store_true',
         help='Also export as CSV for review'
     )
+    parser.add_argument(
+        '--topics-inventory',
+        default='outputs/topics_inventory.parquet',
+        help='topics_inventory.parquet (used for UID fallback when APIs are not extracted)'
+    )
+    parser.add_argument(
+        '--no-uid-fallback',
+        action='store_true',
+        help='Disable UID-based fallback API extraction'
+    )
     
     args = parser.parse_args()
     
@@ -243,9 +276,21 @@ def main():
     print(f"Loading {args.input}...")
     doc_concepts_df = pd.read_parquet(args.input)
     print(f"  Loaded {len(doc_concepts_df)} sections")
+
+    # Load topics inventory for UID fallback
+    uid_map = None
+    topics_path = Path(args.topics_inventory)
+    if topics_path.exists():
+        topics_df = pd.read_parquet(topics_path)
+        if 'doc_id' in topics_df.columns and 'uid' in topics_df.columns:
+            uid_map = dict(zip(topics_df['doc_id'].astype(str), topics_df['uid'].astype(str)))
     
     # Extract API entities
-    api_entities_df, documents_api_df = extract_api_entities(doc_concepts_df)
+    api_entities_df, documents_api_df = extract_api_entities(
+        doc_concepts_df,
+        uid_map=uid_map,
+        fallback_to_uid=(not args.no_uid_fallback)
+    )
     
     # Save results
     print(f"\nSaving API entities to {args.output_entities}...")
@@ -270,11 +315,16 @@ def main():
     print(f"\n{'='*80}")
     print("SAMPLE API ENTITIES")
     print("="*80)
-    for idx, row in api_entities_df.head(10).iterrows():
-        print(f"\n{row['api_name']} ({row['api_type']})")
-        print(f"  Namespace: {row['namespace']}")
-        print(f"  Documented in: {row['num_sections']} sections")
-        print(f"  Concepts: {', '.join(row['related_concepts'][:3])}")
+    if api_entities_df.empty:
+        print("(none)")
+    else:
+        for idx, row in api_entities_df.head(10).iterrows():
+            print(f"\n{row['api_name']} ({row['api_type']})")
+            print(f"  Namespace: {row['namespace']}")
+            print(f"  Documented in: {row['num_sections']} sections")
+            concepts = row.get('related_concepts', [])
+            concepts = list(concepts) if isinstance(concepts, (list, tuple)) else []
+            print(f"  Concepts: {', '.join(concepts[:3])}")
     
     print(f"\n✅ Done!")
     print(f"   API entities: {len(api_entities_df)}")

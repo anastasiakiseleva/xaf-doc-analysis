@@ -1,7 +1,7 @@
 {
   "phase_name": "Ingest & Parse",
   "phase_number": 1,
-  "timestamp": "2026-02-14T16:08:43.093181",
+  "timestamp": "2026-03-16T12:47:23.733503",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,29 +16,29 @@
     {
       "check_name": "Minimum documents",
       "passed": true,
-      "message": "Row count 7,879 is within acceptable range",
+      "message": "Row count 7,575 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 7879
+        "row_count": 7575
       }
     },
     {
       "check_name": "Documents with xref links",
       "passed": true,
-      "message": "Value 5609.00 meets threshold >= 1000",
+      "message": "Value 5527.00 meets threshold >= 1000",
       "severity": "info",
       "details": {
-        "actual_value": 5609,
+        "actual_value": 5527,
         "threshold_value": 1000
       }
     },
     {
       "check_name": "Average word count",
       "passed": true,
-      "message": "Value 85.68 meets threshold >= 80",
+      "message": "Value 85.89 meets threshold >= 80",
       "severity": "info",
       "details": {
-        "actual_value": 85.67889326056606,
+        "actual_value": 85.8859405940594,
         "threshold_value": 80
       }
     }
