@@ -258,7 +258,7 @@ class PipelineIntegrationTester:
         Test that all section_ids in documents_api exist in doc_concepts.
         """
         print("\n🔍 Testing API entities references...")
-        
+
         concepts_df = self.load_parquet_safe("doc_concepts.parquet")
         docs_api_df = self.load_parquet_safe("documents_api.parquet")
         
@@ -301,6 +301,81 @@ class PipelineIntegrationTester:
             passed=True,
             message=f"All {len(api_sections):,} API section references are valid",
             severity="info"
+        )
+
+    def test_knowledge_graph_artifact(self) -> ValidationResult:
+        """Validate that outputs/knowledge_graph.json is present and well-formed (if generated)."""
+        print("\n🔍 Testing knowledge graph artifact...")
+
+        kg_path = self.outputs_dir / "knowledge_graph.json"
+        if not kg_path.exists():
+            return ValidationResult(
+                check_name="Knowledge graph artifact",
+                passed=True,
+                message="knowledge_graph.json not found (optional feature)",
+                severity="info",
+            )
+
+        try:
+            import json
+            kg = json.loads(kg_path.read_text(encoding="utf-8"))
+        except Exception as e:
+            return ValidationResult(
+                check_name="Knowledge graph artifact",
+                passed=False,
+                message=f"knowledge_graph.json could not be parsed: {e}",
+                severity="error",
+            )
+
+        if not isinstance(kg, dict):
+            return ValidationResult(
+                check_name="Knowledge graph artifact",
+                passed=False,
+                message="knowledge_graph.json is not a JSON object",
+                severity="error",
+            )
+
+        for key in ("metadata", "nodes", "edges"):
+            if key not in kg:
+                return ValidationResult(
+                    check_name="Knowledge graph artifact",
+                    passed=False,
+                    message=f"Missing top-level key: {key}",
+                    severity="error",
+                )
+
+        nodes = kg.get("nodes") or []
+        edges = kg.get("edges") or []
+
+        if not isinstance(nodes, list) or not isinstance(edges, list):
+            return ValidationResult(
+                check_name="Knowledge graph artifact",
+                passed=False,
+                message="nodes/edges must be JSON arrays",
+                severity="error",
+            )
+
+        # Light endpoint validation on a sample (avoid reading huge graphs fully)
+        node_ids = set()
+        for n in nodes[:50000]:
+            if isinstance(n, dict) and n.get("id"):
+                node_ids.add(n.get("id"))
+
+        missing_endpoints = 0
+        for e in edges[:20000]:
+            if not isinstance(e, dict):
+                continue
+            if e.get("source") not in node_ids or e.get("target") not in node_ids:
+                missing_endpoints += 1
+
+        severity = "warning" if missing_endpoints > 0 else "info"
+        passed = missing_endpoints == 0
+
+        return ValidationResult(
+            check_name="Knowledge graph artifact",
+            passed=passed,
+            message=f"knowledge_graph.json loaded: {len(nodes):,} nodes, {len(edges):,} edges; missing_endpoints(sample)={missing_endpoints}",
+            severity=severity,
         )
     
     def test_explicit_graph_references(self) -> ValidationResult:
@@ -368,6 +443,7 @@ class PipelineIntegrationTester:
             (5, self.test_semantic_pairs_references),
             (11, self.test_api_entities_references),
             (2, self.test_explicit_graph_references),
+            (13, self.test_knowledge_graph_artifact),
         ]
         
         for phase_num, test_func in tests:

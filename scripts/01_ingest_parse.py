@@ -337,10 +337,20 @@ def main():
     
     files = list(pathlib.Path('data/raw_md').rglob('*.md'))
     print(f"\n📁 Found {len(files):,} markdown files")
+
+    if len(files) == 0:
+        print("\n❌ No input Markdown files found under data/raw_md/")
+        print("   Add your documentation corpus under data/raw_md/ (subfolders preserved), then rerun.")
+        print("   Example: data/raw_md/articles/... and data/raw_md/apidoc/...")
+        sys.exit(1)
     
     print("🔄 Parsing documents...")
     rows  = [parse_markdown(p) for p in files]
     df_all = pd.DataFrame(rows)
+
+    # Ensure expected columns exist (defensive; helps avoid crashes if upstream parsing changes)
+    if 'doc_type' not in df_all.columns:
+        df_all['doc_type'] = None
     
     # Filter out enum/field/constant documents unless explicitly requested
     if not args.include_enum_fields:

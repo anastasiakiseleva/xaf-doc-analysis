@@ -1,0 +1,88 @@
+---
+uid: "404389"
+seealso:
+- linkId: "113439"
+- linkId: "404390"
+- linkId: "404391"
+- linkId: "404398"
+title: Middle Tier Security with EF Core
+owner: Eugeniy Burmistrov
+---
+
+# Middle Tier Security with EF Core
+
+[!include[BypassClientSideSecurity](~/templates/BypassClientSideSecurity.md)] 
+
+To prevent unauthorized data access, we recommend that you implement a Middle Tier Security server. Such a server acts as a [WebSocket](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/websockets) service between the client application and the database server. In this case, clients cannot access the database directly and your middle-tier layer enforces security settings. The diagram below illustrates this configuration.
+
+![Middle Tier Security Architecture Diagram](~/images/ApplicationWithMiddleTier_main_diagram.png)
+
+## Application Architecture Basics: Middle-Tier Security 
+
+The following images demonstrate how Blazor and WinForms applications with [Middle Tier Security](xref:113439) interact with the database:
+
+> [!ImageGallery]
+> ![Blazor application with a Middle-Tier Security layer](~/images/ApplicationWithMiddleTier_blazor_diagram_ef_core.png)
+> ![WinForms application with a Middle-Tier Security layer](~/images/ApplicationWithMiddleTier_diagram_ef_core.png)
+> ![Application that accesses a database directly](~/images/NonSecureApplication_diagram.png)
+
+### Load Data From the Database
+
+1. An application queries data through an Object Space that uses the client EF Core DbContext.
+
+2. The Client DbContext uses the Remote Database Provider developed by DevExpress to access data. This database provider does not query a database directly, but serializes the query and redirects it to the Middle Tier Security server.
+
+3. The server receives the query, deserializes this query, and executes it in the server DbContext.
+
+4. The secured DbContext on the server processes the query and returns the result.
+
+5. The server serializes the objects returned by the DbContext and adds them to the response sent back to the client.
+
+6. The Remote Database Provider in the client DbContext deserializes the obtained objects and attaches them to the client DbContext.
+
+### Save Data to the Database
+
+1. The application saves changes through an ObjectSpace that communicates with the client EF Core DbContext.
+
+2. The Client DbContext uses the Remote Database Provider to save data. The Remote Database Provider serializes the query and redirects it to the Middle Tier Security server.
+
+3. The list of changes that should be saved to the database arrives to the server, and the server deserializes it.
+
+4. The Middle Tier Security server fetches unchanged versions of the objects affected by the query, applies the specified changes to these objects, and uses the server DbContext to save their modified versions to the database. The DbContext on the Middle Tier Security server side uses the XAF Security System, so the server can only save changes that are permitted by security rules.
+
+5. If the Audit Module is enabled, the audit history is saved by the Middle Tier Server through the auditing DbContext.
+
+6. The server serializes object properties that may have changed after the object was saved to the database (for example, auto-generated keys) and returns them to the client.
+
+7. The Remote Database Provider deserializes the server's response and, if required, applies the generated values to the client DbContext.
+
+### Middle Tier Service and XAF Security System 
+
+The EF Core DbContext on the Middle Tier Security server side uses the XAF Security System that imposes the following restrictions on read and write operations:
+
+- When data is loaded from the database, the client receives only the data that the current user is authorized to view.
+
+- When data is saved to the database, only objects that the current user is authorized to edit are saved.
+
+> [!important]
+> [!include[](~/templates/middle-tier-ssl-note.md)]
+
+## Limitations
+
+The Middle Tier Security's architecture imposes certain limitations compared to the integrated security:
+
+- [Direct execution of SQL queries](https://learn.microsoft.com/en-us/ef/core/querying/sql-queries) is not supported.
+
+- The Object Space is not used when business objects are instantiated on the server or saved to the database. For this reason, objects that implement the [IXafEntityObject](xref:DevExpress.ExpressApp.IXafEntityObject) and [IObjectSpaceLink](xref:DevExpress.ExpressApp.IObjectSpaceLink) are processed on the Middle Tier Security server with the following limitations:
+
+    - Business objects do not have access to the [IObjectSpace](xref:DevExpress.ExpressApp.IObjectSpace) service. If you execute custom logic in property setters or anywhere else in the object's implementation, you should always check if the [IObjectSpaceLink.ObjectSpace](xref:DevExpress.ExpressApp.IObjectSpaceLink.ObjectSpace) property value equals `null`.
+    - [IXafEntityObject.OnCreated()](xref:DevExpress.ExpressApp.IXafEntityObject.OnCreated), [IXafEntityObject.OnLoaded()](xref:DevExpress.ExpressApp.IXafEntityObject.OnLoaded), and [IXafEntityObject.OnSaving()](xref:DevExpress.ExpressApp.IXafEntityObject.OnSaving) lifecycle methods are not triggered for business objects.
+
+- We do not guarantee compatibility between a WinForms client and Middle Tier Security server at the data transfer protocol level if they use XAF assemblies of different versions.
+
+- The Security System displays the default property value instead of its actual value if access to a property is denied. These values may match. Use the `SecuritySystem.IsGranted` method to determine which value is displayed. 
+
+- If you use custom permission requests, custom logon parameters, or other types that should be serialized (for example, non-persistent objects), use the static [WebApiDataServerHelper.AddKnownType](xref:DevExpress.ExpressApp.Security.ClientServer.WebApi.WebApiDataServerHelper.AddKnownType(System.Type)) method to register them before a data server is initialized. Register these types on the server and client. Do not use this method to register business classes. 
+
+- Blazor application with Middle Tier security does not support Windows authentication.
+- Integrated WebAPI services and Middle Tier security cannot be used simultaneously.

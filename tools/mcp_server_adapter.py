@@ -65,6 +65,16 @@ class XAFDocAnalysis:
             'api_entities': pd.read_parquet(self.data_dir / 'api_entities.parquet'),
             'api_implements': pd.read_parquet(self.data_dir / 'api_implements_concept.parquet'),
         }
+
+        # Optional: unified knowledge graph artifact
+        kg_path = self.data_dir / 'knowledge_graph.json'
+        if kg_path.exists():
+            try:
+                self.data['knowledge_graph'] = json.loads(kg_path.read_text(encoding='utf-8'))
+            except Exception:
+                self.data['knowledge_graph'] = None
+        else:
+            self.data['knowledge_graph'] = None
         
         # Load cross-linking recommendations if available
         crosslink_file = self.data_dir / 'cross_linking_filtered_actionable.csv'
@@ -75,6 +85,13 @@ class XAFDocAnalysis:
         
         print(f"  ✓ Loaded {len(self.data['doc_concepts']):,} sections")
         print(f"  ✓ Loaded {len(self.data['semantic_pairs']):,} semantic connections")
+
+        if self.data.get('knowledge_graph'):
+            kg = self.data['knowledge_graph']
+            if isinstance(kg, dict):
+                n_nodes = len(kg.get('nodes', []) or [])
+                n_edges = len(kg.get('edges', []) or [])
+                print(f"  ✓ Loaded knowledge graph: {n_nodes:,} nodes, {n_edges:,} edges")
     
     def _load_json(self, filename: str) -> Optional[Dict]:
         """Load JSON file safely"""
@@ -289,6 +306,41 @@ class XAFDocAnalysis:
         return {
             "total_recommendations": len(recommendations),
             "recommendations": recommendations
+        }
+
+    def get_knowledge_graph_stats(self) -> Dict[str, Any]:
+        """Return basic stats for the unified knowledge graph artifact, if available."""
+        kg = self.data.get('knowledge_graph') if self.data else None
+        if not isinstance(kg, dict):
+            return {
+                "available": False,
+                "error": "knowledge_graph.json not found or could not be loaded"
+            }
+
+        nodes = kg.get('nodes', []) or []
+        edges = kg.get('edges', []) or []
+
+        node_types: Dict[str, int] = {}
+        for n in nodes:
+            t = (n or {}).get('type', 'unknown')
+            node_types[t] = node_types.get(t, 0) + 1
+
+        edge_types: Dict[str, int] = {}
+        for e in edges:
+            t = (e or {}).get('type', 'unknown')
+            edge_types[t] = edge_types.get(t, 0) + 1
+
+        top_edge_types = sorted(edge_types.items(), key=lambda x: x[1], reverse=True)[:15]
+
+        return {
+            "available": True,
+            "metadata": kg.get('metadata', {}),
+            "counts": {
+                "nodes": len(nodes),
+                "edges": len(edges),
+                "node_types": node_types,
+                "top_edge_types": [{"type": t, "count": c} for t, c in top_edge_types],
+            }
         }
     
     def get_document_metadata(

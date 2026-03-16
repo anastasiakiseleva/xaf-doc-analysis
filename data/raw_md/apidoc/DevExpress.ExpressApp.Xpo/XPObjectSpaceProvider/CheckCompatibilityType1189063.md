@@ -1,0 +1,16 @@
+---
+uid: DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.CheckCompatibilityType
+name: CheckCompatibilityType
+type: Property
+summary: Specifies how the database and application compatibility is checked.
+syntax:
+  content: public CheckCompatibilityType? CheckCompatibilityType { get; set; }
+  parameters: []
+  return:
+    type: System.Nullable{DevExpress.ExpressApp.CheckCompatibilityType}
+    description: A **Nullable\<**[](xref:DevExpress.ExpressApp.CheckCompatibilityType)**>** enumeration value specifying how the database and application compatibility is checked.
+seealso: []
+---
+This property allows you to specify the mode individually for each Object Space Provider (in case you [use multiple databases](https://supportcenter.devexpress.com/ticket/details/e4896/how-to-connect-different-data-models-to-several-databases-within-a-single-application)).
+
+The default **CheckCompatibilityType**'s value is `null` and the [XafApplication.CheckCompatibilityType](xref:DevExpress.ExpressApp.XafApplication.CheckCompatibilityType) property value is actually used. Refer to this property description to learn more on available values.

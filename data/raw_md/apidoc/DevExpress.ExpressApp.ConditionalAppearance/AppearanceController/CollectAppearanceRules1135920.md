@@ -1,0 +1,16 @@
+---
+uid: DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.CollectAppearanceRules
+name: CollectAppearanceRules
+type: Event
+summary: Occurs after conditional appearance rules for the business object represented by the specified View are collected from the [Application Model](xref:112580).
+syntax:
+  content: public event EventHandler<CollectAppearanceRulesEventArgs> CollectAppearanceRules
+seealso: []
+---
+The Application Model's **BOModel** | **_\<Class\>_** | **AppearanceRules** node lists all the rules declared for properties or layout items of the corresponding business class and for Actions activated for Views of this business class. When the Appearance Controller determines which rules should be applied to a specified UI element, it first collects all rules from the appropriate **BOModel** | **_\<Class\>_** node. Then it filters them, leaving only those that are appropriate in the current context and for the specified criteria. Before the list of found rules is filtered and sorted, you can access it by handling the **CollectAppearanceRules** event. In the event handler, use the [CollectAppearanceRulesEventArgs.AppearanceRules](xref:DevExpress.ExpressApp.ConditionalAppearance.CollectAppearanceRulesEventArgs.AppearanceRules) parameter. In addition, you can access the View in which the target UI element (View Item and Layout Item or Group) is contained, or for which the target Action is activated. Use the event handler's [CollectAppearanceRulesEventArgs.ViewInfo](xref:DevExpress.ExpressApp.ConditionalAppearance.CollectAppearanceRulesEventArgs.ViewInfo) property. To get the name of the target UI element, use the [CollectAppearanceRulesEventArgs.Name](xref:DevExpress.ExpressApp.ConditionalAppearance.CollectAppearanceRulesEventArgs.Name) parameter.
+
+Using this event, you can add a conditional appearance rule dynamically. However, the following problem may arise. After collecting rules for a specified UI element, the Appearance Controller caches them so that the next time the conditional appearance is refreshed for this UI element, the rules are not collected again. The **CollectAppearanceRules** event is raised once the rules are collected for a UI element. So, you may subscribe to the **CollectAppearanceRules** event late, when the rules have already been cached. In this instance, we recommend that you call the [AppearanceController.ResetRulesCache](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.ResetRulesCache) method, then subscribe to the **CollectAppearanceRules** event and finally, call the [AppearanceController.Refresh](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.Refresh) method.
+
+To learn how the collected rules are combined and applied, refer to the [AppearanceController.RefreshItemAppearance](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.RefreshItemAppearance*) method description.
+
+Refer to the [How to: Customize the Conditional Appearance Module Behavior](xref:113374) topic to see an example of handling this event.

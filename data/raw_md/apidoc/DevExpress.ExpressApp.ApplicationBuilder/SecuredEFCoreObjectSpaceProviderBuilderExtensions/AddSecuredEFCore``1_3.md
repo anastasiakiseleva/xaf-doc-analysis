@@ -1,0 +1,55 @@
+---
+uid: DevExpress.ExpressApp.ApplicationBuilder.SecuredEFCoreObjectSpaceProviderBuilderExtensions.AddSecuredEFCore``1(DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder{``0},System.Action{System.IServiceProvider,DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder})
+name: AddSecuredEFCore<TContext>(IObjectSpaceProviderBuilder<TContext>, Action<IServiceProvider, EFCoreObjectSpaceProviderOptionsBuilder>)
+type: Method
+summary: Adds the @DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpace to your WinForms application.
+syntax:
+  content: |-
+    public static DbContextBuilder<TContext> AddSecuredEFCore<TContext>(this IObjectSpaceProviderBuilder<TContext> builder, Action<IServiceProvider, EFCoreObjectSpaceProviderOptionsBuilder> configureObjectSpaceProviderOptions)
+        where TContext : IXafApplicationBuilder<TContext>, IAccessor<IServiceCollection>
+  parameters:
+  - id: builder
+    type: DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder{{TContext}}
+    description: '[!include[IObjectSpaceProviderBuilder_Parameter_Description](~/templates/IObjectSpaceProviderBuilder_Parameter_Description.md)]'
+  - id: configureObjectSpaceProviderOptions
+    type: System.Action{System.IServiceProvider,DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder}
+    description: Options that allow you to configure the secured Object Space Provider.
+  typeParameters:
+  - id: TContext
+    description: The @DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder type.
+  return:
+    type: DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder{{TContext}}
+    description: '[!include[IObjectSpaceProviderBuilder_Parameter_Description](~/templates/IObjectSpaceProviderBuilder_Parameter_Description.md)]'
+seealso: []
+---
+
+
+This method must be used together with one of the following methods:
+
+* @DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder`1.WithDbContext``1(System.Action{DevExpress.ExpressApp.XafApplication,Microsoft.EntityFrameworkCore.DbContextOptionsBuilder},Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+* @DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext``1(DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder{``0},System.Action{DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator},Microsoft.Extensions.DependencyInjection.ServiceLifetime)
+
+The following example demonstrates how to use the `AddSecuredEFCore` method:
+
+**File**: _MySolution.Win\Startup.cs_.
+
+# [C#](#tab/tabid-csharp-1)
+```csharp{9-13}
+using DevExpress.ExpressApp.ApplicationBuilder;
+using DevExpress.ExpressApp.Win.ApplicationBuilder;
+// ...
+public class ApplicationBuilder : IDesignTimeApplicationFactory {
+    public static WinApplication BuildApplication(string connectionString) {
+        var builder = WinApplication.CreateBuilder();
+        builder.UseApplication<MySolutionWindowsFormsApplication>();
+        builder.ObjectSpaceProviders
+            .AddSecuredEFCore(options => options.PreFetchReferenceProperties())
+            .WithDbContext<MySolutionEFCoreDbContext>((application, options) => {
+                // ...
+            })
+            .AddNonPersistent();
+    }
+    // ...
+}
+```
+***

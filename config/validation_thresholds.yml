@@ -94,6 +94,11 @@ phase12_api_concepts:
   min_confidence: 0.0               # Minimum confidence score
   max_confidence: 1.0               # Maximum confidence score
 
+# Phase 13: Knowledge Graph
+phase13_knowledge_graph:
+  min_nodes: 12000                  # Expect docs + kept sections + concept/platform/API nodes
+  min_edges: 150000                 # Expect contains/tagging/semantic/api-mapping edges
+
 # General Quality Thresholds
 general:
   max_null_percentage: 5.0          # Maximum percentage of null values in critical columns

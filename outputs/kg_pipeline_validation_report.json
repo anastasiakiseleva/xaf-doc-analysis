@@ -1,0 +1,17 @@
+{
+  "pipeline": "knowledge-graph",
+  "start_time": "2026-03-16T12:41:23.165468",
+  "end_time": "2026-03-16T12:41:23.978551",
+  "total_duration_seconds": 0.813083,
+  "validation_level": "quick",
+  "phase_results": [
+    {
+      "phase": 1,
+      "name": "Ingest & Parse",
+      "success": false,
+      "error": "Phase 1 failed with exit code 1",
+      "duration_seconds": 0.812116
+    }
+  ],
+  "overall_success": false
+}
