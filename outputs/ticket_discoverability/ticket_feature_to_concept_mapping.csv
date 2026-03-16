@@ -1,0 +1,158 @@
+feature_category,ticket_count,primary_concept,confidence,match_type,matched_term,alternate_concepts,warning_count,has_issues
+Custom View Items & Editors,869,View Items,54.0,weighted_synonym,"",Views,1,No
+Built-in View Items & Editors,765,View Items,54.0,weighted_synonym,"",Views,1,No
+Grid List Editors,554,List Editors,59.4,weighted_synonym,"","",1,No
+Custom logic within View or Controller,485,Views,33.0,weighted_synonym,"",Controllers,1,No
+Built-in Permissions Setup/Troubleshooting,449,Authorization,46.2,weighted_synonym,"","",1,No
+Creating & Showing Views,406,View Lifecycle,42.0,weighted_synonym,"",Views,2,Yes
+Speed,394,Performance Optimization,55.0,exact_synonym_phrase,Speed,"",1,No
+Non-Persistent Objects,383,Non-Persistent Objects,110.0,exact_concept_name,Non-Persistent Objects,"",0,No
+Lookups,368,Lookup Property Editors,50.0,exact_synonym_phrase,Lookups,"",1,No
+Layout Generation & Customization API,329,Layout,19.71,word_overlap,"","Layout Generation, Layout Runtime Customization",1,No
+Model Editor for .NET / .NET Core,322,.NET Runtime,80.0,api_specific,"","",0,No
+"Aliased, Calculated and Custom Fields/Metadata",304,Property Metadata,99.0,exact_synonym_phrase,"Aliased, Calculated and Custom Fields/Metadata","",0,No
+EF Core Specifics,303,Entity Framework Core,99.0,exact_synonym_phrase,EF Core Specifics,"",0,No
+Built-in Action Types,286,Action Types,90.0,exact_synonym_phrase,Built-in Action Types,"",0,No
+Built-in Controllers (System),276,Built-in Controllers,42.0,weighted_synonym,"",Controllers,1,No
+Custom Authentication/Logon Parameters Form,244,Authentication,59.4,weighted_synonym,"","",1,No
+ORM Data Model Wizard/Designer,222,Application Model,8.89,word_overlap,"","Project Wizards, Business Objects",1,No
+Built-in Criteria Operators,216,Built-in Criteria Operators,100.0,exact_concept_name,Built-in Criteria Operators,"",0,No
+Relationships/Associations,211,Object Relationships,30.0,weighted_synonym,"","",1,No
+Form Templates,207,Application Templates,77.0,exact_synonym_phrase,Form Templates,"",0,No
+Rich Text Editor,204,Specialized Property Editors,90.0,exact_synonym_phrase,Rich Text Editor,"",0,No
+Custom logic within a data Model,188,Business Object Lifecycle,90.0,exact_synonym_phrase,Custom logic within a data Model,"",0,No
+Action and Container Controls,187,Action Containers,90.0,exact_synonym_phrase,Action and Container Controls,"",0,No
+"Read, Customize or Extend the Application Model",166,Application Model,99.0,exact_synonym_phrase,"Read, Customize or Extend the Application Model","",0,No
+"Themes & Customization (Compact, Bootstrap)",160,Theming,33.0,weighted_synonym,"","",1,No
+"Show Preview, Print, Export in code",154,Reports,59.4,weighted_synonym,"",Views,1,No
+Middle-Tier Application Server,154,Middle Tier,99.0,exact_synonym_phrase,Middle-Tier Application Server,"",0,No
+Active/Enabled State,153,Action State Management,42.0,weighted_synonym,"","",2,Yes
+OAuth Identity Providers,149,Business Objects,30.0,weighted_synonym,"","",1,No
+Popups,144,Popup Windows,50.0,exact_synonym_phrase,Popups,"",1,No
+"Inline Edit (Batch, etc.)",144,Inline Editing,46.2,weighted_synonym,"","",1,No
+Security in Non-XAF Apps,138,Security System,100.0,exact_synonym_phrase,Security in Non-XAF Apps,"",0,No
+Model Editor for .NET Framework,134,Legacy .NET Framework,100.0,exact_synonym_phrase,Model Editor for .NET Framework,"",0,No
+Tabbed MDI,130,Tabbed MDI Interface,100.0,exact_synonym_phrase,Tabbed MDI,"",0,No
+"Legacy DB Mapping (SQL View, composite key)",110,XPO,42.0,weighted_synonym,"",Views,1,No
+Built-in Rules Setup/Troubleshooting,109,Validation,59.4,weighted_synonym,"","",1,No
+EasyTest/Script Recorder Module,105,Testing,80.0,api_specific,"","",0,No
+ListViewAndDetailView (master detail),104,List View,92.0,api_specific,"",Detail View,0,No
+Model Difference Storages,103,Model Differences,90.0,exact_synonym_phrase,Model Difference Storages,"",0,No
+DataAccessMode = Server/IF (regular) & Non-XAF,103,List View Data Access Modes,92.0,api_specific,"","",0,No
+Custom Criteria Functions,103,Custom Criteria Functions,100.0,exact_concept_name,Custom Criteria Functions,"",0,No
+Migrate Existing Projects,88,Migration,77.0,exact_synonym_phrase,Migrate Existing Projects,"",0,No
+Custom Controllers Design,88,Controller Customization,42.0,weighted_synonym,"",Controllers,1,No
+LINQ to XPO,86,XPO,100.0,exact_synonym_phrase,LINQ to XPO,"",0,No
+"Dependency Injection (DI) in Controllers, BO, etc",84,Controllers,33.0,weighted_synonym,"","",1,No
+Transactions/Unit of Works,79,Object Space,59.4,weighted_synonym,"",Actions,1,No
+ModuleUpdater & DBUpdater,78,Database Update,80.0,api_specific,"","",0,No
+Navigation control customizations,74,Navigation,59.4,weighted_synonym,"",View Customization,1,No
+"Database (creation, share storage, etc.)",74,Tenant,8.8,word_overlap,"","Database Connection, Model Differences",1,No
+Memory Consumption,73,Memory Management,77.0,exact_synonym_phrase,Memory Consumption,"",0,No
+Connect several DB at once,71,Multiple Databases,77.0,exact_synonym_phrase,Connect several DB at once,"",0,No
+XAF data and logic in Non-XAF apps,70,XAF Application,80.0,api_specific,"","",0,No
+Scheduler control customizations,70,Scheduler,59.4,weighted_synonym,"",View Customization,1,No
+IEvent and IResource implementation,70,Event Scheduling Interfaces,80.0,api_specific,"","",0,No
+"XPO OData, Web API Services, JSON Serialization",66,XPO,80.0,api_specific,"","",0,No
+Custom User & Role Classes,66,Custom User Management,59.4,weighted_synonym,"","",1,No
+Tracer,61,Diagnostic Tools,55.0,exact_synonym_phrase,Tracer,"",1,No
+Property Editor Value Formatting,61,Property Editor Features,70.0,exact_synonym_phrase,Property Editor Value Formatting,"",0,No
+ShowNavigationItemController customizations,60,Controllers,30.0,weighted_synonym,"","",1,No
+Property Changed Event,60,Calculated Property,11.0,word_overlap,"","Collection Property, Property Metadata",1,No
+Custom Provider Implementation,59,Custom Validation Rules,11.0,word_overlap,"","Controller Customization, Security Strategy",1,No
+"Custom Localization (programmatically, in code)",58,Programmatic Localization,46.2,weighted_synonym,"","",1,No
+Direct SQL,56,Direct SQL,100.0,exact_concept_name,Direct SQL,"",0,No
+"Linux (nginx, Apache, Electron, Docker)",54,Deployment,33.0,weighted_synonym,"","",1,No
+"Cloud Deployment (Azure, AWS, etc.)",54,Deployment,80.0,api_specific,"","",0,No
+Obsolete: Lookup/Collection Property Filtering,53,Filtering UI,46.2,weighted_synonym,"","",2,Yes
+Inplace Actions in Grid Cells,53,Actions,33.0,weighted_synonym,"","",1,No
+Predefined reports,52,Reports,77.0,exact_synonym_phrase,Predefined Reports,"",0,No
+Localization Service,51,Programmatic Localization,6.29,word_overlap,"","Web API Service, Dependency Injection",1,No
+Layout End-User Customization,48,Layout,11.43,word_overlap,"","Notifications, Layout Runtime Customization",1,No
+"Grid Print, Export",47,List Editors,46.2,weighted_synonym,"","",1,No
+Report control customizations,46,Reports,59.4,weighted_synonym,"",View Customization,1,No
+Inplace reports,46,Reports,77.0,exact_synonym_phrase,Inplace reports,"",0,No
+"Text Notifications (ShowMessage, Toast)",45,Notifications,10.0,word_overlap,"","Static View Items, Standard Property Editors",1,No
+Bind to Custom Data Sources,45,Charts,8.8,word_overlap,"","Direct SQL, List Editors",1,No
+Filter Editors,44,Specialized Property Editors,42.0,weighted_synonym,"","",1,No
+Reports in Non-XAF Apps,43,XAF Application,80.0,api_specific,"","",0,No
+Nuget,43,Package Management,55.0,exact_synonym_phrase,Nuget,"",1,No
+Async/Await Method Support,42,Async Operations,33.0,weighted_synonym,"","",1,No
+File System or custom storages,41,File Attachments,46.2,weighted_synonym,"","",1,No
+Unit Testing,40,Testing,77.0,exact_synonym_phrase,Unit Testing,"",0,No
+Table & Column Mapping Customizations,40,PivotGrid,7.33,word_overlap,"","List View, Maps",1,No
+"Horizontal/Vertical Scaling to 100, 1000+ users",39,Scaling Architecture,46.2,weighted_synonym,"","",2,Yes
+Custom appearance on events,38,Direct SQL,7.33,word_overlap,"","Conditional Appearance, Property Metadata",1,No
+Module Designer,36,Project Wizards,77.0,exact_synonym_phrase,Module Designer,"",0,No
+Enum Editors,36,Standard Property Editors,42.0,weighted_synonym,"","",1,No
+XtraReport parameters,35,Report Parameters,100.0,exact_synonym_phrase,XtraReport parameters,"",0,No
+Spreadsheet,35,Spreadsheet Control,55.0,exact_synonym_phrase,Spreadsheet,"",1,No
+Model Editor,35,Model Editor,100.0,exact_concept_name,Model Editor,"",0,No
+Image Editors,35,Specialized Property Editors,42.0,weighted_synonym,"","",1,No
+Filtering,35,Filtering UI,77.0,exact_synonym_phrase,Filtering,"",0,No
+Criteria Editors,35,Specialized Property Editors,42.0,weighted_synonym,"","",1,No
+SVG,34,SVG Graphics,100.0,exact_synonym_phrase,SVG,"",0,No
+DashboardViews,33,Dashboards,100.0,exact_synonym_phrase,DashboardViews,"",0,No
+"Splash, Loading Panel",32,Loading Indicators,46.2,weighted_synonym,"","",2,Yes
+ThreadSafeDataLayer,31,XPO,100.0,exact_synonym_phrase,ThreadSafeDataLayer,"",0,No
+Themes,31,Theming,55.0,exact_synonym_phrase,Themes,"",1,No
+DataAccessMode = ServerView/IFView & Non-XAF,31,List View Data Access Modes,92.0,api_specific,"","",0,No
+Audit in Non-XAF Apps,31,Audit Trail,100.0,exact_synonym_phrase,Audit in Non-XAF Apps,"",0,No
+Recurring Events,30,Recurring Events,110.0,exact_concept_name,Recurring Events,"",0,No
+"Missing assemblies, resources",29,Assembly References,46.2,weighted_synonym,"","",2,Yes
+"CAUSE: Complex project or DB, long debugging, etc.",29,Template Kit,4.44,word_overlap,"","Project Wizards, Multiple Databases",1,No
+(Deprecated) Domain Components - DC,29,Domain Components,46.2,weighted_synonym,"","",1,No
+Custom Operations & Other Storage Classes,28,Direct SQL,7.33,word_overlap,"","Property Metadata, Programmatic Localization",1,No
+"Control Customization (Widgets, Extensions)",28,View Customization,42.0,weighted_synonym,"","",1,No
+"Limit Tenant Features (SKU, modules, user count)",27,Multi-Tenancy,80.0,api_specific,"","",0,No
+Custom Filtering,27,Filtering UI,77.0,exact_synonym_phrase,Custom Filtering,"",0,No
+Controls customization,27,View Customization,70.0,exact_synonym_phrase,Controls Customization,"",0,No
+Audit History in the UI,27,Audit Trail,99.0,exact_synonym_phrase,Audit History in the UI,"",0,No
+ORM Database Schema Migrations,26,Database Update,42.0,weighted_synonym,"","",1,No
+Custom error highligthing,26,Error Styling,11.0,word_overlap,"","Direct SQL, Logging",1,No
+Template Kit,25,Template Kit,110.0,exact_concept_name,Template Kit,"",0,No
+Sequential/Auto-increment numbers (T567184),25,Auto-Increment Fields,33.0,weighted_synonym,"","",1,No
+Default & Custom Attributes To Customize Model,25,Property Metadata,46.2,weighted_synonym,"","",1,No
+Custom Permissions Implementation,25,Authorization,33.0,weighted_synonym,"","",1,No
+Custom implementations of default XAF BCL entities,25,Application Model,8.89,word_overlap,"","Model Nodes, Model Editor",1,No
+"Obtaining data from external services, other databases",24,Non-Persistent Objects,6.29,word_overlap,"","List Editors, Filtering UI",1,No
+Multiple databases,24,Multiple Databases,110.0,exact_concept_name,Multiple Databases,"",0,No
+FileData in Non-XAF apps (CompressionUtils),24,XAF Application,80.0,api_specific,"",File Attachments,0,No
+Error: Thread & Reentrancy (T419520 & K18167),24,Threading Issues,33.0,weighted_synonym,"","",1,No
+Custom Rule Type Implementation,24,Custom Validation Rules,59.4,weighted_synonym,"","",1,No
+.NET Core 3.0,23,.NET Runtime,80.0,api_specific,"","",0,No
+Obsolete: Batch Edit ASPxGridListEditor,22,Inline Editing,42.0,weighted_synonym,"","",1,No
+FillServices,22,Dependency Injection,100.0,exact_synonym_phrase,FillServices,"",0,No
+"Custom Tenant Resolver (URL, ID, etc)",22,Multi-Tenancy,54.0,weighted_synonym,"","",1,No
+Context Menu,22,Context Menus,77.0,exact_synonym_phrase,Context Menu,"",0,No
+Application Builder,22,Blazor UI,6.29,word_overlap,"","WinForms, XAF Application",1,No
+Validate persistent objects in Non-XAF Apps,21,XAF Application,80.0,api_specific,"","",0,No
+Connection Troubleshooting,21,Database Connection,7.33,word_overlap,"",Entity Framework Core,1,No
+Solution Wizard,20,Project Wizards,77.0,exact_synonym_phrase,Solution Wizard,"",0,No
+Application Designer,17,Project Wizards,77.0,exact_synonym_phrase,Application Designer,"",0,No
+Template Localization,16,Mail Merge,8.8,word_overlap,"","Programmatic Localization, Template Kit",1,No
+Error: Object belongs to a different session/space,15,Object Space Provider,12.57,word_overlap,"","Object Space, Clone Object",1,No
+Data Binding,15,Charts,8.8,word_overlap,"","List Editors, Filtering UI",1,No
+Accordion Control,15,Accordion Control,110.0,exact_concept_name,Accordion Control,"",0,No
+(Deprecated) Entity Framework 6 - EF6,15,Business Objects,30.0,weighted_synonym,"","",1,No
+Select Tenants on Login,14,Multi-Tenancy,99.0,exact_synonym_phrase,Select Tenants on Login,"",0,No
+"Performance, Purge History, Lightweight mode",14,Audit Trail,46.2,weighted_synonym,"","",1,No
+Filter by Security User,14,Notifications,11.0,word_overlap,"","Actions, Security Strategy",1,No
+Default merging,14,Optimistic Locking,77.0,exact_synonym_phrase,Default Merging,"",0,No
+Model Editor configuration,13,Model Editor,13.33,word_overlap,"","Model Nodes, Legacy .NET Framework",1,No
+Light Style,13,Theming,77.0,exact_synonym_phrase,Light Style,"",0,No
+Demos,13,Demo Applications,55.0,exact_synonym_phrase,Demos,"",1,No
+"Cache (ModelAssembly, EnableModelCache, etc.)",13,Model Cache,92.0,api_specific,"","",0,No
+RuleSet customizations,20,Custom Validation Rules,100.0,exact_synonym_phrase,RuleSet customizations,"",0,No
+Dynamically loaded modules & types,20,Modules,6.29,word_overlap,"","View Types, Controller Types",1,No
+XPO IList Associations (+ManyToManyAliasAttribute),19,XPO,80.0,api_specific,"","",0,No
+ISupportNotifications implementation,19,Security Strategy,8.0,word_overlap,"","View Types, Property Editor Types",1,No
+Non-XAF Data Sources,18,Model Nodes,11.5,word_overlap,"","Model Extension, Actions",1,No
+ITreeNode implementation,18,Tree Node Interface,100.0,exact_synonym_phrase,ITreeNode implementation,"",0,No
+Action Permissions,18,Actions,33.0,weighted_synonym,"",Authorization,1,No
+XAF Report Object parameters,17,Model Nodes,11.5,word_overlap,"","Report Parameters, Model Extension",1,No
+Obtain captions in Non-XAF apps,17,Programmatic Localization,100.0,exact_synonym_phrase,Obtain captions in Non-XAF apps,"",0,No
+Map control customizations,17,Maps,59.4,weighted_synonym,"",View Customization,1,No
+Issues with non-unique key values (T639653),17,Performance Optimization,7.33,word_overlap,"","Reference Property, Threading Issues",1,No
+DataAccessMode = DataView & Non-XAF XPView,17,List View Data Access Modes,92.0,api_specific,"","",0,No
+Custom Tenant and other classes,17,Tenant,8.8,word_overlap,"","Direct SQL, Property Metadata",1,No

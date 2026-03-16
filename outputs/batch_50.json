@@ -1,0 +1,352 @@
+[
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.FirstOrDefault0",
+    "api_name": "FirstOrDefault0",
+    "namespace": "DevExpress.ExpressApp.IObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.GetObjectHandle",
+    "api_name": "GetObjectHandle",
+    "namespace": "DevExpress.ExpressApp.IObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.IsDisposedObject",
+    "api_name": "IsDisposedObject",
+    "namespace": "DevExpress.ExpressApp.IObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.ObjectEndEdit",
+    "api_name": "ObjectEndEdit",
+    "namespace": "DevExpress.ExpressApp.IObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.FirstOrDefault0",
+    "api_name": "FirstOrDefault0",
+    "namespace": "DevExpress.ExpressApp.BaseObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.Persistent.Base.General.ITreeNode.Parent",
+    "api_name": "Parent",
+    "namespace": "DevExpress.Persistent.Base.General.ITreeNode",
+    "concept_name": "Tree Node Interface",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataViewRecord.GetDefaultProperty",
+    "api_name": "GetDefaultProperty",
+    "namespace": "DevExpress.ExpressApp.XafDataViewRecord",
+    "concept_name": "Property Editors",
+    "confidence": 1.0
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataViewRecord.ContainsMember",
+    "api_name": "ContainsMember",
+    "namespace": "DevExpress.ExpressApp.XafDataViewRecord",
+    "concept_name": "List Editors",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataViewRecord.Item",
+    "api_name": "Item",
+    "namespace": "DevExpress.ExpressApp.XafDataViewRecord",
+    "concept_name": "Detail View",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CollectionSourceBase.AllowAdd",
+    "api_name": "AllowAdd",
+    "namespace": "DevExpress.ExpressApp.CollectionSourceBase",
+    "concept_name": "List Editors",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs._membersaltText",
+    "api_name": "_membersaltText",
+    "namespace": "DevExpress.ExpressApp.ObjectChangedEventArgs",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataView.Insert",
+    "api_name": "Insert",
+    "namespace": "DevExpress.ExpressApp.XafDataView",
+    "concept_name": "Actions",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs._membersaltText",
+    "api_name": "_membersaltText",
+    "namespace": "DevExpress.ExpressApp.ObjectChangedEventArgs",
+    "concept_name": "View Controller",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.FrameworkSettings",
+    "api_name": "FrameworkSettings",
+    "namespace": "DevExpress.ExpressApp",
+    "concept_name": "Application Model",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataView.AllowEdit",
+    "api_name": "AllowEdit",
+    "namespace": "DevExpress.ExpressApp.XafDataView",
+    "concept_name": "Layout",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataView.AllowEdit",
+    "api_name": "AllowEdit",
+    "namespace": "DevExpress.ExpressApp.XafDataView",
+    "concept_name": "Property Editors",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Updating.ConvertXmlParameters.Assign",
+    "api_name": "Assign",
+    "namespace": "DevExpress.ExpressApp.Updating.ConvertXmlParameters",
+    "concept_name": "Actions",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ViewShortcut.IsEmpty",
+    "api_name": "IsEmpty",
+    "namespace": "DevExpress.ExpressApp.ViewShortcut",
+    "concept_name": "Actions",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ViewShortcut.IsEmpty",
+    "api_name": "IsEmpty",
+    "namespace": "DevExpress.ExpressApp.ViewShortcut",
+    "concept_name": "List View",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafApplication.BeginInit",
+    "api_name": "BeginInit",
+    "namespace": "DevExpress.ExpressApp.XafApplication",
+    "concept_name": "XAF Application",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafApplication.BeginInit",
+    "api_name": "BeginInit",
+    "namespace": "DevExpress.ExpressApp.XafApplication",
+    "concept_name": "Middle Tier",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ICurrentAspectProvider",
+    "api_name": "ICurrentAspectProvider",
+    "namespace": "DevExpress.ExpressApp",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ICurrentAspectProvider",
+    "api_name": "ICurrentAspectProvider",
+    "namespace": "DevExpress.ExpressApp",
+    "concept_name": "Controllers",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafApplication.CurrentAspectProvider",
+    "api_name": "CurrentAspectProvider",
+    "namespace": "DevExpress.ExpressApp.XafApplication",
+    "concept_name": "Object Space Provider",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafApplication.CurrentAspectProvider",
+    "api_name": "CurrentAspectProvider",
+    "namespace": "DevExpress.ExpressApp.XafApplication",
+    "concept_name": "Middle Tier",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ModuleBase.Version",
+    "api_name": "Version",
+    "namespace": "DevExpress.ExpressApp.ModuleBase",
+    "concept_name": "Module",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.ObjectsCountGetting",
+    "api_name": "ObjectsCountGetting",
+    "namespace": "DevExpress.ExpressApp.NonPersistentObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.ObjectsCountGetting",
+    "api_name": "ObjectsCountGetting",
+    "namespace": "DevExpress.ExpressApp.NonPersistentObjectSpace",
+    "concept_name": "Non-Persistent Objects",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.RemoveFromModifiedObjects",
+    "api_name": "RemoveFromModifiedObjects",
+    "namespace": "DevExpress.ExpressApp.NonPersistentObjectSpace",
+    "concept_name": "Non-Persistent Objects",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.RemoveFromModifiedObjects",
+    "api_name": "RemoveFromModifiedObjects",
+    "namespace": "DevExpress.ExpressApp.NonPersistentObjectSpace",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs.OldValue",
+    "api_name": "OldValue",
+    "namespace": "DevExpress.ExpressApp.ObjectChangedEventArgs",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs.OldValue",
+    "api_name": "OldValue",
+    "namespace": "DevExpress.ExpressApp.ObjectChangedEventArgs",
+    "concept_name": "Business Objects",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs.SettingsStorage",
+    "api_name": "SettingsStorage",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs.SettingsStorage",
+    "api_name": "SettingsStorage",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs",
+    "concept_name": "Business Objects",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.LogonObject",
+    "api_name": "LogonObject",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs",
+    "concept_name": "Security System",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.SettingsStorage",
+    "api_name": "SettingsStorage",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs",
+    "concept_name": "Security System",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.SettingsStorage",
+    "api_name": "SettingsStorage",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs",
+    "concept_name": "Custom User Management",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LoggingOffEventArgs._membersaltText",
+    "api_name": "_membersaltText",
+    "namespace": "DevExpress.ExpressApp.LoggingOffEventArgs",
+    "concept_name": "Logging",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LoggingOffEventArgs._membersaltText",
+    "api_name": "_membersaltText",
+    "namespace": "DevExpress.ExpressApp.LoggingOffEventArgs",
+    "concept_name": "Diagnostic Tools",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ModuleBase.Version",
+    "api_name": "Version",
+    "namespace": "DevExpress.ExpressApp.ModuleBase",
+    "concept_name": "XAF Application",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.ServiceProvider",
+    "api_name": "ServiceProvider",
+    "namespace": "DevExpress.ExpressApp.IObjectSpace",
+    "concept_name": "Middle Tier",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.LoadAsync",
+    "api_name": "LoadAsync",
+    "namespace": "DevExpress.ExpressApp.IObjectSpaceAsync",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.LoadAsync",
+    "api_name": "LoadAsync",
+    "namespace": "DevExpress.ExpressApp.IObjectSpaceAsync",
+    "concept_name": "Async Operations",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.PreFetchAsync",
+    "api_name": "PreFetchAsync",
+    "namespace": "DevExpress.ExpressApp.IObjectSpaceAsync",
+    "concept_name": "Object Space",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.PreFetchAsync",
+    "api_name": "PreFetchAsync",
+    "namespace": "DevExpress.ExpressApp.IObjectSpaceAsync",
+    "concept_name": "Async Operations",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ISettingsProvider",
+    "api_name": "ISettingsProvider",
+    "namespace": "DevExpress.ExpressApp",
+    "concept_name": "Application Model",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ISettingsProvider",
+    "api_name": "ISettingsProvider",
+    "namespace": "DevExpress.ExpressApp",
+    "concept_name": "Model Nodes",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs.LogonObject",
+    "api_name": "LogonObject",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs",
+    "concept_name": "Security System",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs.LogonObject",
+    "api_name": "LogonObject",
+    "namespace": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs",
+    "concept_name": "Custom User Management",
+    "confidence": 0.95
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CollectionSourceBase.AllowAdd",
+    "api_name": "AllowAdd",
+    "namespace": "DevExpress.ExpressApp.CollectionSourceBase",
+    "concept_name": "Actions",
+    "confidence": 0.95
+  }
+]

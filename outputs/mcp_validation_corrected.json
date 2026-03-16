@@ -1,0 +1,356 @@
+{
+  "total_validated": 49,
+  "note": "Only includes mappings with specific MCP documentation searches. Mappings 48-49 excluded (no MCP search).",
+  "summary": {
+    "confirmed": 33,
+    "likely": 4,
+    "unclear": 12,
+    "rejected": 0,
+    "accuracy_pct": 75.5
+  },
+  "all_mappings": [
+    {
+      "mapping_id": 1,
+      "api_name": "FirstOrDefault0",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 2,
+      "api_name": "GetObjectHandle",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 3,
+      "api_name": "IsDisposedObject",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 4,
+      "api_name": "ObjectEndEdit",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 5,
+      "api_name": "Parent",
+      "concept_name": "Tree Node Interface",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 6,
+      "api_name": "GetDefaultProperty",
+      "concept_name": "Property Editors",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 7,
+      "api_name": "ContainsMember",
+      "concept_name": "List Editors",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 8,
+      "api_name": "AllowAdd",
+      "concept_name": "List Editors",
+      "verdict": "likely",
+      "evidence_count": 1
+    },
+    {
+      "mapping_id": 9,
+      "api_name": "Item",
+      "concept_name": "Detail View",
+      "verdict": "confirmed",
+      "evidence_count": 4
+    },
+    {
+      "mapping_id": 10,
+      "api_name": "Insert",
+      "concept_name": "Actions",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 11,
+      "api_name": "FrameworkSettings",
+      "concept_name": "Application Model",
+      "verdict": "confirmed",
+      "evidence_count": 4
+    },
+    {
+      "mapping_id": 12,
+      "api_name": "AllowEdit",
+      "concept_name": "Layout",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 13,
+      "api_name": "Assign",
+      "concept_name": "Actions",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 14,
+      "api_name": "IsEmpty",
+      "concept_name": "List View",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 15,
+      "api_name": "BeginInit",
+      "concept_name": "XAF Application",
+      "verdict": "confirmed",
+      "evidence_count": 5
+    },
+    {
+      "mapping_id": 16,
+      "api_name": "AllowEdit",
+      "concept_name": "Property Editors",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 17,
+      "api_name": "Assign",
+      "concept_name": "Actions",
+      "verdict": "likely",
+      "evidence_count": 1
+    },
+    {
+      "mapping_id": 18,
+      "api_name": "IsEmpty",
+      "concept_name": "Actions",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 19,
+      "api_name": "IsEmpty",
+      "concept_name": "List View",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 20,
+      "api_name": "BeginInit",
+      "concept_name": "XAF Application",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 21,
+      "api_name": "BeginInit",
+      "concept_name": "Middle Tier",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 22,
+      "api_name": "ICurrentAspectProvider",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 23,
+      "api_name": "ICurrentAspectProvider",
+      "concept_name": "Controllers",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 24,
+      "api_name": "CurrentAspectProvider",
+      "concept_name": "Object Space Provider",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 25,
+      "api_name": "CurrentAspectProvider",
+      "concept_name": "Middle Tier",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 26,
+      "api_name": "Version",
+      "concept_name": "Module",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 27,
+      "api_name": "ObjectsCountGetting",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 28,
+      "api_name": "ObjectsCountGetting",
+      "concept_name": "Non-Persistent Objects",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 29,
+      "api_name": "RemoveFromModifiedObjects",
+      "concept_name": "Non-Persistent Objects",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 30,
+      "api_name": "RemoveFromModifiedObjects",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 30,
+      "api_name": "RemoveFromModifiedObjects",
+      "concept_name": "Object Space",
+      "verdict": "likely",
+      "evidence_count": 1
+    },
+    {
+      "mapping_id": 31,
+      "api_name": "OldValue",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 32,
+      "api_name": "OldValue",
+      "concept_name": "Business Objects",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 33,
+      "api_name": "SettingsStorage",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 34,
+      "api_name": "SettingsStorage",
+      "concept_name": "Business Objects",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 35,
+      "api_name": "LogonObject",
+      "concept_name": "Security System",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 36,
+      "api_name": "SettingsStorage",
+      "concept_name": "Security System",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 37,
+      "api_name": "SettingsStorage",
+      "concept_name": "Custom User Management",
+      "verdict": "likely",
+      "evidence_count": 1
+    },
+    {
+      "mapping_id": 38,
+      "api_name": "_membersaltText",
+      "concept_name": "Logging",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 39,
+      "api_name": "_membersaltText",
+      "concept_name": "Diagnostic Tools",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 40,
+      "api_name": "Version",
+      "concept_name": "XAF Application",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 41,
+      "api_name": "ServiceProvider",
+      "concept_name": "Middle Tier",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 42,
+      "api_name": "LoadAsync",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 43,
+      "api_name": "LoadAsync",
+      "concept_name": "Async Operations",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 44,
+      "api_name": "PreFetchAsync",
+      "concept_name": "Object Space",
+      "verdict": "confirmed",
+      "evidence_count": 3
+    },
+    {
+      "mapping_id": 45,
+      "api_name": "PreFetchAsync",
+      "concept_name": "Async Operations",
+      "verdict": "confirmed",
+      "evidence_count": 2
+    },
+    {
+      "mapping_id": 46,
+      "api_name": "ISettingsProvider",
+      "concept_name": "Application Model",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 47,
+      "api_name": "ISettingsProvider",
+      "concept_name": "Model Nodes",
+      "verdict": "unclear",
+      "evidence_count": 0
+    },
+    {
+      "mapping_id": 50,
+      "api_name": "AllowAdd",
+      "concept_name": "Actions",
+      "verdict": "unclear",
+      "evidence_count": 0
+    }
+  ]
+}

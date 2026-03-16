@@ -1,0 +1,150 @@
+concept_name,concept_type,ticket_count,doc_score,doc_page_count,doc_urls,coverage_class
+CRUD Controllers,ui,276,2.2,3,112559|404105|DevExpress.ExpressApp.XafApplication,critical_gap
+Business Object Lifecycle,data,248,2.6,3,116516|113707|403620,critical_gap
+Deployment,ops,186,1.8,3,112691|404614|403362,critical_gap
+Theming,ui,173,0.6,1,403068,critical_gap
+Legacy .NET Framework,migration,134,2.2,3,405693|405693|405736,critical_gap
+Programmatic Localization,localization,119,0.6,1,402956,critical_gap
+Custom User Management,security,66,0.6,1,113452,critical_gap
+Filtering UI,ui,62,2.4,5,112998|403238|112919|DevExpress.ExpressApp.Win.Editors.WinColumnsListEditor.LookupColumnFilterMode|DevExpress.ExpressApp.Model.IModelListView.Filter,critical_gap
+Logging,ops,61,2.2,4,403394|112576|112575|402149,critical_gap
+Async Operations,patterns,42,0.6,1,DevExpress.ExpressApp.IObjectSpaceAsync,critical_gap
+Scaling Architecture,architecture,39,2.4,4,404436|403277|403362|402148,critical_gap
+[NO CONCEPT] Map control customizations,MISSING,17,0.0,0,,critical_gap
+Accordion Control,ui,15,1.5,1,113198,undocumented_gap
+Auto-Increment Fields,data,0,1.0,1,403605,undocumented_gap
+Object View Controllers,ui,0,1.5,1,DevExpress.ExpressApp.ObjectViewController`2,undocumented_gap
+View Items,ui,1634,337.0,182,113286|112638|117449|113198|112701|113707|113687|112595|113054|113054,well_covered
+Business Logic,data,908,261.5,154,113708|112670|404436|113684|403413|116516|403631|403605|113374|113711,well_covered
+Property Editor Customization,ui,869,39.5,25,112701|113653|113652|113097|120092|113104|402189|404597|113101|113544,well_covered
+Standard Property Editors,ui,801,12.6,19,113238|119411|113097|113680|403100|113142|113330|119123|404717|403362,well_covered
+Property Editors,ui,765,650.5,394,404762|403394|113664|113286|112998|112638|113684|404186|113302|403068,well_covered
+List View,ui,654,315.8,451,113286|112998|113577|112638|113302|117449|113303|113198|113011|112701,well_covered
+Entity Framework Core,Data Access & Business Logic,617,643.0,394,403394|113664|113708|112670|113577|405693|404436|112638|404186|117449,well_covered
+Security System,security,611,26.8,46,405693|403858|112571|401886|113709|404219|405693|404691|113054|112580,well_covered
+Controller Customization,ui,573,10.0,7,404207|404176|118451|112621|113601|DevExpress.ExpressApp.Controller|DevExpress.ExpressApp.CreateCustomLogonWindowControllersEventArgs,well_covered
+List Editors,ui,554,139.5,93,403179|112638|113302|113303|112841|112701|404726|404967|113189|113610,well_covered
+XPO,Data Access & Business Logic,516,745.0,323,403394|113664|113708|113577|405693|404186|117449|403551|403561|404262,well_covered
+Authorization,security,506,6.2,11,404691|404651|113558|404642|404462|404650|116172|119065|404633|400290,well_covered
+Permission Policies,security,492,15.8,24,116516|404691|404204|113480|404642|116172|119065|404633|113472|404862,well_covered
+Application Templates,ui,480,18.8,31,112638|114495|112609|112608|403450|113047|112696|403446|403452|404978,well_covered
+Non-persistent Object,data,471,22.2,44,404233|116516|117395|405388|404691|113054|113054|113251|112803|403100,well_covered
+Performance Optimization,quality,408,35.0,25,404223|112782|113238|119411|118450|113593|402150|402149|402151|402148,well_covered
+Authentication,security,407,24.2,27,113475|119064|404462|112649|119065|113452|404875|113384|118740|404264,well_covered
+Views,ui,406,1476.5,821,404762|403174|403179|113286|112998|113577|112638|113302|117449|113303,well_covered
+View Lifecycle,ui,406,3.5,2,118165|DevExpress.ExpressApp.XafApplication.CustomProcessShortcut,well_covered
+Reports,module,403,47.2,69,404176|113142|404243|402306|113646|113645|113595|113593|116114|113602,well_covered
+Lookup View,ui,368,53.0,26,116516|112623|112611|112622|113324|112908|113285|113679|113315|113316,well_covered
+Lookup Property Editors,ui,368,67.5,46,112998|112701|113525|113054|113054|112623|112611|112608|112908|113285,well_covered
+Criteria,data,351,471.0,170,404762|113286|112998|404186|113198|404176|112600|113014|116516|113371,well_covered
+Built-in Controllers,ui,336,11.8,18,112559|112623|113016|112621|112676|113484|113161|403709|113142|113141,well_covered
+Layout,ui,329,19.0,33,112612|113653|113652|120092|404428|403210|113695|404353|112817|113680,well_covered
+Layout Generation,ui,329,8.5,5,403210|112817|113680|DevExpress.Persistent.Base.VisibleInDetailViewAttribute|DevExpress.ExpressApp.Model.IModelDetailView.FreezeLayout,well_covered
+Calculated Property,data,304,18.5,12,112595|115793|113329|404195|402151|403621|405280|402990|113258|DevExpress.ExpressApp.DC.CalculatedAttribute,well_covered
+Property Metadata,data,304,25.5,19,403394|116516|404610|404668|404695|404667|118452|113645|114454|402151,well_covered
+Action Types,ui,286,199.5,92,403068|112835|112559|403277|112610|113610|112622|112816|113324|112803,well_covered
+Simple Action,ui,286,30.5,15,403068|112816|112619|112820|402156|402157|DevExpress.Persistent.Base.ActionAttribute|DevExpress.ExpressApp.Actions.ActionBase.CustomizeControl|DevExpress.ExpressApp.Actions.ActionBase.Enabled|DevExpress.ExpressApp.Actions.ActionUrl,well_covered
+Parametrized Action,ui,286,48.5,16,403870|402155|113208|DevExpress.ExpressApp.Model.IModelAction.NullValuePrompt|DevExpress.ExpressApp.Model.IModelAction.ShortCaption|DevExpress.ExpressApp.Actions.ParametrizedAction.Execute|DevExpress.ExpressApp.Actions.ParametrizedAction.NullValuePrompt|DevExpress.ExpressApp.Actions.ParametrizedAction|DevExpress.ExpressApp.Actions.ParametrizedAction.ShortCaption|DevExpress.ExpressApp.Actions.ParametrizedAction.ValueChanged,well_covered
+Popup Window Show Action,ui,286,4.5,0,,well_covered
+Single Choice Action,ui,286,92.5,45,112835|112610|113142|113141|113316|112825|DevExpress.ExpressApp.ReportsV2.PrintSelectionBaseController.ShowInReportAction|DevExpress.ExpressApp.Model.NodeGenerators.ModelChoiceActionItemsNodesGenerator|DevExpress.ExpressApp.Model.IModelAction.DefaultItemMode|DevExpress.ExpressApp.Model.IModelBaseChoiceActionItem.Id,well_covered
+List View Controllers,ui,276,3.0,2,113161|DevExpress.ExpressApp.ShowViewParameters.Controllers,well_covered
+Web API Service,Platform,274,232.5,152,403394|112691|112670|113577|405693|404186|112569|403982|404488|403551,well_covered
+Actions,ui,240,217.0,301,113286|112638|113302|403068|113198|404488|116516|112835|112559|403277,well_covered
+Office Module,module,239,16.0,17,113238|113297|113142|405488|113548|113576|113528|118046|118047|DevExpress.Persistent.Base.IFileData,well_covered
+Object Relationships,data,230,56.6,102,404186|112841|112600|112701|116516|112835|113696|118451|405451|404691,well_covered
+Built-in Criteria Operators,data,230,10.8,19,112998|113372|113204|113480|113307|112681|112809|113564|DevExpress.Persistent.Validation.RuleBaseAttribute.TargetCriteria|DevExpress.Persistent.Validation.RuleCriteriaAttribute,well_covered
+Collection Property,data,211,56.6,84,112701|112781|113696|118451|404691|113054|113054|112612|113217|112580,well_covered
+Reference Property,data,211,177.0,110,113286|112998|112701|113014|113525|116516|403631|112835|405451|113054,well_covered
+Business Object,Data Access & Business Logic,210,977.5,539,403394|113664|113286|113708|112670|113577|405693|404436|112638|404186,well_covered
+Mail Merge,module,204,22.0,12,403858|113142|113576|113528|DevExpress.Persistent.Base.VisibleInReportsAttribute|DevExpress.ExpressApp.Office.Win.InplaceDocumentCacheStorage|DevExpress.ExpressApp.Office.Win.OfficeOptions.RichTextMailMergeDataType|DevExpress.ExpressApp.Office.Win.OfficeWindowsFormsModule.RichTextMailMergeDataType|DevExpress.ExpressApp.Office.InplaceDocumentCacheStorageBase.ClearCache|DevExpress.ExpressApp.Office.InplaceDocumentCacheStorageBase,well_covered
+Inline Editing,ui,197,13.4,21,113683|113249|118452|118450|402189|403870|113141|113208|113544|113548,well_covered
+Action Containers,ui,187,187.5,110,112638|113198|113054|113054|112610|112609|112607|113610|112612|112611,well_covered
+Model Editor,tools,182,223.0,390,113286|404186|113302|113303|113445|403068|113198|113011|112571|112701,well_covered
+Navigation,ui,162,11.5,7,113198|112803|112617|112920|113200|DevExpress.ExpressApp.SystemModule.ShowNavigationItemController.NavigationItemCreated|DevExpress.ExpressApp.SystemModule.ShowNavigationItemController.RecreateNavigationItems,well_covered
+Middle Tier,architecture,154,138.0,72,112691|405693|404186|403413|113185|403605|112575|113239|405693|404670,well_covered
+Controller Activation,ui,153,23.0,16,113051|113103|120092|112993|403618|DevExpress.Persistent.Validation.IRuleBaseProperties.MessageTemplateSkipNullOrEmptyValues|DevExpress.Persistent.Validation.RuleCombinationOfPropertiesIsUniqueAttribute|DevExpress.Persistent.Base.IndexAttribute|DevExpress.ExpressApp.Model.IModelViewController.TargetViewId|DevExpress.ExpressApp.ViewController.TargetObjectType,well_covered
+Action State Management,ui,153,128.0,76,113286|113302|404488|112610|112623|112676|113103|112818|112805|112728,well_covered
+List View Data Access Modes,ui,151,81.0,45,112638|113011|405451|112659|403258|113683|113249|113324|118449|118452,well_covered
+Validation,module,150,125.4,112,113684|113217|113251|113051|113010|113685|113008|402980|113294|DevExpress.Persistent.Validation.CodeRuleAttribute,well_covered
+Testing,quality,145,11.2,17,405693|405693|402148|403966|403967|403852|403972|113340|113209|113208,well_covered
+Popup Windows,ui,144,40.0,25,404762|116516|113054|113054|112610|112804|112696|112803|404014|117231,well_covered
+Scheduler,module,140,80.6,119,403176|112670|113577|404610|404940|404214|404726|404714|404733|113178,well_covered
+Multi-Tenancy,architecture,132,23.8,31,113577|405693|404436|404186|403551|113239|404967|405693|404670|404669,well_covered
+Tabbed MDI Interface,ui,130,16.0,9,113198|404978|404211|112792|DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.MdiDefaultNewWindowTarget|DevExpress.ExpressApp.Win.MdiShowViewStrategy|DevExpress.ExpressApp.Win.WinShowViewStrategyBase|DevExpress.ExpressApp.Blazor.SystemModule.IModelOptionsBlazor.ShowTabImage|DevExpress.ExpressApp.ShowViewStrategyBase,well_covered
+Migration,migration,111,4.6,7,405693|405693|405736|401264|112796|401264|403370,well_covered
+Dependency Injection,architecture,106,18.4,31,403179|404364|113707|404668|404667|403277|113010|112621|403258|403358,well_covered
+Database Update,module,104,54.5,38,113708|405693|404186|112600|113185|113709|113707|113238|113239|402125,well_covered
+Master-Detail Views,ui,104,10.0,5,404762|113161|113611|DevExpress.ExpressApp.DefaultListViewOptionsAttribute|DevExpress.ExpressApp.DefaultListViewOptionsAttribute.MasterDetailMode,well_covered
+Custom Criteria Functions,data,103,4.0,3,112998|113480|113307,well_covered
+Dashboards,module,103,70.4,97,405693|404186|117449|113238|113239|113033|404967|405693|404695|112559,well_covered
+Audit Trail,module,100,28.6,44,403394|403172|404186|403561|404262|112571|112782|404967|404695|404691,well_covered
+Recurring Events,scheduler,100,8.5,6,112811|113142|113128|113576|DevExpress.ExpressApp.Scheduler.Win.SchedulerListEditor|DevExpress.ExpressApp.Scheduler.SchedulerListEditorBase.IsPatternFocused,well_covered
+Database Connection,data,95,45.8,61,403394|404436|403858|113155|113185|113238|402125|405736|404670|404669,well_covered
+Multiple Databases,data,95,4.2,7,404670|403277|DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.CheckCompatibilityType|DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.SchemaUpdateMode|DevExpress.ExpressApp.IObjectSpaceProvider.CheckCompatibilityType|DevExpress.ExpressApp.IObjectSpaceProvider.SchemaUpdateMode|DevExpress.ExpressApp.XafApplication.CheckCompatibilityType,well_covered
+Tenant,tenancy,91,36.2,43,113577|405693|404436|403551|113239|405693|404670|404669|405376|404668,well_covered
+Controller Types,ui,88,240.5,161,113286|113302|403068|113011|403858|116516|403631|113707|404703|112835,well_covered
+Controller Lifecycle,ui,88,16.5,12,113711|113103|112816|120092|117231|118592|402159|112923|113118|113117,well_covered
+Diagnostic Tools,diagnostics,82,5.0,4,112576|112575|403572|113351,well_covered
+Loading Indicators,ui,77,83.0,31,113298|113445|113250|402956|113293|113115|405715|404738|112680|113119,well_covered
+Memory Management,performance,73,13.0,10,113343|403362|402150|403620|113421|113351|113200|112836|117720|DevExpress.ExpressApp.CompositeObjectSpace.AutoDisposeAdditionalObjectSpaces,well_covered
+Specialized Property Editors,ui,70,13.8,21,404762|113297|402956|113142|113307|403362|113564|113546|113545|113530,well_covered
+File Attachments,module,68,24.8,40,403394|404186|404207|112571|112781|404967|404695|404691|403277|113142,well_covered
+Property Editor Features,ui,61,9.6,15,113097|113015|113183|402141|402150|113532|113572|DevExpress.Persistent.Base.CustomFormatObjectEventArgs.FormatString|DevExpress.Persistent.Base.CustomFormatObjectEventArgs.Object|DevExpress.Persistent.Base.CustomGetValueEventArgs.Object,well_covered
+Direct SQL,data,56,12.5,9,404186|118741|403111|113615|113254|404405|DevExpress.ExpressApp.Updating.ModuleUpdater|DevExpress.ExpressApp.Security.ClientServer.SecuredObjectSpaceProvider.AllowICommandChannelDoWithSecurityContext|DevExpress.ExpressApp.ApplicationBuilder.SecuredXPObjectSpaceProviderOptions.AllowICommandChannelDoWithSecurityContext,well_covered
+Report Parameters,reporting,52,35.5,15,404176|113259|113142|114454|114451|113601|113594|DevExpress.Persistent.BaseImpl.EF.ReportDataV2.ParametersObjectType|DevExpress.Persistent.BaseImpl.ReportDataV2.ParametersObjectType|DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2,well_covered
+Layout Runtime Customization,ui,48,10.0,18,112612|113653|113652|120092|113695|404353|112817|114159|113142|113141,well_covered
+Built-in Actions,ui,47,11.2,15,112623|113016|113484|403709|113142|113141|404633|112792|DevExpress.ExpressApp.SystemModule.DialogController.Accepting|DevExpress.ExpressApp.Model.IModelMemberViewItem.View,well_covered
+Tree List,ui,45,20.6,34,403179|113198|112841|404967|402154|113683|120092|113142|113335|113328,well_covered
+Reports V2,module,45,27.0,40,113198|404967|404695|113259|113142|404243|113645|113595|113593|116114,well_covered
+Custom Validation Rules,validation,44,49.0,34,404223|113178|113251|113051|113010|113259|113685|DevExpress.Persistent.Validation.IRule|DevExpress.Persistent.Validation.IRuleBaseProperties|DevExpress.Persistent.Validation.IRuleCollectionPropertyProperties,well_covered
+Package Management,setup,43,69.5,52,403394|404186|113302|117449|403561|404262|404449|404176|404223|403389,well_covered
+Modules,architecture,42,26.2,29,403179|113286|405693|112569|113011|403561|112571|113301|405693|112559,well_covered
+Conditional Appearance,module,38,72.6,110,113286|112670|404186|116516|117395|113371|113372|113374|404967|113054,well_covered
+Spreadsheet Control,ui,35,23.0,11,119411|113297|113142|113306|113576|118046|DevExpress.ExpressApp.Win.Editors.WinPropertyEditor.ControlBindingProperty|DevExpress.ExpressApp.Office.Win.IModelWinOfficeMenuManagerSettings|DevExpress.ExpressApp.Office.Win.IModelWinOfficeMenuManagerSettings.MenuManagerType|DevExpress.ExpressApp.Office.Win.ISpreadsheetValueStorage,well_covered
+SVG Graphics,ui,34,7.5,6,118084|113156|112792|113215|DevExpress.ExpressApp.Utils.ImageLoader.UseSvgImages|DevExpress.ExpressApp.Editors.StaticImage,well_covered
+Threading Issues,troubleshooting,31,9.0,14,113299|405253|118450|112618|113706|113351|113649|DevExpress.Persistent.Base.ReportsV2.DataSourceBase.EnableAsyncLoading|DevExpress.ExpressApp.Win.WinApplication.RunSetupInNewThread|DevExpress.ExpressApp.CustomizeFormattingCultureEventArgs,well_covered
+Assembly References,setup,29,9.5,5,113238|405736|113236|113232|403922,well_covered
+Template Kit,tooling,25,165.0,115,403394|113286|405693|404186|112569|403068|404488|403413|403401|404262,well_covered
+.NET Runtime,runtime,23,292.6,494,404762|403179|403394|113286|112691|113577|405693|113684|404186|113302,well_covered
+ApplicationBuilder,architecture,22,343.5,144,113286|113684|113302|117449|113303|113011|403551|404262|404176|404223,well_covered
+Context Menus,ui,22,141.0,88,405693|113302|113011|403858|112701|113372|112781|113297|405693|112559,well_covered
+XAF Application,architecture,20,140.4,207,403179|113286|113708|112691|113577|113298|405693|113684|113303|403068,well_covered
+Tree Node Interface,interfaces,18,4.0,4,403179|112841|112810|112837,over_documented
+Optimistic Locking,data,14,7.8,12,404186|112600|113141|405384|113596|DevExpress.Persistent.BaseImpl.BaseObject|DevExpress.ExpressApp.EFCore.EFCoreObjectSpace.OptimisticLockHandling|DevExpress.ExpressApp.EFCore.EFCoreObjectSpaceProvider`1.OptimisticLockHandling|DevExpress.ExpressApp.DC.OptimisticLockAttribute|DevExpress.ExpressApp.DC.OptimisticLockAttribute.OptimisticLockHandling,over_documented
+Blazor,Platform,0,1202.5,739,404762|403179|403394|113664|113286|112691|112670|113577|405693|404436,over_documented
+WinForms,Platform,0,1047.0,694,404762|403179|403394|113664|113286|112691|112670|113577|113298|405693,over_documented
+Application Model,ui,0,645.0,865,403394|113286|112998|112638|404186|113302|117449|113303|113445|403068,over_documented
+Controllers and Actions,ui,0,31.0,18,112623|112622|113016|112621|112676|113103|113484|120092|112728|113142,over_documented
+Frames,ui,0,40.0,26,404762|112638|112609|112611|112608|112621|403450|113161|115213|113141,over_documented
+Windows,ui,0,858.5,545,404762|112691|112670|112998|113577|405693|112638|113302|117449|113127,over_documented
+Model Nodes,architecture,0,44.5,32,403394|404186|403551|113185|113238|404967|112595|112579|113251|112580,over_documented
+Model Differences,architecture,0,148.5,77,113238|404667|404691|112580|113249|113679|404353|112817|113141|113704,over_documented
+Model Extension,architecture,0,3.0,2,112580|DevExpress.ExpressApp.Actions.ActionBase.Model,over_documented
+Model Cache,performance,0,6.0,4,402150|DevExpress.ExpressApp.ModelCacheManager|DevExpress.ExpressApp.XafApplication.CreateCustomModelCacheManager|DevExpress.ExpressApp.XafApplication.EnableModelCache,over_documented
+Object Space Provider,data,0,41.8,43,404233|116516|113709|405388|113707|113239|404667|403104|404395|118741,over_documented
+View Types,ui,0,1208.5,689,404762|403174|113286|112998|113577|112638|113302|117449|113303|403068,over_documented
+Detail View,ui,0,204.4,308,404762|113286|117449|403068|113011|404262|112701|113525|116516|112835,over_documented
+Dashboard View,ui,0,160.0,92,403174|117449|113239|112559|113054|113054|113610|112612|112611|113314,over_documented
+Static View Items,ui,0,19.0,13,113130|113141|DevExpress.ExpressApp.Win.Editors.StaticImageViewItem|DevExpress.ExpressApp.Win.Editors.StaticTextViewItem|DevExpress.ExpressApp.Model.IModelStaticText.Text|DevExpress.ExpressApp.Editors.StaticImage.ImageName|DevExpress.ExpressApp.Editors.StaticImage.Model|DevExpress.ExpressApp.Editors.StaticImage|DevExpress.ExpressApp.Editors.StaticText.Model|DevExpress.ExpressApp.Editors.StaticText,over_documented
+Dashboard View Items,ui,0,9.0,7,113054|113054|113314|113296|113141|113471|404496,over_documented
+Action Container View Items,ui,0,13.5,9,DevExpress.ExpressApp.Win.Editors.WinActionContainerViewItem.BeginUpdate|DevExpress.ExpressApp.Win.Editors.WinActionContainerViewItem.EndUpdate|DevExpress.ExpressApp.Win.Editors.WinActionContainerViewItem|DevExpress.ExpressApp.Editors.ActionContainerViewItem|DevExpress.ExpressApp.Editors.ActionContainerViewItem.BeginUpdate|DevExpress.ExpressApp.Editors.ActionContainerViewItem.EndUpdate|DevExpress.ExpressApp.Blazor.Editors.BlazorActionContainerViewItem.BeginUpdate|DevExpress.ExpressApp.Blazor.Editors.BlazorActionContainerViewItem|DevExpress.ExpressApp.Blazor.Editors.BlazorActionContainerViewItem.EndUpdate,over_documented
+View Customization,ui,0,155.5,85,404762|403179|113577|113198|113011|404726|404967|112612|112611|113314,over_documented
+Nested Views,ui,0,38.0,24,112612|112611|113249|113161|120092|115213|113208|403618|112836|DevExpress.ExpressApp.SystemModule.DeleteObjectsViewController.AutoCommit,over_documented
+View Variants,ui,0,34.0,42,403179|113577|113198|113011|404726|404967|113314|112728|113142|113315,over_documented
+Property Editor Types,ui,0,215.0,129,404762|113664|113286|112998|112701|113525|113238|119411|113297|402956,over_documented
+Collection Property Editors,ui,0,39.0,52,113286|113054|113054|112623|112607|112612|112621|403446|113683|113249,over_documented
+View Controller,ui,0,150.0,101,113286|113302|113011|403631|113707|404703|112835|404610|404733|113178,over_documented
+Generic View Controllers,ui,0,6.0,4,DevExpress.ExpressApp.ObjectViewController`2|DevExpress.ExpressApp.ViewController.TargetObjectType|DevExpress.ExpressApp.ViewController.TargetViewType|DevExpress.ExpressApp.ViewController`1,over_documented
+Window Controller,ui,0,58.5,38,403068|116516|113707|112608|112621|113103|112916|404014|405643|404978,over_documented
+Dialog Controller,ui,0,30.0,19,112623|112805|113141|404102|113572|118240|113117|DevExpress.ExpressApp.SystemModule.DialogController.AcceptAction|DevExpress.ExpressApp.SystemModule.DialogController.Accepting|DevExpress.ExpressApp.SystemModule.DialogController.CancelAction,over_documented
+Target Properties,ui,0,11.5,8,113051|120092|112993|DevExpress.Persistent.Validation.IRuleBaseProperties.MessageTemplateSkipNullOrEmptyValues|DevExpress.Persistent.Validation.RuleCombinationOfPropertiesIsUniqueAttribute|DevExpress.Persistent.Base.IndexAttribute|DevExpress.ExpressApp.Model.IModelViewController.TargetViewId|DevExpress.ExpressApp.ViewController.TargetViewId,over_documented
+Action Customization,ui,0,34.0,58,403068|403277|113054|113054|113610|112622|113484|113475|112696|112803,over_documented
+Security Strategy,security,0,72.0,14,119411|113142|113141|404204|113237|113472|113384|113119|DevExpress.ExpressApp.SystemModule.LogoffController.LogoffAction|DevExpress.ExpressApp.Security.ObjectAccessModifier,over_documented
+Error Styling,ui,0,14.5,10,404762|113684|112704|113238|113239|113251|404614|113232|DevExpress.ExpressApp.Validation.Win.ValidationWindowsFormsModule|DevExpress.ExpressApp.Editors.ListEditor.ErrorMessages,over_documented
+Notifications,module,0,15.2,26,403176|404940|113696|118451|113689|113688|113691|113690|113693|113692,over_documented
+State Machine,module,0,14.2,25,403177|113336|113343|113374|404967|405736|404695|112558|113142|404717,over_documented
+Charts,module,0,6.0,4,113302|113314|DevExpress.ExpressApp.Chart.ICustomizationEnabledProvider|DevExpress.ExpressApp.Blazor.Editors.DxChartListEditor,over_documented
+PivotGrid,module,0,33.0,44,113303|404967|113189|119740|403535|113330|113362|118046|118047|DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor.ApplyModel,over_documented
+Clone Object,module,0,7.6,12,404186|112835|404967|113142|113349|118046|118047|DevExpress.Persistent.Base.NonCloneableAttribute|DevExpress.Persistent.Base.NotClonedInfoAttribute|DevExpress.ExpressApp.CloneObject.CloneObjectModule,over_documented
+Demo Applications,learning,0,53.0,40,403394|112670|113577|405693|113302|404207|404176|404726|404714|404733,over_documented
+Project Wizards,tooling,0,34.0,24,405693|113011|404219|114495|112655|113301|405693|403415|403416|405447,over_documented

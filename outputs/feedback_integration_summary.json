@@ -1,0 +1,107 @@
+{
+  "analysis_date": "2026-02-15T19:55:20.530482",
+  "coverage_analysis": {
+    "total_unfixed": 26,
+    "with_doc_match": 3,
+    "without_doc_match": 23,
+    "coverage_rate": 0.11538461538461539,
+    "top_concepts_mentioned": [
+      [
+        "CheckAnswerDesk",
+        94
+      ],
+      [
+        "FriendlyId",
+        93
+      ],
+      [
+        "HashCode",
+        93
+      ],
+      [
+        "DevExpress",
+        60
+      ],
+      [
+        "WinForms",
+        14
+      ],
+      [
+        "EasyTest",
+        9
+      ],
+      [
+        "ExpressApp",
+        7
+      ],
+      [
+        "DragOver",
+        6
+      ],
+      [
+        "ViewTypes",
+        6
+      ],
+      [
+        "TreeList",
+        5
+      ],
+      [
+        "BlazorControlViewItem",
+        5
+      ],
+      [
+        "MiddleTier",
+        5
+      ],
+      [
+        "UseConnectionString",
+        4
+      ],
+      [
+        "ObjectCaptionFormatAttribute",
+        4
+      ],
+      [
+        "ButtonComponent",
+        4
+      ],
+      [
+        "DisplayFormat",
+        4
+      ],
+      [
+        "OAuth",
+        4
+      ],
+      [
+        "CustomCreateObjectSpaceProvider",
+        4
+      ],
+      [
+        "CustomXPObjectSpaceProvider",
+        4
+      ],
+      [
+        "GetConnectionString",
+        4
+      ]
+    ],
+    "issues_by_type": {
+      "InsuffInfo": 12,
+      "UnusableFeedback": 6,
+      "NewFeatureIssue": 2,
+      "InsuffCode": 2,
+      "HardToUnderstand": 1,
+      "InvalidInfo": 1,
+      "InvalidCode": 1,
+      "HardToFind": 1
+    },
+    "issues_by_feedback": {
+      "Negative": 17,
+      "PositiveWithConcerns": 5,
+      "Positive": 1
+    }
+  },
+  "top_priority_docs": []
+}

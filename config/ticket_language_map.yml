@@ -1,0 +1,446 @@
+# Ticket Language Translation Map
+# Maps support ticket feature categories to user language, API names, and concepts
+# Purpose: Bridge the language gap between how users describe problems and documentation terminology
+# Last Updated: February 13, 2026
+
+translation_map:
+  # Top 20 Ticket Categories by Volume (covering ~75% of all tickets)
+  
+  - ticket_category: "Custom View Items & Editors"
+    volume: 869
+    confidence: 10
+    user_phrases:
+      - "custom view components"
+      - "view item customization"
+      - "detail view controls"
+      - "custom editors in views"
+      - "adding controls to views"
+    api_names:
+      - ViewItem
+      - ViewItemAttribute
+      - IModelViewItem
+      - CustomViewItem
+      - DetailViewItem
+      - StaticTextViewItem
+      - StaticImageViewItem
+      - ActionContainerViewItem
+    mapped_concepts:
+      - View Items
+      - Property Editors
+      - Detail View
+    notes: "Users creating custom UI components for detail views"
+
+  - ticket_category: "Built-in View Items & Editors"
+    volume: 765
+    confidence: 10
+    user_phrases:
+      - "standard view items"
+      - "out-of-box view controls"
+      - "built-in editors"
+      - "default view components"
+    api_names:
+      - StaticTextViewItem
+      - StaticImageViewItem
+      - ActionContainerViewItem
+      - DashboardViewItem
+    mapped_concepts:
+      - View Items
+      - Static View Items
+      - Dashboard View Items
+    notes: "Using framework-provided view components"
+
+  - ticket_category: "Grid List Editors"
+    volume: 554
+    confidence: 10
+    user_phrases:
+      - "grid customization"
+      - "list appearance"
+      - "data grid editor"
+      - "collection grid"
+      - "list view grid"
+    api_names:
+      - ASPxGridListEditor
+      - GridListEditor
+      - DXGridListEditor
+      - IModelListView
+      - ListView
+    mapped_concepts:
+      - List Editors
+      - List View
+      - Views
+    notes: "Customizing grid-based collection displays"
+
+  - ticket_category: "Custom logic within View or Controller"
+    volume: 485
+    confidence: 7
+    user_phrases:
+      - "view customization code"
+      - "controller logic"
+      - "custom behavior"
+      - "event handlers"
+      - "view lifecycle"
+    api_names:
+      - ViewController
+      - DetailViewController
+      - ListViewController
+      - View.CustomizeViewItemControl
+      - Controller.Active
+    mapped_concepts:
+      - Views
+      - Controllers
+      - View Controller
+      - View Customization
+    notes: "Adding custom code to views and controllers"
+
+  - ticket_category: "Built-in Permissions Setup/Troubleshooting"
+    volume: 449
+    confidence: 7
+    user_phrases:
+      - "permissions not working"
+      - "role access configuration"
+      - "user authorization setup"
+      - "security rules"
+      - "access control issues"
+    api_names:
+      - PermissionPolicyUser
+      - PermissionPolicyRole
+      - SecurityStrategy
+      - PermissionSettingsAttribute
+      - IPermissionPolicyRole
+    mapped_concepts:
+      - Authorization
+      - Security System
+      - Permission Policies
+      - Security Strategy
+    notes: "Configuring role-based access control"
+
+  - ticket_category: "Creating & Showing Views"
+    volume: 406
+    confidence: 10
+    user_phrases:
+      - "creating new views"
+      - "showing views programmatically"
+      - "navigate to view"
+      - "display view"
+      - "open detail view"
+    api_names:
+      - IObjectSpace.CreateObject
+      - Application.ShowViewStrategy
+      - ShowViewStrategyBase.ShowView
+      - View.CreateControls
+      - DetailView
+      - ListView
+    mapped_concepts:
+      - Views
+      - Detail View
+      - List View
+      - Navigation
+    notes: "Creating and displaying views in code"
+
+  - ticket_category: "Speed"
+    volume: 394
+    confidence: 7
+    user_phrases:
+      - "performance issues"
+      - "slow loading"
+      - "application speed"
+      - "optimization"
+      - "query performance"
+    api_names:
+      - CollectionSourceBase.DataAccessMode
+      - InstantFeedbackMode
+      - ServerMode
+      - IObjectSpace.SetModified
+      - OptimisticLocking
+    mapped_concepts:
+      - Performance Optimization
+      - Object Space
+      - Data Access Modes
+    notes: "Performance tuning and optimization"
+
+  - ticket_category: "Non-Persistent Objects"
+    volume: 383
+    confidence: 10
+    user_phrases:
+      - "non-persistent objects"
+      - "in-memory objects"
+      - "transient data"
+      - "objects not saved to database"
+    api_names:
+      - NonPersistentObjectSpace
+      - NonPersistentBaseObject
+      - NonPersistentAttribute
+      - IObjectSpace.IsNewObject
+    mapped_concepts:
+      - Non-Persistent Objects
+      - Object Space
+      - Business Objects
+    notes: "Working with objects not persisted to database"
+
+  - ticket_category: "Lookups"
+    volume: 368
+    confidence: 7
+    user_phrases:
+      - "lookup editor"
+      - "dropdown selection"
+      - "reference property picker"
+      - "lookup customization"
+      - "search in lookup"
+    api_names:
+      - LookupPropertyEditor
+      - LookupEditorMode
+      - DataSourcePropertyAttribute
+      - DataSourceCriteriaAttribute
+      - IModelCommonMemberViewItem.LookupProperty
+    mapped_concepts:
+      - Lookup Property Editors
+      - Property Editors
+      - Reference Property
+    notes: "Configuring lookup/reference property editors"
+
+  - ticket_category: "Layout Generation & Customization API"
+    volume: 329
+    confidence: 10
+    user_phrases:
+      - "layout customization"
+      - "form layout"
+      - "view layout arrangement"
+      - "layout groups"
+      - "layout items"
+    api_names:
+      - IModelLayoutGroup
+      - IModelLayoutItem
+      - LayoutManager
+      - DetailView.CustomizeViewItemControl
+      - IModelViewLayoutElement
+    mapped_concepts:
+      - Layout
+      - Detail View
+      - View Layout
+    notes: "Customizing detail view layout structure"
+
+  - ticket_category: "Model Editor for .NET / .NET Core"
+    volume: 322
+    confidence: 7
+    user_phrases:
+      - "model editor"
+      - "application model configuration"
+      - ".NET Core model"
+      - "XAFML editing"
+    api_names:
+      - IModelApplication
+      - IModelOptions
+      - ModelEditorModule
+      - ApplicationModel
+    mapped_concepts:
+      - Application Model
+      - .NET Runtime
+      - Model Nodes
+    notes: "Using Model Editor in .NET Core applications"
+
+  - ticket_category: "Aliased, Calculated and Custom Fields/Metadata"
+    volume: 304
+    confidence: 7
+    user_phrases:
+      - "calculated fields"
+      - "aliased properties"
+      - "custom metadata"
+      - "computed properties"
+      - "virtual fields"
+    api_names:
+      - PersistentAliasAttribute
+      - CalculatedAttribute
+      - ModelDefaultAttribute
+      - IModelMember
+      - IModelClass
+    mapped_concepts:
+      - Application Model
+      - Business Objects
+      - Model Nodes
+    notes: "Creating calculated, aliased or custom field definitions"
+
+  - ticket_category: "EF Core Specifics"
+    volume: 303
+    confidence: 7
+    user_phrases:
+      - "entity framework core"
+      - "EF Core configuration"
+      - "DbContext setup"
+      - "code-first"
+    api_names:
+      - EFCoreObjectSpace
+      - EFCoreObjectSpaceProvider
+      - DbContextTypesInfoInitializer
+      - ApplicationBuilder.AddEFCore
+    mapped_concepts:
+      - XAF Application
+      - Entity Framework Core
+      - Object Space Provider
+    notes: "Working with Entity Framework Core ORM"
+
+  - ticket_category: "Built-in Action Types"
+    volume: 286
+    confidence: 10
+    user_phrases:
+      - "action types"
+      - "button actions"
+      - "toolbar actions"
+      - "menu actions"
+    api_names:
+      - SimpleAction
+      - SingleChoiceAction
+      - ParametrizedAction
+      - PopupWindowShowAction
+      - ActionBase
+    mapped_concepts:
+      - Action Types
+      - Actions
+      - Simple Action
+      - Parametrized Action
+    notes: "Using built-in action types"
+
+  - ticket_category: "Built-in Controllers (System)"
+    volume: 276
+    confidence: 10
+    user_phrases:
+      - "system controllers"
+      - "framework controllers"
+      - "built-in controllers"
+      - "default controllers"
+    api_names:
+      - ViewController
+      - DialogController
+      - DeleteObjectsViewController
+      - NewObjectViewController
+      - ModificationsController
+    mapped_concepts:
+      - Controllers
+      - Built-in Controllers
+      - View Controller
+    notes: "Working with framework-provided controllers"
+
+  - ticket_category: "Custom Authentication/Logon Parameters Form"
+    volume: 244
+    confidence: 10
+    user_phrases:
+      - "custom login"
+      - "authentication form"
+      - "logon parameters"
+      - "custom credentials"
+    api_names:
+      - AuthenticationStandardLogonParameters
+      - AuthenticationActiveDirectory
+      - IAuthenticationStandardLogonParameters
+      - SecurityStrategy.Logon
+    mapped_concepts:
+      - Authentication
+      - Security System
+      - Security Strategy
+    notes: "Customizing login/authentication flow"
+
+  - ticket_category: "ORM Data Model Wizard/Designer"
+    volume: 222
+    confidence: 7
+    user_phrases:
+      - "data model wizard"
+      - "ORM designer"
+      - "database schema"
+      - "model generation"
+    api_names:
+      - IObjectSpace
+      - IObjectSpaceProvider
+      - XPObjectSpace
+      - EFCoreObjectSpace
+    mapped_concepts:
+      - Object Space
+      - Object Space Provider
+      - Business Objects
+    notes: "Using data model wizards and designers"
+
+  - ticket_category: "Built-in Criteria Operators"
+    volume: 216
+    confidence: 10
+    user_phrases:
+      - "filter expressions"
+      - "criteria operators"
+      - "query filters"
+      - "where clauses"
+    api_names:
+      - CriteriaOperator
+      - BinaryOperator
+      - FunctionOperator
+      - InOperator
+      - CriteriaOperator.Parse
+    mapped_concepts:
+      - Criteria
+      - Filtering UI
+    notes: "Building filter expressions with criteria operators"
+
+  - ticket_category: "Relationships/Associations"
+    volume: 211
+    confidence: 7
+    user_phrases:
+      - "object relationships"
+      - "associations"
+      - "foreign keys"
+      - "navigation properties"
+      - "one-to-many"
+      - "many-to-many"
+    api_names:
+      - AssociationAttribute
+      - AggregatedAttribute
+      - XPCollection
+      - IList
+      - ReferencePropertyAttribute
+    mapped_concepts:
+      - Business Objects
+      - Collection Property
+      - Reference Property
+    notes: "Defining relationships between business objects"
+
+  - ticket_category: "Rich Text Editor"
+    volume: 204
+    confidence: 7
+    user_phrases:
+      - "rich text editor"
+      - "HTML editor"
+      - "formatted text"
+      - "WYSIWYG editor"
+    api_names:
+      - ASPxRichTextPropertyEditor
+      - RichTextPropertyEditor
+      - RichEditAttribute
+    mapped_concepts:
+      - Property Editors
+      - Property Editor Types
+    notes: "Using rich text/HTML editors for properties"
+
+# Summary Statistics
+summary:
+  total_categories_mapped: 20
+  total_tickets_covered: 8195
+  percentage_of_total: 55.1%
+  unmapped_high_volume:
+    - ticket_category: "Form Templates"
+      volume: 207
+      reason: "No matching concept - needs concept creation"
+    - ticket_category: "Popups"
+      volume: 144
+      reason: "No matching concept - needs concept creation"
+    - ticket_category: "Callbacks"
+      volume: 66
+      reason: "No matching concept - needs concept creation"
+
+# Usage Notes
+# -----------
+# This map enables:
+# 1. Search query translation (user language → documentation concepts)
+# 2. Cross-linking recommendations (ticket categories → API references)
+# 3. Documentation gap analysis (high-volume tickets without good concept matches)
+# 4. Synonym generation (user phrases → concept synonyms)
+#
+# Confidence scores:
+# - 10: Exact match between ticket category and concept
+# - 7: Good match with some semantic distance
+# - 5: Weak match, may need refinement
+# - 0: UNMAPPED - needs manual review

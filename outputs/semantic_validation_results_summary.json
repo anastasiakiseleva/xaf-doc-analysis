@@ -1,0 +1,12 @@
+{
+  "total_validated": 5,
+  "confirmed": 2,
+  "rejected": 1,
+  "ambiguous": 0,
+  "no_documentation": 2,
+  "errors": 0,
+  "confirmation_rate": 40.0,
+  "rejection_rate": 20.0,
+  "avg_validation_confidence": 0.5599999999999999,
+  "processing_time_min": 1.0837839603424073
+}

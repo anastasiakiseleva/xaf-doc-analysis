@@ -1,0 +1,1290 @@
+[
+  {
+    "feature_category": "Custom View Items & Editors",
+    "ticket_count": 869,
+    "primary_concept": "View Items",
+    "confidence": 54.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 54.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Built-in View Items & Editors",
+    "ticket_count": 765,
+    "primary_concept": "View Items",
+    "confidence": 54.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 54.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Grid List Editors",
+    "ticket_count": 554,
+    "primary_concept": "List Editors",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom logic within View or Controller",
+    "ticket_count": 485,
+    "primary_concept": "Views",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Built-in Permissions Setup/Troubleshooting",
+    "ticket_count": 449,
+    "primary_concept": "Authorization",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Creating & Showing Views",
+    "ticket_count": 406,
+    "primary_concept": "View Lifecycle",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Showing Views",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "Speed",
+    "ticket_count": 394,
+    "primary_concept": "Performance Optimization",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Lookups",
+    "ticket_count": 368,
+    "primary_concept": "Lookup Property Editors",
+    "confidence": 50.0,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 50.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Layout Generation & Customization API",
+    "ticket_count": 329,
+    "primary_concept": "Layout",
+    "confidence": 19.71428571428571,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 19.7",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Built-in Controllers (System)",
+    "ticket_count": 276,
+    "primary_concept": "Built-in Controllers",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Authentication/Logon Parameters Form",
+    "ticket_count": 244,
+    "primary_concept": "Authentication",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "ORM Data Model Wizard/Designer",
+    "ticket_count": 222,
+    "primary_concept": "Application Model",
+    "confidence": 8.88888888888889,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.9",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Relationships/Associations",
+    "ticket_count": 211,
+    "primary_concept": "Object Relationships",
+    "confidence": 30.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 30.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Themes & Customization (Compact, Bootstrap)",
+    "ticket_count": 160,
+    "primary_concept": "Theming",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Show Preview, Print, Export in code",
+    "ticket_count": 154,
+    "primary_concept": "Reports",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Active/Enabled State",
+    "ticket_count": 153,
+    "primary_concept": "Action State Management",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Enabled State",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "OAuth Identity Providers",
+    "ticket_count": 149,
+    "primary_concept": "Business Objects",
+    "confidence": 30.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 30.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Popups",
+    "ticket_count": 144,
+    "primary_concept": "Popup Windows",
+    "confidence": 50.0,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 50.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Inline Edit (Batch, etc.)",
+    "ticket_count": 144,
+    "primary_concept": "Inline Editing",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Legacy DB Mapping (SQL View, composite key)",
+    "ticket_count": 110,
+    "primary_concept": "XPO",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Built-in Rules Setup/Troubleshooting",
+    "ticket_count": 109,
+    "primary_concept": "Validation",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Controllers Design",
+    "ticket_count": 88,
+    "primary_concept": "Controller Customization",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Dependency Injection (DI) in Controllers, BO, etc",
+    "ticket_count": 84,
+    "primary_concept": "Controllers",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Transactions/Unit of Works",
+    "ticket_count": 79,
+    "primary_concept": "Object Space",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Navigation control customizations",
+    "ticket_count": 74,
+    "primary_concept": "Navigation",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Database (creation, share storage, etc.)",
+    "ticket_count": 74,
+    "primary_concept": "Tenant",
+    "confidence": 8.8,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.8",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Scheduler control customizations",
+    "ticket_count": 70,
+    "primary_concept": "Scheduler",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom User & Role Classes",
+    "ticket_count": 66,
+    "primary_concept": "Custom User Management",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Tracer",
+    "ticket_count": 61,
+    "primary_concept": "Diagnostic Tools",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "ShowNavigationItemController customizations",
+    "ticket_count": 60,
+    "primary_concept": "Controllers",
+    "confidence": 30.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 30.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Property Changed Event",
+    "ticket_count": 60,
+    "primary_concept": "Calculated Property",
+    "confidence": 11.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Provider Implementation",
+    "ticket_count": 59,
+    "primary_concept": "Custom Validation Rules",
+    "confidence": 11.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Localization (programmatically, in code)",
+    "ticket_count": 58,
+    "primary_concept": "Programmatic Localization",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Linux (nginx, Apache, Electron, Docker)",
+    "ticket_count": 54,
+    "primary_concept": "Deployment",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Obsolete: Lookup/Collection Property Filtering",
+    "ticket_count": 53,
+    "primary_concept": "Filtering UI",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Filtering",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "Inplace Actions in Grid Cells",
+    "ticket_count": 53,
+    "primary_concept": "Actions",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Localization Service",
+    "ticket_count": 51,
+    "primary_concept": "Programmatic Localization",
+    "confidence": 6.285714285714286,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 6.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Layout End-User Customization",
+    "ticket_count": 48,
+    "primary_concept": "Layout",
+    "confidence": 11.428571428571427,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Grid Print, Export",
+    "ticket_count": 47,
+    "primary_concept": "List Editors",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Report control customizations",
+    "ticket_count": 46,
+    "primary_concept": "Reports",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Text Notifications (ShowMessage, Toast)",
+    "ticket_count": 45,
+    "primary_concept": "Notifications",
+    "confidence": 10.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 10.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Bind to Custom Data Sources",
+    "ticket_count": 45,
+    "primary_concept": "Charts",
+    "confidence": 8.8,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.8",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Filter Editors",
+    "ticket_count": 44,
+    "primary_concept": "Specialized Property Editors",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Nuget",
+    "ticket_count": 43,
+    "primary_concept": "Package Management",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Async/Await Method Support",
+    "ticket_count": 42,
+    "primary_concept": "Async Operations",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "File System or custom storages",
+    "ticket_count": 41,
+    "primary_concept": "File Attachments",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Table & Column Mapping Customizations",
+    "ticket_count": 40,
+    "primary_concept": "PivotGrid",
+    "confidence": 7.333333333333333,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 7.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Horizontal/Vertical Scaling to 100, 1000+ users",
+    "ticket_count": 39,
+    "primary_concept": "Scaling Architecture",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Vertical Scaling",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom appearance on events",
+    "ticket_count": 38,
+    "primary_concept": "Direct SQL",
+    "confidence": 7.333333333333333,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 7.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Enum Editors",
+    "ticket_count": 36,
+    "primary_concept": "Standard Property Editors",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Spreadsheet",
+    "ticket_count": 35,
+    "primary_concept": "Spreadsheet Control",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Image Editors",
+    "ticket_count": 35,
+    "primary_concept": "Specialized Property Editors",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Criteria Editors",
+    "ticket_count": 35,
+    "primary_concept": "Specialized Property Editors",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Splash, Loading Panel",
+    "ticket_count": 32,
+    "primary_concept": "Loading Indicators",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Loading Panel",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "Themes",
+    "ticket_count": 31,
+    "primary_concept": "Theming",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Missing assemblies, resources",
+    "ticket_count": 29,
+    "primary_concept": "Assembly References",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      },
+      {
+        "severity": "PATTERN_ISSUE",
+        "message": "Lifecycle pattern - should be child concept? - Issue #9",
+        "synonym": "Missing assemblies",
+        "reason": "Lifecycle events describe WHEN, not WHAT",
+        "recommendation": "Consider refactoring concept structure"
+      }
+    ]
+  },
+  {
+    "feature_category": "CAUSE: Complex project or DB, long debugging, etc.",
+    "ticket_count": 29,
+    "primary_concept": "Template Kit",
+    "confidence": 4.444444444444445,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 4.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "(Deprecated) Domain Components - DC",
+    "ticket_count": 29,
+    "primary_concept": "Domain Components",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Operations & Other Storage Classes",
+    "ticket_count": 28,
+    "primary_concept": "Direct SQL",
+    "confidence": 7.333333333333333,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 7.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Control Customization (Widgets, Extensions)",
+    "ticket_count": 28,
+    "primary_concept": "View Customization",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "ORM Database Schema Migrations",
+    "ticket_count": 26,
+    "primary_concept": "Database Update",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom error highligthing",
+    "ticket_count": 26,
+    "primary_concept": "Error Styling",
+    "confidence": 11.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Sequential/Auto-increment numbers (T567184)",
+    "ticket_count": 25,
+    "primary_concept": "Auto-Increment Fields",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Default & Custom Attributes To Customize Model",
+    "ticket_count": 25,
+    "primary_concept": "Property Metadata",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Permissions Implementation",
+    "ticket_count": 25,
+    "primary_concept": "Authorization",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom implementations of default XAF BCL entities",
+    "ticket_count": 25,
+    "primary_concept": "Application Model",
+    "confidence": 8.88888888888889,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.9",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Obtaining data from external services, other databases",
+    "ticket_count": 24,
+    "primary_concept": "Non-Persistent Objects",
+    "confidence": 6.285714285714286,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 6.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Error: Thread & Reentrancy (T419520 & K18167)",
+    "ticket_count": 24,
+    "primary_concept": "Threading Issues",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Rule Type Implementation",
+    "ticket_count": 24,
+    "primary_concept": "Custom Validation Rules",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Obsolete: Batch Edit ASPxGridListEditor",
+    "ticket_count": 22,
+    "primary_concept": "Inline Editing",
+    "confidence": 42.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 42.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Tenant Resolver (URL, ID, etc)",
+    "ticket_count": 22,
+    "primary_concept": "Multi-Tenancy",
+    "confidence": 54.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 54.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Application Builder",
+    "ticket_count": 22,
+    "primary_concept": "Blazor UI",
+    "confidence": 6.285714285714286,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 6.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Connection Troubleshooting",
+    "ticket_count": 21,
+    "primary_concept": "Database Connection",
+    "confidence": 7.333333333333333,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 7.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Template Localization",
+    "ticket_count": 16,
+    "primary_concept": "Mail Merge",
+    "confidence": 8.8,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.8",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Error: Object belongs to a different session/space",
+    "ticket_count": 15,
+    "primary_concept": "Object Space Provider",
+    "confidence": 12.571428571428571,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 12.6",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Data Binding",
+    "ticket_count": 15,
+    "primary_concept": "Charts",
+    "confidence": 8.8,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.8",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "(Deprecated) Entity Framework 6 - EF6",
+    "ticket_count": 15,
+    "primary_concept": "Business Objects",
+    "confidence": 30.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 30.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Performance, Purge History, Lightweight mode",
+    "ticket_count": 14,
+    "primary_concept": "Audit Trail",
+    "confidence": 46.2,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 46.2",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Filter by Security User",
+    "ticket_count": 14,
+    "primary_concept": "Notifications",
+    "confidence": 11.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Model Editor configuration",
+    "ticket_count": 13,
+    "primary_concept": "Model Editor",
+    "confidence": 13.333333333333332,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 13.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Demos",
+    "ticket_count": 13,
+    "primary_concept": "Demo Applications",
+    "confidence": 55.00000000000001,
+    "match_type": "exact_synonym_phrase",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 55.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Dynamically loaded modules & types",
+    "ticket_count": 20,
+    "primary_concept": "Modules",
+    "confidence": 6.285714285714286,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 6.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "ISupportNotifications implementation",
+    "ticket_count": 19,
+    "primary_concept": "Security Strategy",
+    "confidence": 8.0,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Non-XAF Data Sources",
+    "ticket_count": 18,
+    "primary_concept": "Model Nodes",
+    "confidence": 11.5,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.5",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Action Permissions",
+    "ticket_count": 18,
+    "primary_concept": "Actions",
+    "confidence": 33.0,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 33.0",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "XAF Report Object parameters",
+    "ticket_count": 17,
+    "primary_concept": "Model Nodes",
+    "confidence": 11.5,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 11.5",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Map control customizations",
+    "ticket_count": 17,
+    "primary_concept": "Maps",
+    "confidence": 59.400000000000006,
+    "match_type": "weighted_synonym",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 59.4",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Issues with non-unique key values (T639653)",
+    "ticket_count": 17,
+    "primary_concept": "Performance Optimization",
+    "confidence": 7.333333333333333,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 7.3",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  },
+  {
+    "feature_category": "Custom Tenant and other classes",
+    "ticket_count": 17,
+    "primary_concept": "Tenant",
+    "confidence": 8.8,
+    "match_type": "word_overlap",
+    "warnings": [
+      {
+        "severity": "LOW_CONFIDENCE",
+        "message": "Low confidence score: 8.8",
+        "recommendation": "Review mapping or add more specific synonyms to concept"
+      }
+    ]
+  }
+]

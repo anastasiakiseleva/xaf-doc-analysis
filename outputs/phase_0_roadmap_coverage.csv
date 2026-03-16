@@ -1,0 +1,19 @@
+category,feature,num_issues,has_issues,issue_ids
+Core,EF Core 10 Support,11,True,"T1303785, T1309586, T1309299, T1286784, T1311731, T1285906, T1318737, T1282060, T1320904, T1283433, T1279094"
+Core,XAF Integration with DevExpress Localization Tool,2,True,"T1313180, T1300308"
+Core,Fluent UI Icon and Layout Updates in XAF WinForms,5,True,"T1303785, T1317092, T1286784, T1285906, T1315692"
+Core,DateTimeOffset support,0,False,
+Core,WinForms Filter Editor - Dynamic Expressions,4,True,"T1317092, T1286784, T1285906, T1315692"
+Blazor,Editors,4,True,"T1309586, T1314402, T1282060, T1314388"
+Blazor,CSP - Remove style-src: unsafe-inline requirement,2,True,"T1313595, T1285906"
+Blazor,Blazor Model Editor,11,True,"T1303785, T1309586, T1317092, T1309299, T1314402, T1311731, T1313595, T1313180, T1303299, T1309006, T1300308"
+Blazor,Electron.NET Example,0,False,
+Blazor,Aspire development and deployment project template,1,True,T1300308
+Blazor,Simplified Blazor project format with no Startup.cs,10,True,"T1303785, T1309586, T1317092, T1309299, T1314402, T1311731, T1313595, T1313180, T1303299, T1318737"
+Blazor,Blazor Reports - Add and Customize ViewDataSource in Report Designer,12,True,"T1303785, T1309586, T1317092, T1309299, T1314402, T1286784, T1311731, T1313595, T1313180, T1303299, T1315692, T1320766"
+Blazor,XAF AI Module,12,True,"T1303785, T1309586, T1309299, T1314402, T1286784, T1285906, T1318737, T1309006, T1320904, T1318183, T1306062, T1289742"
+Blazor,ContextMenu integration,0,False,
+Blazor,PivotTable,0,False,
+Blazor,FieldPickerPropertyEditor,0,False,
+Blazor,Performance - Simplified Blazor Components,12,True,"T1303785, T1309586, T1317092, T1309299, T1314402, T1286784, T1311731, T1313595, T1313180, T1303299, T1282060, T1314393"
+Blazor,Additional Performance Researches,0,False,

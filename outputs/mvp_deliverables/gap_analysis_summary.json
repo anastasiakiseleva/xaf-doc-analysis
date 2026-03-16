@@ -1,0 +1,71 @@
+{
+  "generated_date": "2026-02-14T20:58:31.461392",
+  "total_concepts_analyzed": 6,
+  "gaps_found": 6,
+  "baseline_metrics": {
+    "total_sections": 10994,
+    "isolated_sections": 539,
+    "cross_corpus_links": 19911
+  },
+  "gap_details": [
+    {
+      "concept": "Performance Optimization",
+      "gap_type": "semantic_gap",
+      "conceptual_sections": 28,
+      "api_sections": 22,
+      "cross_links": 2,
+      "recommended_action": "Add cross-references, examples, code samples",
+      "estimated_effort": "4-6 hours"
+    },
+    {
+      "concept": "Deployment",
+      "gap_type": "missing_api_tagging",
+      "conceptual_sections": 146,
+      "api_sections": 0,
+      "cross_links": 0,
+      "recommended_action": "Update concepts.yml and re-run extraction",
+      "estimated_effort": "2-3 hours"
+    },
+    {
+      "concept": "Logging",
+      "gap_type": "semantic_gap",
+      "conceptual_sections": 46,
+      "api_sections": 10,
+      "cross_links": 0,
+      "recommended_action": "Add cross-references, examples, code samples",
+      "estimated_effort": "4-6 hours"
+    },
+    {
+      "concept": "Legacy .NET Framework",
+      "gap_type": "semantic_gap",
+      "conceptual_sections": 168,
+      "api_sections": 11,
+      "cross_links": 0,
+      "recommended_action": "Add cross-references, examples, code samples",
+      "estimated_effort": "4-6 hours"
+    },
+    {
+      "concept": "Migration",
+      "gap_type": "semantic_gap",
+      "conceptual_sections": 102,
+      "api_sections": 4,
+      "cross_links": 0,
+      "recommended_action": "Add cross-references, examples, code samples",
+      "estimated_effort": "4-6 hours"
+    },
+    {
+      "concept": "Multi-Tenancy",
+      "gap_type": "semantic_gap",
+      "conceptual_sections": 107,
+      "api_sections": 21,
+      "cross_links": 171,
+      "recommended_action": "Add cross-references, examples, code samples",
+      "estimated_effort": "4-6 hours"
+    }
+  ],
+  "next_steps": [
+    "Review gap details and choose appropriate fix strategy",
+    "Prioritize based on customer pain (see top_priorities.csv)",
+    "Track improvements by re-running baseline comparison"
+  ]
+}

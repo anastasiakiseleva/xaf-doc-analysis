@@ -1,0 +1,102 @@
+primary_concept,total_tickets,feature_count
+View Items,1634,2
+List Editors,601,2
+Views,485,1
+Authorization,474,2
+Application Model,413,3
+Performance Optimization,411,2
+Non-Persistent Objects,407,2
+View Lifecycle,406,1
+Layout,377,2
+Lookup Property Editors,368,1
+.NET Runtime,345,2
+Property Metadata,329,2
+Specialized Property Editors,318,4
+XPO,312,5
+Entity Framework Core,303,1
+Reports,298,4
+Action Types,286,1
+Built-in Controllers,276,1
+Authentication,244,1
+Built-in Criteria Operators,216,1
+Object Relationships,211,1
+Application Templates,207,1
+Theming,204,3
+Business Object Lifecycle,188,1
+Action Containers,187,1
+Inline Editing,166,2
+Business Objects,164,2
+XAF Application,158,4
+Middle Tier,154,1
+Action State Management,153,1
+List View Data Access Modes,151,3
+Testing,145,2
+Popup Windows,144,1
+Controllers,144,2
+Security System,138,1
+Legacy .NET Framework,134,1
+Tabbed MDI Interface,130,1
+Programmatic Localization,126,3
+Direct SQL,122,3
+Filtering UI,115,3
+Validation,109,1
+Deployment,108,2
+Database Update,104,2
+List View,104,1
+Custom Validation Rules,103,3
+Model Differences,103,1
+Custom Criteria Functions,103,1
+Multiple Databases,95,2
+Tenant,91,2
+Migration,88,1
+Controller Customization,88,1
+Object Space,79,1
+Navigation,74,1
+Project Wizards,73,3
+Memory Management,73,1
+Audit Trail,72,3
+Actions,71,2
+Scheduler,70,1
+Event Scheduling Interfaces,70,1
+Custom User Management,66,1
+Multi-Tenancy,63,3
+Property Editor Features,61,1
+Diagnostic Tools,61,1
+Charts,60,2
+Calculated Property,60,1
+Notifications,59,2
+View Customization,55,2
+Template Kit,54,2
+Model Editor,48,2
+Package Management,43,1
+Async Operations,42,1
+File Attachments,41,1
+PivotGrid,40,1
+Scaling Architecture,39,1
+Standard Property Editors,36,1
+Report Parameters,35,1
+Model Nodes,35,2
+Spreadsheet Control,35,1
+SVG Graphics,34,1
+Dashboards,33,1
+Loading Indicators,32,1
+Recurring Events,30,1
+Assembly References,29,1
+Domain Components,29,1
+Error Styling,26,1
+Auto-Increment Fields,25,1
+Threading Issues,24,1
+Dependency Injection,22,1
+Blazor UI,22,1
+Context Menus,22,1
+Database Connection,21,1
+Modules,20,1
+Security Strategy,19,1
+Tree Node Interface,18,1
+Maps,17,1
+Mail Merge,16,1
+Object Space Provider,15,1
+Accordion Control,15,1
+Optimistic Locking,14,1
+Model Cache,13,1
+Demo Applications,13,1

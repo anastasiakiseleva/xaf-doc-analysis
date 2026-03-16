@@ -1,0 +1,13 @@
+concept_name,concept_type,ticket_count,doc_score,doc_page_count,doc_urls,coverage_class
+CRUD Controllers,ui,276,2.2,3,112559|404105|DevExpress.ExpressApp.XafApplication,critical_gap
+Business Object Lifecycle,data,248,2.6,3,116516|113707|403620,critical_gap
+Deployment,ops,186,1.8,3,112691|404614|403362,critical_gap
+Theming,ui,173,0.6,1,403068,critical_gap
+Legacy .NET Framework,migration,134,2.2,3,405693|405693|405736,critical_gap
+Programmatic Localization,localization,119,0.6,1,402956,critical_gap
+Custom User Management,security,66,0.6,1,113452,critical_gap
+Filtering UI,ui,62,2.4,5,112998|403238|112919|DevExpress.ExpressApp.Win.Editors.WinColumnsListEditor.LookupColumnFilterMode|DevExpress.ExpressApp.Model.IModelListView.Filter,critical_gap
+Logging,ops,61,2.2,4,403394|112576|112575|402149,critical_gap
+Async Operations,patterns,42,0.6,1,DevExpress.ExpressApp.IObjectSpaceAsync,critical_gap
+Scaling Architecture,architecture,39,2.4,4,404436|403277|403362|402148,critical_gap
+[NO CONCEPT] Map control customizations,MISSING,17,0.0,0,,critical_gap

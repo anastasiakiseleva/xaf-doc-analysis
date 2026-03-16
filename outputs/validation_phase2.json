@@ -1,0 +1,51 @@
+{
+  "phase_name": "Build Explicit Graph",
+  "phase_number": 2,
+  "timestamp": "2026-02-14T16:08:44.523335",
+  "passed": true,
+  "has_warnings": false,
+  "has_errors": false,
+  "results": [
+    {
+      "check_name": "Internal edges schema",
+      "passed": true,
+      "message": "All 3 required columns present with correct types",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Unresolved edges schema",
+      "passed": true,
+      "message": "All 5 required columns present with correct types",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Link resolution rate",
+      "passed": true,
+      "message": "Value 91.24 meets threshold >= 0.7",
+      "severity": "info",
+      "details": {
+        "actual_value": 91.24223602484473,
+        "threshold_value": 0.7
+      }
+    },
+    {
+      "check_name": "Self-loop check",
+      "passed": true,
+      "message": "No self-loops found (correctly filtered)",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Minimum connected documents",
+      "passed": true,
+      "message": "Value 5551.00 meets threshold >= 5000",
+      "severity": "info",
+      "details": {
+        "actual_value": 5551,
+        "threshold_value": 5000
+      }
+    }
+  ]
+}

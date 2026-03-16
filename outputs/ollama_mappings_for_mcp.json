@@ -1,0 +1,142 @@
+[
+  {
+    "api_id": "DevExpress.ExpressApp.DynamicCollectionBase.IndexOf",
+    "api_name": "IndexOf",
+    "concept_name": "Inline Editing",
+    "confidence": 0.9,
+    "search_query": "IndexOf class Inline Editing"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.ObjectDeleted",
+    "api_name": "ObjectDeleted",
+    "concept_name": "Actions",
+    "confidence": 0.95,
+    "search_query": "ObjectDeleted class Actions"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafApplication.TablePrefixes",
+    "api_name": "TablePrefixes",
+    "concept_name": "XPO",
+    "confidence": 0.85,
+    "search_query": "TablePrefixes class XPO"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.RemoveFromModifiedObjects",
+    "api_name": "RemoveFromModifiedObjects",
+    "concept_name": "Object Space",
+    "confidence": 0.9,
+    "search_query": "RemoveFromModifiedObjects class Object Space"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.EF.PermissionPolicy.PermissionPolicyUser.StoredPassword",
+    "api_name": "StoredPassword",
+    "concept_name": "Security Strategy",
+    "confidence": 0.95,
+    "search_query": "StoredPassword class Security Strategy"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.GetKeyProperty",
+    "api_name": "GetKeyProperty",
+    "concept_name": "Business Objects",
+    "confidence": 0.95,
+    "search_query": "GetKeyProperty class Business Objects"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.XafDataView.AllowRemove",
+    "api_name": "AllowRemove",
+    "concept_name": "Views",
+    "confidence": 0.9,
+    "search_query": "AllowRemove class Views"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectManipulatingEventArgs",
+    "api_name": "ObjectManipulatingEventArgs",
+    "concept_name": "Object Space",
+    "confidence": 0.9,
+    "search_query": "ObjectManipulatingEventArgs class Object Space"
+  },
+  {
+    "api_id": "DevExpress.XtraPrinting.ExportOptionsBase",
+    "api_name": "ExportOptionsBase",
+    "concept_name": "Reports",
+    "confidence": 0.9,
+    "search_query": "ExportOptionsBase class Reports"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.EF.ReportDataV2.Content",
+    "api_name": "Content",
+    "concept_name": "Reports V2",
+    "confidence": 0.95,
+    "search_query": "Content class Reports V2"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.DynamicCollectionBase._membersaltText",
+    "api_name": "_membersaltText",
+    "concept_name": "Layout",
+    "confidence": 0.95,
+    "search_query": "_membersaltText class Layout"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.MediaDataObject.MediaData",
+    "api_name": "MediaData",
+    "concept_name": "Business Objects",
+    "confidence": 0.95,
+    "search_query": "MediaData class Business Objects"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CompositeObjectSpace.CanApplyCriteria",
+    "api_name": "CanApplyCriteria",
+    "concept_name": "Authorization",
+    "confidence": 0.85,
+    "search_query": "CanApplyCriteria class Authorization"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.GetObjectHandle",
+    "api_name": "GetObjectHandle",
+    "concept_name": "Object Space",
+    "confidence": 0.95,
+    "search_query": "GetObjectHandle class Object Space"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.EF.MediaDataObject.MediaData",
+    "api_name": "MediaData",
+    "concept_name": "Entity Framework Core",
+    "confidence": 0.95,
+    "search_query": "MediaData class Entity Framework Core"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ModuleBase.Version",
+    "api_name": "Version",
+    "concept_name": "XAF Application",
+    "confidence": 0.95,
+    "search_query": "Version class XAF Application"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.MediaDataObject.MediaDataKey",
+    "api_name": "MediaDataKey",
+    "concept_name": "Business Objects",
+    "confidence": 0.9,
+    "search_query": "MediaDataKey class Business Objects"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.DynamicCollectionBase.Insert",
+    "api_name": "Insert",
+    "concept_name": "Inline Editing",
+    "confidence": 0.95,
+    "search_query": "Insert class Inline Editing"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.IsKnown",
+    "api_name": "IsKnown",
+    "concept_name": "Object Space",
+    "confidence": 0.95,
+    "search_query": "IsKnown class Object Space"
+  },
+  {
+    "api_id": "DevExpress.Persistent.BaseImpl.EF.MediaDataObject.MediaResource",
+    "api_name": "MediaResource",
+    "concept_name": "Non-Persistent Objects",
+    "confidence": 0.95,
+    "search_query": "MediaResource class Non-Persistent Objects"
+  }
+]

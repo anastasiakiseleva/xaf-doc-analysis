@@ -1,0 +1,244 @@
+====================================================================================================
+DOCUMENTATION ISSUES - COMPREHENSIVE LISTING
+====================================================================================================
+
+Total Issues: 57
+Generated: C:\xaf-doc-analysis
+
+
+====================================================================================================
+BY ISSUE TYPE
+====================================================================================================
+
+
+InsuffInfo (18 issues)
+----------------------------------------------------------------------------------------------------
+  T1320904     | 2026-02-03 | TreeList - Drag information is not recalculated when the Handled property is set to true
+  T1319820     | 2026-01-21 | Mail Merge - missing crucial XAF Blazor details
+  T1317104     | 2025-12-18 | When is the function "UpdateDatabaseAfterUpdateSchema" invoked
+  T1317092     | 2025-12-18 | Add and Replace Icons | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1315692     | 2025-12-04 | ObjectCaptionFormatAttribute Class - old info was lost
+  T1314402     | 2025-11-21 | Missing one step of the process - Implement a Property Editor Based on a Custom Component (Blazor)
+  T1313595     | 2025-11-13 | Describe why  "unsafe-inline" in CSP is required in XAF Blazor Apps
+  T1313180     | 2025-11-10 | The translation dialog appears in browser, as the language is changed several seconds after app loading
+  T1306647     | 2025-09-08 | Use the Security System - missing essential DbSets
+  T1300308     | 2025-07-17 | Missing info about contradiction between Template Localization and Satellite Assemblies (Localization Service)
+  T1292571     | 2025-05-21 | Action hidden by a Conditional Appearance Rule appears as disabled in List Views
+  T1289742     | 2025-05-01 | Add documentation about how to use xUnit
+  T1289372     | 2025-04-29 | ModificationsCheckingMode  + new item row limitiation
+  T1286784     | 2025-04-10 | FROM PM: Add a note about Visual Studio code style settings, which lead to runtime errors
+  T1285906     | 2025-04-04 | OAuth and Custom Authentication - a crucial aspect is not emphasized
+  T1283433     | 2025-03-20 | [S ] Key Properties - EF Core string key property
+  T1282060     | 2025-03-13 | Implement a Property Editor Based on a Custom Component 
+  T1280134     | 2025-02-28 | Help topic misses links to XPO examples
+
+InvalidInfo (14 issues)
+----------------------------------------------------------------------------------------------------
+  T1320997     | 2026-02-03 | Queryable Mode - invalid and outdated info
+  T1319293     | 2026-01-16 | Incorrect info about Standalone Model Editor in Blazor
+  T1315984     | 2025-12-08 | 'Update Database Schema and Migrations in EF Core' has invalid info about Automatic Updates
+  T1313736     | 2025-11-14 | Incorrect class name for TagBoxListPropertyEditor
+  T1310514     | 2025-10-15 | Obsolete information about CreateDefaultObjectSpaceProvider
+  T1308472     | 2025-09-24 | audit-trail-module-xpo doesn't reflect changes from BC about non-persistent properties
+  T1308267     | 2025-09-23 | Mistake in How to Add an Unbound Control help topic
+  T1306062     | 2025-09-02 | Create a Calculated Property - useless instruction
+  T1305694     | 2025-08-29 | Create a Calculated Property | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1300621     | 2025-07-21 | 'How to Add an Unbound Control' has wrong info
+  T1296694     | 2025-06-20 | ModelValidationRulesNodeGenerator Class | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1285512     | 2025-04-03 | Supply Additional Logon Parameters article doesn't consider Middle-Tier scenario
+  T1282054     | 2025-03-13 | IReportDataSourceHelper.BeforeShowPreview wrong info
+  T1280629     | 2025-03-04 | Outdated info in the "DxGridListEditor Class" help topic
+
+InsuffCode (6 issues)
+----------------------------------------------------------------------------------------------------
+  T1317180     | 2025-12-18 | How to: Perform CRUD Operations with Non-Persistent Objects | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1315302     | 2025-12-01 | Need to rewrite code in the TreeList - Flat data source help topic
+  T1311731     | 2025-10-27 | Custom EasyTest Commands | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1295602     | 2025-06-12 | Soft Deletion (Deferred Object Deletion) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1286688     | 2025-04-09 | FROM PM: Add a Collapse/Expand TreeList Nodes section to the TreeList Editors Module docs
+  T1279094     | 2025-02-24 | [S 3] A missing example of using CustomCreateObjectSpaceProvider 
+
+UnusableFeedback (6 issues)
+----------------------------------------------------------------------------------------------------
+  T1318737     | 2026-01-12 | How to: Choose the Optimal Query Splitting Behavior in Entity Framework Core | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1318183     | 2026-01-06 | XPO Extensions for ASP.NET Core Dependency Injection | XPO (.NET ORM Library) | DevExpress Documentation
+  T1314393     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.
+  T1314388     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.
+  T1309006     | 2025-09-30 | Format a Property Value | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1303785     | 2025-08-12 | View Variants (Switch Document Layouts) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+
+InvalidCode (5 issues)
+----------------------------------------------------------------------------------------------------
+  T1316089     | 2025-12-08 | Incorrect code for the "Type Properties in XPO" help topic
+  T1304752     | 2025-08-21 | How to: Display a List View With Data From a Stored Procedure From the Navigation | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1304108     | 2025-08-14 | Function Criteria Operators contains string that lead to a parse exception
+  T1303625     | 2025-08-11 | Display a Tree List using the ITreeNode Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1282975     | 2025-03-18 | Typo in the code snippet - ExceptionService Class
+
+NewFeatureIssue (3 issues)
+----------------------------------------------------------------------------------------------------
+  T1320766     | 2026-02-01 | Add a New .NET XAF Module to an XAF Application | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1309299     | 2025-10-02 | Readme of the 'sequential generator' example is outdated
+  T1293448     | 2025-05-27 | Describe new XAF0033 warning
+
+HardToUnderstand (2 issues)
+----------------------------------------------------------------------------------------------------
+  T1314301     | 2025-11-20 | Detrimental information - Calculate a Property Value Based on Values from a Detail Collection
+  T1309586     | 2025-10-06 | Improve BlazorControlViewItem help topic
+
+HardToFind (1 issues)
+----------------------------------------------------------------------------------------------------
+  T1303299     | 2025-08-07 | Scehduler configuration docs are difficult to find
+
+NonDocScenario (1 issues)
+----------------------------------------------------------------------------------------------------
+  T1306344     | 2025-09-04 | Unable to use the FieldListMaxExpandLevelOnSearch property in web
+
+PositiveFeedback (1 issues)
+----------------------------------------------------------------------------------------------------
+  T1317879     | 2025-12-30 | You have a new 'GitHub Examples  User Feedback' response.
+
+====================================================================================================
+BY STATUS
+====================================================================================================
+
+
+Closed (38 issues)
+----------------------------------------------------------------------------------------------------
+  T1320997     | 2026-02-03 | Queryable Mode - invalid and outdated info
+  T1319820     | 2026-01-21 | Mail Merge - missing crucial XAF Blazor details
+  T1319293     | 2026-01-16 | Incorrect info about Standalone Model Editor in Blazor
+  T1318737     | 2026-01-12 | How to: Choose the Optimal Query Splitting Behavior in Entity Framework Core | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1318183     | 2026-01-06 | XPO Extensions for ASP.NET Core Dependency Injection | XPO (.NET ORM Library) | DevExpress Documentation
+  T1317879     | 2025-12-30 | You have a new 'GitHub Examples  User Feedback' response.
+  T1317180     | 2025-12-18 | How to: Perform CRUD Operations with Non-Persistent Objects | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1317104     | 2025-12-18 | When is the function "UpdateDatabaseAfterUpdateSchema" invoked
+  T1316089     | 2025-12-08 | Incorrect code for the "Type Properties in XPO" help topic
+  T1315984     | 2025-12-08 | 'Update Database Schema and Migrations in EF Core' has invalid info about Automatic Updates
+  T1315302     | 2025-12-01 | Need to rewrite code in the TreeList - Flat data source help topic
+  T1314393     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.
+  T1314388     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.
+  T1314301     | 2025-11-20 | Detrimental information - Calculate a Property Value Based on Values from a Detail Collection
+  T1313736     | 2025-11-14 | Incorrect class name for TagBoxListPropertyEditor
+  T1310514     | 2025-10-15 | Obsolete information about CreateDefaultObjectSpaceProvider
+  T1309006     | 2025-09-30 | Format a Property Value | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1308472     | 2025-09-24 | audit-trail-module-xpo doesn't reflect changes from BC about non-persistent properties
+  T1308267     | 2025-09-23 | Mistake in How to Add an Unbound Control help topic
+  T1306647     | 2025-09-08 | Use the Security System - missing essential DbSets
+  T1306344     | 2025-09-04 | Unable to use the FieldListMaxExpandLevelOnSearch property in web
+  T1306062     | 2025-09-02 | Create a Calculated Property - useless instruction
+  T1305694     | 2025-08-29 | Create a Calculated Property | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1304752     | 2025-08-21 | How to: Display a List View With Data From a Stored Procedure From the Navigation | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1304108     | 2025-08-14 | Function Criteria Operators contains string that lead to a parse exception
+  T1303785     | 2025-08-12 | View Variants (Switch Document Layouts) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1300621     | 2025-07-21 | 'How to Add an Unbound Control' has wrong info
+  T1296694     | 2025-06-20 | ModelValidationRulesNodeGenerator Class | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1295602     | 2025-06-12 | Soft Deletion (Deferred Object Deletion) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1293448     | 2025-05-27 | Describe new XAF0033 warning
+  T1292571     | 2025-05-21 | Action hidden by a Conditional Appearance Rule appears as disabled in List Views
+  T1289372     | 2025-04-29 | ModificationsCheckingMode  + new item row limitiation
+  T1286688     | 2025-04-09 | FROM PM: Add a Collapse/Expand TreeList Nodes section to the TreeList Editors Module docs
+  T1285512     | 2025-04-03 | Supply Additional Logon Parameters article doesn't consider Middle-Tier scenario
+  T1282975     | 2025-03-18 | Typo in the code snippet - ExceptionService Class
+  T1282054     | 2025-03-13 | IReportDataSourceHelper.BeforeShowPreview wrong info
+  T1280629     | 2025-03-04 | Outdated info in the "DxGridListEditor Class" help topic
+  T1280134     | 2025-02-28 | Help topic misses links to XPO examples
+
+Archived (17 issues)
+----------------------------------------------------------------------------------------------------
+  T1317092     | 2025-12-18 | Add and Replace Icons | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1315692     | 2025-12-04 | ObjectCaptionFormatAttribute Class - old info was lost
+  T1314402     | 2025-11-21 | Missing one step of the process - Implement a Property Editor Based on a Custom Component (Blazor)
+  T1313595     | 2025-11-13 | Describe why  "unsafe-inline" in CSP is required in XAF Blazor Apps
+  T1313180     | 2025-11-10 | The translation dialog appears in browser, as the language is changed several seconds after app loading
+  T1311731     | 2025-10-27 | Custom EasyTest Commands | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1309586     | 2025-10-06 | Improve BlazorControlViewItem help topic
+  T1309299     | 2025-10-02 | Readme of the 'sequential generator' example is outdated
+  T1303625     | 2025-08-11 | Display a Tree List using the ITreeNode Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1303299     | 2025-08-07 | Scehduler configuration docs are difficult to find
+  T1300308     | 2025-07-17 | Missing info about contradiction between Template Localization and Satellite Assemblies (Localization Service)
+  T1289742     | 2025-05-01 | Add documentation about how to use xUnit
+  T1286784     | 2025-04-10 | FROM PM: Add a note about Visual Studio code style settings, which lead to runtime errors
+  T1285906     | 2025-04-04 | OAuth and Custom Authentication - a crucial aspect is not emphasized
+  T1283433     | 2025-03-20 | [S ] Key Properties - EF Core string key property
+  T1282060     | 2025-03-13 | Implement a Property Editor Based on a Custom Component 
+  T1279094     | 2025-02-24 | [S 3] A missing example of using CustomCreateObjectSpaceProvider 
+
+Active (2 issues)
+----------------------------------------------------------------------------------------------------
+  T1320904     | 2026-02-03 | TreeList - Drag information is not recalculated when the Handled property is set to true
+  T1320766     | 2026-02-01 | Add a New .NET XAF Module to an XAF Application | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+
+====================================================================================================
+BY FEEDBACK TYPE
+====================================================================================================
+
+
+Negative (38 issues)
+----------------------------------------------------------------------------------------------------
+  T1320997     | 2026-02-03 | Queryable Mode - invalid and outdated info
+  T1320904     | 2026-02-03 | TreeList - Drag information is not recalculated when the Handled property is set to true
+  T1320766     | 2026-02-01 | Add a New .NET XAF Module to an XAF Application | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1319820     | 2026-01-21 | Mail Merge - missing crucial XAF Blazor details
+  T1319293     | 2026-01-16 | Incorrect info about Standalone Model Editor in Blazor
+  T1318183     | 2026-01-06 | XPO Extensions for ASP.NET Core Dependency Injection | XPO (.NET ORM Library) | DevExpress Documentation
+  T1317104     | 2025-12-18 | When is the function "UpdateDatabaseAfterUpdateSchema" invoked
+  T1316089     | 2025-12-08 | Incorrect code for the "Type Properties in XPO" help topic
+  T1315984     | 2025-12-08 | 'Update Database Schema and Migrations in EF Core' has invalid info about Automatic Updates
+  T1315692     | 2025-12-04 | ObjectCaptionFormatAttribute Class - old info was lost
+  T1315302     | 2025-12-01 | Need to rewrite code in the TreeList - Flat data source help topic
+  T1314402     | 2025-11-21 | Missing one step of the process - Implement a Property Editor Based on a Custom Component (Blazor)
+  T1314393     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.
+  T1314301     | 2025-11-20 | Detrimental information - Calculate a Property Value Based on Values from a Detail Collection
+  T1313736     | 2025-11-14 | Incorrect class name for TagBoxListPropertyEditor
+  T1313595     | 2025-11-13 | Describe why  "unsafe-inline" in CSP is required in XAF Blazor Apps
+  T1313180     | 2025-11-10 | The translation dialog appears in browser, as the language is changed several seconds after app loading
+  T1311731     | 2025-10-27 | Custom EasyTest Commands | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1310514     | 2025-10-15 | Obsolete information about CreateDefaultObjectSpaceProvider
+  T1309586     | 2025-10-06 | Improve BlazorControlViewItem help topic
+  T1309299     | 2025-10-02 | Readme of the 'sequential generator' example is outdated
+  T1308472     | 2025-09-24 | audit-trail-module-xpo doesn't reflect changes from BC about non-persistent properties
+  T1308267     | 2025-09-23 | Mistake in How to Add an Unbound Control help topic
+  T1306647     | 2025-09-08 | Use the Security System - missing essential DbSets
+  T1306344     | 2025-09-04 | Unable to use the FieldListMaxExpandLevelOnSearch property in web
+  T1306062     | 2025-09-02 | Create a Calculated Property - useless instruction
+  T1304108     | 2025-08-14 | Function Criteria Operators contains string that lead to a parse exception
+  T1303299     | 2025-08-07 | Scehduler configuration docs are difficult to find
+  T1300621     | 2025-07-21 | 'How to Add an Unbound Control' has wrong info
+  T1300308     | 2025-07-17 | Missing info about contradiction between Template Localization and Satellite Assemblies (Localization Service)
+  T1293448     | 2025-05-27 | Describe new XAF0033 warning
+  T1292571     | 2025-05-21 | Action hidden by a Conditional Appearance Rule appears as disabled in List Views
+  T1289742     | 2025-05-01 | Add documentation about how to use xUnit
+  T1289372     | 2025-04-29 | ModificationsCheckingMode  + new item row limitiation
+  T1286784     | 2025-04-10 | FROM PM: Add a note about Visual Studio code style settings, which lead to runtime errors
+  T1286688     | 2025-04-09 | FROM PM: Add a Collapse/Expand TreeList Nodes section to the TreeList Editors Module docs
+  T1285906     | 2025-04-04 | OAuth and Custom Authentication - a crucial aspect is not emphasized
+  T1285512     | 2025-04-03 | Supply Additional Logon Parameters article doesn't consider Middle-Tier scenario
+
+PositiveWithConcerns (10 issues)
+----------------------------------------------------------------------------------------------------
+  T1318737     | 2026-01-12 | How to: Choose the Optimal Query Splitting Behavior in Entity Framework Core | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1317180     | 2025-12-18 | How to: Perform CRUD Operations with Non-Persistent Objects | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1317092     | 2025-12-18 | Add and Replace Icons | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1309006     | 2025-09-30 | Format a Property Value | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1305694     | 2025-08-29 | Create a Calculated Property | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1304752     | 2025-08-21 | How to: Display a List View With Data From a Stored Procedure From the Navigation | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1303785     | 2025-08-12 | View Variants (Switch Document Layouts) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1303625     | 2025-08-11 | Display a Tree List using the ITreeNode Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1296694     | 2025-06-20 | ModelValidationRulesNodeGenerator Class | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+  T1295602     | 2025-06-12 | Soft Deletion (Deferred Object Deletion) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation
+
+[Not Set] (7 issues)
+----------------------------------------------------------------------------------------------------
+  T1283433     | 2025-03-20 | [S ] Key Properties - EF Core string key property
+  T1282975     | 2025-03-18 | Typo in the code snippet - ExceptionService Class
+  T1282060     | 2025-03-13 | Implement a Property Editor Based on a Custom Component 
+  T1282054     | 2025-03-13 | IReportDataSourceHelper.BeforeShowPreview wrong info
+  T1280629     | 2025-03-04 | Outdated info in the "DxGridListEditor Class" help topic
+  T1280134     | 2025-02-28 | Help topic misses links to XPO examples
+  T1279094     | 2025-02-24 | [S 3] A missing example of using CustomCreateObjectSpaceProvider 
+
+Positive (2 issues)
+----------------------------------------------------------------------------------------------------
+  T1317879     | 2025-12-30 | You have a new 'GitHub Examples  User Feedback' response.
+  T1314388     | 2025-11-21 | You have a new 'GitHub Examples  User Feedback' response.

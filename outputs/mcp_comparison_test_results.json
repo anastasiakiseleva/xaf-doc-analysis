@@ -1,0 +1,50 @@
+{
+  "test_results": {
+    "concept_coverage": {
+      "success": true,
+      "total_sections": 413,
+      "conceptual_sections": 283,
+      "api_sections": 130,
+      "platforms": [
+        "Blazor UI",
+        "Web API Service",
+        "WinForms"
+      ],
+      "avg_connections": 27.13,
+      "isolated": 0
+    },
+    "gap_detection": {
+      "success": true,
+      "total_analyzed": 6,
+      "gaps_found": 4,
+      "gap_types": [
+        "missing_api_tagging",
+        "semantic_gap",
+        "semantic_gap",
+        "semantic_gap"
+      ]
+    },
+    "ticket_priorities": {
+      "success": true,
+      "total_concepts": 5,
+      "avg_ticket_count": 644
+    },
+    "cross_linking": {
+      "success": true,
+      "total_recommendations": 5
+    },
+    "api_concept_mapping": {
+      "success": true,
+      "total_mappings": 23573,
+      "unique_apis": 5375,
+      "unique_concepts": 154
+    },
+    "semantic_graph": {
+      "success": true,
+      "total_connections": 96872,
+      "unique_sources": "N/A"
+    }
+  },
+  "is_viable": true,
+  "unique_capabilities_count": 6
+}

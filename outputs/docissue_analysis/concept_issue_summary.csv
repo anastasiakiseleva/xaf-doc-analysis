@@ -1,0 +1,143 @@
+concept,total_issues,active,closed,archived,invalid_info,insuff_info,missing_info,new_feature,negative_feedback,positive_feedback
+Business Logic,42,1,30,11,12,11,0,2,27,1
+XPO,36,1,27,8,10,9,0,3,22,1
+Model Extension,36,1,24,11,5,10,0,3,22,1
+Entity Framework Core,35,1,26,8,9,9,0,3,21,1
+Object Space Provider,34,1,25,8,9,8,0,1,19,1
+Collection Property,34,1,23,10,7,11,0,1,21,2
+Reference Property,34,1,23,10,7,11,0,1,21,2
+Property Metadata,34,1,23,10,8,11,0,1,22,2
+Business Object,33,1,23,9,9,7,0,3,19,1
+Views,33,1,23,9,8,6,0,2,21,2
+Calculated Property,33,1,22,10,7,11,0,1,21,2
+Blazor,32,1,21,10,7,9,0,2,20,0
+Non-persistent Object,30,1,20,9,8,8,0,1,17,1
+Object Relationships,30,0,22,8,8,9,0,0,17,0
+Business Object Lifecycle,30,0,22,8,8,9,0,0,17,0
+Web API Service,29,1,21,7,6,8,0,1,18,1
+View Types,28,0,21,7,8,5,0,1,18,2
+Criteria,27,0,20,7,6,6,0,0,16,1
+Database Connection,26,0,18,8,7,6,0,1,16,1
+Custom Criteria Functions,26,0,18,8,6,7,0,0,17,0
+Spreadsheet Control,26,0,18,8,8,7,0,0,18,0
+WinForms,25,2,16,7,7,6,0,1,15,0
+Built-in Criteria Operators,25,0,18,7,6,6,0,0,16,0
+Filtering UI,25,0,18,7,6,6,0,0,16,0
+Clone Object,25,0,18,7,6,7,0,0,15,1
+Application Model,23,0,16,7,6,6,0,1,15,1
+List Editors,23,1,17,5,4,5,0,1,14,1
+XAF Application,23,1,13,9,3,8,0,1,16,0
+Database Update,23,0,17,6,6,7,0,0,14,1
+View Variants,23,1,17,5,5,5,0,3,16,1
+Direct SQL,22,0,15,7,6,7,0,0,14,0
+Auto-Increment Fields,22,0,15,7,6,6,0,1,14,0
+List View,22,0,18,4,8,4,0,1,12,2
+Validation,22,0,16,6,7,6,0,0,13,0
+Multiple Databases,21,0,15,6,6,6,0,0,13,0
+Optimistic Locking,21,0,15,6,6,6,0,0,13,0
+View Items,21,0,16,5,6,5,0,1,14,2
+PivotGrid,21,0,15,6,6,6,0,0,13,0
+Detail View,20,0,16,4,7,4,0,1,13,1
+Lookup View,20,0,14,6,6,5,0,1,14,1
+Action Container View Items,19,0,14,5,5,5,0,1,13,2
+Lookup Property Editors,19,0,13,6,6,4,0,0,12,1
+Controller Customization,19,2,13,4,4,6,0,1,14,2
+Property Editors,18,0,12,6,5,5,0,0,13,0
+Static View Items,18,0,14,4,5,4,0,1,13,2
+Dashboard View Items,18,0,14,4,5,4,0,1,13,2
+Layout Generation,18,0,14,4,5,4,0,1,12,1
+Layout Runtime Customization,18,0,14,4,5,4,0,1,12,1
+Tabbed MDI Interface,18,1,10,7,6,6,0,0,12,0
+Threading Issues,18,1,13,4,3,7,0,0,14,1
+Layout,17,0,14,3,5,3,0,1,11,1
+List View Data Access Modes,17,0,14,3,6,3,0,1,11,1
+Dashboard View,17,0,13,4,6,4,0,1,12,1
+View Customization,16,0,12,4,5,4,0,1,12,1
+Nested Views,16,0,13,3,6,3,0,1,12,1
+View Lifecycle,16,0,13,3,5,3,0,1,12,1
+Controller Types,16,1,10,5,3,6,0,0,11,1
+Object View Controllers,16,1,12,3,4,4,0,0,8,1
+Master-Detail Views,15,0,12,3,5,3,0,1,11,1
+Popup Windows,15,0,12,3,5,3,0,1,11,1
+Collection Property Editors,15,0,12,3,5,2,0,0,10,0
+Office Module,15,0,11,4,5,4,0,0,9,0
+Tenant,15,1,12,2,3,5,0,0,12,1
+Security System,14,0,10,4,3,4,0,0,11,0
+Authentication,13,0,10,3,3,4,0,0,10,0
+Standard Property Editors,12,0,9,3,4,3,0,0,8,0
+Specialized Property Editors,12,0,9,3,4,3,0,0,8,0
+Property Editor Customization,12,0,7,5,3,4,0,0,8,0
+Controller Activation,12,1,8,3,1,2,0,1,7,2
+List View Controllers,12,1,9,2,1,6,0,0,7,1
+Tree List,11,1,9,1,3,1,0,0,8,0
+Property Editor Types,11,0,8,3,4,2,0,0,7,0
+Property Editor Features,11,0,8,3,4,2,0,0,6,0
+Target Properties,11,1,7,3,1,2,0,1,6,2
+Authorization,11,0,8,3,2,3,0,0,8,1
+View Controller,10,1,7,2,2,3,0,0,6,1
+Generic View Controllers,10,1,7,2,2,3,0,0,6,1
+CRUD Controllers,10,1,8,1,0,6,0,0,7,1
+Middle Tier,10,0,8,2,2,4,0,0,9,0
+Custom User Management,10,0,7,3,2,4,0,0,9,0
+Permission Policies,10,0,8,2,2,3,0,0,8,1
+Audit Trail,10,0,8,2,3,3,0,0,9,0
+Controllers and Actions,10,0,5,5,1,4,0,0,6,0
+.NET Runtime,9,1,5,3,3,2,0,1,5,0
+Window Controller,9,1,6,2,2,3,0,0,5,1
+Dialog Controller,9,1,6,2,2,3,0,0,5,1
+Built-in Controllers,9,1,7,1,0,5,0,0,6,1
+Conditional Appearance,9,1,7,1,1,2,0,0,4,1
+Model Cache,9,0,6,3,1,1,0,1,5,1
+Action Types,9,0,4,5,2,4,0,0,6,0
+Simple Action,9,0,4,5,2,4,0,0,6,0
+Security Strategy,9,0,7,2,2,3,0,0,8,0
+Model Nodes,8,0,4,4,1,1,0,1,5,1
+Model Differences,8,0,5,3,1,1,0,1,4,1
+State Machine,7,1,6,0,0,2,0,0,4,1
+Reports,7,1,5,1,3,1,0,1,6,0
+Actions,7,0,3,4,0,4,0,0,4,0
+Model Editor,7,0,4,3,1,0,0,1,3,1
+Parametrized Action,7,0,3,4,2,2,0,0,5,0
+Popup Window Show Action,7,0,3,4,2,2,0,0,5,0
+Single Choice Action,7,0,3,4,2,2,0,0,5,0
+Report Parameters,7,0,4,3,3,2,0,0,5,0
+Controller Lifecycle,6,1,5,0,0,2,0,0,4,1
+Mail Merge,6,0,4,2,2,3,0,0,5,0
+ApplicationBuilder,6,0,3,3,1,0,0,1,3,1
+Built-in Actions,6,0,3,3,0,4,0,0,6,0
+Performance Optimization,5,0,5,0,1,1,0,0,4,0
+Legacy .NET Framework,5,1,3,1,1,3,0,1,5,0
+Navigation,5,0,4,1,1,0,0,0,1,0
+Action Containers,5,0,2,3,0,2,0,0,3,0
+Windows,5,0,3,2,0,2,0,0,2,0
+Testing,5,0,1,4,0,1,0,1,3,0
+Tree Node Interface,4,0,3,1,1,0,0,0,3,0
+Modules,4,1,1,2,1,1,0,1,3,0
+Memory Management,4,0,4,0,0,1,0,0,2,0
+Action State Management,4,0,2,2,0,1,0,0,3,0
+Diagnostic Tools,4,0,2,2,0,1,0,1,3,0
+Action Customization,4,0,0,4,0,3,0,0,3,0
+File Attachments,3,0,3,0,1,2,0,0,2,0
+Async Operations,3,0,3,0,0,1,0,0,2,0
+Scaling Architecture,3,0,3,0,0,1,0,0,2,0
+Inline Editing,3,0,3,0,2,0,0,0,1,0
+Accordion Control,3,0,2,1,0,1,0,0,1,0
+Logging,3,0,2,1,0,1,0,1,2,0
+Custom Validation Rules,3,0,1,2,1,2,0,0,1,0
+Programmatic Localization,3,0,0,3,0,3,0,0,3,0
+Context Menus,3,0,1,2,1,1,0,0,3,0
+Reports V2,3,0,2,1,2,1,0,0,2,0
+Scheduler,3,0,2,1,0,0,0,0,2,0
+Recurring Events,3,0,2,1,0,0,0,0,2,0
+Error Styling,2,0,1,1,1,1,0,0,0,0
+Application Templates,2,0,0,2,0,2,0,0,2,0
+Demo Applications,2,0,1,1,1,0,0,0,1,0
+Migration,1,1,0,0,0,0,0,1,1,0
+Project Wizards,1,1,0,0,0,0,0,1,1,0
+Dependency Injection,1,0,1,0,0,0,0,0,1,0
+Deployment,1,0,1,0,0,1,0,0,1,0
+Frames,1,0,0,1,0,1,0,0,1,0
+Theming,1,0,0,1,0,1,0,0,1,0
+Template Kit,1,0,1,0,1,0,0,0,1,0
+Dashboards,1,0,1,0,0,0,0,0,1,0
+Notifications,1,0,1,0,0,0,0,0,1,0

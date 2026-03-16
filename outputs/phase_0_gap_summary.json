@@ -1,0 +1,14 @@
+{
+  "analysis_date": "2026-02-15T19:47:57.032749",
+  "total_tickets": 57,
+  "fixed_tickets_excluded": 31,
+  "unfixed_tickets_analyzed": 26,
+  "gap_distribution": {
+    "Quality Gap": 23,
+    "True Gap": 2,
+    "Discoverability Gap": 1
+  },
+  "unique_doc_urls_affected": 28,
+  "unique_customer_tickets_referenced": 92,
+  "recommendation": "PROCEED with ontology implementation"
+}

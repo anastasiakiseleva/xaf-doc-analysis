@@ -1,0 +1,24 @@
+{
+  "captured_date": "2026-02-11T16:02:26.546126",
+  "total_sections": 11082,
+  "kept_sections": 10543,
+  "isolated_sections": {
+    "count": 539,
+    "percentage": 4.86
+  },
+  "cross_corpus_links": {
+    "count": 19911,
+    "percentage": 20.43
+  },
+  "concepts_with_gaps": 6,
+  "targets": {
+    "isolated_sections": "< 550 (< 5%)",
+    "cross_corpus_links": "20,000+ (21%+)",
+    "concepts_with_gaps": "\u2264 4"
+  },
+  "interpretation": {
+    "isolated_sections": "Sections with no semantic connections - may need better tagging or are truly standalone",
+    "cross_corpus_links": "Bridges between tutorials and API docs - critical for discoverability",
+    "concepts_with_gaps": "Core XAF concepts lacking proper documentation coverage"
+  }
+}

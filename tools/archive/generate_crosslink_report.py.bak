@@ -1,0 +1,276 @@
+#!/usr/bin/env python3
+"""
+Generate cross-linking recommendations report.
+
+Finds conceptual documentation that would benefit from API cross-links.
+For each document, shows:
+- UID for identification
+- What concepts are discussed
+- Which APIs implement those concepts
+- How many potential cross-links could be added
+
+Output: Human-readable report of top 50 documents needing API links
+"""
+
+import pandas as pd
+from pathlib import Path
+
+
+def load_data():
+    """Load all necessary data files"""
+    print("Loading data...")
+    
+    topics = pd.read_parquet('outputs/topics_inventory.parquet')
+    doc_concepts = pd.read_parquet('outputs/doc_concepts.parquet')
+    api_implements = pd.read_parquet('outputs/api_implements_concept.parquet')
+    api_entities = pd.read_parquet('outputs/api_entities.parquet')
+    
+    # Try to load document metadata if it exists
+    try:
+        doc_metadata = pd.read_parquet('outputs/document_metadata.parquet')
+    except:
+        doc_metadata = None
+    
+    print(f"  Topics: {len(topics)}")
+    print(f"  Doc concepts: {len(doc_concepts)}")
+    print(f"  API mappings: {len(api_implements)}")
+    print(f"  API entities: {len(api_entities)}")
+    
+    return topics, doc_concepts, api_implements, api_entities, doc_metadata
+
+
+def find_cross_linking_opportunities(topics, doc_concepts, api_implements, api_entities):
+    """
+    Find documents that discuss concepts but lack API cross-links.
+    
+    Strategy:
+    1. Filter to conceptual documents (not API reference)
+    2. Find what concepts each document discusses
+    3. Find which APIs implement those concepts
+    4. Calculate opportunity score based on:
+       - Number of implementable APIs
+       - Confidence of mappings
+       - Whether document is isolated or well-connected
+    """
+    print("\nAnalyzing cross-linking opportunities...")
+    
+    # Get conceptual sections (not API reference)
+    conceptual_sections = doc_concepts[
+        (doc_concepts['is_api'] == False) & 
+        (doc_concepts['kept'] == True)
+    ].copy()
+    
+    print(f"  Analyzing {len(conceptual_sections)} conceptual sections")
+    
+    # Group by document to get document-level analysis
+    doc_opportunities = []
+    
+    for doc_id, sections in conceptual_sections.groupby('doc_id'):
+        # Get all concepts discussed in this document
+        all_concepts = []
+        for concepts in sections['concepts']:
+            if concepts is None or (isinstance(concepts, float) and pd.isna(concepts)):
+                continue
+            elif isinstance(concepts, list):
+                all_concepts.extend(concepts)
+            else:
+                all_concepts.extend(list(concepts))
+        
+        unique_concepts = list(set(all_concepts))
+        
+        if not unique_concepts:
+            continue
+        
+        # Find APIs that implement these concepts
+        relevant_apis = api_implements[
+            api_implements['concept_name'].isin(unique_concepts)
+        ].copy()
+        
+        if len(relevant_apis) == 0:
+            continue
+        
+        # Group APIs by concept for reporting
+        apis_by_concept = {}
+        for concept in unique_concepts:
+            concept_apis = relevant_apis[relevant_apis['concept_name'] == concept]
+            
+            # Get top APIs by confidence
+            top_apis = (
+                concept_apis
+                .merge(api_entities[['api_id', 'api_name', 'api_type', 'namespace']], on='api_id', how='left')
+                .nlargest(10, 'confidence')
+            )
+            
+            # Filter out rows with NaN api_name
+            top_apis = top_apis[top_apis['api_name'].notna()]
+            
+            apis_by_concept[concept] = top_apis[['api_id', 'api_name', 'api_type', 'namespace', 'confidence']].to_dict('records')
+        
+        # Get document metadata
+        doc_row = topics[topics['doc_id'] == doc_id]
+        if doc_row.empty:
+            continue
+        
+        doc_row = doc_row.iloc[0]
+        
+        # Calculate opportunity score
+        num_potential_apis = len(relevant_apis)
+        avg_confidence = relevant_apis['confidence'].mean()
+        num_concepts = len(unique_concepts)
+        
+        # Higher score = more important to add cross-links
+        opportunity_score = num_potential_apis * avg_confidence * (1 + num_concepts * 0.1)
+        
+        doc_opportunities.append({
+            'doc_id': doc_id,
+            'uid': doc_row['uid'],
+            'title': doc_row['title'],
+            'path': doc_row['path'],
+            'word_count': doc_row.get('word_count', 0),
+            'concepts': unique_concepts,
+            'num_concepts': num_concepts,
+            'num_potential_apis': num_potential_apis,
+            'avg_api_confidence': avg_confidence,
+            'opportunity_score': opportunity_score,
+            'apis_by_concept': apis_by_concept
+        })
+    
+    print(f"  Found {len(doc_opportunities)} documents with API linking opportunities")
+    
+    return pd.DataFrame(doc_opportunities)
+
+
+def generate_report(opportunities_df, top_n=50):
+    """Generate human-readable report"""
+    
+    # Sort by opportunity score
+    top_opportunities = opportunities_df.nlargest(top_n, 'opportunity_score')
+    
+    report = []
+    report.append("="*100)
+    report.append("CROSS-LINKING RECOMMENDATIONS: TOP 50 CONCEPTUAL DOCUMENTS NEEDING API LINKS")
+    report.append("="*100)
+    report.append("")
+    report.append(f"Analysis Date: {pd.Timestamp.now().strftime('%Y-%m-%d')}")
+    report.append(f"Documents Analyzed: {len(opportunities_df)}")
+    report.append(f"Showing: Top {len(top_opportunities)} opportunities")
+    report.append("")
+    report.append("HOW TO USE THIS REPORT:")
+    report.append("  1. Identify document by UID")
+    report.append("  2. Add cross-links to the suggested APIs in the 'Recommended APIs' section")
+    report.append("  3. Focus on high-confidence APIs (>0.8) first")
+    report.append("  4. Prioritize top-ranked documents for maximum impact")
+    report.append("")
+    report.append("="*100)
+    report.append("")
+    
+    for rank, (idx, row) in enumerate(top_opportunities.iterrows(), 1):
+        report.append("-"*100)
+        report.append(f"RANK #{rank}")
+        report.append(f"UID: {row['uid']}")
+        report.append(f"Title: {row['title']}")
+        report.append(f"Path: {row['path']}")
+        report.append(f"Word Count: {row['word_count']}")
+        report.append("")
+        report.append(f"OPPORTUNITY SCORE: {row['opportunity_score']:.1f}")
+        report.append(f"  • Discusses {row['num_concepts']} concept(s)")
+        report.append(f"  • Could link to {row['num_potential_apis']} API(s)")
+        report.append(f"  • Average API confidence: {row['avg_api_confidence']:.2f}")
+        report.append("")
+        
+        report.append("CONCEPTS DISCUSSED:")
+        for concept in row['concepts']:
+            report.append(f"  • {concept}")
+        report.append("")
+        
+        report.append("RECOMMENDED API CROSS-LINKS:")
+        apis_by_concept = row['apis_by_concept']
+        
+        for concept, apis in apis_by_concept.items():
+            if not apis:
+                continue
+            
+            report.append(f"  [{concept}]")
+            
+            # Show top 5 APIs per concept
+            for api in apis[:5]:
+                confidence_marker = "⭐⭐⭐" if api['confidence'] >= 0.9 else "⭐⭐" if api['confidence'] >= 0.7 else "⭐"
+                # Show namespace to help identify the API
+                namespace_short = api.get('namespace', '').split('.')[-2:] if api.get('namespace') else ''
+                ns_display = '.'.join(namespace_short) if isinstance(namespace_short, list) and namespace_short else ''
+                if ns_display:
+                    report.append(f"    • {api['api_name']} ({api['api_type']}) - {ns_display} {confidence_marker} conf: {api['confidence']:.2f}")
+                else:
+                    report.append(f"    • {api['api_name']} ({api['api_type']}) {confidence_marker} confidence: {api['confidence']:.2f}")
+            
+            if len(apis) > 5:
+                report.append(f"    ... and {len(apis) - 5} more APIs")
+            
+            report.append("")
+        
+        report.append("")
+    
+    report.append("="*100)
+    report.append("LEGEND:")
+    report.append("  ⭐⭐⭐ = High confidence (0.9+) - Strongly recommended")
+    report.append("  ⭐⭐   = Medium confidence (0.7+) - Recommended")
+    report.append("  ⭐     = Lower confidence (0.6+) - Consider if relevant")
+    report.append("")
+    report.append("OPPORTUNITY SCORE CALCULATION:")
+    report.append("  Score = (# potential APIs) × (avg confidence) × (1 + # concepts × 0.1)")
+    report.append("  Higher score = more important to add cross-links")
+    report.append("="*100)
+    
+    return "\n".join(report)
+
+
+def main():
+    # Load data
+    topics, doc_concepts, api_implements, api_entities, doc_metadata = load_data()
+    
+    # Find opportunities
+    opportunities = find_cross_linking_opportunities(
+        topics, doc_concepts, api_implements, api_entities
+    )
+    
+    # Generate report
+    report = generate_report(opportunities, top_n=50)
+    
+    # Save report
+    output_path = 'outputs/cross_linking_recommendations.txt'
+    print(f"\nSaving report to {output_path}...")
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(report)
+    
+    # Also save data as CSV for filtering/sorting
+    csv_path = 'outputs/cross_linking_recommendations.csv'
+    print(f"Saving data to {csv_path}...")
+    
+    # Flatten for CSV export
+    csv_data = opportunities[['uid', 'title', 'path', 'word_count', 'num_concepts', 
+                               'num_potential_apis', 'avg_api_confidence', 'opportunity_score']].copy()
+    csv_data['concepts'] = opportunities['concepts'].apply(lambda x: ', '.join(x[:5]))
+    csv_data = csv_data.sort_values('opportunity_score', ascending=False)
+    csv_data.to_csv(csv_path, index=False)
+    
+    # Print summary
+    print("\n" + "="*100)
+    print("SUMMARY STATISTICS")
+    print("="*100)
+    print(f"Total documents analyzed: {len(opportunities)}")
+    print(f"Total potential API links: {opportunities['num_potential_apis'].sum():,}")
+    print(f"Average APIs per document: {opportunities['num_potential_apis'].mean():.1f}")
+    print(f"Top document can link to: {opportunities['num_potential_apis'].max()} APIs")
+    print("")
+    print(f"✅ Report saved to: {output_path}")
+    print(f"✅ CSV data saved to: {csv_path}")
+    print("")
+    print("💡 Next steps:")
+    print("   1. Review the top 10 documents in the report")
+    print("   2. Add API cross-links to those documents")
+    print("   3. Focus on ⭐⭐⭐ high-confidence APIs first")
+    print("   4. Track ticket reduction for those topics")
+
+
+if __name__ == '__main__':
+    main()

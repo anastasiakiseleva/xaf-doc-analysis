@@ -1,0 +1,98 @@
+{
+  "priorities": [
+    {
+      "phase": "Phase 1: Metadata Tagging",
+      "time_estimate": "2-4 hours",
+      "impact_tickets": 8129,
+      "impact_pct": "55.1%",
+      "recommendation": "Tag sections with Concept + Platform + Content Type. HIGH ROI for API search tickets.",
+      "priority": "CRITICAL"
+    },
+    {
+      "phase": "Phase 2: API Entities",
+      "time_estimate": "8-12 hours",
+      "impact_tickets": 7975,
+      "impact_pct": "54.0%",
+      "recommendation": "Extract API entities from docs. Enable \"find API for [concept]\" queries.",
+      "priority": "HIGH"
+    },
+    {
+      "phase": "Phase 3: Cross-Corpus Bridges",
+      "time_estimate": "2-3 hours",
+      "impact_tickets": 0,
+      "impact_pct": "0.0%",
+      "recommendation": "Connect concept docs to implementing APIs. Reduce \"how do I use X\" tickets.",
+      "priority": "MEDIUM"
+    },
+    {
+      "phase": "Phase 4: Gap Detection",
+      "time_estimate": "4-6 hours",
+      "impact_tickets": 263,
+      "impact_pct": "1.8%",
+      "recommendation": "Automate gap detection. Prevent future tickets by finding missing content.",
+      "priority": "MEDIUM"
+    }
+  ],
+  "total_tickets": 14764,
+  "ticket_categories": {
+    "api_search": 7975,
+    "customization": 0,
+    "setup": 263,
+    "performance": 408,
+    "integration": 283,
+    "concepts": 5681,
+    "platform_specific": 154
+  },
+  "top_10_concepts": [
+    {
+      "concept": "View Items",
+      "tickets": 1634,
+      "features": 2
+    },
+    {
+      "concept": "List Editors",
+      "tickets": 601,
+      "features": 2
+    },
+    {
+      "concept": "Views",
+      "tickets": 485,
+      "features": 1
+    },
+    {
+      "concept": "Authorization",
+      "tickets": 474,
+      "features": 2
+    },
+    {
+      "concept": "Application Model",
+      "tickets": 413,
+      "features": 3
+    },
+    {
+      "concept": "Performance Optimization",
+      "tickets": 411,
+      "features": 2
+    },
+    {
+      "concept": "Non-Persistent Objects",
+      "tickets": 407,
+      "features": 2
+    },
+    {
+      "concept": "View Lifecycle",
+      "tickets": 406,
+      "features": 1
+    },
+    {
+      "concept": "Layout",
+      "tickets": 377,
+      "features": 2
+    },
+    {
+      "concept": "Lookup Property Editors",
+      "tickets": 368,
+      "features": 1
+    }
+  ]
+}

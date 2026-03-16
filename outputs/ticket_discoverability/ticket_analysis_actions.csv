@@ -1,0 +1,21 @@
+rank,concept,tickets,pct_of_total,feature_categories
+1,View Items,1634,11.1%,2
+2,List Editors,601,4.1%,2
+3,Views,485,3.3%,1
+4,Authorization,474,3.2%,2
+5,Application Model,413,2.8%,3
+6,Performance Optimization,411,2.8%,2
+7,Non-Persistent Objects,407,2.8%,2
+8,View Lifecycle,406,2.7%,1
+9,Layout,377,2.6%,2
+10,Lookup Property Editors,368,2.5%,1
+11,.NET Runtime,345,2.3%,2
+12,Property Metadata,329,2.2%,2
+13,Specialized Property Editors,318,2.2%,4
+14,XPO,312,2.1%,5
+15,Entity Framework Core,303,2.1%,1
+16,Reports,298,2.0%,4
+17,Action Types,286,1.9%,1
+18,Built-in Controllers,276,1.9%,1
+19,Authentication,244,1.7%,1
+20,Built-in Criteria Operators,216,1.5%,1

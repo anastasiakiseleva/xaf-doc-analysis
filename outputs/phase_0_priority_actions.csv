@@ -1,0 +1,27 @@
+ticket_id,title,gap_category,status,num_related_tickets,num_doc_urls
+T1318183,XPO Extensions for ASP.NET Core Dependency Injection | XPO (.NET ORM Library) | DevExpress Documentation,Quality Gap,Closed,12,1
+T1317092,Add and Replace Icons | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Archived,10,2
+T1309006,Format a Property Value | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Closed,10,1
+T1311731,Custom EasyTest Commands | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Archived,10,1
+T1303625,Display a Tree List using the ITreeNode Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Archived,9,2
+T1303785,View Variants (Switch Document Layouts) | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Closed,9,1
+T1320766,Add a New .NET XAF Module to an XAF Application | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,True Gap,Active,7,1
+T1318737,How to: Choose the Optimal Query Splitting Behavior in Entity Framework Core | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation,Quality Gap,Closed,6,1
+T1314402,Missing one step of the process - Implement a Property Editor Based on a Custom Component (Blazor),Quality Gap,Archived,4,0
+T1320904,TreeList - Drag information is not recalculated when the Handled property is set to true,Quality Gap,Active,2,1
+T1283433,[S ] Key Properties - EF Core string key property,Quality Gap,Archived,2,1
+T1285906,OAuth and Custom Authentication - a crucial aspect is not emphasized,Quality Gap,Archived,1,1
+T1313595,"Describe why  ""unsafe-inline"" in CSP is required in XAF Blazor Apps",Quality Gap,Archived,1,1
+T1315692,ObjectCaptionFormatAttribute Class - old info was lost,Quality Gap,Archived,1,3
+T1286784,"FROM PM: Add a note about Visual Studio code style settings, which lead to runtime errors",Quality Gap,Archived,1,4
+T1313180,"The translation dialog appears in browser, as the language is changed several seconds after app loading",Quality Gap,Archived,1,1
+T1303299,Scehduler configuration docs are difficult to find,Discoverability Gap,Archived,1,1
+T1309299,Readme of the 'sequential generator' example is outdated,True Gap,Archived,1,0
+T1282060,Implement a Property Editor Based on a Custom Component ,Quality Gap,Archived,1,0
+T1279094,[S 3] A missing example of using CustomCreateObjectSpaceProvider ,Quality Gap,Archived,1,0
+T1289742,Add documentation about how to use xUnit,Quality Gap,Archived,1,0
+T1300308,Missing info about contradiction between Template Localization and Satellite Assemblies (Localization Service),Quality Gap,Archived,1,3
+T1314388,You have a new 'GitHub Examples  User Feedback' response.,Quality Gap,Closed,0,0
+T1314393,You have a new 'GitHub Examples  User Feedback' response.,Quality Gap,Closed,0,0
+T1306062,Create a Calculated Property - useless instruction,Quality Gap,Closed,0,0
+T1309586,Improve BlazorControlViewItem help topic,Quality Gap,Archived,0,2

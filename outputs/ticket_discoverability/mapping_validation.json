@@ -1,0 +1,601 @@
+{
+  "timestamp": "2026-02-13T19:24:29.161809",
+  "validated_mappings": [
+    {
+      "ticket_category": "Custom View Items & Editors",
+      "ticket_count": 869,
+      "current_concept": "View Items",
+      "expected_concepts": [
+        "View Items",
+        "Property Editors",
+        "Detail View"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "custom view components",
+        "view item customization",
+        "detail view controls",
+        "custom editors in views",
+        "adding controls to views"
+      ]
+    },
+    {
+      "ticket_category": "Built-in View Items & Editors",
+      "ticket_count": 765,
+      "current_concept": "View Items",
+      "expected_concepts": [
+        "View Items",
+        "Static View Items",
+        "Dashboard View Items"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "standard view items",
+        "out-of-box view controls",
+        "built-in editors",
+        "default view components"
+      ]
+    },
+    {
+      "ticket_category": "Grid List Editors",
+      "ticket_count": 554,
+      "current_concept": "List Editors",
+      "expected_concepts": [
+        "List Editors",
+        "List View",
+        "Views"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "grid customization",
+        "list appearance",
+        "data grid editor",
+        "collection grid",
+        "list view grid"
+      ]
+    },
+    {
+      "ticket_category": "Custom logic within View or Controller",
+      "ticket_count": 485,
+      "current_concept": "Views",
+      "expected_concepts": [
+        "Views",
+        "Controllers",
+        "View Controller",
+        "View Customization"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "view customization code",
+        "controller logic",
+        "custom behavior",
+        "event handlers",
+        "view lifecycle"
+      ]
+    },
+    {
+      "ticket_category": "Built-in Permissions Setup/Troubleshooting",
+      "ticket_count": 449,
+      "current_concept": "Authorization",
+      "expected_concepts": [
+        "Authorization",
+        "Security System",
+        "Permission Policies",
+        "Security Strategy"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "permissions not working",
+        "role access configuration",
+        "user authorization setup",
+        "security rules",
+        "access control issues"
+      ]
+    },
+    {
+      "ticket_category": "Creating & Showing Views",
+      "ticket_count": 406,
+      "current_concept": "Views",
+      "expected_concepts": [
+        "Views",
+        "Detail View",
+        "List View",
+        "Navigation"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "creating new views",
+        "showing views programmatically",
+        "navigate to view",
+        "display view",
+        "open detail view"
+      ]
+    },
+    {
+      "ticket_category": "Speed",
+      "ticket_count": 394,
+      "current_concept": "Performance Optimization",
+      "expected_concepts": [
+        "Performance Optimization",
+        "Object Space",
+        "Data Access Modes"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "performance issues",
+        "slow loading",
+        "application speed",
+        "optimization",
+        "query performance"
+      ]
+    },
+    {
+      "ticket_category": "Non-Persistent Objects",
+      "ticket_count": 383,
+      "current_concept": "Non-Persistent Objects",
+      "expected_concepts": [
+        "Non-Persistent Objects",
+        "Object Space",
+        "Business Objects"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "non-persistent objects",
+        "in-memory objects",
+        "transient data",
+        "objects not saved to database"
+      ]
+    },
+    {
+      "ticket_category": "Lookups",
+      "ticket_count": 368,
+      "current_concept": "Lookup Property Editors",
+      "expected_concepts": [
+        "Lookup Property Editors",
+        "Property Editors",
+        "Reference Property"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "lookup editor",
+        "dropdown selection",
+        "reference property picker",
+        "lookup customization",
+        "search in lookup"
+      ]
+    },
+    {
+      "ticket_category": "Layout Generation & Customization API",
+      "ticket_count": 329,
+      "current_concept": "Layout",
+      "expected_concepts": [
+        "Layout",
+        "Detail View",
+        "View Layout"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "layout customization",
+        "form layout",
+        "view layout arrangement",
+        "layout groups",
+        "layout items"
+      ]
+    },
+    {
+      "ticket_category": "Model Editor for .NET / .NET Core",
+      "ticket_count": 322,
+      "current_concept": ".NET Runtime",
+      "expected_concepts": [
+        "Application Model",
+        ".NET Runtime",
+        "Model Nodes"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "model editor",
+        "application model configuration",
+        ".NET Core model",
+        "XAFML editing"
+      ]
+    },
+    {
+      "ticket_category": "Aliased, Calculated and Custom Fields/Metadata",
+      "ticket_count": 304,
+      "current_concept": "Application Model",
+      "expected_concepts": [
+        "Application Model",
+        "Business Objects",
+        "Model Nodes"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "calculated fields",
+        "aliased properties",
+        "custom metadata",
+        "computed properties",
+        "virtual fields"
+      ]
+    },
+    {
+      "ticket_category": "EF Core Specifics",
+      "ticket_count": 303,
+      "current_concept": "XAF Application",
+      "expected_concepts": [
+        "XAF Application",
+        "Entity Framework Core",
+        "Object Space Provider"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "entity framework core",
+        "EF Core configuration",
+        "DbContext setup",
+        "code-first"
+      ]
+    },
+    {
+      "ticket_category": "Built-in Action Types",
+      "ticket_count": 286,
+      "current_concept": "Action Types",
+      "expected_concepts": [
+        "Action Types",
+        "Actions",
+        "Simple Action",
+        "Parametrized Action"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "action types",
+        "button actions",
+        "toolbar actions",
+        "menu actions"
+      ]
+    },
+    {
+      "ticket_category": "Built-in Controllers (System)",
+      "ticket_count": 276,
+      "current_concept": "Controllers",
+      "expected_concepts": [
+        "Controllers",
+        "Built-in Controllers",
+        "View Controller"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "system controllers",
+        "framework controllers",
+        "built-in controllers",
+        "default controllers"
+      ]
+    },
+    {
+      "ticket_category": "Custom Authentication/Logon Parameters Form",
+      "ticket_count": 244,
+      "current_concept": "Authentication",
+      "expected_concepts": [
+        "Authentication",
+        "Security System",
+        "Security Strategy"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "custom login",
+        "authentication form",
+        "logon parameters",
+        "custom credentials"
+      ]
+    },
+    {
+      "ticket_category": "ORM Data Model Wizard/Designer",
+      "ticket_count": 222,
+      "current_concept": "Object Space",
+      "expected_concepts": [
+        "Object Space",
+        "Object Space Provider",
+        "Business Objects"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "data model wizard",
+        "ORM designer",
+        "database schema",
+        "model generation"
+      ]
+    },
+    {
+      "ticket_category": "Built-in Criteria Operators",
+      "ticket_count": 216,
+      "current_concept": "Criteria",
+      "expected_concepts": [
+        "Criteria",
+        "Filtering UI"
+      ],
+      "confidence": 10,
+      "is_valid": true,
+      "user_phrases": [
+        "filter expressions",
+        "criteria operators",
+        "query filters",
+        "where clauses"
+      ]
+    },
+    {
+      "ticket_category": "Relationships/Associations",
+      "ticket_count": 211,
+      "current_concept": "Business Objects",
+      "expected_concepts": [
+        "Business Objects",
+        "Collection Property",
+        "Reference Property"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "object relationships",
+        "associations",
+        "foreign keys",
+        "navigation properties",
+        "one-to-many",
+        "many-to-many"
+      ]
+    },
+    {
+      "ticket_category": "Rich Text Editor",
+      "ticket_count": 204,
+      "current_concept": "Property Editors",
+      "expected_concepts": [
+        "Property Editors",
+        "Property Editor Types"
+      ],
+      "confidence": 7,
+      "is_valid": true,
+      "user_phrases": [
+        "rich text editor",
+        "HTML editor",
+        "formatted text",
+        "WYSIWYG editor"
+      ]
+    }
+  ],
+  "synonym_gaps": [
+    {
+      "concept": "View Items",
+      "ticket_category": "Custom View Items & Editors",
+      "ticket_count": 869,
+      "missing_phrases": [
+        "custom editors in views"
+      ],
+      "current_synonyms": [
+        "ViewItem",
+        "View Item",
+        "Custom View Items",
+        "Built-in View Items",
+        "Detail View Items",
+        "View Item Editors",
+        "View Component",
+        "View Controls",
+        "Adding Controls to Views"
+      ],
+      "recommendation": "Add synonyms: custom editors in views"
+    },
+    {
+      "concept": "View Items",
+      "ticket_category": "Built-in View Items & Editors",
+      "ticket_count": 765,
+      "missing_phrases": [
+        "built-in editors"
+      ],
+      "current_synonyms": [
+        "ViewItem",
+        "View Item",
+        "Custom View Items",
+        "Built-in View Items",
+        "Detail View Items",
+        "View Item Editors",
+        "View Component",
+        "View Controls",
+        "Adding Controls to Views"
+      ],
+      "recommendation": "Add synonyms: built-in editors"
+    },
+    {
+      "concept": ".NET Runtime",
+      "ticket_category": "Model Editor for .NET / .NET Core",
+      "ticket_count": 322,
+      "missing_phrases": [
+        "application model configuration",
+        "XAFML editing"
+      ],
+      "current_synonyms": [
+        ".NET",
+        ".NET Core",
+        "Modern .NET",
+        ".NET 10",
+        "Model Editor .NET"
+      ],
+      "recommendation": "Add synonyms: application model configuration, XAFML editing"
+    },
+    {
+      "concept": "Application Model",
+      "ticket_category": "Aliased, Calculated and Custom Fields/Metadata",
+      "ticket_count": 304,
+      "missing_phrases": [
+        "calculated fields",
+        "aliased properties",
+        "custom metadata",
+        "computed properties",
+        "virtual fields"
+      ],
+      "current_synonyms": [
+        "Model Editor",
+        "XAF Model",
+        "XAFML",
+        "Metadata Model",
+        "Application Model Editor",
+        "Read Application Model",
+        "Customize Application Model",
+        "Extend Application Model",
+        "Model Customization",
+        "Custom Fields",
+        "Model Metadata"
+      ],
+      "recommendation": "Add synonyms: calculated fields, aliased properties, custom metadata"
+    },
+    {
+      "concept": "XAF Application",
+      "ticket_category": "EF Core Specifics",
+      "ticket_count": 303,
+      "missing_phrases": [
+        "entity framework core",
+        "EF Core configuration",
+        "DbContext setup",
+        "code-first"
+      ],
+      "current_synonyms": [
+        "eXpressApp Framework",
+        "XAF Application Framework",
+        "XafApplication",
+        "XAF App",
+        "WinApplication",
+        "BlazorApplication",
+        "AspNetCoreApplication",
+        "Application Setup",
+        "Application.Setup"
+      ],
+      "recommendation": "Add synonyms: entity framework core, EF Core configuration, DbContext setup"
+    },
+    {
+      "concept": "Object Space",
+      "ticket_category": "ORM Data Model Wizard/Designer",
+      "ticket_count": 222,
+      "missing_phrases": [
+        "data model wizard",
+        "ORM designer",
+        "database schema",
+        "model generation"
+      ],
+      "current_synonyms": [
+        "IObjectSpace",
+        "ObjectSpace",
+        "Unit of Work",
+        "UoW",
+        "Transactions",
+        "Unit of Works",
+        "BaseObjectSpace",
+        "XPObjectSpace",
+        "EFCoreObjectSpace",
+        "NonPersistentObjectSpace",
+        "CompositeObjectSpace",
+        "Database Context",
+        "Object Session",
+        "CreateObjectSpace",
+        "CommitChanges",
+        "Data Transaction",
+        "Repository Pattern",
+        "Database Access",
+        "Non-XAF ObjectSpace"
+      ],
+      "recommendation": "Add synonyms: data model wizard, ORM designer, database schema"
+    }
+  ],
+  "confidence_issues": [
+    {
+      "ticket_category": "Callbacks",
+      "ticket_count": 66,
+      "current_concept": "UNMAPPED",
+      "confidence": 0,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Custom Provider Implementation",
+      "ticket_count": 59,
+      "current_concept": "Object Space Provider",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Custom appearance on events",
+      "ticket_count": 38,
+      "current_concept": "Custom User Management",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "SVG",
+      "ticket_count": 34,
+      "current_concept": "SVG Graphics",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "TIME: 1-2h (tech part + time to write text)",
+      "ticket_count": 30,
+      "current_concept": "UNMAPPED",
+      "confidence": 0,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Custom error highligthing",
+      "ticket_count": 26,
+      "current_concept": "Custom User Management",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Custom implementations of default XAF BCL entities",
+      "ticket_count": 25,
+      "current_concept": "XAF Application",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Application Builder",
+      "ticket_count": 22,
+      "current_concept": "XAF Application",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Error: Object belongs to a different session/space",
+      "ticket_count": 15,
+      "current_concept": "Object Space",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    },
+    {
+      "ticket_category": "Issues with non-unique key values (T639653)",
+      "ticket_count": 17,
+      "current_concept": "Threading Issues",
+      "confidence": 5,
+      "recommendation": "Review mapping or add more synonyms"
+    }
+  ],
+  "summary": {
+    "total_categories": 159,
+    "high_confidence_10": 48,
+    "medium_confidence_7_9": 101,
+    "low_confidence_below_7": 10,
+    "high_confidence_pct": "30.2%",
+    "synonym_gaps_found": 6,
+    "low_confidence_requiring_review": 10,
+    "categories_in_translation_map": 20
+  }
+}

@@ -1,0 +1,26 @@
+# Core
+pandas>=2.1
+numpy>=1.26
+pyarrow>=14.0
+
+# Markdown parsing
+markdown-it-py>=3.0
+beautifulsoup4>=4.12
+
+# NLP / ML
+regex>=2023.10
+scikit-learn>=1.4
+sentence-transformers>=2.6
+spacy>=3.7
+
+# Graph analysis
+networkx>=3.2
+
+# Visualization (optional but useful)
+matplotlib>=3.8
+seaborn>=0.13
+pyvis>=0.3
+
+# CLI / DX
+typer>=0.9
+tqdm>=4.66

@@ -1,0 +1,385 @@
+{
+  "pipeline_execution": {
+    "start_time": "2026-02-14T16:08:37.632929",
+    "end_time": "2026-02-14T16:14:23.658760",
+    "total_duration_seconds": 346.025831,
+    "validation_level": "quick",
+    "phases_run": 6,
+    "phases_succeeded": 5,
+    "overall_success": false
+  },
+  "phase_results": [
+    {
+      "phase": 1,
+      "name": "Ingest & Parse",
+      "success": true,
+      "error": null,
+      "duration_seconds": 5.586692,
+      "start_time": "2026-02-14T16:08:37.633630",
+      "end_time": "2026-02-14T16:08:43.220322"
+    },
+    {
+      "phase": 2,
+      "name": "Build Explicit Graph",
+      "success": true,
+      "error": null,
+      "duration_seconds": 1.415747,
+      "start_time": "2026-02-14T16:08:43.221006",
+      "end_time": "2026-02-14T16:08:44.636753"
+    },
+    {
+      "phase": 3,
+      "name": "Extract Concepts",
+      "success": true,
+      "error": null,
+      "duration_seconds": 324.157302,
+      "start_time": "2026-02-14T16:08:44.637919",
+      "end_time": "2026-02-14T16:14:08.795221"
+    },
+    {
+      "phase": 7,
+      "name": "Generate Metadata",
+      "success": true,
+      "error": null,
+      "duration_seconds": 7.006687,
+      "start_time": "2026-02-14T16:14:08.795867",
+      "end_time": "2026-02-14T16:14:15.802554"
+    },
+    {
+      "phase": 8,
+      "name": "Export YAML",
+      "success": true,
+      "error": null,
+      "duration_seconds": 1.118977,
+      "start_time": "2026-02-14T16:14:15.803485",
+      "end_time": "2026-02-14T16:14:16.922462"
+    },
+    {
+      "phase": 10,
+      "name": "Rollup Document Metadata",
+      "success": false,
+      "error": "Phase 10 failed with exit code 1",
+      "duration_seconds": 6.735183,
+      "start_time": "2026-02-14T16:14:16.923169",
+      "end_time": "2026-02-14T16:14:23.658352"
+    }
+  ],
+  "phase_validation_reports": [
+    {
+      "phase_name": "Ingest & Parse",
+      "phase_number": 1,
+      "timestamp": "2026-02-14T16:08:43.093181",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 9 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum documents",
+          "passed": true,
+          "message": "Row count 7,879 is within acceptable range",
+          "severity": "info",
+          "details": {
+            "row_count": 7879
+          }
+        },
+        {
+          "check_name": "Documents with xref links",
+          "passed": true,
+          "message": "Value 5609.00 meets threshold >= 1000",
+          "severity": "info",
+          "details": {
+            "actual_value": 5609,
+            "threshold_value": 1000
+          }
+        },
+        {
+          "check_name": "Average word count",
+          "passed": true,
+          "message": "Value 85.68 meets threshold >= 80",
+          "severity": "info",
+          "details": {
+            "actual_value": 85.67889326056606,
+            "threshold_value": 80
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Build Explicit Graph",
+      "phase_number": 2,
+      "timestamp": "2026-02-14T16:08:44.523335",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Internal edges schema",
+          "passed": true,
+          "message": "All 3 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Unresolved edges schema",
+          "passed": true,
+          "message": "All 5 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Link resolution rate",
+          "passed": true,
+          "message": "Value 91.24 meets threshold >= 0.7",
+          "severity": "info",
+          "details": {
+            "actual_value": 91.24223602484473,
+            "threshold_value": 0.7
+          }
+        },
+        {
+          "check_name": "Self-loop check",
+          "passed": true,
+          "message": "No self-loops found (correctly filtered)",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum connected documents",
+          "passed": true,
+          "message": "Value 5551.00 meets threshold >= 5000",
+          "severity": "info",
+          "details": {
+            "actual_value": 5551,
+            "threshold_value": 5000
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Extract Concepts",
+      "phase_number": 3,
+      "timestamp": "2026-02-14T16:14:08.654166",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 10 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum sections",
+          "passed": true,
+          "message": "Row count 12,051 is within acceptable range",
+          "severity": "info",
+          "details": {
+            "row_count": 12051
+          }
+        },
+        {
+          "check_name": "Minimum kept percentage",
+          "passed": true,
+          "message": "Value 91.23 meets threshold >= 60.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 91.22894365612812,
+            "threshold_value": 60.0
+          }
+        },
+        {
+          "check_name": "Maximum kept percentage",
+          "passed": true,
+          "message": "Value 91.23 meets threshold <= 95.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 91.22894365612812,
+            "threshold_value": 95.0
+          }
+        },
+        {
+          "check_name": "Minimum avg concepts/section",
+          "passed": true,
+          "message": "Value 3.99 meets threshold >= 1.5",
+          "severity": "info",
+          "details": {
+            "actual_value": 3.988993996725487,
+            "threshold_value": 1.5
+          }
+        },
+        {
+          "check_name": "Maximum avg concepts/section",
+          "passed": true,
+          "message": "Value 3.99 meets threshold <= 4.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 3.988993996725487,
+            "threshold_value": 4.0
+          }
+        },
+        {
+          "check_name": "Concept density range [0.0-1.0]",
+          "passed": true,
+          "message": "concept_density values in range [0.0000, 0.5161]",
+          "severity": "info",
+          "details": {
+            "min": 0.0,
+            "max": 0.5161
+          }
+        },
+        {
+          "check_name": "Minimum API sections",
+          "passed": true,
+          "message": "Value 6795.00 meets threshold >= 4000",
+          "severity": "info",
+          "details": {
+            "actual_value": 6795,
+            "threshold_value": 4000
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Generate Metadata",
+      "phase_number": 7,
+      "timestamp": "2026-02-14T16:14:15.559441",
+      "passed": true,
+      "has_warnings": true,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 6 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum sections",
+          "passed": true,
+          "message": "Row count 10,994 is within acceptable range",
+          "severity": "info",
+          "details": {
+            "row_count": 10994
+          }
+        },
+        {
+          "check_name": "Description coverage",
+          "passed": false,
+          "message": "Value 88.15 fails threshold >= 95.0",
+          "severity": "warning",
+          "details": {
+            "actual_value": 88.14808077132982,
+            "threshold_value": 95.0,
+            "comparison": ">="
+          }
+        },
+        {
+          "check_name": "Minimum avg tags",
+          "passed": true,
+          "message": "Value 6.38 meets threshold >= 3.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 6.381116972894306,
+            "threshold_value": 3.0
+          }
+        },
+        {
+          "check_name": "Maximum avg tags",
+          "passed": true,
+          "message": "Value 6.38 meets threshold <= 12.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 6.381116972894306,
+            "threshold_value": 12.0
+          }
+        },
+        {
+          "check_name": "Proficiency level vocabulary",
+          "passed": true,
+          "message": "All 3 unique values match vocabulary",
+          "severity": "info",
+          "details": {
+            "unique_values": 3,
+            "vocabulary_size": 4
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Rollup Document Metadata",
+      "phase_number": 10,
+      "timestamp": "2026-02-14T16:14:23.523247",
+      "passed": false,
+      "has_warnings": false,
+      "has_errors": true,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 6 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum documents",
+          "passed": false,
+          "message": "Row count 5,528 below minimum 8,000",
+          "severity": "error",
+          "details": {
+            "row_count": 5528,
+            "min_rows": 8000
+          }
+        },
+        {
+          "check_name": "Document completeness",
+          "passed": true,
+          "message": "All 5528 documents from section metadata are present",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum avg tags",
+          "passed": true,
+          "message": "Value 6.49 meets threshold >= 3.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 6.488422575976845,
+            "threshold_value": 3.0
+          }
+        },
+        {
+          "check_name": "Maximum avg tags",
+          "passed": true,
+          "message": "Value 6.49 meets threshold <= 12.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 6.488422575976845,
+            "threshold_value": 12.0
+          }
+        },
+        {
+          "check_name": "Documents with zero tags",
+          "passed": true,
+          "message": "Value 0.00 meets threshold <= 100",
+          "severity": "info",
+          "details": {
+            "actual_value": 0,
+            "threshold_value": 100
+          }
+        }
+      ]
+    }
+  ],
+  "integration_tests": null,
+  "integration_test_report": null
+}

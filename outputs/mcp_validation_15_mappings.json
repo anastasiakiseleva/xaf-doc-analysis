@@ -1,0 +1,146 @@
+{
+  "validation_results": [
+    {
+      "api": "FirstOrDefault0",
+      "concept": "Object Space",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Object Space mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.75650924,
+      "doc_results_count": 20
+    },
+    {
+      "api": "GetObjectHandle",
+      "concept": "Object Space",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Object Space mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.75225693,
+      "doc_results_count": 20
+    },
+    {
+      "api": "IsDisposedObject",
+      "concept": "Object Space",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Object Space mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.76670736,
+      "doc_results_count": 20
+    },
+    {
+      "api": "ObjectEndEdit",
+      "concept": "Object Space",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Object Space mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.77227324,
+      "doc_results_count": 20
+    },
+    {
+      "api": "Parent",
+      "concept": "Tree Node Interface",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Tree Node Interface mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.73857844,
+      "doc_results_count": 20
+    },
+    {
+      "api": "GetDefaultProperty",
+      "concept": "Property Editors",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Property Editors mentioned in 2/5 top results",
+      "evidence_count": 2,
+      "top_score": 0.74436766,
+      "doc_results_count": 20
+    },
+    {
+      "api": "ContainsMember",
+      "concept": "List Editors",
+      "status": "unclear",
+      "reasoning": "API documented (score 0.72) but List Editors term not explicit",
+      "evidence_count": 0,
+      "top_score": 0.71823627,
+      "doc_results_count": 20
+    },
+    {
+      "api": "AllowAdd",
+      "concept": "List Editors",
+      "status": "likely",
+      "reasoning": "Moderate evidence: List Editors mentioned  in documentation",
+      "evidence_count": 1,
+      "top_score": 0.7171413,
+      "doc_results_count": 20
+    },
+    {
+      "api": "Item",
+      "concept": "Detail View",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Detail View mentioned in 4/5 top results",
+      "evidence_count": 4,
+      "top_score": 0.71866584,
+      "doc_results_count": 20
+    },
+    {
+      "api": "Insert",
+      "concept": "Actions",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Actions mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.6620171,
+      "doc_results_count": 20
+    },
+    {
+      "api": "FrameworkSettings",
+      "concept": "Application Model",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Application Model mentioned in 4/5 top results",
+      "evidence_count": 4,
+      "top_score": 0.7033783,
+      "doc_results_count": 20
+    },
+    {
+      "api": "AllowEdit",
+      "concept": "Layout",
+      "status": "unclear",
+      "reasoning": "API documented (score 0.70) but Layout term not explicit",
+      "evidence_count": 0,
+      "top_score": 0.70091647,
+      "doc_results_count": 20
+    },
+    {
+      "api": "Assign",
+      "concept": "Actions",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: Actions mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.65028876,
+      "doc_results_count": 20
+    },
+    {
+      "api": "IsEmpty",
+      "concept": "List View",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: List View mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.6734008,
+      "doc_results_count": 20
+    },
+    {
+      "api": "BeginInit",
+      "concept": "XAF Application",
+      "status": "confirmed",
+      "reasoning": "Strong evidence: XAF Application mentioned in 5/5 top results",
+      "evidence_count": 5,
+      "top_score": 0.741271,
+      "doc_results_count": 20
+    }
+  ],
+  "summary": {
+    "confirmed": 12,
+    "unclear": 2,
+    "likely": 1
+  },
+  "total": 15,
+  "accuracy_percent": 86.66666666666667
+}

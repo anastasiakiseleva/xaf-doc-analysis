@@ -1,0 +1,402 @@
+[
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs._membersaltText",
+    "concept_name": "View Controller",
+    "confidence": 0.95,
+    "source": "ollama_classification",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.FileAttachments.Win",
+    "concept_name": "View Controller",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 6,
+    "api_name": "Win"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Blazor.Services",
+    "concept_name": "View Controller",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "Services"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ListViewCreatedEventArgs",
+    "concept_name": "List View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "ListViewCreatedEventArgs"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelSorting._membersaltText",
+    "concept_name": "List View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelListView.GroupSummary",
+    "concept_name": "List View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "GroupSummary"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelViewController.TargetViewId",
+    "concept_name": "Controller Types",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "TargetViewId"
+  },
+  {
+    "api_id": "objectSpace.CreateObject(",
+    "concept_name": "Controller Types",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 5,
+    "api_name": "CreateObject("
+  },
+  {
+    "api_id": "DevExpress.Persistent.Base.General",
+    "concept_name": "Controller Types",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 26,
+    "api_name": "General"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.ModuleInfoType",
+    "concept_name": "Object Space Provider",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "ModuleInfoType"
+  },
+  {
+    "api_id": "IObjectSpace",
+    "concept_name": "Object Space Provider",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 12,
+    "api_name": "IObjectSpace"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.CustomCreateObjectSpaceProvider",
+    "concept_name": "Object Space Provider",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CustomCreateObjectSpaceProvider"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ViewVariantsModule.VariantsInfo._membersaltText",
+    "concept_name": "Views",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelClass.DefaultDetailViewImage",
+    "concept_name": "Views",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "DefaultDetailViewImage"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.DetailView.Model",
+    "concept_name": "Views",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "Model"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ViewController.ViewControlsCreated",
+    "concept_name": "Controllers",
+    "confidence": 0.9,
+    "source": "co_documentation",
+    "count": 3,
+    "api_name": "ViewControlsCreated"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CloneObject.CloneObjectViewController._membersaltText",
+    "concept_name": "Controllers",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "securityStrategy",
+    "concept_name": "Controllers",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 17,
+    "api_name": "securityStrategy"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.ProcessCurrentObjectAction",
+    "concept_name": "Actions",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "ProcessCurrentObjectAction"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Actions.ActionUrl.UrlField",
+    "concept_name": "Actions",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "UrlField"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.SystemModule.ListViewFilterAttribute.Caption",
+    "concept_name": "Actions",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "Caption"
+  },
+  {
+    "api_id": "DevExpress.Persistent.Validation.RuleSearchObjectProperties._membersaltText",
+    "concept_name": "Custom Validation Rules",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.Persistent.Validation.RuleUniqueValueProperties._membersaltText",
+    "concept_name": "Custom Validation Rules",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Validation",
+    "concept_name": "Custom Validation Rules",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 5,
+    "api_name": "Validation"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CollectionSourceBase.CriteriaApplied",
+    "concept_name": "Property Editors",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CriteriaApplied"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.AllowClear",
+    "concept_name": "Property Editors",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "AllowClear"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Scheduler.Win.SchedulerListEditor._membersaltText",
+    "concept_name": "Property Editors",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.IObjectSpace.ModifiedObjects",
+    "concept_name": "XPO",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "ModifiedObjects"
+  },
+  {
+    "api_id": "PermissionPolicyRoleBase",
+    "concept_name": "XPO",
+    "confidence": 0.8,
+    "source": "co_documentation",
+    "count": 2,
+    "api_name": "PermissionPolicyRoleBase"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ApplicationBuilder.WinXpoMultiTenancyApplicationBuilderExtensions._membersaltText",
+    "concept_name": "XPO",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.DashboardBlazor.DxDashboard",
+    "concept_name": "View Items",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "DxDashboard"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Dashboards.Win.WinDashboardViewerViewItem._membersaltText",
+    "concept_name": "View Items",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelView.CustomizationFormEnabled",
+    "concept_name": "View Items",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CustomizationFormEnabled"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CollectionSourceBase",
+    "concept_name": "List View Data Access Modes",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CollectionSourceBase"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.CollectionSourceDataAccessMode",
+    "concept_name": "List View Data Access Modes",
+    "confidence": 1.0,
+    "source": "co_documentation",
+    "count": 14,
+    "api_name": "CollectionSourceDataAccessMode"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.CreateInstantFeedbackCollection",
+    "concept_name": "List View Data Access Modes",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CreateInstantFeedbackCollection"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Filtering.SearchClassOptionsAttribute._membersaltText",
+    "concept_name": "Criteria",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.Persistent.Validation.IRuleBaseProperties.TargetCriteria",
+    "concept_name": "Criteria",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "TargetCriteria"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ObjectsCountGettingEventArgs",
+    "concept_name": "Criteria",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "ObjectsCountGettingEventArgs"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.ViewVariantsModule.ChangeVariantController._membersaltText",
+    "concept_name": "Application Model",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Win.SystemModule.IModelSeparator._membersaltText",
+    "concept_name": "Application Model",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Security.IRequestSecurityStrategy",
+    "concept_name": "Application Model",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "IRequestSecurityStrategy"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.PropertyEditor",
+    "concept_name": "Detail View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "PropertyEditor"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.SystemModule.FilterController.FullTextFilterAction",
+    "concept_name": "Detail View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "FullTextFilterAction"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.DetailView.CurrentObjectaltText",
+    "concept_name": "Detail View",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "CurrentObjectaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.BaseObjectSpace.GetObject",
+    "concept_name": "Object Space",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "GetObject"
+  },
+  {
+    "api_id": "DevExpress.Persistent.Base.IPermissionPolicyRole",
+    "concept_name": "Object Space",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "IPermissionPolicyRole"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.SystemModule.ProcessDataLockingInfoController._membersaltText",
+    "concept_name": "Object Space",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "_membersaltText"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.Office.InplaceDocumentCacheStorageBase",
+    "concept_name": "Blazor UI",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "InplaceDocumentCacheStorageBase"
+  },
+  {
+    "api_id": "DevExpress.ExpressApp.AuditTrail.AuditTrailEvents.OnCustomizeAuditDataStore",
+    "concept_name": "Blazor UI",
+    "confidence": 0.85,
+    "source": "api_entity_concepts",
+    "count": 1,
+    "api_name": "OnCustomizeAuditDataStore"
+  }
+]

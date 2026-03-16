@@ -1,0 +1,2369 @@
+[
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/ConnectionString",
+    "keywords": "connectionstring, applicationbuilder",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, Object Space, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.ConnectionStringname, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseCustomDataStoreProvider, DevExpress.ExpressApp.Xpo.IXpoDataStoreProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/AzureAdAuthenticationOptions/ClientId",
+    "keywords": "applicationbuilder, azure",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.AzureAdAuthenticationOptions.ClientIdname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/AzureAdAuthenticationOptions/Instance",
+    "keywords": "applicationbuilder, azure",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.AzureAdAuthenticationOptions.Instancename"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithHostDatabaseConnectionString",
+    "keywords": "connectionstring, applicationbuilder",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Database Connection, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithHostDatabaseConnectionString, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription, Xpo"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/AzureADWinAuthenticationExtensions/AzureADWinAuthenticationExtensions",
+    "keywords": "applicationbuilder, azure",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.AzureADWinAuthenticationExtensions._membersaltText, DevExpress.ExpressApp.Win.ApplicationBuilder.AzureADWinAuthenticationExtensionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/AzureADWinAuthenticationExtensions/AddAzureAD",
+    "keywords": "applicationbuilder, azure",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.AzureADWinAuthenticationExtensions.AddAzureAD, DevExpress.ExpressApp.Win.ApplicationBuilder.AzureAdAuthenticationOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.WinExternalAuthenticationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/EnablePoolingInConnectionString",
+    "keywords": "connectionstring, applicationbuilder",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.EnablePoolingInConnectionStringname, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseCustomDataStoreProvider, DevExpress.ExpressApp.Xpo.IXpoDataStoreProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/Configuration",
+    "keywords": "configuration, applicationbuilder",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder.Configurationname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/AddAzureAD",
+    "keywords": "applicationbuilder, azure",
+    "keyword_count": 2,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Security.MiddleTierClientAzureAdAuthenticationOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/AddPasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierPasswordAuthenticationOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredObjectSpaceProviderBuilderExtensions/AddSecuredXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredObjectSpaceProviderBuilderExtensions/AddSecuredXpo``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.ApplicationBuilder.SecuredObjectSpaceProviderBuilderExtensions.AddSecuredXpo0, DevExpress.ExpressApp.ApplicationBuilder.SecuredXPObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredObjectSpaceProviderBuilderExtensions/AddSecuredXpo``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredXPObjectSpaceProviderOptions/AllowICommandChannelDoWithSecurityContext",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.SecuredXPObjectSpaceProviderOptions.AllowICommandChannelDoWithSecurityContextname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/StateMachineApplicationBuilderExtensions/AddStateMachine``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.StateMachineApplicationBuilderExtensions.AddStateMachine0, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ViewVariantsApplicationBuilderExtensions/AddViewVariants``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.ViewVariantsApplicationBuilderExtensions.AddViewVariants0, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/WinEFCoreMultiTenancyApplicationBuilderExtensions/AddMultiTenancy",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Business Objects, Entity Framework Core, Tenant, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.WinEFCoreMultiTenancyApplicationBuilderExtensions.AddMultiTenancy, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/WinEFCoreMultiTenancyApplicationBuilderExtensions/WinEFCoreMultiTenancyApplicationBuilderExtensions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Business Objects, Entity Framework Core, Tenant, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.WinEFCoreMultiTenancyApplicationBuilderExtensions._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.WinEFCoreMultiTenancyApplicationBuilderExtensionsname, Entity Framework Core"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/WinXpoMultiTenancyApplicationBuilderExtensions/AddMultiTenancy",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Tenant, WinForms, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.WinXpoMultiTenancyApplicationBuilderExtensions.AddMultiTenancy, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/WinXpoMultiTenancyApplicationBuilderExtensions/WinXpoMultiTenancyApplicationBuilderExtensions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Tenant, WinForms, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.WinXpoMultiTenancyApplicationBuilderExtensions._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.WinXpoMultiTenancyApplicationBuilderExtensionsname, XPO"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderBuilderExtensions/AddXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderBuilderExtensions.AddXpo0, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderBuilderExtensions/AddXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderBuilderExtensions/AddXpo``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderBuilderExtensions.AddXpo0, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderBuilderExtensions/AddXpo``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/AddWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription, DevExpress.ExpressApp.Win.ApplicationBuilder.MiddleTierAuthenticationBuilderExtensions.AddWindowsAuthentication"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/UsePasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierPasswordAuthenticationOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/UsePasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierAuthenticationBuilderExtensions/UseWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription, DevExpress.ExpressApp.Win.ApplicationBuilder.MiddleTierAuthenticationBuilderExtensions.UseWindowsAuthentication"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Security System, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions, DevExpress.ExpressApp.Security.SecurityModuleOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IMiddleTierAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/MiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/NotificationsApplicationBuilderExtensions/AddNotifications",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Notifications",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Notifications.Win.NotificationsOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/OfficeApplicationBuilderExtensions/AddOffice",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Office.Win.OfficeOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/PivotGridApplicationBuilderExtensions/AddPivotGrid",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.PivotGridApplicationBuilderExtensions.AddPivotGrid"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/PivotGridApplicationBuilderExtensions/AddPivotGrid",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/ReportsApplicationBuilderExtensions/AddReports",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Reports, Reports V2",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ReportsV2.Win.ReportsOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/SchedulerApplicationBuilderExtensions/AddScheduler",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Scheduler",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Scheduler.Win.SchedulerOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/TreeListEditorsApplicationBuilderExtensions/AddTreeListEditors",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, List Editors, Tree List",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditorOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/ValidationApplicationBuilderExtensions/AddValidation",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Validation",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Validation.ValidationModuleOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/ValidationApplicationBuilderExtensions/AddValidation",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/WinAuthenticationBuilderExtensions/UseExternalAuthentication``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, Security System, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilderdescription, DevExpress.ExpressApp.Win.ApplicationBuilder.WinAuthenticationBuilderExtensions.UseExternalAuthentication"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/WinSecurityBuilderExtensions/UsePasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Security.AuthenticationStandardProviderOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/WinSecurityBuilderExtensions/UsePasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/WinSecurityBuilderExtensions/UseWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Security.Authentication.WindowsAuthenticationOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/WinSecurityBuilderExtensions/UseWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win/WinShowViewStrategyBase/ShowStartupWindow1131439",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.WinShowViewStrategyBase.ShowStartupWindowname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win/WinShowViewStrategyBase/StartupWindowLoad1137426",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.WinShowViewStrategyBase.StartupWindowLoadname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.WebApi.Services/WebApiStartupExtensions/AddXafWebApi",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Business Objects",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.WebApi.Services.WebApiOptions, DevExpress.ExpressApp.WebApi.Services.WebApiStartupExtensions.AddXafWebApi, DevExpress.ExpressApp.WebApi.Services.XafWebApiBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.WebApi.Services/WebApiStartupExtensions/AddXafWebApi",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "XPO",
+    "namespaces": NaN,
+    "apis": "XPO"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/ShowNavigationItemController/GetStartupNavigationItem1130816",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Navigation",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Actions.ChoiceActionItemdescription, DevExpress.ExpressApp.SystemModule.ShowNavigationItemController.GetStartupNavigationItemname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Security/SecurityModule/GetStartupActions1136711",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Actions.PopupWindowShowAction, DevExpress.ExpressApp.Security.SecurityModule.GetStartupActionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Office.Blazor/StartupExtensions/AddXafOffice",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Office.Blazor.StartupExtensions.AddXafOffice"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Office.Blazor/StartupExtensions/StartupExtensions",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Office.Blazor.StartupExtensions._membersaltText, DevExpress.ExpressApp.Office.Blazor.StartupExtensionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithCustomTenantType``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithCustomTenantType, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription, Xpo"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithMultiTenancyModelDifferenceStore",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Application Model, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithMultiTenancyModelDifferenceStore, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithMultiTenancyModelDifferenceStore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Application Model, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithMultiTenancyModelDifferenceStore, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithSharedBusinessObjects",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Business Objects, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithSharedBusinessObjects, DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilderdescription, Xpo"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithSharedBusinessObjects",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Business Objects, Tenant",
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.Xpo/IMultiTenancyApplicationBuilder/WithTenantResolver``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.Xpo.IMultiTenancyApplicationBuilder.WithTenantResolver, Xpo"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithCustomTenantType``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithCustomTenantType, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription, EFCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithHostDbContext",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithHostDbContext, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription, EFCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithHostDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithHostDbContext, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription, EFCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithMultiTenancyModelDifferenceStore",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Application Model, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithMultiTenancyModelDifferenceStore, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithMultiTenancyModelDifferenceStore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Application Model, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithMultiTenancyModelDifferenceStore, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithSharedBusinessObjects",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Business Objects, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithSharedBusinessObjects, DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilderdescription, EFCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithSharedBusinessObjects",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Business Objects, Tenant",
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy.EFCore/IMultiTenancyApplicationBuilder/WithTenantResolver``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.EFCore.IMultiTenancyApplicationBuilder.WithTenantResolver, EFCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.MultiTenancy/IConnectionStringProvider/IConnectionStringProvider",
+    "keywords": "connectionstring",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.MultiTenancy.IConnectionStringProvider._membersaltText, DevExpress.ExpressApp.MultiTenancy.IConnectionStringProvidername"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Dashboards.Blazor/StartupExtensions/AddXafDashboards",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Dashboards, Database Connection",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Dashboards.Blazor.Services.BlazorDashboardConfigurator, DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensions.AddXafDashboards"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Dashboards.Blazor/StartupExtensions/AddXafDashboards",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Dashboards.Blazor"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Dashboards.Blazor/StartupExtensions/MapXafDashboards",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Controllers, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensions.MapXafDashboards"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Dashboards.Blazor/StartupExtensions/MapXafDashboards",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Dashboards.Blazor"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Dashboards.Blazor/StartupExtensions/StartupExtensions",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensions._membersaltText, DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/AuditTrailXpoApplicationBuilderExtensions/AddAuditTrailXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Audit Trail, Blazor UI, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.AuditTrailXpoApplicationBuilderExtensions.AddAuditTrailXpo0, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/AuditTrailXpoApplicationBuilderExtensions/AddAuditTrailXpo``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.AuditTrail.AuditTrailOptions, DevExpress.ExpressApp.Blazor.ApplicationBuilder.AuditTrailXpoApplicationBuilderExtensions.AddAuditTrailXpo0"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/DashboardsApplicationBuilderExtensions/AddDashboards",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.DashboardsApplicationBuilderExtensions.AddDashboards, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/EFCoreMiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Entity Framework Core, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions, DevExpress.ExpressApp.Blazor.ApplicationBuilder.EFCoreMiddleTierSecurityExtensions.UseMiddleTierMode, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/EFCoreMiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/FileAttachmentsApplicationBuilderExtensions/AddFileAttachments",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.FileAttachmentsApplicationBuilderExtensions.AddFileAttachments, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorApplicationBuilder/IBlazorApplicationBuilder",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Modules, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder._membersaltText, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuildername"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorApplicationBuilder/ObjectSpaceProviders",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder.ObjectSpaceProvidersname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorApplicationBuilder/ObjectSpaceProviders",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder, DevExpress.Persistent.BaseImpl"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorApplicationBuilder/Security",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder.Securityname, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorApplicationBuilder/Security",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder, DevExpress.Persistent.BaseImpl"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorSecurityBuilder/AddAuthenticationProvider``2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder.AddAuthenticationProvider0, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorSecurityBuilder/IBlazorSecurityBuilder",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder._membersaltText, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuildername"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorSecurityBuilder/UseIntegratedMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder.UseIntegratedMode, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription, DevExpress.ExpressApp.Security.SecurityModuleOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/IBlazorSecurityBuilder/UseIntegratedMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder, PermissionPolicyRole"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/MiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Security System, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/MiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/NotificationsApplicationBuilderExtensions/AddNotifications",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Modules, Notifications",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.NotificationsApplicationBuilderExtensions.AddNotifications"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/NotificationsApplicationBuilderExtensions/AddNotifications_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules, Notifications",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.NotificationsApplicationBuilderExtensions.AddNotifications"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/OfficeApplicationBuilderExtensions/AddOffice",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Business Objects, Entity Framework Core, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeApplicationBuilderExtensions.AddOffice"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/OfficeOptions/OfficeOptions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeOptions._membersaltText, DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeOptionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/OfficeOptions/RichTextMailMergeDataType",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Mail Merge",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeOptions.RichTextMailMergeDataTypename"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/ReportsApplicationBuilderExtensions/AddReports",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Reports, Reports V2",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.ReportsApplicationBuilderExtensions.AddReports"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/SchedulerApplicationBuilderExtensions/AddScheduler",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Scheduler",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.SchedulerApplicationBuilderExtensions.AddScheduler"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/ValidationApplicationBuilderExtensions/AddValidation",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI, Validation",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.ValidationApplicationBuilderExtensions.AddValidation"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.ApplicationBuilder/ValidationApplicationBuilderExtensions/AddValidation",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder, DevExpress.Persistent.BaseImpl"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextBuilderExtensions/AuditedDbContextBuilderExtensions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Audit Trail",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextBuilderExtensions/WithAuditedDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Audit Trail, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextServiceBasedConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextServiceBasedBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextBuilderExtensions/WithAuditedDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextBuilderExtensions/WithAuditedDbContext``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Audit Trail, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextBuilderExtensions/WithAuditedDbContext``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextConfigurator/Configure``2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Audit Trail, Blazor UI, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator.Configure, DevExpress.ExpressApp.XafApplication, DevExpress.Persistent.BaseImpl.EFCore.AuditTrail.AuditTrailOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextConfigurator/Configure``2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditedDbContextConfigurator/Configure``2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditTrailEFCoreApplicationBuilderExtensions/AddAuditTrailEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Audit Trail, Blazor UI, Entity Framework Core",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditTrailEFCoreApplicationBuilderExtensions.AddAuditTrailEFCore0, DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditTrailEFCoreApplicationBuilderExtensions/AddAuditTrailEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/AuditTrailEFCoreApplicationBuilderExtensions/AddAuditTrailEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorEFCoreMultiTenancyApplicationBuilderExtensions/AddMultiTenancy",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Business Objects, Entity Framework Core, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorEFCoreMultiTenancyApplicationBuilderExtensions.AddMultiTenancy, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorEFCoreMultiTenancyApplicationBuilderExtensions/BlazorEFCoreMultiTenancyApplicationBuilderExtensions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Business Objects, Entity Framework Core, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorEFCoreMultiTenancyApplicationBuilderExtensions._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.BlazorEFCoreMultiTenancyApplicationBuilderExtensionsname, Entity Framework Core"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddExternalAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorSecurityBuilderExtensions.AddExternalAuthentication, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddExternalAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddExternalAuthentication``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorSecurityBuilderExtensions.AddExternalAuthentication, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddExternalAuthentication``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddPasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorSecurityBuilderExtensions.AddPasswordAuthentication, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddPasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorSecurityBuilderExtensions.AddWindowsAuthentication, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/AddWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorSecurityBuilderExtensions/ConfigureAntiforgery",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorSecurityBuilderExtensions.ConfigureAntiforgery, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorXpoMultiTenancyApplicationBuilderExtensions/AddMultiTenancy",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorXpoMultiTenancyApplicationBuilderExtensions.AddMultiTenancy, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/BlazorXpoMultiTenancyApplicationBuilderExtensions/BlazorXpoMultiTenancyApplicationBuilderExtensions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Tenant, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.BlazorXpoMultiTenancyApplicationBuilderExtensions._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.BlazorXpoMultiTenancyApplicationBuilderExtensionsname, XPO"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ConditionalAppearanceApplicationBuilderExtensions/AddConditionalAppearance``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Conditional Appearance",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ConditionalAppearanceApplicationBuilderExtensions.AddConditionalAppearance0, DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ConditionalAppearanceApplicationBuilderExtensions/AddConditionalAppearance``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ConditionalAppearanceApplicationBuilderExtensions/AddConditionalAppearance``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/DbContextBuilder`1/WithDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilderDbContext, DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.XafApplication"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/DbContextServiceBasedBuilder`1/WithDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.DbContextServiceBasedBuilderDbContext, DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, EntityFrameworkCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/DbContextServiceBasedBuilder`1/WithDbContext``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnClientWebSocketCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityEvents.OnClientWebSocketCreatedname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnClientWebSocketCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnCustomCreateClientWebSocket",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityEvents.OnCustomCreateClientWebSocketname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnCustomCreateClientWebSocket",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnCustomCreateHttpClient",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityEvents.OnCustomCreateHttpClientname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnCustomCreateHttpClient",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnHttpClientCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityEvents.OnHttpClientCreatedname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityEvents/OnHttpClientCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/BaseAddress",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions.BaseAddressname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/BaseAddress",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/Events",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Entity Framework Core",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityEventsdescription, DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions.Eventsname, EF Core"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/Events",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/WaitForMiddleTierServerReady",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions.WaitForMiddleTierServerReadyname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreMiddleTierSecurityOptions/WaitForMiddleTierServerReady_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions.WaitForMiddleTierServerReady"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextServiceBasedConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextServiceBasedBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextServiceBasedConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextServiceBasedBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_3",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator, DevExpress.ExpressApp.ApplicationBuilder.DbContextBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderBuilderExtensions/AddEFCore``1_3",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderOptionsBuilder/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.CustomCreateObjectSpaceProvidername, DevExpress.ExpressApp.CustomCreateObjectSpaceProviderContext, DevExpress.ExpressApp.IObjectSpaceProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderOptionsBuilder/OptimisticLockDetection",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.OptimisticLockDetectionname, DevExpress.ExpressApp.DC.OptimisticLockDetectiondescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderOptionsBuilder/OptimisticLockHandling",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.OptimisticLockHandlingname, DevExpress.ExpressApp.DC.OptimisticLockHandlingdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderOptionsBuilder/PreFetchReferenceProperties",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Reference Property",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder, DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.PreFetchReferenceProperties, DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/EFCoreObjectSpaceProviderOptionsBuilder/SchemaUpdateMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.SchemaUpdateModename, DevExpress.ExpressApp.EFCore.EFCoreObjectSpaceProvider, DevExpress.ExpressApp.IObjectSpaceProvider.SchemaUpdateMode"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ILegacyInitializationXafApplication/ILegacyInitializationXafApplication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Migration, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ILegacyInitializationXafApplication.InitializeComponent, DevExpress.ExpressApp.ApplicationBuilder.ILegacyInitializationXafApplication._membersaltText, DevExpress.ExpressApp.ApplicationBuilder.ILegacyInitializationXafApplicationname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ILegacyInitializationXafApplication/ILegacyInitializationXafApplication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.SystemModule.SystemBlazorModule, DevExpress.ExpressApp.SystemModule.SystemModule"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ILegacyInitializationXafApplication/ILegacyInitializationXafApplication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.SystemModule.SystemModule, DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ILegacyInitializationXafApplication/InitializeComponent",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ILegacyInitializationXafApplication, DevExpress.ExpressApp.ApplicationBuilder.ILegacyInitializationXafApplication.InitializeComponentname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IMiddleTierClient`1/CreateObjectSpace",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IMiddleTierClient, DevExpress.ExpressApp.IObjectSpacedescription, IObjectSpace"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IMiddleTierClient`1/IMiddleTierClient`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IMiddleTierClient, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder1.Build"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IMiddleTierClient`1/Security",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.EntityFrameworkCore.Security.MiddleTier.ClientServer.WebApiMiddleTierClientSecuritydescription, DevExpress.ExpressApp.ApplicationBuilder.IMiddleTierClient, EntityFrameworkCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/Add``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IModuleBuilder`1/IModuleBuilder`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderBuilder`1/Add",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.CreateCustomObjectSpaceProviderEventArgs, DevExpress.ExpressApp.IObjectSpaceProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderBuilder`1/Add",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderBuilder`1/IObjectSpaceProviderBuilder`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderServiceBasedBuilder`1/Add",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.IObjectSpaceProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderServiceBasedBuilder`1/Add",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IObjectSpaceProviderServiceBasedBuilder`1/IObjectSpaceProviderServiceBasedBuilder`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/AddBuildStep",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/AddBuildStep",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/AddBuildStep",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/IXafApplicationBuilder`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/Modules",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder1"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/Modules",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder1"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/Modules",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/Modules",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Modules, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.IXafApplicationBuilder1"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/IXafApplicationBuilder`1/Modules",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/ConfigureDbContext",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder0, EntityFrameworkCore"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/ConfigureObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder1"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/ConfigureOptions",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Entity Framework Core",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder, EF Core"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/ConfigureServices",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/MiddleTierClientBuilder`1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilderDbContext"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UsePasswordAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder, DevExpress.ExpressApp.Security.IAuthenticationStandardLogonParameters"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UsePasswordAuthentication_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UseServer",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UseTokenAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UseTokenAuthentication_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UseTokenAuthentication_2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierClientBuilder`1/UseWindowsAuthentication",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierClientBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityEvents.CustomCreateObjectSpaceProvidername, DevExpress.ExpressApp.CustomCreateObjectSpaceProviderContext, DevExpress.ExpressApp.IObjectSpaceProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnCustomAuthenticate",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Authentication",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityEvents.OnCustomAuthenticatename, DevExpress.ExpressApp.Security.ClientServer.WebApiSecuredDataServerClientCustomAuthenticateEventArgs, DevExpress.ExpressApp.Security.ISecurityStrategyBase"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnCustomAuthenticate",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnCustomCreateHttpClient",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityEvents.OnCustomCreateHttpClientname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnCustomCreateHttpClient",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnHttpClientCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityEvents.OnHttpClientCreatedname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/OnHttpClientCreated",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/BaseAddress",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions.BaseAddressname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/BaseAddress",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/Events",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityEventsdescription, DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions.Eventsname, XPO"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/Events",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/WaitForMiddleTierServerReady",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions.WaitForMiddleTierServerReadyname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityOptions/WaitForMiddleTierServerReady_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.MiddleTierSecurityOptions.WaitForMiddleTierServerReady"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ModelDifferencesOptions/ContextId",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.ContextIdname, DevExpress.Persistent.BaseImpl.ModelDifference"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ModelDifferencesOptions/ModuleType",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Application Model",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.ModuleTypename"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ModelDifferencesOptions/ProductionModelResourceName",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Application Model, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.ProductionModelResourceNamename"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ModelDifferencesOptions/ServiceModelResourceName",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Application Model, Tenant",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.ServiceModelResourceNamename"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ModelDifferencesOptions/UseTenantSpecificModel",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.UseTenantSpecificModelname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderBuilderExtensions.AddNonPersistent0, DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderBuilderExtensions.AddNonPersistent0, DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderOptions/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Non-Persistent Objects, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderOptions.CustomCreateObjectSpaceProvidername, DevExpress.ExpressApp.CustomCreateObjectSpaceProviderContext, DevExpress.ExpressApp.IObjectSpaceProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ObjectCloningApplicationBuilderExtensions/AddCloning``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.ApplicationBuilder.ObjectCloningApplicationBuilderExtensions.AddCloning0, DevExpress.ExpressApp.CloneObject.ObjectCloningOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ObjectCloningApplicationBuilderExtensions/AddCloning``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/ObjectCloningApplicationBuilderExtensions/AddCloning``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpaceProvider, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextServiceBasedConfigurator"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpace, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpaceProvider, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextServiceBasedConfigurator"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_2",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Blazor.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_3",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpace, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextBuilderExtensions.WithAuditedDbContext0, DevExpress.ExpressApp.ApplicationBuilder.AuditedDbContextConfigurator"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredEFCoreObjectSpaceProviderBuilderExtensions/AddSecuredEFCore``1_3",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/ChartsApplicationBuilderExtensions/AddCharts",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.EasyTest.Framework/BlazorApplicationOptions/Configuration",
+    "keywords": "configuration",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Testing",
+    "namespaces": NaN,
+    "apis": "DevExpress.EasyTest.Framework.BlazorApplicationOptions.Configurationname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/SchemaUpdateMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.SchemaUpdateModename, DevExpress.ExpressApp.SchemaUpdateModedescription, DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.SchemaUpdateMode"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/UseCustomDataStoreProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.ConnectionString, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseCustomDataStoreProvider, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseSharedDataStoreProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/UseSharedDataStoreProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Object Space, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseCustomDataStoreProvider, DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.UseSharedDataStoreProvidername, DevExpress.ExpressApp.Xpo.IXpoDataStoreProvider"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/IObjectSpaceProvider/ConnectionString1132832",
+    "keywords": "connectionstring",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.IObjectSpaceProvider.ConnectionStringname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/ModuleBase/GetStartupActions1130586",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Views",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Actions.PopupWindowShowAction, DevExpress.ExpressApp.ModuleBase.GetStartupActionsname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/ModuleBase/GetStartupActions1130586",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Actions, IObjectSpace, objectSpace"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/ModuleBase/GetStartupActions1130586",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Object Space, Security System, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Actions, IObjectSpace, objectSpace"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/ModuleBase/GetStartupActions1130586",
+    "keywords": "startup",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/WebMessageOptions/ToastConfiguration1195264",
+    "keywords": "configuration",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.WebMessageOptions.ToastConfigurationname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/XafApplication/ConnectionString1130235",
+    "keywords": "connectionstring",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, Template Kit, WinForms, XAF Application",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.XafApplication.ConnectionStringname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp/XafApplication/ConnectionString1130235",
+    "keywords": "connectionstring",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Blazor UI, Database Connection, WinForms",
+    "namespaces": NaN,
+    "apis": NaN
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/SecuredObjectSpaceProviderBuilderExtensions/AddSecuredXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": ".NET Runtime, Actions, Blazor UI, Object Space",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder, DevExpress.ExpressApp.ApplicationBuilder.SecuredObjectSpaceProviderBuilderExtensions.AddSecuredXpo0, DevExpress.ExpressApp.ApplicationBuilder.SecuredXPObjectSpaceProviderOptions"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/ChartsApplicationBuilderExtensions/AddCharts",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.ChartsApplicationBuilderExtensions.AddCharts, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/DashboardsApplicationBuilderExtensions/AddDashboards",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Dashboards",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.Dashboards.Win.DashboardsOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.DashboardsApplicationBuilderExtensions.AddDashboards"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/EFCoreMiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Entity Framework Core, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreMiddleTierSecurityOptions, DevExpress.ExpressApp.Security.SecurityModuleOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.EFCoreMiddleTierSecurityExtensions.UseMiddleTierMode"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/EFCoreMiddleTierSecurityExtensions/UseMiddleTierMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/FileAttachmentsApplicationBuilderExtensions/AddFileAttachments",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentsOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.FileAttachmentsApplicationBuilderExtensions.AddFileAttachments"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Xpo/XPObjectSpaceProvider/ConnectionString1189064",
+    "keywords": "connectionstring",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Database Connection, Object Space, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.ConnectionStringname, Xpo"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/IWinApplicationBuilder",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Modules, Security System, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder._membersaltText, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuildername"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/ObjectSpaceProviders",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder.ObjectSpaceProvidersname"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/ObjectSpaceProviders",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/Security",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder.Securityname, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinSecurityBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinApplicationBuilder/Security",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder, PermissionPolicyRole"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinAuthenticationBuilder/IWinAuthenticationBuilder",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Security System, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilder._membersaltText, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuildername"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinSecurityBuilder/UseIntegratedMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Security System",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.Security.SecurityModuleOptions, DevExpress.ExpressApp.Security.SecurityOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.IWinAuthenticationBuilderdescription"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/IWinSecurityBuilder/UseIntegratedMode",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": NaN,
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder, DevExpress.ExpressApp.Win.ApplicationBuilder, PermissionPolicyRole"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.Win.ApplicationBuilder/AuditTrailXpoApplicationBuilderExtensions/AddAuditTrailXpo``1",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Actions, Audit Trail, XPO",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder, DevExpress.ExpressApp.AuditTrail.AuditTrailOptions, DevExpress.ExpressApp.Win.ApplicationBuilder.AuditTrailXpoApplicationBuilderExtensions.AddAuditTrailXpo0"
+  },
+  {
+    "doc_id": "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/XPObjectSpaceProviderOptions/CustomCreateObjectSpaceProvider",
+    "keywords": "applicationbuilder",
+    "keyword_count": 1,
+    "has_deployment_tag": false,
+    "current_concepts": "Blazor UI, Object Space, WinForms",
+    "namespaces": NaN,
+    "apis": "DevExpress.ExpressApp.ApplicationBuilder.XPObjectSpaceProviderOptions.CustomCreateObjectSpaceProvidername, DevExpress.ExpressApp.CustomCreateObjectSpaceProviderContext, DevExpress.ExpressApp.IObjectSpaceProvider"
+  }
+]

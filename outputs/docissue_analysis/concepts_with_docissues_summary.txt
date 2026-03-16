@@ -1,0 +1,148 @@
+====================================================================================================
+CONCEPTS WITH DOCUMENTATION ISSUES - SUMMARY
+====================================================================================================
+
+Concept                                        Issues  Active  Closed  Invalid InsuffInfo
+----------------------------------------------------------------------------------------------------
+Business Logic                                     42       1      30       12         11
+XPO                                                36       1      27       10          9
+Model Extension                                    36       1      24        5         10
+Entity Framework Core                              35       1      26        9          9
+Object Space Provider                              34       1      25        9          8
+Collection Property                                34       1      23        7         11
+Reference Property                                 34       1      23        7         11
+Property Metadata                                  34       1      23        8         11
+Business Object                                    33       1      23        9          7
+Views                                              33       1      23        8          6
+Calculated Property                                33       1      22        7         11
+Blazor                                             32       1      21        7          9
+Non-persistent Object                              30       1      20        8          8
+Object Relationships                               30       0      22        8          9
+Business Object Lifecycle                          30       0      22        8          9
+Web API Service                                    29       1      21        6          8
+View Types                                         28       0      21        8          5
+Criteria                                           27       0      20        6          6
+Database Connection                                26       0      18        7          6
+Custom Criteria Functions                          26       0      18        6          7
+Spreadsheet Control                                26       0      18        8          7
+WinForms                                           25       2      16        7          6
+Built-in Criteria Operators                        25       0      18        6          6
+Filtering UI                                       25       0      18        6          6
+Clone Object                                       25       0      18        6          7
+Application Model                                  23       0      16        6          6
+List Editors                                       23       1      17        4          5
+XAF Application                                    23       1      13        3          8
+Database Update                                    23       0      17        6          7
+View Variants                                      23       1      17        5          5
+Direct SQL                                         22       0      15        6          7
+Auto-Increment Fields                              22       0      15        6          6
+List View                                          22       0      18        8          4
+Validation                                         22       0      16        7          6
+Multiple Databases                                 21       0      15        6          6
+Optimistic Locking                                 21       0      15        6          6
+View Items                                         21       0      16        6          5
+PivotGrid                                          21       0      15        6          6
+Detail View                                        20       0      16        7          4
+Lookup View                                        20       0      14        6          5
+Action Container View Items                        19       0      14        5          5
+Lookup Property Editors                            19       0      13        6          4
+Controller Customization                           19       2      13        4          6
+Property Editors                                   18       0      12        5          5
+Static View Items                                  18       0      14        5          4
+Dashboard View Items                               18       0      14        5          4
+Layout Generation                                  18       0      14        5          4
+Layout Runtime Customization                       18       0      14        5          4
+Tabbed MDI Interface                               18       1      10        6          6
+Threading Issues                                   18       1      13        3          7
+Layout                                             17       0      14        5          3
+List View Data Access Modes                        17       0      14        6          3
+Dashboard View                                     17       0      13        6          4
+View Customization                                 16       0      12        5          4
+Nested Views                                       16       0      13        6          3
+View Lifecycle                                     16       0      13        5          3
+Controller Types                                   16       1      10        3          6
+Object View Controllers                            16       1      12        4          4
+Master-Detail Views                                15       0      12        5          3
+Popup Windows                                      15       0      12        5          3
+Collection Property Editors                        15       0      12        5          2
+Office Module                                      15       0      11        5          4
+Tenant                                             15       1      12        3          5
+Security System                                    14       0      10        3          4
+Authentication                                     13       0      10        3          4
+Standard Property Editors                          12       0       9        4          3
+Specialized Property Editors                       12       0       9        4          3
+Property Editor Customization                      12       0       7        3          4
+Controller Activation                              12       1       8        1          2
+List View Controllers                              12       1       9        1          6
+Tree List                                          11       1       9        3          1
+Property Editor Types                              11       0       8        4          2
+Property Editor Features                           11       0       8        4          2
+Target Properties                                  11       1       7        1          2
+Authorization                                      11       0       8        2          3
+View Controller                                    10       1       7        2          3
+Generic View Controllers                           10       1       7        2          3
+CRUD Controllers                                   10       1       8        0          6
+Middle Tier                                        10       0       8        2          4
+Custom User Management                             10       0       7        2          4
+Permission Policies                                10       0       8        2          3
+Audit Trail                                        10       0       8        3          3
+Controllers and Actions                            10       0       5        1          4
+.NET Runtime                                        9       1       5        3          2
+Window Controller                                   9       1       6        2          3
+Dialog Controller                                   9       1       6        2          3
+Built-in Controllers                                9       1       7        0          5
+Conditional Appearance                              9       1       7        1          2
+Model Cache                                         9       0       6        1          1
+Action Types                                        9       0       4        2          4
+Simple Action                                       9       0       4        2          4
+Security Strategy                                   9       0       7        2          3
+Model Nodes                                         8       0       4        1          1
+Model Differences                                   8       0       5        1          1
+State Machine                                       7       1       6        0          2
+Reports                                             7       1       5        3          1
+Actions                                             7       0       3        0          4
+Model Editor                                        7       0       4        1          0
+Parametrized Action                                 7       0       3        2          2
+Popup Window Show Action                            7       0       3        2          2
+Single Choice Action                                7       0       3        2          2
+Report Parameters                                   7       0       4        3          2
+Controller Lifecycle                                6       1       5        0          2
+Mail Merge                                          6       0       4        2          3
+ApplicationBuilder                                  6       0       3        1          0
+Built-in Actions                                    6       0       3        0          4
+Performance Optimization                            5       0       5        1          1
+Legacy .NET Framework                               5       1       3        1          3
+Navigation                                          5       0       4        1          0
+Action Containers                                   5       0       2        0          2
+Windows                                             5       0       3        0          2
+Testing                                             5       0       1        0          1
+Tree Node Interface                                 4       0       3        1          0
+Modules                                             4       1       1        1          1
+Memory Management                                   4       0       4        0          1
+Action State Management                             4       0       2        0          1
+Diagnostic Tools                                    4       0       2        0          1
+Action Customization                                4       0       0        0          3
+File Attachments                                    3       0       3        1          2
+Async Operations                                    3       0       3        0          1
+Scaling Architecture                                3       0       3        0          1
+Inline Editing                                      3       0       3        2          0
+Accordion Control                                   3       0       2        0          1
+Logging                                             3       0       2        0          1
+Custom Validation Rules                             3       0       1        1          2
+Programmatic Localization                           3       0       0        0          3
+Context Menus                                       3       0       1        1          1
+Reports V2                                          3       0       2        2          1
+Scheduler                                           3       0       2        0          0
+Recurring Events                                    3       0       2        0          0
+Error Styling                                       2       0       1        1          1
+Application Templates                               2       0       0        0          2
+Demo Applications                                   2       0       1        1          0
+Migration                                           1       1       0        0          0
+Project Wizards                                     1       1       0        0          0
+Dependency Injection                                1       0       1        0          0
+Deployment                                          1       0       1        0          1
+Frames                                              1       0       0        0          1
+Theming                                             1       0       0        0          1
+Template Kit                                        1       0       1        1          0
+Dashboards                                          1       0       1        0          0
+Notifications                                       1       0       1        0          0

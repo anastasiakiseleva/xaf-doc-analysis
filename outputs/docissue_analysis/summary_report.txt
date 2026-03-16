@@ -1,0 +1,103 @@
+================================================================================
+DOCUMENTATION ISSUES - CONCEPT MAPPING ANALYSIS
+================================================================================
+
+Analysis Date: 2026-02-19 20:56:46
+
+OVERVIEW
+--------------------------------------------------------------------------------
+Total Doc Issues: 57
+Issues Mapped to Concepts: 57 (100.0%)
+Issues with No Concept Match: 0
+Total Concept Mentions: 1988
+Unique Concepts Referenced: 142
+
+TOP 20 CONCEPTS BY ISSUE COUNT
+--------------------------------------------------------------------------------
+Concept                                    Issues   Active   Closed  Invalid
+--------------------------------------------------------------------------------
+Business Logic                                 42        1       30       12
+XPO                                            36        1       27       10
+Model Extension                                36        1       24        5
+Entity Framework Core                          35        1       26        9
+Object Space Provider                          34        1       25        9
+Collection Property                            34        1       23        7
+Reference Property                             34        1       23        7
+Property Metadata                              34        1       23        8
+Business Object                                33        1       23        9
+Views                                          33        1       23        8
+Calculated Property                            33        1       22        7
+Blazor                                         32        1       21        7
+Non-persistent Object                          30        1       20        8
+Object Relationships                           30        0       22        8
+Business Object Lifecycle                      30        0       22        8
+Web API Service                                29        1       21        6
+View Types                                     28        0       21        8
+Criteria                                       27        0       20        6
+Database Connection                            26        0       18        7
+Custom Criteria Functions                      26        0       18        6
+
+================================================================================
+ISSUE TYPE BREAKDOWN (Top 10 Concepts)
+================================================================================
+
+
+Business Logic (42 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=30, Archived=11
+  Types: InvalidInfo=12, InsuffInfo=11, NewFeature=2
+  Feedback: Negative=27, Positive=1
+
+XPO (36 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=27, Archived=8
+  Types: InvalidInfo=10, InsuffInfo=9, NewFeature=3
+  Feedback: Negative=22, Positive=1
+
+Model Extension (36 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=24, Archived=11
+  Types: InvalidInfo=5, InsuffInfo=10, NewFeature=3
+  Feedback: Negative=22, Positive=1
+
+Entity Framework Core (35 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=26, Archived=8
+  Types: InvalidInfo=9, InsuffInfo=9, NewFeature=3
+  Feedback: Negative=21, Positive=1
+
+Object Space Provider (34 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=25, Archived=8
+  Types: InvalidInfo=9, InsuffInfo=8, NewFeature=1
+  Feedback: Negative=19, Positive=1
+
+Collection Property (34 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=23, Archived=10
+  Types: InvalidInfo=7, InsuffInfo=11, NewFeature=1
+  Feedback: Negative=21, Positive=2
+
+Reference Property (34 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=23, Archived=10
+  Types: InvalidInfo=7, InsuffInfo=11, NewFeature=1
+  Feedback: Negative=21, Positive=2
+
+Property Metadata (34 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=23, Archived=10
+  Types: InvalidInfo=8, InsuffInfo=11, NewFeature=1
+  Feedback: Negative=22, Positive=2
+
+Business Object (33 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=23, Archived=9
+  Types: InvalidInfo=9, InsuffInfo=7, NewFeature=3
+  Feedback: Negative=19, Positive=1
+
+Views (33 issues)
+------------------------------------------------------------
+  Status: Active=1, Closed=23, Archived=9
+  Types: InvalidInfo=8, InsuffInfo=6, NewFeature=2
+  Feedback: Negative=21, Positive=2

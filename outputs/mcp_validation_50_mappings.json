@@ -1,0 +1,687 @@
+{
+  "total_mappings": 50,
+  "summary": {
+    "confirmed": 12,
+    "likely": 1,
+    "unclear": 2,
+    "rejected": 35
+  },
+  "by_concept": {
+    "Object Space": {
+      "confirmed": 4,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 7,
+      "total": 11
+    },
+    "Tree Node Interface": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 0,
+      "total": 1
+    },
+    "Property Editors": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 2
+    },
+    "List Editors": {
+      "confirmed": 0,
+      "likely": 1,
+      "unclear": 1,
+      "rejected": 0,
+      "total": 2
+    },
+    "Detail View": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 0,
+      "total": 1
+    },
+    "Actions": {
+      "confirmed": 2,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 3,
+      "total": 5
+    },
+    "Application Model": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 2
+    },
+    "Layout": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 1,
+      "rejected": 0,
+      "total": 1
+    },
+    "List View": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 2
+    },
+    "XAF Application": {
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 2,
+      "total": 3
+    },
+    "Middle Tier": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 3,
+      "total": 3
+    },
+    "Controllers": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    },
+    "Object Space Provider": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    },
+    "Module": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    },
+    "Non-Persistent Objects": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 2,
+      "total": 2
+    },
+    "Business Objects": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 2,
+      "total": 2
+    },
+    "Security System": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 3,
+      "total": 3
+    },
+    "Custom User Management": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 2,
+      "total": 2
+    },
+    "Logging": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    },
+    "Diagnostic Tools": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    },
+    "Async Operations": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 2,
+      "total": 2
+    },
+    "Model Nodes": {
+      "confirmed": 0,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 1,
+      "total": 1
+    }
+  },
+  "all_mappings": [
+    {
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.FirstOrDefault0",
+      "api_name": "FirstOrDefault0",
+      "concept_name": "Object Space",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.GetObjectHandle",
+      "api_name": "GetObjectHandle",
+      "concept_name": "Object Space",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.IsDisposedObject",
+      "api_name": "IsDisposedObject",
+      "concept_name": "Object Space",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.ObjectEndEdit",
+      "api_name": "ObjectEndEdit",
+      "concept_name": "Object Space",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.Persistent.Base.General.ITreeNode.Parent",
+      "api_name": "Parent",
+      "concept_name": "Tree Node Interface",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafDataViewRecord.GetDefaultProperty",
+      "api_name": "GetDefaultProperty",
+      "concept_name": "Property Editors",
+      "confidence": 1.0,
+      "verdict": "confirmed",
+      "evidence_count": 2,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafDataViewRecord.ContainsMember",
+      "api_name": "ContainsMember",
+      "concept_name": "List Editors",
+      "confidence": 0.95,
+      "verdict": "unclear",
+      "evidence_count": 0,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.CollectionSourceBase.AllowAdd",
+      "api_name": "AllowAdd",
+      "concept_name": "List Editors",
+      "confidence": 0.95,
+      "verdict": "likely",
+      "evidence_count": 1,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafDataViewRecord.Item",
+      "api_name": "Item",
+      "concept_name": "Detail View",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 4,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafDataView.Insert",
+      "api_name": "Insert",
+      "concept_name": "Actions",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.FrameworkSettings",
+      "api_name": "FrameworkSettings",
+      "concept_name": "Application Model",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 4,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafDataView.AllowEdit",
+      "api_name": "AllowEdit",
+      "concept_name": "Layout",
+      "confidence": 0.95,
+      "verdict": "unclear",
+      "evidence_count": 0,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.Updating.ConvertXmlParameters.Assign",
+      "api_name": "Assign",
+      "concept_name": "Actions",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.ViewShortcut.IsEmpty",
+      "api_name": "IsEmpty",
+      "concept_name": "List View",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "api_id": "DevExpress.ExpressApp.XafApplication.BeginInit",
+      "api_name": "BeginInit",
+      "concept_name": "XAF Application",
+      "confidence": 0.95,
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": []
+    },
+    {
+      "mapping_id": 16,
+      "api_id": "DevExpress.ExpressApp.XafDataView.AllowEdit",
+      "api_name": "AllowEdit",
+      "concept_name": "Property Editors",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_0168Wunf7ibwv8p8AyKS54wu__vscode-1771057508567\\content.json"
+    },
+    {
+      "mapping_id": 17,
+      "api_id": "DevExpress.ExpressApp.Updating.ConvertXmlParameters.Assign",
+      "api_name": "Assign",
+      "concept_name": "Actions",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01EuXMxfntGrHGwm4brUhCr5__vscode-1771057508568\\content.json"
+    },
+    {
+      "mapping_id": 18,
+      "api_id": "DevExpress.ExpressApp.ViewShortcut.IsEmpty",
+      "api_name": "IsEmpty",
+      "concept_name": "Actions",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01WodsQK9RNHwMJJbqTmU575__vscode-1771057508569\\content.json"
+    },
+    {
+      "mapping_id": 19,
+      "api_id": "DevExpress.ExpressApp.ViewShortcut.IsEmpty",
+      "api_name": "IsEmpty",
+      "concept_name": "List View",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_016Jf6zQFq2NoEyz9rQPPwnr__vscode-1771057508570\\content.json"
+    },
+    {
+      "mapping_id": 20,
+      "api_id": "DevExpress.ExpressApp.XafApplication.BeginInit",
+      "api_name": "BeginInit",
+      "concept_name": "XAF Application",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01BwAVfbqZBMjGuKt7CgH7LJ__vscode-1771057508571\\content.json"
+    },
+    {
+      "mapping_id": 21,
+      "api_id": "DevExpress.ExpressApp.XafApplication.BeginInit",
+      "api_name": "BeginInit",
+      "concept_name": "Middle Tier",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01VTgXJ8bmhoB8dne8Ph37aX__vscode-1771057508572\\content.json"
+    },
+    {
+      "mapping_id": 22,
+      "api_id": "DevExpress.ExpressApp.ICurrentAspectProvider",
+      "api_name": "ICurrentAspectProvider",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01371VmsLJWJTDxCYrtQj9qe__vscode-1771057508573\\content.json"
+    },
+    {
+      "mapping_id": 23,
+      "api_id": "DevExpress.ExpressApp.ICurrentAspectProvider",
+      "api_name": "ICurrentAspectProvider",
+      "concept_name": "Controllers",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01RpvCoGTPS8Roe5XyHii7Sn__vscode-1771057508574\\content.json"
+    },
+    {
+      "mapping_id": 24,
+      "api_id": "DevExpress.ExpressApp.XafApplication.CurrentAspectProvider",
+      "api_name": "CurrentAspectProvider",
+      "concept_name": "Object Space Provider",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01MmM63uTDoWqdgkBZWsjBxv__vscode-1771057508575\\content.json"
+    },
+    {
+      "mapping_id": 25,
+      "api_id": "DevExpress.ExpressApp.XafApplication.CurrentAspectProvider",
+      "api_name": "CurrentAspectProvider",
+      "concept_name": "Middle Tier",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_013SBNjqwvYgaCA2GM7sJgj6__vscode-1771057508576\\content.json"
+    },
+    {
+      "mapping_id": 26,
+      "api_id": "DevExpress.ExpressApp.ModuleBase.Version",
+      "api_name": "Version",
+      "concept_name": "Module",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01Qkx1Rs3PxsNHJLctCGs78B__vscode-1771057508583\\content.json"
+    },
+    {
+      "mapping_id": 27,
+      "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.ObjectsCountGetting",
+      "api_name": "ObjectsCountGetting",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01NELohqkdYoEaNhNoJSyQKt__vscode-1771057508584\\content.json"
+    },
+    {
+      "mapping_id": 28,
+      "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.ObjectsCountGetting",
+      "api_name": "ObjectsCountGetting",
+      "concept_name": "Non-Persistent Objects",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01DGqSXaTKptvGiajqNt17PH__vscode-1771057508585\\content.json"
+    },
+    {
+      "mapping_id": 29,
+      "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.RemoveFromModifiedObjects",
+      "api_name": "RemoveFromModifiedObjects",
+      "concept_name": "Non-Persistent Objects",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01LE5r4SXdJeNR3Jxc79JGhq__vscode-1771057508586\\content.json"
+    },
+    {
+      "mapping_id": 30,
+      "api_id": "DevExpress.ExpressApp.NonPersistentObjectSpace.RemoveFromModifiedObjects",
+      "api_name": "RemoveFromModifiedObjects",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01Bjf5yscNZqd8JiFcQ8q85G__vscode-1771057508587\\content.json"
+    },
+    {
+      "mapping_id": 31,
+      "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs.OldValue",
+      "api_name": "OldValue",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01F9yZJJqdQhGXrtguwr4cPT__vscode-1771057508588\\content.json"
+    },
+    {
+      "mapping_id": 32,
+      "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs.OldValue",
+      "api_name": "OldValue",
+      "concept_name": "Business Objects",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01AU5XjA4bnmJsd3a5vD3pMD__vscode-1771057508589\\content.json"
+    },
+    {
+      "mapping_id": 33,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs.SettingsStorage",
+      "api_name": "SettingsStorage",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01LHXt6QuW8cF7TES6Uka82U__vscode-1771057508590\\content.json"
+    },
+    {
+      "mapping_id": 34,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs.SettingsStorage",
+      "api_name": "SettingsStorage",
+      "concept_name": "Business Objects",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01VXkskMXTaE2kpYp46BvEVK__vscode-1771057508591\\content.json"
+    },
+    {
+      "mapping_id": 35,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.LogonObject",
+      "api_name": "LogonObject",
+      "concept_name": "Security System",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01QfubhiudufrDk6nKnvrabj__vscode-1771057508592\\content.json"
+    },
+    {
+      "mapping_id": 36,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.SettingsStorage",
+      "api_name": "SettingsStorage",
+      "concept_name": "Security System",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01TtdUdqV53ZhdSLBAG5rH8b__vscode-1771057508593\\content.json"
+    },
+    {
+      "mapping_id": 37,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersWritingEventArgs.SettingsStorage",
+      "api_name": "SettingsStorage",
+      "concept_name": "Custom User Management",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01WrDgCJnp14L5xFmU8uKEy3__vscode-1771057508594\\content.json"
+    },
+    {
+      "mapping_id": 38,
+      "api_id": "DevExpress.ExpressApp.LoggingOffEventArgs._membersaltText",
+      "api_name": "_membersaltText",
+      "concept_name": "Logging",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01NQWr9Nmy2idxcZ9RfwjBUS__vscode-1771057508595\\content.json"
+    },
+    {
+      "mapping_id": 39,
+      "api_id": "DevExpress.ExpressApp.LoggingOffEventArgs._membersaltText",
+      "api_name": "_membersaltText",
+      "concept_name": "Diagnostic Tools",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01UitqqdSW4L3wAhRxXgRRws__vscode-1771057508596\\content.json"
+    },
+    {
+      "mapping_id": 40,
+      "api_id": "DevExpress.ExpressApp.ModuleBase.Version",
+      "api_name": "Version",
+      "concept_name": "XAF Application",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_013WvNhbwwh8JM66EygQykii__vscode-1771057508597\\content.json"
+    },
+    {
+      "mapping_id": 41,
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.ServiceProvider",
+      "api_name": "ServiceProvider",
+      "concept_name": "Middle Tier",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_011s82dFEqQbMDceE6vb5sSY__vscode-1771057508603\\content.json"
+    },
+    {
+      "mapping_id": 42,
+      "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.LoadAsync",
+      "api_name": "LoadAsync",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01179JCpUxmmgSzEdinQPppR__vscode-1771057508604\\content.json"
+    },
+    {
+      "mapping_id": 43,
+      "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.LoadAsync",
+      "api_name": "LoadAsync",
+      "concept_name": "Async Operations",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01SJxTuyMeLAt9LHNeV6MiyY__vscode-1771057508605\\content.json"
+    },
+    {
+      "mapping_id": 44,
+      "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.PreFetchAsync",
+      "api_name": "PreFetchAsync",
+      "concept_name": "Object Space",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_015JVVhAYCa6npaNKQPqwmwZ__vscode-1771057508606\\content.json"
+    },
+    {
+      "mapping_id": 45,
+      "api_id": "DevExpress.ExpressApp.IObjectSpaceAsync.PreFetchAsync",
+      "api_name": "PreFetchAsync",
+      "concept_name": "Async Operations",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01J5XG1vtn7iPZHpZDwjwKjw__vscode-1771057508607\\content.json"
+    },
+    {
+      "mapping_id": 46,
+      "api_id": "DevExpress.ExpressApp.ISettingsProvider",
+      "api_name": "ISettingsProvider",
+      "concept_name": "Application Model",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_016vi8edhnyQhMR5y6CdWu2h__vscode-1771057508608\\content.json"
+    },
+    {
+      "mapping_id": 47,
+      "api_id": "DevExpress.ExpressApp.ISettingsProvider",
+      "api_name": "ISettingsProvider",
+      "concept_name": "Model Nodes",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01TRu2V69KLy5BHkzBt6QMWE__vscode-1771057508609\\content.json"
+    },
+    {
+      "mapping_id": 48,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs.LogonObject",
+      "api_name": "LogonObject",
+      "concept_name": "Security System",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01HMf3GtEMxAihwd58PkfooW__vscode-1771057508610\\content.json"
+    },
+    {
+      "mapping_id": 49,
+      "api_id": "DevExpress.ExpressApp.LastLogonParametersReadEventArgs.LogonObject",
+      "api_name": "LogonObject",
+      "concept_name": "Custom User Management",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01Tgv7gZKHA5m4HdJLGf2Xk3__vscode-1771057508611\\content.json"
+    },
+    {
+      "mapping_id": 50,
+      "api_id": "DevExpress.ExpressApp.CollectionSourceBase.AllowAdd",
+      "api_name": "AllowAdd",
+      "concept_name": "Actions",
+      "confidence": 0.95,
+      "verdict": "rejected",
+      "evidence_count": 0,
+      "matches": [],
+      "mcp_file": "C:\\Users\\anastasiya.kisialeva\\AppData\\Roaming\\Code\\User\\workspaceStorage\\b0faa544bdfa7293fb3dcade97baff66\\GitHub.copilot-chat\\chat-session-resources\\dc82db5d-e2e1-464c-bfae-380e88203fb7\\toolu_01JPDcpPiE1afHpSnaD9XrZi__vscode-1771057508612\\content.json"
+    }
+  ]
+}

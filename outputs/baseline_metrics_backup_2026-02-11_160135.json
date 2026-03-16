@@ -1,0 +1,786 @@
+{
+  "metadata": {
+    "generated_date": "2026-02-11T10:17:45.497576",
+    "purpose": "Baseline metrics for documentation improvement tracking",
+    "project": "XAF Documentation Analysis"
+  },
+  "overall_statistics": {
+    "total_documents": 8555,
+    "total_sections": 11082,
+    "total_pairs": 96648,
+    "avg_connections_per_section": 17.44,
+    "isolated_sections": 554,
+    "isolated_percentage": 5.0,
+    "connected_sections": 10528,
+    "connected_percentage": 95.0
+  },
+  "connectivity_by_type": {
+    "cc": 57145,
+    "aa": 19902,
+    "ac": 10931,
+    "ca": 8670,
+    "cross_corpus_total": 19601,
+    "cross_corpus_percentage": 20.28
+  },
+  "similarity_statistics": {
+    "average": 0.757,
+    "median": 0.734,
+    "min": 0.6,
+    "max": 1.0,
+    "std": 0.103
+  },
+  "quality_gates": {
+    "concept_overlap": 72666,
+    "platform_overlap": 30937,
+    "namespace_overlap": 30206,
+    "api_overlap": 4451,
+    "high_similarity_fallback": 1364
+  },
+  "concept_statistics": {
+    ".NET Runtime": {
+      "total_sections": 1553,
+      "conceptual_sections": 1311,
+      "api_sections": 242,
+      "total_links": 14118,
+      "links_per_section": 9.09,
+      "cross_corpus_links": 1088,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Actions": {
+      "total_sections": 2228,
+      "conceptual_sections": 1125,
+      "api_sections": 1103,
+      "total_links": 13730,
+      "links_per_section": 6.16,
+      "cross_corpus_links": 2270,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Application Model": {
+      "total_sections": 1494,
+      "conceptual_sections": 589,
+      "api_sections": 905,
+      "total_links": 7150,
+      "links_per_section": 4.79,
+      "cross_corpus_links": 1620,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "ApplicationBuilder": {
+      "total_sections": 313,
+      "conceptual_sections": 66,
+      "api_sections": 247,
+      "total_links": 1737,
+      "links_per_section": 5.55,
+      "cross_corpus_links": 597,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Audit Trail": {
+      "total_sections": 283,
+      "conceptual_sections": 260,
+      "api_sections": 23,
+      "total_links": 3993,
+      "links_per_section": 14.11,
+      "cross_corpus_links": 617,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Authentication": {
+      "total_sections": 470,
+      "conceptual_sections": 344,
+      "api_sections": 126,
+      "total_links": 4408,
+      "links_per_section": 9.38,
+      "cross_corpus_links": 671,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Authorization": {
+      "total_sections": 310,
+      "conceptual_sections": 254,
+      "api_sections": 56,
+      "total_links": 1874,
+      "links_per_section": 6.05,
+      "cross_corpus_links": 245,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Blazor UI": {
+      "total_sections": 2098,
+      "conceptual_sections": 1571,
+      "api_sections": 527,
+      "total_links": 20341,
+      "links_per_section": 9.7,
+      "cross_corpus_links": 2728,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Business Objects": {
+      "total_sections": 1199,
+      "conceptual_sections": 831,
+      "api_sections": 368,
+      "total_links": 6701,
+      "links_per_section": 5.59,
+      "cross_corpus_links": 633,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Calculated Property": {
+      "total_sections": 30,
+      "conceptual_sections": 25,
+      "api_sections": 5,
+      "total_links": 94,
+      "links_per_section": 3.13,
+      "cross_corpus_links": 6,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Charts": {
+      "total_sections": 16,
+      "conceptual_sections": 12,
+      "api_sections": 4,
+      "total_links": 21,
+      "links_per_section": 1.31,
+      "cross_corpus_links": 2,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Clone Object": {
+      "total_sections": 134,
+      "conceptual_sections": 128,
+      "api_sections": 6,
+      "total_links": 1731,
+      "links_per_section": 12.92,
+      "cross_corpus_links": 23,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Collection Property": {
+      "total_sections": 134,
+      "conceptual_sections": 79,
+      "api_sections": 55,
+      "total_links": 405,
+      "links_per_section": 3.02,
+      "cross_corpus_links": 45,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Conditional Appearance": {
+      "total_sections": 283,
+      "conceptual_sections": 192,
+      "api_sections": 91,
+      "total_links": 2821,
+      "links_per_section": 9.97,
+      "cross_corpus_links": 281,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Controllers": {
+      "total_sections": 1250,
+      "conceptual_sections": 848,
+      "api_sections": 402,
+      "total_links": 8504,
+      "links_per_section": 6.8,
+      "cross_corpus_links": 1013,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Criteria": {
+      "total_sections": 483,
+      "conceptual_sections": 215,
+      "api_sections": 268,
+      "total_links": 2343,
+      "links_per_section": 4.85,
+      "cross_corpus_links": 383,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Dashboard View": {
+      "total_sections": 184,
+      "conceptual_sections": 112,
+      "api_sections": 72,
+      "total_links": 1195,
+      "links_per_section": 6.49,
+      "cross_corpus_links": 235,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Dashboards": {
+      "total_sections": 365,
+      "conceptual_sections": 275,
+      "api_sections": 90,
+      "total_links": 2984,
+      "links_per_section": 8.18,
+      "cross_corpus_links": 337,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Database Connection": {
+      "total_sections": 165,
+      "conceptual_sections": 132,
+      "api_sections": 33,
+      "total_links": 639,
+      "links_per_section": 3.87,
+      "cross_corpus_links": 35,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Dependency Injection": {
+      "total_sections": 69,
+      "conceptual_sections": 49,
+      "api_sections": 20,
+      "total_links": 250,
+      "links_per_section": 3.62,
+      "cross_corpus_links": 16,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Deployment": {
+      "total_sections": 125,
+      "conceptual_sections": 125,
+      "api_sections": 0,
+      "total_links": 1216,
+      "links_per_section": 9.73,
+      "cross_corpus_links": 0,
+      "has_cross_corpus_gap": true,
+      "under_connected": false
+    },
+    "Detail View": {
+      "total_sections": 818,
+      "conceptual_sections": 479,
+      "api_sections": 339,
+      "total_links": 4264,
+      "links_per_section": 5.21,
+      "cross_corpus_links": 789,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Dialog Controller": {
+      "total_sections": 43,
+      "conceptual_sections": 24,
+      "api_sections": 19,
+      "total_links": 141,
+      "links_per_section": 3.28,
+      "cross_corpus_links": 68,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Entity Framework Core": {
+      "total_sections": 820,
+      "conceptual_sections": 565,
+      "api_sections": 255,
+      "total_links": 6239,
+      "links_per_section": 7.61,
+      "cross_corpus_links": 942,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "File Attachments": {
+      "total_sections": 150,
+      "conceptual_sections": 132,
+      "api_sections": 18,
+      "total_links": 1629,
+      "links_per_section": 10.86,
+      "cross_corpus_links": 84,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Layout": {
+      "total_sections": 347,
+      "conceptual_sections": 200,
+      "api_sections": 147,
+      "total_links": 1788,
+      "links_per_section": 5.15,
+      "cross_corpus_links": 150,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Legacy .NET Framework": {
+      "total_sections": 227,
+      "conceptual_sections": 215,
+      "api_sections": 12,
+      "total_links": 788,
+      "links_per_section": 3.47,
+      "cross_corpus_links": 2,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "List Editors": {
+      "total_sections": 434,
+      "conceptual_sections": 177,
+      "api_sections": 257,
+      "total_links": 2350,
+      "links_per_section": 5.41,
+      "cross_corpus_links": 616,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "List View": {
+      "total_sections": 872,
+      "conceptual_sections": 495,
+      "api_sections": 377,
+      "total_links": 4300,
+      "links_per_section": 4.93,
+      "cross_corpus_links": 689,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Logging": {
+      "total_sections": 65,
+      "conceptual_sections": 55,
+      "api_sections": 10,
+      "total_links": 395,
+      "links_per_section": 6.08,
+      "cross_corpus_links": 0,
+      "has_cross_corpus_gap": true,
+      "under_connected": false
+    },
+    "Lookup View": {
+      "total_sections": 257,
+      "conceptual_sections": 168,
+      "api_sections": 89,
+      "total_links": 1847,
+      "links_per_section": 7.19,
+      "cross_corpus_links": 235,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Mail Merge": {
+      "total_sections": 25,
+      "conceptual_sections": 15,
+      "api_sections": 10,
+      "total_links": 111,
+      "links_per_section": 4.44,
+      "cross_corpus_links": 48,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Middle Tier": {
+      "total_sections": 231,
+      "conceptual_sections": 182,
+      "api_sections": 49,
+      "total_links": 2013,
+      "links_per_section": 8.71,
+      "cross_corpus_links": 75,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Migration": {
+      "total_sections": 66,
+      "conceptual_sections": 62,
+      "api_sections": 4,
+      "total_links": 459,
+      "links_per_section": 6.95,
+      "cross_corpus_links": 0,
+      "has_cross_corpus_gap": true,
+      "under_connected": false
+    },
+    "Model Nodes": {
+      "total_sections": 247,
+      "conceptual_sections": 132,
+      "api_sections": 115,
+      "total_links": 1045,
+      "links_per_section": 4.23,
+      "cross_corpus_links": 55,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Modules": {
+      "total_sections": 654,
+      "conceptual_sections": 524,
+      "api_sections": 130,
+      "total_links": 5507,
+      "links_per_section": 8.42,
+      "cross_corpus_links": 300,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Multi-Tenancy": {
+      "total_sections": 123,
+      "conceptual_sections": 102,
+      "api_sections": 21,
+      "total_links": 1323,
+      "links_per_section": 10.76,
+      "cross_corpus_links": 171,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Navigation": {
+      "total_sections": 460,
+      "conceptual_sections": 337,
+      "api_sections": 123,
+      "total_links": 3079,
+      "links_per_section": 6.69,
+      "cross_corpus_links": 137,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Non-Persistent Objects": {
+      "total_sections": 145,
+      "conceptual_sections": 117,
+      "api_sections": 28,
+      "total_links": 1268,
+      "links_per_section": 8.74,
+      "cross_corpus_links": 144,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Notifications": {
+      "total_sections": 135,
+      "conceptual_sections": 90,
+      "api_sections": 45,
+      "total_links": 1118,
+      "links_per_section": 8.28,
+      "cross_corpus_links": 259,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Object Space": {
+      "total_sections": 1218,
+      "conceptual_sections": 400,
+      "api_sections": 818,
+      "total_links": 6558,
+      "links_per_section": 5.38,
+      "cross_corpus_links": 1945,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Object Space Provider": {
+      "total_sections": 180,
+      "conceptual_sections": 52,
+      "api_sections": 128,
+      "total_links": 721,
+      "links_per_section": 4.01,
+      "cross_corpus_links": 184,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Parametrized Action": {
+      "total_sections": 87,
+      "conceptual_sections": 13,
+      "api_sections": 74,
+      "total_links": 259,
+      "links_per_section": 2.98,
+      "cross_corpus_links": 8,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Performance Optimization": {
+      "total_sections": 62,
+      "conceptual_sections": 26,
+      "api_sections": 36,
+      "total_links": 79,
+      "links_per_section": 1.27,
+      "cross_corpus_links": 0,
+      "has_cross_corpus_gap": true,
+      "under_connected": true
+    },
+    "Permission Policies": {
+      "total_sections": 83,
+      "conceptual_sections": 63,
+      "api_sections": 20,
+      "total_links": 275,
+      "links_per_section": 3.31,
+      "cross_corpus_links": 9,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "PivotGrid": {
+      "total_sections": 66,
+      "conceptual_sections": 19,
+      "api_sections": 47,
+      "total_links": 281,
+      "links_per_section": 4.26,
+      "cross_corpus_links": 107,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Popup Window Show Action": {
+      "total_sections": 124,
+      "conceptual_sections": 32,
+      "api_sections": 92,
+      "total_links": 732,
+      "links_per_section": 5.9,
+      "cross_corpus_links": 287,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Property Editors": {
+      "total_sections": 1667,
+      "conceptual_sections": 926,
+      "api_sections": 741,
+      "total_links": 11359,
+      "links_per_section": 6.81,
+      "cross_corpus_links": 2509,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Reference Property": {
+      "total_sections": 238,
+      "conceptual_sections": 165,
+      "api_sections": 73,
+      "total_links": 1319,
+      "links_per_section": 5.54,
+      "cross_corpus_links": 108,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Reports": {
+      "total_sections": 393,
+      "conceptual_sections": 274,
+      "api_sections": 119,
+      "total_links": 3803,
+      "links_per_section": 9.68,
+      "cross_corpus_links": 696,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Reports V2": {
+      "total_sections": 141,
+      "conceptual_sections": 114,
+      "api_sections": 27,
+      "total_links": 1386,
+      "links_per_section": 9.83,
+      "cross_corpus_links": 103,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Scheduler": {
+      "total_sections": 254,
+      "conceptual_sections": 151,
+      "api_sections": 103,
+      "total_links": 1701,
+      "links_per_section": 6.7,
+      "cross_corpus_links": 200,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Security Strategy": {
+      "total_sections": 97,
+      "conceptual_sections": 28,
+      "api_sections": 69,
+      "total_links": 382,
+      "links_per_section": 3.94,
+      "cross_corpus_links": 38,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Security System": {
+      "total_sections": 393,
+      "conceptual_sections": 263,
+      "api_sections": 130,
+      "total_links": 2641,
+      "links_per_section": 6.72,
+      "cross_corpus_links": 363,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Simple Action": {
+      "total_sections": 173,
+      "conceptual_sections": 69,
+      "api_sections": 104,
+      "total_links": 449,
+      "links_per_section": 2.6,
+      "cross_corpus_links": 101,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "State Machine": {
+      "total_sections": 114,
+      "conceptual_sections": 110,
+      "api_sections": 4,
+      "total_links": 652,
+      "links_per_section": 5.72,
+      "cross_corpus_links": 12,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Template Kit": {
+      "total_sections": 215,
+      "conceptual_sections": 186,
+      "api_sections": 29,
+      "total_links": 946,
+      "links_per_section": 4.4,
+      "cross_corpus_links": 57,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Tenant": {
+      "total_sections": 154,
+      "conceptual_sections": 113,
+      "api_sections": 41,
+      "total_links": 1624,
+      "links_per_section": 10.55,
+      "cross_corpus_links": 311,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Testing": {
+      "total_sections": 429,
+      "conceptual_sections": 311,
+      "api_sections": 118,
+      "total_links": 2810,
+      "links_per_section": 6.55,
+      "cross_corpus_links": 286,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Tree List": {
+      "total_sections": 88,
+      "conceptual_sections": 70,
+      "api_sections": 18,
+      "total_links": 615,
+      "links_per_section": 6.99,
+      "cross_corpus_links": 37,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Validation": {
+      "total_sections": 610,
+      "conceptual_sections": 172,
+      "api_sections": 438,
+      "total_links": 4209,
+      "links_per_section": 6.9,
+      "cross_corpus_links": 1471,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "View Controller": {
+      "total_sections": 489,
+      "conceptual_sections": 241,
+      "api_sections": 248,
+      "total_links": 1551,
+      "links_per_section": 3.17,
+      "cross_corpus_links": 374,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "Views": {
+      "total_sections": 2892,
+      "conceptual_sections": 1455,
+      "api_sections": 1437,
+      "total_links": 19855,
+      "links_per_section": 6.87,
+      "cross_corpus_links": 3658,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Web API Service": {
+      "total_sections": 237,
+      "conceptual_sections": 224,
+      "api_sections": 13,
+      "total_links": 1636,
+      "links_per_section": 6.9,
+      "cross_corpus_links": 36,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "WinForms": {
+      "total_sections": 1840,
+      "conceptual_sections": 1405,
+      "api_sections": 435,
+      "total_links": 15780,
+      "links_per_section": 8.58,
+      "cross_corpus_links": 1547,
+      "has_cross_corpus_gap": false,
+      "under_connected": false
+    },
+    "Window Controller": {
+      "total_sections": 146,
+      "conceptual_sections": 69,
+      "api_sections": 77,
+      "total_links": 598,
+      "links_per_section": 4.1,
+      "cross_corpus_links": 133,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "XAF Application": {
+      "total_sections": 943,
+      "conceptual_sections": 417,
+      "api_sections": 526,
+      "total_links": 4640,
+      "links_per_section": 4.92,
+      "cross_corpus_links": 1053,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    },
+    "XPO": {
+      "total_sections": 992,
+      "conceptual_sections": 620,
+      "api_sections": 372,
+      "total_links": 5629,
+      "links_per_section": 5.67,
+      "cross_corpus_links": 716,
+      "has_cross_corpus_gap": false,
+      "under_connected": true
+    }
+  },
+  "critical_issues": {
+    "concepts_with_zero_cross_links": [
+      "Deployment",
+      "Logging",
+      "Migration",
+      "Performance Optimization"
+    ],
+    "concepts_under_connected": [
+      "Application Model",
+      "ApplicationBuilder",
+      "Business Objects",
+      "Calculated Property",
+      "Charts",
+      "Collection Property",
+      "Criteria",
+      "Database Connection",
+      "Dependency Injection",
+      "Detail View",
+      "Dialog Controller",
+      "Layout",
+      "Legacy .NET Framework",
+      "List Editors",
+      "List View",
+      "Mail Merge",
+      "Model Nodes",
+      "Object Space",
+      "Object Space Provider",
+      "Parametrized Action",
+      "Performance Optimization",
+      "Permission Policies",
+      "PivotGrid",
+      "Popup Window Show Action",
+      "Reference Property",
+      "Security Strategy",
+      "Simple Action",
+      "State Machine",
+      "Template Kit",
+      "View Controller",
+      "Window Controller",
+      "XAF Application",
+      "XPO"
+    ],
+    "isolated_section_examples": [
+      "data/raw_md/apidoc/DevExpress.ExpressApp.Editors/PropertyEditor/EditMask1131128/EditMask1131128::2",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.DC/CustomLogics/GetHashCode1134288/GetHashCode1134288::1",
+      "data/raw_md/articles/data-manipulation-and-business-logic/create-read-update-and-delete-data/evaluate-scalar-values-and-fetch-a-portion-of-data/evaluate-scalar-values-and-fetch-a-portion-of-data::13",
+      "data/raw_md/articles/app-shell-and-base-infrastructure/icons/add-and-replace-icons/add-and-replace-icons::6",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.Editors/ModelRegisteredViewItemsGenerator/ModelRegisteredViewItemsGenerator/ModelRegisteredViewItemsGenerator::3",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/Controller/Active1130753/Active1130753::7",
+      "data/raw_md/articles/ui-construction/view-items-and-property-editors/property-editors/display-an-integer-property-as-an-enumeration/display-an-integer-property-as-an-enumeration::4",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/View/SaveModel1135733/SaveModel1135733::2",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/MiddleTierSecurityEvents/CustomCreateObjectSpaceProvider/CustomCreateObjectSpaceProvider::2",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.Actions/ChoiceActionItem/BeginGroup1130056/BeginGroup1130056::1",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.Layout/ControlViewItem/BreakLinksToControl1158161/BreakLinksToControl1158161::1",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/View/AllowEdit1132280/AllowEdit1132280::11",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/XafApplication/LinkNewObjectToParentImmediately1150992/LinkNewObjectToParentImmediately1150992::3",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/TargetWindow/TargetWindow/TargetWindow::1",
+      "data/raw_md/articles/debugging-testing-and-error-handling/debug-collect-and-analyze-the-diagnostic-information/debug-collect-and-analyze-the-diagnostic-information::2",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/BaseObjectSpace/Contains1149958/Contains1149958::1",
+      "data/raw_md/articles/getting-started/basic-tutorial-blazor/reuse-implemented-functionality-blazor/reuse-implemented-functionality-blazor::1",
+      "data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/IModelRibbonPage/Contextual/Contextual::1",
+      "data/raw_md/apidoc/DevExpress.ExpressApp/CreateCustomCollectionSourceEventArgs/ListViewID1135161/ListViewID1135161::1",
+      "data/raw_md/articles/getting-started/in-depth-tutorial-blazor/define-data-model-and-set-initial-data/define-data-model-and-set-initial-data-with-ef-core/implement-dependent-reference-properties-ef-core/implement-dependent-reference-properties-ef-core::4"
+    ]
+  }
+}

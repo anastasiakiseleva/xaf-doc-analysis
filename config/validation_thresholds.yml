@@ -1,0 +1,107 @@
+# Validation Thresholds for XAF Documentation Analysis Pipeline
+# 
+# These thresholds define acceptable data quality ranges for each pipeline phase.
+# Values are based on observed metrics from baseline runs and documentation standards.
+#
+# Last Updated: February 13, 2026
+
+# Phase 1: Ingest & Parse
+phase1_ingest:
+  min_docs: 7800                    # Minimum number of documents to parse (adjusted for enum filtering)
+  min_docs_with_links: 1000         # Minimum documents containing xref links
+  min_avg_word_count: 80            # Minimum average words per document (adjusted for actual data)
+  max_empty_text_sections: 0.10     # Max 10% of sections can have empty text
+  min_sections_per_doc: 1.0         # Minimum average sections per document
+
+# Phase 2: Build Explicit Graph
+phase2_graph:
+  min_resolution_rate: 0.70         # At least 70% of xrefs should resolve
+  max_self_loop_percentage: 5.0     # Max 5% of edges can be self-loops
+  min_connected_docs: 5000          # Minimum documents with at least one link
+
+# Phase 3: Extract Concepts
+phase3_concepts:
+  min_kept_percentage: 60.0         # At least 60% of sections should be kept
+  max_kept_percentage: 95.0         # No more than 95% kept (too permissive)
+  min_avg_concepts_per_section: 1.5 # Average concepts per kept section
+  max_avg_concepts_per_section: 4.0 # Max average (too many = overfitting)
+  min_concept_density: 0.0          # Minimum concept density (normalized)
+  max_concept_density: 1.0          # Maximum concept density
+  min_api_sections: 4000            # Minimum number of API sections
+  required_concepts: 45             # Total number of concepts in vocabulary
+
+# Phase 4: Embeddings
+phase4_embeddings:
+  expected_embedding_dim: 384       # Expected embedding dimensions for all-MiniLM-L6-v2
+  min_sections_embedded: 10000      # Minimum total sections with embeddings
+  embedding_norm_tolerance: 0.05    # Tolerance for normalized embeddings (should be ~1.0)
+  max_all_zero_embeddings: 0        # No embeddings should be all zeros
+
+# Phase 5: Semantic Pairs
+phase5_pairs:
+  min_total_pairs: 80000            # Minimum semantic pairs discovered
+  max_total_pairs: 150000           # Maximum (sanity check for runaway matching)
+  min_similarity_score: 0.0         # Minimum similarity (range check)
+  max_similarity_score: 1.0         # Maximum similarity (range check)
+  min_cross_corpus_percentage: 10.0 # At least 10% should be cross-corpus (conceptual↔API)
+  max_duplicate_pairs: 0            # No duplicate pairs allowed
+
+# Phase 7: Generate Metadata
+phase7_metadata:
+  min_docs_with_description: 95.0   # At least 95% should have descriptions
+  min_avg_tags_per_doc: 3.0         # Minimum average tags per document
+  max_avg_tags_per_doc: 12.0        # Maximum average tags (avoid over-tagging)
+  min_proficiency_beginner: 0.15    # At least 15% beginner-level content
+  min_proficiency_intermediate: 0.30 # At least 30% intermediate-level content
+  min_proficiency_advanced: 0.10    # At least 10% advanced-level content
+  min_description_length: 50        # Minimum description character count
+  max_description_length: 200       # Maximum description character count
+
+# Phase 8: Export YAML Metadata
+phase8_export:
+  min_coverage_percentage: 95.0     # At least 95% of docs should have metadata
+  min_tags_per_doc: 1               # Minimum tags per document
+  max_tags_per_doc: 15              # Maximum tags per document
+
+# Phase 9: Concept Quality Metrics
+phase9_quality:
+  min_overall_coverage: 85.0        # Overall concept coverage should be >85%
+  max_isolated_sections: 15.0       # No more than 15% sections should be isolated
+  min_avg_connectivity: 5.0         # Average connections per section
+  max_zero_crosslink_concepts: 6    # Maximum concepts with zero cross-links
+
+# Phase 10: Rollup Document Metadata
+phase10_rollup:
+  min_docs_with_tags: 5000          # Minimum documents with at least one tag (adjusted for unique docs)
+  min_avg_tags: 3.0                 # Minimum average tags per document
+  max_avg_tags: 12.0                # Maximum average tags per document
+  min_avg_connections: 3.0          # Minimum average semantic connections
+  max_docs_zero_tags: 100           # Maximum documents with zero tags
+
+# Phase 11: Extract API Entities
+phase11_api:
+  min_api_entities: 6000            # Minimum unique API entities
+  min_documented_apis: 5500         # Minimum APIs with documentation
+  max_apis_per_section: 50          # Sanity check for API extraction
+  min_namespaces: 100               # Minimum unique namespaces
+
+# Phase 12: Map APIs to Concepts
+phase12_api_concepts:
+  min_api_coverage: 80.0            # At least 80% of APIs should map to concepts
+  min_concept_coverage: 90.0        # At least 90% of concepts should have APIs
+  min_avg_concepts_per_api: 1.0     # Minimum average concepts per API
+  max_avg_concepts_per_api: 5.0     # Maximum average concepts per API
+  min_confidence: 0.0               # Minimum confidence score
+  max_confidence: 1.0               # Maximum confidence score
+
+# General Quality Thresholds
+general:
+  max_null_percentage: 5.0          # Maximum percentage of null values in critical columns
+  max_processing_time_minutes: 300  # Maximum processing time (5 hours) for full pipeline
+  min_file_size_kb: 10              # Minimum output file size (detect empty files)
+
+# Regression Testing Tolerances
+regression:
+  row_count_tolerance_pct: 2.0      # ±2% tolerance for row counts
+  metric_tolerance_pct: 5.0         # ±5% tolerance for quality metrics
+  similarity_tolerance: 0.02        # ±0.02 tolerance for similarity scores

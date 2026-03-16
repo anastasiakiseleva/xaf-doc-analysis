@@ -1,0 +1,3815 @@
+concepts:
+- name: Blazor
+  type: Platform
+  synonyms:
+  - Blazor UI
+  - Blazor Server
+  - Web
+  - frontend
+  tags:
+  - platform
+  - UI client
+  - .NET Core
+  - .NET
+  - Blazor App
+  - Blazor WebAssembly
+  - Blazor WASM
+  keywords:
+  - ASP.NET Core Blazor
+  description: ASP.NET Core Blazor UI platform for building XAF web applications
+- name: WinForms
+  type: Platform
+  synonyms:
+  - WinForms UI
+  - Windows Forms
+  - Desktop
+  - frontend
+  tags:
+  - platform
+  - UI client
+  - .NET Core
+  - .NET
+  keywords: []
+  description: Windows Forms desktop UI platform for building XAF desktop applications
+- name: Web API Service
+  type: Platform
+  synonyms:
+  - Web API
+  - REST API
+  - Service
+  - Backend
+  - application server
+  tags:
+  - API
+  - platform
+  - backend
+  - Swagger
+  - OpenAPI
+  - .NET Core
+  - .NET
+  - security
+  - non-XAF
+  - middleware
+  keywords:
+  - ASP.NET Core
+  - OData
+  - WebAPI
+- name: Entity Framework Core
+  type: Data Access & Business Logic
+  synonyms:
+  - EF Core
+  - Entity Framework
+  - Data Access
+  - Business Model Design
+  - Storage
+  - Data Layer
+  - Connection
+  tags:
+  - orm
+  - data
+  - .NET Core
+  - .NET
+  - DbContext
+  - DB
+  - database
+  - data table
+  - stored procedures
+  - SQL
+  - SQL Views
+  - ADO.NET
+  keywords:
+  - OnModelCreating
+  - ModelBuilder
+  - EFCoreObjectSpace
+  - EFObjectSpace
+  description: Microsoft's ORM framework for data access and business object persistence
+- name: XPO
+  type: Data Access & Business Logic
+  synonyms:
+  - eXpress Persistent Objects
+  tags:
+  - orm
+  - data
+  - .NET Core
+  - .NET
+  - Session
+  - UnitOfWork
+  - XPCollection
+  - XPView
+  - XPQuery
+  - ADO.NET
+  - DB
+  - database
+  - data table
+  - stored procedures
+  - SQL
+  - SQL Views
+  keywords:
+  - XPObjectSpace
+  - SecuredObjectSpace
+  - XPNestedObjectSpace
+  - XPObjectSpaceProvider
+  - ManyToManyAliasAttribute
+- name: Non-persistent Object
+  type: data
+  synonyms:
+  - Nonpersistent
+  - Non persistent
+  tags:
+  - .NET Core
+  - .NET
+  - data
+  - runtime
+  - in-memory; on the fly
+  - intermediate
+  - middleware
+  keywords:
+  - NPO
+  - DTO
+  - POCO
+  - IObjectSpace
+  - ObjectSpace
+  - NonPersistentObjectSpace
+  - NonPersistentObjectSpaceProvider
+- name: Business Object
+  type: Data Access & Business Logic
+  synonyms:
+  - Entity
+  - Persistent Object
+  - Data Model
+  - business model
+  - entity
+  - business class
+  - domain object
+  tags:
+  - EF
+  - XPO
+  - .NET Core
+  - .NET
+  - data
+  - data table
+  - stored procedures
+  - SQL
+  - SQL Views
+  keywords:
+  - IObjectSpace
+  - Session
+  - UnifOfWork
+  - DbContext
+  - ObjectSpace
+  description: Domain entities that represent business data and logic in XAF applications
+- name: Business Logic
+  type: data
+  synonyms:
+  - data context
+  - database context
+  - database connection
+  - Session
+  - Business Logic
+  tags:
+  - data
+  - CRUD
+  - create
+  - read
+  - update
+  - delete
+  - api
+  - ORM
+  - LINQ
+  - transaction
+  - database
+  - SQL
+  - logic
+  - business layer
+  - repository
+  - IObjectSpaceFactory
+  - INonSecuredObjectSpaceFactory
+  - IObjectSpaceFactory.CreateObjectSpace
+  - INonSecuredObjectSpaceFactory.CreateNonSecuredObjectSpace
+  - XafApplication.CreateObjectSpace
+  - IObjectSpace.CreateObject
+  - IObjectSpace.DeleteObject
+  - IObjectSpace.GetObjects
+  - IObjectSpace.CommitChanges
+  - IObjectSpace.GetObjectsQuery
+  keywords:
+  - IObjectSpace
+  - ObjectSpace
+  - DbContext
+  - UnitOfWork
+  - EFCoreObjectSpace
+  - EFObjectSpace
+  - XPObjectSpace
+  - SecuredObjectSpace
+  - XPNestedObjectSpace
+- name: Security System
+  type: security
+  synonyms:
+  - XAF Security
+  - Application Security
+  - Data Access Security
+  - Access Control
+  - Auth
+  - Authentication and Authorization
+  - Data Protection
+  - Data Safety
+  - Security Tier
+  - Security Policy
+  - .NET App Security API
+  - Permission Management
+  - Field-Level Security
+  - Record-Level Security
+  - Row-Level Security
+  tags:
+  - security
+  - secure
+  - secured
+  - sensitive
+  - protected
+  - Auth
+  - sec
+  - security
+  - authentication
+  - authorization
+  - users
+  - roles
+  - permissions
+  - access rights
+  - Middle Tier Security
+  - Middle-tier
+  - application server
+  keywords:
+  - UseIntegratedMode
+  - Integrated Mode
+  - SecuredObjectSpace
+  - SecuredObjectSpaceProvider
+  - INonsecuredObjectSpaceProvider
+  - ISecurityProvider
+  - ISecurityStrategyBase
+  - INonSecuredObjectSpaceFactory
+  - GetSecurity
+  - SecurityStrategy
+  - SecurityStrategyComplex
+  description: Comprehensive XAF security framework integrating authentication, authorization, and data access control
+- name: Authentication
+  type: security
+  synonyms:
+  - Auth
+  - Identity
+  - Login
+  - Logon
+  - User Management
+  - Identity Provider
+  tags:
+  - security
+  - secure
+  - secured
+  - sensitive
+  - protected
+  - logon
+  - password
+  - login
+  - logon parameters
+  - user info
+  - sign in
+  - sign on
+  - log off
+  - sign off
+  - Credentials
+  - OpenID Connect
+  - LDAP
+  - Single Sign-On
+  - SSO
+  - Two-Factor Authentication
+  - Multi-Factor Authentication
+  - Microsoft Entra ID
+  - Google Authentication
+  - Active Directory
+  - AD
+  - Standard Authentication
+  - Forms Authentication
+  - passkey
+  - passwordless
+  - 2FA
+  - MFA
+  - ASP.NET Core Identity
+  - JWT
+  - access token
+  - Bearer Token
+  - Refresh Token
+  - Cookie based authentication
+  - OAuth
+  - Claim
+  keywords:
+  - AddExternalAuthentication
+  - AuthenticationActiveDirectory
+  - AuthenticationStandard
+  - ClaimsPrincipal
+  - IPrincipalProvider
+  - ClaimsIdentity
+  - PermissionPolicyUser
+  - ApplicationUser
+  - ISecurityUserWithLoginInfo
+  - CreateUserLoginInfo
+  - UserManager
+  - CurrentUserId
+  - IsCurrentUserInRole
+  - CurrentUserIdOperator
+  - ISecurityUserWithRoles
+  - SecuritySystem
+  - SecuritySystem.CurrentUserId
+  - SecuritySystem.CurrentUser
+  - SecuritySystem.UserType
+  - IdentityUser
+  - AuthenticationMixed
+  - IAuthenticationStandard
+  - IAuthenticationStandard
+  - SignInManager
+  description: User identity verification and login management system
+- name: Authorization
+  type: security
+  synonyms:
+  - Auth
+  - Permission Policy
+  - Security Strategy
+  - Role-based Access Control
+  - Role Management
+  - Access Rules
+  - Security Permissions
+  tags:
+  - security
+  - secure
+  - secured
+  - sensitive
+  - protected
+  - RBAC
+  - field-level permission
+  - object-level permission
+  - member permission
+  - data record permission
+  - navigation permission
+  - type permission
+  - Allow / Deny Permission Policy
+  keywords:
+  - PermissionPolicyRole
+  - SetTypePermission
+  - AddTypePermission
+  - AddNavigationPermission
+  - AddObjectPermissionFromLambda
+  - AddMemberPermissionFromLambda
+  - SecurityStrategy
+  - IsGrantedExtensions
+  - SetPropertyValueWithSecurityBypass
+  - IPermissionPolicyUser
+  - IPermissionPolicyRole
+  - TypePermissionObject
+  - MemberPermissionObject
+  - ObjectPermissionObject
+  - IdentityRole
+  description: Permission-based access control system for managing user roles and data access rights
+- name: Application Model
+  type: ui
+  synonyms:
+  - Application Model
+  - UI Settings
+  - UI metadata
+  - UI structure
+  - UI configuration
+  - Model Editor
+  tags:
+  - ui
+  - user interface
+  - configuration
+  - XAFML
+  - model differences
+  - user differences
+  - model difference layers
+  - BOModel
+  - Views
+  - ActionDesign
+  - ViewItems
+  - NavigationItems
+  - IModelListView
+  - IModelDetailView
+  - IModelClass
+  - IModelColumn
+  - IModelOptions
+  - IModelApplication
+  - IModelLayoutGroup
+  - IModelLayoutItem
+  - IModelPropertyEditor
+  - IModelView
+  - IModelDashboardView
+  - ModelNode
+  - IModelNode
+  - ModelDifferenceDbStore
+  - Module-Level Differences
+  - Administrator Differences
+  - FileModelStore
+  - ResourcesModelStore
+  - ModelDifferenceAspect
+  - ModelDifference
+  - Node Generators
+  - Model Node Generator Updater
+  - UpdateNode
+  - AddNode
+  keywords:
+  - XAFML
+  description: Metadata-driven configuration system that defines XAF application UI structure and behavior
+- name: Views
+  type: ui
+  synonyms:
+  - View
+  - List View
+  - Detail View
+  - Dashboard View
+  - View Types
+  - Master-Detail View
+  - Nested List View
+  - Popup View
+  tags:
+  - ui
+  - form
+  - page
+  - window
+  - data representation
+  - UI Editors
+  - List Editor
+  - Layout Manager
+  keywords:
+  - ListView
+  - DetailView
+  - DashboardView
+  - LayoutManager
+  - CreateDetailView
+  - CreateListView
+  - CreateDashboardView
+  - IModelListView
+  - IModelDetailView
+  - IModelDashboardView
+  - ViewController.TargetViewType
+  - ViewController.TargetObjectType
+  - ViewController.TargetViewId
+  - ViewController.TargetViewNesting
+  - WindowController.TargetWindowType
+  - View.ObjectSpace
+  - View.CurrentObject
+  - ViewCurrentObject
+  - ListEditor
+  description: UI components that display and edit business objects (List Views, Detail Views, Dashboard Views)
+- name: Property Editors
+  type: ui
+  synonyms:
+  - Property Editor
+  - View Items
+  - Data Editors
+  - Form Controls
+  - Field Editors
+  - Fields
+  tags:
+  - ui
+  - UI Editors
+  - form editors
+  - data editors
+  - user controls
+  - ViewItem
+  - Lookup Property Editor
+  - List Property Editor
+  - ListPropertyEditor
+  - Object Property Editor
+  - StaticTextItem
+  - Static Text
+  - Type Property Editor
+  - Integer Property Editor
+  - String Property Editor
+  - Date Property Editor
+  - Boolean Property Editor
+  - Image Property Editor
+  - Enumeration Property Editor
+  - IModelPropertyEditor
+  - IModelColumn
+  - DetailView.GetItems
+  - DetailView.FindItem
+  - PropertyEditor
+  - DXPropertyEditor
+  - BlazorPropertyEditorBase
+  - ViewItem
+  - ViewItem.ControlCreated
+  - DetailViewExtensions.CustomViewItemControl
+  - View.CustomizeViewItemControl
+  - control
+  - component
+  - component model
+  - component adapter
+  - text editor
+  - button
+  - checkbox
+  - combo box
+  - date editor
+  - lookup editor
+  - memo editor
+  - spin editor
+  - time editor
+  - image editor
+  - file editor
+  - rich text editor
+  - drop down editor
+  - lookup
+  - progress bar
+  - list box
+  - ReadValue
+  - WriteValue
+  keywords: []
+- name: List Editors
+  type: ui
+  tags:
+  - ui
+  - List Editors
+  - ListEditor
+  - List Editor
+  - Custom Property Editors
+  - list
+  - collection
+  - nested List View
+  - master-detail List View
+  - grid
+  - data grid
+  - IModelListView
+  - IModelColumn
+  - ListView
+  - GridView
+  - DxGrid
+  - tree
+  - treelist
+  - DxTreeList
+  - scheduler
+  - pivotgrid
+  - DxPivotTable
+  - TreeListEditor
+  - GridListEditor
+  - DxGridListEditor
+  - DxTreeListEditor
+  - DxPivotGridListEditor
+  - PivotGridListEditor
+  - ChartListEditor
+  - chart
+  - SchedulerListEditor
+  - DxSchedulerListEditor
+  - calendar
+  - ColumnsListEditor
+  - ColumnWrapper
+  - OnViewControlsCreated
+  - ListView.Editor
+  - CollectionSourceBase
+  - PropertyCollectionSource
+  - Data Access Mode
+  - Server Mode
+  - Data View mode
+  - Client Mode
+  synonyms: []
+  keywords: []
+- name: Controllers and Actions
+  type: ui
+  synonyms:
+  - Controllers
+  - Actions
+  - Menu Commands
+  - Ribbon Actions
+  - Toolbar Actions
+  tags:
+  - ui
+  - menu
+  - actions
+  - commands
+  - Action Handlers
+  - XAF Controller
+  - view controller
+  - window controller
+  - toolbar
+  - ribbon
+  - menu items
+  - action containers
+  keywords:
+  - ViewController
+  - WindowController
+  - ActionBase
+  - SimpleAction
+  - ParametrizedAction
+  - SingleChoiceAction
+  - PopupWindowShowAction
+  - ObjectViewController<ViewType>
+  - ObjectType>
+  - ViewController<ListView>
+  - ViewController<DetailView>
+  - ViewController.Active
+  - ActionBase.Active
+  - ActionBase.Enabled
+  - OnActivated
+  - ActionBase.CustomizeControl
+  - ActionBase.Category
+  - ActionBase.Execute
+  - PopupWindowShowAction.CustomizePopupWindowParams
+  - DialogController
+  - RefreshController
+  - NewObjectViewController
+  - DeleteObjectsViewController
+  - LinkUnlinkController
+  - ListViewProcessCurrentObjectController
+  - RecordsNavigationController
+  - ShowNavigationItemController
+  description: Controller classes and Action components for implementing UI commands and user interactions
+- name: Frames
+  type: ui
+  parent: null
+  tags:
+  - frame
+  - ui
+  - architecture
+  - customization
+  synonyms:
+  - nested frame
+  keywords:
+  - Frame.GetController
+  - Frame.Controllers
+  - Frame.Template
+  - Frame.View
+  - Frame.Application
+  - NestedFrame
+  description: The Frame class represents the context of a window or view in an XAF application, providing access to controllers, templates, and other services. It is used to manage the lifecycle and behavior of views and their associated UI elements.
+- name: Windows
+  type: ui
+  parent: null
+  tags:
+  - window
+  - ui
+  - architecture
+  - customization
+  synonyms:
+  - popup window
+  - dialog window
+  - main window
+  keywords:
+  - Window.TemplateChanged
+  - WindowType.Main
+  - TargetWindowType
+  - XafApplication.MainWindow
+  - Window.View
+  - Window.IsMain
+  - Window.Context
+  - ShowViewParameters
+  - ShowViewSource
+  - ShowViewStrategyBase
+  description: The Window class represents a window in an XAF application, providing properties and events to manage its behavior, content, and interactions with views and controllers. It is a key component in defining the user interface and navigation structure of the application.
+- name: Application Templates
+  type: ui
+  parent: null
+  synonyms:
+  - Form Templates
+  - Window Templates
+  - Frame Templates
+  - Detail Form Template
+  - Main Window Template
+  - Ribbon Form Template
+  - Logon Form Template
+  - Template Customization
+  - Custom Templates
+  - Form Designer
+  - Window Layout
+  - DetailFormV2
+  - Application Window Template
+  - Main Form Template
+  - View Site
+  keywords:
+  - IFrameTemplate
+  - IWindowTemplate
+  - ApplicationWindowTemplate
+  - DetailFormTemplate
+  - MainFormTemplate
+  - PopupForm
+  - TemplateContext
+  - FrameTemplateContext
+  - IWindowTemplateFactory
+  - CreateControls
+  - ICustomizeTemplate
+  - IViewSiteTemplate
+  - NestedFrameTemplate
+  - LookupForm
+  - LookupControlTemplate
+  - LogonWindowTemplate
+  - CreateTemplate
+  - ApplicationRibbonWindowTemplate
+  - LightStyleMainForm
+  - LightStyleMainRibbonForm
+  - OutlookStyleMainRibbonForm
+  - MainRibbonFormV2
+  - DetailRibbonFormV2
+  tags:
+  - ui
+  - architecture
+  - customization
+  description: Built-in controls that define the appearance and layout of windows and frames in XAF applications
+- name: Layout
+  type: ui
+  parent: Views
+  synonyms:
+  - Layout Items
+  - Layout Groups
+  - Form Layout
+  - UI Layout
+  - Layout Customization API
+  - View Layout Arrangement
+  keywords:
+  - IModelLayoutGroup
+  - IModelLayoutItem
+  - LayoutControl
+  - LayoutManager
+  - FreezeLayout
+  - IModelViewLayout
+  - IModelLayoutManagerOptions
+  - CompositeView.LayoutManager
+  - LayoutItemTemplateContainer
+  - IModelLayout
+  - LayoutHelper
+  - LayoutStyle
+  - LayoutDirection
+  tags:
+  - ui
+  - views
+  - layout
+  description: Detail View layout arrangement system for organizing UI elements (Layout
+    Items and Layout Groups)
+- name: .NET Runtime
+  type: runtime
+  synonyms:
+  - .NET
+  - .NET Core
+  - .NET 5
+  - .NET 6
+  - .NET 7
+  - .NET 8
+  - .NET 9
+  - .NET 10
+  keywords:
+  - TargetFramework
+  - net8.0
+  - net6.0
+  - SDK-style
+  - AspNetCoreApplication
+  - FrameworkSettings
+  - DefaultSettingsCompatibilityMode
+  - Kestrel
+  - dotnet publish
+  - .NET Core Hosting Bundle
+  - PackageReference
+  - Modern .NET
+  tags:
+  - runtime
+  description: Modern .NET runtime platform
+- name: XAF Application
+  type: architecture
+  synonyms:
+  - eXpressApp Framework
+  - XAF Application Framework
+  - XAF App
+  - Application Setup
+  keywords:
+  - XafApplication
+  - Setup
+  - SetupComplete
+  - DevExpress.ExpressApp
+  - WinApplication
+  - BlazorApplication
+  - AspNetCoreApplication
+  - Application.Setup
+  tags:
+  - architecture
+  description: Main XAF application class that manages Controllers, Views, Object
+    Space, and application lifecycle
+- name: Modules
+  type: architecture
+  synonyms:
+  - XAF Module
+  - Application Module
+  - Plug-in Module
+  - System Module
+  - Feature Modules
+  - Custom XAF Module
+  keywords:
+  - ModuleBase
+  - ModulesManager
+  - AddModule
+  - Setup
+  - DevExpress.ExpressApp.ModuleBase
+  tags:
+  - architecture
+  - extensibility
+  description: Modular components that add functionality to XAF applications
+- name: Model Nodes
+  parent: Application Model
+  type: architecture
+  synonyms:
+  - Model Structure
+  - Application Model Nodes
+  keywords:
+  - IModelOptions
+  - IModelViews
+  - IModelControllers
+  - IModelActions
+  - IModelClass
+  - IModelMember
+  tags:
+  - architecture
+  - metadata
+  - configuration
+  description: Configuration tree elements in the Application Model
+- name: Model Editor
+  parent: Application Model
+  type: tools
+  synonyms:
+  - Application Model Editor
+  - Model Editor Tool
+  - Edit Model
+  - View in Model
+  tags:
+  - tools
+  - ui
+  - configuration
+  description: Visual tool for viewing and customizing the Application Model at design-time
+    and runtime
+  keywords: []
+- name: Model Differences
+  parent: Application Model
+  type: architecture
+  synonyms:
+  - Model Layers
+  - Model Storage
+  - Model Difference Aspects
+  - Model Difference Storages
+  keywords:
+  - FileModelStore
+  - ModelDifferenceDbStore
+  - IModelDifferenceStore
+  - ModelDifferenceAspect
+  - XAFML
+  - Model.xafml
+  - Model.DesignedDiffs.xafml
+  - Model.User.xafml
+  tags:
+  - architecture
+  - storage
+  - configuration
+  description: Layer-based storage system for Application Model customizations (Module,
+    Administrator, User levels)
+- name: Model Extension
+  parent: Application Model
+  type: architecture
+  synonyms:
+  - Model Extenders
+  - Extend Application Model
+  keywords:
+  - IModelExtender
+  - ExtendModelInterfaces
+  - ModelNodesGeneratorBase
+  tags:
+  - architecture
+  - api
+  - code
+  description: Programmatic extension of Application Model using IModelExtender interface
+    and ExtendModelInterfaces method
+- name: Model Cache
+  parent: Application Model
+  type: performance
+  synonyms:
+  - Application Model Cache
+  - Model Cache File
+  keywords:
+  - EnableModelCache
+  - ModelCacheManager
+  - ModelAssemblyCache
+  - UseModelAssemblyCache
+  - Model.Cache.xafml
+  - ModelAssembly
+  tags:
+  - performance
+  - optimization
+  - configuration
+  description: Application Model caching system for improved startup performance
+- name: ApplicationBuilder
+  type: architecture
+  synonyms:
+  - ApplicationBuilder Pattern
+  - Fluent Configuration
+  - AddXaf method
+  - services.AddXaf
+  keywords:
+  - AddXaf
+  - IBlazorApplicationBuilder
+  - IWinApplicationBuilder
+  - IXafApplicationBuilder
+  - IMultiTenancyApplicationBuilder
+  tags:
+  - architecture
+  - configuration
+  description: Fluent API pattern for configuring XAF applications
+- name: Dependency Injection
+  type: architecture
+  synonyms:
+  - Service Provider
+  - IoC Container
+  - Service Collection
+  - Service Registration
+  - Service Injection
+  keywords:
+  - IServiceCollection
+  - IServiceProvider
+  - AddServices
+  - ConfigureServices
+  - FillServices
+  - DI
+  tags:
+  - architecture
+  - patterns
+  description: Inversion of Control pattern for managing dependencies and registering
+    services
+- name: Middle Tier
+  type: architecture
+  synonyms:
+  - Middle Tier Security
+  - Middle Tier Mode
+  - Middle-Tier Application Server
+  - Three-Tier Architecture
+  - Application Server
+  keywords:
+  - MiddleTierSecurityOptions
+  - EFCoreMiddleTierSecurityOptions
+  - MiddleTierServerApplication
+  - MiddleTierClientApplication
+  - UseMiddleTier
+  tags:
+  - architecture
+  - security
+  - deployment
+  description: Secure frontend-backend communication architecture
+- name: Async Operations
+  type: patterns
+  synonyms:
+  - Async/Await
+  - Asynchronous Methods
+  - Async Support
+  - Async Programming
+  - Task-based Async
+  keywords:
+  - IObjectSpaceAsync
+  - CommitChangesAsync
+  - FindObjectAsync
+  - GetObjectByKeyAsync
+  - LoadAsync
+  - ToListAsync
+  - IsAsyncOperationInProgress
+  - PreFetchAsync
+  - ReloadObjectAsync
+  tags:
+  - patterns
+  - performance
+  description: Asynchronous programming patterns with async/await
+- name: Object Space Provider
+  type: data
+  synonyms: []
+  keywords:
+  - IObjectSpaceProvider
+  - CreateObjectSpace
+  - IObjectSpaceFactory
+  - ObjectSpaceProviders
+  - XPObjectSpaceProvider
+  - EFCoreObjectSpaceProvider
+  - SecuredObjectSpaceProvider
+  - NonPersistentObjectSpaceProvider
+  tags:
+  - data
+  - orm
+  - api
+  description: Factory for creating Object Space instances
+- name: Database Connection
+  type: data
+  synonyms:
+  - Connection String
+  - Database Configuration
+  - Connection Provider
+  keywords:
+  - ConnectionString
+  - XpoProvider
+  - EFCoreProvider
+  - appsettings.json
+  - App.config
+  - GetConnectionString
+  - LocalDB
+  - MultipleActiveResultSets
+  - WithHostDatabaseConnectionString
+  tags:
+  - data
+  - configuration
+  description: Database connection configuration and management
+- name: Object Relationships
+  parent: Business Objects
+  type: data
+  synonyms:
+  - Relationships
+  - Associations
+  - Foreign Keys
+  - Navigation Properties
+  - One-to-Many
+  - Many-to-Many
+  - One-to-One
+  - Many-to-One
+  - Aggregated Collections
+  - Reference Properties
+  keywords:
+  - AssociationAttribute
+  - AggregatedAttribute
+  - XPCollection
+  tags:
+  - data
+  - model
+  - relationships
+  description: Relationship types and configurations between business objects (One-to-Many,
+    Many-to-Many, aggregated vs non-aggregated)
+- name: Business Object Lifecycle
+  parent: Business Objects
+  type: data
+  synonyms:
+  - Object Lifecycle Events
+  - Business Object Events
+  - Object Callbacks
+  - Business Object Hooks
+  - Custom Business Logic
+  - Data Model Logic
+  - Entity Business Logic
+  - Custom logic within a data Model
+  - Custom logic in Business Class
+  tags:
+  - data
+  - model
+  - lifecycle
+  description: Lifecycle methods called automatically when business objects are created,
+    loaded, or saved (IXafEntityObject for EF Core, AfterConstruction/OnSaving for
+    XPO)
+  keywords:
+  - IXafEntityObject
+  - OnCreated
+  - OnLoaded
+  - OnSaving
+  - AfterConstruction
+- name: Collection Property
+  type: data
+  synonyms:
+  - Collection Association
+  - One-to-Many Relationship
+  - Navigation Property
+  keywords:
+  - XPCollection
+  - Association
+  - AllowNew
+  - AllowDelete
+  - AllowLink
+  - AllowUnlink
+  tags:
+  - data
+  - property
+  - relationship
+  description: Property representing a collection of related objects
+- name: Reference Property
+  type: data
+  synonyms:
+  - Reference Association
+  - Many-to-One Relationship
+  - Lookup Property
+  - Foreign Key
+  keywords:
+  - DataSourcePropertyAttribute
+  - DataSourceCriteriaAttribute
+  - ExpandObjectMembers
+  - EditorAlias
+  - DetailPropertyEditor
+  - Aggregated
+  tags:
+  - data
+  - property
+  - relationship
+  description: Property representing a reference to a single related object
+- name: Calculated Property
+  type: data
+  synonyms:
+  - Computed Property
+  - Derived Property
+  keywords:
+  - PersistentAliasAttribute
+  - CalculatedAttribute
+  - EvaluateAlias
+  - CalculatedPersistentAliasAttribute
+  tags:
+  - data
+  - property
+  description: Property whose value is calculated from other properties
+- name: Property Metadata
+  type: data
+  synonyms:
+  - Aliased Fields
+  - Calculated Fields
+  - Custom Fields
+  - Custom Metadata
+  - Custom Attributes
+  - Dynamic Property Configuration
+  - Aliased, Calculated and Custom Fields/Metadata
+  keywords:
+  - PersistentAliasAttribute
+  - CalculatedAttribute
+  - CalculatedPersistentAliasAttribute
+  - EvaluateAlias
+  - CalculatedPersistentAliasHelper
+  tags:
+  - data
+  - property
+  - metadata
+  description: Metadata-driven property customization including aliased fields, calculated
+    fields, and custom fields added via Model Editor or attributes
+- name: Criteria
+  type: data
+  synonyms:
+  - Filter Expression
+  - Where Clause
+  - Criteria Language
+  - Criteria Operators
+  keywords:
+  - CriteriaOperator
+  - BinaryOperator
+  - FunctionOperator
+  - OperandProperty
+  - OperandValue
+  - BinaryOperatorType
+  - FunctionOperatorType
+  - CriteriaOperator.Parse
+  - CriteriaOperator.FromLambda
+  - CriteriaEditorHelper
+  tags:
+  - data
+  - query
+  - filtering
+  description: Filter expression language system for querying and filtering data
+- name: Built-in Criteria Operators
+  type: data
+  parent: Criteria
+  synonyms:
+  - Built-in Operators
+  - Standard Operators
+  - Function Criteria Operators
+  - DateTime Functions
+  keywords:
+  - FunctionOperatorType
+  - LocalDateTimeToday
+  - LocalDateTimeThisWeek
+  - LocalDateTimeAfterTomorrow
+  - CurrentUserId
+  - CurrentTenantId
+  - IsCurrentUserId
+  - IsCurrentUserInRole
+  - IsNewObject
+  - AddDays
+  - AddMonths
+  - AddYears
+  tags:
+  - data
+  - query
+  - filtering
+  - operators
+  description: Built-in operator functions for criteria expressions (date functions,
+    security functions, etc.)
+- name: Custom Criteria Functions
+  type: data
+  parent: Criteria
+  synonyms:
+  - Custom Operators
+  - Custom Function
+  - Implement Custom Operator
+  - User-Defined Functions
+  - Custom Function Criteria
+  keywords:
+  - ICustomFunctionOperator
+  - ICustomFunctionOperatorFormattable
+  - CriteriaOperator.RegisterCustomFunction
+  - CriteriaOperator.GetCustomFunction
+  - OnCustomizeSecurityCriteriaOperator
+  - OnCreateCustomSecurityFunctionPatcher
+  - CustomCriteriaOperatorPatcherContext
+  tags:
+  - data
+  - query
+  - filtering
+  - customization
+  description: Custom operator implementation using ICustomFunctionOperator interface
+- name: Multiple Databases
+  type: data
+  synonyms:
+  - Connect several DB at once
+  - Multiple Database Connections
+  - Multi-Database
+  - Cross-Database
+  - Multiple ObjectSpaces
+  keywords:
+  - CompositeObjectSpace
+  - AdditionalObjectSpaces
+  - PopulateAdditionalObjectSpaces
+  - IObjectSpaceProviderService
+  - AutoCommitAdditionalObjectSpaces
+  - AutoRefreshAdditionalObjectSpaces
+  - AutoDisposeAdditionalObjectSpaces
+  tags:
+  - data
+  - architecture
+  description: Connecting to and managing multiple databases simultaneously
+- name: Direct SQL
+  type: data
+  synonyms:
+  - Direct SQL
+  - Raw SQL
+  - SQL Commands
+  - Execute SQL
+  - Custom SQL
+  keywords:
+  - ExecuteNonQueryCommand
+  - ExecuteScalarCommand
+  - ExecuteReader
+  - Session.ExecuteQuery
+  - Session.ExecuteSproc
+  - FromSqlRaw
+  - ExecuteSqlCommand
+  - IDataReader
+  - SelectData
+  - ModuleUpdater
+  tags:
+  - data
+  - advanced
+  description: Executing direct SQL queries outside ORM
+- name: Auto-Increment Fields
+  type: data
+  synonyms:
+  - Sequential numbers
+  - Auto-increment
+  - Number Generator
+  - Sequential ID
+  keywords:
+  - SequenceGenerator
+  - DatabaseGenerated
+  - DatabaseGeneratedOption
+  - FetchOnly
+  - Identity
+  - OnSaving
+  - Session.Reload
+  tags:
+  - data
+  - patterns
+  description: Implementing auto-incrementing sequential number fields
+- name: Optimistic Locking
+  type: data
+  synonyms:
+  - Optimistic Concurrency
+  - Concurrency Control
+  - Merge Conflicts
+  - Default Merging
+  - Change Tracking
+  - Conflict Resolution
+  keywords:
+  - IOptimisticLock
+  - OptimisticLockField
+  - OptimisticLockAttribute
+  - OptimisticLockDetection
+  - OptimisticLockHandling
+  - UseOptimisticLock
+  - ConcurrencyToken
+  - DbUpdateConcurrencyException
+  - TrackPropertiesModifications
+  tags:
+  - data
+  - concurrency
+  - patterns
+  description: Optimistic concurrency control with automatic merge strategies for
+    handling concurrent data modifications
+- name: Tree Node Interface
+  type: interfaces
+  synonyms:
+  - Tree Structure
+  - Hierarchical Data
+  keywords:
+  - ITreeNode
+  - ITreeNode.Name
+  - ITreeNode.Parent
+  - ITreeNode.Children
+  - ICategorizedItem
+  - HCategory
+  - TreeListEditor
+  - DxTreeListEditor
+  - CategorizedListEditor
+  - ITreeNodeImageProvider
+  - ITreeNode implementation
+  tags:
+  - interfaces
+  - hierarchy
+  description: Implementing ITreeNode for hierarchical tree structures
+- name: Database Update
+  type: module
+  synonyms:
+  - Database Updater
+  - Schema Migration
+  - Initial Data
+  - Seed Data
+  keywords:
+  - ModuleUpdater
+  - UpdateDatabaseAfterUpdateSchema
+  - UpdateDatabaseBeforeUpdateSchema
+  - CurrentDBVersion
+  - DatabaseVersionMismatch
+  - DBUpdater
+  tags:
+  - data
+  - lifecycle
+  description: Database schema updates and initial data seeding
+- name: View Types
+  type: ui
+  parent: Views
+  synonyms:
+  - View Type
+  - View Class
+  - View Implementation
+  keywords:
+  - CompositeView
+  - ObjectView
+  - DetailView
+  - ListView
+  - DashboardView
+  - View
+  - IModelView
+  - IModelObjectView
+  - IModelCompositeView
+  - CreateDetailView
+  - CreateListView
+  - CreateDashboardView
+  - View.CurrentObject
+  - View.SelectedObjects
+  - ObjectView.ObjectTypeInfo
+  tags:
+  - ui
+  - views
+  - types
+  description: Core view implementation classes and types
+- name: List View
+  type: ui
+  parent: View Types
+  synonyms:
+  - Grid View
+  - Table View
+  - Collection View
+  keywords:
+  - ListView
+  - GridListEditor
+  - DxGridListEditor
+  - GridControl
+  - IModelListView
+  - CollectionSourceBase
+  - ListEditor
+  - ColumnsListEditor
+  - GridView
+  - DxGridListEditorBase
+  - ListView.CollectionSource
+  - WinColumnsListEditor
+  - IListEditor
+  - GridDataColumnModels
+  - GridCommandColumnModel
+  - DxGridView
+  tags:
+  - ui
+  - views
+  - types
+  description: Grid/table view for displaying and managing collections of objects
+- name: List View Data Access Modes
+  type: ui
+  parent: List View
+  synonyms:
+  - Data Access Mode
+  - Server Mode
+  - Client Mode
+  - Queryable Mode
+  keywords:
+  - DataAccessMode
+  - CollectionSourceDataAccessMode
+  - ServerMode
+  - InstantFeedback
+  - ServerView
+  - DataView
+  - Client
+  - Queryable
+  - IModelListView.DataAccessMode
+  - CollectionSourceBase.DataAccessMode
+  - InstantFeedbackView
+  - ObjectRecord
+  - XpoDataViewRecord
+  - EFCoreDataViewRecord
+  - IsServerMode
+  tags:
+  - ui
+  - views
+  - performance
+  description: Modes that control how List Views load and process data (Client, Server,
+    InstantFeedback, ServerView, DataView, InstantFeedbackView, Queryable)
+- name: Detail View
+  type: ui
+  parent: View Types
+  synonyms:
+  - Form View
+  - Edit View
+  - Single Object View
+  - Object Form
+  - Entity Form
+  keywords:
+  - DetailView
+  - IModelDetailView
+  - DetailView.CurrentObject
+  - DetailView.Model
+  - PropertyEditor
+  - ViewItem
+  - CreateDetailView
+  - IModelDetailView.Layout
+  - IModelDetailView.Items
+  - DetailView.ViewEditMode
+  - ObjectView
+  - DetailFormTemplate
+  - DetailView.DelayedItemsInitialization
+  tags:
+  - ui
+  - views
+  - types
+  description: Form view for viewing and editing a single object's properties
+- name: Dashboard View
+  type: ui
+  parent: View Types
+  synonyms:
+  - Dashboard
+  - Multi-View Dashboard
+  - Side-by-Side Views
+  - Composite Dashboard
+  keywords:
+  - DashboardView
+  - DashboardViewItem
+  - IModelDashboardViewItem
+  - CreateDashboardView
+  - IModelDashboardView
+  - DashboardView.SelectedObjects
+  - DashboardViewCreatedEventArgs
+  - DashboardViewCreatingEventArgs
+  - CompositeView
+  - DashboardView.Items
+  tags:
+  - ui
+  - views
+  - types
+  - analytics
+  description: View that displays multiple sub-views side-by-side in a single frame
+- name: Lookup View
+  type: ui
+  parent: View Types
+  synonyms:
+  - Lookup List View
+  - Selection View
+  - Reference Selector View
+  - Lookup Form
+  keywords:
+  - LookupListView
+  - ILookupListEditor
+  - LookupPropertyEditor
+  - LookupEditorBase
+  - IModelListView.LookupEditorMode
+  - DataSourcePropertyAttribute
+  - LookupColumnFilterMode
+  - ILookupEditProvider
+  - IConfigurableLookupListEditor
+  tags:
+  - ui
+  - views
+  - types
+  description: Specialized list view for selecting related objects in lookups and
+    references
+- name: View Items
+  type: ui
+  parent: Views
+  synonyms:
+  - View Item
+  - Custom View Items
+  - Built-in View Items
+  - Detail View Items
+  - View Component
+  - View Controls
+  - Adding Controls to Views
+  keywords:
+  - ViewItem
+  - PropertyEditor
+  - StaticText
+  - StaticImage
+  - DashboardViewItem
+  - ActionContainerViewItem
+  - CompositeView.Items
+  - ViewItem.View
+  - ViewItem.Control
+  - IModelViewItem
+  - BlazorViewItem
+  - LayoutItemTemplateContainer
+  tags:
+  - ui
+  - views
+  - components
+  description: UI components that can be displayed within composite views
+- name: Static View Items
+  type: ui
+  parent: View Items
+  synonyms:
+  - Static Text View Item
+  - Static Image View Item
+  - Label View Item
+  - Text Block
+  keywords:
+  - StaticTextViewItem
+  - StaticImageViewItem
+  - StaticText
+  - StaticImage
+  - IHtmlFormattingSupport
+  - LabelControl
+  - IModelStaticText
+  - IModelStaticImage
+  - StaticText.Text
+  - StaticImage.ImageName
+  - ViewItemAttribute
+  tags:
+  - ui
+  - views
+  - components
+  description: View items for displaying static text and images in views
+- name: Dashboard View Items
+  type: ui
+  parent: View Items
+  synonyms:
+  - Nested View Item
+  - Embedded View
+  - Dashboard Item
+  keywords:
+  - DashboardViewItem
+  - IModelDashboardViewItem
+  - IModelDashboardViewItem.View
+  - NestedFrame
+  - DashboardView.Items
+  - CreateNestedFrame
+  - DashboardViewItem.Frame
+  - DashboardViewItem.InnerView
+  tags:
+  - ui
+  - views
+  - components
+  description: View items that display nested views within dashboard views
+- name: Action Container View Items
+  type: ui
+  parent: View Items
+  synonyms:
+  - Action Container
+  - Action Display Area
+  keywords:
+  - ActionContainerViewItem
+  - IModelActionContainerViewItem
+  - ActionContainerViewItem.ActionContainer
+  - ActionContainerBase
+  - ActionBase
+  - IModelActionContainers
+  - ActionContainerViewItem.Model
+  - BlazorActionContainerViewItem
+  - WinActionContainerViewItem
+  tags:
+  - ui
+  - views
+  - components
+  - actions
+  description: View items that display action containers within detail view layouts
+- name: View Customization
+  type: ui
+  parent: Views
+  synonyms:
+  - Custom Views
+  - View Modification
+  - View Configuration
+  - Customize View
+  - View Settings
+  - Themes Customization
+  - Control Customization
+  - Controls Customization
+  keywords:
+  - CustomizeViewShortcut
+  - CustomProcessListViewSelectedItem
+  - CustomizeViewItemControl
+  - CustomizationFormEnabled
+  - CustomizeViewShortcutArgs
+  - BlazorViewExtensions.CustomizeViewItemControl
+  - DetailViewExtensions.CustomizeViewItemControl
+  - CustomProcessShortcutEventArgs
+  - CreateCustomCurrentObjectDetailView
+  tags:
+  - ui
+  - views
+  - customization
+  description: Customizing view behavior, appearance, and structure
+- name: Master-Detail Views
+  type: ui
+  parent: View Customization
+  synonyms:
+  - Master-Detail
+  - Master Detail View
+  - Nested List View
+  - Detail with List
+  keywords:
+  - MasterDetailMode
+  - IModelListView.MasterDetailMode
+  - ListViewAndDetailView
+  - ListViewOnly
+  - IModelListViewMasterDetailMode
+  - SplitLayout
+  - IModelSplitLayout
+  - ListView.EditView
+  - IModelListView.MasterDetailView
+  tags:
+  - ui
+  - views
+  - patterns
+  description: Views displaying a detail view alongside a nested list view
+- name: Nested Views
+  type: ui
+  parent: View Customization
+  synonyms:
+  - Nested Frame
+  - Child View
+  - Embedded View
+  - Inner View
+  - Sub View
+  keywords:
+  - NestedFrame
+  - CreateNestedFrame
+  - ViewItem
+  - IFrameTemplate
+  - Frame
+  - ListPropertyEditor
+  - DetailPropertyEditor
+  - DashboardViewItem
+  - AssignMasterFrame
+  - TemplateContext
+  - NestedFrameExtensions
+  tags:
+  - ui
+  - views
+  - patterns
+  description: Views displayed within other views using nested frames
+- name: View Variants
+  type: ui
+  parent: View Customization
+  synonyms:
+  - View Variant
+  - Switch Layouts
+  - Variant Switching
+  - Multiple View Layouts
+  keywords:
+  - ViewVariantsModule
+  - ChangeVariantController
+  - ChangeVariant
+  - IModelVariants
+  - IVariantsProvider
+  - ModelVariantsProvider
+  - IModelVariant
+  - VariantsInfo
+  - ChangeVariantAction
+  - CurrentVariant
+  tags:
+  - ui
+  - views
+  - customization
+  - module
+  description: Runtime switching between multiple customized versions of the same
+    view (ViewVariantsModule feature)
+- name: View Lifecycle
+  type: ui
+  parent: Views
+  synonyms:
+  - Creating Views
+  - Showing Views
+  - View Events
+  - View State
+  - View Activation
+  - View Creation
+  keywords:
+  - ControlsCreated
+  - ControlsCreating
+  - View.Activated
+  - View.Closed
+  - View.Closing
+  - CurrentObjectChanged
+  - CreateDetailView
+  - CreateListView
+  - ShowView
+  - View.Disposing
+  - ViewControlsCreated
+  tags:
+  - ui
+  - views
+  - lifecycle
+  description: View creation, activation, display, and lifecycle management
+- name: Layout Generation
+  type: ui
+  parent: Layout
+  synonyms:
+  - Form Layout Generation
+  - Automatic Layout
+  - Layout Rules
+  - Generate Layout
+  - Default Layout Generation
+  - Layout Customization API
+  keywords:
+  - IModelViewLayout
+  - ModelDetailViewLayoutNodesGenerator
+  - IModelLayoutGroup
+  - IModelLayoutItem
+  - IModelLayoutManagerOptions
+  - DetailViewLayoutAttribute
+  - IModelViewLayoutElement
+  tags:
+  - ui
+  - views
+  - layout
+  - generation
+  description: Automatic generation of layout structure based on business object properties
+- name: Layout Runtime Customization
+  type: ui
+  parent: Layout
+  synonyms:
+  - Customization Form
+  - Runtime Layout Changes
+  - End-User Layout
+  - Layout Customization Mode
+  - Customize Layout
+  keywords:
+  - CustomizationFormEnabled
+  - CustomizationForm
+  - IModelView.CustomizationFormEnabled
+  - IModelOptions.CustomizationFormEnabled
+  - LayoutControl.AllowCustomization
+  - EnableModelEditorController
+  - EnableLayoutGroupImagesController
+  - IModelLayoutManagerOptions
+  tags:
+  - ui
+  - views
+  - layout
+  - customization
+  description: Runtime and design-time modification of view layout by end users and
+    administrators
+- name: Popup Windows
+  type: ui
+  parent: Windows
+  synonyms:
+  - Popup Views
+  - Modal Windows
+  - Dialog Windows
+  - Popup Dialog
+  - Modal Popup
+  - Dialog View
+  - Popups
+  - Show Popup
+  - Popup Window Size
+  - Popup Style
+  - Modal Dialog
+  keywords:
+  - ShowViewInPopupWindow
+  - PopupWindowShowAction
+  - ShowViewParameters
+  - TargetWindow.NewModalWindow
+  - CustomizePopupWindowParams
+  - DialogController
+  - IModelPopupDialog
+  - PopupWindow.DesignTimeInitSize
+  - WindowTemplateInfo.IsPopupWindow
+  - PopupShowAction
+  - NewModalWindow
+  tags:
+  - ui
+  - views
+  - dialogs
+  description: Displaying views in popup windows or modal dialogs with ShowViewInPopupWindow
+    method
+- name: Inline Editing
+  type: ui
+  synonyms:
+  - Inline Edit
+  - Batch Edit
+  - Batch Mode
+  - Cell Editing
+  - Grid Inline Editing
+  - In-place Editing
+  keywords:
+  - InlineEditMode
+  - IsBatchEditMode
+  - BatchEditMode
+  - EditForm
+  - PopupEditForm
+  - AllowEdit
+  - NewItemRowMode
+  - InlineEdit
+  - InlineNew
+  - InlineUpdate
+  - IModelListViewBlazor
+  - EditNewRowPosition
+  - GridEditMode
+  - EditorRenderMode
+  tags:
+  - ui
+  - editing
+  - grid
+  description: Inline and batch editing functionality in grid views
+- name: Tree List
+  type: ui
+  synonyms:
+  - Tree List View
+  - Hierarchical List
+  - Tree List Editor
+  - Tree List Module
+  keywords:
+  - TreeListEditor
+  - DxTreeListEditor
+  - TreeListEditorsWindowsFormsModule
+  - TreeListEditorsModuleBase
+  - ITreeNode
+  - IModelListViewTreeListOptions
+  - DxTreeList
+  - TreeList
+  - LoadChildrenOnDemand
+  - Parent
+  - Children
+  - TreeListModel
+  - IModelColumnTreeListWin
+  tags:
+  - ui
+  - collection
+  description: Hierarchical list view for displaying parent-child relationships
+- name: Property Editor Types
+  type: ui
+  parent: Property Editors
+  synonyms:
+  - Editor Types
+  - Built-in Editors
+  - Standard Editors
+  - Property Editor Classes
+  - Editor Implementation
+  - Data Types Supported by built-in Editors
+  keywords:
+  - PropertyEditorAttribute
+  - EditorAlias
+  - EditorDescriptorsFactory
+  - RegisterPropertyEditor
+  - PropertyEditorType
+  - WinPropertyEditor
+  - BlazorPropertyEditorBase
+  - DXPropertyEditor
+  - CreateControlCore
+  - CreateViewComponentCore
+  - IComplexViewItem
+  - CreateRepositoryItem
+  - SetupRepositoryItem
+  - IModelPropertyEditor
+  - DefaultItemType
+  tags:
+  - ui
+  - editors
+  - types
+  description: Core property editor implementation classes and patterns
+- name: Standard Property Editors
+  type: ui
+  parent: Property Editor Types
+  synonyms:
+  - Basic Editors
+  - Simple Editors
+  - Text Editor
+  - Numeric Editor
+  - Date Editor
+  - Boolean Editor
+  - Enum Editor
+  - String Editor
+  - Integer Editor
+  - Decimal Editor
+  - DateTime Editor
+  keywords:
+  - StringPropertyEditor
+  - IntegerPropertyEditor
+  - DecimalPropertyEditor
+  - DateTimePropertyEditor
+  - BooleanPropertyEditor
+  - EnumPropertyEditor
+  - EnumIntPropertyEditor
+  - DxComboBox
+  - DxComboBoxModel
+  - ImageComboBoxEdit
+  - DefaultPropertyEditor
+  - BytePropertyEditor
+  - DoublePropertyEditor
+  - FloatPropertyEditor
+  - LongPropertyEditor
+  - NumericPropertyEditor
+  - DxSpinEdit
+  - SpinEdit
+  - DatePropertyEditor
+  - EnumEdit
+  - EnumIntEdit
+  - TimeSpanPropertyEditor
+  - ProgressBarPropertyEditor
+  tags:
+  - ui
+  - editors
+  - types
+  - basic
+  description: Built-in editors for basic data types (string, numeric, date, boolean,
+    enum)
+- name: Lookup Property Editors
+  type: ui
+  parent: Property Editor Types
+  synonyms:
+  - Lookup Editor
+  - Reference Editor
+  - Foreign Key Editor
+  - Object Selector
+  - Lookup Control
+  - Lookups
+  - Dropdown Selection
+  - Reference Property Picker
+  - Lookup Customization
+  - Search in Lookup
+  keywords:
+  - LookupPropertyEditor
+  - LookupEditorMode
+  - LookupEditorModeAttribute
+  - DefaultLookupEditorMode
+  - AllItems
+  - Search
+  - AllItemsWithSearch
+  - AllowClear
+  - LookupSmallCollectionItemCount
+  - IModelCommonMemberViewItem.LookupEditorMode
+  - IModelClass.DefaultLookupEditorMode
+  - LookupProperty
+  - ColumnModels
+  - SearchEnabled
+  - DisplayFormat
+  - EditFormat
+  - LookupEditPropertyCollectionSource
+  - Auto
+  tags:
+  - ui
+  - editors
+  - types
+  - lookup
+  description: Editors for reference/foreign key properties with lookup functionality
+- name: Collection Property Editors
+  type: ui
+  parent: Property Editor Types
+  synonyms:
+  - List Property Editor
+  - Detail Property Editor
+  - Nested View Editor
+  - Collection Editor
+  - Nested List View
+  - Nested Detail View
+  - ComboBox List Editor
+  keywords:
+  - ListPropertyEditor
+  - DetailPropertyEditor
+  - ComboBoxListPropertyEditor
+  - NestedListView
+  - NestedDetailView
+  - PropertyCollectionSource
+  - DataSourcePropertyAttribute
+  - DataSourceCriteriaAttribute
+  - DataSourceCriteriaPropertyAttribute
+  - DataSourcePropertyIsNullMode
+  - DataSourcePropertyIsNullCriteria
+  - LinkUnlinkController
+  - LinkAction
+  - IModelMemberViewItem.View
+  - CollectionSourceDataAccessMode
+  - DataAccessMode
+  - TagBoxListPropertyEditor
+  tags:
+  - ui
+  - editors
+  - types
+  - collection
+  description: Editors displaying collections or reference properties in nested views
+- name: Specialized Property Editors
+  type: ui
+  parent: Property Editor Types
+  synonyms:
+  - Rich Text Editor
+  - Image Editor
+  - File Editor
+  - Criteria Editor
+  - Filter Editor
+  - TagBox Editor
+  - Color Editor
+  - Advanced Editors
+  keywords:
+  - RichTextPropertyEditor
+  - ImagePropertyEditor
+  - FileDataPropertyEditor
+  - CriteriaPropertyEditor
+  - FilterEditor
+  - TagBoxPropertyEditor
+  - ColorPropertyEditor
+  - AdvancedCriteriaPropertyEditor
+  - PopupCriteriaPropertyEditor
+  - FilterPropertyEditor
+  - CriteriaOptionsAttribute
+  - SpreadsheetPropertyEditor
+  - ChartPropertyEditor
+  - SchedulerLabelPropertyEditor
+  - SchedulerRecurrenceInfoPropertyEditor
+  - SchedulerStatusPropertyEditor
+  tags:
+  - ui
+  - editors
+  - types
+  - specialized
+  description: Advanced editors for complex data types (rich text, images, files,
+    criteria)
+- name: Property Editor Customization
+  type: ui
+  parent: Property Editors
+  synonyms:
+  - Custom Property Editor
+  - Property Editor Extension
+  - Editor Registration
+  - Implement Custom Property Editor
+  - Create Property Editor
+  - Custom Editor Control
+  - Property Editor Development
+  keywords:
+  - CreateControlCore
+  - RegisterPropertyEditor
+  - RegisterPropertyEditorAlias
+  - CustomizeViewItemControl
+  - PropertyEditorAttribute
+  - IProtectedContentEditor
+  - ControlBindingProperty
+  - ComponentModel
+  - CustomizePropertyEditors
+  - DetailViewExtensions.CustomizeViewItemControl
+  - GetDefaultEditor
+  - EditorType
+  - IAppearanceFormat
+  - IEditComponentFactory
+  - IViewComponentFactory
+  - IModelRegisteredPropertyEditors
+  tags:
+  - ui
+  - editors
+  - customization
+  description: Creating, registering, and customizing property editors
+- name: Property Editor Features
+  type: ui
+  parent: Property Editors
+  synonyms:
+  - Property Editor Value Formatting
+  - Editor Formatting
+  - Display Format
+  - Edit Mask
+  - Property Editor Display Format
+  - Format String
+  - Display Value
+  keywords:
+  - DisplayFormat
+  - EditMask
+  - FormatString
+  - DisplayFormatAttribute
+  - IDisplayFormatProvider
+  - NullText
+  - RowCount
+  - AllowEdit
+  - PropertyValue
+  - PropertyName
+  - ImmediateUpdateOnTyping
+  - PredefinedValues
+  - ToolTip
+  tags:
+  - ui
+  - editors
+  - formatting
+  description: Value formatting and display features for property editors
+- name: Controller Types
+  type: ui
+  parent: Controllers
+  synonyms:
+  - Controller Type
+  - Controller Class
+  - Controller Base Classes
+  - Built-in Controller Types
+  keywords:
+  - Controller
+  - ViewController
+  - WindowController
+  - ObjectViewController
+  - Component
+  - MarshalByRefObject
+  - ISupportUpdate
+  - Controller.Active
+  - Controller.Frame
+  - Controller.Actions
+  - ControllerActiveKey
+  - Controller.Activated
+  - Controller.Deactivated
+  - CreateController
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  description: Core controller base classes and implementation types
+- name: View Controller
+  type: ui
+  parent: Controller Types
+  synonyms:
+  - View Controllers
+  - Data-Aware Controllers
+  - View-Specific Controller
+  keywords:
+  - ViewController
+  - ViewController.View
+  - ViewController.TypeOfView
+  - ViewController.TargetViewType
+  - SetView
+  - OnViewControlsCreated
+  - OnViewChanged
+  - ViewControlsCreated
+  - ViewControlsDestroying
+  - ViewIsAssignedReason
+  - ViewController.TargetViewId
+  - ViewController.TargetViewNesting
+  - ISupportUpdate
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  description: Controllers activated for specific views to implement data-aware features
+- name: Generic View Controllers
+  type: ui
+  parent: Controller Types
+  synonyms:
+  - ViewController<ViewType>
+  - Generic ViewController
+  - Typed View Controller
+  - ViewController Generic
+  - Generic Controller
+  keywords:
+  - ViewController<ViewType>
+  - ViewController<ListView>
+  - ViewController<DetailView>
+  - ViewController<ObjectView>
+  - TypeOfView
+  - View property
+  - OnViewControlsCreated
+  - OnDeactivated
+  - CustomizeViewItemControl
+  - PropertyEditorType
+  - ComponentModelType
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  - generics
+  description: Generic view controllers with type parameters for strongly-typed view
+    access
+- name: Object View Controllers
+  type: ui
+  parent: Controller Types
+  synonyms:
+  - ObjectViewController<ViewType, ObjectType>
+  - Object Controllers
+  - Business Object Controllers
+  - Typed Object Controller
+  keywords:
+  - ObjectViewController
+  - ObjectViewController<ViewType ObjectType>
+  - TargetObjectType
+  - TargetViewType
+  - ObjectView
+  - DetailView
+  - ListView
+  - View.CurrentObject
+  - View.ObjectSpace
+  - OnViewControlsCreated
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  - generics
+  description: Controllers for Object Views (ListView and DetailView) with optional
+    type parameters
+- name: Window Controller
+  type: ui
+  parent: Controller Types
+  synonyms:
+  - Window Controllers
+  - Window-Level Controller
+  - Frame Controller
+  keywords:
+  - WindowController
+  - WindowController.Window
+  - TargetWindowType
+  - WindowType.Main
+  - WindowType.Child
+  - WindowType.Any
+  - Frame
+  - OnWindowChanging
+  - WindowController.TargetWindowType
+  - Frame.GetController
+  - Window.Template
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  description: Controllers activated at window level for managing window-specific
+    functionality
+- name: Dialog Controller
+  type: ui
+  parent: Controller Types
+  synonyms:
+  - Popup Controller
+  - Modal Controller
+  - Modal Dialog Controller
+  - Popup Window Controller
+  keywords:
+  - DialogController
+  - AcceptAction
+  - CancelAction
+  - PopupWindowShowAction.AcceptButtonCaption
+  - PopupWindowShowAction.CancelButtonCaption
+  - ActionBase.ActionMeaning
+  - CloseAction
+  - CanCloseWindow
+  - PopupWindowShowActionExecuteEventArgs
+  - ShowViewParameters
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - types
+  - dialogs
+  description: Specialized controller providing Accept/Cancel actions for popup windows
+    and modal dialogs
+- name: Controller Activation
+  type: ui
+  parent: Controllers
+  synonyms:
+  - Controller Scope
+  - Target Properties
+  - Activation Criteria
+  - Controller Targeting
+  - Scope Configuration
+  keywords:
+  - Controller.Active
+  - BoolList
+  - Active.ResultValue
+  - ControllerActiveKey
+  - Controller.Activated
+  - Controller.Deactivated
+  - FrameAssigned
+  - OnActivated
+  - OnDeactivated
+  - Active.SetItemValue
+  - ViewIsAssignedReason
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - configuration
+  description: Defining when and where controllers activate using target properties
+- name: Target Properties
+  type: ui
+  parent: Controller Activation
+  synonyms:
+  - Controller Targets
+  keywords:
+  - TargetViewType
+  - TargetObjectType
+  - TargetViewId
+  - TargetViewNesting
+  - TargetWindowType
+  - ViewType.Any
+  - ViewType.ListView
+  - ViewType.DetailView
+  - Nesting.Root
+  - Nesting.Nested
+  - Nesting.Any
+  - WindowType.Main
+  - WindowType.Child
+  - IModelView
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - configuration
+  description: Properties that control controller activation scope (view type, object
+    type, nesting, etc.)
+- name: Controller Lifecycle
+  type: ui
+  parent: Controllers
+  synonyms:
+  - Controller Events
+  - Controller State
+  - Activated Event
+  - Deactivated Event
+  keywords:
+  - OnActivated
+  - OnDeactivated
+  - Controller.Activated
+  - Controller.Deactivated
+  - OnViewChanged
+  - OnViewChanging
+  - ViewChanged
+  - FrameAssigned
+  - OnFrameAssigned
+  - AfterConstruction
+  - ViewControlsCreated
+  - UpdateActionState
+  - View.CurrentObjectChanged
+  - SelectionChanged
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - lifecycle
+  description: Controller activation, deactivation, and lifecycle events
+- name: Built-in Controllers
+  type: ui
+  parent: Controllers
+  synonyms:
+  - Built-in Controllers
+  - System Controllers
+  - Standard Controllers
+  - Framework Controllers
+  - Module Controllers
+  - Pre-built Controllers
+  keywords:
+  - ViewController
+  - ObjectViewController
+  - WindowController
+  - DialogController
+  - ShowNavigationItemController
+  - RecordsNavigationController
+  - ViewNavigationController
+  - StartupNavigationController
+  - NavigationController
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - system
+  description: Standard controllers provided by XAF System Module and feature modules
+- name: CRUD Controllers
+  type: ui
+  parent: Built-in Controllers
+  synonyms:
+  - CRUD Controllers
+  - Save Controller
+  - Create Controllers
+  keywords:
+  - NewObjectViewController
+  - DeleteObjectsViewController
+  - ModificationsController
+  - RefreshController
+  - LinkUnlinkController
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - system
+  - crud
+  description: Controllers handling Create, Read, Update, Delete operations
+- name: List View Controllers
+  type: ui
+  parent: Built-in Controllers
+  synonyms:
+  - List View Controllers
+  - List Controllers
+  keywords:
+  - ListViewProcessCurrentObjectController
+  - FilterController
+  - ExportController
+  - ColumnOptionsController
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - system
+  - listview
+  description: Controllers specific to List View functionality (filtering, export,
+    selection)
+- name: Controller Customization
+  type: ui
+  parent: Controllers
+  synonyms:
+  - Custom Controllers
+  - Controller Implementation
+  - Extend Controllers
+  - Override Controllers
+  - Controller Development
+  keywords:
+  - CustomizeTypesInfo
+  - Clone
+  - Create
+  - Frame.GetController
+  - CreateController
+  - DesignerCategory
+  - IServiceProvider
+  - IModelExtender
+  - CustomizeContainerActions
+  - CustomizeControlEventArgs
+  - OnCustomizeContainerActions
+  - Controller.Frame
+  - Controller.Application
+  - XafApplication.CreateController
+  tags:
+  - ui
+  - behavior
+  - controllers
+  - customization
+  description: Creating and customizing controllers to implement application-specific
+    logic
+- name: Tabbed MDI Interface
+  type: ui
+  synonyms:
+  - Tabbed MDI
+  - Multiple Document Interface
+  - Tab Management
+  - Document Tabs
+  tags:
+  - ui
+  - navigation
+  - winforms
+  description: Multi-document interface with tabbed windows
+  keywords:
+  - MDI
+- name: Context Menus
+  type: ui
+  synonyms:
+  - Context Menu
+  - Right-Click Menu
+  - Popup Menu
+  - Contextual Actions
+  - Shortcut Menu
+  tags:
+  - ui
+  - commands
+  description: Right-click context menus and contextual actions
+  keywords: []
+- name: Loading Indicators
+  type: ui
+  synonyms:
+  - Splash
+  - Loading Panel
+  - Splash Screen
+  - Progress Indicator
+  - Wait Indicator
+  tags:
+  - ui
+  - ux
+  description: Splash screens and loading indicators for better UX
+  keywords: []
+- name: Filtering UI
+  type: ui
+  synonyms:
+  - Filtering
+  - Filter Panel
+  - Filter UI
+  - Data Filtering
+  - Grid Filtering
+  - Custom Filtering
+  - Filter Custom Logic
+  - Programmatic Filtering
+  - Dynamic Filters
+  tags:
+  - ui
+  - data
+  - query
+  description: User interface for filtering data in lists and grids
+  keywords:
+  - IModelListViewFilter
+- name: Spreadsheet Control
+  type: ui
+  synonyms:
+  - Spreadsheet
+  - Excel-like Editor
+  - Spreadsheet Module
+  - Cell Editor
+  keywords:
+  - SpreadsheetControl
+  - SpreadsheetContainer
+  - SpreadsheetPropertyEditor
+  - ISpreadsheetValueStorage
+  - IModelSpreadsheetPropertyEditorSettings
+  - EnableFormulaBar
+  - DocumentFormat
+  - SpreadsheetServiceController
+  - CustomizeSpreadsheetControl
+  - OpenXml
+  tags:
+  - ui
+  - control
+  - data
+  description: Embedded spreadsheet control for Excel-like data editing
+- name: SVG Graphics
+  type: ui
+  synonyms:
+  - Vector Graphics
+  - SVG Icons
+  - SVG Images
+  tags:
+  - ui
+  - graphics
+  description: Using SVG vector graphics in XAF applications
+  keywords:
+  - SVG
+- name: Accordion Control
+  type: ui
+  synonyms:
+  - Accordion
+  - Collapsible Panels
+  - Expandable Sections
+  tags:
+  - ui
+  - layout
+  description: Accordion-style collapsible panel control
+  keywords: []
+- name: Theming
+  type: ui
+  synonyms:
+  - Themes
+  - Theme Customization
+  - Custom Themes
+  - Light Style
+  - Theme Gallery
+  - Skin
+  tags:
+  - ui
+  - styling
+  - customization
+  description: Applying and customizing themes and visual styles
+  keywords:
+  - IThemeService
+- name: Navigation
+  type: ui
+  synonyms:
+  - Navigation System
+  - Navigation Items
+  - Context Navigation
+  - Show View
+  - Startup Navigation
+  - Navigation Control Customization
+  - Navigation Control
+  tags:
+  - ui
+  description: Application navigation and menu system
+  keywords:
+  - ShowNavigationItemController
+- name: Actions
+  type: ui
+  parent: null
+  synonyms:
+  - Action
+  - XAF Action
+  - User Action
+  - Command
+  tags:
+  - ui
+  - commands
+  description: Parent concept for all action-related functionality (user interactions
+    and commands)
+  keywords: []
+- name: Action Types
+  type: ui
+  parent: Actions
+  synonyms:
+  - Action Type
+  - Action Class
+  - Action Implementation
+  - Built-in Action Types
+  - Button Actions
+  - Toolbar Actions
+  - Menu Actions
+  keywords:
+  - ActionBase
+  - SimpleAction
+  - ParametrizedAction
+  - PopupWindowShowAction
+  - SingleChoiceAction
+  - ChoiceActionBase
+  - ActionUrl
+  tags:
+  - ui
+  - commands
+  - types
+  description: Core action implementation classes and patterns
+- name: Simple Action
+  type: ui
+  parent: Action Types
+  synonyms:
+  - Button Action
+  - Basic Action
+  - Single Button Action
+  keywords:
+  - SimpleAction
+  - SimpleAction.Execute
+  - SimpleActionExecuteEventArgs
+  - ActionBase
+  - ExecuteEventHandler
+  - PredefinedCategory
+  - ImageName
+  - ActionBase.Active
+  - ActionBase.Enabled
+  - SimpleActionExecuteEventArgs.ShowViewParameters
+  - SimpleActionExecuteEventArgs.SelectedObjects
+  - ExecuteCompleted
+  tags:
+  - ui
+  - commands
+  - types
+  description: Basic button or command action without parameters
+- name: Parametrized Action
+  type: ui
+  parent: Action Types
+  synonyms:
+  - Action with Parameters
+  - Action Parameters
+  - Parameter Action
+  keywords:
+  - ParametrizedAction
+  - ParametrizedAction.Execute
+  - ParametrizedActionExecuteEventArgs
+  - ParameterValue
+  - ValueType
+  - NullValuePrompt
+  - ParametrizedActionExecuteEventArgs.ParameterCurrentValue
+  - ParametrizedAction.ValueType
+  - ParametrizedAction.NullValuePrompt
+  - BarEditItem
+  - RepositoryItemDateEdit
+  tags:
+  - ui
+  - commands
+  - types
+  description: Action that accepts user input parameters
+- name: Popup Window Show Action
+  type: ui
+  parent: Action Types
+  synonyms:
+  - Show Dialog Action
+  - Modal Action
+  - Show View Action
+  - Display View Action
+  keywords:
+  - PopupWindowShowAction
+  - PopupWindowShowAction.Execute
+  - PopupWindowShowActionExecuteEventArgs
+  - CustomizePopupWindowParams
+  - AcceptButtonCaption
+  - CancelButtonCaption
+  - ShowViewParameters
+  - CreatedView
+  - PopupWindowShowAction.Cancel
+  - CanCloseWindow
+  - DialogController
+  - CustomizePopupWindowParamsEventArgs
+  - ShowView
+  tags:
+  - ui
+  - commands
+  - types
+  description: Action that displays a popup window or dialog with a view
+- name: Single Choice Action
+  type: ui
+  parent: Action Types
+  synonyms:
+  - Dropdown Action
+  - Menu Action
+  - Choice Action
+  - Selection Action
+  keywords:
+  - SingleChoiceAction
+  - ChoiceActionBase
+  - SingleChoiceAction.Execute
+  - ChoiceActionItem
+  - ChoiceActionItemCollection
+  - SingleChoiceActionExecuteEventArgs
+  - SelectedChoiceActionItem
+  - ItemType
+  - SingleChoiceActionItemType
+  - ItemIsMode
+  - ItemIsOperation
+  - SelectedItem
+  - SelectedItemChanged
+  - IsHierarchical
+  - ShowItemsOnClick
+  tags:
+  - ui
+  - commands
+  - types
+  description: Action with a dropdown menu of predefined choices
+- name: Action Containers
+  type: ui
+  parent: Actions
+  synonyms:
+  - Action Container
+  - Action Location
+  - Action Controls
+  - Action and Container Controls
+  - Toolbar Actions
+  - Menu Actions
+  - Navigation Actions
+  - Context Menu Actions
+  - Ribbon Actions
+  - Access Actions in Different UI Areas
+  - Action Placement
+  keywords:
+  - ActionBase.Category
+  - PredefinedCategory
+  - ActionCategory
+  - ActionContainer
+  - IActionContainer
+  - ActionToContainerMapping
+  - PredefinedCategory.Edit
+  - PredefinedCategory.View
+  - PredefinedCategory.RecordEdit
+  - PredefinedCategory.Tools
+  - PredefinedCategory.Export
+  - PredefinedCategory.Reports
+  - DefaultContainer
+  - DxToolbarAdapter
+  - AddActionContainer
+  tags:
+  - ui
+  - commands
+  - layout
+  description: Where actions appear in the UI (toolbar, menu, navigation, ribbon)
+- name: Action State Management
+  type: ui
+  parent: Actions
+  synonyms:
+  - Action States
+  - Action Behavior
+  - Enable Action
+  - Disable Action
+  - Hide Action
+  - Show Action
+  - Deactivate Action
+  - Activate Action
+  - Action Activation
+  - Action Enabled
+  - Action Active
+  - Action Visibility
+  - Active State
+  - Enabled State
+  - Active/Enabled
+  - Action Active Property
+  - Action Enabled Property
+  keywords:
+  - ActionBase.Active
+  - ActionBase.Enabled
+  - SelectionDependencyType
+  - BoolList
+  - RequireSingleObjectContext
+  - RequireMultipleObjectsContext
+  tags:
+  - ui
+  - commands
+  - state
+  description: Managing action visibility, enabled state, and activation logic
+- name: Action Customization
+  type: ui
+  parent: Actions
+  synonyms:
+  - Custom Action
+  - Action Settings
+  - Action Attributes
+  - Custom Action Controls
+  - Action Configuration
+  - Action Properties
+  - Customize Actions
+  - Action Appearance
+  - Action Caption
+  - Action Image
+  keywords:
+  - ActionBase.Caption
+  - ActionBase.ImageName
+  - ActionBase.ToolTip
+  - ActionBase.ConfirmationMessage
+  - ActionBase.Shortcut
+  - ActionBase.PaintStyle
+  - ImageMode
+  - ActionBase.Id
+  - ActionBase.Tag
+  - ActionAttribute.Caption
+  - ActionAttribute.ImageName
+  - ActionAttribute.ToolTip
+  - QuickAccess
+  - CustomizeControl
+  tags:
+  - ui
+  - commands
+  - customization
+  description: Customizing action appearance, behavior, and properties
+- name: Built-in Actions
+  type: ui
+  parent: Actions
+  synonyms:
+  - System Module Actions
+  - Built-in Controllers and Actions
+  - Module-Specific Actions
+  - Standard Actions
+  - Default Actions
+  - Pre-built Actions
+  - Framework Actions
+  keywords:
+  - NewObjectViewController.NewObjectAction
+  - DeleteObjectsViewController.DeleteAction
+  - ModificationsController.SaveAction
+  - ModificationsController.CancelAction
+  - ModificationsController.SaveAndCloseAction
+  - ModificationsController.SaveAndNewAction
+  - RefreshController.RefreshAction
+  - LinkUnlinkController.LinkAction
+  - LinkUnlinkController.UnlinkAction
+  - RecordsNavigationController
+  - FilterController.SetFilterAction
+  - ExportController.ExportAction
+  - ListViewProcessCurrentObjectController.ProcessCurrentObjectAction
+  tags:
+  - ui
+  - commands
+  - system
+  description: Pre-built actions provided by System Module and other XAF modules
+- name: Security Strategy
+  type: security
+  synonyms:
+  - Authentication Strategy
+  - Security Implementation
+  keywords:
+  - SecurityStrategy
+  - ISecurityStrategyBase
+  - SecurityStrategyComplex
+  - SecurityStrategyBase
+  - IRequestSecurityStrategy
+  - ISupportLogonEvent
+  - ISupportSecurityTypeManager
+  - ISupportNavigationPermissionsForTypes
+  - SecurityStrategy.UserType
+  - SecurityStrategy.RoleType
+  - SupportNavigationPermissionsForTypes
+  tags:
+  - security
+  description: Security implementation approach and configuration
+- name: Custom User Management
+  type: security
+  synonyms:
+  - Custom User Class
+  - Custom Role Class
+  - Custom User & Role
+  - Extended User
+  - Custom Identity
+  keywords:
+  - ISecurityUser
+  - ISecurityUserWithRoles
+  - ISecurityUserWithLoginInfo
+  - ISecurityUserLoginInfo
+  - PermissionPolicyUser
+  - IAuthenticationStandardUser
+  - IAuthenticationActiveDirectoryUser
+  - IOAuthSecurityUser
+  - ISecurityUserLockout
+  - ApplicationUser
+  - ApplicationUserLoginInfo
+  tags:
+  - security
+  - customization
+  description: Implementing custom user and role classes
+- name: Permission Policies
+  type: security
+  synonyms:
+  - Type Permissions
+  - Object-Level Security
+  - Member-Level Security
+  - Permission Policy User
+  - Permission Policy Role
+  keywords:
+  - PermissionPolicyRole
+  - PermissionPolicyUser
+  - IPermissionPolicyRole
+  - IPermissionPolicyUser
+  - PermissionPolicyRoleBase
+  - IPermissionPolicyRoleBase
+  - TypePermissions
+  - ObjectPermissions
+  - MemberPermissions
+  tags:
+  - security
+  - authorization
+  description: Fine-grained permission rules for types, objects, and members
+- name: Audit Trail
+  type: module
+  synonyms:
+  - Audit Trail Module
+  - Change Tracking
+  - Audit Log
+  - Audit History in the UI
+  - Audit in Non-XAF Apps
+  - Performance Audit
+  - Purge History
+  - Lightweight mode
+  keywords:
+  - AuditTrailModule
+  - AuditTrailService
+  - AuditTrailServiceBase
+  - IAuditTrailService
+  - AuditDataItemPersistent
+  - AuditDataItem
+  - AuditOperationType
+  - ObjectAuditingMode
+  - AuditTrailStrategy
+  - BeginSessionAudit
+  - EndSessionAudit
+  - SaveAuditTrailData
+  - CustomizeAuditOperationTypeFilter
+  tags:
+  - security
+  - compliance
+  description: Module for tracking changes to business objects
+- name: Validation
+  type: module
+  synonyms:
+  - Validation Module
+  - Validation Rules
+  - Rule Sets
+  - Data Validation
+  - Built-in Rules Setup
+  keywords:
+  - DevExpress.ExpressApp.Validation.ValidationModule
+  - DevExpress.Persistent.Validation
+  - Validator
+  - IRuleSet
+  - ContextIdentifiers
+  - DefaultContexts
+  - ValidationException
+  - ValidationOutcome
+  - RuleSetValidationResult
+  - IRule
+  - RuleBaseAttribute
+  - Validator.RuleSet
+  tags:
+  - data
+  - quality
+  description: Business rules and data validation framework
+- name: Custom Validation Rules
+  type: validation
+  synonyms:
+  - Custom Rule Type
+  - Custom Rule Implementation
+  - Custom Validation
+  - Rule Attribute
+  - RuleSet customizations
+  - RuleSet events
+  keywords:
+  - RuleSet
+  - IRuleSet
+  - ValidationModule
+  - CustomizeApplicationRuntimeRules
+  - CustomValidateRule
+  - ValidationCompleted
+  - RuleValidated
+  - RuleAttribute
+  tags:
+  - validation
+  - customization
+  description: Implementing custom validation rule types
+- name: Error Styling
+  type: ui
+  synonyms:
+  - Custom error highlighting
+  - Error Formatting
+  - Validation Error Display
+  - Error Messages
+  keywords:
+  - CustomFormatValidationMessage
+  - CustomMessageTemplate
+  - MessageTemplate
+  - IModelValidationDefaultErrorMessageTemplates
+  - ValidationCompletedEventArgs
+  - TargetPropertyName
+  - TargetObject
+  - TargetValue
+  - RightOperand
+  - ObjectHeaderFormat
+  - MessageHeader
+  tags:
+  - ui
+  - validation
+  - ux
+  description: Customizing how validation errors are displayed
+- name: Conditional Appearance
+  type: module
+  synonyms:
+  - Appearance Rules
+  - Conditional Appearance Module
+  - Dynamic Styling
+  keywords:
+  - ConditionalAppearanceModule
+  - AppearanceAttribute
+  - AppearanceItemType
+  - TargetItems
+  - Criteria
+  - FontColor
+  - BackColor
+  - FontStyle
+  - AppearanceController
+  - AppearanceApplied
+  - CustomApplyAppearance
+  - CollectAppearanceRules
+  - IAppearanceRuleProperties
+  - DevExpress.ExpressApp.ConditionalAppearance
+  tags:
+  - ui
+  - behavior
+  description: Rule-based dynamic UI styling and visibility
+- name: Reports
+  type: module
+  synonyms:
+  - Reports Module
+  - Report Designer
+  - Predefined Reports
+  - Show Preview
+  - Print in code
+  - Export in code
+  - Inplace reports
+  - Report customizations
+  - Report Control Customization
+  - Report Control
+  keywords:
+  - ReportsModuleV2
+  - ReportsWindowsFormsModuleV2
+  - ReportsBlazorModuleV2
+  - IReportDataV2
+  - ReportDataV2
+  - CollectionDataSource
+  - ViewDataSource
+  - IInplaceReportV2
+  - ShowInReportAction
+  - XRDesignForm
+  - XRDesignRibbonForm
+  - ReportPrintTool
+  - DxReportDesigner
+  - DxReportViewer
+  - ReportsControllerCore
+  - ReportServiceController
+  - PrintSelectionBaseController
+  - ReportsStorage
+  - ReportStorageBase
+  - PredefinedReportsUpdater
+  - XtraReports
+  tags:
+  - reporting
+  description: Report generation and design module
+- name: Report Parameters
+  type: reporting
+  synonyms:
+  - XtraReport parameters
+  - Report Input Parameters
+  - Parameterized Reports
+  - Report Variables
+  keywords:
+  - Parameter
+  - Parameters collection
+  - IParameterInfo
+  - Parameter.Value
+  - ReportParametersObjectBase
+  - CreateCustomParametersDetailViewEventArgs
+  - XafReportParametersObject
+  - GetParameterValue
+  - CreateCustomReportDesignRepositoryItemEventArgs
+  - UpdateCriteriaWithReportParameters
+  tags:
+  - reporting
+  - parameters
+  description: Defining and using parameters in XtraReports
+- name: Reports V2
+  type: module
+  synonyms:
+  - Reports V2 Module
+  - Modern Reports
+  keywords:
+  - ReportsModuleV2
+  - ReportsWindowsFormsModuleV2
+  - ReportsBlazorModuleV2
+  - IReportDataV2
+  - ReportDataV2
+  - XafReportDataV2
+  - IReportDataSourceHelper
+  - ReportDataSourceHelper
+  - ReportDataSourceHelperBase
+  - SetupBeforePrint
+  - SetupReport
+  - ReportDataProvider
+  - IReportStorage
+  - ReportsDataSourceHelper
+  tags:
+  - reporting
+  description: Next-generation reporting module with enhanced features
+- name: Mail Merge
+  type: module
+  synonyms:
+  - Mail Merge Template
+  - Document Generation
+  keywords:
+  - RichTextMailMergeData
+  - IRichTextMailMergeData
+  - MailMergeController
+  - BlazorMailMergeController
+  - RichTextShowInDocumentControllerBase
+  - ShowInDocument
+  - RichTextMailMergeDataType
+  - OfficeModule.RichTextMailMergeDataType
+  - InplaceDocumentCacheStorage
+  - InplaceDocumentCacheStorageBase
+  - RichTextMailMergeControllerBase
+  - MailMergeOptions
+  - MergeMode
+  tags:
+  - reporting
+  - documents
+  description: Feature for generating documents from templates and data
+- name: Dashboards
+  type: module
+  synonyms:
+  - Dashboard Module
+  - Dashboards Module
+  - Dashboard Designer
+  - Analytics Dashboard
+  keywords:
+  - DashboardsModule
+  - DashboardsWindowsFormsModule
+  - DashboardsBlazorModule
+  - DashboardViewer
+  - DashboardDesigner
+  - IDashboardData
+  - DashboardData
+  - DxDashboard
+  - BlazorDashboardViewerViewItem
+  - WinDashboardViewerViewItem
+  - CreateDashboardView
+  - ShowDashboardDesigner
+  - IModelDashboardNavigationItem
+  - GenerateNavigationItem
+  - VisibleInDashboardsAttribute
+  - IModelClassDashboardsVisibility.IsVisibleInDashboards
+  - DashboardsOptions
+  - DashboardViews
+  tags:
+  - analytics
+  description: Interactive analytics and dashboard functionality
+- name: Scheduler
+  type: module
+  synonyms:
+  - Scheduler Module
+  - Event Planning
+  - Calendar
+  - Scheduler Control Customization
+  - Scheduler Control
+  keywords:
+  - SchedulerModule
+  - SchedulerModuleBase
+  - SchedulerWindowsFormsModule
+  - SchedulerBlazorModule
+  - SchedulerListEditor
+  - SchedulerListEditorBase
+  - SchedulerControl
+  - DxScheduler
+  - SchedulerStorage
+  - IModelListViewScheduler
+  tags:
+  - calendar
+  description: Calendar and event scheduling module
+- name: Recurring Events
+  type: scheduler
+  parent: Scheduler
+  synonyms:
+  - Recurring Events
+  - Repeat Pattern
+  - Event Recurrence
+  - Recurring Appointments
+  keywords:
+  - RecurrenceInfo
+  - RecurrenceInfoXml
+  - ISupportRecurrence
+  - RecurrencePattern
+  - RecurrenceType
+  - RecurrenceInfoXmlPersistenceHelper
+  - AppointmentType
+  - GetOccurrences
+  - RecurrenceRange
+  - IEvent
+  - IResource
+  - ISupportRecurrence
+  - IRecurrentEvent
+  - EventBase
+  - ResourceBase
+  - StartOn
+  - EndOn
+  - AllDay
+  - ResourceId
+  - IEvent implementation
+  - IResource implementation
+  tags:
+  - scheduler
+  - patterns
+  description: Implementing recurring event patterns in scheduler
+- name: Notifications
+  type: module
+  synonyms:
+  - Notifications Module
+  - User Notifications
+  - Alerts
+  keywords:
+  - NotificationsModule
+  - NotificationsWindowsFormsModule
+  - NotificationsBlazorModule
+  - NotificationsController
+  - INotification
+  - INotificationsProvider
+  - ISupportNotifications
+  - NotificationsService
+  - PostponeTime
+  - RemindIn
+  - ShowNotificationsAction
+  - RefreshNotifications
+  tags:
+  - alerts
+  description: User notification and alert system
+- name: State Machine
+  type: module
+  synonyms:
+  - State Machine Module
+  - Workflow Engine
+  - Workflow
+  keywords:
+  - StateMachineModule
+  - StateMachineWindowsFormsModule
+  - StateMachineBlazorModule
+  - IStateMachine
+  - IStateMachineProvider
+  - StateMachineBase
+  - StateMachineController
+  - ChangeStateAction
+  - StatePropertyAttribute
+  - State
+  - Transition
+  - StartState
+  tags:
+  - workflow
+  - behavior
+  description: Workflow engine for managing object state transitions
+- name: File Attachments
+  type: module
+  synonyms:
+  - File Attachments Module
+  - Document Storage
+  - File Upload
+  - File System storage
+  - Custom storage
+  - FileData in Non-XAF apps
+  keywords:
+  - FileAttachmentsModule
+  - FileAttachmentsWindowsFormsModule
+  - FileAttachmentsBlazorModule
+  - FileData
+  - IFileData
+  - FileDataPropertyEditor
+  - FileSystemDataStore
+  - IFileDataStore
+  - FileAttachmentAttribute
+  - LoadFromStream
+  - SaveToStream
+  - CompressionUtils
+  tags:
+  - files
+  - storage
+  description: Module for attaching and managing files
+- name: Charts
+  type: module
+  synonyms:
+  - Charts Module
+  - Data Visualization
+  - Graphical Charts
+  keywords:
+  - ChartModule
+  - ChartWindowsFormsModule
+  - ChartListEditor
+  - ChartListEditorBase
+  - DxChartListEditor
+  - ChartControl
+  - DxChart
+  - DxPolarChart
+  - DxPieChart
+  - IChartDataSourceProvider
+  - IModelChartListView
+  - IModelChartSettings
+  - ICustomizationEnabledProvider
+  tags:
+  - analytics
+  - visualization
+  description: Data visualization and charting module
+- name: PivotGrid
+  type: module
+  synonyms:
+  - PivotGrid Module
+  - OLAP Analysis
+  - Pivot Table
+  keywords:
+  - PivotGridModule
+  - PivotGridWindowsFormsModule
+  - PivotGridListEditor
+  - PivotGridListEditorBase
+  - PivotGridControl
+  - IModelPivotListView
+  - IModelPivotSettings
+  - IPivotSettings
+  - AnalysisEditorBase
+  - IDataSourceProvider
+  - CustomizationEnabled
+  tags:
+  - analytics
+  - data
+  description: OLAP pivot table analysis module
+- name: Clone Object
+  type: module
+  synonyms:
+  - Clone Object Module
+  - Object Duplication
+  - Copy Object
+  keywords:
+  - CloneObjectModule
+  - CloneObjectViewController
+  - CloneObjectAction
+  - IModelClassCloneable
+  - IsCloneable
+  - NonCloneableAttribute
+  - CustomCloneObject
+  - CloneObjectActionHelper
+  - ObjectCloner
+  - ICloneable
+  tags:
+  - data
+  - functionality
+  description: Module for duplicating business objects
+- name: Office Module
+  type: module
+  synonyms:
+  - Office Integration
+  - Office Module
+  - Rich Text Module
+  - Document Editing
+  - RichText Editor
+  - Spreadsheet Editor
+  keywords:
+  - OfficeModule
+  - OfficeWindowsFormsModule
+  - OfficeBlazorModule
+  - RichTextPropertyEditor
+  - SpreadsheetPropertyEditor
+  - IModelRichTextFormatSettings
+  - IModelSpreadsheetPropertyEditorSettings
+  - IModelRichTextColumn
+  - IModelWinOfficeMenuManagerSettings
+  - IRichTextValueStorage
+  - ISpreadsheetValueStorage
+  - InplaceDocumentCacheStorage
+  - InplaceDocumentCacheStorageBase
+  - DocumentStorageFormat
+  - DefaultMenuManagerType
+  - OfficeOptions
+  - RichEditControl
+  - SpreadsheetControl
+  - DxRichEdit
+  - AddOffice
+  - RichTextMailMergeDataType
+  tags:
+  - office
+  - editors
+  - documents
+  description: Module providing Rich Text and Spreadsheet property editors for document
+    editing
+- name: Programmatic Localization
+  type: localization
+  synonyms:
+  - Custom Localization
+  - Localization in code
+  - Programmatic Translation
+  - Runtime Localization
+  - Dynamic Localization
+  - Obtain captions in Non-XAF apps
+  keywords:
+  - CaptionHelper
+  - ICaptionHelperProvider
+  - IModelLocalizationGroup
+  - GetLocalizedText
+  - SetLocalizedText
+  - LocalizationItem
+  - FindGroupNode
+  - GetMemberCaption
+  tags:
+  - localization
+  - customization
+  description: Implementing localization programmatically in code
+- name: Multi-Tenancy
+  type: architecture
+  synonyms:
+  - Multi-tenant Architecture
+  - Multi-tenant
+  - Limit Tenant Features
+  - Custom Tenant Resolver
+  - Select Tenants on Login
+  - Custom Tenant class
+  keywords:
+  - ITenantProvider
+  - ITenantResolver
+  - TenantByEmailResolver
+  - TenantByUserNameResolver
+  - ITenantNameHelper
+  - AddMultiTenancy
+  - WithTenantResolver
+  - IConnectionStringProvider
+  - ITenantModelDifferenceStore
+  - TenantNotFoundException
+  - DevExpress.ExpressApp.MultiTenancy
+  - SaaS
+  - SKU
+  tags:
+  - architecture
+  - tenancy
+  description: Multiple customer/organization support in single application
+- name: Tenant
+  type: tenancy
+  synonyms:
+  - Tenant Context
+  - Tenant Database
+  - Tenant ID
+  - Tenant Isolation
+  keywords:
+  - Tenant
+  - ITenant
+  - ITenantWithConnectionString
+  - TenantId
+  - TenantName
+  - TenantObject
+  - CurrentTenantId
+  - CurrentTenantIdOperator
+  - DevExpress.Persistent.BaseImpl.EF.MultiTenancy.Tenant
+  - DevExpress.Persistent.Base.MultiTenancy
+  tags:
+  - tenancy
+  description: Individual customer or organization in multi-tenant system
+- name: Deployment
+  type: ops
+  synonyms:
+  - Azure Deployment
+  - Cloud Deployment
+  - Linux Deployment
+  - Docker Deployment
+  - Kubernetes
+  - Production Deployment
+  - nginx
+  - Apache
+  - Linux Hosting
+  - Unix Deployment
+  keywords:
+  - AzureCompatibility.Enable
+  - Azure App Service
+  - Azure SignalR Service
+  - Application Request Routing
+  - ARR
+  - .NET Core Hosting Bundle
+  - WebSocket Protocol
+  - systemd
+  - Kestrel
+  - --updateDatabase
+  - PublishSingleFile
+  - IIS Deployment
+  - AWS
+  tags:
+  - ops
+  description: Application deployment strategies and configurations
+- name: Testing
+  type: quality
+  synonyms:
+  - Script Recorder Module
+  - xUnit
+  - UI Testing
+  - Unit Testing
+  - Integration Testing
+  - Test Automation
+  keywords:
+  - TestExecutor
+  - DevExpress.ExpressApp.EasyTest.BlazorAdapter
+  - Config.xml
+  - '*.ets'
+  - EasyTestConnectionString
+  - Selenium
+  - chromedriver
+  - msedgedriver
+  - EASYTEST
+  - Functional Testing
+  tags:
+  - testing
+  description: Testing frameworks and strategies
+- name: Logging
+  type: ops
+  synonyms:
+  - Tracing
+  - Log Files
+  - Diagnostic Logging
+  - Error Logging
+  keywords:
+  - eXpressAppFramework.log
+  - DevExpress.Persistent.Base.Tracing
+  - TraceLogLocation
+  - Tracing.LogName
+  - eXpressAppFrameworkTraceLevel
+  - LogLevel
+  - Tracing.LogSensitiveData
+  - LogText
+  - LogValue
+  - LogSeparator
+  - LogError
+  - TextWriterTraceListener
+  tags:
+  - diagnostics
+  description: Application logging and diagnostics
+- name: Diagnostic Tools
+  type: diagnostics
+  synonyms:
+  - Tracer
+  - Tracing
+  - Debug Tracing
+  - XAF Tracer
+  - Diagnostic Logging
+  keywords:
+  - Tracing.Tracer
+  - DevExpress.ExpressApp.CodeAnalysis
+  - LogSubSeparator
+  - Just My Code
+  - Exception Settings
+  - Call Stack
+  - PDB symbols
+  tags:
+  - diagnostics
+  - debugging
+  description: XAF diagnostic and tracing tools for debugging
+- name: Threading Issues
+  type: troubleshooting
+  synonyms:
+  - Thread
+  - Reentrancy
+  - Threading Errors
+  - Cross-thread Operations
+  - Thread Safety
+  - Multi-threading
+  keywords:
+  - XPObjectSpaceProvider.ThreadSafe
+  - ThreadSafeDataLayer
+  - SecuredObjectSpaceProvider
+  - BlazorApplication.InvokeAsync
+  - AsyncLocal
+  - ObjectDisposedException
+  - Blazor synchronization context
+  - TaskCompletionSource
+  - CancellationTokenSource
+  tags:
+  - troubleshooting
+  - threading
+  description: Troubleshooting threading and reentrancy errors
+- name: Performance Optimization
+  type: quality
+  synonyms:
+  - Performance Tuning
+  - Speed
+  - Speed Optimization
+  - Performance Issues
+  - Slow Performance
+  - Application Speed
+  - Query Performance
+  - Load Time
+  - Slow Loading
+  keywords:
+  - DataAccessMode
+  - InstantFeedbackView
+  - ServerView
+  - DataView
+  - List View Data Access Modes
+  - Delayed Loading
+  - ViewDataSource
+  - Indexed
+  - IndicesAttribute
+  - QuerySplittingBehavior
+  - Server-side filtering
+  - Database denormalization
+  tags:
+  - performance
+  description: Performance improvement techniques and patterns
+- name: Memory Management
+  type: performance
+  synonyms:
+  - Memory Consumption
+  - Memory Optimization
+  - Memory Leaks
+  - Out of Memory
+  - Memory Usage
+  keywords:
+  - ObjectSpace.Dispose
+  - IDisposable
+  - AutoDisposeAdditionalObjectSpaces
+  - BaseObjectSpace.Dispose
+  - XPObjectSpace.Dispose
+  - NonPersistentObjectSpace.Dispose
+  - CompositeObjectSpace.Dispose
+  tags:
+  - performance
+  - memory
+  description: Memory optimization and troubleshooting memory issues
+- name: Scaling Architecture
+  type: architecture
+  synonyms:
+  - Horizontal Scaling
+  - Vertical Scaling
+  - Scalability
+  - High User Count
+  - Load Balancing
+  - 100+ users
+  - 1000+ users
+  keywords:
+  - Azure Kubernetes Service
+  - Sticky sessions
+  - Azure App Service
+  - Stateful architecture
+  - Memory per user
+  - Concurrent users
+  - Multiple web servers
+  - Distributed architecture
+  - High load scenarios
+  tags:
+  - architecture
+  - performance
+  - scaling
+  description: Architectural patterns for scaling to hundreds or thousands of users
+- name: Demo Applications
+  type: learning
+  synonyms:
+  - Demos
+  - Demo Projects
+  - Sample Applications
+  - Example Code
+  keywords:
+  - MainDemo
+  - FeatureCenter
+  - MainDemo.NET.EFCore
+  - XAFSamples
+  tags:
+  - learning
+  - samples
+  description: Demo applications and sample projects
+- name: Package Management
+  type: setup
+  synonyms:
+  - Nuget
+  - NuGet Packages
+  - Package Manager
+  - Dependencies
+  - Package Installation
+  keywords:
+  - nuget.devexpress.com
+  - ObtainFeedURL
+  - PackageReference
+  - DevExpressNuGetFeed
+  - Install-Package
+  - dotnet add package
+  tags:
+  - setup
+  - tooling
+  description: Managing NuGet packages and dependencies
+- name: Assembly References
+  type: setup
+  synonyms:
+  - Missing assemblies
+  - Missing resources
+  - Assembly Loading
+  - Reference Problems
+  - DLL References
+  keywords:
+  - FileNotFoundException
+  - AssemblyLoadException
+  - ReferencePath
+  - HintPath
+  tags:
+  - setup
+  - troubleshooting
+  description: Troubleshooting missing assemblies and resource references
+- name: Template Kit
+  type: tooling
+  synonyms:
+  - DevExpress Template Kit
+  - Cross-IDE Template Kit
+  - Project Templates
+  - Item Templates
+  - New Project Tool
+  - Scaffolding Tool
+  keywords:
+  - Template Kit
+  - DevExpress Template Kit
+  - Cross-IDE
+  tags:
+  - tooling
+  - setup
+  - scaffolding
+  description: Cross-IDE project scaffolding tool for creating XAF applications and
+    adding items (Visual Studio, Rider, VS Code)
+- name: Legacy .NET Framework
+  type: migration
+  synonyms:
+  - .NET Framework
+  - Legacy WinForms
+  - .NET Framework 4.x
+  keywords:
+  - XafApiConverter
+  - ProjectConverter
+  - WcfSecuredClient
+  - WcfDataServerHelper
+  - MiddleTierSerializableObjectLayerClient
+  - WebForms
+  - ASPxControl
+  - T1312589
+  - ASP.NET Web Forms
+  - Model Editor for .NET Framework
+  - Model Editor .NET Framework
+  tags:
+  - legacy
+  - migration
+  description: Deprecated .NET Framework versions and platforms
+- name: Migration
+  type: migration
+  synonyms:
+  - Upgrade
+  - Porting
+  - Version Migration
+  - Migrate Existing Projects
+  - Legacy Migration
+  keywords:
+  - XafApiConverter
+  - ProjectConverter
+  - FrameworkSettingsCompatibilityMode
+  - TargetFramework
+  - MultiTargeting
+  - SDK-style
+  - EF6toEFCore
+  tags:
+  - migration
+  description: Upgrading from older XAF or .NET versions
+- name: Project Wizards
+  type: tooling
+  synonyms:
+  - Solution Wizard
+  - Module Designer
+  - Project Template
+  - Application Designer
+  - Wizard Tools
+  keywords:
+  - SolutionWizard
+  - ModuleDesigner
+  - ApplicationDesigner
+  tags:
+  - tooling
+  - setup
+  - legacy
+  description: Legacy Visual Studio wizards for creating and configuring XAF projects
+    (replaced by Template Kit)

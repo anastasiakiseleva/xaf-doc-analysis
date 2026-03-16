@@ -1,0 +1,73 @@
+========================================================================
+  XAF DOCUMENTATION COVERAGE MATRIX
+  Generated: 2026-02-19 19:07
+========================================================================
+
+Total concepts analyzed: 149
+Critical gaps (≥10 tickets, score <3.0): 12
+Missing concepts: 1
+Unmapped features: 30
+
+========================================================================
+TOP 20 CRITICAL GAPS
+========================================================================
+
+CRUD Controllers
+  Tickets: 276  |  Doc Score: 2.2  |  Pages: 3
+
+Business Object Lifecycle
+  Tickets: 248  |  Doc Score: 2.6  |  Pages: 3
+
+Deployment
+  Tickets: 186  |  Doc Score: 1.8  |  Pages: 3
+
+Theming
+  Tickets: 173  |  Doc Score: 0.6  |  Pages: 1
+
+Legacy .NET Framework
+  Tickets: 134  |  Doc Score: 2.2  |  Pages: 3
+
+Programmatic Localization
+  Tickets: 119  |  Doc Score: 0.6  |  Pages: 1
+
+Custom User Management
+  Tickets: 66  |  Doc Score: 0.6  |  Pages: 1
+
+Filtering UI
+  Tickets: 62  |  Doc Score: 2.4  |  Pages: 5
+
+Logging
+  Tickets: 61  |  Doc Score: 2.2  |  Pages: 4
+
+Async Operations
+  Tickets: 42  |  Doc Score: 0.6  |  Pages: 1
+
+Scaling Architecture
+  Tickets: 39  |  Doc Score: 2.4  |  Pages: 4
+
+[NO CONCEPT] Map control customizations
+  Tickets: 17  |  Doc Score: 0.0  |  Pages: 0
+
+========================================================================
+UNMAPPED FEATURES (30)
+========================================================================
+  - Model Editor for .NET / .NET Core
+  - ORM Data Model Wizard/Designer
+  - Read, Customize or Extend the Application Model
+  - Model Difference Storages
+  - Custom Localization (programmatically, in code)
+  - Obsolete: Lookup/Collection Property Filtering
+  - Filter Editors
+  - Module Designer
+  - DashboardViews
+  - Themes
+  - CAUSE: Complex project or DB, long debugging, etc.
+  - (Deprecated) Domain Components - DC
+  - Custom error highligthing
+  - Sequential/Auto-increment numbers (T567184)
+  - Default & Custom Attributes To Customize Model
+  - Custom implementations of default XAF BCL entities
+  - Obtaining data from external services, other databases
+  - FileData in Non-XAF apps (CompressionUtils)
+  - Error: Thread & Reentrancy (T419520 & K18167)
+  - Obsolete: Batch Edit ASPxGridListEditor

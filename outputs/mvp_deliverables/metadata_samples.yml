@@ -1,0 +1,141 @@
+# Sample YAML Frontmatter for XAF Documentation
+# Generated: 2026-02-14
+# Use these as templates for your documentation
+
+======================================================================
+
+# data/raw_md/articles/backend-web-api-service/use-odata-to-send-requests/customize-odata-options
+---
+description: "In your implementation of the class method, use the ODataModelBuilder to customize the OData entity ..."
+tags: ['application-model', 'business-objects', 'how-to', 'model-nodes', 'web-api-service', 'blazor-ui', 'actions', 'odatamodelbuilder']  # Limited to 8 tags for readability
+proficiencyLevel: Beginner
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/articles/installation-upgrade-version-history/visual-studio-integration/template-kit
+---
+description: "Select Add | New Item… or Add | Class… In the opened dialog, select DevExpress <:xx.x:> Template Kit..."
+tags: ['how-to', 'template-kit', 'business-objects', 'controllers', 'blazor-ui', 'winforms', 'project-wizards', 'context-menus']  # Limited to 8 tags for readability
+proficiencyLevel: Beginner
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/articles/analytics/dashboards/open-a-detail-view-when-the-grid-row-is-clicked-in-the-dashboard-winforms-web-forms
+---
+description: "This topic describes how to invoke a Detail View when a user clicks a row in the created using the D..."
+tags: ['action-types', 'actions', 'controller-types', 'controllers', 'dashboard-view', 'dashboards', 'detail-view', 'how-to']  # Limited to 8 tags for readability
+proficiencyLevel: Beginner
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/articles/ui-construction/view-items-and-property-editors/add-an-unbound-control-button-to-the-form-layout-in-an-xaf-view
+---
+description: "This section covers several approaches, from simple no-code options to advanced solutions that requi..."
+tags: ['how-to', 'layout', 'views']  # Limited to 8 tags for readability
+proficiencyLevel: Beginner
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/articles/data-manipulation-and-business-logic/object-space
+---
+description: "In XAF applications, all data-aware manipulations and custom business logic are performed via the Ob..."
+tags: ['how-to', 'object-space', 'controllers', 'views', 'view-items', 'objectspace', 'list-editors', 'property-editors']  # Limited to 8 tags for readability
+proficiencyLevel: Beginner
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.ConditionalAppearance/IAppearance/FontStyle1134092
+---
+description: "API reference for Attribute used in Conditional Appearance. See documentation for details...."
+tags: ['api-reference', 'attribute', 'conditional-appearance', 'dxfontstyle', 'fontstyle']  # Limited to 8 tags for readability
+proficiencyLevel: Advanced
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp/XafApplication/ResourcesExportedToModel1131243
+---
+description: "API reference for GridControlLocalizer used in Application Model. See documentation for details...."
+tags: ['api-reference', 'application-model', 'xaf-application', 'getxafresourcelocalizertypes', 'resourcesexportedtomodel', 'winforms', 'gridcontrollocalizer', 'model-editor']  # Limited to 8 tags for readability
+proficiencyLevel: Advanced
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/ListViewProcessCurrentObjectController/ShowObject1131290
+---
+description: "This method is called when the ListViewProcessCurrentObjectController.ProcessCurrentObjectAction is ..."
+tags: ['actions', 'api-reference', 'detail-view', 'frame', 'showobject', 'showviewparameters', 'view', 'view-types']  # Limited to 8 tags for readability
+proficiencyLevel: Advanced
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/IModelActionDesignContainerMapping/ActionToContainerMapping1133829
+---
+description: "API reference for ActionToContainerMapping used in Action Containers. See documentation for details...."
+tags: ['action-containers', 'actions', 'actiontocontainermapping', 'api-reference', 'application-model', 'imodelactiontocontainermapping']  # Limited to 8 tags for readability
+proficiencyLevel: Advanced
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp/TemplateContext/FindPopupWindow1140295
+---
+description: "API reference for TemplateContext used in Application Templates. See documentation for details...."
+tags: ['api-reference', 'application-templates', 'findpopupwindow', 'templatecontext']  # Limited to 8 tags for readability
+proficiencyLevel: Advanced
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.Model/IModelListView/AllowUnlink1150005
+---
+description: "API reference for AllowUnlink used in Collection Property Editors. See documentation for details...."
+tags: ['allowunlink', 'api-reference', 'collection-property-editors', 'list-view', 'property-editor-types', 'property-editors', 'view-types', 'views']  # Limited to 8 tags for readability
+proficiencyLevel: Expert
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/articles/support-qa-troubleshooting/frequently-asked-questions-faq
+---
+description: "Below is a list of topics answering the most frequently asked questions about XAF...."
+tags: ['action-containers', 'action-customization', 'actions', 'application-model', 'authentication', 'authorization', 'business-objects', 'collection-property']  # Limited to 8 tags for readability
+proficiencyLevel: Expert
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp/NonPersistentObjectSpace/CustomGetObjectsQuery
+---
+description: "API reference for CustomGetObjectsQuery used in Blazor UI. See documentation for details...."
+tags: ['api-reference', 'blazor-ui', 'customgetobjectsquery', 'getobjectsquery', 'non-persistent-objects', 'web-api-service', 'object-space', 'objectspace']  # Limited to 8 tags for readability
+proficiencyLevel: Expert
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.Actions/PopupWindowShowAction/IsModal1130379
+---
+description: "API reference for IsModal used in Action Containers. See documentation for details...."
+tags: ['action-containers', 'action-customization', 'action-state-management', 'action-types', 'actions', 'api-reference', 'ismodal', 'popup-window-show-action']  # Limited to 8 tags for readability
+proficiencyLevel: Expert
+---
+
+----------------------------------------------------------------------
+
+# data/raw_md/apidoc/DevExpress.ExpressApp.TreeListEditors.Win/TreeListEditor/CanShowPopupMenu1131930
+---
+description: "This method is not intended to be called from your code...."
+tags: ['api-reference', 'canshowpopupmenu', 'context-menus']  # Limited to 8 tags for readability
+proficiencyLevel: Expert
+---
+
+----------------------------------------------------------------------
+

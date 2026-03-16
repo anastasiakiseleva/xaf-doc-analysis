@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Mapping Validation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        h2 { color: #34495e; margin-top: 30px; }
+        .summary { background: #ecf0f1; padding: 15px; border-radius: 5px; }
+        .metric { display: inline-block; margin: 10px 20px 10px 0; }
+        .metric-value { font-size: 24px; font-weight: bold; color: #3498db; }
+        .metric-label { font-size: 14px; color: #7f8c8d; }
+        table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+        th { background: #3498db; color: white; padding: 10px; text-align: left; }
+        td { padding: 8px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f5f5f5; }
+        .high-priority { background: #ffe5e5; }
+        .recommendation { color: #27ae60; font-weight: bold; }
+        .gap-list { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <h1>Ticket-to-Concept Mapping Validation Report</h1>
+    <p><strong>Generated:</strong> 2026-02-13T19:24:29.161809</p>
+    
+    <div class="summary">
+        <h2>Summary Statistics</h2>
+        <div class="metric">
+            <div class="metric-value">159</div>
+            <div class="metric-label">Total Categories</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">48</div>
+            <div class="metric-label">High Confidence (10)</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">101</div>
+            <div class="metric-label">Medium Confidence (7-9)</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">10</div>
+            <div class="metric-label">Low Confidence (<7)</div>
+        </div>
+        <div class="metric">
+            <div class="metric-value">30.2%</div>
+            <div class="metric-label">High Confidence %</div>
+        </div>
+    </div>
+    
+    <h2>Synonym Gaps (6 found)</h2>
+    <p>User phrases from tickets that are missing from concept synonyms:</p>
+    <table>
+        <tr>
+            <th>Concept</th>
+            <th>Ticket Category</th>
+            <th>Volume</th>
+            <th>Missing Phrases</th>
+            <th>Recommendation</th>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>View Items</strong></td>
+            <td>Custom View Items & Editors</td>
+            <td>869</td>
+            <td class="gap-list">custom editors in views</td>
+            <td class="recommendation">Add synonyms: custom editors in views</td>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>View Items</strong></td>
+            <td>Built-in View Items & Editors</td>
+            <td>765</td>
+            <td class="gap-list">built-in editors</td>
+            <td class="recommendation">Add synonyms: built-in editors</td>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>.NET Runtime</strong></td>
+            <td>Model Editor for .NET / .NET Core</td>
+            <td>322</td>
+            <td class="gap-list">application model configuration, XAFML editing</td>
+            <td class="recommendation">Add synonyms: application model configuration, XAFML editing</td>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>Application Model</strong></td>
+            <td>Aliased, Calculated and Custom Fields/Metadata</td>
+            <td>304</td>
+            <td class="gap-list">calculated fields, aliased properties, custom metadata, computed properties, virtual fields</td>
+            <td class="recommendation">Add synonyms: calculated fields, aliased properties, custom metadata</td>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>XAF Application</strong></td>
+            <td>EF Core Specifics</td>
+            <td>303</td>
+            <td class="gap-list">entity framework core, EF Core configuration, DbContext setup, code-first</td>
+            <td class="recommendation">Add synonyms: entity framework core, EF Core configuration, DbContext setup</td>
+        </tr>
+
+        <tr class="high-priority">
+            <td><strong>Object Space</strong></td>
+            <td>ORM Data Model Wizard/Designer</td>
+            <td>222</td>
+            <td class="gap-list">data model wizard, ORM designer, database schema, model generation</td>
+            <td class="recommendation">Add synonyms: data model wizard, ORM designer, database schema</td>
+        </tr>
+
+    </table>
+    
+    <h2>Low Confidence Mappings (10 requiring review)</h2>
+    <p>Categories with confidence scores below 7 that need attention:</p>
+    <table>
+        <tr>
+            <th>Ticket Category</th>
+            <th>Volume</th>
+            <th>Current Concept</th>
+            <th>Confidence</th>
+            <th>Recommendation</th>
+        </tr>
+
+        <tr>
+            <td><strong>Callbacks</strong></td>
+            <td>66</td>
+            <td>UNMAPPED</td>
+            <td>0</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Custom Provider Implementation</strong></td>
+            <td>59</td>
+            <td>Object Space Provider</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Custom appearance on events</strong></td>
+            <td>38</td>
+            <td>Custom User Management</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>SVG</strong></td>
+            <td>34</td>
+            <td>SVG Graphics</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>TIME: 1-2h (tech part + time to write text)</strong></td>
+            <td>30</td>
+            <td>UNMAPPED</td>
+            <td>0</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Custom error highligthing</strong></td>
+            <td>26</td>
+            <td>Custom User Management</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Custom implementations of default XAF BCL entities</strong></td>
+            <td>25</td>
+            <td>XAF Application</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Application Builder</strong></td>
+            <td>22</td>
+            <td>XAF Application</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Issues with non-unique key values (T639653)</strong></td>
+            <td>17</td>
+            <td>Threading Issues</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+        <tr>
+            <td><strong>Error: Object belongs to a different session/space</strong></td>
+            <td>15</td>
+            <td>Object Space</td>
+            <td>5</td>
+            <td class="recommendation">Review mapping or add more synonyms</td>
+        </tr>
+
+    </table>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "phase_name": "Generate Metadata",
+  "phase_number": 7,
+  "timestamp": "2026-02-14T16:14:15.559441",
+  "passed": true,
+  "has_warnings": true,
+  "has_errors": false,
+  "results": [
+    {
+      "check_name": "Schema validation",
+      "passed": true,
+      "message": "All 6 required columns present with correct types",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Minimum sections",
+      "passed": true,
+      "message": "Row count 10,994 is within acceptable range",
+      "severity": "info",
+      "details": {
+        "row_count": 10994
+      }
+    },
+    {
+      "check_name": "Description coverage",
+      "passed": false,
+      "message": "Value 88.15 fails threshold >= 95.0",
+      "severity": "warning",
+      "details": {
+        "actual_value": 88.14808077132982,
+        "threshold_value": 95.0,
+        "comparison": ">="
+      }
+    },
+    {
+      "check_name": "Minimum avg tags",
+      "passed": true,
+      "message": "Value 6.38 meets threshold >= 3.0",
+      "severity": "info",
+      "details": {
+        "actual_value": 6.381116972894306,
+        "threshold_value": 3.0
+      }
+    },
+    {
+      "check_name": "Maximum avg tags",
+      "passed": true,
+      "message": "Value 6.38 meets threshold <= 12.0",
+      "severity": "info",
+      "details": {
+        "actual_value": 6.381116972894306,
+        "threshold_value": 12.0
+      }
+    },
+    {
+      "check_name": "Proficiency level vocabulary",
+      "passed": true,
+      "message": "All 3 unique values match vocabulary",
+      "severity": "info",
+      "details": {
+        "unique_values": 3,
+        "vocabulary_size": 4
+      }
+    }
+  ]
+}

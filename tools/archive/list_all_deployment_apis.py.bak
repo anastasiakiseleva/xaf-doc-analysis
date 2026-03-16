@@ -1,0 +1,120 @@
+#!/usr/bin/env python
+"""
+Generate complete list of APIs that need Deployment tags
+"""
+import pandas as pd
+import csv
+
+# Load data
+print("📚 Loading API documentation...")
+concepts = pd.read_parquet('outputs/doc_concepts.parquet')
+inventory = pd.read_parquet('outputs/topics_inventory.parquet')
+kept = concepts[concepts["kept"] == True]
+
+# Get only API docs
+api_docs = kept[kept["is_api"] == True]
+
+print(f"✅ Total API documents: {len(api_docs)}\n")
+
+# Search for deployment-related keywords
+deployment_keywords = [
+    "deploy", "deployment", "configuration", "connectionstring", 
+    "appsettings", "startup", "applicationbuilder", "hosting",
+    "iis", "azure", "docker", "publish"
+]
+
+print("🔍 Searching for deployment-related API documentation...")
+
+candidates = []
+
+for _, row in api_docs.iterrows():
+    doc_id = row["doc_id"]
+    
+    # Check if doc_id contains deployment keywords
+    doc_id_lower = doc_id.lower()
+    matched_keywords = [kw for kw in deployment_keywords if kw in doc_id_lower]
+    
+    if matched_keywords:
+        # Get current concepts
+        current_concepts = row.get("concepts", [])
+        if current_concepts is not None and hasattr(current_concepts, '__iter__'):
+            current_concepts = list(current_concepts)
+        else:
+            current_concepts = []
+        
+        has_deployment = "Deployment" in current_concepts
+        
+        # Get namespaces
+        namespaces = row.get("namespaces", [])
+        if namespaces is not None and hasattr(namespaces, '__iter__'):
+            namespaces = list(namespaces)
+        else:
+            namespaces = []
+        
+        # Get APIs
+        apis = row.get("apis", [])
+        if apis is not None and hasattr(apis, '__iter__'):
+            apis = list(apis)
+        else:
+            apis = []
+        
+        candidates.append({
+            'doc_id': doc_id,
+            'keywords': ', '.join(matched_keywords),
+            'keyword_count': len(matched_keywords),
+            'has_deployment_tag': has_deployment,
+            'current_concepts': ', '.join(current_concepts[:8]),  # First 8 concepts
+            'namespaces': ', '.join(namespaces[:3]),  # First 3 namespaces
+            'apis': ', '.join(apis[:3])  # First 3 APIs
+        })
+
+# Sort by number of matched keywords
+candidates_df = pd.DataFrame(candidates)
+candidates_df = candidates_df.sort_values('keyword_count', ascending=False)
+
+print(f"\n📊 Found {len(candidates_df)} API documents with deployment-related keywords\n")
+print(f"Already tagged with Deployment: {candidates_df['has_deployment_tag'].sum()}")
+print(f"Missing Deployment tag: {(~candidates_df['has_deployment_tag']).sum()}\n")
+
+# Save to CSV
+output_csv = "outputs/deployment_api_candidates.csv"
+candidates_df[~candidates_df['has_deployment_tag']].to_csv(output_csv, index=False, encoding='utf-8')
+print(f"✅ Complete list saved to: {output_csv}")
+
+# Also save a categorized version
+print("\n📋 Categorizing by primary keyword...\n")
+
+categories = {}
+for _, row in candidates_df[~candidates_df['has_deployment_tag']].iterrows():
+    keywords = row['keywords'].split(', ')
+    primary = keywords[0]  # Use first matched keyword as category
+    
+    if primary not in categories:
+        categories[primary] = []
+    
+    categories[primary].append({
+        'doc_id': row['doc_id'],
+        'all_keywords': row['keywords'],
+        'concepts': row['current_concepts']
+    })
+
+# Print categorized summary
+for category, items in sorted(categories.items(), key=lambda x: len(x[1]), reverse=True):
+    print(f"\n{'='*70}")
+    print(f"{category.upper()} ({len(items)} APIs)")
+    print('='*70)
+    for i, item in enumerate(items[:10], 1):  # Show first 10 per category
+        print(f"{i:3}. {item['doc_id']}")
+        if item['concepts']:
+            print(f"     Concepts: {item['concepts']}")
+    if len(items) > 10:
+        print(f"     ... and {len(items) - 10} more")
+
+print("\n" + "="*70)
+print("📊 SUMMARY BY CATEGORY")
+print("="*70)
+for category, items in sorted(categories.items(), key=lambda x: len(x[1]), reverse=True):
+    print(f"  {category:20} : {len(items):3} APIs")
+
+print(f"\n✅ Review the full list in: {output_csv}")
+print("\n💡 Recommendation: Start with 'applicationbuilder' and 'connectionstring' categories")

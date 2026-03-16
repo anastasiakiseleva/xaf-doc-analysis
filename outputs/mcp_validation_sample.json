@@ -1,0 +1,52 @@
+[
+  {
+    "mapping": "FirstOrDefault0 → Object Space",
+    "api": "FirstOrDefault0",
+    "concept": "Object Space",
+    "status": "confirmed",
+    "reasoning": "Documentation explicitly mentions Object Space or related terms",
+    "evidence": [
+      "Result 1 (score 0.76): Found 'iobjectspace' in documentation",
+      "Result 2 (score 0.75): Found 'object space' in documentation",
+      "Result 3 (score 0.74): Found 'iobjectspace' in documentation"
+    ]
+  },
+  {
+    "mapping": "Parent → Tree Node Interface",
+    "api": "Parent",
+    "concept": "Tree Node Interface",
+    "status": "confirmed",
+    "reasoning": "Documentation explicitly mentions Tree Node Interface or related terms",
+    "evidence": [
+      "Result 1 (score 0.74): Found 'tree node' in documentation",
+      "Result 2 (score 0.74): Found 'tree node' in documentation",
+      "Result 3 (score 0.72): Found 'tree node' in documentation"
+    ]
+  },
+  {
+    "mapping": "GetDefaultProperty → Property Editors",
+    "api": "GetDefaultProperty",
+    "concept": "Property Editors",
+    "status": "confirmed",
+    "reasoning": "Documentation explicitly mentions Property Editors or related terms",
+    "evidence": [
+      "Result 2 (score 0.74): Found 'property editor' in documentation"
+    ]
+  },
+  {
+    "mapping": "ContainsMember → List Editors",
+    "api": "ContainsMember",
+    "concept": "List Editors",
+    "status": "unclear",
+    "reasoning": "API documented but List Editors not explicitly mentioned",
+    "evidence": []
+  },
+  {
+    "mapping": "AllowAdd → List Editors",
+    "api": "AllowAdd",
+    "concept": "List Editors",
+    "status": "unclear",
+    "reasoning": "API documented but List Editors not explicitly mentioned",
+    "evidence": []
+  }
+]

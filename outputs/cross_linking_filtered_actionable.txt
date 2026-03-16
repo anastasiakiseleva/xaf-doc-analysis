@@ -1,0 +1,1831 @@
+====================================================================================================
+ACTIONABLE CROSS-LINKING RECOMMENDATIONS (TEXT-PRESENCE FILTERED + TICKET-WEIGHTED)
+====================================================================================================
+
+Analysis Date: 2026-02-16
+Documents with useful API links: 583
+Showing: Top 50 opportunities
+
+KEY IMPROVEMENTS:
+  ✅ Only APIs actually mentioned in article text
+  ✅ Prioritizes APIs in code blocks (HIGH)
+  ✅ Realistic limits based on article type
+  ✅ Filtered out concept-only matches
+  🎯 Weighted by support ticket volume (customer pain points)
+
+PRIORITY LEGEND:
+  🔥 HIGH    = API appears in code blocks (definitely link)
+  ⭐ MEDIUM  = API mentioned 2+ times in text (strongly consider)
+  ○  LOW     = API mentioned once (consider if relevant)
+
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+RANK #1 - SCORE: 199 (Base: 99 × Ticket Weight: 2.01x)
+UID: 118451
+Title: How to: Show Various Notifications to Multiple Users
+Path: data\raw_md\articles\event-planning-and-notifications\how-to-show-various-notifications-for-multiple-users.md
+Article Type: HOW_TO
+Word Count: 280
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 14 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 5
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 2 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 1 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 10 time(s), appears in CODE
+    • Framework (class) - DevExpress.EasyTest
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Blazor (class) - DevExpress
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Security (class) - DevExpress.ExpressApp
+    • Controller (class) - DevExpress.ExpressApp
+    • Window (class) - DevExpress.ExpressApp
+    • Filtering (class) - DevExpress.Data
+    • Xpo (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #2 - SCORE: 191 (Base: 95 × Ticket Weight: 2.01x)
+UID: 402155
+Title: Add a Parametrized Action
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\add-actions-menu-commands\add-a-parametrized-action.md
+Article Type: TUTORIAL
+Word Count: 376
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 6 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 16 time(s), appears in CODE
+    • TargetViewNesting (class) - ExpressApp.ViewController
+      Mentioned 4 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 3 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 3 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Blazor (class) - DevExpress
+
+
+----------------------------------------------------------------------------------------------------
+RANK #3 - SCORE: 189 (Base: 94 × Ticket Weight: 2.01x)
+UID: 113161
+Title: How to: Access Nested List View or Master Detail View Environment (ASP.NET Core Blazor and Windows Forms)
+Path: data\raw_md\articles\ui-construction\ways-to-access-ui-elements-and-their-controls\how-to-access-master-detail-view-and-nested-list-view-environment.md
+Article Type: HOW_TO
+Word Count: 502
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 63 time(s), appears in CODE
+    • DashboardView (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • TargetViewNesting (class) - ExpressApp.ViewController
+      Mentioned 3 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 4 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 12 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 4 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Blazor (class) - DevExpress
+      Mentioned 6 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #4 - SCORE: 185 (Base: 92 × Ticket Weight: 2.01x)
+UID: 116516
+Title: Non-Persistent Objects
+Path: data\raw_md\articles\business-model-design-orm\non-persistent-objects.md
+Article Type: GENERAL
+Word Count: 1543
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 12 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 4
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 13 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 5 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+    • Setup (method) - ExpressApp.XafApplication
+      Mentioned 4 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 11 time(s) in text
+    • ApplicationBuilder (class) - ExpressApp.Win
+      Mentioned 4 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s) in text
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 4 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • IBlazorApplicationBuilder (interface) - Blazor.ApplicationBuilder
+    • Window (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #5 - SCORE: 179 (Base: 89 × Ticket Weight: 2.01x)
+UID: 113653
+Title: How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Fully Custom ViewItem)
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\add-a-button-to-a-detail-view-using-custom-view-item.md
+Article Type: HOW_TO
+Word Count: 490
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 27 time(s), appears in CODE
+    • ViewItemAttribute (class) - ExpressApp.Editors
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 20 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 15 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 15 time(s), appears in CODE
+    • Setup (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • ViewController (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #6 - SCORE: 178 (Base: 101 × Ticket Weight: 1.77x)
+UID: 113143
+Title: How to: Enable Database Storage for User-Defined Criteria that Filter a List View
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\property-editors\use-criteria-property-editors.md
+Article Type: HOW_TO
+Word Count: 422
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 11 APIs
+  🔥 HIGH priority (in code): 9
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 10 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 3 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 7 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • SingleChoiceAction (class) - ExpressApp.Actions
+      Mentioned 3 time(s), appears in CODE
+    • Filtering (class) - DevExpress.Data
+      Mentioned 2 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 7 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 4 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+    • Xpo (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #7 - SCORE: 177 (Base: 88 × Ticket Weight: 2.01x)
+UID: nan
+Title: Customize Application UI and Behavior
+Path: data\raw_md\articles\getting-started\basic-tutorial-blazor\customize-the-application-ui-and-behavior-blazor.md
+Article Type: TUTORIAL
+Word Count: 584
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 10 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 5 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 3 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 1 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #8 - SCORE: 175 (Base: 87 × Ticket Weight: 2.01x)
+UID: 112818
+Title: Determine Why an Action, Controller or Editor is Inactive
+Path: data\raw_md\articles\ui-construction\controllers-and-actions\determine-why-an-action-controller-or-editor-is-inactive.md
+Article Type: GENERAL
+Word Count: 1477
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 12 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 5
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 58 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 3 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 40 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 1 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • ListEditor (class) - ExpressApp.Editors
+      Mentioned 6 time(s) in text
+    • Editors (class) - ExpressApp.Win
+      Mentioned 9 time(s) in text
+    • Window (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s) in text
+    • SingleChoiceAction (class) - ExpressApp.Actions
+      Mentioned 8 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 9 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Security (class) - DevExpress.ExpressApp
+    • SimpleAction (class) - ExpressApp.Actions
+
+
+----------------------------------------------------------------------------------------------------
+RANK #9 - SCORE: 173 (Base: 86 × Ticket Weight: 2.01x)
+UID: 118760
+Title: How to: Create and Show a Detail View of the Selected Object in a Popup Window (ASP.NET Core Blazor)
+Path: data\raw_md\articles\ui-construction\views\ways-to-show-a-view\how-to-create-and-show-a-detail-view-of-the-selected-object-in-a-popup-window.md
+Article Type: HOW_TO
+Word Count: 222
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 11 APIs
+  🔥 HIGH priority (in code): 7
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 3
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 23 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 4 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 4 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 3 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Window (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Editors (class) - ExpressApp.Win
+    • Controller (class) - DevExpress.ExpressApp
+    • Editors (class) - ExpressApp.Blazor
+
+
+----------------------------------------------------------------------------------------------------
+RANK #10 - SCORE: 165 (Base: 82 × Ticket Weight: 2.01x)
+UID: 113471
+Title: How to: Display a Non-Persistent Object's Detail View
+Path: data\raw_md\articles\business-model-design-orm\non-persistent-objects\how-to-display-a-non-persistent-objects-detail-view-from-the-navigation.md
+Article Type: HOW_TO
+Word Count: 436
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 12 APIs
+  🔥 HIGH priority (in code): 7
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 5
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 20 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 1 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 1 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 1 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DashboardView (class) - DevExpress.ExpressApp
+    • Controller (class) - DevExpress.ExpressApp
+    • Window (class) - DevExpress.ExpressApp
+    • Win (class) - ExpressApp.FileAttachments
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+
+
+----------------------------------------------------------------------------------------------------
+RANK #11 - SCORE: 161 (Base: 80 × Ticket Weight: 2.01x)
+UID: 113103
+Title: Define the Scope of Controllers and Actions
+Path: data\raw_md\articles\ui-construction\controllers-and-actions\define-the-scope-of-controllers-and-actions.md
+Article Type: GENERAL
+Word Count: 902
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 18 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 32 time(s), appears in CODE
+    • TargetViewNesting (class) - ExpressApp.ViewController
+      Mentioned 8 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 2 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • TargetViewId (class) - ExpressApp.ViewController
+      Mentioned 6 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 35 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Window (class) - DevExpress.ExpressApp
+    • Filtering (class) - DevExpress.Data
+
+
+----------------------------------------------------------------------------------------------------
+RANK #12 - SCORE: 153 (Base: 76 × Ticket Weight: 2.01x)
+UID: 403452
+Title: How To: Create a Custom Blazor Application Template
+Path: data\raw_md\articles\ui-construction\templates\in-blazor\custom-blazor-application-template.md
+Article Type: HOW_TO
+Word Count: 366
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 11 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 4
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 32 time(s), appears in CODE
+    • Security (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 1 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 1 time(s), appears in CODE
+    • Editors (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Edit (class) - Base.PredefinedCategory
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Close (class) - ExpressApp.View
+    • Window (class) - DevExpress.ExpressApp
+    • Close (class) - ExpressApp.Window
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #13 - SCORE: 152 (Base: 86 × Ticket Weight: 1.77x)
+UID: 113707
+Title: Ways to Access an Object Space (the Database Context for CRUD Operations)
+Path: data\raw_md\articles\data-manipulation-and-business-logic\object-space.md
+Article Type: GENERAL
+Word Count: 1287
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 16 APIs
+  🔥 HIGH priority (in code): 2
+  ⭐ MEDIUM priority (in text 2+): 10
+  ○  LOW priority (mentioned once): 4
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 12 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 6 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 28 time(s) in text
+    • Editors (class) - ExpressApp.Win
+      Mentioned 6 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 10 time(s) in text
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 27 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 6 time(s) in text
+    ... and 5 more medium-priority APIs
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • ViewController (class) - DevExpress.ExpressApp
+    • IObjectSpaceFactory (interface) - DevExpress.ExpressApp
+    • Window (class) - DevExpress.ExpressApp
+    • IObjectSpaceProvider (interface) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #14 - SCORE: 150 (Base: 85 × Ticket Weight: 1.77x)
+UID: 113287
+Title: How to: Customize the Export Action Behavior
+Path: data\raw_md\articles\shape-export-print-data\printing-exporting-in-list-view\how-to-customize-the-export-action-behavior.md
+Article Type: HOW_TO
+Word Count: 900
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 3
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s), appears in CODE
+    • Close (class) - ExpressApp.View
+      Mentioned 1 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Close (class) - ExpressApp.Window
+      Mentioned 1 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 9 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Blazor (class) - DevExpress
+      Mentioned 17 time(s) in text
+    • Editors (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Controller (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #15 - SCORE: 149 (Base: 74 × Ticket Weight: 2.01x)
+UID: 113452
+Title: Implement a Custom Security System User Based on an Existing Business Class
+Path: data\raw_md\articles\data-security-and-safety\security-system\security-object-model\implement-custom-security-objects\implement-a-custom-security-system-user-based-on-an-existing-business-class.md
+Article Type: GENERAL
+Word Count: 681
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 5 time(s), appears in CODE
+    • Security (class) - DevExpress.ExpressApp
+      Mentioned 54 time(s), appears in CODE
+    • ApplicationBuilder (class) - ExpressApp.Win
+      Mentioned 2 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 24 time(s), appears in CODE
+    • ApplicationBuilder (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Filtering (class) - DevExpress.Data
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • View (class) - DevExpress.ExpressApp
+    • Xpo (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #16 - SCORE: 149 (Base: 74 × Ticket Weight: 2.01x)
+UID: 112681
+Title: How to: Implement Cascading Filtering for Lookup List Views
+Path: data\raw_md\articles\filtering\in-list-view\how-to-implement-cascading-filtering-for-lookup-list-views.md
+Article Type: HOW_TO
+Word Count: 1049
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 35 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 12 time(s), appears in CODE
+    • Xpo (class) - DevExpress.ExpressApp
+      Mentioned 11 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 2 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 31 time(s), appears in CODE
+    • Framework (class) - DevExpress.EasyTest
+      Mentioned 3 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Filtering (class) - DevExpress.Data
+      Mentioned 3 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Editors (class) - ExpressApp.Win
+    • Editors (class) - ExpressApp.Blazor
+
+
+----------------------------------------------------------------------------------------------------
+RANK #17 - SCORE: 147 (Base: 83 × Ticket Weight: 1.77x)
+UID: 402956
+Title: Localize an XAF Application (.NET)
+Path: data\raw_md\articles\localization\localize-an-xaf-application.md
+Article Type: GENERAL
+Word Count: 1245
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 13 APIs
+  🔥 HIGH priority (in code): 7
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 6
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 32 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 2 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • Splash (class) - ExpressApp.Win
+      Mentioned 1 time(s), appears in CODE
+    • IModelApplication (interface) - ExpressApp.Model
+      Mentioned 7 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #18 - SCORE: 139 (Base: 69 × Ticket Weight: 2.01x)
+UID: 404256
+Title: Extend the Data Model
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\define-data-model-and-set-initial-data\define-data-model-and-set-initial-data-with-ef-core\extend-the-data-model.md
+Article Type: TUTORIAL
+Word Count: 184
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 3
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 4 time(s), appears in CODE
+    • Filtering (class) - DevExpress.Data
+      Mentioned 1 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 1 time(s), appears in CODE
+    • ExpressApp (class) - DevExpress
+      Mentioned 2 time(s), appears in CODE
+    • Validation (class) - DevExpress.Persistent
+      Mentioned 2 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Editors (class) - ExpressApp.Win
+    • Editors (class) - ExpressApp.Blazor
+    • Editors (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #19 - SCORE: 139 (Base: 69 × Ticket Weight: 2.01x)
+UID: 404559
+Title: How to: Add a Grid Column with an Action (ASP.NET Core Blazor)
+Path: data\raw_md\articles\ui-construction\controllers-and-actions\actions\how-to-add-a-grid-column-with-an-action.md
+Article Type: HOW_TO
+Word Count: 281
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 3
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 14 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 13 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 2 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Editors (class) - ExpressApp.Win
+    • Controller (class) - DevExpress.ExpressApp
+    • Editors (class) - ExpressApp.Blazor
+
+
+----------------------------------------------------------------------------------------------------
+RANK #20 - SCORE: 139 (Base: 69 × Ticket Weight: 2.01x)
+UID: 112805
+Title: Dialog Controller
+Path: data\raw_md\articles\ui-construction\controllers-and-actions\dialog-controller.md
+Article Type: GENERAL
+Word Count: 849
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 9 time(s), appears in CODE
+    • CreateCollectionSource (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+    • CreateListView (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Window (class) - DevExpress.ExpressApp
+      Mentioned 23 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 16 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Close (class) - ExpressApp.View
+    • Close (class) - ExpressApp.Window
+
+
+----------------------------------------------------------------------------------------------------
+RANK #21 - SCORE: 137 (Base: 68 × Ticket Weight: 2.01x)
+UID: 404204
+Title: Use the Security System
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\enable-additional-modules\use-the-security-system.md
+Article Type: TUTORIAL
+Word Count: 576
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 11 time(s), appears in CODE
+    • Security (class) - DevExpress.ExpressApp
+      Mentioned 14 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • Setup (method) - ExpressApp.XafApplication
+      Mentioned 4 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 1 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • ApplicationBuilder (class) - ExpressApp.Win
+    • ApplicationBuilder (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #22 - SCORE: 137 (Base: 68 × Ticket Weight: 2.01x)
+UID: 403258
+Title: How to: Use a Custom Component to Implement List Editor (Blazor)
+Path: data\raw_md\articles\ui-construction\list-editors\how-to-use-a-custom-component-to-implement-list-editor-blazor.md
+Article Type: HOW_TO
+Word Count: 979
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ListEditor (class) - ExpressApp.Editors
+      Mentioned 27 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 10 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 34 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 27 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 27 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Setup (method) - ExpressApp.XafApplication
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #23 - SCORE: 132 (Base: 66 × Ticket Weight: 2.01x)
+UID: nan
+Title: Access and Customize Rich Text Editor Controls
+Path: data\raw_md\articles\document-management\office-module\access-rich-text-editor-controls.md
+Article Type: GENERAL
+Word Count: 492
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 6 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 16 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 3 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 12 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #24 - SCORE: 132 (Base: 66 × Ticket Weight: 2.01x)
+UID: 114159
+Title: How to: Show a Custom Data-Bound Control in an XAF View (WinForms)
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\how-to-show-a-custom-data-bound-control-in-an-xaf-view\how-to-show-a-custom-data-bound-control-in-an-xaf-view-winforms.md
+Article Type: HOW_TO
+Word Count: 441
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 11 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 5
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 5 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 5 time(s), appears in CODE
+    • Setup (method) - ExpressApp.XafApplication
+      Mentioned 4 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 17 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DashboardView (class) - DevExpress.ExpressApp
+    • Blazor (class) - DevExpress
+    • Close (class) - ExpressApp.View
+    • Close (class) - ExpressApp.Window
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #25 - SCORE: 130 (Base: 65 × Ticket Weight: 2.01x)
+UID: 112836
+Title: TreeList Editors Module Overview
+Path: data\raw_md\articles\app-shell-and-base-infrastructure\tree-list-editors\tree-list-editors-module-overview.md
+Article Type: CONCEPTUAL
+Word Count: 1231
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 2
+  ⭐ MEDIUM priority (in text 2+): 7
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 12 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Blazor (class) - DevExpress
+      Mentioned 19 time(s) in text
+    • Editors (class) - ExpressApp.Win
+      Mentioned 20 time(s) in text
+    • ApplicationBuilder (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • DxTreeList (class) - DevExpress.Blazor
+      Mentioned 6 time(s) in text
+    • Filtering (class) - DevExpress.Data
+      Mentioned 4 time(s) in text
+    ... and 2 more medium-priority APIs
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • IWinApplicationBuilder (interface) - Win.ApplicationBuilder
+
+
+----------------------------------------------------------------------------------------------------
+RANK #26 - SCORE: 129 (Base: 73 × Ticket Weight: 1.77x)
+UID: 113189
+Title: List Editors
+Path: data\raw_md\articles\ui-construction\list-editors.md
+Article Type: GENERAL
+Word Count: 605
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 6
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • Blazor (class) - DevExpress
+      Mentioned 11 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 23 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 23 time(s), appears in CODE
+    • Editors (class) - DevExpress.ExpressApp
+      Mentioned 23 time(s), appears in CODE
+    • ExpressApp (class) - DevExpress
+      Mentioned 13 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • ListEditor (class) - ExpressApp.Editors
+      Mentioned 4 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DxTreeList (class) - DevExpress.Blazor
+
+
+----------------------------------------------------------------------------------------------------
+RANK #27 - SCORE: 128 (Base: 64 × Ticket Weight: 2.01x)
+UID: 120092
+Title: Ways to Access UI Elements and Their Controls
+Path: data\raw_md\articles\ui-construction\ways-to-access-ui-elements-and-their-controls\ways-to-access-ui-elements-and-their-controls.md
+Article Type: GENERAL
+Word Count: 808
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 3
+  ⭐ MEDIUM priority (in text 2+): 5
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 19 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 33 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 3 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • ListEditor (class) - ExpressApp.Editors
+      Mentioned 3 time(s) in text
+    • Blazor (class) - DevExpress
+      Mentioned 5 time(s) in text
+    • Editors (class) - ExpressApp.Win
+      Mentioned 22 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 20 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 22 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DashboardView (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #28 - SCORE: 128 (Base: 100 × Ticket Weight: 1.28x)
+UID: 113302
+Title: Chart Module
+Path: data\raw_md\articles\analytics\chart-module.md
+Article Type: GENERAL
+Word Count: 806
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Grid List Editors (554 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 8
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 15 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 44 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 11 time(s), appears in CODE
+    • SingleChoiceAction (class) - ExpressApp.Actions
+      Mentioned 3 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 10 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 11 time(s), appears in CODE
+    • SingleChoiceActionExecuteEventArgs (delegate) - ExpressApp.Actions
+      Mentioned 1 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • ApplicationBuilder (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #29 - SCORE: 127 (Base: 113 × Ticket Weight: 1.12x)
+UID: 404125
+Title: Add Custom Nodes and Properties to the Application Model in Code
+Path: data\raw_md\articles\ui-construction\application-model-ui-settings-storage\modify-application-model\add-nodes-and-node-properties-to-app-model.md
+Article Type: GENERAL
+Word Count: 1428
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom logic within View or Controller (485 tickets)
+
+REALISTIC API RECOMMENDATIONS: 13 APIs
+  🔥 HIGH priority (in code): 9
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • ExpressApp (class) - DevExpress
+      Mentioned 25 time(s), appears in CODE
+    • ModelInterfaceExtenders (class) - ExpressApp.Model
+      Mentioned 5 time(s), appears in CODE
+    • Model (class) - DevExpress.ExpressApp
+      Mentioned 64 time(s), appears in CODE
+    • ModelNode (class) - Model.Core
+      Mentioned 4 time(s), appears in CODE
+    • IModelNode (interface) - ExpressApp.Model
+      Mentioned 17 time(s), appears in CODE
+    • ModelNodesGeneratorUpdaters (class) - Model.Core
+      Mentioned 2 time(s), appears in CODE
+    • IModelExtender (interface) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Base (class) - DevExpress.Persistent
+      Mentioned 3 time(s) in text
+    • IModelApplication (interface) - ExpressApp.Model
+      Mentioned 5 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DataSourcePropertyAttribute (class) - Persistent.Base
+    • ListView (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #30 - SCORE: 124 (Base: 62 × Ticket Weight: 2.01x)
+UID: 404264
+Title: Customize Standard Authentication Behavior and Supply Additional Logon Parameters (.NET Applications)
+Path: data\raw_md\articles\data-security-and-safety\security-system\authentication\customize-standard-authentication-behavior-and-supply-additional-logon-parameters\customize-authentication-behavior-net.md
+Article Type: GENERAL
+Word Count: 590
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 4
+  ⭐ MEDIUM priority (in text 2+): 3
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 21 time(s), appears in CODE
+    • Security (class) - DevExpress.ExpressApp
+      Mentioned 19 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 9 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Editors (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s) in text
+    • Filtering (class) - DevExpress.Data
+      Mentioned 3 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #31 - SCORE: 122 (Base: 61 × Ticket Weight: 2.01x)
+UID: 112803
+Title: Ways to Show a View
+Path: data\raw_md\articles\ui-construction\views\ways-to-show-a-view\ways-to-show-a-view.md
+Article Type: GENERAL
+Word Count: 859
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 11 APIs
+  🔥 HIGH priority (in code): 4
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 5
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 51 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • CreateListView (method) - ExpressApp.XafApplication
+      Mentioned 6 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 12 time(s) in text
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 4 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DashboardView (class) - DevExpress.ExpressApp
+    • SimpleAction (class) - ExpressApp.Actions
+    • Controller (class) - DevExpress.ExpressApp
+    • SingleChoiceAction (class) - ExpressApp.Actions
+    • Window (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #32 - SCORE: 118 (Base: 67 × Ticket Weight: 1.77x)
+UID: 404767
+Title: Underlying Controls and Components Behind UI Elements (ASP.NET Core Blazor)
+Path: data\raw_md\articles\ui-construction\views\underlying-controls-and-components-behind-ui-elements-asp-net-core-blazor.md
+Article Type: GENERAL
+Word Count: 560
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • Blazor (class) - DevExpress
+      Mentioned 20 time(s), appears in CODE
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • DxGridListEditor (class) - Blazor.Editors
+      Mentioned 1 time(s), appears in CODE
+    • ExpressApp (class) - DevExpress
+      Mentioned 11 time(s), appears in CODE
+    • Blazor (class) - DevExpress.ExpressApp
+      Mentioned 20 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Editors (class) - ExpressApp.Win
+      Mentioned 5 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 5 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #33 - SCORE: 116 (Base: 58 × Ticket Weight: 2.01x)
+UID: 403068
+Title: ASP.NET Core Blazor Application Appearance
+Path: data\raw_md\articles\app-shell-and-base-infrastructure\blazor-application-appearance.md
+Article Type: GENERAL
+Word Count: 1708
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 3
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 24 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 51 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 1 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • Window (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Security (class) - DevExpress.ExpressApp
+    • Editors (class) - ExpressApp.Win
+    • Editors (class) - ExpressApp.Blazor
+
+
+----------------------------------------------------------------------------------------------------
+RANK #34 - SCORE: 114 (Base: 57 × Ticket Weight: 2.01x)
+UID: 402157
+Title: Add a Simple Action
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\add-actions-menu-commands\add-a-simple-action.md
+Article Type: TUTORIAL
+Word Count: 312
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 6 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 14 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 3 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Blazor (class) - DevExpress
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #35 - SCORE: 114 (Base: 57 × Ticket Weight: 2.01x)
+UID: 402153
+Title: Access the Settings of a Property Editor in a Detail View
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\customize-data-display-and-view-layout\access-editor-settings.md
+Article Type: TUTORIAL
+Word Count: 176
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 3
+  ⭐ MEDIUM priority (in text 2+): 4
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 9 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 4 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Editors (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 3 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 3 time(s) in text
+    • Editors (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #36 - SCORE: 114 (Base: 57 × Ticket Weight: 2.01x)
+UID: 113652
+Title: How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Built-in ControlViewItem)
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\create-a-custom-control-detail-item.md
+Article Type: HOW_TO
+Word Count: 585
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 23 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 9 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 5 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 2 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 5 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • ViewController (class) - DevExpress.ExpressApp
+    • Controller (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #37 - SCORE: 114 (Base: 57 × Ticket Weight: 2.01x)
+UID: 112816
+Title: How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Built-in ActionContainerViewItem)
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\include-an-action-to-a-detail-view-layout.md
+Article Type: HOW_TO
+Word Count: 475
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 7 APIs
+  🔥 HIGH priority (in code): 4
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 8 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 4 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 17 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Win (class) - ExpressApp.FileAttachments
+
+
+----------------------------------------------------------------------------------------------------
+RANK #38 - SCORE: 113 (Base: 64 × Ticket Weight: 1.77x)
+UID: 113374
+Title: How to: Customize the Conditional Appearance Module Behavior
+Path: data\raw_md\articles\conditional-appearance\how-to-customize-the-conditional-appearance-module-behavior.md
+Article Type: HOW_TO
+Word Count: 767
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 9 APIs
+  🔥 HIGH priority (in code): 4
+  ⭐ MEDIUM priority (in text 2+): 3
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 7 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 2 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • Editors (class) - ExpressApp.Win
+      Mentioned 11 time(s) in text
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s) in text
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 11 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • IAppearanceRuleProperties (interface) - ExpressApp.ConditionalAppearance
+    • Xpo (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #39 - SCORE: 112 (Base: 56 × Ticket Weight: 2.01x)
+UID: 113532
+Title: Numeric Properties
+Path: data\raw_md\articles\business-model-design-orm\data-types-supported-by-built-in-editors\numeric-properties.md
+Article Type: GENERAL
+Word Count: 772
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 9 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 27 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 12 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 12 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Win (class) - ExpressApp.FileAttachments
+
+
+----------------------------------------------------------------------------------------------------
+RANK #40 - SCORE: 112 (Base: 56 × Ticket Weight: 2.01x)
+UID: 404714
+Title: How to: Customize Status and Label Properties
+Path: data\raw_md\articles\event-planning-and-notifications\how-to-customize-status-and-label-properties.md
+Article Type: HOW_TO
+Word Count: 259
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 4
+  ⭐ MEDIUM priority (in text 2+): 2
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 9 time(s), appears in CODE
+    • Win (class) - ExpressApp.FileAttachments
+      Mentioned 3 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • ApplicationBuilder (class) - ExpressApp.Win
+      Mentioned 3 time(s) in text
+    • ApplicationBuilder (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s) in text
+
+
+----------------------------------------------------------------------------------------------------
+RANK #41 - SCORE: 112 (Base: 56 × Ticket Weight: 2.01x)
+UID: 402984
+Title: Configure a One-to-Many Relationship
+Path: data\raw_md\articles\getting-started\in-depth-tutorial-blazor\define-data-model-and-set-initial-data\define-data-model-and-set-initial-data-with-ef-core\set-a-one-to-many-relationship-ef-core.md
+Article Type: TUTORIAL
+Word Count: 558
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 9 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 6 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 2 time(s), appears in CODE
+    • Framework (class) - DevExpress.EasyTest
+      Mentioned 2 time(s), appears in CODE
+    • BaseImpl (class) - DevExpress.Persistent
+      Mentioned 2 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #42 - SCORE: 112 (Base: 56 × Ticket Weight: 2.01x)
+UID: 404698
+Title: How to: Show a Custom Data-Bound Control in an XAF View (Blazor) - External Data
+Path: data\raw_md\articles\ui-construction\view-items-and-property-editors\how-to-show-a-custom-data-bound-control-in-an-xaf-view\how-to-show-a-custom-data-bound-control-in-an-xaf-blazor-basic.md
+Article Type: HOW_TO
+Word Count: 341
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 17 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 16 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 3 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 3 time(s), appears in CODE
+    • Editors (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • DashboardView (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #43 - SCORE: 112 (Base: 56 × Ticket Weight: 2.01x)
+UID: 113249
+Title: List View Edit Modes
+Path: data\raw_md\articles\ui-construction\views\list-view-edit-modes.md
+Article Type: GENERAL
+Word Count: 880
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 6 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 32 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 24 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 5 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Blazor
+      Mentioned 5 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #44 - SCORE: 112 (Base: 100 × Ticket Weight: 1.12x)
+UID: 404014
+Title: How to: Adjust the Size and Style of Pop-up Dialogs (Blazor)
+Path: data\raw_md\articles\ui-construction\templates\in-blazor\change-popup-window-dimensions.md
+Article Type: HOW_TO
+Word Count: 125
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom logic within View or Controller (485 tickets)
+
+REALISTIC API RECOMMENDATIONS: 10 APIs
+  🔥 HIGH priority (in code): 9
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 1
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 18 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • XafApplication (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • Window (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • Setup (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Base (class) - DevExpress.Persistent
+
+
+----------------------------------------------------------------------------------------------------
+RANK #45 - SCORE: 111 (Base: 63 × Ticket Weight: 1.77x)
+UID: 113183
+Title: How to: Customize Action Controls
+Path: data\raw_md\articles\ui-construction\controllers-and-actions\actions\how-to-customize-action-controls.md
+Article Type: HOW_TO
+Word Count: 320
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Built-in View Items & Editors (765 tickets)
+
+REALISTIC API RECOMMENDATIONS: 8 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 1
+  ○  LOW priority (mentioned once): 2
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 7 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s), appears in CODE
+    • CriteriaOperator (class) - Data.Filtering
+      Mentioned 1 time(s), appears in CODE
+
+⭐ MEDIUM PRIORITY (Discussed in Text) - Strongly Consider:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 5 time(s) in text
+
+○  LOW PRIORITY (Mentioned Once) - Optional:
+    • Filtering (class) - DevExpress.Data
+    • Xpo (class) - DevExpress.ExpressApp
+
+
+----------------------------------------------------------------------------------------------------
+RANK #46 - SCORE: 110 (Base: 55 × Ticket Weight: 2.01x)
+UID: 403531
+Title: Open a Detail View When the Grid Row is Clicked in the Dashboard (Blazor)
+Path: data\raw_md\articles\analytics\dashboards\open-a-detail-view-when-the-grid-row-is-clicked-in-the-dashboard-blazor.md
+Article Type: GENERAL
+Word Count: 390
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 5 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 10 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 14 time(s), appears in CODE
+    • Controller (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 3 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 3 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #47 - SCORE: 110 (Base: 55 × Ticket Weight: 2.01x)
+UID: 118549
+Title: Text Notifications
+Path: data\raw_md\articles\app-shell-and-base-infrastructure\dialogs-and-notifications\text-notifications.md
+Article Type: GENERAL
+Word Count: 298
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 5 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 3 time(s), appears in CODE
+    • Blazor (class) - DevExpress
+      Mentioned 6 time(s), appears in CODE
+    • ViewType (enum) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 2 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #48 - SCORE: 110 (Base: 55 × Ticket Weight: 2.01x)
+UID: 118240
+Title: Ways to Show a Confirmation Dialog
+Path: data\raw_md\articles\app-shell-and-base-infrastructure\dialogs-and-notifications\ways-to-show-a-confirmation-dialog.md
+Article Type: GENERAL
+Word Count: 359
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 5 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • ViewController (class) - DevExpress.ExpressApp
+      Mentioned 7 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 18 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 6 time(s), appears in CODE
+    • Editors (class) - ExpressApp.Win
+      Mentioned 1 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 2 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #49 - SCORE: 110 (Base: 55 × Ticket Weight: 2.01x)
+UID: 403622
+Title: Refresh Objects and Rollback Changes
+Path: data\raw_md\articles\data-manipulation-and-business-logic\create-read-update-and-delete-data\refresh-objects-and-rollback-changes.md
+Article Type: GENERAL
+Word Count: 177
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 5 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 34 time(s), appears in CODE
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 8 time(s), appears in CODE
+    • CreateDetailView (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • CreateObjectSpace (method) - ExpressApp.XafApplication
+      Mentioned 1 time(s), appears in CODE
+    • Base (class) - DevExpress.Persistent
+      Mentioned 1 time(s), appears in CODE
+
+
+----------------------------------------------------------------------------------------------------
+RANK #50 - SCORE: 110 (Base: 55 × Ticket Weight: 2.01x)
+UID: 403869
+Title: Audit Changes in a Manually Created ObjectSpace
+Path: data\raw_md\articles\data-security-and-safety\audit-trail\audit-trail-xpo\audit-changes-in-manually-created-object-space.md
+Article Type: GENERAL
+Word Count: 83
+Has Code Examples: Yes
+🎯 SUPPORT IMPACT: Custom View Items & Editors (869 tickets)
+
+REALISTIC API RECOMMENDATIONS: 5 APIs
+  🔥 HIGH priority (in code): 5
+  ⭐ MEDIUM priority (in text 2+): 0
+  ○  LOW priority (mentioned once): 0
+
+🔥 HIGH PRIORITY (In Code Blocks) - Link These First:
+    • View (class) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • SimpleAction (class) - ExpressApp.Actions
+      Mentioned 1 time(s), appears in CODE
+    • IObjectSpace (interface) - DevExpress.ExpressApp
+      Mentioned 1 time(s), appears in CODE
+    • SecuredObjectSpaceProvider (class) - Security.ClientServer
+      Mentioned 4 time(s), appears in CODE
+    • XPObjectSpace (class) - ExpressApp.Xpo
+      Mentioned 9 time(s), appears in CODE
+
+
+====================================================================================================
+IMPLEMENTATION GUIDE:
+
+1. Start with articles ranked 1-10
+2. Review API context carefully before adding links
+3. Focus on HIGH PRIORITY APIs mentioned in code examples
+4. Consider MEDIUM/LOW only if highly relevant
+5. Document any cross-platform considerations
+====================================================================================================

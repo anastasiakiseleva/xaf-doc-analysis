@@ -1,0 +1,2570 @@
+[
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Actions\/ChoiceActionItemCollection\/Find1131219",
+    "tags":[
+      "actions",
+      "api-reference",
+      "choiceactionitemdescription",
+      "choiceactionitemfindtarget",
+      "choiceactionitemfindtargetdescription",
+      "choiceactionitemfindtype",
+      "choiceactionitemfindtypedescription",
+      "find",
+      "finditembyid"
+    ],
+    "description":"API reference for Find. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Actions"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemFindTarget",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemFindType",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemCollection.Find",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemdescription",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemCollection.FindItemByID",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemFindTargetdescription",
+      "DevExpress.ExpressApp.Actions.ChoiceActionItemFindTypedescription"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.ApplicationBuilder\/BlazorSecurityBuilderExtensions\/AddWindowsAuthentication",
+    "tags":[
+      "api-reference",
+      "applicationbuilder",
+      "blazor-ui"
+    ],
+    "description":"API reference for ApplicationBuilder. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":38,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Blazor UI"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.ApplicationBuilder"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.ApplicationBuilder\/ModelDifferencesOptions\/ModuleType",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "moduletypename"
+    ],
+    "description":"API reference for ModuleTypename. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":4,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.ApplicationBuilder.ModelDifferencesOptions.ModuleTypename"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Chart\/ChartListEditorBase\/GetSelectedObjects1134735",
+    "tags":[
+      "api-reference",
+      "getselectedobjectsname",
+      "list-editors"
+    ],
+    "description":"API reference for GetSelectedObjectsname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":11,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "List Editors"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Chart.ChartListEditorBase.GetSelectedObjectsname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Editors\/ListEditor\/SelectionTypeChanged1131187",
+    "tags":[
+      "api-reference",
+      "list-editors",
+      "property-editors",
+      "selectiontypechangedname"
+    ],
+    "description":"API reference for SelectionTypeChangedname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "List Editors",
+      "Property Editors"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Editors.ListEditor.SelectionTypeChangedname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Editors\/PropertyEditorAttribute\/PropertyEditorAttribute",
+    "tags":[
+      "api-reference",
+      "blazor-ui",
+      "editoraliasattribute",
+      "property-editors",
+      "registerpropertyeditoralias"
+    ],
+    "description":"API reference for RegisterPropertyEditorAlias. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":15,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Property Editors",
+      "Blazor UI"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Editors.EditorDescriptorsFactory.RegisterPropertyEditorAlias",
+      "DevExpress.Persistent.Base.EditorAliasAttribute"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Editors\/StaticImage\/StaticImage",
+    "tags":[
+      "api-reference",
+      "membersalttext",
+      "staticimagename",
+      "statictext",
+      "viewitemattribute",
+      "views"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":5,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Editors.StaticImage._membersaltText",
+      "DevExpress.ExpressApp.Editors.StaticImagename",
+      "DevExpress.ExpressApp.Editors.ViewItemAttribute",
+      "DevExpress.ExpressApp.Editors.StaticText"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Editors\/ViewItem\/SaveModel1135743",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "savemodelname"
+    ],
+    "description":"API reference for SaveModelname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":8,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Editors.ViewItem.SaveModelname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Model\/IModelChoiceActionItemChildItemsDisplayStyle\/IModelChoiceActionItemChildItemsDisplayStyle",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "imodelchoiceactionitemchilditemsdisplaystylename",
+      "membersalttext"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":9,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Model.IModelChoiceActionItemChildItemsDisplayStyle._membersaltText",
+      "DevExpress.ExpressApp.Model.IModelChoiceActionItemChildItemsDisplayStylename"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Model\/IModelClass\/DefaultListViewMasterDetailMode1133119",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "defaultlistviewmasterdetailmodename",
+      "masterdetailmodedescription",
+      "modelclass",
+      "property-editors",
+      "views"
+    ],
+    "description":"API reference for MasterDetailModedescription. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":13,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model",
+      "Property Editors",
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Model.IModelObjectView.ModelClass",
+      "DevExpress.ExpressApp.MasterDetailModedescription",
+      "DevExpress.ExpressApp.Model.IModelClass.DefaultListViewMasterDetailModename"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Office.Win\/IRichTextValueStorage\/SetValue",
+    "tags":[
+      "api-reference",
+      "irichtextvaluestorage",
+      "property-editors",
+      "richeditcontrol",
+      "richeditcontroldescription",
+      "setvalue"
+    ],
+    "description":"API reference for IRichTextValueStorage. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":9,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Property Editors"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Office.Win.IRichTextValueStorage",
+      "DevExpress.XtraRichEdit.RichEditControldescription",
+      "DevExpress.ExpressApp.Office.Win.IRichTextValueStorage.SetValue",
+      "DevExpress.XtraRichEdit.RichEditControl"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.ReportsV2\/ReportStorageBase\/SaveReport",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "ireportdatav2writable",
+      "ireportdatav2writabledescription",
+      "reports",
+      "savereport",
+      "xtrareport",
+      "xtrareportdescription"
+    ],
+    "description":"API reference for IReportDataV2Writable. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":16,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Business Objects",
+      "Reports"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.ReportsV2.ReportStorageBase.SaveReport",
+      "DevExpress.XtraReports.UI.XtraReportdescription",
+      "DevExpress.ExpressApp.ReportsV2.IReportDataV2Writabledescription",
+      "DevExpress.ExpressApp.ReportsV2.IReportDataV2Writable",
+      "DevExpress.XtraReports.UI.XtraReport"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Scheduler.Win\/SchedulerWindowsFormsModule\/SchedulerWindowsFormsModule",
+    "tags":[
+      "api-reference",
+      "membersalttext",
+      "scheduler",
+      "schedulerwindowsformsmodulename",
+      "win",
+      "winforms"
+    ],
+    "description":"API reference for Win. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Scheduler",
+      "WinForms"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Scheduler.Win",
+      "DevExpress.ExpressApp.Scheduler.Win.SchedulerWindowsFormsModule._membersaltText",
+      "DevExpress.ExpressApp.Scheduler.Win.SchedulerWindowsFormsModulename",
+      "DevExpress.ExpressApp.Scheduler.v",
+      "DevExpress.ExpressApp.Scheduler.Win.v"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Security\/IntermediateObjectAttribute\/IntermediateObjectAttribute",
+    "tags":[
+      "api-reference",
+      "intermediateobjectattributename",
+      "membersalttext",
+      "syntax",
+      "xpo"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "XPO"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Security.IntermediateObjectAttribute._membersaltText",
+      "DevExpress.Xpo.ManyToManyAliasAttribute.syntax",
+      "DevExpress.ExpressApp.Security.IntermediateObjectAttributename"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Security\/SecurityStrategy\/AnonymousAllowedTypes",
+    "tags":[
+      "anonymousallowedtypesname",
+      "api-reference",
+      "authentication",
+      "securitystrategy"
+    ],
+    "description":"API reference for AnonymousAllowedTypesname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":5,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Authentication"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "SecurityStrategy",
+      "DevExpress.ExpressApp.Security.SecurityStrategy.AnonymousAllowedTypesname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Security\/SecurityStrategyComplex\/NewUserRoleName1136639",
+    "tags":[
+      "api-reference",
+      "blazor-ui",
+      "net-runtime",
+      "newuserrolenamename",
+      "securitystrategycomplex",
+      "web-api-service",
+      "winforms"
+    ],
+    "description":"API reference for NewUserRoleNamename. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":15,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Blazor UI",
+      "WinForms",
+      ".NET Runtime"
+    ],
+    "platforms":[
+      "Web API Service",
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Security.SecurityStrategyComplex.NewUserRoleNamename",
+      "SecurityStrategyComplex"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.SystemModule\/AboutInfo\/Version1136627",
+    "tags":[
+      "api-reference",
+      "versionname"
+    ],
+    "description":"API reference for Versionname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.SystemModule.AboutInfo.Versionname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.SystemModule\/DeleteObjectsViewController\/DeleteObjectsViewController",
+    "tags":[
+      "actions",
+      "api-reference",
+      "controllers",
+      "deleteobjectsviewcontrollername",
+      "membersalttext",
+      "property-editors",
+      "views",
+      "winforms"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":15,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "WinForms",
+      "Views",
+      "Controllers",
+      "Actions",
+      "Property Editors"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.SystemModule.DeleteObjectsViewControllername",
+      "DevExpress.ExpressApp.SystemModule.DeleteObjectsViewController._membersaltText"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.TreeListEditors.Win\/TreeListEditor\/ClearFocusedObjectOnMouseClick1132364",
+    "tags":[
+      "actions",
+      "api-reference",
+      "clearfocusedobjectonmouseclickname",
+      "views"
+    ],
+    "description":"API reference for ClearFocusedObjectOnMouseClickname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Actions",
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditor.ClearFocusedObjectOnMouseClickname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Utils\/CaptionHelper\/GetModelLocalizationGroup1137267",
+    "tags":[
+      "api-reference",
+      "getlocalizeditems",
+      "getmodellocalizationgroup",
+      "imodellocalizationgroupdescription"
+    ],
+    "description":"API reference for IModelLocalizationGroupdescription. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":11,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Model.IModelLocalizationGroupdescription",
+      "DevExpress.ExpressApp.Utils.CaptionHelper.GetLocalizedItems",
+      "DevExpress.ExpressApp.Utils.CaptionHelper.GetModelLocalizationGroup"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Utils\/CustomizeImageInfoEventArgs\/#ctor1148087",
+    "tags":[
+      "api-reference",
+      "customizeimageinfoeventargs",
+      "imageinfo",
+      "imageinfodescription",
+      "imagesource",
+      "imagesourcedescription"
+    ],
+    "description":"API reference for CustomizeImageInfoEventArgs. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Utils.ImageSourcedescription",
+      "DevExpress.ExpressApp.Utils.CustomizeImageInfoEventArgs",
+      "DevExpress.ExpressApp.Utils.ImageInfodescription",
+      "DevExpress.ExpressApp.Utils.ImageSource",
+      "DevExpress.ExpressApp.Utils.ImageInfo"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Utils\/ImageLoader\/GetEnumValueImageInfo1134123",
+    "tags":[
+      "api-reference",
+      "enumdescriptor",
+      "getenumvalueimageinfo",
+      "getenumvalueimagename",
+      "getimageinfo",
+      "imageinfodescription"
+    ],
+    "description":"API reference for EnumDescriptor. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Utils.ImageLoader.GetEnumValueImageInfo",
+      "DevExpress.ExpressApp.Utils.EnumDescriptor.GetImageInfo",
+      "DevExpress.ExpressApp.Utils.ImageInfodescription",
+      "DevExpress.ExpressApp.Utils.ImageLoader.GetEnumValueImageName",
+      "DevExpress.ExpressApp.Utils.EnumDescriptor"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Validation\/NeedToValidateObjectEventArgs\/#ctor1135209",
+    "tags":[
+      "api-reference",
+      "needtovalidateobjecteventargs",
+      "validation"
+    ],
+    "description":"API reference for NeedToValidateObjectEventArgs. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Validation.NeedToValidateObjectEventArgs"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Win.Editors\/WinColumnsListEditor\/PrintableChanged1138179",
+    "tags":[
+      "api-reference",
+      "printablechangedname"
+    ],
+    "description":"API reference for PrintableChangedname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Win.Editors.WinColumnsListEditor.PrintableChangedname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp.Xpo\/XPObjectSpace\/GetKeyValueAsString1136551",
+    "tags":[
+      "api-reference",
+      "getkeyvalueasstring",
+      "xpo"
+    ],
+    "description":"API reference for GetKeyValueAsString. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":3,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "XPO"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Xpo",
+      "DevExpress.ExpressApp.Xpo.XPObjectSpace.GetKeyValueAsString"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/BaseObjectSpace\/GetObjectsCriteria1137746",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "criteriaoperatordescription",
+      "getobjectscriteria",
+      "itypeinfo",
+      "itypeinfodescription"
+    ],
+    "description":"API reference for CriteriaOperatordescription. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Business Objects"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.BaseObjectSpace.GetObjectsCriteria",
+      "DevExpress.ExpressApp.DC.ITypeInfodescription",
+      "DevExpress.ExpressApp.DC.ITypeInfo",
+      "DevExpress.Data.Filtering.CriteriaOperatordescription"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/IObjectSpace\/ApplyFilter1134406",
+    "tags":[
+      "api-reference",
+      "applyfilter",
+      "criteriaoperator",
+      "criteriaoperatordescription",
+      "iobjectspace",
+      "object-space"
+    ],
+    "description":"API reference for CriteriaOperator. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":7,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.IObjectSpace.ApplyFilter",
+      "IObjectSpace",
+      "DevExpress.Data.Filtering.CriteriaOperatordescription",
+      "DevExpress.Data.Filtering.CriteriaOperator"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/IObjectSpace\/CustomDeleteObjects1134390",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "customdeleteobjectsname",
+      "iobjectspace",
+      "object-space"
+    ],
+    "description":"API reference for CustomDeleteObjectsname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":8,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Business Objects",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "IObjectSpace",
+      "DevExpress.ExpressApp.IObjectSpace.CustomDeleteObjectsname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/IObjectSpace\/ObjectSaving1134401",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "committed",
+      "committing",
+      "customcommitchanges",
+      "iobjectspace",
+      "object-space",
+      "objectsaving",
+      "objectsavingname"
+    ],
+    "description":"API reference for Committed. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":4,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Business Objects",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.IObjectSpace.ObjectSavingname",
+      "DevExpress.ExpressApp.IObjectSpace.Committing",
+      "DevExpress.ExpressApp.IObjectSpace.ObjectSaving",
+      "IObjectSpace",
+      "DevExpress.ExpressApp.IObjectSpace.Committed",
+      "DevExpress.ExpressApp.IObjectSpace.CustomCommitChanges"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/IObjectSpaceAsync\/ToListAsync``1",
+    "tags":[
+      "api-reference",
+      "getobjectsquery1",
+      "tolistasync",
+      "xpo"
+    ],
+    "description":"API reference for ToListAsync. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":9,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "XPO"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Xpo",
+      "DevExpress.ExpressApp.IObjectSpaceAsync.ToListAsync",
+      "DevExpress.ExpressApp.Xpo.XPObjectSpace.GetObjectsQuery1"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/IObjectSpaceLink\/IObjectSpaceLink",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "controllers",
+      "ef-core",
+      "entity-framework-core",
+      "iobjectspace",
+      "iobjectspacelinkname",
+      "membersalttext",
+      "object-space",
+      "objectspace"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":30,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Entity Framework Core",
+      "Business Objects",
+      "Controllers",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.IObjectSpaceLink._membersaltText",
+      "DevExpress.ExpressApp.IObjectSpaceLinkname",
+      "IObjectSpace",
+      "ObjectSpace",
+      "EF Core"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/LastLogonParametersReadingEventArgs\/LastLogonParametersReadingEventArgs",
+    "tags":[
+      "api-reference",
+      "lastlogonparametersreadingeventargsname",
+      "membersalttext"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.LastLogonParametersReadingEventArgs._membersaltText",
+      "DevExpress.ExpressApp.LastLogonParametersReadingEventArgsname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/ShowViewParameters\/TargetWindow1130679",
+    "tags":[
+      "api-reference",
+      "controllers",
+      "targetwindowdescription",
+      "targetwindowname",
+      "views",
+      "winforms"
+    ],
+    "description":"API reference for TargetWindowname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Expert",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Views",
+      "WinForms",
+      "Controllers"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.TargetWindowdescription",
+      "DevExpress.ExpressApp.ShowViewParameters.TargetWindowname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/ViewShowingEventArgs\/#ctor1130312",
+    "tags":[
+      "api-reference",
+      "frame",
+      "framedescription",
+      "view",
+      "viewdescription",
+      "views",
+      "viewshowingeventargs"
+    ],
+    "description":"API reference for Frame. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":7,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Frame",
+      "DevExpress.ExpressApp.Framedescription",
+      "DevExpress.ExpressApp.View",
+      "DevExpress.ExpressApp.ViewShowingEventArgs",
+      "DevExpress.ExpressApp.Viewdescription"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/XafApplication\/CreateDetailView",
+    "tags":[
+      "api-reference",
+      "createdetailview",
+      "detailviewdescription",
+      "iobjectspace",
+      "iobjectspacedescription",
+      "object-space",
+      "objectspace"
+    ],
+    "description":"API reference for DetailViewdescription. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":12,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "objectSpace",
+      "DevExpress.ExpressApp.IObjectSpace",
+      "DevExpress.ExpressApp.XafApplication.CreateDetailView",
+      "DevExpress.ExpressApp.DetailViewdescription",
+      "DevExpress.ExpressApp.IObjectSpacedescription",
+      "IObjectSpace"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/XafApplication\/CreateDetailView1134370",
+    "tags":[
+      "actions",
+      "api-reference",
+      "application-model",
+      "createdetailview",
+      "detailviewdescription",
+      "iobjectspace",
+      "iobjectspacedescription",
+      "object-space",
+      "objectspace",
+      "popupwindowshowaction",
+      "views"
+    ],
+    "description":"API reference for PopupWindowShowAction. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":22,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model",
+      "Actions",
+      "Views",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Actions.PopupWindowShowAction",
+      "objectSpace",
+      "DevExpress.ExpressApp.IObjectSpace",
+      "DevExpress.ExpressApp.XafApplication.CreateDetailView",
+      "DevExpress.ExpressApp.DetailViewdescription",
+      "DevExpress.ExpressApp.IObjectSpacedescription",
+      "IObjectSpace",
+      "ObjectSpace"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.ExpressApp\/XafApplication\/FindLookupListViewId1130221",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "findlookuplistviewid",
+      "views"
+    ],
+    "description":"API reference for FindLookupListViewId. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":7,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model",
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.XafApplication.FindLookupListViewId"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Base\/IPermissionPolicyRole\/CanEditModel1169798",
+    "tags":[
+      "actions",
+      "api-reference",
+      "application-model",
+      "caneditmodelname",
+      "property-editors",
+      "winforms"
+    ],
+    "description":"API reference for CanEditModelname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":12,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model",
+      "Actions",
+      "Property Editors",
+      "WinForms"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.Persistent.Base.IPermissionPolicyRole.CanEditModelname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Base\/ImageNameAttribute\/#ctor1131047",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "imagenameattribute"
+    ],
+    "description":"API reference for ImageNameAttribute. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":11,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Business Objects"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.Base.ImageNameAttribute"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.BaseImpl\/ReportDataV2\/IsInplaceReport1137732",
+    "tags":[
+      "actions",
+      "api-reference",
+      "business-objects",
+      "isinplacereportname",
+      "reports"
+    ],
+    "description":"API reference for IsInplaceReportname. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Actions",
+      "Business Objects",
+      "Reports"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.BaseImpl.ReportDataV2.IsInplaceReportname"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/ContextIdentifiers\/Equals1135224",
+    "tags":[
+      "api-reference",
+      "equals",
+      "validation"
+    ],
+    "description":"API reference for Equals. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":9,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.Validation.ContextIdentifiers.Equals"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/IRuleSupportsCollectionAggregatesProperties\/TargetCollectionAggregate1133871",
+    "tags":[
+      "aggregate",
+      "api-reference",
+      "collection-property",
+      "targetcollectionaggregatename",
+      "validation"
+    ],
+    "description":"API reference for Aggregate. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":14,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Collection Property",
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.Validation.IRuleSupportsCollectionAggregatesProperties.TargetCollectionAggregatename",
+      "DevExpress.Data.Filtering.Aggregate"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/RuleCriteriaAttribute\/#ctor1130778",
+    "tags":[
+      "api-reference",
+      "application-model",
+      "rulecriteriaattribute",
+      "validation"
+    ],
+    "description":"API reference for RuleCriteriaAttribute. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":16,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Application Model",
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.Validation.RuleCriteriaAttribute"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/RuleRequiredFieldAttribute\/#ctor1136496",
+    "tags":[
+      "api-reference",
+      "defaultcontexts",
+      "defaultcontextsdescription",
+      "rulerequiredfieldattribute",
+      "validation"
+    ],
+    "description":"API reference for DefaultContexts. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":27,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.Validation.DefaultContexts",
+      "DevExpress.Persistent.Validation.DefaultContextsdescription",
+      "DevExpress.Persistent.Validation.RuleRequiredFieldAttribute"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/RuleSet\/#ctor_1",
+    "tags":[
+      "api-reference",
+      "icaptionhelperprovider",
+      "icaptionhelperproviderdefaultvalue",
+      "irule",
+      "irulesource",
+      "ruleset",
+      "validation"
+    ],
+    "description":"API reference for ICaptionHelperProvider. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":13,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Services.Localization.ICaptionHelperProviderdefaultValue",
+      "DevExpress.Persistent.Validation.IRuleSource",
+      "DevExpress.Persistent.Validation.RuleSet",
+      "DevExpress.Persistent.Validation.IRule",
+      "DevExpress.ExpressApp.Services.Localization.ICaptionHelperProvider"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/apidoc\/DevExpress.Persistent.Validation\/RuleStringComparisonAttribute\/RuleStringComparisonAttribute",
+    "tags":[
+      "api-reference",
+      "business-objects",
+      "ef-core",
+      "entity-framework-core",
+      "membersalttext",
+      "rulestringcomparisonattributename",
+      "validation"
+    ],
+    "description":"API reference for _membersaltText. Learn about properties, methods, and usage examples.",
+    "proficiency_level":"Advanced",
+    "total_connections":18,
+    "num_sections":1,
+    "is_api_reference":true,
+    "concepts":[
+      "Entity Framework Core",
+      "Business Objects",
+      "Validation"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "EF Core",
+      "DevExpress.Persistent.Validation.RuleStringComparisonAttributename",
+      "DevExpress.Persistent.Validation.RuleStringComparisonAttribute._membersaltText"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/app-shell-and-base-infrastructure\/application-personalization",
+    "tags":[
+      "authentication",
+      "blazor-ui",
+      "how-to",
+      "net-runtime",
+      "security-system",
+      "winforms"
+    ],
+    "description":"Application Logo and About Info: This information appears in the About window",
+    "proficiency_level":"Beginner",
+    "total_connections":21,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms",
+      ".NET Runtime",
+      "Security System",
+      "Blazor UI",
+      "Authentication"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/backend-web-api-service\/execute-custom-operations",
+    "tags":[
+      "how-to"
+    ],
+    "description":"To customize an endpoint method in your custom data service, override the corresponding protected method of the base class and add your custom logi...",
+    "proficiency_level":"Beginner",
+    "total_connections":8,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/backend-web-api-service\/use-odata-to-send-requests\/http-requests-to-web-api",
+    "tags":[
+      "authentication",
+      "business-objects",
+      "how-to",
+      "web-api-service"
+    ],
+    "description":"Technique 2 (Ref Endpoint):   The $ref endpoint allows you to obtain objects from an associated collection without its main object.",
+    "proficiency_level":"Beginner",
+    "total_connections":33,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Authentication",
+      "Business Objects"
+    ],
+    "platforms":[
+      "Web API Service"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/business-model-design-with-entity-framework-core\/relationships-between-entities-in-code-and-ui",
+    "tags":[
+      "base",
+      "ef-core",
+      "entity-framework-core",
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":45,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.BaseImpl.EF",
+      "DevExpress.Persistent.Base",
+      "EF Core"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/data-types-supported-by-built-in-editors\/color-properties\/color-properties-in-entity-framework",
+    "tags":[
+      "ef-core",
+      "entity-framework-core",
+      "how-to"
+    ],
+    "description":"uid: \"113660\"title: Color Properties in EF Coreowner: Ekaterina Kiselevaseealso:\nlinkId: \"117395\"",
+    "proficiency_level":"Beginner",
+    "total_connections":27,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "EF Core"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/data-types-supported-by-built-in-editors\/criteria-properties",
+    "tags":[
+      "blazor-ui",
+      "components",
+      "controllers",
+      "editors",
+      "how-to",
+      "net-runtime",
+      "property-editors"
+    ],
+    "description":"You can use the  delegate to control property visibility in filter editors",
+    "proficiency_level":"Beginner",
+    "total_connections":33,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Property Editors",
+      "Blazor UI",
+      "Controllers",
+      ".NET Runtime"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp",
+      "DevExpress.ExpressApp.Editors",
+      "DevExpress.ExpressApp.Blazor.Editors",
+      "DevExpress.ExpressApp.Blazor.Components"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/non-persistent-objects\/how-to-display-a-detail-view-with-data-from-a-stored-procedure-from-the-navigation",
+    "tags":[
+      "business-objects",
+      "how-to",
+      "navigation",
+      "object-space",
+      "objectspace",
+      "views"
+    ],
+    "description":"The  method should contain ORM-dependent code to get data from a stored procedure",
+    "proficiency_level":"Beginner",
+    "total_connections":43,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Navigation",
+      "Business Objects",
+      "Views",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp",
+      "ObjectSpace"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/non-persistent-objects\/how-to-perform-crud-operations-with-non-persistent-objects",
+    "tags":[
+      "base",
+      "blazor-ui",
+      "business-objects",
+      "how-to",
+      "non-persistent-objects",
+      "template-kit",
+      "web-api-service"
+    ],
+    "description":"Note that the non-persistent class in the example above inherits the base",
+    "proficiency_level":"Beginner",
+    "total_connections":50,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Non-Persistent Objects",
+      "Template Kit",
+      "Blazor UI",
+      "Business Objects"
+    ],
+    "platforms":[
+      "Web API Service",
+      "Blazor UI"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp",
+      "DevExpress.Persistent.Base",
+      "DevExpress.ExpressApp.DC"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/business-model-design-orm\/property-changed-event-in-business-classes",
+    "tags":[
+      "how-to",
+      "notifications"
+    ],
+    "description":"uid: \"117395\"seealso: []title: The Importance of Property Change Notifications for Automatic UI Updatesowner: Ekaterina Kiselevaseealso:\nlinkId: \"4...",
+    "proficiency_level":"Beginner",
+    "total_connections":14,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Notifications"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-manipulation-and-business-logic\/access-xaf-application-data-in-a-non-xaf-application",
+    "tags":[
+      "business-objects",
+      "entity-framework-core",
+      "how-to",
+      "xaf-application",
+      "xpo"
+    ],
+    "description":"To populate the database with initial data, use the  method as follows:",
+    "proficiency_level":"Beginner",
+    "total_connections":42,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core",
+      "Business Objects",
+      "XPO",
+      "XAF Application"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Entity Framework Core",
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-manipulation-and-business-logic\/create-read-update-and-delete-data\/save-objects-to-database",
+    "tags":[
+      "business-objects",
+      "controllers",
+      "entity-framework-core",
+      "how-to",
+      "xpo"
+    ],
+    "description":"In XPO business objects, override the  method of a business class to perform additional logic when you save data",
+    "proficiency_level":"Beginner",
+    "total_connections":17,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core",
+      "Business Objects",
+      "Controllers",
+      "XPO"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Entity Framework Core",
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-manipulation-and-business-logic\/custom-object-space-provider",
+    "tags":[
+      "how-to",
+      "object-space",
+      "xpo"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":13,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "XPO",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety",
+    "tags":[
+      "audit-trail",
+      "authentication",
+      "authorization",
+      "how-to"
+    ],
+    "description":"Security (Access Control & Authentication)\nSecurity Considerations\n\n\nAudit Trail (History of Data Changes)",
+    "proficiency_level":"Advanced",
+    "total_connections":0,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Authorization",
+      "Authentication",
+      "Audit Trail"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/audit-trail\/audit-trail-ef-core\/audit-the-current-user-or-host-identity-ef-core",
+    "tags":[
+      "audit-trail",
+      "authentication",
+      "blazor-ui",
+      "ef-core",
+      "entity-framework-core",
+      "how-to",
+      "net-runtime",
+      "security-system",
+      "winforms"
+    ],
+    "description":"The Audit Trail Module gets information on the user who changed an object from the Security System",
+    "proficiency_level":"Beginner",
+    "total_connections":19,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms",
+      ".NET Runtime",
+      "Security System",
+      "Audit Trail",
+      "Entity Framework Core",
+      "Blazor UI",
+      "Authentication"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+      "EF Core"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/audit-trail\/audit-trail-xpo\/specify-the-objects-and-properties-to-be-audited",
+    "tags":[
+      "how-to"
+    ],
+    "description":"To customize audit settings in a .NET Framework Application, handle the AuditTrailService.Instance.CustomizeAuditTrailSettings  event in the follow...",
+    "proficiency_level":"Beginner",
+    "total_connections":18,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/security-system\/authentication",
+    "tags":[
+      "authentication",
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":23,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Authentication"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/security-system\/authentication\/authentication-architecture-blazor",
+    "tags":[
+      "authentication",
+      "blazor-ui",
+      "how-to",
+      "net-runtime",
+      "security-system"
+    ],
+    "description":"The XAF Security System for .NET is built on top of ASP.NET Core standard authentication",
+    "proficiency_level":"Beginner",
+    "total_connections":33,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Security System",
+      "Authentication",
+      "Blazor UI",
+      ".NET Runtime"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/security-system\/authentication\/oauth-and-custom-authentication\/active-directory-and-oauth2-authentication-providers-in-blazor-applications",
+    "tags":[
+      "authentication",
+      "blazor-ui",
+      "how-to",
+      "logging",
+      "net-runtime",
+      "permissionpolicy",
+      "testing"
+    ],
+    "description":"When a user successfully logs in with an OAuth provider, XAF obtains the user's unique key and finds an  object associated with this key",
+    "proficiency_level":"Beginner",
+    "total_connections":41,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Testing",
+      "Logging",
+      ".NET Runtime",
+      "Blazor UI",
+      "Authentication"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp",
+      "DevExpress.Persistent.BaseImpl.PermissionPolicy",
+      "PermissionPolicy"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/data-security-and-safety\/security-system\/security-tiers\/middle-tier-security-ef-core\/configure-authentication-with-ef-core-middle-tier-security",
+    "tags":[
+      "authentication",
+      "authorization",
+      "ef-core",
+      "entity-framework-core",
+      "how-to",
+      "web-api-service"
+    ],
+    "description":"In the above code sample, the  URL is the path to the authentication endpoint",
+    "proficiency_level":"Beginner",
+    "total_connections":41,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Authorization",
+      "Entity Framework Core",
+      "Authentication"
+    ],
+    "platforms":[
+      "Web API Service"
+    ],
+    "apis":[
+      "EF Core"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/debugging-testing-and-error-handling\/code-diagnostics\/xaf0016",
+    "tags":[
+      "how-to"
+    ],
+    "description":"Severity: Error\nXAF requires that the  and  descendants must be decorated with the  attribute",
+    "proficiency_level":"Beginner",
+    "total_connections":8,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/debugging-testing-and-error-handling\/code-diagnostics\/xaf0020",
+    "tags":[
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Advanced",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/debugging-testing-and-error-handling\/functional-tests-easy-test\/write-tests-human-readable\/easy-test-configuration",
+    "tags":[
+      "how-to",
+      "testing"
+    ],
+    "description":"uid: \"113209\"seealso:\nlinkId: \"113293\"\nlinkId: \"113340\"title: EasyTest Configurationowner: Ekaterina Kiseleva",
+    "proficiency_level":"Beginner",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Testing"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/debugging-testing-and-error-handling\/functional-tests-easy-test\/write-tests-human-readable\/easy-test-troubleshooting-guide",
+    "tags":[
+      "how-to",
+      "net-runtime",
+      "processformsenumerator",
+      "testing"
+    ],
+    "description":"Problem Description:\nWhen trying to run an EasyTest script for an application that uses a complex custom splash screen, the application stays at th...",
+    "proficiency_level":"Beginner",
+    "total_connections":12,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Testing",
+      ".NET Runtime"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.EasyTest.WinAdapter.ProcessFormsEnumerator"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/debugging-testing-and-error-handling\/functional-tests-easy-test\/write-tests-human-readable\/end-to-end-tests-in-human-readable-language",
+    "tags":[
+      "blazor-ui",
+      "how-to",
+      "testing",
+      "winforms"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":32,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Testing",
+      "Blazor UI",
+      "WinForms"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/deployment\/production-database-and-application-updates\/set-up-the-database-connection",
+    "tags":[
+      "database-connection",
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":19,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Database Connection"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/deployment\/winforms\/connect-clients-to-the-terminal-server",
+    "tags":[
+      "how-to",
+      "winforms"
+    ],
+    "description":"In this lesson, you will learn how to connect remote desktop clients to the Terminal Server where your Windows Forms application is deployed",
+    "proficiency_level":"Beginner",
+    "total_connections":8,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/document-management\/clone-object-module",
+    "tags":[
+      "blazor-ui",
+      "how-to",
+      "reference-property"
+    ],
+    "description":"| Property type | Cloning behavior | XAF Blazor Main Demo example ||-|-|-|| Value (String, Boolean, Numeric, and so on) | Fully equivalent to the s...",
+    "proficiency_level":"Advanced",
+    "total_connections":0,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Blazor UI",
+      "Reference Property"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/document-management\/file-attachments-module",
+    "tags":[
+      "blazor-ui",
+      "controllers",
+      "how-to",
+      "net-runtime",
+      "property-editors",
+      "xpo"
+    ],
+    "description":"XAF includes a File Attachments module and file data types for file management (upload, download, open, and save files)",
+    "proficiency_level":"Beginner",
+    "total_connections":32,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Controllers",
+      ".NET Runtime",
+      "Property Editors",
+      "Blazor UI",
+      "XPO"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/document-management\/office-module\/office-module",
+    "tags":[
+      "how-to",
+      "property-editors"
+    ],
+    "description":"Refer to the following help topics for details on how to work with the office components:",
+    "proficiency_level":"Beginner",
+    "total_connections":17,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Property Editors"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/event-planning-and-notifications\/notifications\/notifications-module-overview",
+    "tags":[
+      "business-objects",
+      "entity-framework-core",
+      "how-to",
+      "notifications",
+      "xpo"
+    ],
+    "description":"The module tracks changes in any business object that supports the  interface, such as  objects that ship with the Built-in Business Class Library ...",
+    "proficiency_level":"Beginner",
+    "total_connections":20,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core",
+      "Notifications",
+      "Business Objects",
+      "XPO"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Entity Framework Core",
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/filtering\/in-list-view\/custom-function-criteria-operators",
+    "tags":[
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Advanced",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/filtering\/in-list-view\/how-to-filter-a-link-dialogs-list-view",
+    "tags":[
+      "base",
+      "how-to",
+      "views"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":23,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.Persistent.BaseImpl.EF",
+      "DevExpress.Persistent.Base"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/getting-started\/in-depth-tutorial-blazor\/customize-data-display-and-view-layout\/format-a-property-value",
+    "tags":[
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Advanced",
+    "total_connections":2,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/getting-started\/in-depth-tutorial-blazor\/enable-additional-modules\/attach-files-to-objects",
+    "tags":[
+      "business-objects",
+      "how-to"
+    ],
+    "description":"This lesson describes how to attach file collections to objects",
+    "proficiency_level":"Beginner",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Business Objects"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/localization\/culture-specific-formatting",
+    "tags":[
+      "how-to"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/localization\/how-to-localize-custom-string-constants",
+    "tags":[
+      "how-to"
+    ],
+    "description":"Alternatively, you can register a resource localizer in the overridden ModuleBase.GetXafResourceLocalizerTypes method.",
+    "proficiency_level":"Advanced",
+    "total_connections":0,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/shape-export-print-data\/reports\/task-based-help\/how-to-add-a-custom-column-to-the-reports-list",
+    "tags":[
+      "business-objects",
+      "entity-framework-core",
+      "how-to",
+      "reports",
+      "xpo"
+    ],
+    "description":"In applications that do not use the Application Builder, you can specify the ReportDataType setting as follows",
+    "proficiency_level":"Beginner",
+    "total_connections":24,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Entity Framework Core",
+      "Business Objects",
+      "XPO",
+      "Reports"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "Entity Framework Core",
+      "XPO"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/application-model-ui-settings-storage",
+    "tags":[
+      "application-model",
+      "how-to"
+    ],
+    "description":"How to add new nodes and their properties\nHow to customize existing nodes",
+    "proficiency_level":"Beginner",
+    "total_connections":18,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Application Model"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/application-model-ui-settings-storage\/application-model-storages\/handle-application-model-upgrades",
+    "tags":[
+      "application-model",
+      "core",
+      "how-to",
+      "model"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":55,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Application Model"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Model.Core",
+      "DevExpress.ExpressApp.Model"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/controllers-and-actions\/actions\/access-actions-in-different-ui-areas\/lookup-list-view",
+    "tags":[
+      "blazor-ui",
+      "how-to",
+      "legacy-net-framework",
+      "net-runtime",
+      "views",
+      "winforms"
+    ],
+    "description":null,
+    "proficiency_level":"Expert",
+    "total_connections":10,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms",
+      "Views",
+      ".NET Runtime",
+      "Blazor UI",
+      "Legacy .NET Framework"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/controllers-and-actions\/actions\/how-to-limit-the-amount-of-objects-created-using-the-new-action",
+    "tags":[
+      "actions",
+      "business-objects",
+      "controllers",
+      "how-to",
+      "views"
+    ],
+    "description":"This topic describes how to limit the number of objects that an end-user can create using the New Action",
+    "proficiency_level":"Beginner",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Views",
+      "Actions",
+      "Business Objects",
+      "Controllers"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/controllers-and-actions\/actions\/perform-common-tasks-with-xaf-actions",
+    "tags":[
+      "actions",
+      "business-objects",
+      "controllers",
+      "how-to"
+    ],
+    "description":"For greater flexibility, you can add an Action to a Controller.",
+    "proficiency_level":"Beginner",
+    "total_connections":29,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Actions",
+      "Business Objects",
+      "Controllers"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/controllers-and-actions\/built-in-controllers-and-actions\/built-in-controllers-and-actions-in-the-system-module",
+    "tags":[
+      "actions",
+      "controllers",
+      "how-to",
+      "views",
+      "blazor-ui",
+      "dashboards",
+      "navigation",
+      "net-runtime",
+      "testing",
+      "winforms"
+    ],
+    "description":"Assembly: DevExpress.ExpressApp.v<:xx.x:>.dll",
+    "proficiency_level":"Beginner",
+    "total_connections":48,
+    "num_sections":2,
+    "is_api_reference":false,
+    "concepts":[
+      "Dashboards",
+      "Testing",
+      "WinForms",
+      "Controllers",
+      "Views",
+      ".NET Runtime",
+      "Actions",
+      "Blazor UI",
+      "Navigation"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Blazor.v",
+      "DevExpress.ExpressApp.v"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/list-editors\/how-to-configure-bands-in-a-grid-list-editor-winforms-and-asp-net",
+    "tags":[
+      "application-model",
+      "blazor-ui",
+      "how-to",
+      "list-editors",
+      "net-runtime",
+      "property-editors",
+      "views",
+      "winforms",
+      "xaf-application"
+    ],
+    "description":"This topic describes how to group grid columns using bands in an XAF application",
+    "proficiency_level":"Beginner",
+    "total_connections":11,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Application Model",
+      "WinForms",
+      "Views",
+      ".NET Runtime",
+      "List Editors",
+      "XAF Application",
+      "Property Editors",
+      "Blazor UI"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/view-items-and-property-editors\/how-to-show-a-custom-data-bound-control-in-an-xaf-view\/how-to-show-a-custom-data-bound-control-in-an-xaf-blazor-basic",
+    "tags":[
+      "application-model",
+      "blazor-ui",
+      "how-to",
+      "property-editors",
+      "views"
+    ],
+    "description":"In the Blazor application project, double-click the Model.xafml file to start the Model Editor",
+    "proficiency_level":"Beginner",
+    "total_connections":30,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Application Model",
+      "Property Editors",
+      "Blazor UI",
+      "Views"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/view-items-and-property-editors\/property-editors",
+    "tags":[
+      "how-to",
+      "property-editors"
+    ],
+    "description":"uid: \"113097\"seealso:\nlinkId: \"113014\"title: Property Editorsowner: Ekaterina Kiseleva",
+    "proficiency_level":"Beginner",
+    "total_connections":32,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Property Editors"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/views\/layout\/display-properties-of-a-referenced-object-in-the-master-objects-view",
+    "tags":[
+      "editoraliases",
+      "how-to"
+    ],
+    "description":"uid: \"115793\"seealso:\nlinkId: DevExpress.ExpressApp.Editors.EditorAliases\nlinkId: \"117395\"title: Display Properties of a Referenced Object in the M...",
+    "proficiency_level":"Beginner",
+    "total_connections":11,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Editors.EditorAliases"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/views\/layout\/display-several-views-side-by-side",
+    "tags":[
+      "how-to",
+      "views",
+      "application-model",
+      "property-editors"
+    ],
+    "description":"The Dashboard View displays inner Views within the Dashboard View Items",
+    "proficiency_level":"Beginner",
+    "total_connections":32,
+    "num_sections":2,
+    "is_api_reference":false,
+    "concepts":[
+      "Application Model",
+      "Property Editors",
+      "Views"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/views\/ways-to-show-a-view\/how-to-implement-a-singleton-business-object-and-show-its-detail-view",
+    "tags":[
+      "commitchanges",
+      "getobjectscount",
+      "how-to",
+      "object-space",
+      "objectspace",
+      "updating",
+      "views"
+    ],
+    "description":"After adding the code above, a singleton object will be created in the application database, if one does not yet exist",
+    "proficiency_level":"Beginner",
+    "total_connections":6,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Views",
+      "Object Space"
+    ],
+    "platforms":[
+
+    ],
+    "apis":[
+      "ObjectSpace.CommitChanges(",
+      "ObjectSpace.GetObjectsCount(",
+      "DevExpress.ExpressApp",
+      "ObjectSpace",
+      "DevExpress.ExpressApp.Updating"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/ui-construction\/views\/ways-to-show-a-view\/ways-to-show-a-view",
+    "tags":[
+      "actions",
+      "controllers",
+      "how-to",
+      "navigation",
+      "winforms",
+      "xaf-application"
+    ],
+    "description":"You can design a custom form or user control in Visual Studio and add it to your XAF application",
+    "proficiency_level":"Beginner",
+    "total_connections":35,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms",
+      "Controllers",
+      "Actions",
+      "XAF Application",
+      "Navigation"
+    ],
+    "platforms":[
+      "WinForms"
+    ],
+    "apis":[
+
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/validation-module",
+    "tags":[
+      "actions",
+      "addvalidation",
+      "blazor-ui",
+      "how-to",
+      "iblazorapplicationbuilder",
+      "imodulebuilder",
+      "iwinapplicationbuilder",
+      "net-runtime",
+      "validation",
+      "validationmoduleoptions",
+      "winforms",
+      "xaf-application"
+    ],
+    "description":null,
+    "proficiency_level":"Beginner",
+    "total_connections":60,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "WinForms",
+      ".NET Runtime",
+      "Actions",
+      "XAF Application",
+      "Blazor UI",
+      "Validation"
+    ],
+    "platforms":[
+      "Blazor UI",
+      "WinForms"
+    ],
+    "apis":[
+      "DevExpress.ExpressApp.Win.ApplicationBuilder.ValidationApplicationBuilderExtensions.AddValidation",
+      "DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder",
+      "DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder",
+      "DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder",
+      "DevExpress.ExpressApp.Blazor.ApplicationBuilder.ValidationApplicationBuilderExtensions.AddValidation",
+      "DevExpress.ExpressApp.Validation.ValidationModuleOptions"
+    ]
+  },
+  {
+    "doc_id":"data\/raw_md\/articles\/validation\/implement-custom-rules",
+    "tags":[
+      "blazor-ui",
+      "business-objects",
+      "how-to",
+      "net-runtime"
+    ],
+    "description":"Indicates that the rule node's property that corresponds to this property cannot be empty",
+    "proficiency_level":"Beginner",
+    "total_connections":14,
+    "num_sections":1,
+    "is_api_reference":false,
+    "concepts":[
+      "Blazor UI",
+      "Business Objects",
+      ".NET Runtime"
+    ],
+    "platforms":[
+      "Blazor UI"
+    ],
+    "apis":[
+
+    ]
+  }
+]

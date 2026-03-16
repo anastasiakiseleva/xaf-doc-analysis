@@ -1,0 +1,757 @@
+{
+  "total_mappings": 50,
+  "mcp_validated": 10,
+  "heuristic_estimated": 40,
+  "summary": {
+    "confirmed": 14,
+    "likely": 35,
+    "unclear": 1,
+    "rejected": 0,
+    "accuracy_pct": 98.0
+  },
+  "by_source": {
+    "ollama_classification": {
+      "total": 1,
+      "confirmed": 1,
+      "likely": 0,
+      "unclear": 0,
+      "rejected": 0
+    },
+    "co_documentation": {
+      "total": 9,
+      "confirmed": 7,
+      "likely": 1,
+      "unclear": 1,
+      "rejected": 0
+    },
+    "api_entity_concepts": {
+      "total": 40,
+      "confirmed": 6,
+      "likely": 34,
+      "unclear": 0,
+      "rejected": 0
+    }
+  },
+  "all_mappings": [
+    {
+      "mapping_id": 1,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.ObjectChangedEventArgs._membersaltText",
+      "concept_name": "View Controller",
+      "confidence": 0.95,
+      "source": "ollama_classification",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "DevExpress.ExpressApp.SystemModule Namespace | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule"
+        },
+        {
+          "result_idx": 2,
+          "title": "ObjectViewController<ViewType, ObjectType> Members | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ObjectViewController-2._members"
+        }
+      ]
+    },
+    {
+      "mapping_id": 2,
+      "api_name": "Win",
+      "api_id": "DevExpress.ExpressApp.FileAttachments.Win",
+      "concept_name": "View Controller",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "FileAttachmentController Properties | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.FileAttachments.Win.FileAttachmentController._properties"
+        },
+        {
+          "result_idx": 2,
+          "title": "DevExpress.ExpressApp.FileAttachments.Win Namespace | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.FileAttachments.Win"
+        }
+      ]
+    },
+    {
+      "mapping_id": 3,
+      "api_name": "Services",
+      "api_id": "DevExpress.ExpressApp.Blazor.Services",
+      "concept_name": "View Controller",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 4,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "Register Services in the Dependency Injection Container | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/404430"
+        },
+        {
+          "result_idx": 2,
+          "title": "Dependency Injection in Controllers | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 1,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/404402"
+        }
+      ]
+    },
+    {
+      "mapping_id": 4,
+      "api_name": "ListViewCreatedEventArgs",
+      "api_id": "DevExpress.ExpressApp.ListViewCreatedEventArgs",
+      "concept_name": "List View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "ListViewCreatedEventArgs Class | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ListViewCreatedEventArgs"
+        },
+        {
+          "result_idx": 2,
+          "title": "ListViewCreatedEventArgs Class | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ListViewCreatedEventArgs"
+        }
+      ]
+    },
+    {
+      "mapping_id": 5,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.Model.IModelSorting._membersaltText",
+      "concept_name": "List View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "IModelSorting Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 1,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Model.IModelSorting"
+        },
+        {
+          "result_idx": 2,
+          "title": "IModelSorting Interface | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Model.IModelSorting"
+        }
+      ]
+    },
+    {
+      "mapping_id": 6,
+      "api_name": "GroupSummary",
+      "api_id": "DevExpress.ExpressApp.Model.IModelListView.GroupSummary",
+      "concept_name": "List View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 4,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "IModelListView.GroupSummary Property | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Model.IModelListView.GroupSummary"
+        },
+        {
+          "result_idx": 2,
+          "title": "IModelListView.GroupSummary Property | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Model.IModelListView.GroupSummary"
+        }
+      ]
+    },
+    {
+      "mapping_id": 7,
+      "api_name": "TargetViewId",
+      "api_id": "DevExpress.ExpressApp.Model.IModelViewController.TargetViewId",
+      "concept_name": "Controller Types",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "PrintSelectionBaseController Members | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ReportsV2.PrintSelectionBaseController._members"
+        },
+        {
+          "result_idx": 2,
+          "title": "BlazorModificationsController Properties | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Blazor.SystemModule.BlazorModificationsController._properties"
+        }
+      ]
+    },
+    {
+      "mapping_id": 8,
+      "api_name": "CreateObject(",
+      "api_id": "objectSpace.CreateObject(",
+      "concept_name": "Controller Types",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "BaseObjectSpace.CreateObject(Type) Method | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 1,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.BaseObjectSpace.CreateObject(System.Type)"
+        },
+        {
+          "result_idx": 2,
+          "title": "BaseObjectSpace.CreateObject<ObjectType>() Method | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 1,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.BaseObjectSpace.CreateObject--1"
+        }
+      ]
+    },
+    {
+      "mapping_id": 9,
+      "api_name": "General",
+      "api_id": "DevExpress.Persistent.Base.General",
+      "concept_name": "Controller Types",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "FilterController Members | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 2,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.SystemModule.FilterController._members"
+        },
+        {
+          "result_idx": 2,
+          "title": "WinNewObjectViewController Properties | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Win.SystemModule.WinNewObjectViewController._properties"
+        }
+      ]
+    },
+    {
+      "mapping_id": 10,
+      "api_name": "ModuleInfoType",
+      "api_id": "DevExpress.ExpressApp.Xpo.XPObjectSpaceProvider.ModuleInfoType",
+      "concept_name": "Object Space Provider",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "confirmed",
+      "evidence_count": 5,
+      "matches": [
+        {
+          "result_idx": 1,
+          "title": "SecuredObjectSpaceProvider Properties | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.ClientServer.SecuredObjectSpaceProvider._properties"
+        },
+        {
+          "result_idx": 2,
+          "title": "SecuredObjectSpaceProvider Members | XAF: Cross-Platform .NET App UI & Web API | DevExpress Documentation",
+          "match_count": 3,
+          "url": "https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.Security.ClientServer.SecuredObjectSpaceProvider._members"
+        }
+      ]
+    },
+    {
+      "mapping_id": 11,
+      "api_name": "IObjectSpace",
+      "api_id": "IObjectSpace",
+      "concept_name": "Object Space Provider",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 12,
+      "api_name": "CustomCreateObjectSpaceProvider",
+      "api_id": "DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderOptionsBuilder.CustomCreateObjectSpaceProvider",
+      "concept_name": "Object Space Provider",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 13,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.ViewVariantsModule.VariantsInfo._membersaltText",
+      "concept_name": "Views",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 14,
+      "api_name": "DefaultDetailViewImage",
+      "api_id": "DevExpress.ExpressApp.Model.IModelClass.DefaultDetailViewImage",
+      "concept_name": "Views",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 15,
+      "api_name": "Model",
+      "api_id": "DevExpress.ExpressApp.DetailView.Model",
+      "concept_name": "Views",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 16,
+      "api_name": "ViewControlsCreated",
+      "api_id": "DevExpress.ExpressApp.ViewController.ViewControlsCreated",
+      "concept_name": "Controllers",
+      "confidence": 0.9,
+      "source": "co_documentation",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 17,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.CloneObject.CloneObjectViewController._membersaltText",
+      "concept_name": "Controllers",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 18,
+      "api_name": "securityStrategy",
+      "api_id": "securityStrategy",
+      "concept_name": "Controllers",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 19,
+      "api_name": "ProcessCurrentObjectAction",
+      "api_id": "DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.ProcessCurrentObjectAction",
+      "concept_name": "Actions",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 20,
+      "api_name": "UrlField",
+      "api_id": "DevExpress.ExpressApp.Actions.ActionUrl.UrlField",
+      "concept_name": "Actions",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 21,
+      "api_name": "Caption",
+      "api_id": "DevExpress.ExpressApp.SystemModule.ListViewFilterAttribute.Caption",
+      "concept_name": "Actions",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 22,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.Persistent.Validation.RuleSearchObjectProperties._membersaltText",
+      "concept_name": "Custom Validation Rules",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 23,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.Persistent.Validation.RuleUniqueValueProperties._membersaltText",
+      "concept_name": "Custom Validation Rules",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 24,
+      "api_name": "Validation",
+      "api_id": "DevExpress.ExpressApp.Validation",
+      "concept_name": "Custom Validation Rules",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 25,
+      "api_name": "CriteriaApplied",
+      "api_id": "DevExpress.ExpressApp.CollectionSourceBase.CriteriaApplied",
+      "concept_name": "Property Editors",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 26,
+      "api_name": "AllowClear",
+      "api_id": "DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.AllowClear",
+      "concept_name": "Property Editors",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 27,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.Scheduler.Win.SchedulerListEditor._membersaltText",
+      "concept_name": "Property Editors",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 28,
+      "api_name": "ModifiedObjects",
+      "api_id": "DevExpress.ExpressApp.IObjectSpace.ModifiedObjects",
+      "concept_name": "XPO",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 29,
+      "api_name": "PermissionPolicyRoleBase",
+      "api_id": "PermissionPolicyRoleBase",
+      "concept_name": "XPO",
+      "confidence": 0.8,
+      "source": "co_documentation",
+      "verdict": "unclear",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 30,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.ApplicationBuilder.WinXpoMultiTenancyApplicationBuilderExtensions._membersaltText",
+      "concept_name": "XPO",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 31,
+      "api_name": "DxDashboard",
+      "api_id": "DevExpress.DashboardBlazor.DxDashboard",
+      "concept_name": "View Items",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 32,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.Dashboards.Win.WinDashboardViewerViewItem._membersaltText",
+      "concept_name": "View Items",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 33,
+      "api_name": "CustomizationFormEnabled",
+      "api_id": "DevExpress.ExpressApp.Model.IModelView.CustomizationFormEnabled",
+      "concept_name": "View Items",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 34,
+      "api_name": "CollectionSourceBase",
+      "api_id": "DevExpress.ExpressApp.CollectionSourceBase",
+      "concept_name": "List View Data Access Modes",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 35,
+      "api_name": "CollectionSourceDataAccessMode",
+      "api_id": "DevExpress.ExpressApp.CollectionSourceDataAccessMode",
+      "concept_name": "List View Data Access Modes",
+      "confidence": 1.0,
+      "source": "co_documentation",
+      "verdict": "confirmed",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 36,
+      "api_name": "CreateInstantFeedbackCollection",
+      "api_id": "DevExpress.ExpressApp.BaseObjectSpace.CreateInstantFeedbackCollection",
+      "concept_name": "List View Data Access Modes",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 37,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.Filtering.SearchClassOptionsAttribute._membersaltText",
+      "concept_name": "Criteria",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 38,
+      "api_name": "TargetCriteria",
+      "api_id": "DevExpress.Persistent.Validation.IRuleBaseProperties.TargetCriteria",
+      "concept_name": "Criteria",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 39,
+      "api_name": "ObjectsCountGettingEventArgs",
+      "api_id": "DevExpress.ExpressApp.ObjectsCountGettingEventArgs",
+      "concept_name": "Criteria",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 40,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.ViewVariantsModule.ChangeVariantController._membersaltText",
+      "concept_name": "Application Model",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 41,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.Win.SystemModule.IModelSeparator._membersaltText",
+      "concept_name": "Application Model",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 42,
+      "api_name": "IRequestSecurityStrategy",
+      "api_id": "DevExpress.ExpressApp.Security.IRequestSecurityStrategy",
+      "concept_name": "Application Model",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 43,
+      "api_name": "PropertyEditor",
+      "api_id": "DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.PropertyEditor",
+      "concept_name": "Detail View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 44,
+      "api_name": "FullTextFilterAction",
+      "api_id": "DevExpress.ExpressApp.SystemModule.FilterController.FullTextFilterAction",
+      "concept_name": "Detail View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 45,
+      "api_name": "CurrentObjectaltText",
+      "api_id": "DevExpress.ExpressApp.DetailView.CurrentObjectaltText",
+      "concept_name": "Detail View",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 46,
+      "api_name": "GetObject",
+      "api_id": "DevExpress.ExpressApp.BaseObjectSpace.GetObject",
+      "concept_name": "Object Space",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 47,
+      "api_name": "IPermissionPolicyRole",
+      "api_id": "DevExpress.Persistent.Base.IPermissionPolicyRole",
+      "concept_name": "Object Space",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 48,
+      "api_name": "_membersaltText",
+      "api_id": "DevExpress.ExpressApp.SystemModule.ProcessDataLockingInfoController._membersaltText",
+      "concept_name": "Object Space",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 49,
+      "api_name": "InplaceDocumentCacheStorageBase",
+      "api_id": "DevExpress.ExpressApp.Office.InplaceDocumentCacheStorageBase",
+      "concept_name": "Blazor UI",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    },
+    {
+      "mapping_id": 50,
+      "api_name": "OnCustomizeAuditDataStore",
+      "api_id": "DevExpress.ExpressApp.AuditTrail.AuditTrailEvents.OnCustomizeAuditDataStore",
+      "concept_name": "Blazor UI",
+      "confidence": 0.85,
+      "source": "api_entity_concepts",
+      "verdict": "likely",
+      "evidence_count": 0,
+      "matches": [],
+      "note": "Estimated based on heuristics (no MCP validation)"
+    }
+  ]
+}
