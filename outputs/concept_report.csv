@@ -1,0 +1,151 @@
+concept,sections,avg_connections_per_section,cross_corpus_pairs,unique_apis_mapped
+Blazor,2369,23.66,2964,342
+Views,1768,15.78,1774,542
+WinForms,1702,22.72,1338,674
+Application Model,1548,12.38,1496,981
+View Types,1472,16.72,1526,421
+.NET Runtime,1436,25.91,1089,181
+Business Object,1302,18.77,663,241
+Windows,1263,20.62,534,278
+Entity Framework Core,1091,20.5,775,179
+XPO,895,16.12,624,114
+List View,882,15.39,748,264
+Property Editors,851,20.97,1178,491
+Actions,728,16.52,416,263
+Detail View,630,18.78,483,158
+Model Editor,572,16.51,321,211
+Web API Service,557,24.14,108,43
+Controllers,505,21.91,145,89
+Criteria,447,10.88,339,87
+XAF Application,389,23.47,255,54
+ApplicationBuilder,380,17.07,861,79
+Dashboards,359,23.78,334,61
+Business Logic,333,18.65,318,46
+View Items,313,16.19,293,128
+Conditional Appearance,273,19.3,229,88
+Audit Trail,269,30.55,491,17
+Built-in Controllers,254,29.42,8,8
+Built-in Actions,251,29.08,0,7
+Scheduler,249,18.92,190,81
+Middle Tier,241,23.0,77,27
+Validation,241,7.41,660,195
+Reference Property,235,20.4,125,50
+Template Kit,232,25.53,69,23
+Property Editor Types,229,19.54,60,56
+Controller Types,229,13.5,113,72
+Business Objects,221,21.31,64,37
+Object Relationships,216,21.29,62,32
+Dashboard View,194,19.89,232,51
+Action Types,174,6.95,44,69
+Action Containers,159,12.57,127,67
+Database Connection,157,21.89,27,12
+Tenant,156,23.49,311,20
+View Customization,153,14.42,111,57
+File Attachments,151,26.48,84,43
+Office Module,151,27.49,16,8
+View Controller,145,14.63,20,42
+List Editors,142,21.19,173,57
+Collection Property,137,13.91,45,37
+Reports V2,132,27.51,95,17
+Model Differences,132,15.86,166,44
+Context Menus,129,18.32,21,32
+Multi-Tenancy,127,25.79,141,11
+Clone Object,125,28.34,23,5
+Reports,107,16.56,253,104
+Action State Management,105,10.31,87,60
+Loading Indicators,105,24.46,510,21
+Non-persistent Object,101,23.34,88,16
+Model Nodes,100,21.84,2,10
+Security System,100,27.63,87,161
+Tree List,98,24.26,42,15
+Package Management,95,29.11,0,0
+Object Space Provider,94,11.93,79,28
+Lookup Property Editors,90,21.61,21,19
+Collection Property Editors,79,14.96,12,25
+Authentication,78,20.26,87,13
+Action Customization,77,15.83,9,31
+Application Templates,73,22.49,35,16
+View Variants,72,9.33,89,30
+List View Data Access Modes,71,10.94,8,25
+Single Choice Action,71,3.94,6,39
+PivotGrid,66,9.98,107,35
+Database Update,65,20.92,15,8
+Lookup View,61,16.54,20,13
+State Machine,59,34.32,6,4
+Modules,58,17.78,27,4
+Performance Optimization,50,7.94,2,11
+Layout,50,17.14,16,17
+Window Controller,48,11.38,14,19
+Specialized Property Editors,47,19.19,2,8
+Dependency Injection,47,18.43,11,10
+Security Strategy,47,7.04,10,6
+Spreadsheet Control,47,16.11,20,5
+Notifications,46,15.17,58,31
+Demo Applications,44,25.41,0,1
+Property Editor Customization,43,27.84,91,13
+Nested Views,43,20.12,8,16
+Standard Property Editors,42,22.67,2,5
+Built-in Criteria Operators,40,14.07,4,11
+Custom Validation Rules,39,12.38,46,27
+Controllers and Actions,39,17.62,2,5
+Parametrized Action,39,3.03,8,13
+Report Parameters,38,11.47,42,8
+Testing,37,15.14,3,3
+Popup Windows,36,14.42,0,6
+Inline Editing,34,19.97,14,10
+Simple Action,32,7.84,6,9
+Permission Policies,32,4.88,8,14
+Frames,31,10.32,10,14
+Optimistic Locking,30,29.67,134,7
+Calculated Property,30,16.43,6,3
+Property Metadata,29,22.72,4,3
+Logging,28,19.57,0,0
+Mail Merge,28,14.93,62,8
+Layout Runtime Customization,28,21.29,0,6
+Dialog Controller,26,13.0,55,11
+Migration,25,31.8,0,0
+Controller Lifecycle,24,23.5,1,2
+Custom Criteria Functions,22,17.23,0,0
+Property Editor Features,21,14.67,2,8
+Direct SQL,20,17.55,16,3
+Authorization,20,18.8,0,1
+Project Wizards,19,25.58,0,3
+Controller Activation,19,8.32,0,12
+Static View Items,17,11.06,2,11
+Navigation,15,13.73,0,2
+Recurring Events,15,16.8,0,2
+Threading Issues,15,13.53,11,6
+Master-Detail Views,14,15.64,0,2
+Controller Customization,13,20.08,2,2
+Diagnostic Tools,13,14.54,0,0
+Tabbed MDI Interface,12,11.33,6,6
+Error Styling,11,17.27,2,2
+SVG Graphics,10,12.0,0,2
+Legacy .NET Framework,9,32.11,0,0
+Accordion Control,9,25.78,0,0
+Target Properties,9,12.22,0,6
+Layout Generation,9,17.89,2,2
+Action Container View Items,9,0.89,0,9
+Deployment,8,37.25,0,0
+Filtering UI,8,18.62,0,2
+Model Cache,8,4.5,10,3
+Tree Node Interface,7,24.86,0,0
+Scaling Architecture,7,20.14,0,0
+Charts,7,20.71,2,23
+Auto-Increment Fields,7,14.0,0,0
+Assembly References,7,21.57,0,0
+Multiple Databases,7,9.57,0,5
+CRUD Controllers,7,19.71,2,3
+Dashboard View Items,7,21.0,0,0
+Memory Management,6,9.17,0,1
+Business Object Lifecycle,5,22.2,0,0
+Generic View Controllers,5,1.2,0,4
+View Lifecycle,3,14.0,0,1
+Model Extension,3,24.33,0,1
+Popup Window Show Action,3,0.67,0,0
+Theming,2,32.0,0,0
+List View Controllers,2,11.0,0,1
+Programmatic Localization,1,57.0,0,0
+Custom User Management,1,30.0,0,0
+Async Operations,1,0.0,0,1
+Object View Controllers,1,0.0,0,1
