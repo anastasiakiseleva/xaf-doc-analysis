@@ -51,6 +51,8 @@ def safe_list(v: Any) -> List[Any]:
 def parse_args() -> argparse.Namespace:
     p = argparse.ArgumentParser(description="Query corpus sections by keywords")
     p.add_argument("--keywords", required=True, help="Comma-separated keywords/phrases (case-insensitive)")
+    p.add_argument("--concept", default=None, help="Optional: require section to be tagged with this concept")
+    p.add_argument("--kept-only", action="store_true", help="Optional: only include sections where kept==True")
     p.add_argument("--out", default=str(OUT / "keyword_hits.csv"), help="Output CSV path")
     p.add_argument("--max-per-doc", type=int, default=20, help="Cap hits per document")
     p.add_argument("--max-total", type=int, default=5000, help="Cap total hits")
@@ -77,6 +79,8 @@ def main() -> int:
     args = parse_args()
     keywords = [k.strip() for k in (args.keywords or "").split(",") if k.strip()]
     patterns = build_patterns(keywords)
+
+    target_concept = (args.concept or "").strip() or None
 
     topics = pd.read_parquet(OUT / "topics_inventory.parquet")
     dc = pd.read_parquet(OUT / "doc_concepts.parquet")
@@ -122,6 +126,14 @@ def main() -> int:
                 continue
 
             meta = dc_idx.get((doc_id, section_id), {})
+
+            if args.kept_only and meta.get("kept") is not True:
+                continue
+
+            if target_concept:
+                concepts = meta.get("concepts", [])
+                if target_concept not in concepts:
+                    continue
 
             # Basic snippet around first match
             lower = text.lower()
@@ -169,6 +181,10 @@ def main() -> int:
     pd.DataFrame(hits).to_csv(out_path, index=False, encoding="utf-8")
 
     print(f"Keywords: {keywords}")
+    if target_concept:
+        print(f"Concept filter: {target_concept}")
+    if args.kept_only:
+        print("Kept-only: True")
     print(f"Total hits: {len(hits)}")
     print(f"Wrote: {out_path}")
 

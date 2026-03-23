@@ -1,0 +1,8 @@
+doc_id,section_id,title,is_api,degree_within_set
+data/raw_md/apidoc/DevExpress.ExpressApp.Model/IModelClass/DefaultLookupEditorMode1133120,DefaultLookupEditorMode1133120::1,DefaultLookupEditorMode1133120,True,1
+data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/FilterController/CustomGetFullTextSearchProperties1131560,CustomGetFullTextSearchProperties1131560::1,CustomGetFullTextSearchProperties1131560,True,0
+data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/LinkUnlinkController/LinkAction1130881,LinkAction1130881::1,C#,True,0
+data/raw_md/apidoc/DevExpress.ExpressApp/CollectionSourceBase/CollectionSourceBase,CollectionSourceBase::1,CollectionSourceBase,True,0
+data/raw_md/apidoc/DevExpress.Persistent.Base/LookupEditorModeAttribute/LookupEditorModeAttribute,LookupEditorModeAttribute::1,C#,True,1
+data/raw_md/articles/business-model-design-orm/data-types-supported-by-built-in-editors/reference-foreign-key-complex-type-properties,reference-foreign-key-complex-type-properties::18,"Reference (Foreign Key, Complex Type) Properties",False,3
+data/raw_md/articles/ui-construction/controllers-and-actions/actions/how-to-add-a-search-action-to-lookup-property-editors-and-link-pop-up-windows,how-to-add-a-search-action-to-lookup-property-editors-and-link-pop-up-windows::5,How to: Add a Search Action to Lookup Property Editors and Link Pop-up Windows,False,1
