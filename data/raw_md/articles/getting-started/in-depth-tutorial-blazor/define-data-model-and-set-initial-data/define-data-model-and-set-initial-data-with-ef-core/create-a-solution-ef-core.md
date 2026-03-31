@@ -1,7 +1,6 @@
 ---
 uid: '404144'
 title: 'Create a Solution'
-owner: 'Anastasiya Kisialeva'
 sealso:
   - linkId: "112569"
 ---

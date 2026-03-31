@@ -2,7 +2,6 @@
 uid: "113581"
 seealso: []
 title: Type Properties in EF Core
-owner: Ekaterina Kiseleva
 ---
 # Type Properties in EF Core
 

@@ -1,10 +1,10 @@
 ---
 uid: "402188"
 title: 'Customize a Built-in Property Editor (Blazor)'
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: "113104"
   - linkId: "113097"
+  - linkId: "405839"
 ---
 # Customize a Built-in Property Editor (Blazor)
 

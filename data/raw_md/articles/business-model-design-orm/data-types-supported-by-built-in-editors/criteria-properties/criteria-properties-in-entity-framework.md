@@ -1,7 +1,6 @@
 ---
 uid: "113578"
 title: Criteria Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 ---

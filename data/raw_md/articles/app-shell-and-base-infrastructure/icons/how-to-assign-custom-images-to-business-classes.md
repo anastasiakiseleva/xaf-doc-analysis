@@ -1,7 +1,6 @@
 ---
 uid: "404209"
 title: 'How to: Assign Custom Images to Business Classes'
-owner: Anastasiya Kisialeva
 ---
 # How to: Assign Custom Images to Business Classes
 

@@ -1,7 +1,6 @@
 ---
 uid: "402082"
 title: 'Audit Specific Operations'
-owner: Yekaterina Kiseleva
 ---
 # Audit Specific Operations
 

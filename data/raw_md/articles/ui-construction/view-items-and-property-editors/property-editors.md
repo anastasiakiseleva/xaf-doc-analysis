@@ -92,5 +92,6 @@ To display an object in a [Detail View](xref:112611) with a specific control ins
 * [How to: Implement a Property Editor Based on a Custom Control (ASP.NET Core Blazor)](xref:402189)
 * [How to: Implement a Property Editor Based on a Custom Control (WinForms)](xref:112679)
 * [Supply Predefined Values for the String Property Editor Dynamically](xref:404599)
+* [Add a Custom Button to a Property Editor (ASP.NET Core Blazor)](xref:405839)
 
 [!include[custom-property-editor-popular-scenarios](~/templates/custom-property-editor-popular-scenarios.md)]

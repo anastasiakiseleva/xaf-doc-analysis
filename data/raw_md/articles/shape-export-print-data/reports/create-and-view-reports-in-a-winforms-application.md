@@ -3,7 +3,6 @@ uid: "113646"
 seealso:
 - linkId: "5184"
 title: Create and View Reports in a WinForms Application
-owner: Ekaterina Kiseleva
 ---
 # Create and View Reports in a WinForms Application
 

@@ -3,7 +3,6 @@ uid: "113665"
 seealso:
 - linkId: "402188"
 title: Key Properties
-owner: Ekaterina Kiseleva
 ---
 # Key Properties
 

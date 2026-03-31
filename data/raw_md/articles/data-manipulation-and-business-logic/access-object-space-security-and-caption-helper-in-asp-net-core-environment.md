@@ -1,7 +1,6 @@
 ---
 uid: "403669"
 title: Access Object Space, Security System, and Caption Helper in the ASP.NET Core Environment
-owner: Dmitry Egorov
 seealso:
   - linkId: '403861'
   - linkId: '114515'

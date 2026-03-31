@@ -2,7 +2,6 @@
 uid: "119411"
 seealso: []
 title: 'How to: Localize XAF Application Items Using XAF Tools'
-owner: Ekaterina Kiseleva
 ---
 # How to: Localize XAF Application Items Using XAF Tools
 

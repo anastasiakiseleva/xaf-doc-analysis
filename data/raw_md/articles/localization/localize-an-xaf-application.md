@@ -5,7 +5,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/Blazor-Reporting-UI-Customization-API
   altText: Blazor Reporting - UI Customization API
 title: 'Localize an XAF Application'
-owner: Alexey Kazakov
 ---
 # Localize an XAF Application
 
@@ -134,7 +133,7 @@ The application retrieves the language name from `CultureInfo.NativeName`.
 > 
 > The Runtime Language Switcher requires that `IModelApplication.PreferredLanguage` is set to `(User language)`. 
 
-## In Code
+### In Code
 
 To change the XAF ASP.NET Core Blazor application language in code, use the [IXafCultureInfoService.SetCultureAsync](xref:DevExpress.ExpressApp.Blazor.Services.IXafCultureInfoService.SetCultureAsync(System.String)) method.
 

@@ -1,7 +1,6 @@
 ---
 uid: "403450"
 title: 'Blazor Application Templates'
-owner: Alexey Kazakov
 ---
 # Blazor Application Templates
 

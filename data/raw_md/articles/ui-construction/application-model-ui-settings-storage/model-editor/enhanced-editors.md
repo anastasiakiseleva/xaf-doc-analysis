@@ -2,7 +2,6 @@
 uid: "113330"
 seealso: []
 title: Node Property Editors
-owner: Ekaterina Kiseleva
 ---
 # Node Property Editors
 

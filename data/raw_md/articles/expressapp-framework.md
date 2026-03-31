@@ -2,7 +2,6 @@
 uid: "112670"
 seealso: []
 title: "XAF: Cross-Platform .NET App UI & Web API"
-owner: Ekaterina Kiseleva
 ---
 # XAF: Cross-Platform .NET App UI & Web API
 

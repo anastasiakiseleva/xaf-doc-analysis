@@ -2,7 +2,6 @@
 uid: "113033"
 seealso: []
 title: Redistribution and Deployment
-owner: Vera Ulitina
 ---
 # Redistribution and Deployment
 

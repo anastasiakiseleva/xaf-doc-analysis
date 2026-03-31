@@ -1,7 +1,6 @@
 ---
 uid: "404218"
 title: .NET REST Backend / Web API Service
-owner: Anastasiya Kisialeva
 ---
 # .NET REST Backend / Web API Service
 

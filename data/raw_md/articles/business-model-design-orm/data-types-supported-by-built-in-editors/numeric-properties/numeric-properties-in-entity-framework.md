@@ -1,7 +1,6 @@
 ---
 uid: "113534"
 title: Numeric Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 ---

@@ -1,7 +1,6 @@
 ---
 uid: "403715"
 title: 'Make HTTP Requests to the Web API from .NET Applications'
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "403551"
 - linkType: HRef
@@ -619,7 +618,7 @@ The example below adds a _DemoTask_ object to an Employee's _Tasks_ collection:
  
 ```csharp{2}
 string requestAddress = "https://localhost:44319/api/odata/Employee/1";
-string jsonBody = @"{ ""Tasks"": [ { ""Oid"": 1 } ] }";
+string jsonBody = @"{ ""Tasks@delta"": [ { ""Oid"": 1 } ] }";
 var response = await httpClient.PatchAsync(requestAddress, content);
 Console.WriteLine(response);
 ```
@@ -706,7 +705,7 @@ The example below modifies the _DemoTask_ object with `Oid`=1 from the Employee'
  
 ```csharp{2}
 string requestAddress = "https://localhost:44319/api/odata/Employee/1";
-string jsonBody = @"{ ""Tasks"": [{ ""Oid"": ""1"", ""Subject"":""New subject""} ]}";
+string jsonBody = @"{ ""Tasks@delta"": [{ ""Oid"": ""1"", ""Subject"":""New subject""} ]}";
 StringContent content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 var response = await httpClient.PatchAsync(requestAddress, content);
 Console.WriteLine(response);

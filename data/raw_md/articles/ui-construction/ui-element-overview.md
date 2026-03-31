@@ -2,7 +2,6 @@
 uid: "112607"
 seealso: []
 title: UI Element Overview
-owner: Ekaterina Kiseleva
 ---
 # UI Element Overview
 

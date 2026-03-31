@@ -4,7 +4,6 @@ seealso:
 - linkId: "113008"
 - linkId: "113251"
 title: Collection Validation
-owner: Ekaterina Kiseleva
 ---
 # Collection Validation
 

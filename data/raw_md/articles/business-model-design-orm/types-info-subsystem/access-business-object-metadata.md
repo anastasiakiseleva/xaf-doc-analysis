@@ -2,7 +2,6 @@
 uid: "113224"
 seealso: []
 title: Access Business Object Metadata
-owner: Ekaterina Kiseleva
 ---
 # Access Business Object Metadata
 

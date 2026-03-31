@@ -1,7 +1,6 @@
 ---
 uid: "402079"
 title: 'Change Object Auditing Mode'
-owner: Yekaterina Kiseleva
 ---
 # Change Object Auditing Mode
 

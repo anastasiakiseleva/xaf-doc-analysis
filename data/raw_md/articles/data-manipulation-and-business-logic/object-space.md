@@ -3,7 +3,6 @@ uid: "113707"
 seealso:
 - linkId: "117395"
 title: Ways to Access an Object Space (the Database Context for CRUD Operations)
-owner: Ekaterina Kiseleva
 ---
 # Ways to Access an Object Space (the Database Context for CRUD Operations)
 

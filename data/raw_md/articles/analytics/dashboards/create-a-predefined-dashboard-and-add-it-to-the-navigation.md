@@ -2,7 +2,6 @@
 uid: "117453"
 seealso: []
 title: Create a Predefined Dashboard and Add it to the Navigation
-owner: Ekaterina Kiseleva
 ---
 # Create a Predefined Dashboard and Add it to the Navigation
 

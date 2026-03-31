@@ -3,7 +3,6 @@ uid: "112576"
 seealso:
 - linkId: "112575"
 title: Add Custom Log Entries and Customize the Default Tracer Behavior
-owner: Ekaterina Kiseleva
 ---
 # Add Custom Log Entries and Customize the Default Tracer Behavior
 

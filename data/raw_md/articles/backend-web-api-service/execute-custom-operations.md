@@ -1,7 +1,6 @@
 ---
 uid: "403850"
 title: Execute Custom Operations on Endpoint Requests
-owner: Eugeniy Burmistrov
 ---
 # Execute Custom Operations on Endpoint Requests
 

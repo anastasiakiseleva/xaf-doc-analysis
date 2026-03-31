@@ -2,7 +2,6 @@
 uid: "117720"
 seealso: []
 title: Dashboard Performance With Large Data Sources
-owner: Ekaterina Kiseleva
 ---
 # Dashboard Performance With Large Data Sources
 

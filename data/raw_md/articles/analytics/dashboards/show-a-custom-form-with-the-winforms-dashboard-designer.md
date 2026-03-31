@@ -2,7 +2,6 @@
 uid: "118270"
 seealso: []
 title: 'Show a Custom Form with the WinForms Dashboard Designer'
-owner: Ekaterina Kiseleva
 ---
 # Show a Custom Form with the WinForms Dashboard Designer
 

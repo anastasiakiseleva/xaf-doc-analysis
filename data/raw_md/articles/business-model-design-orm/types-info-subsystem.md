@@ -5,7 +5,6 @@ seealso:
   linkId: https://supportcenter.devexpress.com/ticket/details/e250/xaf-customize-an-xpo-business-model-at-runtime
   altText: How to customize an XPO business model at runtime
 title: Types Info Subsystem
-owner: Ekaterina Kiseleva
 ---
 # Types Info Subsystem
 

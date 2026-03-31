@@ -1,7 +1,6 @@
 ---
 uid: "403966"
 title: 'Access Selenium API From Testing Code'
-owner: Alexey Kazakov
 ---
 # Access Selenium API From Testing Code
 

@@ -1,7 +1,6 @@
 ---
 uid: "401264"
 title: Port an Existing XAF Application to .NET 8+
-owner: Alexey Kazakov
 seealso:
   - linkType: HRef
     linkId: https://supportcenter.devexpress.com/ticket/details/t985962/core-xaf-s-blazor-and-winforms-net-core-assemblies-target-net-5

@@ -3,7 +3,6 @@ uid: "112924"
 seealso:
 - linkId: "113052"
 title: "How to: Filter a Link Dialog's List View"
-owner: Ekaterina Kiseleva
 ---
 # How to: Filter a Link Dialog's List View
 

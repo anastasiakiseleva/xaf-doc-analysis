@@ -1,7 +1,6 @@
 ---
 uid: "404436"
 title: "Multi-Tenancy (Data per Tenant)"
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "404667"
 - linkId: "404669"

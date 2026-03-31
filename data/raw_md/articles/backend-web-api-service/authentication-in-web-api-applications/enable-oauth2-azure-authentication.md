@@ -1,7 +1,6 @@
 ---
 uid: "403505"
 title: 'Configure the OAuth2 Azure Authentication for the Web API'
-owner: Eugenia Simonova
 seealso:
 - linkType: HRef
   linkId: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow

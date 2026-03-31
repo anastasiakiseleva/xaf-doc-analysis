@@ -1,7 +1,6 @@
 ---
 uid: "112580"
 title: How the XAF Application Model Works
-owner: Andrey Kozhevnikov
 ---
 # How the XAF Application Model Works
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "112817"
 - linkId: "113285"
 title: Detail View Layout Generation
-owner: Ekaterina Kiseleva
 ---
 # Detail View Layout Generation
 

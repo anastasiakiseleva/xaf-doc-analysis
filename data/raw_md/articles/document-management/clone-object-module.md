@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.CloneObject.CloneObjectViewController
 - linkId: DevExpress.ExpressApp.CloneObject.CloneObjectViewController.CloneObjectAction
 title: Clone Object (Copy Data Records)
-owner: Anastasiya Kisialeva
 ---
 # Clone Object (Copy Data Records)
 

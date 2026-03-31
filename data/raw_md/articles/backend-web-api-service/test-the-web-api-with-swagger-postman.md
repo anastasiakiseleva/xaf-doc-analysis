@@ -1,7 +1,6 @@
 ---
 uid: "404281"
 title: "Test the Web API with Swagger or Postman"
-owner: Vladimir Abadzhev
 seealso:
 - linkId: "403715"
 ---

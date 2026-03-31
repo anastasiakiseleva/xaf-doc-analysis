@@ -1,7 +1,6 @@
 ---
 uid: "112575"
 title: Log Files
-owner: Eugenia Simonova
 seealso:
   - linkId: "112818"
   - linkId: "112576"

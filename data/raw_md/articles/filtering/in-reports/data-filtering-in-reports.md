@@ -2,7 +2,6 @@
 uid: "113594"
 seealso: []
 title: Data Filtering in Reports
-owner: Ekaterina Kiseleva
 ---
 # Data Filtering in Reports
 

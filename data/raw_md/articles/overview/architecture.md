@@ -1,7 +1,6 @@
 ---
 uid: "112559"
 title: Plug-in MVC Architecture
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: "113577"
   - linkType: HRef

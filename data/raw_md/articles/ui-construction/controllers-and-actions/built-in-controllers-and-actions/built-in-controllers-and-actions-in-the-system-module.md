@@ -3,7 +3,6 @@ uid: "113141"
 seealso:
 - linkId: "113142"
 title: Built-in Controllers and Actions in the System Module
-owner: Ekaterina Kiseleva
 ---
 # Built-in Controllers and Actions in the System Module
 

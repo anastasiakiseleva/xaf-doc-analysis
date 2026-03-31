@@ -1,7 +1,6 @@
 ---
 uid: "116516"
 title: Non-Persistent Objects
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: "116106"
   - linkId: DevExpress.ExpressApp.SystemModule.LinkUnlinkController.RequirePersistentType
@@ -88,7 +87,7 @@ You can also use the [](xref:DevExpress.Persistent.Base.ActionAttribute) to show
 
 ## Non-Persistent Object Space
 
-@DevExpress.ExpressApp.NonPersistentObjectSpace is an [Object Space](xref:113707) for managing non-persistent object instances in your application. You can create, read, or update these objects in code if your @DevExpress.ExpressApp.XafApplication supports this Object Space type. The [Template Kit](xref:405447) automatically registers the non-persistent Object Space Provider, but for projects created with older XAF versions, you need to register it manually. Call the [AddNonPersistent](xref:DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderBuilderExtensions.AddNonPersistent``1(DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderBuilder{``0},System.Action{System.IServiceProvider,DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderOptions})) method in the @DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder.ObjectSpaceProviders property.
+@DevExpress.ExpressApp.NonPersistentObjectSpace is an [Object Space](xref:113707) for managing non-persistent object instances in your application. You can create, read, or update these objects in code if your @DevExpress.ExpressApp.XafApplication supports this Object Space type. The [Template Kit](xref:405447) automatically registers the non-persistent Object Space Provider, but for projects created with older XAF versions, you need to register it manually. Call the `DevExpress.ExpressApp.ApplicationBuilder.NonPersistentObjectSpaceProviderBuilderExtensions.AddNonPersistent` method in the @DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder.ObjectSpaceProviders property.
 
 # [MySolution.Blazor.Server/Startup.cs | MySolution.Win/Startup.cs | MySolution.WebApi/Startup.cs](#tab/tabid-csharp)
 

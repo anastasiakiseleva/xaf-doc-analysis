@@ -1,7 +1,6 @@
 ---
 uid: "404014"
 title: 'How to: Adjust the Size and Style of Pop-up Dialogs (Blazor)'
-owner: Alexey Kazakov
 ---
 # How to: Adjust the Size and Style of Pop-up Dialogs (Blazor)
 

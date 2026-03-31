@@ -5,7 +5,6 @@ seealso:
 - linkId: 112813
 - linkId: 113688
 title: 'How to: Add the Scheduler Module'
-owner: Anastasiya Kisialeva
 ---
 # How to: Add the Scheduler Module
 

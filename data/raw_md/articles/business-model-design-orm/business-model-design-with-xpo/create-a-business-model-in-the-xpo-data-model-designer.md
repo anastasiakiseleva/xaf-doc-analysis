@@ -2,7 +2,6 @@
 uid: "113450"
 seealso: []
 title: 'Create a Business Model in the XPO Data Model Designer'
-owner: Ekaterina Kiseleva
 ---
 # Create a Business Model in the XPO Data Model Designer
 

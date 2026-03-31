@@ -3,7 +3,6 @@ uid: "112571"
 seealso:
 - linkId: "113173"
 title: Built-in Business Classes & Interfaces
-owner: Ekaterina Kiseleva
 ---
 # Built-in Business Classes & Interfaces
 

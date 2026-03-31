@@ -3,7 +3,6 @@ uid: "112830"
 seealso:
 - linkId: "400081"
 title: Model Editor
-owner: Ekaterina Kiseleva
 ---
 # Model Editor
 

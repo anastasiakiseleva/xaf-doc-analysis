@@ -6,7 +6,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Model.ModelDefaultAttribute
 - linkId: DevExpress.Xpo.Metadata.ValueConverter
 title: String Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # String Properties in XPO
 

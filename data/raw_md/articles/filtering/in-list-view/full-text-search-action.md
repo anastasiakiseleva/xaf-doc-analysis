@@ -2,7 +2,6 @@
 uid: "112997"
 seealso: []
 title: FullTextSearch Action
-owner: Ekaterina Kiseleva
 ---
 # FullTextSearch Action
 

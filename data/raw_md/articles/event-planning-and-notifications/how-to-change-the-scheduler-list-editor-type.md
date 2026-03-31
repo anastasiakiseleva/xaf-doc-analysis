@@ -1,7 +1,6 @@
 ---
 uid: "404726"
 title: "How to: Display Appointments in a Data Table (Grid List Editor)"
-owner: Anastasiya Kisialeva
 ---
 # How to: Display Appointments in a Data Table (Grid List Editor)
 

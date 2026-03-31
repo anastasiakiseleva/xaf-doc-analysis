@@ -3,7 +3,6 @@ uid: "404401"
 seealso:
 - linkId: "119064"
 title: 'Configure Authentication in an Application With EF Core Middle Tier Security'
-owner: Eugeniy Burmistrov
 ---
 
 # Configure Authentication in an Application With EF Core Middle Tier Security

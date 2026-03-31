@@ -1,7 +1,6 @@
 ---
 uid: "404695"
 title: 'Modules in a Multi-Tenant Application'
-owner: Eugeniy Burmistrov
 ---
 
 # Modules in a Multi-Tenant Application

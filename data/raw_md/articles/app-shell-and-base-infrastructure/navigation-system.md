@@ -13,7 +13,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/XAF-How-to-show-the-number-of-list-view-items-in-the-navigation-control
   altText: How to show the number of List View items in the Navigation Control
 title: Navigation System
-owner: Ekaterina Kiseleva
 ---
 # Navigation System
 

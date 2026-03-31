@@ -1,7 +1,6 @@
 ---
 uid: "403869"
 title: 'Audit Changes in a Manually Created ObjectSpace'
-owner: Alexey Kazakov
 ---
 # Audit Changes in a Manually Created ObjectSpace
 

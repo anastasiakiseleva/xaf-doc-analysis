@@ -1,7 +1,6 @@
 ---
 uid: '400006'
 title: Mail Merge
-owner: Ekaterina Kiseleva
 seealso:
 - linkType: HRef
   linkId: https://supportcenter.devexpress.com/ticket/details/t680332/winforms-how-to-hide-a-mail-merge-template-from-the-showindocument-action

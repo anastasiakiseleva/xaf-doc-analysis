@@ -5,7 +5,6 @@ seealso:
 - linkId: DevExpress.Persistent.Base.IFileData.LoadFromStream(System.String,System.IO.Stream)
 - linkId: DevExpress.Persistent.Base.IFileData.SaveToStream(System.IO.Stream)
 title: 'Implement File Data Properties'
-owner: Ekaterina Kiseleva
 ---
 # Implement File Data Properties
 

@@ -8,7 +8,6 @@ seealso:
 - linkId: "402956"
 - linkId: "112655"
 title: Localization Basics
-owner: Ekaterina Kiseleva
 ---
 # Localization Basics
 

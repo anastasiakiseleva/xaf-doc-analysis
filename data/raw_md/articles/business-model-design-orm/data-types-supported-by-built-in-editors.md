@@ -3,7 +3,6 @@ uid: "113014"
 seealso:
 - linkId: "402153"
 title: Data Types of Business Class Properties and Built-in Property Editors
-owner: Ekaterina Kiseleva
 ---
 # Data Types of Business Class Properties and Built-in Property Editors
 

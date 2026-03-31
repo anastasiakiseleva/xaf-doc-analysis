@@ -5,7 +5,6 @@ seealso:
   linkId: https://community.devexpress.com/blogs/news/archive/2023/05/04/consume-the-devexpress-backend-web-api-from-javascript-with-svelte-part-4-edit-and-validate.aspx
   altText: Consume the DevExpress Backend Web API from JavaScript with Svelte (Part 4. Edit and Validate Data)
 title: 'Validate Data Sent to Web API Endpoints'
-owner: Vladimir Abadzhev
 ---
 # Validate Data Sent to Web API Endpoints 
 

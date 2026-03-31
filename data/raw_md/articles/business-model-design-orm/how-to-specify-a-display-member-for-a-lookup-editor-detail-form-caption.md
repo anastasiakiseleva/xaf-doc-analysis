@@ -2,7 +2,6 @@
 uid: "113525"
 seealso: []
 title: 'How to: Specify a Display Member for a Lookup Editor, Detail Form Caption, and more'
-owner: Ekaterina Kiseleva
 ---
 # How to: Specify a Display Member for a Lookup Editor, Detail Form Caption, and more
 

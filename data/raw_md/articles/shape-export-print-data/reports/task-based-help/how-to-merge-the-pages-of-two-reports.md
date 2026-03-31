@@ -2,7 +2,6 @@
 uid: "113606"
 seealso: []
 title: 'How to: Merge the Pages of Two Reports'
-owner: Ekaterina Kiseleva
 ---
 # How to: Merge the Pages of Two Reports
 

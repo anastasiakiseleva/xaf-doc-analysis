@@ -4,7 +4,6 @@ seealso:
 - linkId: "113484"
 - linkId: "113016"
 title: Customize Controllers and Actions
-owner: Vera Ulitina
 ---
 # Customize Controllers and Actions
 

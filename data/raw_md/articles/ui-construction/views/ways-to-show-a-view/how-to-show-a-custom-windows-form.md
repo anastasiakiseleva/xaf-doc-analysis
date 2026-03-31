@@ -5,7 +5,6 @@ seealso:
 - linkId: "118240"
 - linkId: "118165"
 title: 'How to: Show a Custom Windows Form'
-owner: Ekaterina Kiseleva
 ---
 # How to: Show a Custom Windows Form
 

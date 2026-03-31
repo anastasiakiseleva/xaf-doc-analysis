@@ -7,7 +7,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.WindowTemplateController.CustomizeWindowStatusMessages
 - linkId: "113252"
 title: 'How to: Customize Window Status Messages (WinForms)'
-owner: Vera Ulitina
 ---
 # How to: Customize Window Status Messages (WinForms)
 

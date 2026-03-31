@@ -2,7 +2,6 @@
 uid: "116170"
 seealso: []
 title: Permissions for Associated Objects
-owner: Ekaterina Kiseleva
 seealso:
 - linkId: "113556"
 ---

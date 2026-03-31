@@ -3,7 +3,6 @@ uid: "113360"
 seealso:
 - linkId: "118741"
 title: Run the XPO Application Server as a Windows Service
-owner: Ekaterina Kiseleva
 ---
 # Run the XPO Application Server as a Windows Service
 

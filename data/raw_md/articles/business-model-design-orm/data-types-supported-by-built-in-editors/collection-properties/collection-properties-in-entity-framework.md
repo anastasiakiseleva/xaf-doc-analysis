@@ -1,7 +1,6 @@
 ---
 uid: "113570"
 title: Collection Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 - linkId: "404862"

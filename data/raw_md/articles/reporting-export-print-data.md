@@ -1,7 +1,6 @@
 ---
 uid: "403173"
 title: Reporting (Shape, Export & Print Data)
-owner: Alexey Kazakov
 ---
 # Reporting (Shape, Export & Print Data)
 

@@ -1,7 +1,6 @@
 ---
 uid: "403174"
 title: Analytics (Extract Data Insights)
-owner: Alexey Kazakov
 ---
 # Analytics (Extract Data Insights)
 

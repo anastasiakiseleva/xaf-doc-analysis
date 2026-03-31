@@ -3,7 +3,6 @@ uid: "113568"
 seealso:
 - linkId: "402188"
 title: Collection Properties
-owner: Ekaterina Kiseleva
 ---
 # Collection Properties
 

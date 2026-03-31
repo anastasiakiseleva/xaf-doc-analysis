@@ -1,7 +1,6 @@
 ---
 uid: "404466"
 title: 'Supply Dashboard Parameters (ASP.NET Core Blazor)'
-owner: Anastasiya Kisialeva
 ---
 
 # Supply Dashboard Parameters (ASP.NET Core Blazor)

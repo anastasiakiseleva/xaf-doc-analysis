@@ -5,7 +5,6 @@ seealso:
 - linkId: "113345"
 - linkId: "113294"
 title: 'Test an Action'
-owner: Ekaterina Kiseleva
 ---
 # Test an Action
 

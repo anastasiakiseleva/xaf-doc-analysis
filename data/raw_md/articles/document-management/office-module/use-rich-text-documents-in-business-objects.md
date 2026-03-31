@@ -1,7 +1,6 @@
 ---
 uid: '400004'
 title: Use Rich Text Documents in Business Objects
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: '400063'
 ---

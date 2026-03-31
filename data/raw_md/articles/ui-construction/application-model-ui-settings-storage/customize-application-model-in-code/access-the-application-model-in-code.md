@@ -3,7 +3,6 @@ uid: "112810"
 seealso:
 - linkId: "118592"
 title: Read and Set Values for Built-in Application Model Nodes in Code
-owner: Eugenia Simonova
 ---
 # Read and Set Values for Built-in Application Model Nodes in Code
 

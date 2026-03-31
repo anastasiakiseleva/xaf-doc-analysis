@@ -2,7 +2,6 @@
 uid: "117716"
 seealso: []
 title: 'Access the WinForms Dashboard Designer'
-owner: Ekaterina Kiseleva
 ---
 # Access the WinForms Dashboard Designer
 

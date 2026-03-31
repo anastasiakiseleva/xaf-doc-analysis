@@ -1,7 +1,6 @@
 ---
 uid: "113550"
 title: File Attachment Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 ---

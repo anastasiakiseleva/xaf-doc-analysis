@@ -3,7 +3,6 @@ uid: "112913"
 seealso:
 - linkId: DevExpress.ExpressApp.BaseObjectSpace.GetObjectsCount(System.Type,DevExpress.Data.Filtering.CriteriaOperator)
 title: 'How to: Limit the Amount of Objects Created using the New Action'
-owner: Ekaterina Kiseleva
 ---
 # How to: Limit the Amount of Objects Created using the New Action
 

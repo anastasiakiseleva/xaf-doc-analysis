@@ -1,7 +1,6 @@
 ---
 uid: "404292"
 title: 'Change Tracking in EF Core DbContext and Performance Considerations'
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: "117395"
 ---

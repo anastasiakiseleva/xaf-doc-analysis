@@ -18,7 +18,6 @@ seealso:
 - linkId: "113484"
 - linkId: "112676"
 title: 'Hide or Disable an Action (Button, Menu Item) in Code'
-owner: Ekaterina Kiseleva
 ---
 # Hide or Disable an Action (Button, Menu Item) in Code
  

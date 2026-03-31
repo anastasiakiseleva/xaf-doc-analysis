@@ -1,7 +1,6 @@
 ---
 uid: "405323"
 title: ASP.NET Core Blazor Server Application Life Cycle
-owner: Vladislav Bogdanov
 seealso:
 - linkId: https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle
   linkType: HRef

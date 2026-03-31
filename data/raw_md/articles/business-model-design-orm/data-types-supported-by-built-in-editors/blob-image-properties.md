@@ -3,7 +3,6 @@ uid: "113544"
 seealso:
 - linkId: "402188"
 title: BLOB Image Properties
-owner: Ekaterina Kiseleva
 ---
 # BLOB Image Properties
 

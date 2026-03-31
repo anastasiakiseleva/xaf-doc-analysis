@@ -1,7 +1,6 @@
 ---
 uid: "404670"
 title: 'Convert an Existing Application into a Multi-Tenant Application'
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "404669"
 ---

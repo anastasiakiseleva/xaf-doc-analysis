@@ -5,7 +5,6 @@ seealso:
   linkId: https://learn.microsoft.com/en-us/ef/core/
   altText: Entity Framework Core Documentation
 title: Business Model Design with Entity Framework Core
-owner: Ekaterina Kiseleva
 ---
 # Business Model Design with Entity Framework Core
 

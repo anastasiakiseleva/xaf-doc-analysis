@@ -4,7 +4,7 @@ name: SecuredEFCoreObjectSpace
 type: Class
 summary: An [Object Space](xref:113707) for EF Core-based applications that use the [Security System](xref:113366).
 syntax:
-  content: 'public class SecuredEFCoreObjectSpace : EFCoreObjectSpace, ISessionObjectProvider'
+  content: 'public class SecuredEFCoreObjectSpace : EFCoreObjectSpace, ISessionObjectProvider, ISecuredObjectSpace'
 seealso:
 - linkId: DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpace._members
   altText: SecuredEFCoreObjectSpace Members

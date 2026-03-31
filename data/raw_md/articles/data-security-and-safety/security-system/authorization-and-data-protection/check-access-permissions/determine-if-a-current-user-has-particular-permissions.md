@@ -1,7 +1,6 @@
 ---
 uid: "403824"
 title: Determine if the Current User Has Specific Permissions
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '113152'
 ---

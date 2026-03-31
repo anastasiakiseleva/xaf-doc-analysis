@@ -1,7 +1,6 @@
 ---
 uid: "404597"
 title: Supply Predefined Values for the String Property Editor Dynamically (ASP.NET Core Blazor)
-owner: Irina Nikolaeva
 ---
 # Supply Predefined Values for the String Property Editor Dynamically (ASP.NET Core Blazor)
 

@@ -3,7 +3,6 @@ uid: "113334"
 seealso:
 - linkId: "113335"
 title: Model Merge Tool
-owner: Ekaterina Kiseleva
 ---
 # Model Merge Tool
 

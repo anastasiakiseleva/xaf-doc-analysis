@@ -1,7 +1,6 @@
 ---
 uid: "403178"
 title: Support, QA & Troubleshooting
-owner: Alexey Kazakov
 ---
 # Support, QA & Troubleshooting
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113033"
 - linkId: "113238"
 title: Xcopy Deployment of a Windows Forms Application
-owner: Ekaterina Kiseleva
 ---
 # Xcopy Deployment of a Windows Forms Application
 

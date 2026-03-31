@@ -3,7 +3,6 @@ uid: "112843"
 seealso:
 - linkId: "400081"
 title: IDE Integration
-owner: Ekaterina Kiseleva
 ---
 # IDE Integration
 

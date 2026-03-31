@@ -4,7 +4,6 @@ seealso:
 - linkId: "113033"
 - linkId: "113238"
 title: Publish Wizard Deployment of a Windows Forms Application
-owner: Ekaterina Kiseleva
 ---
 # Publish Wizard Deployment of a Windows Forms Application
 

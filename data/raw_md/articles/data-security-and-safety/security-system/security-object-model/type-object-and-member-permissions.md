@@ -1,7 +1,6 @@
 ---
 uid: "404633"
 title: 'Type, Object and Member Permissions'
-owner: Eugeniy Burmistrov
 seealso:
   - linkType: HRef
     linkId: 'https://supportcenter.devexpress.com/ticket/details/t589182/how-to-diagnose-effective-access-rights-for-a-specific-user-or-get-full-information'

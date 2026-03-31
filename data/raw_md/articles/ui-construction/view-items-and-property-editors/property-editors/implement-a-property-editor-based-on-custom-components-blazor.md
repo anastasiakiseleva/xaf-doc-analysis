@@ -2,7 +2,6 @@
 ---
 uid: "402189"
 title: Implement a Property Editor Based on a Custom Component (Blazor)
-owner: Yekaterina Kiseleva
 seealso:
 - linkId: "113097"
 - linkId: "113653"

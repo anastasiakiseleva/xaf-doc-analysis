@@ -6,7 +6,6 @@ seealso:
   altText: XAF - How to Display an Enumeration Property as a Drop-down Box with Check Boxes
 - linkId: "402188"
 title: Enumeration Properties
-owner: Ekaterina Kiseleva
 ---
 # Enumeration Properties
 

@@ -1,7 +1,6 @@
 ---
 uid: "404691"
 title: General Security Considerations
-owner: Vladimir Abadzhev
 ---
 # General Security Considerations
  
@@ -207,7 +206,7 @@ Whether your XAF application uses DevExpress XPO or Microsoft EF Core for the da
 - [JavaScript with Svelte + ASP.NET Core Web API/OData App](https://github.com/oliversturm/demo-dx-webapi-js/tree/stage-4)
 - [Connect to an EF Core Middle Tier Security Application from Non-XAF Applications](xref:404398)
 
-## Antiforgery Support
+## Cross-Site Request Forgery (CSRF) or Antiforgery Support
 
 XAF Blazor and Web API apps with [XAF Security](xref:113366) have built-in [antiforgery](https://learn.microsoft.com/en-us/aspnet/core/security/anti-request-forgery#antiforgery-in-aspnet-core) support.
 

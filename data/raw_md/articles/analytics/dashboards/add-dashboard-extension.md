@@ -1,7 +1,6 @@
 ---
 uid: "404496"
 title: "How to: Add a Dashboard Extension to an XAF ASP.NET Core Blazor Application"
-owner: Anastasiya Kisialeva
 ---
 # How to: Add a Dashboard Extension to an XAF ASP.NET Core Blazor Application
 

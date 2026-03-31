@@ -5,7 +5,6 @@ seealso:
 - linkId: "113325"
 - linkId: "112847"
 title: Business Classes vs Database Tables
-owner: Ekaterina Kiseleva
 ---
 # Business Classes vs Database Tables
 

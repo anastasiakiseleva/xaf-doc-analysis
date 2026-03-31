@@ -2,7 +2,6 @@
 uid: "113480"
 seealso: []
 title: Custom Function Criteria Operators
-owner: Eugeniy Burmistrov
 ---
 
 # Custom Function Criteria Operators

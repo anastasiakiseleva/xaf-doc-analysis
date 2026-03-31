@@ -3,7 +3,6 @@ uid: "113484"
 seealso:
 - linkId: "112818"
 title: Determine an Action's Controller and Identifier
-owner: Ekaterina Kiseleva
 ---
 # Determine an Action's Controller and Identifier
 

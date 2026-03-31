@@ -2,7 +2,6 @@
 uid: "113127"
 seealso: []
 title: Application Life Cycle
-owner: Ekaterina Kiseleva
 ---
 # Application Life Cycle
 

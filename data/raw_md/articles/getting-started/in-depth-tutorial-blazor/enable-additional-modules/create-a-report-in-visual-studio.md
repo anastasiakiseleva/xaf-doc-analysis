@@ -1,7 +1,6 @@
 ---
 uid: "404206"
 title: Create and Preview a Report
-owner: Anastasiya Kisialeva
 ---
 # Create and Preview a Report
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Model.IModelOptions
 - linkId: DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.Messaging
 title: 'How to: Implement a Custom Messaging Class'
-owner: Ekaterina Kiseleva
 ---
 # How to: Implement a Custom Messaging Class
 

@@ -1,7 +1,6 @@
 ---
 uid: "405280"
 title: Calculate a Property Value Based on Values from a Detail Collection in EF Core
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: "4928"
   - linkId: DevExpress.ExpressApp.DC.PersistentAliasAttribute

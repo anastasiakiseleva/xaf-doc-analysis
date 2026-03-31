@@ -1,7 +1,6 @@
 ---
 uid: "402979"
 title: Implement Dependent Reference Properties
-owner: Alexey Kazakov
 seealso:
   - linkId: "4928"
   - linkId: "112998"

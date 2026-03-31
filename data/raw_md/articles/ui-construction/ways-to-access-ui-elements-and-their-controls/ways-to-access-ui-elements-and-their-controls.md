@@ -1,7 +1,6 @@
 ---
 uid: "120092"
 title: Ways to Access UI Elements and Their Controls
-owner: Ekaterina Kiseleva
 seealso: []
 ---
 # Ways to Access UI Elements and Their Controls
@@ -40,7 +39,7 @@ To access a custom View Item inside a custom ViewController, use the following `
 * @DevExpress.ExpressApp.DashboardViewExtensions.CustomizeViewItemControl(DevExpress.ExpressApp.DashboardView,DevExpress.ExpressApp.Controller,System.Action{DevExpress.ExpressApp.Editors.ViewItem}) and its overloads for Dashboard Views
 * @DevExpress.ExpressApp.Blazor.Utils.BlazorViewExtensions.CustomizeViewItemControl(DevExpress.ExpressApp.View,DevExpress.ExpressApp.Controller,System.Action{DevExpress.ExpressApp.Editors.ViewItem},System.String[]) for Detail Views, Dashboard Views, and List Views in ASP.NET Core Blazor applications
 
-**Examples**: [](xref:113104) | [](xref:402153) | [](xref:402188) | [](xref:403870)
+**Examples**: [](xref:113104) | [](xref:402153) | [](xref:402188) | [](xref:403870) | [Add a Custom Button to a Property Editor (ASP.NET Core Blazor)](xref:405839)
 
 ### Access an embedded or nested View's View Item
 

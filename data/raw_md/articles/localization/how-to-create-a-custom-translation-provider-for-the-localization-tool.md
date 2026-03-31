@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Utils.ITranslatorProvider
 - linkId: "113297"
 title: 'How to: Create a Custom Translation Provider for the Localization Tool'
-owner: Ekaterina Kiseleva
 ---
 # How to: Create a Custom Translation Provider for the Localization Tool
 

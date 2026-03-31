@@ -1,7 +1,6 @@
 ---
 uid: "402925"
 title: Queryable Mode (Database-Level Data Processing)
-owner: Yekaterina Kiseleva
 seealso: []
 ---
 # Queryable Mode (Database-Level Data Processing)

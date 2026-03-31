@@ -9,7 +9,6 @@ seealso:
 - linkId: "113258"
 - linkId: "113583"
 title: 'Calculate a Property Value Based on Values from a Detail Collection'
-owner: Ekaterina Kiseleva
 ---
 # Calculate a Property Value Based on Values from a Detail Collection
 

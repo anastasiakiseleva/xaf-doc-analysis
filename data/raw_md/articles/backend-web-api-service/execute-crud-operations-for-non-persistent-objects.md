@@ -1,7 +1,6 @@
 ---
 uid: "404233"
 title: Execute CRUD Operations for Non-Persistent Objects
-owner: Vladimir Abadzhev
 ---
 # Execute CRUD Operations for Non-Persistent Objects
 

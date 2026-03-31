@@ -4,7 +4,6 @@ seealso:
 - linkId: "112810"
 - linkId: "400081"
 title: "Model Editor: Customize Application Model Visually"
-owner: Ekaterina Kiseleva
 ---
 # Model Editor: Customize Application Model Visually
 

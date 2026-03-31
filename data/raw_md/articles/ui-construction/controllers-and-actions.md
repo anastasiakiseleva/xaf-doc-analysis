@@ -2,7 +2,6 @@
 uid: "112623"
 seealso: []
 title: Controllers and Actions (Menu Commands)
-owner: Ekaterina Kiseleva
 ---
 # Controllers and Actions (Menu Commands)
 

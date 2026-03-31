@@ -1,7 +1,6 @@
 ---
 uid: "403531"
 title: Open a Detail View When the Grid Row is Clicked in the Dashboard (Blazor)
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '118348'
 ---

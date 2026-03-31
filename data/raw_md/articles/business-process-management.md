@@ -1,7 +1,6 @@
 ---
 uid: "403177"
 title: Business Process Management
-owner: Alexey Kazakov
 ---
 # Business Process Management
 

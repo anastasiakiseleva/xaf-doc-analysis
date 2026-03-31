@@ -24,7 +24,7 @@ You are responsible for application, database, network, and other settings based
 
 ## Step 1. Remove Outdated Security APIs and Convert User Data in Databases to a New Format
 
-This step is required if your application uses built-in user and role types other than `PermissionPolicyUser` and `PermissionPolicyRole`, or if it uses the legacy SHA-512 password hashing algorithm.
+This step is required if your application uses built-in user and role types other than `PermissionPolicyUser` and `PermissionPolicyRole`, or if it uses the [legacy password hashing algorithm](https://supportcenter.devexpress.com/ticket/details/bc4063/xaf-s-security-module-uses-more-secure-and-fips-compliant-password-generation-algorithms).
 
 Find a step-by-step migration guide in the following documentation section: [Remove .NET Framework (WinForms / ASP.NET Web Forms) & Legacy .NET API: Legacy Security System Implementations](xref:405693#legacy-security-system-implementations).
 

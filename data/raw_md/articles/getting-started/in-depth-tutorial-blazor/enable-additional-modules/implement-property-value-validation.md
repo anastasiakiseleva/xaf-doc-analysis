@@ -1,7 +1,6 @@
 ---
 uid: "402980"
 title: Implement Property Value Validation
-owner: Alexey Kazakov
 seealso:
   - linkId: "113684"
 ---

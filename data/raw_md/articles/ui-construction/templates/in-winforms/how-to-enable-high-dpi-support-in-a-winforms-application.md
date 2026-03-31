@@ -6,7 +6,6 @@ seealso:
   linkId: https://learn.microsoft.com/en-us/windows/desktop/hidpi/high-dpi-desktop-application-development-on-windows
   altText: Writing DPI-Aware Desktop and Win32 Applications
 title: 'High DPI Support in a Windows Forms Application'
-owner: Ekaterina Kiseleva
 ---
 # High DPI Support in a Windows Forms Application
 

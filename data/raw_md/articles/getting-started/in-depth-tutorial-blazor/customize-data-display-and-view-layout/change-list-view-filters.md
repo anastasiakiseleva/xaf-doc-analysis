@@ -1,7 +1,6 @@
 ---
 uid: "403238"
 title: 'Change List View Filters'
-owner: Eugenia Simonova
 ---
 # Change List View Filters
 

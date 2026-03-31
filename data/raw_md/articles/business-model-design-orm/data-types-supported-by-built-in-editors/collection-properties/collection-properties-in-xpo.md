@@ -2,7 +2,6 @@
 uid: "113569"
 seealso: []
 title: Collection Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Collection Properties in XPO
 

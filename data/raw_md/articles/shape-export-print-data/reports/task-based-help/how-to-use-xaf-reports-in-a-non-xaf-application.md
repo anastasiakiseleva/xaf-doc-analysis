@@ -4,7 +4,6 @@ seealso:
   - linkId: "113703"
   - linkId: "113601"
 title: 'How to: Use XAF Reports in a non-XAF Application'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use XAF Reports in a non-XAF Application
 

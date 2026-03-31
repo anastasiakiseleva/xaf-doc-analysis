@@ -1,7 +1,6 @@
 ---
 uid: "404448"
 title: Content Security Policy (CSP) in XAF Blazor Apps
-owner: Irina Nikolaeva
 ---
 # Content Security Policy (CSP) in XAF Blazor Apps
 

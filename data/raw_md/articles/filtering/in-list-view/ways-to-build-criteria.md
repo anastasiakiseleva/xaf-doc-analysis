@@ -2,7 +2,6 @@
 uid: "113052"
 seealso: []
 title: Ways to Build Criteria
-owner: Ekaterina Kiseleva
 seealso:
 - linkId: "404016"
 ---

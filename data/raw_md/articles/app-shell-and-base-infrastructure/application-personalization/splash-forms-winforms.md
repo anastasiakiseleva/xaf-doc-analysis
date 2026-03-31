@@ -2,7 +2,6 @@
 uid: "112680"
 seealso: []
 title: Loading Panels / Splash Forms (WinForms)
-owner: Vera Ulitina
 seealso:
   - linkId: '404738'
 ---

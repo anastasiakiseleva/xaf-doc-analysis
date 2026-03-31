@@ -1,7 +1,6 @@
 ---
 uid: "404733"
 title: 'How to: Customize Vertical Appointment Template (ASP.NET Core Blazor)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Customize Vertical Appointment Template (ASP.NET Core Blazor)
 

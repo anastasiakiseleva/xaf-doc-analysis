@@ -2,7 +2,6 @@
 uid: "113556"
 seealso: []
 title: 'Manually Configure Permissions for Associated Collections and Reference Properties'
-owner: Ekaterina Kiseleva
 seealso:
 - linkId: "116170"
 ---

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113471"
 - linkId: "114516"
 title: "How to: Display a Non-Persistent Object's List View from the Navigation"
-owner: Ekaterina Kiseleva
 ---
 # How to: Display a Non-Persistent Object's List View from the Navigation
 

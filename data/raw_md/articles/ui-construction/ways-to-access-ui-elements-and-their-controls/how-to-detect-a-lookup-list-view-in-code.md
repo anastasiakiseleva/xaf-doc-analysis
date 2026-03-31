@@ -6,7 +6,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Frame.GetController``1
 - linkId: "112609"
 title: 'How to: Detect a Lookup List View in Code'
-owner: Vera Ulitina
 ---
 # How to: Detect a Lookup List View in Code
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "403168"
 - linkId: "403189"
 title: 'How to: Display a List View With Data From a Stored Procedure From the Navigation'
-owner: Dmitry Egorov
 ---
 # How to: Display a List View With Data From a Stored Procedure From the Navigation
 

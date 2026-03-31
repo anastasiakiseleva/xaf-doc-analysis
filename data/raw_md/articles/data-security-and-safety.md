@@ -1,7 +1,6 @@
 ---
 uid: "403172"
 title: 'Application Security and Data Safety'
-owner: Alexey Kazakov
 ---
 # Application Security and Data Safety
 

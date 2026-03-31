@@ -1,7 +1,6 @@
 ---
 uid: "403184"
 title: 'Localize UI Elements'
-owner: Eugenia Simonova
 ---
 # Localize UI Elements
 

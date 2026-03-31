@@ -6,7 +6,6 @@ seealso:
 - linkId: "400290"
 - linkId: "118740"
 title: Roles and Permission Policy
-owner: Ekaterina Kiseleva
 ---
 # Roles and Permission Policy
 

@@ -1,7 +1,6 @@
 ---
 uid: "402131"
 title: Add an Item to the Navigation Control
-owner: Alexey Kazakov
 seealso:
   - linkId: DevExpress.Persistent.Base.DefaultClassOptionsAttribute
   - linkId: DevExpress.Persistent.Base.NavigationItemAttribute

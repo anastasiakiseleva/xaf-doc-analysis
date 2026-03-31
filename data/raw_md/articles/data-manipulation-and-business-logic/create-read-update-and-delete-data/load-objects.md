@@ -1,7 +1,6 @@
 ---
 uid: "403617"
 title: Load Objects
-owner: Dmitry Egorov
 ---
 # Load Objects
 

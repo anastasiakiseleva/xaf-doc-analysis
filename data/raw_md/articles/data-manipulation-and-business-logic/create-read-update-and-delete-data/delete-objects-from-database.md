@@ -1,7 +1,6 @@
 ---
 uid: "403619"
 title: Delete Objects from the Database
-owner: Dmitry Egorov
 ---
 # Delete Objects from the Database
 

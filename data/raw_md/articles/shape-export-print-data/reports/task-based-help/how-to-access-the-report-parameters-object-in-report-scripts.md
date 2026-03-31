@@ -3,7 +3,6 @@ uid: "114451"
 seealso:
 - linkId: "114454"
 title: 'How to: Access the Report Parameters Object in Report Scripts'
-owner: Ekaterina Kiseleva
 ---
 # How to: Access the Report Parameters Object in Report Scripts
 

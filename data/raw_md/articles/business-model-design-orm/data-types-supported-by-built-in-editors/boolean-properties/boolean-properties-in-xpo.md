@@ -2,7 +2,6 @@
 uid: "113541"
 seealso: []
 title: Boolean Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Boolean Properties in XPO
 

@@ -2,7 +2,6 @@
 uid: "113608"
 seealso: []
 title: 'How to: Use a Custom Editor for an XtraReport Parameter'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use a Custom Editor for an XtraReport Parameter
 

@@ -1,7 +1,6 @@
 ---
 uid: "403452"
 title: 'How To: Create a Custom Blazor Application Template'
-owner: Anastasiya Kisialeva
 ---
 # How To: Create a Custom Blazor Application Template
 

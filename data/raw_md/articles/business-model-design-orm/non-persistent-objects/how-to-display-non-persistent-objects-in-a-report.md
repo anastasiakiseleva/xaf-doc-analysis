@@ -2,7 +2,6 @@
 uid: "114516"
 seealso: []
 title: 'How to: Display Non-Persistent Objects in a Report'
-owner: Ekaterina Kiseleva
 ---
 # How to: Display Non-Persistent Objects in a Report
 

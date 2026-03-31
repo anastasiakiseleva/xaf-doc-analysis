@@ -4,7 +4,6 @@ seealso:
 - linkId: "403189"
 - linkId: "403164"
 title: 'How to: Display a Detail View With Data From a Stored Procedure From the Navigation'
-owner: Dmitry Egorov
 ---
 # How to: Display a Detail View With Data From a Stored Procedure From the Navigation
 

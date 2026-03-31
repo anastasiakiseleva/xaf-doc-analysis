@@ -2,7 +2,6 @@
 uid: "113333"
 seealso: []
 title: Model Editor Settings
-owner: Ekaterina Kiseleva
 ---
 # Model Editor Settings
 

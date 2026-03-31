@@ -1,7 +1,6 @@
 ---
 uid: "403544"
 title: Customize the Dashboard Configurator (ASP.NET Core Blazor)
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '404466'
 ---

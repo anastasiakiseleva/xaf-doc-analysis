@@ -3,7 +3,6 @@ uid: "112655"
 seealso:
 - linkId: DevExpress.ExpressApp.Utils.CaptionHelper
 title: 'How to: Localize Custom String Constants'
-owner: Ekaterina Kiseleva
 ---
 # How to: Localize Custom String Constants
 

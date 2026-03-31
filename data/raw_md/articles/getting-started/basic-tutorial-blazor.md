@@ -1,7 +1,6 @@
 ---
 uid: '401943'
 title: Basic .NET WinForms & Blazor Tutorial (Project Manager)
-owner: Yekaterina Kiseleva
 ---
 # Basic .NET WinForms & Blazor Tutorial (Project Manager)
 

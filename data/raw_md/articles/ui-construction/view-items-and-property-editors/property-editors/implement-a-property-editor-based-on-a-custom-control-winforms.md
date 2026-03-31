@@ -3,7 +3,6 @@ uid: "112679"
 seealso:
 - linkId: "113097"
 title: 'Implement a Property Editor Based on a Custom Control (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # Implement a Property Editor Based on a Custom Control (WinForms)
 

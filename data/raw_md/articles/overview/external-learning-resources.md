@@ -2,7 +2,6 @@
 uid: "113479"
 seealso: []
 title: External Learning Resources
-owner: Ekaterina Kiseleva
 ---
 # External Learning Resources
 

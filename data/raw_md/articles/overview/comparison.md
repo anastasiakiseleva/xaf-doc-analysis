@@ -1,7 +1,6 @@
 ---
 uid: "112558"
 title: Comparison With Other Methodologies
-owner: Ekaterina Kiseleva
 ---
 # Comparison With Other Methodologies
 

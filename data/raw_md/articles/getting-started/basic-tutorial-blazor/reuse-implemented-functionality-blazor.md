@@ -1,7 +1,6 @@
 ---
 uid: '401955'
 title: Reuse Implemented Functionality
-owner: Yekaterina Kiseleva
 seealso:
 - linkId: '118046'
 ---

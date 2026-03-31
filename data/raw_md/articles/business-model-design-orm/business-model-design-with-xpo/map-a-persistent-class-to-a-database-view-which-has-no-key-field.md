@@ -9,7 +9,6 @@ seealso:
 - linkId: 403909
   altText: How to map a persistent object to a view which does not have a key column
 title: 'Map a Persistent Class to a Database View Which Has No Key Field'
-owner: Ekaterina Kiseleva
 ---
 # Map a Persistent Class to a Database View Which Has No Key Field
 

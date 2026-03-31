@@ -7,7 +7,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.ReportsV2.ReportStorageBase.GetReportContainerHandle(DevExpress.ExpressApp.ReportsV2.IReportDataV2)
 - linkId: DevExpress.ExpressApp.Frame.GetController``1
 title: Invoke the Report Preview from Code
-owner: Ekaterina Kiseleva
 ---
 
 # Invoke the Report Preview from Code

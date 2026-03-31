@@ -1,7 +1,6 @@
 ---
 uid: "402158"
 title: Add an Action that Displays a Pop-Up Window
-owner: Alexey Kazakov
 seealso:
   - linkId: "113711"
   - linkId: DevExpress.ExpressApp.BaseObjectSpace.SetModified*

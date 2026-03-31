@@ -7,7 +7,6 @@ seealso:
 - linkId: "113687"
 - linkId: "113696"
 title: Notifications Module Overview
-owner: Ekaterina Kiseleva
 ---
 # Notifications Module Overview
 

@@ -1,7 +1,6 @@
 ---
 uid: '401829'
 title: Unit Tests
-owner: Ekaterina Kiseleva
 seealso: []
 ---
 # Unit Tests

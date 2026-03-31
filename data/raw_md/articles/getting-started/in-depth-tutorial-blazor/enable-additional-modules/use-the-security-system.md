@@ -1,7 +1,6 @@
 ---
 uid: "404204"
 title: Use the Security System
-owner: Anastasiya Kisialeva
 ---
 # Use the Security System
 

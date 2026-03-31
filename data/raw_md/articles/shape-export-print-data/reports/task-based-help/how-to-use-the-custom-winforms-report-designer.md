@@ -2,7 +2,6 @@
 uid: "113605"
 seealso: []
 title: 'How to: Use the Custom WinForms Report Designer'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use the Custom WinForms Report Designer
 

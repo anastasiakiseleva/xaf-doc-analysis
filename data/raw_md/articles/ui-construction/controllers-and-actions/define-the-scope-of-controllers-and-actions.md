@@ -11,7 +11,6 @@ seealso:
 - linkId: "402154"
 - linkId: "112612#access-and-customize-view-items-in-code"
 title: Define the Scope of Controllers and Actions
-owner: Anastasiya Kisialeva
 ---
 # Define the Scope of Controllers and Actions
 

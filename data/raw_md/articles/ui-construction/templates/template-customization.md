@@ -9,7 +9,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/xaf-custom-template-blazor
   altText: XAF - How to create a custom template (ASP.NET Core Blazor)
 title: Template Customization
-owner: Ekaterina Kiseleva
 ---
 # Template Customization
 

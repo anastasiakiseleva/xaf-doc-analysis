@@ -1,7 +1,6 @@
 ---
 uid: '400081'
 title: Designers Troubleshooting Guide
-owner: Yekaterina Kiseleva
 ---
 # Designers Troubleshooting Guide
 

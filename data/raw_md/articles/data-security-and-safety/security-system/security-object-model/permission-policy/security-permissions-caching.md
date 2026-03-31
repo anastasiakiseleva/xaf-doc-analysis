@@ -2,7 +2,6 @@
 uid: '115638'
 seealso: []
 title: Security Permissions Caching
-owner: Ekaterina Kiseleva
 ---
 # Security Permissions Caching
 
@@ -26,7 +25,7 @@ The Security System uses Security Adapters to process and cache security permiss
 | _DevExpress.EntityFrameworkCore.Security[!include[vX.Y.dll](~/templates/vx.y.dll11169.md)]_
 |}
 
-These assemblies contain the `RegisterXPOAdapterProviders`, `RegisterEFAdapterProviders`, and `RegisterEFCoreAdapterProviders` methods that extend the @DevExpress.ExpressApp.Security.SecurityStrategy class. Use these methods to enable/disable Security Adapters instead of accessing them directly. 
+These assemblies contain `RegisterXPOAdapterProviders` and `RegisterEFCoreAdapterProviders` methods that extend the @DevExpress.ExpressApp.Security.SecurityStrategy class. Use these methods to enable/disable Security Adapters instead of accessing them directly. 
 
 > [!NOTE] 
 > You do not need to call the `RegisterEFCoreAdapterProviders` method because @DevExpress.EntityFrameworkCore.Security.SecuredEFCoreObjectSpaceProvider`1 calls this method automatically.

@@ -2,7 +2,6 @@
 uid: "113047"
 seealso: []
 title: 'How to: Distribute Custom Templates with Modules'
-owner: Ekaterina Kiseleva
 ---
 # How to: Distribute Custom Templates with Modules
 

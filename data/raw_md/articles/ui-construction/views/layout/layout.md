@@ -1,7 +1,6 @@
 ---
 uid: "403210"
 title: 'Layout'
-owner: Alexey Kazakov
 ---
 # Layout
 

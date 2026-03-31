@@ -1,7 +1,6 @@
 ---
 uid: "116106"
 title: "How to: Show Persistent Objects in a Non-Persistent Object's View"
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: '403100'
     altText: "Show Non-Persistent Objects in a Persistent Object's View"

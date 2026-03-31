@@ -1,7 +1,6 @@
 ---
 uid: "402981"
 title: "Implement a Data Model: Basics"
-owner: Alexey Kazakov
 seealso:
   - linkId: "112570"
   - linkId: "112571"

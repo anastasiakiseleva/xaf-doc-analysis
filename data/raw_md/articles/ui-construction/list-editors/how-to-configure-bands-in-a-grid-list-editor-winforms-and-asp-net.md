@@ -5,7 +5,6 @@ seealso:
 - linkId: "114637"
 - linkId: "9873"
 title: 'How to: Configure Bands in a Grid List Editor'
-owner: Anastasiya Kisialeva
 ---
 # How to: Configure Bands in a Grid List Editor
 

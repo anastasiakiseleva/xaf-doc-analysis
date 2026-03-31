@@ -1,7 +1,6 @@
 ---
 uid: "402155"
 title: Add a Parametrized Action
-owner: Alexey Kazakov
 seealso:
   - linkId: "113711"
   - linkId: "112622"

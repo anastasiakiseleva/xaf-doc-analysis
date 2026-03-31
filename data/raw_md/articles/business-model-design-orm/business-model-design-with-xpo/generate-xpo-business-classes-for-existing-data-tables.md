@@ -3,7 +3,6 @@ uid: "113451"
 seealso:
 - linkId: "113281"
 title: 'Generate XPO Business Classes for Existing Data Tables'
-owner: Ekaterina Kiseleva
 ---
 # Generate XPO Business Classes for Existing Data Tables
 

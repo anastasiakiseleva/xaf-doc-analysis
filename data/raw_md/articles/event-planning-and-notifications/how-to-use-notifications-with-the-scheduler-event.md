@@ -5,7 +5,6 @@ seealso:
 - linkId: "113696"
 - linkId: "404214"
 title: 'How to: Use Notifications with the Scheduler Event'
-owner: Anastasiya Kisialeva
 ---
 # How to: Use Notifications with the Scheduler Event
 

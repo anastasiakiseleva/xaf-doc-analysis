@@ -1,7 +1,6 @@
 ---
 uid: "403176"
 title: 'Event Planning and Notifications'
-owner: Alexey Kazakov
 ---
 # Event Planning and Notifications
 

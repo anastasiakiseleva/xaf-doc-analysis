@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.Persistent.Base.ExpandObjectMembers
 - linkId: DevExpress.Xpo.AggregatedAttribute
 title: Reference Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Reference Properties in XPO
 

@@ -1,7 +1,6 @@
 ---
 uid: "404212"
 title: 'How to: Enable the Main Menu Bars or Ribbon in WinForms'
-owner: Anastasiya Kisialeva
 ---
 # How to: Enable the Main Menu Bars or Ribbon in WinForms
 

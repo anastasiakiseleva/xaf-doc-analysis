@@ -1,7 +1,6 @@
 ---
 uid: "404462"
 title: 'Authentication System Architecture (Blazor)'
-owner: Eugeniy Burmistrov
 seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/XAF_logon-form-manage-users-register-a-new-user-restore-a-password

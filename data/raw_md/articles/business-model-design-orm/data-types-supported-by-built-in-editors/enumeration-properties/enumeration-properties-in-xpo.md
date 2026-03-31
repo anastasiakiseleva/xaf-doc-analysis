@@ -3,7 +3,6 @@ uid: "113553"
 seealso:
 - linkId: "113563"
 title: Enumeration Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Enumeration Properties in XPO
 

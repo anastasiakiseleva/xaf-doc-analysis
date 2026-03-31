@@ -3,7 +3,6 @@ uid: "117450"
 seealso:
 - linkId: "403400"
 title: Create, View and Modify Dashboards in a WinForms Application
-owner: Ekaterina Kiseleva
 ---
 # Create, View and Modify Dashboards in a WinForms Application
 

@@ -2,7 +2,6 @@
 uid: '400497'
 seealso: []
 title: "Menu: Nested Toolbar"
-owner: Vera Ulitina
 ---
 # Menu: Nested Toolbar
 

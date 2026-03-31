@@ -3,7 +3,6 @@ uid: "113215"
 seealso:
 - linkId: "112841"
 title: Node Images in a Tree List
-owner: Ekaterina Kiseleva
 ---
 # Node Images in a Tree List
 

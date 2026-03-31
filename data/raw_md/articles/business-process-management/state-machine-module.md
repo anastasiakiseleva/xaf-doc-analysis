@@ -6,7 +6,6 @@ seealso:
   altText: Applying Security to the State Machine Module
 - linkId: "113286"
 title: State Machine (Organize State Transitions)
-owner: Ekaterina Kiseleva
 ---
 # State Machine (Organize State Transitions)
 

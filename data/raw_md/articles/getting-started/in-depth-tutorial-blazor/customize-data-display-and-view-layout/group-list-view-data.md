@@ -1,7 +1,6 @@
 ---
 uid: "403248"
 title: 'Group List View Data'
-owner: Eugenia Simonova
 ---
 # Group List View Data
 

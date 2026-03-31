@@ -1,7 +1,6 @@
 ---
 uid: "403858"
 title: 'Create Custom Endpoints'
-owner: Eugeniy Burmistrov
 seealso: 
 - linkId: "403861"
 - linkId: "403715"

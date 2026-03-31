@@ -6,7 +6,6 @@ seealso:
 - linkId: "118450"
 - linkId: "113324"
 title: List View Data Access Modes
-owner: Ekaterina Kiseleva
 ---
 # List View Data Access Modes
 

@@ -1,7 +1,6 @@
 ---
 uid: "403496"
 title: Disable the Audit Trail Module
-owner: Yekaterina Kiseleva
 ---
 # Disable the Audit Trail Module
 

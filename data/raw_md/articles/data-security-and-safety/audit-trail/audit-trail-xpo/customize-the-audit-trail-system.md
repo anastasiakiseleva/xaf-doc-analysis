@@ -3,7 +3,6 @@ uid: "112783"
 seealso:
 - linkId: "112782"
 title: Miscellaneous Customizations of the Audit Trail System (XPO)
-owner: Ekaterina Kiseleva
 ---
 # Miscellaneous Customizations of the Audit Trail System (XPO)
 

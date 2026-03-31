@@ -1,7 +1,6 @@
 ---
 uid: "402146"
 title: 'How to: Modify Action Properties in the Model Editor'
-owner: Alexey Kazakov
 seealso:
   - linkId: "112622"
   - linkId: "112701"

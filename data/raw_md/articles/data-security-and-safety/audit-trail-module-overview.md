@@ -1,7 +1,6 @@
 ---
 uid: "112782"
 title: Audit Trail (History of Data Changes)
-owner: Ekaterina Kiseleva
 ---
 # Audit Trail (History of Data Changes)
 

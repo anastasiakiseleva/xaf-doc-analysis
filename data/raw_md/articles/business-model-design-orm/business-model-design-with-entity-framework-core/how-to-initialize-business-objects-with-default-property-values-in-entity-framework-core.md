@@ -1,7 +1,6 @@
 ---
 uid: "402990"
 title: 'How to: Initialize Business Objects with Default Property Values in Entity Framework Core'
-owner: Yekaterina Kiseleva
 seealso:
   - linkType: HRef
     linkId: xref:113152#initialize-the-object-owner-createdby-updatedby-properties

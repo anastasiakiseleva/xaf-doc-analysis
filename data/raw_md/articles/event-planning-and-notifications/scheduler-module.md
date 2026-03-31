@@ -3,7 +3,6 @@ uid: "112811"
 seealso:
 - linkId: 113452
 title: Scheduler (Manage Calendar Appointments)
-owner: Ekaterina Kiseleva
 ---
 # Scheduler (Manage Calendar Appointments)
 

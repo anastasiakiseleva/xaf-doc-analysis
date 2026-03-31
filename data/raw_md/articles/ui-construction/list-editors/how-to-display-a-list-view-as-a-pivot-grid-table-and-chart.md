@@ -2,7 +2,6 @@
 uid: "119740"
 seealso: []
 title: 'How to: Display a List View as a Pivot Grid Table and Chart'
-owner: Vera Ulitina
 ---
 # How to: Display a List View as a Pivot Grid Table and Chart
 

@@ -2,7 +2,6 @@
 uid: "112820"
 seealso: []
 title: "How to: Replace a List View's Default Action"
-owner: Ekaterina Kiseleva
 ---
 # How to: Replace a List View's Default Action
 

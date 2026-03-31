@@ -4,7 +4,6 @@ seealso:
 - linkId: "113480"
 - linkId: "404016"
 title: Function Criteria Operators
-owner: Ekaterina Kiseleva
 ---
 # Function Criteria Operators
 

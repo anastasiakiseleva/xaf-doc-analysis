@@ -1,7 +1,6 @@
 ---
 uid: "113660"
 title: Color Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 ---

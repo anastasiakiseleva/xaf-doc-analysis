@@ -1,7 +1,6 @@
 ---
 uid: "403572"
 title: 'Add the XPO Middle Tier Server to an Existing WinForms Application (.NET)'
-owner: Eugenia Simonova
 seealso:
 - linkId: "403504"
 - linkId: "403550"

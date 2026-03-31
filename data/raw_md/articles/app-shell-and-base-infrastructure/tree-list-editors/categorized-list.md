@@ -2,7 +2,6 @@
 uid: "112838"
 seealso: []
 title: Categorized List (Windows Forms)
-owner: Ekaterina Kiseleva
 ---
 # Categorized List (Windows Forms)
 

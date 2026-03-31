@@ -1,7 +1,6 @@
 ---
 uid: "113574"
 title: Reference Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso:  
 - linkId: "117395"
 - linkId: "404862"

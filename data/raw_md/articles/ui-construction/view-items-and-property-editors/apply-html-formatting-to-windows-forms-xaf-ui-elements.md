@@ -3,7 +3,6 @@ uid: "113130"
 seealso:
 - linkId: DevExpress.ExpressApp.Win.SystemModule.IHtmlFormattingSupport
 - linkId: "400004"
-owner: Ekaterina Kiseleva
 title: 'Apply HTML Formatting to WinForms View Items'
 ---
 # Apply HTML Formatting to WinForms View Items

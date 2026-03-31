@@ -1,7 +1,6 @@
 ---
 uid: "403111"
 title: Access the Audit Log In the Database
-owner: Eugeniy Burmistrov
 seealso: []
 ---
 # Access the Audit Log In the Database

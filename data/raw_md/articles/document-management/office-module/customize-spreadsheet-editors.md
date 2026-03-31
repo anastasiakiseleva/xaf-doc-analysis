@@ -1,7 +1,6 @@
 ---
 uid: '401211'
 title: 'Customize the Spreadsheet Editors'
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '400894'
 ---

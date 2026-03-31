@@ -2,7 +2,6 @@
 uid: "112805"
 seealso: []
 title: Dialog Controller
-owner: Ekaterina Kiseleva
 ---
 # Dialog Controller
 

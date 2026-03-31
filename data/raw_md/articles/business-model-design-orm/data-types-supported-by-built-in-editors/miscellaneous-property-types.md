@@ -4,7 +4,6 @@ seealso:
 - linkId: "113366"
 - linkId: "402188"
 title: Miscellaneous Property Types
-owner: Anastasiya Kisialeva
 ---
 # Miscellaneous Property Types
 

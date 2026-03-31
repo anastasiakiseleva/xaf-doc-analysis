@@ -4,7 +4,6 @@ seealso:
 - linkId: "112810"
 - linkId: "113089"
 title: "How to: Convert Application Model Differences Between Versions Due to Structural Node Changes"
-owner: Ekaterina Kiseleva
 ---
 # How to: Convert Application Model Differences Between Versions Due to Structural Node Changes
 

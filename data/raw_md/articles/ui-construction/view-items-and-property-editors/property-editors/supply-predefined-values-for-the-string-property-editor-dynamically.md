@@ -1,7 +1,6 @@
 ---
 uid: "404599"
 title: Supply Predefined Values for the String Property Editor Dynamically
-owner: Irina Nikolaeva
 ---
 # Supply Predefined Values for the String Property Editor Dynamically
 

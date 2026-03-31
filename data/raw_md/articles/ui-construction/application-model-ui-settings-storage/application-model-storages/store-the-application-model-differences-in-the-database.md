@@ -2,7 +2,6 @@
 uid: "113698"
 seealso: []
 title: 'Store Application Model Differences in the Database'
-owner: Anastasiya Kisialeva
 ---
 # Store Application Model Differences in the Database
 

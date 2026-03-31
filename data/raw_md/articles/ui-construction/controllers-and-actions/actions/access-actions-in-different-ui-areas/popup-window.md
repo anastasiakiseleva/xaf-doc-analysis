@@ -2,7 +2,6 @@
 uid: '400500'
 seealso: []
 title: Popup Window
-owner: Vera Ulitina
 ---
 # Popup Window
 

@@ -2,7 +2,6 @@
 uid: "115213"
 seealso: []
 title: 'How to: Access the Bar Manager'
-owner: Ekaterina Kiseleva
 ---
 # How to: Access the Bar Manager
 

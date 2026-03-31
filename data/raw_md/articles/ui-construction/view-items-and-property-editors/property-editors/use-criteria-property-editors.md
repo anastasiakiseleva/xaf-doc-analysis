@@ -6,7 +6,6 @@ seealso:
 - linkId: "113014"
 - linkId: DevExpress.ExpressApp.Editors.EditorAliases
 title: 'How to: Enable Database Storage for User-Defined Criteria that Filter a List View'
-owner: Anastasiya Kisialeva
 ---
 # How to: Enable Database Storage for User-Defined Criteria that Filter a List View
 

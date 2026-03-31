@@ -2,7 +2,6 @@
 uid: "113609"
 seealso: []
 title: 'How to: Register an Additional Type of XtraReport Parameter'
-owner: Ekaterina Kiseleva
 ---
 # How to: Register an Additional Type of XtraReport Parameter
 

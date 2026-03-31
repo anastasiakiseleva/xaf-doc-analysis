@@ -9,7 +9,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.WindowTemplateController.CustomizeWindowCaption
 - linkId: "113253"
 title: 'Customize a Window Caption'
-owner: Vera Ulitina
 ---
 # Customize a Window Caption
 

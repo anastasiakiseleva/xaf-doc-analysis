@@ -4,7 +4,6 @@ seealso:
 - linkId: "113714"
 - linkId: "113715"
 title: State Machine Module Overview
-owner: Ekaterina Kiseleva
 ---
 # State Machine Module Overview
 

@@ -1,7 +1,6 @@
 ---
 uid: "403967"
 title: 'Create Custom Commands'
-owner: Alexey Kazakov
 ---
 # Create Custom Commands
 

@@ -1,7 +1,6 @@
 ---
 uid: "403446"
 title: 'WinForms Application Templates'
-owner: Alexey Kazakov
 ---
 # WinForms Application Templates
 
@@ -107,33 +106,6 @@ Defines the logon window layout and appearance.
 **Namespace:** `DevExpress.ExpressApp.Win.Templates.Ribbon`
 
 Used to display the main Window with the Outlook form style. To use this template, apply settings as the [IModelRootGroupsStyle.RootGroupsStyle](xref:DevExpress.ExpressApp.Win.SystemModule.IModelRootGroupsStyle.RootGroupsStyle) article describes, and set the **RootGroupStyle** property to **OutlookSimple** or **OutlookAnimated**.
-
-## Deprecated Templates
-
-### MainFormV2
-
-![MainFormTemplate](~/images/mainformtemplate115363.png)
-
-**Class:** `MainFormV2`
-
-**Namespace:** `DevExpress.ExpressApp.Win.Templates`
-
-Displays the main Window. To use this template, set the [IModelOptionsWin.FormStyle](xref:DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.FormStyle) property to **Standard**.
-
-### MainRibbonFormV2
-
-![MainRibbonFormV2](~/images/mainribbonformtemplate121637.png)
-
-**Class:** `MainRibbonFormV2`
-
-**Namespace:** `DevExpress.ExpressApp.Win.Templates.Bars`
-
-Displays the main Window with the [Ribbon](xref:2500) form style. To use this template, set the [IModelOptionsWin.FormStyle](xref:DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.FormStyle) property to **Ribbon**.
-
-
-> [!NOTE]
-> Refer to the [](xref:404212) topic to learn how to toggle a Ribbon user interface in your WinForms application.
-
 
 ## How To's
 

@@ -2,7 +2,6 @@
 uid: "118549"
 seealso: []
 title: Text Notifications
-owner: Ekaterina Kiseleva
 ---
 # Text Notifications
 

@@ -2,7 +2,6 @@
 uid: "113672"
 seealso: []
 title: 'How to: Add a Custom Column to the Reports List'
-owner: Ekaterina Kiseleva
 ---
 # How to: Add a Custom Column to the Reports List
 

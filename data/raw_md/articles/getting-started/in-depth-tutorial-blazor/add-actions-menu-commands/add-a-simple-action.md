@@ -1,7 +1,6 @@
 ---
 uid: "402157"
 title: Add a Simple Action
-owner: Alexey Kazakov
 seealso:
   - linkId: "112621"
   - linkId: "112622"

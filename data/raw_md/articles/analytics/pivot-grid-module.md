@@ -12,7 +12,6 @@ seealso:
   linkId: https://www.youtube.com/watch?v=xGXfxCXcWB0
   altText: 'DevExpress WinForms Pivot Grid: Getting Started (YouTube)'
 title: Pivot Grid Module
-owner: Vera Ulitina
 ---
 # Pivot Grid Module
 

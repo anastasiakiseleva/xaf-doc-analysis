@@ -3,7 +3,6 @@ uid: "113015"
 seealso:
 - linkId: "113097"
 title: 'Implement a Property Editor Using a DevExpress WinForms Control'
-owner: Ekaterina Kiseleva
 ---
 # Implement a Property Editor Using a DevExpress WinForms Control
 

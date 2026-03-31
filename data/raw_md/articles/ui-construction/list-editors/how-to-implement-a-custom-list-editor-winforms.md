@@ -8,7 +8,6 @@ seealso:
 - linkId: "403258"
 - linkId: DevExpress.ExpressApp.Editors.IComplexListEditor
 title: 'How to: Implement a Custom List Editor (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # How to: Implement a Custom List Editor (WinForms)
 

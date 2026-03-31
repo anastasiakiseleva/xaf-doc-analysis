@@ -1,7 +1,6 @@
 ---
 uid: "403631"
 title: 'Resolve SessionMixingException: "The object that has been passed belongs to another ObjectSpace. (An error with number 1021 has occurred.)"'
-owner: Eugenia Simonova
 ---
 # Resolve SessionMixingException: "The object that has been passed belongs to another ObjectSpace. (An error with number 1021 has occurred.)"
 

@@ -1,7 +1,6 @@
 ---
 uid: "402126"
 title: Customize Data Display and View Layout
-owner: Alexey Kazakov
 seealso: []
 ---
 # Customize Data Display and View Layout

@@ -1,7 +1,6 @@
 ---
 uid: "404405"
 title: Use SQL Data Sources (ASP.NET Core Blazor)
-owner: Anastasiya Kisialeva
 ---
 # Use SQL Data Sources (ASP.NET Core Blazor)
 

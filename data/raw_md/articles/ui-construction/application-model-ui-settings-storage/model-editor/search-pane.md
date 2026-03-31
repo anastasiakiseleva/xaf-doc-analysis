@@ -2,7 +2,6 @@
 uid: "113331"
 seealso: []
 title: Search Pane
-owner: Ekaterina Kiseleva
 ---
 # Search Pane
 

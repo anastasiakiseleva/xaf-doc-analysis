@@ -5,7 +5,6 @@ seealso:
 - linkId: "112696"
 - linkId: "114495"
 title: 'How to: Create a Custom WinForms Standard Template'
-owner: Ekaterina Kiseleva
 ---
 # How to: Create a Custom WinForms Standard Template
 

@@ -2,7 +2,6 @@
 uid: "112841"
 seealso: []
 title: Tree List Editors (Organize Hierarchical Data)
-owner: Ekaterina Kiseleva
 ---
 # Tree List Editors (Organize Hierarchical Data)
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113293"
 - linkId: "113340"
 title: EasyTest Configuration
-owner: Ekaterina Kiseleva
 ---
 # EasyTest Configuration
 

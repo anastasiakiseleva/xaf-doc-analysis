@@ -1,7 +1,6 @@
 ---
 uid: "113528"
 title: String Properties
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: "404597"
   - linkId: "113101"

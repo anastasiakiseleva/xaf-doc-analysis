@@ -1,7 +1,6 @@
 ---
 uid: "404428"
 title: Access Form Layout Control in XAF DetailView and DashboardView
-owner: Anastasiya Kisialeva
 seealso:
 - linkId: "402154"
 - linkId: "402153"

@@ -1,9 +1,9 @@
 ---
 uid: "403870"
 title: 'Manage Button Visibility in a Blazor Lookup Property Editor'
-owner: Yekaterina Kiseleva
 seealso:
 - linkId: "112908"
+- linkId: "405839"
 ---
 # Manage Button Visibility in a Blazor Lookup Property Editor
 

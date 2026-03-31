@@ -1,7 +1,6 @@
 ---
 uid: "403217"
 title: Display a Nested Property Editor in a Detail View
-owner: Anastasiya Kisialeva
 ---
 # Display a Nested Property Editor in a Detail View
 

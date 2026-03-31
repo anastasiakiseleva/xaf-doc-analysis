@@ -1,7 +1,6 @@
 ---
 uid: "404195"
 title: Create a Calculated Property
-owner: Anastasiya Kisialeva
 ---
 
 # Create a Calculated Property

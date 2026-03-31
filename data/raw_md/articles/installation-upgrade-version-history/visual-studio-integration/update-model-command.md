@@ -2,7 +2,6 @@
 uid: "113089"
 seealso: []
 title: Update Model Command
-owner: Vera Ulitina
 ---
 # Update Model Command
 

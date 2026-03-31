@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.XtraPrinting.PrintingSystemBase.ExportOptions
 - linkId: "113287"
 title: 'How to: Customize Export Options of the Printing System'
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize Export Options of the Printing System
 

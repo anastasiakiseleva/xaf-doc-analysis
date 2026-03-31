@@ -2,7 +2,6 @@
 uid: "113595"
 seealso: []
 title: Data Sorting in Reports V2
-owner: Ekaterina Kiseleva
 ---
 # Data Sorting in Reports V2
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113325"
 - linkId: "118557"
 title: Ways to Add a Business Class
-owner: Alexey Kazakov
 ---
 # Ways to Add a Business Class
 

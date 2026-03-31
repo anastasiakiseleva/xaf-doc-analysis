@@ -1,7 +1,6 @@
 ---
 uid: "404700"
 title: "How to: Show a Custom Data-Bound Control in an XAF View (Blazor) - Current Object Data"
-owner: Irina Nikolaeva
 ---
 # How to: Show a Custom Data-Bound Control in an XAF View (Blazor) - Current Object Data
 

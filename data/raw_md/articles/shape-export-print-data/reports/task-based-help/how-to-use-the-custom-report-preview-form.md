@@ -2,7 +2,6 @@
 uid: "113603"
 seealso: []
 title: 'How to: Use the Custom Report Preview Form'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use the Custom Report Preview Form
 

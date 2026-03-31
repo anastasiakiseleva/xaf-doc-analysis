@@ -1,7 +1,6 @@
 ---
 uid: "402958"
 title: Relationships Between Entities in Code and UI (EF Core)
-owner: Anastasiya Kisialeva
 seealso:
   - linkId: "404429"
 ---

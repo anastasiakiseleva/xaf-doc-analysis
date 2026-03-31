@@ -1,7 +1,6 @@
 ---
 uid: "404429"
 title: 'Eager Loading of Reference (Foreign Key, Complex Type) Properties'
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: "402958"
   - linkId: "404292"

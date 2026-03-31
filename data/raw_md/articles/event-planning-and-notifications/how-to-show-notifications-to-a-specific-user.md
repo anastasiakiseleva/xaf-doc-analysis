@@ -2,7 +2,6 @@
 uid: "113696"
 seealso: []
 title: 'How to: Show Notifications to a Specific User'
-owner: Anastasiya Kisialeva
 ---
 # How to: Show Notifications to a Specific User
 

@@ -2,7 +2,6 @@
 uid: "118452"
 seealso: []
 title: DataView Mode
-owner: Ekaterina Kiseleva
 ---
 # DataView Mode
 

@@ -1,7 +1,6 @@
 ---
 uid: "404610"
 title: 'How to: Access the Scheduler Control in Code'
-owner: Anastasiya Kisialeva
 ---
 # How to: Access the Scheduler Control in Code
 

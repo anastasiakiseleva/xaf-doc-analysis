@@ -1,7 +1,6 @@
 ---
 uid: "402992"
 title: 'How to: Supply Initial Data for the Entity Framework Core Data Model'
-owner: Yekaterina Kiseleva
 seealso: []
 ---
 # How to: Supply Initial Data for the Entity Framework Core Data Model

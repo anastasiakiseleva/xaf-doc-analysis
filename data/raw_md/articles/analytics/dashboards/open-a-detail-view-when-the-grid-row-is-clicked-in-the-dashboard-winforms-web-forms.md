@@ -2,7 +2,6 @@
 uid: "118348"
 seealso: []
 title: 'Open a Detail View When the Grid Row is Clicked in the Dashboard (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # Open a Detail View When the Grid Row is Clicked in the Dashboard (WinForms)
 

@@ -2,7 +2,6 @@
 uid: "113327"
 seealso: []
 title: Menu Toolbars
-owner: Ekaterina Kiseleva
 ---
 # Menu Toolbars
 

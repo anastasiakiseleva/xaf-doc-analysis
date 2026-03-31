@@ -3,7 +3,6 @@ uid: "112923"
 seealso:
 - linkId: DevExpress.ExpressApp.Frame.GetController``1
 title: 'How to: Make the FullTextSearch Action Search Within Required Properties'
-owner: Ekaterina Kiseleva
 ---
 # How to: Make the FullTextSearch Action Search Within Required Properties
 

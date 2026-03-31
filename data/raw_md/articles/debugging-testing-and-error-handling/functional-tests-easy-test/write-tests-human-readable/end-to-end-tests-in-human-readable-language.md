@@ -1,7 +1,6 @@
 ---
 uid: "403965"
 title: 'End-to-End Tests in Human Readable Language'
-owner: Alexey Kazakov
 seealso:
 - linkType: HRef
   linkId: 'https://supportcenter.devexpress.com/ticket/details/t844058/easytest-how-to-integrate-xaf-functional-testing-with-continuous-integration-systems'

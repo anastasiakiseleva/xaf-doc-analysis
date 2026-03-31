@@ -2,7 +2,6 @@
 uid: "113316"
 seealso: []
 title: "Application Model: Built-in Node Generators"
-owner: Ekaterina Kiseleva
 ---
 # Application Model: Built-in Node Generators
 

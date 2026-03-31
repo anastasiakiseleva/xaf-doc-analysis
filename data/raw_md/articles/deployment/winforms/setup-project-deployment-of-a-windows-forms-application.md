@@ -4,7 +4,6 @@ seealso:
 - linkId: "113033"
 - linkId: "113238"
 title: Setup Project Deployment of a Windows Forms Application
-owner: Ekaterina Kiseleva
 ---
 # Setup Project Deployment of a Windows Forms Application
 

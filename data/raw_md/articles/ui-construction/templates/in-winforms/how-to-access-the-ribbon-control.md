@@ -2,7 +2,6 @@
 uid: "115214"
 seealso: []
 title: 'How to: Access the Ribbon Control'
-owner: Ekaterina Kiseleva
 ---
 # How to: Access the Ribbon Control
 

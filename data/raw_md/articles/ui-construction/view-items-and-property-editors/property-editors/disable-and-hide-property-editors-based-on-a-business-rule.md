@@ -4,7 +4,6 @@ seealso:
 - linkId: "113286"
 - linkId: "113374"
 title: 'Disable and Hide Property Editors Based on a Business Rule'
-owner: Ekaterina Kiseleva
 ---
 # Disable and Hide Property Editors Based on a Business Rule
 

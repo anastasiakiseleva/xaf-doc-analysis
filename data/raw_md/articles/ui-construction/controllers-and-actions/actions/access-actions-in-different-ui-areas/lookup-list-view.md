@@ -2,7 +2,6 @@
 uid: '400501'
 seealso: []
 title: Lookup List View
-owner: Vera Ulitina
 ---
 # Lookup List View
 

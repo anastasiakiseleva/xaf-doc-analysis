@@ -10,7 +10,6 @@ seealso:
   linkId: https://www.devexpress.com/support/demos/#xaf
   altText: "XAF Online Demos"
 title: Remove .NET Framework (WinForms / ASP.NET Web Forms) & Legacy .NET API
-owner: Anastasiya Kisialeva
 ---
 # Remove .NET Framework (WinForms / ASP.NET Web Forms) & Legacy .NET API
 
@@ -164,7 +163,7 @@ This step creates new tables in your database for users, roles, and permissions 
                     permissionPolicyRole.IsAdministrative = securitySystemRole.IsAdministrative;
                     permissionPolicyRole.CanEditModel = securitySystemRole.CanEditModel;
                     foreach(SecuritySystemTypePermissionObject securitySystemTypePermissionObject in securitySystemRole.TypePermissions) {
-                        CopyTypePermissions(securitySystemTypePermissionObject, securitySystemRole, permissionPolicyRole);
+                        CopyTypePermissions(securitySystemTypePermissionObject, permissionPolicyRole);
                     }
                     foreach(SecuritySystemRole parentRole in securitySystemRole.ParentRoles) {
                         CopyParentRole(parentRole, permissionPolicyRole);
@@ -183,15 +182,16 @@ This step creates new tables in your database for users, roles, and permissions 
                     permissionPolicyRole.IsAdministrative = true;
                 }
                 foreach(SecuritySystemTypePermissionObject securitySystemTypePermissionObject in parentRole.TypePermissions) {
-                    CopyTypePermissions(securitySystemTypePermissionObject, parentRole, permissionPolicyRole);
+                    CopyTypePermissions(securitySystemTypePermissionObject, permissionPolicyRole);
                 }
                 foreach(SecuritySystemRole subParentRole in parentRole.ParentRoles) {
                     CopyParentRole(subParentRole, permissionPolicyRole);
                 }
             }
-            private void CopyTypePermissions(SecuritySystemTypePermissionObject securitySystemTypePermissionObject, SecuritySystemRole securitySystemRole, PermissionPolicyRole permissionPolicyRole) {
+            private void CopyTypePermissions(SecuritySystemTypePermissionObject securitySystemTypePermissionObject, PermissionPolicyRole permissionPolicyRole) {
                 PermissionPolicyTypePermissionObject permissionPolicyTypePermissionObject = ObjectSpace.FindObject<PermissionPolicyTypePermissionObject>(new BinaryOperator("TargetType", securitySystemTypePermissionObject.TargetType));
-                permissionPolicyTypePermissionObject = ObjectSpace.CreateObject<PermissionPolicyTypePermissionObject>();
+                if(permissionPolicyTypePermissionObject == null) {
+                    permissionPolicyTypePermissionObject = ObjectSpace.CreateObject<PermissionPolicyTypePermissionObject>();
                 permissionPolicyTypePermissionObject.TargetType = GetTargetType(securitySystemTypePermissionObject.TargetType);
                 permissionPolicyTypePermissionObject.Role = permissionPolicyRole;
                 if(securitySystemTypePermissionObject.AllowRead) {
@@ -284,7 +284,7 @@ update PermissionPolicyUser
 set StoredPassword = (select StoredPassword from SecuritySystemUser where SecuritySystemUser.UserName = PermissionPolicyUser.UserName)
 ```
 
-Instead of copying passwords, you can generate new passwords for users. Refer to the following section for more information: [Update Legacy SHA-512-Hashed User Passwords](#update-legacy-sha-512-hashed-user-passwords).
+Instead of copying passwords, you can generate new passwords for users. Refer to the following section for more information: [Update Legacy User Passwords](#update-legacy-user-passwords).
 
 #### Step 3. Check Results and Remove Unnecessary Code
 
@@ -364,14 +364,14 @@ Follow these steps to update APIs manually:
 
 1. Check that your project compiles and runs.
 
-### Update Legacy SHA-512-Hashed User Passwords
+### Update Legacy User Passwords
 
-We have disabled support for the SHA-512 password hashing algorithm.
+We have disabled support for [legacy password hashing algorithm](https://supportcenter.devexpress.com/ticket/details/bc4063/xaf-s-security-module-uses-more-secure-and-fips-compliant-password-generation-algorithms) (`LegacySha512`) used in applications created before v17.1. XAF applications now use the @System.Security.Cryptography.Rfc2898DeriveBytes API, which implements more secure, [FIPS](https://en.wikipedia.org/wiki/Federal_Information_Processing_Standards)-compliant algorithms.
 
 > [!important]
-> If your application uses SHA-512, you must update old passwords before you upgrade the project to v25.2.
+> If your application uses legacy password hashing algorithm, you must update old passwords before you upgrade the project to v25.2.
 
-Your application likely uses SHA-512 if any of the following conditions apply:
+Your application likely uses legacy algorithm if any of the following conditions apply:
 
 - The @DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode property is set to `v20_1`.
 - The `PasswordCryptographer.SupportLegacySha512` property is set to `true`.
@@ -388,7 +388,7 @@ You can update outdated passwords in the following ways:
 
 #### Require Users to Update Outdated Passwords on Next Login
 
-These steps force users with SHA-512-hashed passwords to change their passwords when they log in.
+These steps force users with outdated passwords to change their passwords when they log in.
 
 1. Add the following code to the `Main` method in your project's _Program.cs_ file to enable both password hashing algorithms:
 
@@ -421,7 +421,7 @@ These steps force users with SHA-512-hashed passwords to change their passwords 
     }
     ```
 
-    You can run a similar SQL query directly on your database. For example, the following code activates the `ChangePasswordOnFirstLogon` property for users with SHA-512 passwords in a Microsoft SQL Server table:
+    You can run a similar SQL query directly on your database. For example, the following code activates the `ChangePasswordOnFirstLogon` property for users with outdated passwords in a Microsoft SQL Server table:
 
     ```sql
     update [PermissionPolicyUser]
@@ -435,7 +435,7 @@ These steps force users with SHA-512-hashed passwords to change their passwords 
 
 #### Update Outdated Passwords to Administrator-Generated Passwords
 
-These steps set new administrator-generated passwords for users with SHA-512-hashed passwords. In this case, you do not need to wait until all users update their passwords before upgrading your project.
+These steps set new administrator-generated passwords for users with outdated passwords. In this case, you do not need to wait until all users update their passwords before upgrading your project.
 
 The application saves the list of users and their new passwords in a text file. The administrator must inform users about their new passwords. Users must change the auto-generated password on their next login.
 

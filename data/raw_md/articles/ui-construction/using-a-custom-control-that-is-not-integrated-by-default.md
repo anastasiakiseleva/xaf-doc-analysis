@@ -2,7 +2,6 @@
 uid: "113610"
 seealso: []
 title: "How to: Include a Custom UI Control That Is Not Integrated by Default (WinForms and ASP.NET Core Blazor)"
-owner: Ekaterina Kiseleva
 ---
 # How to: Include a Custom UI Control That Is Not Integrated by Default (WinForms and ASP.NET Core Blazor)
 

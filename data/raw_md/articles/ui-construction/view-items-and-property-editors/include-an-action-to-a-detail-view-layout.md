@@ -8,7 +8,6 @@ seealso:
 - linkId: "17574"
 - linkId: "404701"
 title: 'How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Built-in ActionContainerViewItem)'
-owner: Ekaterina Kiseleva
 ---
 # How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Built-in ActionContainerViewItem)
 

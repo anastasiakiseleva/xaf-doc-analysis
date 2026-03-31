@@ -1,7 +1,6 @@
 ---
 uid: "402129"
 title: Define the Data Model and Set Initial Data
-owner: Alexey Kazakov
 seealso:
   - linkId: "402971"
 ---

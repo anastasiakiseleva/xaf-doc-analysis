@@ -1,7 +1,6 @@
 ---
 uid: "404199"
 title: Rename and Rearrange Navigation Items
-owner: Anastasiya Kisialeva
 ---
 # Rename and Rearrange Navigation Items
 

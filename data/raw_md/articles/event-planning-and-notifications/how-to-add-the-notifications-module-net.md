@@ -1,7 +1,6 @@
 ---
 uid: "404940"
 title: How to Add the Notifications Module
-owner: Anastasiya Kisialeva
 ---
 # How to Add the Notifications Module
 

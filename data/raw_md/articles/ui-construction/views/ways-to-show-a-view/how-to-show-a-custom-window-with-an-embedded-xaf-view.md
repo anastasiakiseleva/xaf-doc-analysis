@@ -5,7 +5,6 @@ seealso:
 - linkId: "114159"
 - linkId: "118240"
 title: 'How to: Show a Custom Window with an Embedded XAF View'
-owner: Ekaterina Kiseleva
 ---
 # How to: Show a Custom Window with an Embedded XAF View
 

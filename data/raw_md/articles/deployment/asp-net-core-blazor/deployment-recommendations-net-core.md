@@ -1,7 +1,6 @@
 ---
 uid: "403362"
 title: 'Deployment Recommendations for XAF ASP.NET Core Applications (Blazor Server, Middle Tier Server, or Web API Service)'
-owner: Alexey Kazakov
 ---
 # Deployment Recommendations for XAF ASP.NET Core Applications (Blazor Server, Middle Tier Server, or Web API Service)
 

@@ -5,7 +5,6 @@ seealso:
 - linkId: "118222"
 - linkId: "118165"
 title: Ways to Show a Confirmation Dialog
-owner: Ekaterina Kiseleva
 ---
 # Ways to Show a Confirmation Dialog
 

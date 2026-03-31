@@ -1,7 +1,6 @@
 ---
 uid: "404210"
 title: 'How to: Enable Row Preview Sections in a Grid List Editor'
-owner: Anastasiya Kisialeva
 ---
 # How to: Enable Row Preview Sections in a Grid List Editor
 

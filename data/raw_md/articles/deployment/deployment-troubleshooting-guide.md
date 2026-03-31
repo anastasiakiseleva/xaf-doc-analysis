@@ -4,7 +4,6 @@ seealso:
 - linkId: "112691"
 - linkId: "402148"
 title: Deployment Troubleshooting Guide
-owner: Ekaterina Kiseleva
 ---
 # Deployment Troubleshooting Guide
 

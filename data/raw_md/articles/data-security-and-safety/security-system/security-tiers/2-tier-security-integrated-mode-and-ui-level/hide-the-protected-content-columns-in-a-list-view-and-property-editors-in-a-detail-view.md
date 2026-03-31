@@ -2,7 +2,6 @@
 uid: "114008"
 seealso: []
 title: "Hide the Protected Content Columns in a List View and Property Editors in a Detail View"
-owner: Ekaterina Kiseleva
 ---
 # Hide the Protected Content Columns in a List View and Property Editors in a Detail View
 

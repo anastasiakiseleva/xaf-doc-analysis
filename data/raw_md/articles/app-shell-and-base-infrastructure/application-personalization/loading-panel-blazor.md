@@ -1,7 +1,6 @@
 ---
 uid: "404738"
 title: Loading Panels / Splash Forms (ASP.NET Core Blazor)
-owner: Irina Nikolaeva
 seealso:
   - linkId: '112680'
 ---

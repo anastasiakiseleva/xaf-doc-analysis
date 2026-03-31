@@ -2,7 +2,6 @@
 uid: '400499'
 seealso: []
 title: Navigation
-owner: Vera Ulitina
 ---
 # Navigation
 

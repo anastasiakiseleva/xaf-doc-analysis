@@ -2,7 +2,6 @@
 uid: "118741"
 seealso: []
 title: 'Execute Direct SQL Queries in Integrated Mode and with XPO Middle Tier Security'
-owner: Ekaterina Kiseleva
 ---
 
 # Execute Direct SQL Queries in Integrated Mode and with XPO Middle Tier Security

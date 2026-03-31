@@ -2,7 +2,6 @@
 uid: "112818"
 seealso: []
 title: Determine Why an Action, Controller or Editor is Inactive
-owner: Ekaterina Kiseleva
 ---
 # Determine Why an Action, Controller or Editor is Inactive
 

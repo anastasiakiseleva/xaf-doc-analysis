@@ -2,7 +2,6 @@
 uid: "113577"
 seealso: []
 title: Getting Started
-owner: Ekaterina Kiseleva
 ---
 # Getting Started
 

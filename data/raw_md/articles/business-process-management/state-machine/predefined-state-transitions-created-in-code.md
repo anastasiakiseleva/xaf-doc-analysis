@@ -2,7 +2,6 @@
 uid: "113715"
 seealso: []
 title: Predefined State Transitions Created in Code
-owner: Ekaterina Kiseleva
 ---
 # Predefined State Transitions Created in Code
 

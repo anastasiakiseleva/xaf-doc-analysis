@@ -1,7 +1,6 @@
 ---
 uid: "113472"
 title: 'Add a Security Operation that Can be Permitted or Denied for a Specific Type'
-owner: Ekaterina Kiseleva
 ---
 # Add a Security Operation that Can be Permitted or Denied for a Specific Type
 

@@ -2,7 +2,6 @@
 uid: "113119"
 seealso: []
 title: Windows Forms Application Creation and Initialization
-owner: Ekaterina Kiseleva
 ---
 # Windows Forms Application Creation and Initialization
 

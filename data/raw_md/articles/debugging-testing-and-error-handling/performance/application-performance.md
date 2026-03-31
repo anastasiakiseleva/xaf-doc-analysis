@@ -1,7 +1,6 @@
 ---
 uid: "402150"
 title: Application Code Performance
-owner: Alexey Kazakov
 seealso: []
 ---
 # Application Code Performance

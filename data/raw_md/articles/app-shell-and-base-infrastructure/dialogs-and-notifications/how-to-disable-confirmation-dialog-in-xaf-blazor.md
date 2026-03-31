@@ -1,7 +1,6 @@
 ---
 uid: "404550"
 title: 'How to: Disable a Confirmation Dialog in an ASP.NET Core Blazor Application'
-owner: Anastasiya Kisialeva
 seealso:
 - linkId: "DevExpress.ExpressApp.Blazor.SystemModule.IModelActionBlazor.ConfirmUnsavedChanges"
 ---

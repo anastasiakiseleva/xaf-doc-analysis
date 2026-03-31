@@ -2,7 +2,6 @@
 uid: "113124"
 seealso: []
 title: User Authentication Without a Logon Window in Windows Forms Applications
-owner: Ekaterina Kiseleva
 ---
 # User Authentication Without a Logon Window in Windows Forms Applications
 

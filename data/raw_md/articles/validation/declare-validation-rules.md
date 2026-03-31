@@ -3,7 +3,6 @@ uid: "113251"
 seealso:
 - linkId: "113217"
 title: Declare Validation Rules
-owner: Ekaterina Kiseleva
 ---
 # Declare Validation Rules
 

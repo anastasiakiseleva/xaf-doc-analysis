@@ -1,7 +1,6 @@
 ---
 uid: "402149"
 title: Database Performance
-owner: Alexey Kazakov
 seealso:
   - linkId: "403402"
 ---

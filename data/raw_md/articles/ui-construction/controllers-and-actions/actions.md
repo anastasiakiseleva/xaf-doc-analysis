@@ -2,7 +2,6 @@
 uid: "112622"
 seealso: []
 title: Actions (Menu Commands)
-owner: Vera Ulitina
 ---
 # Actions (Menu Commands)
 

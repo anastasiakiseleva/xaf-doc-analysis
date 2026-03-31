@@ -2,7 +2,6 @@
 uid: "113607"
 seealso: []
 title: 'How to: Specify the Default Name for User-Defined Reports'
-owner: Ekaterina Kiseleva
 ---
 # How to: Specify the Default Name for User-Defined Reports
 

@@ -3,7 +3,6 @@ uid: "113173"
 seealso:
 - linkId: DevExpress.ExpressApp.Xpo.CalculatedPersistentAliasAttribute
 title: 'Change the Format Used for the FullAddress and FullName Properties'
-owner: Ekaterina Kiseleva
 ---
 # Change the Format Used for the FullAddress and FullName Properties
 

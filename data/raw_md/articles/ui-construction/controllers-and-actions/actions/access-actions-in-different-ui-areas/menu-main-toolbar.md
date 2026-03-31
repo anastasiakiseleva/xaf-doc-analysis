@@ -2,7 +2,6 @@
 uid: '400496'
 seealso: []
 title: "Menu: Main Toolbar"
-owner: Vera Ulitina
 ---
 # Menu: Main Toolbar
 

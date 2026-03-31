@@ -5,7 +5,6 @@ seealso:
 - linkId: "113204"
 - linkId: "403100"
 title: 'How to: Implement Cascading Filtering for Lookup List Views'
-owner: Ekaterina Kiseleva
 ---
 # How to: Implement Cascading Filtering for Lookup List Views
 

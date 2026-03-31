@@ -3,7 +3,6 @@ uid: "113563"
 seealso: 
 - linkId: "403100"
 title: 'Display an Integer Property as an Enumeration (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # Display an Integer Property as an Enumeration (WinForms)
 

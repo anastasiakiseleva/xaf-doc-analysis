@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.Actions.ActionBase.Available
 name: Available
 type: Property
-summary: ''
+summary: Identifies whether the Action is enabled and active.
 syntax:
   content: |-
     [Browsable(false)]
@@ -10,6 +10,7 @@ syntax:
   parameters: []
   return:
     type: System.Boolean
-    description: ''
+    description: '`true` if the Action is enabled and active; otherwise, `false`'
 seealso: []
 ---
+Action availability is determined by the @DevExpress.ExpressApp.Actions.ActionBase.Active and @DevExpress.ExpressApp.Actions.ActionBase.Enabled properties.

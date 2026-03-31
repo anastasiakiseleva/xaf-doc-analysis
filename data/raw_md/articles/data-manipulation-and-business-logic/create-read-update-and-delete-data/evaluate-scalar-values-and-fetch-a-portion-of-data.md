@@ -1,7 +1,6 @@
 ---
 uid: "403620"
 title: Evaluate Scalar Values and Fetch a Portion of Data
-owner: Dmitry Egorov
 ---
 # Evaluate Scalar Values and Fetch a Portion of Data
 

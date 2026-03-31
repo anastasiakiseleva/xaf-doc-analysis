@@ -2,7 +2,6 @@
 uid: "113306"
 seealso: []
 title: Localization Tool
-owner: Ekaterina Kiseleva
 ---
 # Localization Tool
 

@@ -5,7 +5,6 @@ seealso:
   linkId: https://community.devexpress.com/blogs/news/archive/2023/04/17/consume-the-devexpress-backend-web-api-from-javascript-with-svelte-part-2-model-info.aspx?utm_source=DevExpress&utm_medium=Blog&utm_id=XAF&utm_term=part4&utm_content=oliver-apr2022
   altText: Consume the DevExpress Backend Web API from JavaScript with Svelte (Part 2. Manage Localization and UI Settings)
 title: 'Obtain Localization Strings from a Web API Controller Endpoint'
-owner: Alexey Kazakov
 ---
 # Obtain Localization Strings from a Web API Controller Endpoint
 

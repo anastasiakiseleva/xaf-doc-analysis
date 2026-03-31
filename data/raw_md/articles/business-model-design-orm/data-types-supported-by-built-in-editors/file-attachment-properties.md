@@ -3,7 +3,6 @@ uid: "113548"
 seealso:
 - linkId: "402188"
 title: File Attachment Properties
-owner: Ekaterina Kiseleva
 ---
 # File Attachment Properties
 

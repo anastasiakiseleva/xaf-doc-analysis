@@ -4,7 +4,6 @@ seealso:
 - linkId: "403104"
 - linkId: "403111"
 title: 'Extend the Functionality of an Application With EF Core Middle Tier Security'
-owner: Eugeniy Burmistrov
 ---
 
 # Extend the Functionality of an Application With EF Core Middle Tier Security

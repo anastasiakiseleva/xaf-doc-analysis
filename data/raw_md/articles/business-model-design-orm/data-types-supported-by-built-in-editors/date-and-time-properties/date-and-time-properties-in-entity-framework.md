@@ -1,7 +1,6 @@
 ---
 uid: "113538"
 title: Date and Time Properties in EF Core
-owner: Anastasiya Kisialeva
 seealso:  
 - linkId: "117395"
 ---

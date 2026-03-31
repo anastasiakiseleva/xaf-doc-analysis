@@ -1,7 +1,6 @@
 ---
 uid: "403618"
 title: Save Objects to Database
-owner: Dmitry Egorov
 ---
 # Save Objects to Database
 

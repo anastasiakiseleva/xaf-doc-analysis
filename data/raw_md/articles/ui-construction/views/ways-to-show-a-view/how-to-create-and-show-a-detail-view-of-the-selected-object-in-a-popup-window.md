@@ -3,7 +3,6 @@ uid: "118760"
 seealso:
 - linkId: "112803"
 title: 'How to: Create and Show a Detail View of the Selected Object in a Popup Window (ASP.NET Core Blazor)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Create and Show a Detail View of the Selected Object in a Popup Window (ASP.NET Core Blazor)
 

@@ -2,7 +2,6 @@
 uid: "113602"
 seealso: []
 title: In-Place Reports
-owner: Ekaterina Kiseleva
 ---
 # In-Place Reports
 

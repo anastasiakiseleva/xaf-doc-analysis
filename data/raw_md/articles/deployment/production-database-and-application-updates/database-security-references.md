@@ -4,7 +4,6 @@ seealso:
 - linkId: "113238"
 - linkId: "113236"
 title: Database Security References
-owner: Ekaterina Kiseleva
 ---
 # Database Security References
 

@@ -1,7 +1,6 @@
 ---
 uid: '401750'
 title: 'How to: Customize Asynchronous Data Loading Behavior and UI (Windows Forms)'
-owner: Yekaterina Kiseleva
 ---
 # How to: Customize Asynchronous Data Loading Behavior and UI (Windows Forms)
 

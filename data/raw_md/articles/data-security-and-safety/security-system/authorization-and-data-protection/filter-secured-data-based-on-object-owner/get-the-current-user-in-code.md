@@ -3,7 +3,6 @@ uid: "113152"
 seealso:
 - linkId: "113436"
 title: 'Access the Currently Logged User for Data Filtering, Business Logic, and Security Permissions'
-owner: Eugeniy Burmistrov
 ---
 
 # Access the Currently Logged User for Data Filtering, Business Logic, and Security Permissions

@@ -1,7 +1,6 @@
 ---
 uid: "403100"
 title: 'Display and Edit Simple Type Values in a Lookup Property Editor'
-owner: Dmitry Egorov
 seealso: []
 ---
 # Display and Edit Simple Type Values in a Lookup Property Editor

@@ -1,7 +1,6 @@
 ---
 uid: '400894'
 title: 'Access the Spreadsheet Editor Controls'
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '401211'
 ---

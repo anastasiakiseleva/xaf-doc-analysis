@@ -2,7 +2,6 @@
 uid: "112691"
 seealso: []
 title: Deployment
-owner: Ekaterina Kiseleva
 ---
 # Deployment
 

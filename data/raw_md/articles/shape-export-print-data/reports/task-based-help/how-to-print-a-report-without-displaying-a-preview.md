@@ -4,7 +4,6 @@ seealso:
 - linkId: "113703"
 - linkId: "114515"
 title: 'How to: Print a Report Without Displaying a Preview'
-owner: Ekaterina Kiseleva
 ---
 
 # How to: Print a Report Without Displaying a Preview

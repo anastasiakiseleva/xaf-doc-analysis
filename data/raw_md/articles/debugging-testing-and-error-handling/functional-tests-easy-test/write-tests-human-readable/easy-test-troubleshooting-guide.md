@@ -2,7 +2,6 @@
 uid: "113293"
 seealso: []
 title: EasyTest Troubleshooting Guide
-owner: Ekaterina Kiseleva
 ---
 # EasyTest Troubleshooting Guide
 

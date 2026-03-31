@@ -1,7 +1,6 @@
 ---
 uid: "402077"
 title: 'Add Custom Data to the Audit Log'
-owner: Yekaterina Kiseleva
 ---
 # Add Custom Data to the Audit Log
 Object changes are stored as `AuditDataItem` objects (see [Audit Trail Module Overview](xref:112782)). You can add custom data (information on events that are not audited) to the audit log directly by adding an `AuditDataItem` object to the Audit Data Items collection. The following code snippet demonstrates this scenario:

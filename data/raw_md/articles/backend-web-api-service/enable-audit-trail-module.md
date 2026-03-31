@@ -1,7 +1,6 @@
 ---
 uid: "404262"
 title: "Audit Trail: Log Data Changes Made via Web API Endpoints"
-owner: Vladimir Abadzhev
 ---
 # Audit Trail: Log Data Changes Made via Web API Endpoints
 

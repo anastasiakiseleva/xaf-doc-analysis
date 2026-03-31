@@ -7,3 +7,4 @@ syntax:
   content: public enum FrameworkSettingsCompatibilityMode
 seealso: []
 ---
+Feature toggles used in versions up to v25.1 are no longer supported in v26.1. For additional details, refer to the following breaking change article: [XAF — Deprecated feature flags have been removed from our distribution](https://supportcenter.devexpress.com/ticket/details/t1323140/xaf-deprecated-feature-flags-have-been-removed-from-our-distribution).

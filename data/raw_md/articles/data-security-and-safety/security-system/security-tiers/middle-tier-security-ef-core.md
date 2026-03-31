@@ -6,7 +6,6 @@ seealso:
 - linkId: "404391"
 - linkId: "404398"
 title: Middle Tier Security with EF Core
-owner: Eugeniy Burmistrov
 ---
 
 # Middle Tier Security with EF Core

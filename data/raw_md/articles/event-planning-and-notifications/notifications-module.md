@@ -2,7 +2,6 @@
 uid: "113688"
 seealso: []
 title: Notifications (Remind about Tasks)
-owner: Ekaterina Kiseleva
 ---
 # Notifications (Remind about Tasks)
 

@@ -1,7 +1,6 @@
 ---
 uid: "405330"
 title: 'Version History'
-owner: Irina Nikolaeva
 ---
 # Version History
 

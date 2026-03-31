@@ -1,7 +1,6 @@
 ---
 uid: "404430"
 title: Register Services in the Dependency Injection Container
-owner: Anastasiya Kisialeva
 seealso:
   - linkId: '405025'
 ---

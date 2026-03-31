@@ -1,7 +1,6 @@
 ---
 uid: "402983"
 title: Configure a Many-to-Many Relationship
-owner: Alexey Kazakov
 seealso:
   - linkId: "112701"
   - linkId: "112654"

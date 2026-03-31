@@ -3,7 +3,6 @@ uid: "112839"
 seealso:
 - linkId: "404214"
 title: Display a Tree List using the HCategory Class
-owner: Ekaterina Kiseleva
 ---
 # Display a Tree List using the HCategory Class
 

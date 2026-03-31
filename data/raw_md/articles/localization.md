@@ -2,7 +2,6 @@
 uid: "113298"
 seealso: []
 title: Localization
-owner: Ekaterina Kiseleva
 ---
 # Localization
 

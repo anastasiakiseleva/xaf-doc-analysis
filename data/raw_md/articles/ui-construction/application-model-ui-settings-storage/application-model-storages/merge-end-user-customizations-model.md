@@ -2,7 +2,6 @@
 uid: "113335"
 seealso: []
 title: 'Merge End-User Settings of a WinForms App from Development to Production Environment'
-owner: Ekaterina Kiseleva
 ---
 # Merge End-User Settings of a WinForms App from Development to Production Environment
 

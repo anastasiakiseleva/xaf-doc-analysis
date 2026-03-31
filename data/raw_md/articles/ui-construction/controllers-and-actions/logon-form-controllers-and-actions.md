@@ -2,7 +2,6 @@
 uid: "113475"
 seealso: []
 title: Logon Form Controllers and Actions
-owner: Ekaterina Kiseleva
 ---
 # Logon Form Controllers and Actions
 

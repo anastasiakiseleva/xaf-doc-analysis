@@ -1,7 +1,6 @@
 ---
 uid: "403358"
 title: 'Assign an Image to a User'
-owner: Yekaterina Kiseleva
 ---
 # Assign an Image to a User
 

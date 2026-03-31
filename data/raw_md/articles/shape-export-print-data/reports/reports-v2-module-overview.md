@@ -2,7 +2,6 @@
 uid: "113591"
 seealso: []
 title: Reports V2 Module
-owner: Ekaterina Kiseleva
 ---
 # Reports V2 Module
 

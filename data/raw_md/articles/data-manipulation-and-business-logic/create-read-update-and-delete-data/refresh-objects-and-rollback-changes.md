@@ -1,7 +1,6 @@
 ---
 uid: "403622"
 title: Refresh Objects and Rollback Changes
-owner: Dmitry Egorov
 seealso:
   - linkId: "403905"
 ---

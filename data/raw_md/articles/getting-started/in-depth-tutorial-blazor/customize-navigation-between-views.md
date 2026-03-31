@@ -1,7 +1,6 @@
 ---
 uid: "404197"
 title: Customize Navigation Between Views
-owner: Anastasiya Kisialeva
 ---
 # Customize Navigation Between Views
 

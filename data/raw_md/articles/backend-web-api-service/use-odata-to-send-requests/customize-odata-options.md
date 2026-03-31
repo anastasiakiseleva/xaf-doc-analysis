@@ -1,7 +1,6 @@
 ---
 uid: "403719"
 title: 'Change the Entity Data Model Structure Exposed in OData'
-owner: Eugeniy Burmistrov
 ---
 
 # Change the Entity Data Model Structure Exposed in OData

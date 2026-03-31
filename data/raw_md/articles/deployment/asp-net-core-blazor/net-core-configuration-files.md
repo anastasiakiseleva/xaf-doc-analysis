@@ -1,7 +1,6 @@
 ---
 uid: "404707"
 title: ASP.NET Core Blazor Server and Web API Service Configuration Files
-owner: Irina Nikolaeva
 ---
 # ASP.NET Core Blazor Server and Web API Service Configuration Files
 

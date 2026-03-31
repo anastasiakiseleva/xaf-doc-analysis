@@ -1,7 +1,6 @@
 ---
 uid: "403288"
 title: 'Attach Files to Objects'
-owner: Eugenia Simonova
 ---
 # Attach Files to Objects
 

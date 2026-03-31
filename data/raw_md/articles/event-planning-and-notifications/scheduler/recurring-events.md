@@ -3,7 +3,6 @@ uid: "113128"
 seealso:
 - linkId: "113178"
 title: Recurring Events
-owner: Ekaterina Kiseleva
 ---
 # Recurring Events
 

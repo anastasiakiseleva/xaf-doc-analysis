@@ -2,7 +2,6 @@
 uid: "113684"
 seealso: []
 title: Validation (Prevent Data Errors)
-owner: Ekaterina Kiseleva
 ---
 # Validation (Prevent Data Errors)
 

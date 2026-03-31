@@ -3,7 +3,6 @@ uid: "112991"
 seealso:
 - linkId: "112809"
 title: ListViewFilter Attribute
-owner: Ekaterina Kiseleva
 ---
 # ListViewFilter Attribute
 

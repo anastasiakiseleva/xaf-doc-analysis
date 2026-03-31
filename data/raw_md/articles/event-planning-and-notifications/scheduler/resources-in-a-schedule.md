@@ -2,7 +2,6 @@
 uid: "112813"
 seealso: []
 title: Resources in a Schedule
-owner: Ekaterina Kiseleva
 ---
 # Resources in a Schedule
 

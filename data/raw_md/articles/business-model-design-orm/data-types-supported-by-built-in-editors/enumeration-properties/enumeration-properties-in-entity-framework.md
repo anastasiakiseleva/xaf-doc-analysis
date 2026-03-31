@@ -4,7 +4,6 @@ seealso:
 - linkId: "113563" 
 - linkId: "117395"
 title: Enumeration Properties in EF Core
-owner: Ekaterina Kiseleva
 ---
 # Enumeration Properties in EF Core
 

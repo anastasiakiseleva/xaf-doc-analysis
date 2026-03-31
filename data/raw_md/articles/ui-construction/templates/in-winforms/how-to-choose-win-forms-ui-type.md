@@ -1,7 +1,6 @@
 ---
 uid: "404211"
 title: 'How to: Change View Display Mode from Tabbed MDI to Single Window (SDI)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Change View Display Mode from Tabbed MDI to Single Window (SDI)
 

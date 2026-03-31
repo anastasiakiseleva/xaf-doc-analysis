@@ -1,7 +1,6 @@
 ---
 uid: "402260"
 title: 'How to: Access the Report Preview Control (ASP.NET Core Blazor)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Access the Report Preview Control (ASP.NET Core Blazor)
 

@@ -1,7 +1,6 @@
 ---
 uid: "404698"
 title: "How to: Show a Custom Data-Bound Control in an XAF View (Blazor) - External Data"
-owner: Irina Nikolaeva
 ---
 # How to: Show a Custom Data-Bound Control in an XAF View (Blazor) - External Data
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "404264"
 - linkId: "113472"
 title: 'Implement Custom Security Objects (Users, Roles, Operation Permissions)'
-owner: Eugeniy Burmistrov
 ---
 
 # Implement Custom Security Objects (Users, Roles, Operation Permissions)

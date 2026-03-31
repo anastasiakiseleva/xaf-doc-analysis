@@ -3,7 +3,6 @@ uid: "113016"
 seealso:
 - linkId: "112676"
 title: Built-in Controllers and Actions
-owner: Ekaterina Kiseleva
 ---
 # Built-in Controllers and Actions
 

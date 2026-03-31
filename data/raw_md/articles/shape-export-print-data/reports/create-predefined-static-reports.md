@@ -2,7 +2,6 @@
 uid: "113645"
 seealso: []
 title: Create Predefined Static Reports
-owner: Ekaterina Kiseleva
 ---
 # Create Predefined Static Reports
 

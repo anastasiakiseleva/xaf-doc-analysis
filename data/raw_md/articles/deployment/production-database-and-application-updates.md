@@ -100,7 +100,7 @@ Ensure that applications on end-user workstations and the new application you wa
 	
 4. Copy WinForms application folder contents from the end-user workstation to the _MySolutionUpdateSource_ shared folder.  
 The UNC path to the application executable should be "_\\FILESERVER\MySolutionUpdateSource\MySolition.Win.exe_".
-5. Copy the _[!include[PathToXafTools](~/templates/path-to-xaf-tools.md)]\Application Updater\DevExpress.ExpressApp.Updater.exe_ file from the developer workstation to the _MySolutionUpdateSource_ shared folder.   
+5. Copy the _%PROGRAMFILES%\DevExpress <:xx.x:>\Components\Tools\eXpressAppFrameworkNetCore\Application Updater\DevExpress.ExpressApp.Updater.exe_ file from the developer workstation to the _MySolutionUpdateSource_ shared folder.   
 The UNC path to this file should be "_\\FILESERVER\MySolutionUpdateSource\DevExpress.ExpressApp.Updater.exe_".
 6. When you run the WinForms application at an end-user workstation that was not updated, the following Updater progress bar is shown:
 	

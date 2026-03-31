@@ -2,7 +2,6 @@
 uid: "112993"
 seealso: []
 title: Adjust Data Sources for Reference and Collection Properties
-owner: Ekaterina Kiseleva
 ---
 # Adjust Data Sources for Reference and Collection Properties
 

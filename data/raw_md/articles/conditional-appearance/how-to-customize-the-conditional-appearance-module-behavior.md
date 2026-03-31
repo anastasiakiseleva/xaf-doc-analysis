@@ -3,7 +3,6 @@ uid: "113374"
 seealso:
 - linkId: DevExpress.ExpressApp.ConditionalAppearance.AppearanceObject
 title: 'How to: Customize the Conditional Appearance Module Behavior'
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize the Conditional Appearance Module Behavior
 

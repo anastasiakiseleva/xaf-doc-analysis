@@ -1,7 +1,6 @@
 ---
 uid: '400836'
 title: 'Localize a Splash Form (WinForms)'
-owner: Vera Ulitina
 ---
 # Localize a Splash Form (WinForms)
 

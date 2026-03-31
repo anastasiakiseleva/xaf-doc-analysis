@@ -2,7 +2,6 @@
 uid: "112704"
 seealso: []
 title: Error Handling in ASP.NET Core Blazor
-owner: Ekaterina Kiseleva
 ---
 # Error Handling in ASP.NET Core Blazor
 

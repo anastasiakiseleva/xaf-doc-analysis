@@ -1,7 +1,6 @@
 ---
 uid: "402154"
 title: "How to: Access the Grid Component in a List View"
-owner: Alexey Kazakov
 seealso:
   - linkId: "112621"
   - linkId: "113189"

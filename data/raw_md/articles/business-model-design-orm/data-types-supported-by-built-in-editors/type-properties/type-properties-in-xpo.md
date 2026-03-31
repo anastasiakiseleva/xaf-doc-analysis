@@ -2,7 +2,6 @@
 uid: "113580"
 seealso: []
 title: Type Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Type Properties in XPO
 

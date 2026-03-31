@@ -1,7 +1,6 @@
 ---
 uid: "402081"
 title: 'Customize the Data Storing Mechanism'
-owner: Yekaterina Kiseleva
 ---
 
 # Customize the Data Storing Mechanism

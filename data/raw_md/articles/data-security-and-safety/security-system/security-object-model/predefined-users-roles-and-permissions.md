@@ -1,7 +1,6 @@
 ---
 uid: "119065"
 title: Create Predefined Users, Roles and Permissions in the Database
-owner: Ekaterina Kiseleva
 seealso:
   - linkType: HRef
     linkId: https://supportcenter.devexpress.com/ticket/details/t868197/xaf-generate-database-updater-code-for-security-roles-created-in-application-ui-in

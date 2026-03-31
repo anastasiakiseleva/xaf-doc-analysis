@@ -3,7 +3,6 @@ uid: "113691"
 seealso:
 - linkId: "113690"
 title: Notifications Localization
-owner: Anastasiya Kisialeva
 ---
 # Notifications Localization
 

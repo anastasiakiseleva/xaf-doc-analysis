@@ -1,7 +1,6 @@
 ---
 uid: "403731"
 title: 'Customize ShowViewParameters for Built-in Simple Actions'
-owner: Alexey Kazakov
 ---
 # Customize ShowViewParameters for Built-in Simple Actions
 

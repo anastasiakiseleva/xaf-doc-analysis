@@ -1,7 +1,6 @@
 ---
 uid: "402985"
 title: Supply Initial Data
-owner: Alexey Kazakov
 seealso: []
 ---
 # Supply Initial Data

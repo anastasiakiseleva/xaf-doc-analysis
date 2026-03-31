@@ -1,7 +1,6 @@
 ---
 uid: "404752"
 title: Active Directory and OAuth2 Authentication Providers in WinForms Applications
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: '402197'
 ---

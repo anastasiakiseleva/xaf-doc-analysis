@@ -2,7 +2,6 @@
 uid: '400494'
 seealso: []
 title: Access Actions in Different UI Areas
-owner: Vera Ulitina
 ---
 # Access Actions in Different UI Areas
 

@@ -2,7 +2,6 @@
 uid: "113655"
 seealso: []
 title: Mapping Complex Types to the Database
-owner: Ekaterina Kiseleva
 ---
 # Mapping Complex Types to the Database
 

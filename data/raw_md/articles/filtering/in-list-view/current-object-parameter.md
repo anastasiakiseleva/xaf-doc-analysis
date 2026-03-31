@@ -4,7 +4,6 @@ seealso:
 - linkId: "113307"
 - linkId: "112681"
 title: Current Object Parameter
-owner: Ekaterina Kiseleva
 ---
 # Current Object Parameter
 

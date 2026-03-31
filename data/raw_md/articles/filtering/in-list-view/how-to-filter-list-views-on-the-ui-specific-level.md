@@ -3,7 +3,6 @@ uid: "112652"
 seealso:
 - linkId: "112998"
 title: 'Filter Data at Grid Control Level'
-owner: Anastasiya Kisialeva
 ---
 # Filter Data at Grid Control Level
 

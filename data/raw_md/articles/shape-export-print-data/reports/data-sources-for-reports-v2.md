@@ -2,7 +2,6 @@
 uid: "113593"
 seealso: []
 title: Data Sources for Reports V2
-owner: Ekaterina Kiseleva
 ---
 # Data Sources for Reports V2
 

@@ -2,7 +2,6 @@
 uid: "112998"
 seealso: []
 title: Data Filtering
-owner: Ekaterina Kiseleva
 ---
 # Data Filtering
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113103"
 - linkId: "112728"
 title: 'Ways to Hide or Disable an Action (Button, Menu Command)'
-owner: Eugenia Simonova
 ---
 # Ways to Hide or Disable an Action (Button, Menu Command)
 

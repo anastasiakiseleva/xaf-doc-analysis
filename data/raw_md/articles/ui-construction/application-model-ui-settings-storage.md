@@ -1,7 +1,6 @@
 ---
 uid: "112579"
 title: Application Model (UI Settings Storage)
-owner: Andrey Kozhevnikov
 ---
 # Application Model (UI Settings Storage)
 

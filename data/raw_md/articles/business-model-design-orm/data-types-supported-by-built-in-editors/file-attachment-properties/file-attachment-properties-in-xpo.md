@@ -2,7 +2,6 @@
 uid: "113549"
 seealso: []
 title: File Attachment Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # File Attachment Properties in XPO
 

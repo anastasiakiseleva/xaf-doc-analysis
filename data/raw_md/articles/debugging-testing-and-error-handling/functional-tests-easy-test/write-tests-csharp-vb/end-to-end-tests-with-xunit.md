@@ -1,7 +1,6 @@
 ---
 uid: "403852"
 title: 'End-to-End Tests with xUnit'
-owner: Alexey Kazakov
 ---
 # End-to-End Tests with xUnit
 

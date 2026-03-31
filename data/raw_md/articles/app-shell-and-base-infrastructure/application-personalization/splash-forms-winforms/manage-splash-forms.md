@@ -1,7 +1,6 @@
 ---
 uid: '400732'
 title: 'Manage Splash Forms in an Application (WinForms)'
-owner: Vera Ulitina
 ---
 # Manage Splash Forms in an Application (WinForms)
 

@@ -1,7 +1,6 @@
 ---
 uid: '113211'
 title: End-to-End (Functional) Tests
-owner: Ekaterina Kiseleva
 ---
 # End-to-End (Functional) Tests
 

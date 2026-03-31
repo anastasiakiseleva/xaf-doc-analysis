@@ -1,7 +1,6 @@
 ---
 uid: "402547"
 title: 'Prevent Users from Deleting and Updating Administrative User and Role Objects'
-owner: Yekaterina Kiseleva
 ---
 # Prevent Users from Deleting and Updating Administrative User and Role Objects
 

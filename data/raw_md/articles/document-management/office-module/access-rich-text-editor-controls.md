@@ -1,7 +1,6 @@
 ---
 uid: '400063'
 title: 'Access and Customize Rich Text Editor Controls'
-owner: Anastasiya Kisialeva
 ---
 # Access and Customize Rich Text Editor Controls
 

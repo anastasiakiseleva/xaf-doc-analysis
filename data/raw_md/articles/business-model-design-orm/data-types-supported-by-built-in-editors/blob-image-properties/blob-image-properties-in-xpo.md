@@ -2,7 +2,6 @@
 uid: "113545"
 seealso: []
 title: BLOB Image Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # BLOB Image Properties in XPO
 

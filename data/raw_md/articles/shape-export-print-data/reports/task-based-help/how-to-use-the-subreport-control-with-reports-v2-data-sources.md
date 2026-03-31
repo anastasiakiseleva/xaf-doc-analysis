@@ -2,7 +2,6 @@
 uid: "113611"
 seealso: []
 title: 'How to: Use the XRSubreport Control with Reports V2 Data Sources'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use the XRSubreport Control with Reports V2 Data Sources
 

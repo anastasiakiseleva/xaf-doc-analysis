@@ -6,7 +6,6 @@ seealso:
 - linkId: "113345"
 - linkId: "114008"
 title: Conditional Appearance (Manage UI State)
-owner: Ekaterina Kiseleva
 ---
 # Conditional Appearance (Manage UI State)
 

@@ -1,7 +1,6 @@
 ---
 uid: "404201"
 title: Assign a Standard Image
-owner: Anastasiya Kisialeva
 ---
 # Assign a Standard Image
 

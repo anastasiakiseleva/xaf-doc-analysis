@@ -3,7 +3,6 @@ uid: "404395"
 seealso:
 - linkId: "404292"
 title: EF Core Middle Tier Security - Performance Considerations
-owner: Eugeniy Burmistrov
 ---
 
 # EF Core Middle Tier Security - Performance Considerations

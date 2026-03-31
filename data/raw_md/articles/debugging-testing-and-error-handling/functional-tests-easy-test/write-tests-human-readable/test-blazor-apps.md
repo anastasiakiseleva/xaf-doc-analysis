@@ -1,7 +1,6 @@
 ---
 uid: "403393"
 title: 'Integrate EasyTest into XAF Blazor UI Applications'
-owner: Alexey Kazakov
 ---
 # Integrate EasyTest into XAF Blazor UI Applications
 

@@ -1,7 +1,6 @@
 ---
 uid: "404449"
 title: Get Started with Web API Service
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "403401"
 - linkId: "403561"

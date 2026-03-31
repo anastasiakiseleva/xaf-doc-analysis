@@ -1,7 +1,6 @@
 ---
 uid: "404402"
 title: Dependency Injection in Controllers
-owner: Anastasiya Kisialeva
 seealso:
   - linkId: "404430"
 ---

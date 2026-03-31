@@ -3,7 +3,6 @@ uid: "113302"
 seealso:
 - linkId: "113314"
 title: Chart Module
-owner: Ekaterina Kiseleva
 ---
 # Chart Module
 

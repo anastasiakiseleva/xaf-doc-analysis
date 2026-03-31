@@ -1,7 +1,6 @@
 ---
 uid: "402125"
 title: In-Depth .NET WinForms & Blazor UI Tutorial (Employee Manager)
-owner: Alexey Kazakov
 seealso:
   - linkId: 404290
 ---

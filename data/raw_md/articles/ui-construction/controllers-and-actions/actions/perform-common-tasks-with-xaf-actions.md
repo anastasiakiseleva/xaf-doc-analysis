@@ -2,7 +2,6 @@
 uid: '400495'
 seealso: []
 title: Perform Common Tasks With XAF Actions
-owner: Vera Ulitina
 ---
 # Perform Common Tasks With XAF Actions
 

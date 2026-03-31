@@ -1,7 +1,6 @@
 ---
 uid: "117231"
 title: "How to: Adjust Window Size and Style (WinForms)"
-owner: Ekaterina Kiseleva
 seealso:
 - linkId: "404014"
 ---

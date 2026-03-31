@@ -1,7 +1,6 @@
 ---
 uid: "402982"
 title: Initialize Entity Properties
-owner: Alexey Kazakov
 seealso:
   - linkId: "112570"
   - linkId: "112701"

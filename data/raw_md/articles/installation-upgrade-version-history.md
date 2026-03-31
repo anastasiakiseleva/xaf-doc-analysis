@@ -1,7 +1,6 @@
 ---
 uid: "403170"
 title: Installation, Upgrade, Version History
-owner: Alexey Kazakov
 ---
 # Installation, Upgrade, Version History
 

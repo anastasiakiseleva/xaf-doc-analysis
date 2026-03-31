@@ -1,7 +1,6 @@
 ---
 uid: "403401"
 title: 'Create a Standalone Web API Application'
-owner: Eugenia Simonova
 seealso:
 - linkId: "403504"
 - linkId: "403505"

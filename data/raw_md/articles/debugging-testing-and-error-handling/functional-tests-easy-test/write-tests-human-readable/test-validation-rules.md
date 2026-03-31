@@ -5,7 +5,6 @@ seealso:
 - linkId: "113218"
 - linkId: "113345"
 title: 'Test Validation Rules'
-owner: Ekaterina Kiseleva
 ---
 # Test Validation Rules
 

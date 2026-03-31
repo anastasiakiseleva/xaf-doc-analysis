@@ -3,7 +3,6 @@ uid: "113240"
 seealso:
 - linkId: "113244"
 title: Choose an Appropriate Location for Deployment (Windows Forms)
-owner: Ekaterina Kiseleva
 ---
 # Choose an Appropriate Location for Deployment (Windows Forms)
 <!--TODO: rewrite for Winforms and Blazor or IDK -->

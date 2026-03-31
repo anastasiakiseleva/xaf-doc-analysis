@@ -2,7 +2,6 @@
 uid: "117395"
 seealso: []
 title: The Importance of Property Change Notifications for Automatic UI Updates
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: "404292"
 ---

@@ -6,7 +6,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Chart.Win.ChartListEditor
 - linkId: DevExpress.ExpressApp.Chart.IModelChartSettings
 title: 'How to: Display a List View as a Chart (Windows Forms)'
-owner: Ekaterina Kiseleva
 ---
 # How to: Display a List View as a Chart (Windows Forms)
 

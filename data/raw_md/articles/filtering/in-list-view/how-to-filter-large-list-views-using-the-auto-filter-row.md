@@ -3,7 +3,6 @@ uid: "112919"
 seealso:
 - linkId: "112998"
 title: 'How to: Filter Large List Views With Auto Filter Row'
-owner: Ekaterina Kiseleva
 ---
 # How to: Filter Large List Views With Auto Filter Row
 

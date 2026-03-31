@@ -11,7 +11,6 @@ seealso:
   linkId: https://community.devexpress.com/blogs/news/archive/2023/10/17/javascript-consume-the-devexpress-backend-web-api-with-svelte-part-6-reports.aspx
   altText: JavaScript — Consume the DevExpress Backend Web API with Svelte (Part 6. Preview and Download Reports)
 title: Obtain a Report from a Web API Controller Endpoint
-owner: Vladimir Abadzhev
 ---
 # Obtain a Report from a Web API Controller Endpoint
 

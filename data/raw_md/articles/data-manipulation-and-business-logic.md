@@ -2,7 +2,6 @@
 uid: "113708"
 seealso: []
 title: Data Manipulation and Business Logic
-owner: Ekaterina Kiseleva
 ---
 # Data Manipulation and Business Logic
 

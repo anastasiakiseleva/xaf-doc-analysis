@@ -2,7 +2,6 @@
 uid: "113656"
 seealso: []
 title: 'How to: Disable an Action When the Current View Has Unsaved Changes'
-owner: Ekaterina Kiseleva
 ---
 # How to: Disable an Action When the Current View Has Unsaved Changes
 

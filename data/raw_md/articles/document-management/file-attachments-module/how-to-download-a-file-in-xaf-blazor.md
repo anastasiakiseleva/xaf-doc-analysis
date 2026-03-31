@@ -1,7 +1,6 @@
 ---
 uid: "404760"
 title: "How to: Download a File in XAF Blazor Applications"
-owner: Irina Nikolaeva
 ---
 # How to: Download a File in XAF Blazor Applications
 

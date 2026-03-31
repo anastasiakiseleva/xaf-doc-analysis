@@ -10,7 +10,6 @@ seealso:
     linkId: 'https://supportcenter.devexpress.com/ticket/details/t639653/web-how-to-avoid-issues-with-data-bound-controls-due-to-missing-or-non-unique-key-values'
     altText: Web - How to avoid issues with data-bound controls due to missing or non-unique key values
 title: Base Persistent Classes
-owner: Ekaterina Kiseleva
 ---
 # Base Persistent Classes
 

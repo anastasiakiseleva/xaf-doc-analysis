@@ -1,7 +1,6 @@
 ---
 uid: '113366'
 title: Security (Access Control & Authentication)
-owner: Ekaterina Kiseleva
 ---
 
 # Security (Access Control & Authentication)

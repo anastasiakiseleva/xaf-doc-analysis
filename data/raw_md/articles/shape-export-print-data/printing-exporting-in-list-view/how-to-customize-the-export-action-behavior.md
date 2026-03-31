@@ -9,7 +9,6 @@ seealso:
   altText: "How to: Customize the GridControl's Data-Aware Export Output"
 - linkId: DevExpress.ExpressApp.SystemModule.IDataAwareExportable
 title: 'How to: Customize the Export Action Behavior'
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize the Export Action Behavior
 

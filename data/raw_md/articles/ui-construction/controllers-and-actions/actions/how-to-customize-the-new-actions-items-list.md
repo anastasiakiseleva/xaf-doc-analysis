@@ -7,7 +7,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.XafApplication.FindListViewId(System.Type)
 - linkId: DevExpress.ExpressApp.Actions.ChoiceActionItem.Data
 title: "How to: Customize the New Action's Items List"
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize the New Action's Items List
 

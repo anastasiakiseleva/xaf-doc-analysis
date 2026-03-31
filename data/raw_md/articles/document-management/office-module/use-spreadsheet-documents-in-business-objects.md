@@ -1,7 +1,6 @@
 ---
 uid: '400931'
 title: Use Spreadsheet Documents in Business Objects
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '400894'
   - linkId: '401211'

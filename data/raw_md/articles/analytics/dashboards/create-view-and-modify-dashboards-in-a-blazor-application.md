@@ -1,7 +1,6 @@
 ---
 uid: "403400"
 title: Create, View, and Modify Dashboards in an ASP.NET Core Blazor Application
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: "117450"
 ---

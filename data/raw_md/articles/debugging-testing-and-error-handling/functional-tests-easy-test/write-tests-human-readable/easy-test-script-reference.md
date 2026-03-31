@@ -6,7 +6,6 @@ seealso:
 - linkId: "113345"
 - linkId: "113294"
 title: EasyTest Script Reference
-owner: Ekaterina Kiseleva
 ---
 # EasyTest Script Reference
 

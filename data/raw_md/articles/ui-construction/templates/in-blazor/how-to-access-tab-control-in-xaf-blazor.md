@@ -1,7 +1,6 @@
 ---
 uid: "404978"
 title: How to Access the Tab Control to Customize Tabbed UI Behavior in Code
-owner: Anastasiya Kisialeva
 ---
 # How to Access the Tab Control to Customize Tabbed UI Behavior in Code
 

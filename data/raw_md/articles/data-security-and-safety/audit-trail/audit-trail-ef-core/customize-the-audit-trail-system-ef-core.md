@@ -1,7 +1,6 @@
 ---
 uid: "403115"
 title: 'Miscellaneous Customizations of the Audit Trail System (EF Core)'
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: "112782"
 ---

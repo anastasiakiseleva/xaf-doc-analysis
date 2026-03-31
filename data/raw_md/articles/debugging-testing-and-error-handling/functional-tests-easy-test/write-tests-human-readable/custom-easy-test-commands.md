@@ -5,7 +5,6 @@ seealso:
   linkId: https://community.devexpress.com/blogs/xaf/archive/2011/05/04/how-to-write-easytests-in-code.aspx
   altText: How to write EasyTests in code
 title: 'Custom EasyTest Commands'
-owner: Ekaterina Kiseleva
 ---
 # Custom EasyTest Commands
 

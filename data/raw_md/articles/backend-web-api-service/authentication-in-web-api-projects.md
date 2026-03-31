@@ -1,7 +1,6 @@
 ---
 uid: "403413"
 title: 'Authenticate and Authorize Web API Endpoints'
-owner: Eugenia Simonova
 seealso:
 - linkId: "402197"
 ---

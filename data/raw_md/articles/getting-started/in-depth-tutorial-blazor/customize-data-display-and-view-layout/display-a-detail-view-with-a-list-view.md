@@ -1,7 +1,6 @@
 ---
 uid: "404203"
 title: Enable Split Layout in a List View
-owner: Anastasiya Kisialeva
 ---
 
 # Enable Split Layout in a List View

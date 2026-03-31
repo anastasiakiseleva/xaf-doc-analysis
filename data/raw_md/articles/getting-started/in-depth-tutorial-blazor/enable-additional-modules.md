@@ -1,7 +1,6 @@
 ---
 uid: "403287"
 title: Reuse Implemented Functionality from Additional Modules
-owner: Eugenia Simonova
 ---
 # Reuse Implemented Functionality from Additional Modules
 

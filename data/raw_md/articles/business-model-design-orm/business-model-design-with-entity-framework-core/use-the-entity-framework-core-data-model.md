@@ -1,7 +1,6 @@
 ---
 uid: "402972"
 title: Use the Entity Framework Core Data Model
-owner: Yekaterina Kiseleva
 seealso:
   - linkType: HRef
     linkId: https://learn.microsoft.com/en-us/ef/core/

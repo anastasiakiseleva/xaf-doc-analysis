@@ -9,4 +9,4 @@ seealso:
 - linkId: DevExpress.ExpressApp.ViewVariantsModule.FrameVariantsEngine._members
   altText: FrameVariantsEngine Members
 ---
-To customize the behavior implemented in this class, add a custom class that implements a [](xref:DevExpress.ExpressApp.ViewVariantsModule.IFrameVariantsEngine) and pass an instance of this class to the [ViewVariantsModule.FrameVariantsEngine](xref:DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule.FrameVariantsEngine) property.
+To customize the behavior implemented in this class, add a custom class that implements a [](xref:DevExpress.ExpressApp.ViewVariantsModule.IFrameVariantsEngine) and pass an instance of this class to the `DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule.FrameVariantsEngine` property.

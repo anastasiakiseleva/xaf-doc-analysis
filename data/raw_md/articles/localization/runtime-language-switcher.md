@@ -1,7 +1,6 @@
 ---
 uid: "403027"
 title: Runtime Language Switcher
-owner: Alexey Kazakov
 seealso:
   - linkId: DevExpress.ExpressApp.Blazor.Services.IXafCultureInfoService
 ---

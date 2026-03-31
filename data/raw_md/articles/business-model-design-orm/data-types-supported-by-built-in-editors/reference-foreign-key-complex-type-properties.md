@@ -1,7 +1,6 @@
 ---
 uid: "113572"
 title: Reference (Foreign Key, Complex Type) Properties
-owner: Ekaterina Kiseleva
 seealso:
 - linkId: "112681"
 - linkId: "113525"

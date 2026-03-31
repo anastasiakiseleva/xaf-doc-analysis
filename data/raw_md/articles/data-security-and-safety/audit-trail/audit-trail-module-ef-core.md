@@ -1,7 +1,6 @@
 ---
 uid: "403104"
 title: Audit Trail Module (EF Core)
-owner: Eugeniy Burmistrov
 seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/xaf-how-to-show-audit-entries-for-a-current-object-and-its-aggregated-objects-in-one-list

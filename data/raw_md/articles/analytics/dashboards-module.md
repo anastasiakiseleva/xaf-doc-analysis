@@ -1,7 +1,6 @@
 ---
 uid: "117449"
 title: Dashboards Module
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: "117450"
   - linkId: "403400"

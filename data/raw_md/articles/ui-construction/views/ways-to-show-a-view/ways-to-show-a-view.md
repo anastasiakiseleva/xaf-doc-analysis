@@ -6,7 +6,6 @@ seealso:
 - linkId: "112623"
 - linkId: "112916"
 title: Ways to Show a View
-owner: Ekaterina Kiseleva
 ---
 # Ways to Show a View
 

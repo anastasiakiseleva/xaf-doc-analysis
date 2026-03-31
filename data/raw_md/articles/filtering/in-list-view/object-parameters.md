@@ -2,7 +2,6 @@
 uid: "113278"
 seealso: []
 title: Object Parameters
-owner: Ekaterina Kiseleva
 ---
 # Object Parameters
 

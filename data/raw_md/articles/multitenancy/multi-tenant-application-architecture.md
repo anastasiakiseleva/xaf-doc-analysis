@@ -1,7 +1,6 @@
 ---
 uid: "404667"
 title: 'Multi-Tenant Application Architecture'
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "404668"
 - linkId: "404364"

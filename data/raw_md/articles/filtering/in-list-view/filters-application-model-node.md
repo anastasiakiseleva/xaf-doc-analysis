@@ -4,7 +4,6 @@ seealso:
 - linkId: "403238"
 - linkId: "112809"
 title: Filters Application Model Node
-owner: Ekaterina Kiseleva
 ---
 # Filters Application Model Node
 

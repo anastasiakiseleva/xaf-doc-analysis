@@ -1,7 +1,6 @@
 ---
 uid: '405329'
 title: 'v25.2 Release Notes'
-owner: 'Irina Nikolaeva'
 seealso:
 - linkId: 405330
 ---

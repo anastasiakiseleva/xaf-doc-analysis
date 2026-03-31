@@ -1,7 +1,6 @@
 ---
 uid: "402141"
 title: Format a Property Value
-owner: Alexey Kazakov
 seealso: []
 ---
 # Format a Property Value

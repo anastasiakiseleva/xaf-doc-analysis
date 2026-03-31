@@ -3,7 +3,6 @@ uid: "117813"
 seealso:
 - linkId: "113283"
 title: 'How to: Customize the Report Export Options'
-owner: Ekaterina Kiseleva
 ---
 
 # How to: Customize the Report Export Options

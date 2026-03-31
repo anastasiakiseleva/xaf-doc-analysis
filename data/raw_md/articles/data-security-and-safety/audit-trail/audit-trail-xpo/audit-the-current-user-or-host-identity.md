@@ -1,7 +1,6 @@
 ---
 uid: "402078"
 title: Audit the Current User or Host Identity (XPO)
-owner: Anastasiya Kisialeva
 ---
 
 # Audit the Current User or Host Identity (XPO)

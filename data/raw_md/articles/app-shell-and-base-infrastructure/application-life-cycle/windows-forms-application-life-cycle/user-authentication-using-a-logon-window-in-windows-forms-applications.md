@@ -2,7 +2,6 @@
 uid: "113117"
 seealso: []
 title: User Authentication using a Logon Window in Windows Forms Applications
-owner: Ekaterina Kiseleva
 ---
 # User Authentication using a Logon Window in Windows Forms Applications
 

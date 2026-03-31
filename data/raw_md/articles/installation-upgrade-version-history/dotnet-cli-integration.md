@@ -1,7 +1,6 @@
 ---
 uid: "404967"
 title: .NET CLI Integration
-owner: Anastasiya Kisialeva
 seealso: []
 ---
 

@@ -3,7 +3,6 @@ uid: "113532"
 seealso:
 - linkId: "402188"
 title: Numeric Properties
-owner: Ekaterina Kiseleva
 ---
 # Numeric Properties
 

@@ -2,7 +2,6 @@
 uid: "113533"
 seealso: []
 title: Numeric Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Numeric Properties in XPO
 

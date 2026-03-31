@@ -2,7 +2,6 @@
 uid: "113328"
 seealso: []
 title: Node Tree
-owner: Ekaterina Kiseleva
 ---
 # Node Tree
 

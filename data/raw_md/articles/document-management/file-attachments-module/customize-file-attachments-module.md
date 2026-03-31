@@ -1,7 +1,6 @@
 ---
 uid: "403361"
 title: 'Customize the File Attachments Module'
-owner: Yekaterina Kiseleva
 ---
 # Customize the File Attachments Module
 

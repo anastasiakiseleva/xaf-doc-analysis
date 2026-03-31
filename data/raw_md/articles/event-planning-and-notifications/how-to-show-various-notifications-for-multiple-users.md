@@ -2,7 +2,6 @@
 uid: "118451"
 seealso: []
 title: 'How to: Show Various Notifications to Multiple Users'
-owner: Anastasiya Kisialeva
 ---
 # How to: Show Various Notifications to Multiple Users
 

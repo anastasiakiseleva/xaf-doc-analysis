@@ -4,7 +4,6 @@ seealso:
 - linkId: "113687"
 - linkId: "113696"
 title: 'How to: Use Notifications with a Custom Business Class (Implement ISupportNotifications)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Use Notifications with a Custom Business Class (Implement ISupportNotifications)
 

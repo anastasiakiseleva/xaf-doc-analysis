@@ -2,7 +2,6 @@
 uid: "112925"
 seealso: []
 title: 'How to: Add a Search Action to Lookup Property Editors and Link Pop-up Windows'
-owner: Ekaterina Kiseleva
 ---
 # How to: Add a Search Action to Lookup Property Editors and Link Pop-up Windows
 

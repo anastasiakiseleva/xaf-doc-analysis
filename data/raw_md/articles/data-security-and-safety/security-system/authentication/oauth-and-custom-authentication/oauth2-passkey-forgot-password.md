@@ -1,7 +1,6 @@
 ---
 uid: "405221"
 title: OAuth2 Authentication - Passkey, Forgot My Password, and Two-Factor Authentication Support
-owner: Eugeniy Burmistrov
 ---
 
 # OAuth2 Authentication - Passkey, Forgot My Password, and Two-Factor Authentication Support

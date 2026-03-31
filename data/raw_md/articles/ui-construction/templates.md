@@ -3,7 +3,6 @@ uid: "112609"
 seealso:
 - linkId: "112696"
 title: Templates
-owner: Ekaterina Kiseleva
 ---
 # Templates
 

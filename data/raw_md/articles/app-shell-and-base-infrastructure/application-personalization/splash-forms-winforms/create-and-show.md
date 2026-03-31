@@ -1,7 +1,6 @@
 ---
 uid: '400748'
 title: 'Create and Show a Splash Form (WinForms)'
-owner: Vera Ulitina
 ---
 # Create and Show a Splash Form (WinForms)
 

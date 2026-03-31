@@ -1,7 +1,6 @@
 ---
 uid: "404125"
 title: Add Custom Nodes and Properties to the Application Model in Code
-owner: Elena Khamlyuk
 seealso:
   - linkId: "112580"
   - linkId: "112810"

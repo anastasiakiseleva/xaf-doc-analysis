@@ -10,7 +10,6 @@ seealso:
   linkId: https://supportcenter.devexpress.com/ticket/details/e4916/xaf-how-to-implement-dependent-views-in-a-dashboardview-filter-based-on-selection
   altText: How to implement dependent views in a DashboardView (filter based on selection)
 title: 'Display Multiple Views Side-by-Side (Dashboard View)'
-owner: Alexey Kazakov
 ---
 # Display Multiple Views Side-by-Side (Dashboard View)
 

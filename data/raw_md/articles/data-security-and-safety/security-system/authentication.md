@@ -2,7 +2,6 @@
 uid: "119064"
 seealso: []
 title: User Logon and Authentication
-owner: Ekaterina Kiseleva
 seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/XAF_logon-form-manage-users-register-a-new-user-restore-a-password

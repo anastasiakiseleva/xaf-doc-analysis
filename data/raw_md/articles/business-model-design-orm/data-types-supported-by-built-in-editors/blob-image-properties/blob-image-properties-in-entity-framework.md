@@ -9,7 +9,6 @@ seealso:
   altText: ImageConverter
 - linkId: "117395"
 title: BLOB Image Properties in EF Core
-owner: Ekaterina Kiseleva
 ---
 # BLOB Image Properties in EF Core
 

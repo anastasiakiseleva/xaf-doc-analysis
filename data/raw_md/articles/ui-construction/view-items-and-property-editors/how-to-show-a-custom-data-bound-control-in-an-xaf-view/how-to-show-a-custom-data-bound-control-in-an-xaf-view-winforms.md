@@ -2,7 +2,6 @@
 uid: "114159"
 seealso: []
 title: 'How to: Show a Custom Data-Bound Control in an XAF View (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # How to: Show a Custom Data-Bound Control in an XAF View (WinForms)
 

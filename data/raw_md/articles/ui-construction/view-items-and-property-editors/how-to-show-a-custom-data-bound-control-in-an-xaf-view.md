@@ -3,7 +3,6 @@ uid: "404701"
 seealso:
 - linkId: "405483"
 title: "How to: Show a Custom Data-Bound Control in an XAF View"
-owner: Irina Nikolaeva
 ---
 # How to: Show a Custom Data-Bound Control in an XAF View
 

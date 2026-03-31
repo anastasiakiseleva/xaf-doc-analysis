@@ -3,7 +3,6 @@ uid: "113658"
 seealso:
 - linkId: "402188"
 title: Color Properties
-owner: Ekaterina Kiseleva
 ---
 # Color Properties
 

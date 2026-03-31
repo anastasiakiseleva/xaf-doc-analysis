@@ -5,7 +5,6 @@ seealso:
 - linkId: "113016"
 - linkId: "113475"
 title: Controllers (UI Logic & Interaction)
-owner: Ekaterina Kiseleva
 ---
 # Controllers (UI Logic & Interaction)
 

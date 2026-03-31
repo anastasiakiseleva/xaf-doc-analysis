@@ -1,7 +1,6 @@
 ---
 uid: "113542"
 title: Boolean Properties in EF Core
-owner: Ekaterina Kiseleva
 seealso: 
 - linkId: "117395"
 ---

@@ -1,7 +1,6 @@
 ---
 uid: "403533"
 title: Change View UI and Bypass Application Model Updates
-owner: Andrey Kozhevnikov
 ---
 # Change View UI and Bypass Application Model Updates
 

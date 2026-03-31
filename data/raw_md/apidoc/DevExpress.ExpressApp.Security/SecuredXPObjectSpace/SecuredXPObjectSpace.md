@@ -4,7 +4,7 @@ name: SecuredXPObjectSpace
 type: Class
 summary: An [Object Space](xref:113707) for XPO-based applications that use the [Security System](xref:113366).
 syntax:
-  content: 'public class SecuredXPObjectSpace : XPObjectSpace'
+  content: 'public class SecuredXPObjectSpace : XPObjectSpace, ISecuredObjectSpace'
 seealso:
 - linkId: DevExpress.ExpressApp.Security.SecuredXPObjectSpace._members
   altText: SecuredXPObjectSpace Members

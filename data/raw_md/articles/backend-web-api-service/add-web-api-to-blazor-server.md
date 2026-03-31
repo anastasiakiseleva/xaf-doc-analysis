@@ -1,7 +1,6 @@
 ---
 uid: "403561"
 title: 'Integrate the Web API into an Existing XAF Blazor Application'
-owner: Eugenia Simonova
 seealso:
 - linkType: HRef
   linkId: https://learn.microsoft.com/en-us/dotnet/architecture/blazor-for-web-forms-developers/app-startup#blazor-server-startup-structure

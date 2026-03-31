@@ -3,7 +3,6 @@ uid: "118450"
 seealso:
 - linkId: "8398"
 title: Server, ServerView, InstantFeedback, and InstantFeedbackView Modes
-owner: Ekaterina Kiseleva
 ---
 # Server, ServerView, InstantFeedback, and InstantFeedbackView Modes
 

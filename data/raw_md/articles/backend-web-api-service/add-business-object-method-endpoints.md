@@ -1,7 +1,6 @@
 ---
 uid: "404488"
 title: Add Endpoints for Business Object Methods
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "403551"
 - linkId: "403715"

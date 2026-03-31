@@ -4,7 +4,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.Editors.EditorAliases
 - linkId: "117395"
 title: Display Properties of a Referenced Object in the Master Object's View
-owner: Ekaterina Kiseleva
 ---
 # Display Properties of a Referenced Object in the Master Object's View
 

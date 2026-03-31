@@ -3,7 +3,6 @@ uid: "114454"
 seealso:
 - linkId: "114451"
 title: 'How to: Access the Report Parameters Object in Calculated Fields Expressions'
-owner: Ekaterina Kiseleva
 ---
 # How to: Access the Report Parameters Object in Calculated Fields Expressions
 

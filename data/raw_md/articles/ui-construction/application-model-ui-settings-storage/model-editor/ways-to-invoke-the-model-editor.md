@@ -2,7 +2,6 @@
 uid: "113326"
 seealso: []
 title: Ways to Invoke the Model Editor
-owner: Ekaterina Kiseleva
 ---
 # Ways to Invoke the Model Editor
 

@@ -2,7 +2,6 @@
 uid: "119123"
 seealso: []
 title: Unusable Nodes
-owner: Ekaterina Kiseleva
 ---
 # Unusable Nodes
 

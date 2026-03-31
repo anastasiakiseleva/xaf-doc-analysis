@@ -2,7 +2,6 @@
 uid: "113118"
 seealso: []
 title: Show the Main Window in Windows Forms Applications
-owner: Ekaterina Kiseleva
 ---
 # Show the Main Window in Windows Forms Applications
 

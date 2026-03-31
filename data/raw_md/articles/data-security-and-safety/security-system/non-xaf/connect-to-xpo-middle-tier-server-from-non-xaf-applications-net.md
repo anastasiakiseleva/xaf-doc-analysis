@@ -1,7 +1,6 @@
 ---
 uid: "403958"
 title: Connect to an XPO Middle Tier Server from Non-XAF Applications (.NET)
-owner: Alexey Kazakov
 seealso:
   - linkId: "118741"
 ---

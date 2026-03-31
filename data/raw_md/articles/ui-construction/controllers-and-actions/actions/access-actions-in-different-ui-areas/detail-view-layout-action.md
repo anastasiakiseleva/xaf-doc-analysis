@@ -2,7 +2,6 @@
 uid: '400502'
 seealso: []
 title: Detail View
-owner: Vera Ulitina
 ---
 # Detail View
 

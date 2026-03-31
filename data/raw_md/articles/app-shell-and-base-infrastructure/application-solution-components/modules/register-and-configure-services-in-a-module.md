@@ -1,7 +1,6 @@
 ---
 uid: "405025"
 title: How to Register DI Services in a Custom Module with Application Builder Extensions
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: '118046'
   - linkId: "118047"

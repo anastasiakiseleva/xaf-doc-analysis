@@ -1,7 +1,6 @@
 ---
 uid: "403492"
 title: Integrate EasyTest into XAF WinForms Applications
-owner: Alexey Kazakov
 ---
 # Integrate EasyTest into XAF WinForms Applications
 

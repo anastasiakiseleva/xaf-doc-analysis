@@ -5,7 +5,6 @@ seealso:
 - linkId: "113687"
 - linkId: "113696"
 title: Notifications Service and Notifications Providers
-owner: Anastasiya Kisialeva
 ---
 # Notifications Service and Notifications Providers
 

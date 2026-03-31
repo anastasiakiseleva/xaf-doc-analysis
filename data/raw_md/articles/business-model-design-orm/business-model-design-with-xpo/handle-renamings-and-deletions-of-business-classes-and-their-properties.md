@@ -10,7 +10,6 @@ seealso:
   linkId: https://supportcenter.devexpress.com/ticket/details/t418166/how-to-upgrade-an-existing-project-to-the-allow-deny-permission-policy-migrate-to
   altText: How to upgrade an existing project to the Allow/Deny permission policy (migrate to PermissionPolicyUser and PermissionPolicyRole)
 title: 'Handle Renamings and Deletions of Business Classes and their Properties'
-owner: Ekaterina Kiseleva
 ---
 # Handle Renamings and Deletions of Business Classes and their Properties
 

@@ -2,7 +2,6 @@
 uid: "112809"
 seealso: []
 title: 'How to: Use Function Criteria Operators to Filter List Views'
-owner: Ekaterina Kiseleva
 ---
 # How to: Use Function Criteria Operators to Filter List Views
 

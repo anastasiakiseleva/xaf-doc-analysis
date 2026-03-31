@@ -1,7 +1,6 @@
 ---
 uid: "404364"
 title: Dependency Injection (DI)
-owner: Anastasiya Kisialeva
 ---
 # Dependency Injection (DI)
 

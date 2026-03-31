@@ -1,7 +1,6 @@
 ---
 uid: "403394"
 title: 'Backend Web API Service / REST API'
-owner: Eugenia Simonova
 ---
 # Backend Web API Service / REST API
 ## Overview

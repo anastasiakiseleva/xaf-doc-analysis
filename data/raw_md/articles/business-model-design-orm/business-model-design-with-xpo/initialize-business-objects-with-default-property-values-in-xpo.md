@@ -5,7 +5,6 @@ seealso:
 - linkId: '113152'
   altText: How to implement the CreatedBy, CreatedOn and UpdatedBy, UpdatedOn properties in a business class
 title: 'Initialize Business Objects with Default Property Values in XPO'
-owner: Ekaterina Kiseleva
 ---
 # Initialize Business Objects with Default Property Values in XPO
 

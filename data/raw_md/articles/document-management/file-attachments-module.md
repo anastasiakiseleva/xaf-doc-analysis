@@ -10,7 +10,6 @@ seealso:
 - linkId: DevExpress.Persistent.Base.IFileData.LoadFromStream(System.String,System.IO.Stream)
 - linkId: DevExpress.Persistent.Base.IFileData.SaveToStream(System.IO.Stream)
 title: File Attachments (Store Custom Files)
-owner: Ekaterina Kiseleva
 ---
 # File Attachments (Store Custom Files)
 

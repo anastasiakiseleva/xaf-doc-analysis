@@ -1,7 +1,6 @@
 ---
 uid: "402080"
 title: 'Disable the Audit Trail Module (XPO)'
-owner: Yekaterina Kiseleva
 ---
 # Disable the Audit Trail Module (XPO)
 

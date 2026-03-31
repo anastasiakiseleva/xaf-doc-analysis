@@ -1,7 +1,6 @@
 ---
 uid: "403551"
 title: 'Add and Protect CRUD Web API Endpoints'
-owner: Eugenia Simonova
 seealso:
 - linkId: "404488"
 - linkId: "403413"

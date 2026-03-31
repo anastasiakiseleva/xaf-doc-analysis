@@ -1,7 +1,6 @@
 ---
 uid: "403258"
 title: 'How to: Use a Custom Component to Implement List Editor (Blazor)'
-owner: Anastasiya Kisialeva
 seealso:
 - linkId: "113653"
 - linkId: "112659"

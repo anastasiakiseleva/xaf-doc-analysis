@@ -2,7 +2,6 @@
 uid: "113704"
 seealso: []
 title: "Enable the Administrative UI to manage End-User Settings in the Database"
-owner: Ekaterina Kiseleva
 ---
 # Enable the Administrative UI to manage End-User Settings in the Database
 

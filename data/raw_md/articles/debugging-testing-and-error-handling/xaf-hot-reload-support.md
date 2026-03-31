@@ -1,7 +1,6 @@
 ---
 uid: "404703"
 title: Hot Reload Support (ASP.NET Core Blazor)
-owner: Anastasiya Kisialeva
 seealso:
 - linkId: 113653
 - linkId: 403452

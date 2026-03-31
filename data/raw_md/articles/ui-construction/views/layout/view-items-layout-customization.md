@@ -6,7 +6,6 @@ seealso:
   linkId: https://supportcenter.devexpress.com/ticket/details/q514530/how-to-change-a-detailview-editor-or-listview-column-caption-dynamically
   altText: How to Change a Detail View Editor or List View Column Caption Dynamically
 title: Detail View Layout Customization
-owner: Ekaterina Kiseleva
 ---
 # Detail View Layout Customization
 

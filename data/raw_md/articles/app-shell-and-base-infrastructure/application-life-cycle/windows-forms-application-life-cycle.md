@@ -2,7 +2,6 @@
 uid: "113115"
 seealso: []
 title: Windows Forms Application Life Cycle
-owner: Ekaterina Kiseleva
 ---
 # Windows Forms Application Life Cycle
 

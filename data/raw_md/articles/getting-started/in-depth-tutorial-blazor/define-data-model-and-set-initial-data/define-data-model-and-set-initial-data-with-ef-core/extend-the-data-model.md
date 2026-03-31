@@ -1,7 +1,6 @@
 ---
 uid: "404256"
 title: Extend the Data Model
-owner: Anastasiya Kisialeva
 ---
 # Extend the Data Model
 

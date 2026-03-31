@@ -9,7 +9,6 @@ seealso:
 - linkId: "112818"
 - linkId: "113484"
 title: Debug, Collect and Analyze the Diagnostic Information
-owner: Ekaterina Kiseleva
 ---
 # Debug, Collect and Analyze the Diagnostic Information
 

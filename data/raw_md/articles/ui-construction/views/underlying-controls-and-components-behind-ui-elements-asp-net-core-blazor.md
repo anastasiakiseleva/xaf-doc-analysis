@@ -1,7 +1,6 @@
 ---
 uid: "404767"
 title: Underlying Controls and Components Behind UI Elements (ASP.NET Core Blazor)
-owner: Anastasiya Kisialeva
 ---
 # Underlying Controls and Components Behind UI Elements (ASP.NET Core Blazor)
 

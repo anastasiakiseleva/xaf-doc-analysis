@@ -2,7 +2,6 @@
 uid: "112797"
 seealso: []
 title: 'Upcasting (Combine Data from Base and Derived Classes)'
-owner: Ekaterina Kiseleva
 ---
 # Upcasting (Combine Data from Base and Derived Classes)
 

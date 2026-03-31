@@ -5,7 +5,6 @@ seealso:
   linkId: "405538"
   altText: DevExpress WinForms Troubleshooting - Application Performance
 title: Connect Clients to the Terminal Server   
-owner: Ekaterina Kiseleva
 ---
 # Connect Clients to the Terminal Server
 

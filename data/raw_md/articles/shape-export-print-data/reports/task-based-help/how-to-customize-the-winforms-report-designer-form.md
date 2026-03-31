@@ -3,7 +3,6 @@ uid: "113604"
 seealso:
 - linkId: DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController.DesignFormCreated
 title: 'How to: Customize the WinForms Report Designer Form'
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize the WinForms Report Designer Form
 

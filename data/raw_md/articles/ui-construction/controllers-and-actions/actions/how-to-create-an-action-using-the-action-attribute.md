@@ -2,7 +2,6 @@
 uid: "112619"
 seealso: []
 title: 'How to: Create an Action Using the Action Attribute'
-owner: Ekaterina Kiseleva
 ---
 # How to: Create an Action Using the Action Attribute
 

@@ -1,7 +1,6 @@
 ---
 uid: "403389"
 title: 'Automatic Code Error Diagnostics'
-owner: Alexey Kazakov
 ---
 # Automatic Code Error Diagnostics
 
@@ -86,3 +85,4 @@ These diagnostics are part of the _DevExpress.ExpressApp.Design.NetCorePackage_ 
 - [](xref:405222)
 - [](xref:405499)
 - [](xref:405603)
+- [](xref:405775)

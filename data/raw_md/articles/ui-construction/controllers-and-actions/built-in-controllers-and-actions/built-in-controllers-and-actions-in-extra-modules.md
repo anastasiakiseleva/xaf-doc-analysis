@@ -3,7 +3,6 @@ uid: "113142"
 seealso:
 - linkId: "113141"
 title: Built-in Controllers and Actions in Extra Modules
-owner: Ekaterina Kiseleva
 ---
 # Built-in Controllers and Actions in Extra Modules
 

@@ -2,7 +2,6 @@
 uid: "113674"
 seealso: []
 title: 'How to: Create a Custom Report Storage to Customize UI and Behavior Globally'
-owner: Eugeniy Burmistrov
 ---
 # How to: Create a Custom Report Storage to Customize UI and Behavior Globally
 

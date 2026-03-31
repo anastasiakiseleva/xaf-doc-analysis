@@ -2,7 +2,6 @@
 uid: "112638"
 seealso: []
 title: User Interface and Behavior Customization
-owner: Ekaterina Kiseleva
 ---
 # User Interface and Behavior Customization
 

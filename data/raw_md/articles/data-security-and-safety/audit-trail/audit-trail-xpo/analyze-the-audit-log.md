@@ -1,7 +1,6 @@
 ---
 uid: "113615"
 title: Analyze the Audit Log
-owner: Michael Iushin
 seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/xaf-how-to-show-audit-entries-for-a-current-object-and-its-aggregated-objects-in-one-list

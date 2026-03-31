@@ -5,7 +5,6 @@ seealso:
 - linkId: "113167"
 - linkId: "114052"
 title: "How to: Display a Non-Persistent Object's Detail View"
-owner: Ekaterina Kiseleva
 ---
 # How to: Display a Non-Persistent Object's Detail View
 

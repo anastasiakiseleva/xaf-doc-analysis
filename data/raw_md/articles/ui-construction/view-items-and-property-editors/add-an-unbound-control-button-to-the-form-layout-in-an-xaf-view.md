@@ -1,7 +1,6 @@
 ---
 uid: "405483"
 title: Add an Unbound Control (Button) to the Form Layout in an XAF View
-owner: Anastasiya Kisialeva
 ---
 # Add an Unbound Control (Button) to the Form Layout in an XAF View
 

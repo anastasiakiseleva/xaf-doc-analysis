@@ -3,7 +3,6 @@ uid: "113051"
 seealso:
 - linkId: "113010"
 title: Implement Custom Rules
-owner: Ekaterina Kiseleva
 ---
 # Implement Custom Rules
 

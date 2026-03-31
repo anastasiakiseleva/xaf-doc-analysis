@@ -2,7 +2,6 @@
 uid: "113299"
 seealso: []
 title: Culture-Specific Formatting
-owner: Ekaterina Kiseleva
 ---
 # Culture-Specific Formatting
 

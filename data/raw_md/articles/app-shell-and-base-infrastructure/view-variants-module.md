@@ -1,7 +1,6 @@
 ---
 uid: "113011"
 title: View Variants (Switch Document Layouts)
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: DevExpress.ExpressApp.ViewVariantsModule.ChangeVariantController
   - linkType: HRef

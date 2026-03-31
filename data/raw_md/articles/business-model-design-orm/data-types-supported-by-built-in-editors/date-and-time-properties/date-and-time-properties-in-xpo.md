@@ -2,7 +2,6 @@
 uid: "113537"
 seealso: []
 title: Date and Time Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Date and Time Properties in XPO
 

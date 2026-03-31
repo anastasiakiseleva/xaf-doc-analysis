@@ -1,7 +1,6 @@
 ---
 uid: "404353"
 title: Runtime Layout Customization in ASP.NET Core Blazor Applications
-owner: Vladislav Bogdanov
 seealso:
   - linkId: "112817"
   - linkId: "404428"

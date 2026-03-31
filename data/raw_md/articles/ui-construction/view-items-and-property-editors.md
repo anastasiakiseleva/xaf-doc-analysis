@@ -5,7 +5,6 @@ seealso:
 - linkId: "113610"
 - linkId: "120092"
 title: View Items and Property Editors
-owner: Ekaterina Kiseleva
 ---
 # View Items and Property Editors
 
@@ -30,7 +29,7 @@ XAF provides the following basic View Item types:
 | Displays a control specified by the [IModelControlDetailItem.ControlTypeName](xref:DevExpress.ExpressApp.Model.IModelControlDetailItem.ControlTypeName) property of the [Application Model](xref:112580)'s corresponding **ControlDetailItem** node (see [How to: Show a Custom Data-Bound Control in an XAF View (WinForms)](xref:114159)). You can specify a control that is displayed in the UI.
 |-
 
-| `DevExpress.ExpressApp.Blazor.Editors.BlazorControlViewItem`
+| @DevExpress.ExpressApp.Blazor.Editors.BlazorControlViewItem
 | Displays a control specified by the [IModelControlDetailItem.ControlTypeName](xref:DevExpress.ExpressApp.Model.IModelControlDetailItem.ControlTypeName) but can also display any parameter-less [Razor component](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/). The Component can access `CascadingParameter` of the `DevExpress.ExpressApp.Blazor.Editors.BlazorControlViewItem` type to access the `View`, `ObjectSpace`, and `Application` instances.
 |-
 

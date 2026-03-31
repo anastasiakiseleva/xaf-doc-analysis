@@ -6,7 +6,6 @@ seealso:
 - linkId: 112792
 - linkId: DevExpress.ExpressApp.Utils.ImageLoader
 title: 'How to: Set Images and Captions for Enumeration Values'
-owner: Ekaterina Kiseleva
 ---
 
 # How to: Set Images and Captions for Enumeration Values

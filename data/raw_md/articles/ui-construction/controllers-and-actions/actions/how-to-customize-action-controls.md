@@ -10,7 +10,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/xaf-win-custom-action-with-custom-action-control
   altText: 'GitHub example: Xaf WinForms - Create a custom action type and associated custom control'
 title: 'How to: Customize Action Controls'
-owner: Ekaterina Kiseleva
 ---
 # How to: Customize Action Controls
 

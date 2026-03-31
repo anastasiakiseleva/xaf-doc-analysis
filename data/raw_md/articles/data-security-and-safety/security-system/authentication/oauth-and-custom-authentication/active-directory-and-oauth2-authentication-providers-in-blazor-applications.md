@@ -1,7 +1,6 @@
 ---
 uid: "402197"
 title: Active Directory and OAuth2 Authentication Providers in ASP.NET Core Blazor Applications
-owner: Anastasiya Kisialeva
 seealso:
   - linkId: '404752'
 ---

@@ -1,7 +1,6 @@
 ---
 uid: "403527"
 title: Change the Application Model
-owner: Andrey Kozhevnikov
 ---
 # Change the Application Model
 

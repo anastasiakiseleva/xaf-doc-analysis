@@ -2,7 +2,6 @@
 uid: "116114"
 seealso: []
 title: Grid Based Reporting in WinForms Applications
-owner: Ekaterina Kiseleva
 ---
 # Grid Based Reporting in WinForms Applications
 

@@ -1,7 +1,6 @@
 ---
 uid: "404322"
 title: 'How to: Use Multiple Data Models Connected to Different Databases in Entity Framework Core'
-owner: Eugeniy Burmistrov
 ---
 
 # How to: Use Multiple Data Models Connected to Different Databases in Entity Framework Core

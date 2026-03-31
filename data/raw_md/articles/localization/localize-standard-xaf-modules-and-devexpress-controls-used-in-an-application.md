@@ -5,7 +5,6 @@ seealso:
   linkId: https://www.youtube.com/watch?v=iQI5cw8nAEk
   altText: DevExpress Localization Service (video)
 title: Localize Standard XAF Modules and DevExpress Controls Used in an Application
-owner: Ekaterina Kiseleva
 ---
 # Localize Standard XAF Modules and DevExpress Controls Used in an Application
 

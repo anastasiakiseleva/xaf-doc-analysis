@@ -4,7 +4,6 @@ seealso:
 - linkId: "113251"
 - linkId: "112649"
 title: Validate Report Parameters
-owner: Ekaterina Kiseleva
 ---
 # Validate Report Parameters
 You can require end users to specify report parameters when reports are viewed with a [filtered data source](xref:113594):

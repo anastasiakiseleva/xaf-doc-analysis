@@ -1,7 +1,6 @@
 ---
 uid: "403504"
 title: 'Configure the JWT Authentication for the Web API'
-owner: Eugenia Simonova
 seealso:
 - linkId: "119064"
 - linkId: "402197"

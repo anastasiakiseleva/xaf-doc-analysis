@@ -2,7 +2,6 @@
 uid: "113596"
 seealso: []
 title: Optimistic Concurrency Control
-owner: Ekaterina Kiseleva
 ---
 # Optimistic Concurrency Control
 

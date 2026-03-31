@@ -1,7 +1,6 @@
 ---
 uid: "403861"
 title: Access Object Space, Security System, and Caption Helper in Custom Endpoint Methods
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: "403858"
   - linkId: "403669"

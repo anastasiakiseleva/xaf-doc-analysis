@@ -1,7 +1,6 @@
 ---
 uid: "403616"
 title: Create a New Object
-owner: Dmitry Egorov
 ---
 # Create a New Object
 

@@ -1,7 +1,6 @@
 ---
 uid: "403621"
 title: Execute Business Logic When a Property is Changed
-owner: Dmitry Egorov
 seealso:
   - linkId: "404195"
   - linkId: "113258"

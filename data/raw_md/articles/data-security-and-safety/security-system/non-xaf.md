@@ -5,7 +5,6 @@ seealso:
 - linkId: "113709"
 - linkId: "118741"
 title: 'Non-XAF UI Scenarios'
-owner: Ekaterina Kiseleva
 ---
 
 # Non-XAF UI Scenarios

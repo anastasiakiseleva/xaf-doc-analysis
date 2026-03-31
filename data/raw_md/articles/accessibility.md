@@ -1,7 +1,6 @@
 ---
 uid: "404762"
 title: Accessibility Support
-owner: Irina Nikolaeva
 ---
 # Accessibility Support
 

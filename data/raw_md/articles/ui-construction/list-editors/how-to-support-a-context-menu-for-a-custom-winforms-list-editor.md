@@ -2,7 +2,6 @@
 uid: "112660"
 seealso: []
 title: 'How to: Support a Context Menu for a Custom WinForms List Editor'
-owner: Ekaterina Kiseleva
 ---
 # How to: Support a Context Menu for a Custom WinForms List Editor
 

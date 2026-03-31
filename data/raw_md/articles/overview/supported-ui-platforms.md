@@ -1,7 +1,6 @@
 ---
 uid: '401675'
 title: 'Supported XAF UI Platforms'
-owner: Alexey Kazakov
 ---
 # Supported XAF UI Platforms
 

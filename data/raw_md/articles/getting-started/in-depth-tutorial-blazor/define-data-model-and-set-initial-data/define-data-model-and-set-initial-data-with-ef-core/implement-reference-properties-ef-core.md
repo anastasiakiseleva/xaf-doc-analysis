@@ -1,7 +1,6 @@
 ---
 uid: "402978"
 title: Implement Reference Properties
-owner: Alexey Kazakov
 seealso:
   - linkId: "112570"
   - linkId: "112571"

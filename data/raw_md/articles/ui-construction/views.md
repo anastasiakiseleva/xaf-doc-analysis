@@ -7,7 +7,6 @@ seealso:
   linkId: https://community.devexpress.com/blogs/xaf/archive/2011/03/04/one-more-dive-into-the-xaf-views-structure.aspx
   altText: One more dive into the XAF Views Structure
 title: Views
-owner: Vera Ulitina
 ---
 # Views
 

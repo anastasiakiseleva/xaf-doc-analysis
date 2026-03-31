@@ -1,7 +1,6 @@
 ---
 uid: "402156"
 title: Add a Simple Action Using an Attribute
-owner: Alexey Kazakov
 seealso:
   - linkId: "112621"
   - linkId: "112622"

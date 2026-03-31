@@ -1,7 +1,6 @@
 ---
 uid: "403826"
 title: Change the Current User Role in Code
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '113152'
   - linkId: '403824'

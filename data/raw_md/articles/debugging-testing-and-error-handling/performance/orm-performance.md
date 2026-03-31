@@ -1,7 +1,6 @@
 ---
 uid: "402151"
 title: ORM Layer Performance
-owner: Alexey Kazakov
 seealso:
   - linkType: HRef
     linkId: https://github.com/DevExpress-Examples/XAF_Security_E4908/tree/21.1.3+/Benchmarks

@@ -2,7 +2,6 @@
 uid: "113714"
 seealso: []
 title: User-Defined State Transitions Specified at Runtime
-owner: Ekaterina Kiseleva
 ---
 # User-Defined State Transitions Specified at Runtime
 

@@ -1,7 +1,6 @@
 ---
 uid: '400971'
 title: 'Customize Built-In Splash Forms (WinForms)'
-owner: Vera Ulitina
 ---
 # Customize Built-In Splash Forms (WinForms)
 

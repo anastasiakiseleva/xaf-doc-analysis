@@ -1,7 +1,6 @@
 ---
 uid: "403605"
 title: 'Auto-Generate Unique Number Sequence'
-owner: Eugenia Simonova
 seealso:
 - linkType: HRef
   linkId: https://supportcenter.devexpress.com/ticket/details/t639653/web-how-to-avoid-issues-with-data-bound-controls-due-to-missing-or-non-unique-key-values#

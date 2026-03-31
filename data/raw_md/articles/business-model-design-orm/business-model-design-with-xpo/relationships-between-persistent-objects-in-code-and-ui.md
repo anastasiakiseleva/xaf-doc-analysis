@@ -3,7 +3,6 @@ uid: "112654"
 seealso:
 - linkId: "2048"
 title: Relationships Between Persistent Objects in Code and UI
-owner: Ekaterina Kiseleva
 ---
 # Relationships Between Persistent Objects in Code and UI
 

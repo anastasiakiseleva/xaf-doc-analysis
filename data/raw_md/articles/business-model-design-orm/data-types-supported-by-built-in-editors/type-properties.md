@@ -3,7 +3,6 @@ uid: "113579"
 seealso:
 - linkId: "402188"
 title: Type Properties
-owner: Ekaterina Kiseleva
 ---
 # Type Properties
 

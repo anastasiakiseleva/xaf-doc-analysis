@@ -5,7 +5,6 @@ seealso:
 - linkId: "113128"
 - linkId: "404214"
 title: "How to: Perform Custom Actions When an Exception is Added to a Recurring Event"
-owner: Anastasiya Kisialeva
 ---
 # How to: Perform Custom Actions When an Exception is Added to a Recurring Event
 

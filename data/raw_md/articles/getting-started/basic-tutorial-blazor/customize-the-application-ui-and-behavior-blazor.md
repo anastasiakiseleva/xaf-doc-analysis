@@ -1,7 +1,6 @@
 ---
 uid: '401954'
 title: Customize Application UI and Behavior
-owner: Yekaterina Kiseleva
 seealso:
 - linkId: '113711'
 - linkId: '112701'

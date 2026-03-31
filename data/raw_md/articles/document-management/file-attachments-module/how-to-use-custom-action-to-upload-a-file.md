@@ -1,7 +1,6 @@
 ---
 uid: "403360"
 title: 'How to: Use a Custom Action to Upload a File in a Popup Window'
-owner: Eugenia Simonova
 ---
 # How to: Use a Custom Action to Upload a File in a Popup Window
 

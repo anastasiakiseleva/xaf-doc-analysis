@@ -2,7 +2,6 @@
 uid: "112988"
 seealso: []
 title: Criteria Property of a List View's Collection Source
-owner: Ekaterina Kiseleva
 ---
 # Criteria Property of a List View's Collection Source
 

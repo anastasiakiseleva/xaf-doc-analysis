@@ -2,7 +2,6 @@
 uid: "113325"
 seealso: []
 title: 'Implement a Custom Base Persistent Class'
-owner: Ekaterina Kiseleva
 ---
 # Implement a Custom Base Persistent Class
 

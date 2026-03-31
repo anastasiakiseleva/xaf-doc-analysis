@@ -2,7 +2,6 @@
 uid: "403535"
 seealso: []
 title: "Application Model: Built-in Interfaces"
-owner: Eugenia Simonova
 ---
 # Application Model: Built-in Interfaces
 

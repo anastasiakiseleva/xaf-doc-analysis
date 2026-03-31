@@ -2,7 +2,6 @@
 uid: "117454"
 seealso: []
 title: 'Access the Dashboard Control'
-owner: Ekaterina Kiseleva
 seealso:
   - linkId: '404466'
 ---

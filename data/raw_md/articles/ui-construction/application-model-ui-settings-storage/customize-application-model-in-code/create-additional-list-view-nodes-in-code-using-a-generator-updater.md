@@ -4,7 +4,6 @@ seealso:
 - linkId: "113316"
 - linkId: "112810"
 title: 'Create Additional ListView Nodes in Code Using a Generator Updater'
-owner: Ekaterina Kiseleva
 ---
 # Create Additional ListView Nodes in Code Using a Generator Updater
 

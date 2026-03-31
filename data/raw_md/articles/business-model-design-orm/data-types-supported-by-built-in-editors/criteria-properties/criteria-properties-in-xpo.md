@@ -3,7 +3,6 @@ uid: "113565"
 seealso:
 - linkId: "113143"
 title: Criteria Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Criteria Properties in XPO
 

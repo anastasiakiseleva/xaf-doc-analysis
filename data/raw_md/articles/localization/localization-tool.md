@@ -3,7 +3,6 @@ uid: "113297"
 seealso:
 - linkId: "112595"
 title: Localization Tool
-owner: Ekaterina Kiseleva
 ---
 # Localization Tool
 

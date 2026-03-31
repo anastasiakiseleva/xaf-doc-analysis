@@ -3,7 +3,6 @@ uid: "118592"
 seealso:
 - linkId: "403527"
 title: 'Apply Application Model Changes to the Current View Immediately'
-owner: Ekaterina Kiseleva
 ---
 # Apply Application Model Changes to the Current View Immediately
 

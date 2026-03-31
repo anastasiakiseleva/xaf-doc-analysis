@@ -1,7 +1,6 @@
 ---
 uid: "404403"
 title: Write Business Object Code that Accesses Services (Use Session or IObjectSpace)
-owner: Anastasiya Kisialeva
 seealso:
   - linkId: "404430"
   - linkId: "113152"

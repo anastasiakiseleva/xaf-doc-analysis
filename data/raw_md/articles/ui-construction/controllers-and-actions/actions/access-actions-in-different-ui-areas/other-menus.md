@@ -2,7 +2,6 @@
 uid: '400498'
 seealso: []
 title: List View Context Menus
-owner: Vera Ulitina
 ---
 # List View Context Menus
 

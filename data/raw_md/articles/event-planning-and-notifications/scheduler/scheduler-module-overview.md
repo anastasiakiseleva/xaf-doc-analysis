@@ -4,7 +4,6 @@ seealso:
 - linkId: "112571"
 - linkId: "404214"
 title: Scheduler Module Overview
-owner: Ekaterina Kiseleva
 ---
 # Scheduler Module Overview
 

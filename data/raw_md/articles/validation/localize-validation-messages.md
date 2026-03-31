@@ -2,7 +2,6 @@
 uid: "113129"
 seealso: []
 title: Localize Validation Messages
-owner: Ekaterina Kiseleva
 ---
 # Localize Validation Messages
 

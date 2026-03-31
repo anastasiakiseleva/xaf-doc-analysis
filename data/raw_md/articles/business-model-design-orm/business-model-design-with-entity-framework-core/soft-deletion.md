@@ -1,7 +1,6 @@
 ---
 uid: "405259"
 title: Soft Deletion (Deferred Object Deletion)
-owner: Anastasiya Kisialeva
 ---
 # Soft Deletion (Deferred Object Deletion)
 

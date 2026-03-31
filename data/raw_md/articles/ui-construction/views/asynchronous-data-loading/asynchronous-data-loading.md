@@ -1,7 +1,6 @@
 ---
 uid: '401747'
 title: Asynchronous Data Loading (Windows Forms)
-owner: Yekaterina Kiseleva
 seealso:
   - linkId: '401750'
 ---

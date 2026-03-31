@@ -4,7 +4,6 @@ seealso:
 - linkId: "403168"
 - linkId: "403164"
 title: 'How to: Display a List View With Data From a Stored Procedure With a Parameter'
-owner: Dmitry Egorov
 ---
 # How to: Display a List View With Data From a Stored Procedure With a Parameter
 

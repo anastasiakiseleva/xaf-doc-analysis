@@ -11,4 +11,4 @@ seealso:
 ---
 To get an [](xref:DevExpress.ExpressApp.ReportsV2.ReportContainer) instance by is handle, use the [ReportsStorage.GetReportContainerByHandle](xref:DevExpress.ExpressApp.ReportsV2.ReportStorageBase.GetReportContainerByHandle*) method.
 
-To create a custom Report Container, implement the **ReportContainer** interface, handle the [ReportsStorage.CreateCustomReportContainer](xref:DevExpress.ExpressApp.ReportsV2.ReportStorageBase.CreateCustomReportContainer) event and pass an instance of your custom Report Container to the [CreateCustomReportContainerEventArgs.ReportContainer](xref:DevExpress.ExpressApp.ReportsV2.CreateCustomReportContainerEventArgs.ReportContainer) parameter.
+To create a custom Report Container, implement the `ReportContainer` interface, handle the `DevExpress.ExpressApp.ReportsV2.ReportStorageBase.CreateCustomReportContainer` event and pass an instance of your custom Report Container to the [CreateCustomReportContainerEventArgs.ReportContainer](xref:DevExpress.ExpressApp.ReportsV2.CreateCustomReportContainerEventArgs.ReportContainer) parameter.

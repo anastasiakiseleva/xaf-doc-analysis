@@ -1,7 +1,6 @@
 ---
 uid: "405384"
 title: Optimistic Locking (Concurrency Control in EF Core)
-owner: Anastasiya Kisialeva
 ---
 # Optimistic Locking (Concurrency Control in EF Core)
 

@@ -1,7 +1,6 @@
 ---
 uid: "402159"
 title: Add an Action with Option Selection
-owner: Alexey Kazakov
 seealso:
   - linkId: "113711"
   - linkId: DevExpress.ExpressApp.BaseObjectSpace.CommitChanges

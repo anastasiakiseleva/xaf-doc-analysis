@@ -2,7 +2,6 @@
 uid: "118449"
 seealso: []
 title: Client Mode
-owner: Ekaterina Kiseleva
 ---
 # Client Mode
 

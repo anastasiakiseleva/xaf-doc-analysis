@@ -1,7 +1,6 @@
 ---
 uid: '401944'
 title: Create a Combined XAF Web and Desktop Application
-owner: Yekaterina Kiseleva
 seealso:
 - linkId: '118045'
 ---

@@ -8,7 +8,6 @@ seealso:
   altText: Initialize Business Objects with Default Property Values in Entity Framework Core
 - linkId: "113711"
 title: 'How to: Initialize an Object Created Using the New Action'
-owner: Ekaterina Kiseleva
 ---
 # How to: Initialize an Object Created Using the New Action
 

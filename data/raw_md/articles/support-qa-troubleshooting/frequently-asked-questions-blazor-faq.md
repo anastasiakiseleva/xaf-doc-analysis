@@ -1,7 +1,6 @@
 ---
 uid: "403277"
 title: Frequently Asked Questions - Blazor UI (FAQ)
-owner: Alexey Kazakov
 ---
 # Frequently Asked Questions - Blazor UI (FAQ)
 

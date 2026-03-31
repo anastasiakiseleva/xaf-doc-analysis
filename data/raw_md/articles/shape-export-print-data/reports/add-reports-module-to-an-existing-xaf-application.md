@@ -1,7 +1,6 @@
 ---
 uid: "404243"
 title: Add Reports V2 Module to an Existing XAF Application
-owner: Andrey Kozhevnikov
 ---
 # Add Reports V2 Module to an Existing XAF Application
 

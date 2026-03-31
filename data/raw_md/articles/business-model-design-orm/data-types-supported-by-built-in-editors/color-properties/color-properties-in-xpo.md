@@ -2,7 +2,6 @@
 uid: "113659"
 seealso: []
 title: Color Properties in XPO
-owner: Ekaterina Kiseleva
 ---
 # Color Properties in XPO
 

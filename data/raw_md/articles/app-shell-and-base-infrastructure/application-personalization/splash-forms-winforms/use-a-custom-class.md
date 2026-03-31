@@ -1,7 +1,6 @@
 ---
 uid: '400737'
 title: 'Use a Custom Class to Show a Splash Form (WinForms)'
-owner: Vera Ulitina
 ---
 
 # Use a Custom Class to Show a Splash Form (WinForms)

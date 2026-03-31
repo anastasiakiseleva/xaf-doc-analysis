@@ -4,7 +4,6 @@ seealso:
 - linkId: "113218"
 - linkId: "113294"
 title: 'Test Conditional Appearance Rules'
-owner: Ekaterina Kiseleva
 ---
 # Test Conditional Appearance Rules
 

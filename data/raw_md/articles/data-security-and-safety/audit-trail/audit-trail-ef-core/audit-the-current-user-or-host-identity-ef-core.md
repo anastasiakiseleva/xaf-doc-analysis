@@ -1,7 +1,6 @@
 ---
 uid: "403117"
 title: Audit the Current User or Host Identity (EF Core)
-owner: Yekaterina Kiseleva
 ---
 # Audit the Current User or Host Identity (EF Core)
 

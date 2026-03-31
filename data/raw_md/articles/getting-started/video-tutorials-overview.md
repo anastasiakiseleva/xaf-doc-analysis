@@ -1,7 +1,6 @@
 ---
 uid: "404219"
 title: Video Tutorials & Overview
-owner: Anastasiya Kisialeva
 ---
 # Video Tutorials & Overview
 

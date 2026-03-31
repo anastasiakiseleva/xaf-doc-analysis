@@ -5,7 +5,6 @@ seealso:
 - linkId: "113687"
 - linkId: "113696"
 title: Notifications Window Elements
-owner: Anastasiya Kisialeva
 ---
 # Notifications Window Elements
 

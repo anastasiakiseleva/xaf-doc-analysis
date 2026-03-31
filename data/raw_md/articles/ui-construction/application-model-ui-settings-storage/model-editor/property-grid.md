@@ -2,7 +2,6 @@
 uid: "113329"
 seealso: []
 title: Property Grid
-owner: Ekaterina Kiseleva
 ---
 # Property Grid
 

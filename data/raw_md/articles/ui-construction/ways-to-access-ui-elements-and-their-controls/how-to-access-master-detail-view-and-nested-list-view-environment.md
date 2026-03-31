@@ -3,7 +3,6 @@ uid: "113161"
 seealso:
 - linkId: "120092"
 title: 'How to: Access Nested List View or Master Detail View Environment (ASP.NET Core Blazor and Windows Forms)'
-owner: Ekaterina Kiseleva
 ---
 
 # How to: Access Nested List View or Master Detail View Environment (ASP.NET Core Blazor and Windows Forms)

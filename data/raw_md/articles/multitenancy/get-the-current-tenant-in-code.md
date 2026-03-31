@@ -1,7 +1,6 @@
 ---
 uid: "404668"
 title: 'Get the Current Tenant in Code'
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "404667"
 ---

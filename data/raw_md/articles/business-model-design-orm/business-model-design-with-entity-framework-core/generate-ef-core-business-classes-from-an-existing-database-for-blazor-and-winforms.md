@@ -1,7 +1,6 @@
 ---
 uid: "402971"
 title: Generate EF Core Business Classes from an Existing Database for Blazor and WinForms Applications (Database First)
-owner: Yekaterina Kiseleva
 seealso:
   - linkType: HRef
     linkId: https://learn.microsoft.com/en-us/ef/core/

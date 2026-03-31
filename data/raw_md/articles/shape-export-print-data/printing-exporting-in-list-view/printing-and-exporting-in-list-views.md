@@ -1,7 +1,6 @@
 ---
 uid: "403199"
 title: 'Printing and Exporting in ListViews'
-owner: Alexey Kazakov
 ---
 # Printing and Exporting in ListViews
 

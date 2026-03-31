@@ -1,7 +1,6 @@
 ---
 uid: "405312"
 title: Display a Tree List With Flat Data Objects (ASP.NET Core Blazor)
-owner: Anastasiya Kisialeva
 ---
 # Display a Tree List With Flat Data Objects (ASP.NET Core Blazor)
 
@@ -265,12 +264,17 @@ public class SolutionNameDbContext : DbContext {
             set => SetPropertyValue(nameof(HasChildren), value);
         }
 
-        [Association("Parent-Children")]
-        public XPCollection<Category> Children => GetCollection<Category>();
+        XPCollection<Category> _children;
 
-        protected override void OnLoaded() {
-            base.OnLoaded();
-            Children.CollectionChanged += Children_CollectionChanged;
+        [Association("Parent-Children")]
+        public XPCollection<Category> Children {
+            get {
+                if(_children == null) {
+                    _children = GetCollection<Category>();
+                    _children.CollectionChanged += Children_CollectionChanged;
+                }
+                return _children;
+            }
         }
 
         private void Children_CollectionChanged(object sender, XPCollectionChangedEventArgs e) {

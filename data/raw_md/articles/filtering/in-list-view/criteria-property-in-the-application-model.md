@@ -5,7 +5,6 @@ seealso:
 - linkId: "113052"
 - linkId: "4928"
 title: Criteria Property in the Application Model
-owner: Ekaterina Kiseleva
 ---
 # Criteria Property in the Application Model
 

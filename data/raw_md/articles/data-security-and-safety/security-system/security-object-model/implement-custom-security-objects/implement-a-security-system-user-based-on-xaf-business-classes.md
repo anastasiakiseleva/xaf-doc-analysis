@@ -1,7 +1,6 @@
 ---
 uid: "404875"
 title: Implement a Security System User (ApplicationUser) Based on XAF Business Classes
-owner: Eugeniy Burmistrov
 seealso:
 - linkId: "113452"
 ---

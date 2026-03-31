@@ -4,7 +4,6 @@ seealso:
 - linkId: "113374"
 - linkId: "113221"
 title: Declare Conditional Appearance Rules in the Application Model
-owner: Ekaterina Kiseleva
 ---
 # Declare Conditional Appearance Rules in the Application Model
 

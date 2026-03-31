@@ -1,7 +1,6 @@
 ---
 uid: "404348"
 title: 'The Importance of Multiple Active Result Sets in Entity Framework Core Data Models'
-owner: Eugeniy Burmistrov
 ---
 
 # The Importance of Multiple Active Result Sets in Entity Framework Core Data Models

@@ -4,7 +4,6 @@ seealso:
 - linkId: "112617"
 - linkId: "112618"
 title: Windows and Frames
-owner: Ekaterina Kiseleva
 ---
 # Windows and Frames
 

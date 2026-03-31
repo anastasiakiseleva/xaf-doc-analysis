@@ -1,7 +1,6 @@
 ---
 uid: "402148"
 title: Performance Optimization
-owner: Alexey Kazakov
 ---
 # Performance Optimization
 

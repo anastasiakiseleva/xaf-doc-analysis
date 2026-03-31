@@ -9,7 +9,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/XAF-how-to-add-an-unbound-column-to-gridlisteditor-to-execute-a-custom-action-for-a-record
   altText: XAF - Add an Unbound Column to GridListEditor to Execute a Custom Action for a Record
 title: 'How to: Extend and Access the Application Model Nodes from Controllers'
-owner: Ekaterina Kiseleva 
 ---
 # How to: Extend and Access the Application Model Nodes from Controllers
 

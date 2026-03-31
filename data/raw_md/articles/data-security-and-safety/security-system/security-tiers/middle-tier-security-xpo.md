@@ -7,7 +7,6 @@ seealso:
   altText: How to Update the Middle Tier Implementation when Upgrading to XAF v17.2+
 - linkId: "403550"  
 title: Middle Tier Security with XPO
-owner: Ekaterina Kiseleva
 ---
 
 # Middle Tier Security with XPO

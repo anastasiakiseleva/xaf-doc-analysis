@@ -5,7 +5,6 @@ seealso:
   linkId: https://supportcenter.devexpress.com/ticket/details/e4896/how-to-connect-different-data-models-to-several-databases-within-a-single-application
   altText: How to connect different ORM data models to several databases within a single application
 title: Business Model Design with XPO
-owner: Ekaterina Kiseleva
 ---
 # Business Model Design with XPO
 

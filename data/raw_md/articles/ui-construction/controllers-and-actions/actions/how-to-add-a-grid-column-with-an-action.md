@@ -1,7 +1,6 @@
 ---
 uid: "404559"
 title: 'How to: Add a Grid Column with an Action (ASP.NET Core Blazor)'
-owner: Anastasiya Kisialeva
 ---
 # How to: Add a Grid Column with an Action (ASP.NET Core Blazor)
 

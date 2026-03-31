@@ -1,7 +1,6 @@
 ---
 uid: "404714"
 title: "How to: Customize Status and Label Properties"
-owner: Anastasiya Kisialeva
 ---
 # How to: Customize Status and Label Properties
 

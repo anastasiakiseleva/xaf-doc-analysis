@@ -2,7 +2,6 @@
 uid: "113362"
 seealso: []
 title: Exporting
-owner: Ekaterina Kiseleva
 ---
 # Exporting
 

@@ -1,7 +1,6 @@
 ---
 uid: "404186"
 title: Why We Recommend EF Core over XPO for New Development
-owner: Andrey Kozhevnikov
 seealso: []
 ---
 # Why We Recommend EF Core over XPO for New Development

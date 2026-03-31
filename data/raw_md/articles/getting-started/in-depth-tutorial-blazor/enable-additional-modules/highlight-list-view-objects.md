@@ -1,7 +1,6 @@
 ---
 uid: "404205"
 title: Highlight Property Editors
-owner: Anastasiya Kisialeva
 ---
 # Highlight Property Editors
 

@@ -2,7 +2,6 @@
 uid: "113443"
 seealso: []
 title: 'How to: Access the Document Manager'
-owner: Ekaterina Kiseleva
 ---
 # How to: Access the Document Manager
 

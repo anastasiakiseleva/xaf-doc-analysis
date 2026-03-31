@@ -5,7 +5,6 @@ seealso:
 - linkId: "112611"
 - linkId: DevExpress.Persistent.Base.FriendlyKeyPropertyAttribute
 title: List View Column Generation
-owner: Ekaterina Kiseleva
 ---
 # List View Column Generation
 

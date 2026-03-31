@@ -1,7 +1,6 @@
 ---
 uid: "405253"
 title: Refresh Data in a View After a Period of Time (ASP.NET Core Blazor)
-owner: Georgiy Gorislov
 seealso:
   - linkType: HRef
     linkId: xref:DevExpress.ExpressApp.Blazor.BlazorApplication.InvokeAsync*

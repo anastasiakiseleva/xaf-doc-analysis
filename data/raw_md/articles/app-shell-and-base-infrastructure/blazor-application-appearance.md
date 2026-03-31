@@ -1,7 +1,6 @@
 ---
 uid: "403068"
 title: 'ASP.NET Core Blazor Application Appearance'
-owner: Alexey Kazakov
 ---
 # ASP.NET Core Blazor Application Appearance
 

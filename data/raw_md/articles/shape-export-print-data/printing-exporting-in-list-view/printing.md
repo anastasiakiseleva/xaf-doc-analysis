@@ -3,7 +3,6 @@ uid: "113012"
 seealso:
 - linkId: "113283"
 title: Printing
-owner: Ekaterina Kiseleva
 ---
 # Printing
 

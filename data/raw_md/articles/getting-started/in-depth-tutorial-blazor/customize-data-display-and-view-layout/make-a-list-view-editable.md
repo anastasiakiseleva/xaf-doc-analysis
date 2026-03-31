@@ -1,7 +1,6 @@
 ---
 uid: "404202"
 title: Make a List View Editable
-owner: Anastasiya Kisialeva
 ---
 # Make a List View Editable
 

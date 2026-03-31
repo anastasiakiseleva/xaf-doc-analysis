@@ -2,7 +2,6 @@
 uid: "118740"
 seealso: []
 title: 'Assign the Same Permissions for All Users of an Active Directory Group'
-owner: Ekaterina Kiseleva
 ---
 # Assign the Same Permissions for All Users of an Active Directory Group
 

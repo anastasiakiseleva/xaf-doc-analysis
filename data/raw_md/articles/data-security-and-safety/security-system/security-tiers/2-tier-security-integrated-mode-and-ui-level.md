@@ -2,7 +2,6 @@
 uid: "113436"
 seealso: []
 title: 2-Tier Security (Integrated Mode and UI Level)
-owner: Ekaterina Kiseleva
 ---
 # 2-Tier Security (Integrated Mode and UI Level)
 

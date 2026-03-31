@@ -1,7 +1,6 @@
 ---
 uid: "402261"
 title: 'How to: Access the Report Designer Control (Blazor)'
-owner: Yekaterina Kiseleva
 ---
 # How to: Access the Report Designer Control (Blazor)
 

@@ -1,7 +1,6 @@
 ---
 uid: "113156"
 title: 'Change an Application Logo and About Information'
-owner: Ekaterina Kiseleva
 ---
 # Change an Application Logo and About Information
 

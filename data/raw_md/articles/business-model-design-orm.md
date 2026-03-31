@@ -7,7 +7,6 @@ seealso:
   linkId: https://www.youtube.com/watch?v=vKivMXbsukc
   altText: "Cross-Platform .NET App UI: Desktop & Web Business Apps in Hours (DevExpress XAF Introduction)"
 title: Storage, ORM, and Business Model Design
-owner: Ekaterina Kiseleva
 ---
 # Storage, ORM, and Business Model Design
 

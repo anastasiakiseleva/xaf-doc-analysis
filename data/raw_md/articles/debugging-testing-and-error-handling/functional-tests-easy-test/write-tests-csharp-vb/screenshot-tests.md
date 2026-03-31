@@ -1,7 +1,6 @@
 ---
 uid: "403972"
 title: 'Screenshot Tests (Visual Testing)'
-owner: Alexey Kazakov
 ---
 # Screenshot Tests (Visual Testing)
 

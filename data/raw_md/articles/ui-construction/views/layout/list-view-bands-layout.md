@@ -5,7 +5,6 @@ seealso:
 - linkId: "114637"
 - linkId: "9873"
 title: "List Views: Banded Column Layout"
-owner: Anastasiya Kisialeva
 ---
 # List Views: Banded Column Layout
 

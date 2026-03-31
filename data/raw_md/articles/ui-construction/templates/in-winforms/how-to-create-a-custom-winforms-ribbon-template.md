@@ -9,7 +9,6 @@ seealso:
   linkId: https://github.com/DevExpress-Examples/xaf-how-to-create-information-panels
   altText: 'How to: Create Information Panels'
 title: 'How to: Create a Custom WinForms Ribbon Template'
-owner: Ekaterina Kiseleva
 ---
 # How to: Create a Custom WinForms Ribbon Template
 

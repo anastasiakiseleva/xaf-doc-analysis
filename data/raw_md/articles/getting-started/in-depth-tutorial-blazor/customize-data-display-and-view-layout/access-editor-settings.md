@@ -1,7 +1,6 @@
 ---
 uid: "402153"
 title: Access the Settings of a Property Editor in a Detail View
-owner: Alexey Kazakov
 seealso:
   - linkId: "112621"
   - linkId: "120092"

@@ -3,7 +3,6 @@ uid: "113709"
 seealso:
 - linkId: "114515"
 title: Access XAF Application Data in a non-XAF Application
-owner: Ekaterina Kiseleva
 ---
 # Access XAF Application Data in a non-XAF Application
 

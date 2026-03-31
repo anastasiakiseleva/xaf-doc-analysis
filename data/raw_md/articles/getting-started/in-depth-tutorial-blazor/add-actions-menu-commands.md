@@ -1,7 +1,6 @@
 ---
 uid: "402128"
 title: Add Actions (Menu Commands)
-owner: Alexey Kazakov
 seealso: []
 ---
 # Add Actions (Menu Commands)

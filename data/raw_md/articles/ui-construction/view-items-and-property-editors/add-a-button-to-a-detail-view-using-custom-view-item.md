@@ -9,7 +9,6 @@ seealso:
 - linkId: "404701"
 
 title: 'How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Fully Custom ViewItem)'
-owner: Ekaterina Kiseleva
 ---
 # How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Fully Custom ViewItem)
 

@@ -2,7 +2,6 @@
 uid: "113151"
 seealso: []
 title: Customize the Logon Window Appearance And Behavior
-owner: Vera Ulitina
 ---
 # Customize the Logon Window Appearance And Behavior
 

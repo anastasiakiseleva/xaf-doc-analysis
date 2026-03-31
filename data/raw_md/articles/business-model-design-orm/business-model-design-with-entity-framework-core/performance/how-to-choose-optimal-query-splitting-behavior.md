@@ -1,7 +1,6 @@
 ---
 uid: "404862"
 title: 'How to: Choose the Optimal Query Splitting Behavior in Entity Framework Core'
-owner: Eugeniy Burmistrov
 seealso:
   - linkId: "404429"
   - linkType: HRef

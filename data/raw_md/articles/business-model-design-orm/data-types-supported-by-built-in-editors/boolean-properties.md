@@ -3,7 +3,6 @@ uid: "113540"
 seealso:
 - linkId: "402188"
 title: Boolean Properties
-owner: Ekaterina Kiseleva
 ---
 # Boolean Properties
 

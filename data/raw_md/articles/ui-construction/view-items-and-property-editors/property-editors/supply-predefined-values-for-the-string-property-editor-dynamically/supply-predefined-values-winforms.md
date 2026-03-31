@@ -4,7 +4,6 @@ seealso:
 - linkId: "403100"
 - linkId: "113097"
 title: 'Supply Predefined Values for the String Property Editor Dynamically (WinForms)'
-owner: Ekaterina Kiseleva
 ---
 # Supply Predefined Values for the String Property Editor Dynamically (WinForms)
 

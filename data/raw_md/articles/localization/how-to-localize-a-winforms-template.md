@@ -2,7 +2,6 @@
 uid: "114495"
 seealso: []
 title: 'How to: Localize a WinForms Template'
-owner: Ekaterina Kiseleva
 ---
 # How to: Localize a WinForms Template
 

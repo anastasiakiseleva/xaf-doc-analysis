@@ -2,7 +2,6 @@
 uid: "400290"
 seealso: []
 title: Merging of Permissions Defined in Different Roles
-owner: Ekaterina Kiseleva
 ---
 # Merging of Permissions Defined in Different Roles
 

@@ -4,7 +4,6 @@ seealso:
 - linkId: "113097"
 - linkId: "402188"
 title: Date and Time Properties
-owner: Anastasiya Kisialeva
 ---
 # Date and Time Properties
 
