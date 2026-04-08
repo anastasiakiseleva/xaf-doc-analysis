@@ -75,9 +75,6 @@ The repository includes support ticket data categorized by XAF features, helping
 ## Dependencies
 
 See `requirements-lock.txt` for complete dependency list. Key dependencies include:
-- pandas
-- pyarrow
-- Python 3.x
 
 ## Installation
 
