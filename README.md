@@ -1,5 +1,46 @@
 # XAF Documentation Analysis Project
 
+## Table of Contents
+
+- [Overview](#overview)
+- [Pipeline 1: Knowledge Graph Construction](#pipeline-1-knowledge-graph-construction)
+  - [Phase 1 — Read the documentation like a human would](#phase-1--read-the-documentation-like-a-human-would)
+  - [Phase 2 — Capture how authors intended docs to connect](#phase-2--capture-how-authors-intended-docs-to-connect)
+  - [Phase 3 — Teach the system XAF language](#phase-3--teach-the-system-xaf-language)
+  - [Phase 3.5 — Measure documentation readiness before AI](#phase-35--measure-documentation-readiness-before-ai)
+  - [Phase 4 — Turn text into "meaning coordinates"](#phase-4--turn-text-into-meaning-coordinates)
+  - [Phase 5 — Discover hidden relationships](#phase-5--discover-hidden-relationships)
+  - [Phase 11 — Extract API Entities](#phase-11--extract-api-entities)
+  - [Phase 12 — Map APIs to Concepts](#phase-12--map-apis-to-concepts)
+  - [Phase 13 — Build Unified Knowledge Graph](#phase-13--build-unified-knowledge-graph)
+- [Pipeline 2: Enrichment & Classification](#pipeline-2-enrichment--classification)
+  - [Phase 5.5 — Filter High-Value Semantic Pairs](#phase-55--filter-high-value-semantic-pairs)
+  - [Phase 6 — Classify Relationship Types (Experimental)](#phase-6--classify-relationship-types-experimental)
+  - [Phase 7 — Generate AI-Friendly Metadata](#phase-7--generate-ai-friendly-metadata)
+  - [Phase 8 — Export YAML Frontmatter](#phase-8--export-yaml-frontmatter)
+  - [Phase 9 — Track Concept Quality Metrics](#phase-9--track-concept-quality-metrics)
+  - [Phase 10 — Roll Up Document Metadata](#phase-10--roll-up-document-metadata)
+- [Pipeline 3: Quality Analysis & Tooling](#pipeline-3-quality-analysis--tooling)
+  - [Baseline & Gap Analysis](#baseline--gap-analysis)
+  - [Concept Analysis Tools](#concept-analysis-tools)
+  - [Section & Keyword Tools](#section--keyword-tools)
+  - [Validation & Sanity Checks](#validation--sanity-checks)
+  - [MCP Server Integration](#mcp-server-integration)
+  - [MVP Deliverables](#mvp-deliverables)
+  - [Ticket Discoverability](#ticket-discoverability)
+  - [Doc Issue Analysis](#doc-issue-analysis)
+  - [Experimental: Ollama-Based API Classification](#experimental-ollama-based-api-classification)
+- [Quality Metrics](#quality-metrics)
+- [Quick Start Guide](#quick-start-guide)
+- [What This Lets You Measure](#what-this-lets-you-measure)
+- [Project Structure](#project-structure)
+- [Key Files Reference](#key-files-reference)
+- [Next Steps](#next-steps)
+- [Success Metrics](#success-metrics)
+- [Technical Notes](#technical-notes)
+
+---
+
 ## Overview
 
 This project analyzes DevExpress XAF (eXpressApp Framework) documentation to:
