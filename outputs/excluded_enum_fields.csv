@@ -438,7 +438,7 @@ data/raw_md/apidoc/DevExpress.ExpressApp.CloneObject/CloneObjectViewController/C
 data/raw_md/apidoc/DevExpress.ExpressApp.CloneObject/CloneObjectViewController/IsNotModifiedEnabledKey,IsNotModifiedEnabledKey,Field,0,DevExpress.ExpressApp.CloneObject.CloneObjectViewController.IsNotModifiedEnabledKey
 data/raw_md/apidoc/DevExpress.ExpressApp.Chart/ChartListEditorBase/Alias1134729,Alias1134729,Field,0,DevExpress.ExpressApp.Chart.ChartListEditorBase.Alias
 data/raw_md/apidoc/DevExpress.ExpressApp.Chart/ChartModule/LocalizationGroup1135591,LocalizationGroup1135591,Field,0,DevExpress.ExpressApp.Chart.ChartModule.LocalizationGroup
-data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/BlazorExportController/ExportVisibleColumnsOnly,ExportVisibleColumnsOnly,Field,0,DevExpress.ExpressApp.Blazor.SystemModule.BlazorExportController.ExportVisibleColumnsOnly
+data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/BlazorExportController/ExportVisibleColumnsOnly,ExportVisibleColumnsOnly,Field,7,DevExpress.ExpressApp.Blazor.SystemModule.BlazorExportController.ExportVisibleColumnsOnly
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/InlineEditMode/Batch,Batch,Field,0,DevExpress.ExpressApp.Blazor.SystemModule.InlineEditMode.Batch
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/InlineEditMode/EditForm,EditForm,Field,0,DevExpress.ExpressApp.Blazor.SystemModule.InlineEditMode.EditForm
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.SystemModule/InlineEditMode/Inline,Inline,Field,0,DevExpress.ExpressApp.Blazor.SystemModule.InlineEditMode.Inline
@@ -529,7 +529,7 @@ data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v22_
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v23_1,v23_1,Field,22,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v23_1
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v23_2,v23_2,Field,21,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v23_2
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v24_1,v24_1,Field,20,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v24_1
-data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v24_2,v24_2,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v24_2
+data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v24_2,v24_2,Field,26,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v24_2
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v25_1,v25_1,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v25_1
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v25_2,v25_2,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v25_2
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v26_1,v26_1,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v26_1

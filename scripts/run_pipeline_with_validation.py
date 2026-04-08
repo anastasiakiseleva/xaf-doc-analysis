@@ -94,7 +94,7 @@ class PipelineRunner:
         print(f"Description: {phase['description']}")
         
         if not script_path.exists():
-            print(f"❌ Script not found: {script_path}")
+            print(f"[FAIL] Script not found: {script_path}")
             return {
                 "phase": phase_num,
                 "name": phase_name,
@@ -119,7 +119,7 @@ class PipelineRunner:
         cmd.append("--save-report")
         
         # Execute phase
-        print(f"\n🚀 Executing: {' '.join(cmd)}")
+        print(f"\n[RUN] Executing: {' '.join(cmd)}")
         phase_start = datetime.now()
         
         try:
@@ -134,7 +134,7 @@ class PipelineRunner:
             phase_end = datetime.now()
             duration = (phase_end - phase_start).total_seconds()
             
-            print(f"\n✅ Phase {phase_num} completed in {duration:.1f} seconds")
+            print(f"\n[OK] Phase {phase_num} completed in {duration:.1f} seconds")
             
             return {
                 "phase": phase_num,
@@ -151,7 +151,7 @@ class PipelineRunner:
             duration = (phase_end - phase_start).total_seconds()
             
             error_msg = f"Phase {phase_num} failed with exit code {e.returncode}"
-            print(f"\n❌ {error_msg}")
+            print(f"\n[FAIL] {error_msg}")
             
             return {
                 "phase": phase_num,
@@ -172,7 +172,7 @@ class PipelineRunner:
         test_script = self.project_root / "tests" / "test_pipeline_integration.py"
         
         if not test_script.exists():
-            print(f"⚠️  Integration test script not found: {test_script}")
+            print(f"[WARN] Integration test script not found: {test_script}")
             return {
                 "success": False,
                 "error": "Test script not found",
@@ -181,7 +181,7 @@ class PipelineRunner:
         
         cmd = [sys.executable, str(test_script), "--save-report"]
         
-        print(f"🚀 Executing: {' '.join(cmd)}")
+        print(f"[RUN] Executing: {' '.join(cmd)}")
         test_start = datetime.now()
         
         try:
@@ -196,7 +196,7 @@ class PipelineRunner:
             test_end = datetime.now()
             duration = (test_end - test_start).total_seconds()
             
-            print(f"\n✅ Integration tests passed in {duration:.1f} seconds")
+            print(f"\n[OK] Integration tests passed in {duration:.1f} seconds")
             
             return {
                 "success": True,
@@ -209,7 +209,7 @@ class PipelineRunner:
             duration = (test_end - test_start).total_seconds()
             
             error_msg = f"Integration tests failed with exit code {e.returncode}"
-            print(f"\n⚠️  {error_msg}")
+            print(f"\n[WARN] {error_msg}")
             
             return {
                 "success": False,
@@ -248,7 +248,7 @@ class PipelineRunner:
             self.phase_results.append(result)
             
             if not result["success"] and phase["required"]:
-                print(f"\n❌ Required phase {phase['number']} failed. Stopping pipeline.")
+                print(f"\n[FAIL] Required phase {phase['number']} failed. Stopping pipeline.")
                 all_succeeded = False
                 break
         
@@ -278,34 +278,34 @@ class PipelineRunner:
         
         print(f"\nTotal duration: {total_duration / 60:.1f} minutes ({total_duration:.0f} seconds)")
         print(f"\nPhase Results:")
-        print(f"{'─'*70}")
+        print("-" * 70)
         
         for result in self.phase_results:
-            status = "✅" if result["success"] else "❌"
+            status = "[OK]  " if result["success"] else "[FAIL]"
             duration = result["duration_seconds"]
             print(f"{status} Phase {result['phase']}: {result['name']:<30} ({duration:.1f}s)")
             if result.get("error"):
-                print(f"   └─ Error: {result['error']}")
+                print(f"   +-- Error: {result['error']}")
         
         if integration_result:
-            status = "✅" if integration_result["success"] else "⚠️"
+            status = "[OK]  " if integration_result["success"] else "[WARN]"
             duration = integration_result["duration_seconds"]
             print(f"{status} Integration Tests{'':<35} ({duration:.1f}s)")
         
-        print(f"{'─'*70}")
+        print("-" * 70)
         
         succeeded = sum(1 for r in self.phase_results if r["success"])
         total = len(self.phase_results)
         
-        print(f"\n📊 Statistics:")
+        print(f"\nStatistics:")
         print(f"   Phases run: {total}")
         print(f"   Succeeded: {succeeded}")
         print(f"   Failed: {total - succeeded}")
         
         if succeeded == total and (integration_result is None or integration_result["success"]):
-            print(f"\n✅ Pipeline completed successfully!")
+            print(f"\n[OK] Pipeline completed successfully!")
         else:
-            print(f"\n❌ Pipeline completed with errors.")
+            print(f"\n[FAIL] Pipeline completed with errors.")
     
     def save_comprehensive_report(self, integration_result: Dict[str, Any], total_duration: float):
         """Save comprehensive validation report."""
@@ -402,7 +402,7 @@ Examples:
         try:
             phase_filter = [int(p.strip()) for p in args.phases.split(',')]
         except ValueError:
-            print(f"❌ Invalid phase list: {args.phases}")
+            print(f"[FAIL] Invalid phase list: {args.phases}")
             print("   Expected comma-separated integers (e.g., '1,3,7')")
             sys.exit(1)
     

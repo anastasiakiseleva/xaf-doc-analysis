@@ -1,7 +1,7 @@
 {
   "phase_name": "Extract Concepts",
   "phase_number": 3,
-  "timestamp": "2026-03-16T13:00:14.160835",
+  "timestamp": "2026-04-07T13:42:52.306490",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,29 +16,29 @@
     {
       "check_name": "Minimum sections",
       "passed": true,
-      "message": "Row count 11,240 is within acceptable range",
+      "message": "Row count 11,235 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 11240
+        "row_count": 11235
       }
     },
     {
       "check_name": "Minimum kept percentage",
       "passed": true,
-      "message": "Value 92.34 meets threshold >= 60.0",
+      "message": "Value 92.35 meets threshold >= 60.0",
       "severity": "info",
       "details": {
-        "actual_value": 92.33985765124555,
+        "actual_value": 92.35425011125946,
         "threshold_value": 60.0
       }
     },
     {
       "check_name": "Maximum kept percentage",
       "passed": true,
-      "message": "Value 92.34 meets threshold <= 95.0",
+      "message": "Value 92.35 meets threshold <= 95.0",
       "severity": "info",
       "details": {
-        "actual_value": 92.33985765124555,
+        "actual_value": 92.35425011125946,
         "threshold_value": 95.0
       }
     },
@@ -48,7 +48,7 @@
       "message": "Value 2.96 meets threshold >= 1.5",
       "severity": "info",
       "details": {
-        "actual_value": 2.9611715964929184,
+        "actual_value": 2.964148033924441,
         "threshold_value": 1.5
       }
     },
@@ -58,7 +58,7 @@
       "message": "Value 2.96 meets threshold <= 4.0",
       "severity": "info",
       "details": {
-        "actual_value": 2.9611715964929184,
+        "actual_value": 2.964148033924441,
         "threshold_value": 4.0
       }
     },
@@ -75,10 +75,10 @@
     {
       "check_name": "Minimum API sections",
       "passed": true,
-      "message": "Value 6313.00 meets threshold >= 4000",
+      "message": "Value 6302.00 meets threshold >= 4000",
       "severity": "info",
       "details": {
-        "actual_value": 6313,
+        "actual_value": 6302,
         "threshold_value": 4000
       }
     }

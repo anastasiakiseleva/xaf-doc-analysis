@@ -1,7 +1,7 @@
 {
   "phase_name": "Rollup Document Metadata",
   "phase_number": 10,
-  "timestamp": "2026-03-16T13:05:45.292823",
+  "timestamp": "2026-04-07T13:43:10.882720",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,16 +16,16 @@
     {
       "check_name": "Minimum documents",
       "passed": true,
-      "message": "Row count 5,427 is within acceptable range",
+      "message": "Row count 5,422 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 5427
+        "row_count": 5422
       }
     },
     {
       "check_name": "Document completeness",
       "passed": true,
-      "message": "All 5427 documents from section metadata are present",
+      "message": "All 5422 documents from section metadata are present",
       "severity": "info",
       "details": null
     },
@@ -35,7 +35,7 @@
       "message": "Value 3.74 meets threshold >= 3.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.738161046618758,
+        "actual_value": 3.7421615639985246,
         "threshold_value": 3.0
       }
     },
@@ -45,7 +45,7 @@
       "message": "Value 3.74 meets threshold <= 12.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.738161046618758,
+        "actual_value": 3.7421615639985246,
         "threshold_value": 12.0
       }
     },

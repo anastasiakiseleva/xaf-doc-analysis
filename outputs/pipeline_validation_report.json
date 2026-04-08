@@ -1,47 +1,257 @@
 {
   "pipeline_execution": {
-    "start_time": "2026-03-16T13:05:35.209299",
-    "end_time": "2026-03-16T13:05:45.396207",
-    "total_duration_seconds": 10.186908,
+    "start_time": "2026-04-07T13:31:19.364499",
+    "end_time": "2026-04-07T13:43:16.246784",
+    "total_duration_seconds": 716.882285,
     "validation_level": "quick",
-    "phases_run": 3,
-    "phases_succeeded": 3,
+    "phases_run": 6,
+    "phases_succeeded": 6,
     "overall_success": true
   },
   "phase_results": [
+    {
+      "phase": 1,
+      "name": "Ingest & Parse",
+      "success": true,
+      "error": null,
+      "duration_seconds": 5.694763,
+      "start_time": "2026-04-07T13:31:19.365758",
+      "end_time": "2026-04-07T13:31:25.060521"
+    },
+    {
+      "phase": 2,
+      "name": "Build Explicit Graph",
+      "success": true,
+      "error": null,
+      "duration_seconds": 1.506841,
+      "start_time": "2026-04-07T13:31:25.061117",
+      "end_time": "2026-04-07T13:31:26.567958"
+    },
+    {
+      "phase": 3,
+      "name": "Extract Concepts",
+      "success": true,
+      "error": null,
+      "duration_seconds": 686.740015,
+      "start_time": "2026-04-07T13:31:26.568637",
+      "end_time": "2026-04-07T13:42:53.308652"
+    },
     {
       "phase": 7,
       "name": "Generate Metadata",
       "success": true,
       "error": null,
-      "duration_seconds": 5.495363,
-      "start_time": "2026-03-16T13:05:35.210190",
-      "end_time": "2026-03-16T13:05:40.705553"
+      "duration_seconds": 8.608336,
+      "start_time": "2026-04-07T13:42:53.309219",
+      "end_time": "2026-04-07T13:43:01.917555"
     },
     {
       "phase": 8,
       "name": "Export YAML",
       "success": true,
       "error": null,
-      "duration_seconds": 0.70477,
-      "start_time": "2026-03-16T13:05:40.706328",
-      "end_time": "2026-03-16T13:05:41.411098"
+      "duration_seconds": 0.946497,
+      "start_time": "2026-04-07T13:43:01.918278",
+      "end_time": "2026-04-07T13:43:02.864775"
     },
     {
       "phase": 10,
       "name": "Rollup Document Metadata",
       "success": true,
       "error": null,
-      "duration_seconds": 3.984251,
-      "start_time": "2026-03-16T13:05:41.411769",
-      "end_time": "2026-03-16T13:05:45.396020"
+      "duration_seconds": 8.218295,
+      "start_time": "2026-04-07T13:43:02.865325",
+      "end_time": "2026-04-07T13:43:11.083620"
     }
   ],
   "phase_validation_reports": [
     {
+      "phase_name": "Ingest & Parse",
+      "phase_number": 1,
+      "timestamp": "2026-04-07T13:31:24.954129",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 9 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum documents",
+          "passed": true,
+          "message": "Row count 7,558 is within acceptable range",
+          "severity": "info",
+          "details": {
+            "row_count": 7558
+          }
+        },
+        {
+          "check_name": "Documents with xref links",
+          "passed": true,
+          "message": "Value 5524.00 meets threshold >= 1000",
+          "severity": "info",
+          "details": {
+            "actual_value": 5524,
+            "threshold_value": 1000
+          }
+        },
+        {
+          "check_name": "Average word count",
+          "passed": true,
+          "message": "Value 85.99 meets threshold >= 80",
+          "severity": "info",
+          "details": {
+            "actual_value": 85.98716591690923,
+            "threshold_value": 80
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Build Explicit Graph",
+      "phase_number": 2,
+      "timestamp": "2026-04-07T13:31:26.474866",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Internal edges schema",
+          "passed": true,
+          "message": "All 3 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Unresolved edges schema",
+          "passed": true,
+          "message": "All 5 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Link resolution rate",
+          "passed": true,
+          "message": "Value 98.00 meets threshold >= 0.7",
+          "severity": "info",
+          "details": {
+            "actual_value": 98.00102220455449,
+            "threshold_value": 0.7
+          }
+        },
+        {
+          "check_name": "Self-loop check",
+          "passed": true,
+          "message": "No self-loops found (correctly filtered)",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum connected documents",
+          "passed": true,
+          "message": "Value 5473.00 meets threshold >= 5000",
+          "severity": "info",
+          "details": {
+            "actual_value": 5473,
+            "threshold_value": 5000
+          }
+        }
+      ]
+    },
+    {
+      "phase_name": "Extract Concepts",
+      "phase_number": 3,
+      "timestamp": "2026-04-07T13:42:52.306490",
+      "passed": true,
+      "has_warnings": false,
+      "has_errors": false,
+      "results": [
+        {
+          "check_name": "Schema validation",
+          "passed": true,
+          "message": "All 11 required columns present with correct types",
+          "severity": "info",
+          "details": null
+        },
+        {
+          "check_name": "Minimum sections",
+          "passed": true,
+          "message": "Row count 11,235 is within acceptable range",
+          "severity": "info",
+          "details": {
+            "row_count": 11235
+          }
+        },
+        {
+          "check_name": "Minimum kept percentage",
+          "passed": true,
+          "message": "Value 92.35 meets threshold >= 60.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 92.35425011125946,
+            "threshold_value": 60.0
+          }
+        },
+        {
+          "check_name": "Maximum kept percentage",
+          "passed": true,
+          "message": "Value 92.35 meets threshold <= 95.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 92.35425011125946,
+            "threshold_value": 95.0
+          }
+        },
+        {
+          "check_name": "Minimum avg concepts/section",
+          "passed": true,
+          "message": "Value 2.96 meets threshold >= 1.5",
+          "severity": "info",
+          "details": {
+            "actual_value": 2.964148033924441,
+            "threshold_value": 1.5
+          }
+        },
+        {
+          "check_name": "Maximum avg concepts/section",
+          "passed": true,
+          "message": "Value 2.96 meets threshold <= 4.0",
+          "severity": "info",
+          "details": {
+            "actual_value": 2.964148033924441,
+            "threshold_value": 4.0
+          }
+        },
+        {
+          "check_name": "Concept density range [0.0-1.0]",
+          "passed": true,
+          "message": "concept_density values in range [0.0000, 0.5000]",
+          "severity": "info",
+          "details": {
+            "min": 0.0,
+            "max": 0.5
+          }
+        },
+        {
+          "check_name": "Minimum API sections",
+          "passed": true,
+          "message": "Value 6302.00 meets threshold >= 4000",
+          "severity": "info",
+          "details": {
+            "actual_value": 6302,
+            "threshold_value": 4000
+          }
+        }
+      ]
+    },
+    {
       "phase_name": "Generate Metadata",
       "phase_number": 7,
-      "timestamp": "2026-03-16T13:05:40.584224",
+      "timestamp": "2026-04-07T13:43:01.736094",
       "passed": true,
       "has_warnings": true,
       "has_errors": false,
@@ -56,19 +266,19 @@
         {
           "check_name": "Minimum sections",
           "passed": true,
-          "message": "Row count 10,379 is within acceptable range",
+          "message": "Row count 10,376 is within acceptable range",
           "severity": "info",
           "details": {
-            "row_count": 10379
+            "row_count": 10376
           }
         },
         {
           "check_name": "Description coverage",
           "passed": false,
-          "message": "Value 87.16 fails threshold >= 95.0",
+          "message": "Value 87.17 fails threshold >= 95.0",
           "severity": "warning",
           "details": {
-            "actual_value": 87.1567588399653,
+            "actual_value": 87.17232074016962,
             "threshold_value": 95.0,
             "comparison": ">="
           }
@@ -79,7 +289,7 @@
           "message": "Value 3.96 meets threshold >= 3.0",
           "severity": "info",
           "details": {
-            "actual_value": 3.9611715964929184,
+            "actual_value": 3.964148033924441,
             "threshold_value": 3.0
           }
         },
@@ -89,7 +299,7 @@
           "message": "Value 3.96 meets threshold <= 12.0",
           "severity": "info",
           "details": {
-            "actual_value": 3.9611715964929184,
+            "actual_value": 3.964148033924441,
             "threshold_value": 12.0
           }
         },
@@ -108,7 +318,7 @@
     {
       "phase_name": "Rollup Document Metadata",
       "phase_number": 10,
-      "timestamp": "2026-03-16T13:05:45.292823",
+      "timestamp": "2026-04-07T13:43:10.882720",
       "passed": true,
       "has_warnings": false,
       "has_errors": false,
@@ -123,16 +333,16 @@
         {
           "check_name": "Minimum documents",
           "passed": true,
-          "message": "Row count 5,427 is within acceptable range",
+          "message": "Row count 5,422 is within acceptable range",
           "severity": "info",
           "details": {
-            "row_count": 5427
+            "row_count": 5422
           }
         },
         {
           "check_name": "Document completeness",
           "passed": true,
-          "message": "All 5427 documents from section metadata are present",
+          "message": "All 5422 documents from section metadata are present",
           "severity": "info",
           "details": null
         },
@@ -142,7 +352,7 @@
           "message": "Value 3.74 meets threshold >= 3.0",
           "severity": "info",
           "details": {
-            "actual_value": 3.738161046618758,
+            "actual_value": 3.7421615639985246,
             "threshold_value": 3.0
           }
         },
@@ -152,7 +362,7 @@
           "message": "Value 3.74 meets threshold <= 12.0",
           "severity": "info",
           "details": {
-            "actual_value": 3.738161046618758,
+            "actual_value": 3.7421615639985246,
             "threshold_value": 12.0
           }
         },
@@ -169,45 +379,35 @@
       ]
     }
   ],
-  "integration_tests": null,
+  "integration_tests": {
+    "success": false,
+    "error": "Integration tests failed with exit code 1",
+    "duration_seconds": 5.162115
+  },
   "integration_test_report": {
     "phase_name": "Pipeline Integration Tests",
     "phase_number": 0,
-    "timestamp": "2026-03-16T13:04:10.700164",
+    "timestamp": "2026-04-07T13:43:12.240538",
     "passed": false,
     "has_warnings": false,
     "has_errors": true,
     "results": [
       {
         "check_name": "Phase 1\u21923 consistency",
-        "passed": false,
-        "message": "11240 section_ids in Phase 3 don't exist in Phase 1",
-        "severity": "error",
+        "passed": true,
+        "message": "All 11,235 section IDs in Phase 3 reference valid Phase 1 sections",
+        "severity": "info",
         "details": {
-          "orphaned_count": 11240,
-          "sample": [
-            "data/raw_md/articles/debugging-testing-and-error-handling/code-diagnostics/xaf0018::xaf0018::4",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ViewVariantsModule/VariantsProvider1137326::VariantsProvider1137326::1",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/ModificationsController/ModificationsHandlingMode1137184::ModificationsHandlingMode1137184::2",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.AuditTrail/AuditTrailOptions/AuditDataItemPersistentType::AuditDataItemPersistentType::1",
-            "data/raw_md/apidoc/DevExpress.ExpressApp/CollectionSource/Remove1132854::Remove1132854::1"
-          ]
+          "validated_sections": 11235
         }
       },
       {
         "check_name": "Phase 3\u21927 consistency",
-        "passed": false,
-        "message": "760 section_ids in Phase 7 don't exist in Phase 3 (kept sections)",
-        "severity": "error",
+        "passed": true,
+        "message": "All 10,376 section IDs in Phase 7 reference valid Phase 3 sections",
+        "severity": "info",
         "details": {
-          "orphaned_count": 760,
-          "sample": [
-            "data/raw_md/apidoc/DevExpress.ExpressApp/NestedFrame/ViewItem1135408::ViewItem1135408::3",
-            "data/raw_md/articles/business-model-design-orm/connect-an-xaf-application-to-a-database-provider::connect-an-xaf-application-to-a-database-provider::6",
-            "data/raw_md/articles/business-model-design-orm/create-and-update-the-applications-database::create-and-update-the-applications-database::1",
-            "data/raw_md/articles/business-model-design-orm/data-types-supported-by-built-in-editors/string-properties/string-properties-in-xpo::string-properties-in-xpo::4",
-            "data/raw_md/apidoc/DevExpress.ExpressApp/View/AllowNew1132281::AllowNew1132281::9"
-          ]
+          "validated_sections": 10376
         }
       },
       {
@@ -219,22 +419,56 @@
       },
       {
         "check_name": "Semantic pairs references",
-        "passed": true,
-        "message": "All 60,897 semantic pairs reference valid sections",
-        "severity": "info",
-        "details": null
+        "passed": false,
+        "message": "Invalid references: 5 sources, 4 targets",
+        "severity": "error",
+        "details": {
+          "invalid_sources": 5,
+          "invalid_targets": 4,
+          "sample_invalid": [
+            [
+              "data/raw_md/articles/ui-construction/templates/winforms-application-templates",
+              "winforms-application-templates::14"
+            ],
+            [
+              "data/raw_md/articles/ui-construction/templates/winforms-application-templates",
+              "winforms-application-templates::13"
+            ],
+            [
+              "data/raw_md/articles/validation/validate-password-complexity",
+              "validate-password-complexity::3"
+            ],
+            [
+              "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1_1",
+              "AddNonPersistent``1_1::2"
+            ],
+            [
+              "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1",
+              "AddNonPersistent``1::2"
+            ]
+          ]
+        }
       },
       {
         "check_name": "API entities references",
-        "passed": true,
-        "message": "All 3,926 API section references are valid",
-        "severity": "info",
-        "details": null
+        "passed": false,
+        "message": "7 section_ids in documents_api don't exist in doc_concepts",
+        "severity": "error",
+        "details": {
+          "invalid_count": 7,
+          "sample": [
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportStorageBase/CreateCustomReportContainer::CreateCustomReportContainer::1",
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ChangeVariantController/RefreshChangeVariantAction1137306::RefreshChangeVariantAction1137306::1",
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ViewVariantsModule/VariantsProviderChanged1137417::VariantsProviderChanged1137417::1",
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ViewVariantsModule/FrameVariantsEngine1137325::FrameVariantsEngine1137325::1",
+            "data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/NewObjectViewController/CreateObject1132258::CreateObject1132258::1"
+          ]
+        }
       },
       {
         "check_name": "Explicit graph references",
         "passed": true,
-        "message": "All 17,259 graph edges reference valid documents",
+        "message": "All 17,257 graph edges reference valid documents",
         "severity": "info",
         "details": null
       },

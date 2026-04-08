@@ -1,27 +1,27 @@
 {
   "phase_name": "Pipeline Integration Tests",
   "phase_number": 0,
-  "timestamp": "2026-03-16T13:05:51.930060",
-  "passed": true,
+  "timestamp": "2026-04-07T13:43:12.240538",
+  "passed": false,
   "has_warnings": false,
-  "has_errors": false,
+  "has_errors": true,
   "results": [
     {
       "check_name": "Phase 1\u21923 consistency",
       "passed": true,
-      "message": "All 11,240 section IDs in Phase 3 reference valid Phase 1 sections",
+      "message": "All 11,235 section IDs in Phase 3 reference valid Phase 1 sections",
       "severity": "info",
       "details": {
-        "validated_sections": 11240
+        "validated_sections": 11235
       }
     },
     {
       "check_name": "Phase 3\u21927 consistency",
       "passed": true,
-      "message": "All 10,379 section IDs in Phase 7 reference valid Phase 3 sections",
+      "message": "All 10,376 section IDs in Phase 7 reference valid Phase 3 sections",
       "severity": "info",
       "details": {
-        "validated_sections": 10379
+        "validated_sections": 10376
       }
     },
     {
@@ -33,22 +33,56 @@
     },
     {
       "check_name": "Semantic pairs references",
-      "passed": true,
-      "message": "All 60,897 semantic pairs reference valid sections",
-      "severity": "info",
-      "details": null
+      "passed": false,
+      "message": "Invalid references: 5 sources, 4 targets",
+      "severity": "error",
+      "details": {
+        "invalid_sources": 5,
+        "invalid_targets": 4,
+        "sample_invalid": [
+          [
+            "data/raw_md/articles/ui-construction/templates/winforms-application-templates",
+            "winforms-application-templates::14"
+          ],
+          [
+            "data/raw_md/articles/ui-construction/templates/winforms-application-templates",
+            "winforms-application-templates::13"
+          ],
+          [
+            "data/raw_md/articles/validation/validate-password-complexity",
+            "validate-password-complexity::3"
+          ],
+          [
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1_1",
+            "AddNonPersistent``1_1::2"
+          ],
+          [
+            "data/raw_md/apidoc/DevExpress.ExpressApp.ApplicationBuilder/NonPersistentObjectSpaceProviderBuilderExtensions/AddNonPersistent``1",
+            "AddNonPersistent``1::2"
+          ]
+        ]
+      }
     },
     {
       "check_name": "API entities references",
-      "passed": true,
-      "message": "All 3,926 API section references are valid",
-      "severity": "info",
-      "details": null
+      "passed": false,
+      "message": "7 section_ids in documents_api don't exist in doc_concepts",
+      "severity": "error",
+      "details": {
+        "invalid_count": 7,
+        "sample": [
+          "data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportStorageBase/CreateCustomReportContainer::CreateCustomReportContainer::1",
+          "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ChangeVariantController/RefreshChangeVariantAction1137306::RefreshChangeVariantAction1137306::1",
+          "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ViewVariantsModule/VariantsProviderChanged1137417::VariantsProviderChanged1137417::1",
+          "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ViewVariantsModule/FrameVariantsEngine1137325::FrameVariantsEngine1137325::1",
+          "data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/NewObjectViewController/CreateObject1132258::CreateObject1132258::1"
+        ]
+      }
     },
     {
       "check_name": "Explicit graph references",
       "passed": true,
-      "message": "All 17,259 graph edges reference valid documents",
+      "message": "All 17,257 graph edges reference valid documents",
       "severity": "info",
       "details": null
     },
