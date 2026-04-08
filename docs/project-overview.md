@@ -3,32 +3,33 @@
 ## Overview
 
 This project analyzes DevExpress XAF (eXpressApp Framework) documentation to:
-1. **Build a semantic knowledge graph** of 11,000+ documentation sections
+1. **Build a unified knowledge graph** of 11,000+ documentation sections
 2. **Identify documentation gaps** (missing links, isolated content, under-connected concepts)
 3. **Measure documentation quality** with quantifiable metrics
 4. **Track improvements** over time with baseline comparison tools
 5. **Guide documentation improvements** with actionable recommendations
 6. **Generate AI-friendly metadata** for enhanced discoverability
 7. **Map APIs to concepts** for better navigation and understanding
+8. **Bridge support-ticket language** to documentation concepts for discoverability
 
 The project consists of three main pipelines:
-- **Knowledge Graph Pipeline** (Phases 1-5): Build semantic understanding
-- **Quality Analysis Pipeline** (Phases 6-8): Measure, analyze, and improve
-- **Advanced Enrichment Pipeline** (Phases 5.5-12): Metadata generation, API mapping, and LLM classification
+- **Knowledge Graph Pipeline** (Phases 1–5, 11–13): Build semantic understanding and a unified graph
+- **Enrichment Pipeline** (Phases 5.5–10): Metadata generation, API mapping, and LLM classification
+- **Quality & Analysis Tools**: Baseline metrics, gap analysis, concept reports, ticket discoverability
 
 ---
 
 ## Pipeline 1: Knowledge Graph Construction
 
 ### Goal
-Transform raw documentation into a semantic knowledge graph that AI and humans can query, navigate, and reason about.
+Transform raw documentation into a unified knowledge graph that AI and humans can query, navigate, and reason about.
 
 ### Phases
 
 ## Phase 1 — Read the documentation like a human would
 
 ### Script
-`01_ingest_parse.py`
+`scripts/01_ingest_parse.py`
 
 ### What this step does
 It reads every Markdown file and breaks it into:
@@ -40,34 +41,34 @@ It reads every Markdown file and breaks it into:
 
 ### Why it matters
 Before AI can understand documentation, it has to be structured. Humans understand that:
-_“Object Space > Create, Read, Update and Delete Data”_ is more specific than _“Data Manipulation”_.
+_"Object Space > Create, Read, Update and Delete Data"_ is more specific than _"Data Manipulation"_.
 This step preserves document structure, instead of flattening text.
 
 ### Output
 `topics_inventory.parquet`
 
 This is your source of truth:
-- “Which sections exist?”
-- “Where do they live?”
-- “How long are they?”
+- "Which sections exist?"
+- "Where do they live?"
+- "How long are they?"
 
 Think of it as an indexed table of contents for the entire documentation set.
 
 ## Phase 2 — Capture how authors intended docs to connect
 
 ### Script
-`02_build_explicit_graph.py`
+`scripts/02_build_explicit_graph.py`
 
 ### What this step does
 It looks at:
-- “See also”
+- "See also"
 - Cross‑references
 - Internal links
 
 And builds a graph like: Page A → Page B → Page C
 
 ### Why it matters
-Links are human intent. If an author linked two pages, that relationship matters—even if the text doesn’t look similar.
+Links are human intent. If an author linked two pages, that relationship matters—even if the text doesn't look similar.
 
 ### Output
 `explicit_graph.parquet`
@@ -77,12 +78,12 @@ This answers questions like:
 - Which pages are never linked?
 - Where navigation might be broken?
 
-This is the “hallway map” of the documentation.
+This is the "hallway map" of the documentation.
 
 ## Phase 3 — Teach the system XAF language
 
 ### Script
-`03_extract_concepts.py`
+`scripts/03_extract_concepts.py`
 
 ### What this step does
 It identifies:
@@ -90,10 +91,10 @@ It identifies:
 - Platforms (Blazor, WinForms, Web API)
 - API names (DevExpress.ExpressApp.ObjectSpace, etc.)
 
-It does this section by section.
+It does this section by section, using the 148 concept definitions in `config/concepts.yml`.
 
 ### Why it matters
-AI doesn’t automatically know what matters in XAF. You explicitly teach it: “This section is about Object Space and applies to Blazor.”
+AI doesn't automatically know what matters in XAF. You explicitly teach it: "This section is about Object Space and applies to Blazor."
 
 That prevents:
 - Mixing concepts
@@ -117,8 +118,7 @@ Before we invest time and compute in embeddings or AI models, this step measures
 Think of this as a **health check** and **calibration step**.
 
 ### Script / Artifact
-- Notebook: `phase_3_5_metrics_snapshot.ipynb`
-- Report: `phase_3_5_metrics_report.md`
+- Notebook: `notebooks/phase_3_5_metrics_snapshot.ipynb`
 
 ### What this step does
 Using the outputs of Phases 1–3, it computes objective metrics such as:
@@ -145,13 +145,13 @@ With Phase 3.5:
 - Writers and SMEs can validate quality using familiar metrics
 - Trust is established before downstream automation
 
-This phase turns “AI experimentation” into a **controlled, auditable process**.
+This phase turns "AI experimentation" into a **controlled, auditable process**.
 
 ### Key outputs
 - A **metrics snapshot** answering:
-  - “Is the corpus clean enough to embed?”
-  - “Are API docs filtered to the right signal level?”
-  - “Are concepts explicit and well‑distributed?”
+  - "Is the corpus clean enough to embed?"
+  - "Are API docs filtered to the right signal level?"
+  - "Are concepts explicit and well‑distributed?"
 - Recommended **initial thresholds** for:
   - Embedding inclusion
   - Semantic similarity gates
@@ -159,10 +159,10 @@ This phase turns “AI experimentation” into a **controlled, auditable process
 
 Only after this step do we proceed to embeddings.
 
-## Phase 4 — Turn text into “meaning coordinates”
+## Phase 4 — Turn text into "meaning coordinates"
 
 ### Script
-`04_make_sections_embeddings.py`
+`scripts/04_make_sections_embeddings.py`
 
 ### What this step does
 For each section:
@@ -177,9 +177,9 @@ It produces two separate maps:
 This is what enables:
 - Semantic search
 - AI question answering
-- Automatic “related topics”
+- Automatic "related topics"
 
-Instead of keyword matching “save” ≠ “save” we get: “persist data”, “commit changes”, “save object” → same idea
+Instead of keyword matching "save" ≠ "save" we get: "persist data", "commit changes", "save object" → same idea
 
 ### Output
 `sections_embeddings_conceptual.parquet`
@@ -190,16 +190,16 @@ Think of these as a GPS map of meaning for your documentation.
 ## Phase 5 — Discover hidden relationships
 
 ### Script
-`05_find_semantic_pairs.py`
+`scripts/05_find_semantic_pairs.py`
 
 ### What this step does
-It asks: “Which sections talk about similar things, even if no link exists?” and applies rules to keep only useful relationships:
+It asks: "Which sections talk about similar things, even if no link exists?" and applies rules to keep only useful relationships:
 - Concept ↔ concept
 - API ↔ API
 - Concept ↔ API
 
 ### Examples
-- A “Security System Overview” section is closely related to a “PermissionPolicyRole API” page.
+- A "Security System Overview" section is closely related to a "PermissionPolicyRole API" page.
 - Two Blazor‑specific explanations of filtering belong together.
 - API pages in the same namespace naturally cluster.
 
@@ -212,7 +212,7 @@ This reveals:
 ### Output
 `semantic_pairs.parquet`
 
-This is the “possible connections humans forgot to add.”
+This is the "possible connections humans forgot to add."
 
 **Key Statistics:**
 - 93,905 semantic pairs discovered
@@ -220,130 +220,116 @@ This is the “possible connections humans forgot to add.”
 - 19.8% cross-corpus links (API ↔ Conceptual)
 - Quality gates: concept overlap, platform overlap, namespace overlap
 
----
-
-## Pipeline 2: Quality Analysis & Improvement
-
-### Goal
-Measure documentation quality, identify gaps, and track improvements with quantifiable metrics.
-
-### Phases
-
-## Phase 6 — Establish Baseline Metrics
+## Phase 11 — Extract API Entities
 
 ### Script
-`tools/save_baseline_metrics.py`
+`scripts/11_extract_api_entities.py`
 
 ### What this step does
-Captures comprehensive baseline statistics:
-- Overall connectivity metrics
-- Per-concept statistics (all 133 concepts)
-- Cross-corpus gap analysis
-- Isolated section identification
-- Under-connected concept detection
+Structures API information from documentation:
+- **API ID** - Full namespace path
+- **API Name** - Short name (e.g., "SecurityStrategy")
+- **API Type** - class, method, property, interface, etc.
+- **Namespace** - DevExpress.ExpressApp.Security
+- **Section Link** - Back-reference to documentation
 
 ### Why it matters
-You can't improve what you don't measure. This creates a quantitative foundation for:
-- Tracking improvements over time
-- Making data-driven decisions
-- Proving ROI of documentation work
-- Identifying high-priority issues
+Creates structured API reference:
+- Enable API-based queries
+- Support API-concept mapping
+- Build API documentation index
+- Power intelligent search
 
 ### Output
-- `outputs/baseline_metrics.json` - Machine-readable metrics
-- `BASELINE_METRICS.md` - Human-readable report
+- `outputs/api_entities.parquet` - 6,853 unique API definitions
+- `outputs/documents_api.parquet` - Section → API relationships
 
-**Key Findings (Current Baseline):**
-- 11,082 sections analyzed
-- 603 isolated sections (5.4%)
-- 6 concepts with zero cross-corpus links
-- 16 under-connected concepts (<6 links/section)
+**Key Statistics:**
+- 6,853 API sections identified
+- 5,767 API sections retained (84.2%)
+- Structured namespace hierarchies
+- Type classification (class, method, property, etc.)
 
-## Phase 7 — Analyze Documentation Gaps
-
-### Scripts
-- `query_graph.py --mode gaps` - Overall gap analysis
-- `tools/analyze_all_gaps.py` - Categorize gap types
-- `tools/analyze_deployment_gap.py` - Concept-specific deep dive
-- `tools/find_missing_deployment_apis.py` - Missing tagging identification
-- `tools/list_all_deployment_apis.py` - API candidate generation
-
-### What this step does
-Identifies three types of documentation problems:
-
-1. **Cross-Corpus Gaps** - Concepts with no API ↔ Conceptual links
-   - 6 concepts affected (Deployment, Multi-Tenancy, etc.)
-   - Root causes: missing API tags or semantic disconnections
-
-2. **Isolated Sections** - Content with zero semantic connections
-   - 603 sections (5.4% of total)
-   - Causes: stub pages, missing tags, genuinely niche content
-
-3. **Under-Connected Concepts** - Topics with weak connectivity
-   - 16 concepts below 6 links/section threshold
-   - Compare vs. well-connected benchmarks (Audit Trail: 14.1 links/section)
-
-### Why it matters
-Gaps represent:
-- User navigation problems
-- AI retrieval failures
-- Knowledge silos
-- Missing documentation
-
-Each gap type requires different fixes:
-- Missing tags → Update concept extraction
-- Semantic gaps → Add cross-references, examples
-- Isolated content → Review for relevance or connection opportunities
-
-### Output
-- `DOC_ANALYSIS_ACTION_PLAN.md` - Prioritized improvement roadmap
-- `outputs/deployment_api_candidates.csv` - 263 APIs needing Deployment tags
-- `outputs/deployment_api_candidates.json` - Same data in JSON format
-- Gap categorization reports
-
-**Example Finding:**
-263 API documents contain deployment-related keywords (applicationbuilder, connectionstring, azure) but aren't tagged with "Deployment" concept. Fixing this one issue would create 50+ cross-corpus links.
-
-## Phase 8 — Track Improvements
+## Phase 12 — Map APIs to Concepts
 
 ### Script
-`tools/compare_to_baseline.py`
+`scripts/12_map_apis_to_concepts.py`
 
 ### What this step does
-Compares current state against baseline and shows:
-- ✅ Improvements (with green checkmarks)
-- ⚠️ Regressions (with warnings)
-- → No-change items
-- Overall progress summary
+Creates API → Concept implementation mappings using three strategies:
+1. **Co-occurrence** - APIs and concepts appearing together in documentation
+2. **Namespace rules** - DevExpress.ExpressApp.Security → Security System
+3. **Confidence scoring** - Based on co-occurrence strength
 
 ### Why it matters
-Makes improvement visible and measurable:
-- Stakeholder reporting
-- Before/after validation
-- Iterative improvement tracking
-- Success criteria verification
+Bridges the critical gap between API reference and conceptual documentation:
+- "Show me all Security System APIs"
+- "What APIs implement Object Space?"
+- "Find APIs for this concept"
 
 ### Output
-Console report showing:
-```
-📊 OVERALL METRICS
-Total Semantic Pairs    | Baseline: 93905 | Current: 95123 | ✅ ▲ 1218 (+1.3%)
-Isolated Sections       | Baseline: 603   | Current: 550   | ✅ ▼ 53 (-8.8%)
-Concepts with Gaps      | Baseline: 6     | Current: 4     | ✅ ▼ 2 (-33.3%)
+`outputs/api_implements_concept.parquet`
+
+**Mapping Results:**
+- API entities mapped to concepts
+- Confidence scores (high/medium/low)
+- Multiple concepts per API supported
+- Bidirectional navigation enabled
+
+**Example Queries Enabled:**
+```python
+# Find all APIs implementing Security System
+security_apis = api_concepts[api_concepts['concept'] == 'Security System']
+
+# Find concepts implemented by an API
+api_concepts = mappings[mappings['api_id'].str.contains('SecurityStrategy')]
 ```
 
-### Success Criteria
-- All concepts have ≥10 cross-corpus links
-- Isolated sections <3% (currently 5.4%)
-- Under-connected concepts reduced by 50%
-- Avg connections/section ≥9.0 (currently 8.5)
+## Phase 13 — Build Unified Knowledge Graph
+
+### Script
+`scripts/13_build_knowledge_graph.py`
+
+### What this step does
+Creates a single, explainable knowledge graph artifact by merging outputs from multiple phases:
+- Document/section structure (Phase 1)
+- Explicit cross-links (Phase 2)
+- Concept/API/platform tagging (Phase 3)
+- Semantic similarity edges (Phase 5)
+- Typed relationships (Phase 6, if present)
+- API entity inventory (Phase 11)
+- API→Concept mappings (Phase 12)
+
+### Why it matters
+This is the **primary deliverable** of the pipeline — a unified graph designed for downstream tooling:
+- MCP server adapters
+- Dashboards and visualizations
+- AI-powered navigation
+- Cross-reference recommendations
+
+The graph does NOT embed raw section text; it stores structure, relationships, and metadata.
+
+### Output
+`outputs/knowledge_graph.json`
+
+A JSON file containing nodes (documents, sections, concepts, APIs) and edges (explicit links, semantic pairs, API-concept mappings, typed relationships).
+
+### Pipeline Runner
+
+The full knowledge graph pipeline can be run end-to-end with validation:
+
+```bash
+python scripts/run_kg_pipeline_with_validation.py
+```
+
+This executes Phases 1 → 2 → 3 → 4 → 5 → 11 → 12 → 13 in sequence, with Phase 6 (classification) included if an LLM provider is configured. Each phase is validated against thresholds defined in `config/validation_thresholds.yml`.
 
 ---
 
-## Pipeline 3: Advanced Analysis & Enrichment
+## Pipeline 2: Enrichment & Classification
 
 ### Goal
-Enhance documentation with AI-powered classification, metadata generation, and API mapping.
+Enhance documentation with AI-powered classification, metadata generation, and quality tracking.
 
 ## Phase 5.5 — Filter High-Value Semantic Pairs
 
@@ -387,6 +373,11 @@ Uses LLM to classify semantic relationships into types:
 - **contrasts_with** - Section A contrasts with section B
 - **related_to** - General semantic similarity
 
+### Post-processing
+`scripts/07_postprocess_classifications.py` corrects over-aggressive bidirectional marking:
+- "uses" relationships: Only bidirectional if similarity ≥ 0.90 AND confidence ≥ 0.85
+- Other types: Keep existing (conservative rules already applied)
+
 ### Why it matters
 Enables intelligent features:
 - Smart navigation ("Read this first")
@@ -395,9 +386,11 @@ Enables intelligent features:
 - AI reasoning about documentation structure
 
 ### Output
-`outputs/classified_pairs_checkpoint.parquet` (with checkpoint/resume support)
+- `outputs/classified_pairs.parquet` - Classified relationship pairs
+- `outputs/classified_pairs_corrected.parquet` - Post-processed (false positive reduction)
+- Checkpoint files for resume support (`classified_pairs_checkpoint_pid_*.parquet`)
 
-**Status:** ⚠️ Experimental - Requires LLM API configuration (OpenAI, Anthropic, or similar)
+**Status:** ⚠️ Experimental - Requires LLM API configuration (OpenAI, Anthropic, or Ollama)
 
 **Usage:**
 ```bash
@@ -407,8 +400,8 @@ python scripts/06_classify_relationships.py --limit 100
 # Resume from checkpoint
 python scripts/06_classify_relationships.py --resume outputs/classified_pairs_checkpoint.parquet
 
-# Filter by relationship type
-python scripts/06_classify_relationships.py --types ca,ac --threshold 0.80
+# Post-process to reduce false positives
+python scripts/07_postprocess_classifications.py
 ```
 
 ## Phase 7 — Generate AI-Friendly Metadata
@@ -529,107 +522,35 @@ Documentation is organized by documents, not sections:
 - Proficiency: Maximum across sections
 - Connections: Sum of all section connections
 
-## Phase 11 — Extract API Entities
-
-### Script
-`scripts/11_extract_api_entities.py`
-
-### What this step does
-Structures API information from documentation:
-- **API ID** - Full namespace path
-- **API Name** - Short name (e.g., "SecurityStrategy")
-- **API Type** - class, method, property, interface, etc.
-- **Namespace** - DevExpress.ExpressApp.Security
-- **Section Link** - Back-reference to documentation
-
-### Why it matters
-Creates structured API reference:
-- Enable API-based queries
-- Support API-concept mapping
-- Build API documentation index
-- Power intelligent search
-
-### Output
-- `outputs/api_entities.parquet` - 6,853 unique API definitions
-- `outputs/documents_api.parquet` - Section → API relationships
-
-**Key Statistics:**
-- 6,853 API sections identified
-- 5,767 API sections retained (84.2%)
-- Structured namespace hierarchies
-- Type classification (class, method, property, etc.)
-
-## Phase 12 — Map APIs to Concepts
-
-### Script
-`scripts/12_map_apis_to_concepts.py`
-
-### What this step does
-Creates API → Concept implementation mappings using three strategies:
-1. **Co-occurrence** - APIs and concepts appearing together in documentation
-2. **Namespace rules** - DevExpress.ExpressApp.Security → Security System
-3. **Confidence scoring** - Based on co-occurrence strength
-
-### Why it matters
-Bridges the critical gap between API reference and conceptual documentation:
-- "Show me all Security System APIs"
-- "What APIs implement Object Space?"
-- "Find APIs for this concept"
-
-### Output
-`outputs/api_implements_concept.parquet`
-
-**Mapping Results:**
-- API entities mapped to concepts
-- Confidence scores (high/medium/low)
-- Multiple concepts per API supported
-- Bidirectional navigation enabled
-
-**Example Queries Enabled:**
-```python
-# Find all APIs implementing Security System
-security_apis = api_concepts[api_concepts['concept'] == 'Security System']
-
-# Find concepts implemented by an API
-api_concepts = mappings[mappings['api_id'].str.contains('SecurityStrategy')]
-```
-
-### Phase 12 (Enhanced) — Ollama-Based API Classification
-
-### Script
-`12_map_apis_to_concepts_ollama.py` (experimental, in root directory)
-
-### What this step does
-Enhances Phase 12 with LLM-based classification:
-- Same three strategies as above
-- Adds Ollama/Llama 3.1 classification for unmapped APIs
-- Fills gaps where rules don't apply
-- Provides confidence scoring
-
-### Why it matters
-Automation achieves broader coverage:
-- Rules-based: ~60% coverage (high precision)
-- LLM-based: Fills remaining 40% (moderate precision)
-- Combined: Near-complete API-concept mapping
-
-### Status
-⚠️ **Experimental** - See [docs/ollama_decision_log.md](ollama_decision_log.md) for evaluation
-
-**Usage:**
-```bash
-# Test on 10 APIs
-python 12_map_apis_to_concepts_ollama.py --sample 10 --use-ollama
-
-# Run on unmapped APIs only
-python 12_map_apis_to_concepts_ollama.py --use-ollama --unmapped-only
-
-# Validate accuracy
-python validate_ollama_accuracy.py --sample 50
-```
-
 ---
 
-## Project Capabilities
+## Pipeline 3: Quality Analysis & Tooling
+
+### Goal
+Measure documentation quality, identify gaps, track improvements, and provide actionable analysis tools.
+
+## Baseline & Gap Analysis
+
+### Establishing Baseline
+
+**Script:** `tools/save_baseline_metrics.py`
+
+Captures comprehensive baseline statistics:
+- Overall connectivity metrics
+- Per-concept statistics (all 148 concepts)
+- Cross-corpus gap analysis
+- Isolated section identification
+- Under-connected concept detection
+
+**Output:**
+- `outputs/baseline_metrics.json` - Machine-readable metrics
+- `docs/BASELINE_METRICS.md` - Human-readable report
+
+**Key Findings (Current Baseline):**
+- 11,082 sections analyzed
+- 603 isolated sections (5.4%)
+- 6 concepts with zero cross-corpus links
+- 16 under-connected concepts (<6 links/section)
 
 ### Knowledge Graph Queries
 
@@ -651,20 +572,97 @@ python query_graph.py --mode query --concept "Deployment"
 python query_graph.py --mode query --section "article/security-system/authentication"
 ```
 
-### Gap Analysis Tools
-
-**Purpose:** Identify specific documentation problems with actionable recommendations.
+### Concept Analysis Tools
 
 | Tool | Purpose | Output |
 |------|---------|--------|
-| `tools/analyze_all_gaps.py` | Categorizes all 6 cross-corpus gaps by type | Gap type classification |
-| `tools/analyze_deployment_gap.py` | Deep dive on Deployment concept | Section breakdown, co-occurrence analysis |
-| `tools/find_missing_deployment_apis.py` | Lists APIs needing Deployment tags | Top 20 candidates with rationale |
-| `tools/list_all_deployment_apis.py` | Complete API candidate list | CSV + JSON (263 APIs) |
+| `tools/concept_drilldown.py` | Deep-dive on a single concept: API/conceptual split, platform distribution, connectivity stats, top/least connected sections | `outputs/concept_<name>_sections.csv` |
+| `tools/concept_report.py` | Aggregated concept metrics: sections, connections, cross-corpus pairs, mapped APIs per concept | `outputs/concept_report.csv`, `outputs/concept_report.json` |
+| `tools/suggest_isolated_links.py` | Finds isolated sections for a concept and recommends link targets via embedding nearest neighbors | `outputs/isolated_<concept>_link_suggestions.csv/.md` |
+| `tools/coverage_matrix_xaf.py` | XAF-specific coverage matrix with ticket counts, code sample presence, feature-to-concept mapping | `outputs/coverage_reports/` |
 
-### Quality Metrics
+### Section & Keyword Tools
 
-**Purpose:** Measure documentation health with quantifiable data.
+| Tool | Purpose | Output |
+|------|---------|--------|
+| `tools/keyword_section_query.py` | Search section text for keywords not in the concept taxonomy | `outputs/keyword_hits.csv` |
+| `tools/section_relationships.py` | Build induced subgraph over selected sections from semantic pairs and classified pairs | Relationship edges/nodes CSVs |
+
+### Validation & Sanity Checks
+
+| Tool | Purpose |
+|------|---------|
+| `tools/extractor_sanity_check.py` | Validate concept extraction results |
+| `tools/graph-sanity-check.py` | Validate graph structure and integrity |
+
+### MCP Server Integration
+
+**Script:** `tools/mcp_server_adapter.py`
+
+Provides clean function interfaces for MCP server integration. The `XAFDocAnalysis` class exposes methods like:
+- `get_documentation_gaps(concept="Security System")`
+- `get_crosslink_recommendations(limit=20)`
+
+All functions return JSON-serializable structures for downstream consumption.
+
+### MVP Deliverables
+
+**Script:** `tools/package_mvp_deliverables.py`
+
+Creates a curated output set for tech writers and stakeholders:
+- Gap analysis summary (JSON)
+- Top priority actions (CSV)
+- Metadata samples (YAML)
+- Baseline snapshot (JSON)
+
+**Output:** `outputs/mvp_deliverables/`
+
+### Ticket Discoverability
+
+**Directory:** `tools/ticket_discoverability/`
+
+Tools for analyzing the language gap between support tickets (problem-based) and documentation (architecture-based).
+
+| Tool | Purpose |
+|------|---------|
+| `analyze_real_tickets.py` | Maps ticket feature categories to concepts, identifies high-volume gaps, prioritizes ontology implementation |
+| `validate_ticket_mapping.py` | Compares baseline vs current ticket-to-concept mappings |
+| `check_confidence_stats.py` | Checks confidence statistics for ticket mappings |
+
+**Current Baseline (Feb 2026):**
+- 14,860 total tickets analyzed
+- 159 feature categories → 74 mapped concepts
+- 7,975 API search tickets (53.7%) — biggest opportunity
+- Top concept: View Items (1,634 tickets, 11.0%)
+
+### Doc Issue Analysis
+
+**Config:** `config/docissues.json` — Support ticket issues database (ticket IDs, titles, types, statuses, feedback)
+
+**Output:** `outputs/docissue_analysis/` — Enriched analysis including concept-issue mapping, category breakdowns, and priority assignments.
+
+### Experimental: Ollama-Based API Classification
+
+**Scripts:** `scripts/experimental/`
+
+| Script | Purpose |
+|--------|---------|
+| `12_map_apis_to_concepts_ollama.py` | Enhances Phase 12 with Ollama/Llama 3.1 classification for unmapped APIs |
+| `validate_ollama_accuracy.py` | Validates LLM classification accuracy against ground truth |
+
+⚠️ **Experimental** — See [ollama_decision_log.md](ollama_decision_log.md) for evaluation
+
+**Usage:**
+```bash
+python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-ollama
+python scripts/experimental/validate_ollama_accuracy.py --sample 50
+```
+
+---
+
+## Quality Metrics
+
+### Current State
 
 | Metric | Current State | Target |
 |--------|--------------|--------|
@@ -676,67 +674,68 @@ python query_graph.py --mode query --section "article/security-system/authentica
 | **Concepts with Gaps** | 6 | 0 |
 | **Under-Connected Concepts** | 16 | <8 |
 
-### Comparison & Tracking
+### Quality Gates (Semantic Pairs)
 
-**Script:** `compare_to_baseline.py`
-
-Automatically compare any future state against baseline:
-- Calculates improvements and regressions
-- Shows percentage changes
-- Highlights successful fixes
-- Provides overall progress verdict
+- Concept overlap: 73.1% of pairs
+- Platform overlap: 33.0% of pairs
+- Namespace overlap: 32.2% of pairs
+- Average similarity: 0.759 (min: 0.600)
 
 ---
 
 ## Quick Start Guide
 
-### 1. Build Knowledge Graph (Core Pipeline - Phases 1-5)
+### 1. Build Knowledge Graph (Full Pipeline)
 
 ```bash
-# Run core phases in sequence
+# Run the full KG pipeline with validation
+python scripts/run_kg_pipeline_with_validation.py
+
+# Or run core phases individually
 python scripts/01_ingest_parse.py
 python scripts/02_build_explicit_graph.py
 python scripts/03_extract_concepts.py
 python scripts/04_make_sections_embeddings.py --batch-size 32 --max-chars 4000
 python scripts/05_find_semantic_pairs.py
+python scripts/11_extract_api_entities.py
+python scripts/12_map_apis_to_concepts.py
+python scripts/13_build_knowledge_graph.py
 ```
 
-### 2. Generate Enrichments (Phases 7-12)
+### 2. Generate Enrichments (Phases 7-10)
 
 ```bash
-# Generate metadata and API mappings
 python scripts/07_generate_metadata.py
 python scripts/08_export_yaml_metadata.py
 python scripts/09_concept_quality_metrics.py
 python scripts/10_rollup_document_metadata.py
-python scripts/11_extract_api_entities.py
-python scripts/12_map_apis_to_concepts.py
 ```
 
 ### 3. Establish Baseline
 
 ```bash
-# Capture current state
 python tools/save_baseline_metrics.py
 
-# Review baseline
-# Opens: outputs/baseline_metrics.json
-# Opens: BASELINE_METRICS.md
+# Review:
+#   outputs/baseline_metrics.json
+#   docs/BASELINE_METRICS.md
 ```
 
-### 4. Analyze Gaps
+### 4. Analyze Gaps & Quality
 
 ```bash
-# Get overall picture
+# Overall picture
 python query_graph.py --mode gaps
 
-# Deep dive on specific issues
-python tools/analyze_all_gaps.py
-python tools/analyze_deployment_gap.py
-python tools/find_missing_deployment_apis.py
+# Concept deep-dives
+python tools/concept_drilldown.py --concept "Deployment"
+python tools/concept_report.py
 
-# Generate cross-linking recommendations
-python tools/generate_crosslink_filtered.py
+# Find link opportunities for isolated sections
+python tools/suggest_isolated_links.py --concept "Deployment"
+
+# Coverage matrix
+python tools/coverage_matrix_xaf.py
 ```
 
 ### 5. Make Improvements
@@ -744,32 +743,29 @@ python tools/generate_crosslink_filtered.py
 Based on gap analysis, make documentation changes:
 - Update concept definitions in `config/concepts.yml`
 - Re-run extraction: `python scripts/03_extract_concepts.py`
-- Rebuild graph: Phases 4-5
+- Rebuild graph: Phases 4-5, then 13
 - Add cross-references to isolated sections
 - Create bridging content for semantic gaps
 
 ### 6. Measure Progress
 
 ```bash
-# Compare against baseline
-python tools/compare_to_baseline.py
-
-# Get updated statistics
 python query_graph.py --mode stats
 python query_graph.py --mode gaps
+python tools/concept_report.py
 ```
 
-### 7. (Optional) Experiment with LLM Classification
+### 7. (Optional) LLM Classification
 
 ```bash
-# Validate Ollama accuracy
-python scripts/experimental/validate_ollama_accuracy.py --sample 100
+# Classify relationship types (requires LLM API)
+python scripts/06_classify_relationships.py --limit 100
 
-# Test API-concept mapping with Ollama
+# Post-process to reduce false positives
+python scripts/07_postprocess_classifications.py
+
+# Ollama-based API mapping
 python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-ollama
-
-# See decision log for evaluation criteria
-# docs/ollama_decision_log.md
 ```
 
 ---
@@ -812,12 +808,6 @@ python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-
 - Are platform differences respected?
 - Is the knowledge graph dense enough?
 
-**Quality Gates:**
-- Concept overlap: 73.1% of pairs
-- Platform overlap: 33.0% of pairs
-- Namespace overlap: 32.2% of pairs
-- Average similarity: 0.759 (min: 0.600)
-
 ### For Users
 
 **Questions Answered:**
@@ -838,51 +828,119 @@ python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-
 
 ```
 xaf-doc-analysis/
-├── scripts/                    # Core pipeline (Phases 1-5)
-│   ├── 01_ingest_parse.py
-│   ├── 02_build_explicit_graph.py
-│   ├── 03_extract_concepts.py
-│   ├── 04_make_sections_embeddings.py
-│   ├── 05_find_semantic_pairs.py
-│   └── 06-09_*.py            # Optional future phases
+├── scripts/                    # Core pipeline scripts
+│   ├── 01_ingest_parse.py                # Phase 1: Parse markdown → structured data
+│   ├── 02_build_explicit_graph.py        # Phase 2: Extract/resolve internal links
+│   ├── 03_extract_concepts.py            # Phase 3: Tag sections with concepts
+│   ├── 04_make_sections_embeddings.py    # Phase 4: Generate vector embeddings
+│   ├── 05_find_semantic_pairs.py         # Phase 5: Discover semantic relationships
+│   ├── 05_5_filter_high_value_pairs.py   # Phase 5.5: Filter for LLM classification
+│   ├── 06_classify_relationships.py      # Phase 6: LLM relationship classification
+│   ├── 07_generate_metadata.py           # Phase 7: AI-friendly metadata
+│   ├── 07_postprocess_classifications.py # Phase 6 post-processing (false positive reduction)
+│   ├── 08_export_yaml_metadata.py        # Phase 8: YAML frontmatter export
+│   ├── 09_concept_quality_metrics.py     # Phase 9: Concept quality tracking
+│   ├── 10_rollup_document_metadata.py    # Phase 10: Document-level metadata
+│   ├── 11_extract_api_entities.py        # Phase 11: API entity extraction
+│   ├── 12_map_apis_to_concepts.py        # Phase 12: API→Concept mapping
+│   ├── 13_build_knowledge_graph.py       # Phase 13: Unified knowledge graph
+│   ├── run_kg_pipeline_with_validation.py    # Full KG pipeline runner
+│   ├── run_pipeline_with_validation.py       # MVP pipeline runner
+│   ├── test_semantic_extraction.py           # Concept extraction tests
+│   └── experimental/
+│       ├── 12_map_apis_to_concepts_ollama.py # Ollama-based API classification
+│       ├── validate_ollama_accuracy.py       # LLM accuracy validation
+│       └── README.md
 │
 ├── config/
-│   ├── concepts.yml          # 45 XAF concept definitions
-│   └── prompts/              # AI extraction prompts
+│   ├── concepts.yml                # 148 XAF concept definitions (name, type, synonyms, keywords)
+│   ├── docissues.json              # Support ticket issues database
+│   ├── ticket_language_map.yml     # Ticket category → concept mapping (top 20 categories)
+│   ├── validation_thresholds.yml   # Quality thresholds for all 13 pipeline phases
+│   └── prompts/                    # AI extraction prompts
 │       ├── ai_action_prompts.md
 │       └── relationship_classification.md
 │
 ├── outputs/                   # All generated data
-│   ├── topics_inventory.parquet          # Phase 1
-│   ├── explicit_graph.parquet             # Phase 2
-│   ├── doc_concepts.parquet               # Phase 3
-│   ├── sections_embeddings_*.parquet      # Phase 4
-│   ├── semantic_pairs.parquet             # Phase 5
-│   ├── baseline_metrics.json              # Phase 6
-│   └── deployment_api_candidates.csv      # Phase 7
+│   ├── topics_inventory.parquet              # Phase 1
+│   ├── explicit_graph.parquet                # Phase 2
+│   ├── doc_concepts.parquet                  # Phase 3
+│   ├── sections_embeddings_conceptual.parquet # Phase 4
+│   ├── sections_embeddings_api.parquet       # Phase 4
+│   ├── semantic_pairs.parquet                # Phase 5
+│   ├── semantic_pairs_high_value.parquet     # Phase 5.5
+│   ├── classified_pairs.parquet              # Phase 6
+│   ├── classified_pairs_corrected.parquet    # Phase 6 (post-processed)
+│   ├── metadata_suggestions.parquet          # Phase 7
+│   ├── document_metadata.parquet             # Phase 10
+│   ├── api_entities.parquet                  # Phase 11
+│   ├── documents_api.parquet                 # Phase 11
+│   ├── api_implements_concept.parquet        # Phase 12
+│   ├── knowledge_graph.json                  # Phase 13
+│   ├── baseline_metrics.json                 # Quality baseline
+│   ├── concept_quality_metrics.json          # Phase 9
+│   ├── concept_report.csv / .json            # Concept-level metrics
+│   ├── deployment_api_candidates.csv / .json # Gap analysis
+│   ├── coverage_reports/                     # Coverage matrix outputs
+│   ├── docissue_analysis/                    # Doc issue breakdowns
+│   ├── mvp_deliverables/                     # Packaged MVP outputs
+│   ├── ticket_discoverability/               # Ticket analysis outputs
+│   └── .emb_cache/                           # Embedding cache
 │
 ├── docs/
 │   ├── project-overview.md               # This file
 │   ├── BASELINE_METRICS.md               # Current metrics report
 │   ├── DOC_ANALYSIS_ACTION_PLAN.md       # Improvement roadmap
-│   ├── METRICS_CAPTURED_NEXT_STEPS.md    # What to do next
-│   ├── ai_action_prompts.md              # Gap analysis guide
-│   ├── concept_quality_metrics_guide.md
-│   └── prerequisites.md
+│   ├── prerequisites.md                  # Setup requirements
+│   ├── ollama_decision_log.md            # Ollama evaluation log
+│   ├── setup_ollama_classification.md    # Ollama setup guide
+│   ├── XAF_Main_Concepts_for_LLM_Training.md  # LLM training concepts
+│   ├── xaf concepts plan.md             # Concepts planning
+│   └── xaf-doc-analysis_Architecture.docx # Architecture document
 │
 ├── tools/                     # Analysis & utility tools
-│   ├── analyze_all_gaps.py               # Categorize gaps
-│   ├── analyze_deployment_gap.py         # Concept deep dive
-│   ├── find_missing_deployment_apis.py   # Missing tag finder
-│   ├── list_all_deployment_apis.py       # Complete candidate list
-│   ├── save_baseline_metrics.py          # Capture baseline
-│   ├── compare_to_baseline.py            # Track improvements
+│   ├── concept_drilldown.py              # Single-concept deep dive
+│   ├── concept_report.py                 # Concept-level metrics report
+│   ├── coverage_matrix_xaf.py            # XAF coverage matrix
 │   ├── extractor_sanity_check.py         # Validate extraction
 │   ├── graph-sanity-check.py             # Validate graph
-│   ├── test_links.py                     # Link validation
-│   └── unresolved-uids-check.py          # Check references
+│   ├── keyword_section_query.py          # Keyword-based section search
+│   ├── mcp_server_adapter.py             # MCP server integration
+│   ├── package_mvp_deliverables.py       # Package MVP outputs
+│   ├── save_baseline_metrics.py          # Capture quality baseline
+│   ├── section_relationships.py          # Section subgraph extraction
+│   ├── suggest_isolated_links.py         # Link suggestions for isolated sections
+│   ├── env_check.ps1                     # Environment validation
+│   ├── archive/                          # Superseded scripts (.bak)
+│   │   ├── find_missing_deployment_apis.py.bak
+│   │   ├── generate_crosslink_report.py.bak
+│   │   ├── list_all_deployment_apis.py.bak
+│   │   └── README.md
+│   └── ticket_discoverability/           # Support ticket analysis
+│       ├── analyze_real_tickets.py
+│       ├── validate_ticket_mapping.py
+│       ├── check_confidence_stats.py
+│       └── README.md
 │
-├── query_graph.py             # Main query tool (kept in root)
+├── utils/                     # Shared utilities
+│   ├── __init__.py
+│   ├── helpers.py                        # Data manipulation, concept checking
+│   └── pipeline_validators.py            # Reusable validation (ValidationResult)
+│
+├── tests/                     # Test suite
+│   ├── test_pipeline_integration.py      # Pipeline phase dependency tests
+│   └── test_mcp_comparison.py            # MCP adapter vs production comparison
+│
+├── notebooks/
+│   └── phase_3_5_metrics_snapshot.ipynb   # Phase 3.5 metrics notebook
+│
+├── data/
+│   ├── raw_md/                           # Source documentation
+│   │   ├── apidoc/                       # 100+ DevExpress API namespace dirs
+│   │   └── articles/                     # 40+ article dirs/files
+│   └── interim/                          # Intermediate processing
+│
+├── query_graph.py             # Main query tool (root)
 ├── README.md                  # Quick start guide
 └── requirements-lock.txt      # Python dependencies
 ```
@@ -897,9 +955,14 @@ xaf-doc-analysis/
 | `doc_concepts.parquet` | Section metadata & concept tags | Filtering by concept/platform |
 | `semantic_pairs.parquet` | 93K relationship pairs | Analyzing connectivity |
 | `sections_embeddings_*.parquet` | Vector embeddings | Similarity searches |
+| `knowledge_graph.json` | Unified knowledge graph | Downstream tooling, MCP, dashboards |
+| `classified_pairs_corrected.parquet` | Typed relationships (post-processed) | Learning paths, prerequisites |
 | `baseline_metrics.json` | Current quality snapshot | Comparison baseline |
+| `concept_quality_metrics.json` | Per-concept quality tracking | Concept refinement |
 | `deployment_api_candidates.csv` | APIs needing tags | Fixing Deployment gap |
-| `config/concepts.yml` | Concept definitions | Understanding taxonomy |
+| `config/concepts.yml` | 148 concept definitions | Understanding taxonomy |
+| `config/validation_thresholds.yml` | Quality thresholds for all phases | Pipeline validation tuning |
+| `config/ticket_language_map.yml` | Ticket→concept mapping | Ticket discoverability |
 
 ---
 
@@ -909,27 +972,28 @@ xaf-doc-analysis/
 
 **Goal:** Fix the 6 concepts with zero cross-corpus links
 
-**Priority 1: Deployment Concept** (2-3 hours)
+**Priority 1: Deployment Concept**
 1. Review [deployment_api_candidates.csv](../outputs/deployment_api_candidates.csv)
 2. Update concept extraction patterns in `config/concepts.yml`
 3. Re-run: `python scripts/03_extract_concepts.py`
-4. Rebuild: Phases 4-5
-5. Verify: `python compare_to_baseline.py`
+4. Rebuild: Phases 4-5, then 13
+5. Verify: `python query_graph.py --mode gaps`
 
 **Expected Impact:**
 - Deployment: 0 → 50+ cross-corpus links
 - Concepts with gaps: 6 → 5
 - Overall cross-corpus: +200-500 pairs
 
-**Priority 2: Multi-Tenancy Concept** (2-3 hours)
+**Priority 2: Multi-Tenancy Concept**
 - Similar process to Deployment
 - Likely ~20-30 APIs need tagging
 
-### Strategic Actions (Phases 2-3)
+### Strategic Actions
 
 **Goal:** Reduce isolated sections and strengthen under-connected concepts
 
-- Analyze the 603 isolated sections
+- Run `tools/suggest_isolated_links.py` for under-connected concepts
+- Run `tools/concept_drilldown.py` to identify specific weak areas
 - Add cross-references to related content
 - Create bridging tutorials for semantic gaps
 - Study well-connected patterns (Audit Trail, Conditional Appearance)
@@ -938,15 +1002,14 @@ xaf-doc-analysis/
 
 **After Each Improvement Phase:**
 ```bash
-python tools/compare_to_baseline.py          # Show progress
 python query_graph.py --mode gaps            # Verify gap reduction
 python query_graph.py --mode stats           # Updated metrics
+python tools/concept_report.py               # Per-concept metrics
 ```
 
 **Save Checkpoints:**
 ```bash
 python tools/save_baseline_metrics.py
-mv outputs/baseline_metrics.json outputs/metrics_phase1_complete.json
 ```
 
 ---
@@ -961,7 +1024,7 @@ mv outputs/baseline_metrics.json outputs/metrics_phase1_complete.json
 ### Project Success When:
 - [ ] Isolated sections <3% (currently 5.4%)
 - [ ] Under-connected concepts <8 (currently 16)
-- [ ] Avg connections/section ≥9.0 (currently 8.5%)
+- [ ] Avg connections/section ≥9.0 (currently 8.5)
 - [ ] All concepts above 7.0 links/section threshold
 
 ---
@@ -973,15 +1036,23 @@ mv outputs/baseline_metrics.json outputs/metrics_phase1_complete.json
 - **Embeddings:** SentenceTransformer 'all-MiniLM-L6-v2' (384 dimensions)
 - **Similarity:** Cosine similarity with 0.60 minimum threshold
 - **Quality Gates:** Concept, platform, namespace, API overlap filters
+- **Validation:** All phases validated against `config/validation_thresholds.yml`
 
 ### Computational Requirements
 - **Phase 4 (Embeddings):** GPU recommended, ~30 minutes for 11K sections
 - **Phase 5 (Semantic Pairs):** CPU intensive, ~10-15 minutes
+- **Phase 13 (Knowledge Graph):** Fast (<1 minute), merges existing outputs
 - **Analysis Tools:** Instant (<1 minute each)
+
+### Infrastructure
+- **`utils/helpers.py`** — Shared data manipulation, concept checking, metrics helpers
+- **`utils/pipeline_validators.py`** — Reusable validation (`ValidationResult` data class) for schema, foreign key, and threshold checks
+- **`tests/test_pipeline_integration.py`** — Integration tests for phase dependencies (`--phase N`)
+- **`tests/test_mcp_comparison.py`** — Compares local MCP adapter against production dxdocs MCP
 
 ### Reproducibility
 All analysis is deterministic given the same inputs:
 1. Baseline captured in `baseline_metrics.json`
-2. All thresholds documented in scripts
+2. All thresholds documented in `config/validation_thresholds.yml`
 3. Quality gates explicitly defined
 4. Success criteria quantified
