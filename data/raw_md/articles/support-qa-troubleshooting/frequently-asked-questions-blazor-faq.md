@@ -49,7 +49,7 @@ All platform-dependent code should be rewritten. Blazor applications have a diff
 
 **Q:** How do I use components that are not integrated in the Blazor UI by default?
 
-**A:** Review the list of DevExpress [Blazor](https://demos.devexpress.com/blazor/) and [JavaScript (DevExtreme)](https://js.devexpress.com/Demos/) UI components and the following XAF integration articles: 
+**A:** Review the list of DevExpress [Blazor](https://demos.devexpress.com/blazor/) and [JavaScript (DevExtreme)](https://js.devexpress.com/Demos/WidgetsGallery/) UI components and the following XAF integration articles: 
 
 - [Implement a List Editor Based on a Custom Component](xref:403258)
     * [Pivot Grid](https://supportcenter.devexpress.com/ticket/details/t994515/blazor-how-to-integrate-the-pivot-grid-into-an-xaf-app)

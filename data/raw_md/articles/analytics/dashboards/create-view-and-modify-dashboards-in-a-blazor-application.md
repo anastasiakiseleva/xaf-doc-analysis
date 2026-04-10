@@ -16,14 +16,19 @@ This topic describes how end users can create and view a dashboard at runtime in
 	* The Dashboards Module is added and configured correctly as described in the following help topic: [Add the Dashboards Module to Your Application](xref:117449#add-the-dashboards-module-to-your-application). 
 	* The [DashboardsModule.GenerateNavigationItem](xref:DevExpress.ExpressApp.Dashboards.DashboardsModule.GenerateNavigationItem) property is set to **true**.
 
-2. In the displayed [](xref:DevExpress.DashboardBlazor.DxDashboard) control, open the dashboard menu, specify the dashboard name in the **Title** menu item, and choose a [business object](xref:113664) type to be used as a data source:
+2. In the displayed [](xref:DevExpress.DashboardBlazor.DxDashboard) control, open the dashboard menu, specify the dashboard name in the **Title** menu item, and choose a [business object](xref:113664) type to be used as a data source. The **Data Sources** list contains the types decorated with the [DefaultClassOptions](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) or [VisibleInDashboards](xref:DevExpress.Persistent.Base.VisibleInDashboardsAttribute) attribute.
 	
 	![The dashboard menu button](~/images/BlazorDashboard_MenuButton.png)
 
 	![The dashboard menu](~/images/BlazorDashboard_Menu.png)
 	
 	> [!TIP]
-	> The **Data Sources** list contains the types decorated with the [DefaultClassOptions](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) or [VisibleInDashboards](xref:DevExpress.Persistent.Base.VisibleInDashboardsAttribute) attribute.
+	> To use other data sources, configure the connections provider for them. Refer to the following help topics for additional information:
+	> * <xref:119823>
+	> * <xref:403544>
+	> * [Create an SQL Data Source in the UI](xref:116652#create-an-sql-data-source-in-the-ui)
+	> * [Create a JSON Data Source in the UI](xref:401224#create-a-json-data-source-in-the-ui)
+	> * <xref:401401>
 
 3. Configure the newly created dashboard as described in the following help topic: [Creating Dashboards on the Web](xref:116994).
 	

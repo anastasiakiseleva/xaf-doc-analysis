@@ -3,6 +3,9 @@ uid: "403544"
 title: Customize the Dashboard Configurator (ASP.NET Core Blazor)
 seealso:
   - linkId: '404466'
+  - linkId: 117680
+  - linkId: 119823
+  - linkId: 118651
 ---
 # Customize the Dashboard Configurator (ASP.NET Core Blazor)
 

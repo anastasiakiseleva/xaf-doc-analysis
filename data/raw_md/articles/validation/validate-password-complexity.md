@@ -20,7 +20,7 @@ The `NewPassword` is a property to be validated. As this property is implemented
 > [!IMPORTANT]
 > Make sure that the **Security** module is added to the list of required modules.
 
-1. Right-click the **Validation** | **Rules** node. Select **Add…** | **RuleRegularExpression**. Specify the following rule's settings:
+1. In the Model Editor, right-click the **Validation** | **Rules** node. Select **Add…** | **RuleRegularExpression**. Specify the following rule's settings:
 
     * `ID` = `Password is complex`
     * `TargetType` = `DevExpress.ExpressApp.Security.ChangePasswordOnLogonParameters`

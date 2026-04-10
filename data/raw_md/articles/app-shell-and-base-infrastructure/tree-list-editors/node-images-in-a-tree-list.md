@@ -8,9 +8,9 @@ title: Node Images in a Tree List
 
 This topic describes how to show [SVG](#svg-images) or [raster](#raster-images) images for a [Tree List](xref:112837)'s entries in XAF Applications.
 
-For this purpose, the [TreeList Editors module](xref:112841) supplies (xref:DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditor). They are designed to display [](xref:DevExpress.Persistent.Base.General.ITreeNode) objects. **TreeListEditor** can also show images for the these objects. You can enable images for a Tree List's objects by implementing the [](xref:DevExpress.Persistent.Base.General.ITreeNodeSvgImageProvider) (for SVG images) or [](xref:DevExpress.Persistent.Base.General.ITreeNodeImageProvider) interface (for raster images) in a business class inherited from the **ITreeNode** interface.
+For this purpose, the [TreeList Editors module](xref:112841) supplies [](xref:DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditor). They are designed to display [](xref:DevExpress.Persistent.Base.General.ITreeNode) objects. **TreeListEditor** can also show images for the these objects. You can enable images for a Tree List's objects by implementing the [](xref:DevExpress.Persistent.Base.General.ITreeNodeSvgImageProvider) (for SVG images) or [](xref:DevExpress.Persistent.Base.General.ITreeNodeImageProvider) interface (for raster images) in a business class inherited from the **ITreeNode** interface.
 
-> ![NOTE]
+> [!NOTE]
 > ASP.NET Core Blazor @DevExpress.ExpressApp.Blazor.Editors.DxTreeListEditor does not support Tree Node images. 
 
 The following image illustrates a **TreeListEditor** displaying nodes with images:

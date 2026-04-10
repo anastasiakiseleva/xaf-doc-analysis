@@ -6,6 +6,10 @@ seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/XAF_logon-form-manage-users-register-a-new-user-restore-a-password
   altText: 'XAF Blazor UI: How to extend the logon form - register a new user, restore a password'
+- linkId: DevExpress.ExpressApp.Security.SecurityOptions._members
+  altText: Security Options
+- linkId: DevExpress.ExpressApp.Security.LockoutOptions._members
+  altText: Lockout Options
 ---
 # User Logon and Authentication
 
@@ -154,14 +158,14 @@ The following examples demonstrate custom authentication implementations:
 
 ## Authenticate a User in Code (Blazor, Web API Service)
 
-XAF supports API that you can use to access and manage application users as well as authenticate users. This API includes the following services:
+XAF supports an API that you can use to access and manage application users as well as authenticate users. This API includes the following services:
 
 @DevExpress.ExpressApp.Security.UserManager
-:    Exposes API required to manage user objects in the database.
+:    Exposes an API required to manage user objects in the database.
 @DevExpress.ExpressApp.Security.SignInManager
-:    Exposes API required to sign a user into an application.
+:    Exposes an API required to sign a user into an application.
 
-The following code snippet demonstrates how to use API that the `UserManager` and `SignInManager` services expose to sign into a nested scope and execute a controller's action on a service user's behalf (user impersonation):
+The following code snippet demonstrates how to use an API that the `UserManager` and `SignInManager` services expose to sign into a nested scope and execute a controller's action on a service user's behalf (user impersonation):
 
 [!include[signinmanager-impersonation-example](~/templates/signinmanager-impersonation-example.md)]
 

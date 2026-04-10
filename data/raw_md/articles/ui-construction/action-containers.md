@@ -5,22 +5,39 @@ seealso:
 - linkId: "112622"
 - linkId: "112621"
 - linkId: "112609"
-- linkId: "404559"
+- linkId: "402157"
+- linkId: "112816"
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/XAF_how-to-add-custom-buttons-actions-to-the-lookup-and-popup-windows
   altText: 'GitHub Example: XAF - Add Custom Buttons (Actions) to Lookup and Popup Windows'
 ---
 # Action Containers
 
- _Action Containers_ are placeholders for [Actions](xref:112622) (several action may appear within a single container). [Templates](xref:112609) define the position of Action Containers on screen.
+ Action Containers are UI placeholders that display [Actions](xref:112622) (commands and buttons) in an XAF application. They determine where actions appear, such as toolbars, menus, ribbons, and context menus. [Templates](xref:112609) control where containers appear on screen.
 
-This topic explains how to customize existing Action Containers and implement your own.
+## Common Tasks with Action Containers
 
-XAF supplies a number of built-in Action Containers for automatic UI construction. Built-in Action Containers for ASP.NET Core Blazor and Windows Forms applications ship with the **DevExpress.ExpressApp.Blazor** and **DevExpress.ExpressApp.Win** assemblies, respectively.
+You interact with Action Containers when you want to reorganize your application's command UI, create custom toolbars, or control where specific actions appear:
 
-You can find the list of all Action Containers in the **ActionDesign** | **ActionToContainerMapping** node of the [Application Model](xref:112580).
+- [Move an Action to a Different Toolbar or Menu](xref:402145)
+- [Group Actions in a Drop-Down Menu (ASP.NET Core Blazor)](#group-actions-in-a-drop-down-menu-aspnet-core-blazor)
+- [Add a Grid Column with an Action (ASP.NET Core Blazor)](xref:404559)
+- [Create a Custom Action Container](#implement-a-custom-action-container)
+- [Reorder Actions in an Action Container](xref:112815)
 
-## ASP.NET Core Blazor Action Containers
+## How Action Containers Work
+
+XAF creates Action Containers automatically when it initializes a Template. The process consists of the following steps:
+
+1. **Template initialization.** XAF creates all Action Containers defined in the Template.
+2. **Action mapping.** The built-in [FillActionContainersController](xref:113141#fillactioncontainerscontroller) reads the **ActionDesign** | **ActionToContainerMapping** node in the [Application Model](xref:112580) to determine which Actions belong in each container.
+3. **Control creation.** The Controller calls each container's [`Register`](xref:DevExpress.ExpressApp.Templates.IActionContainer.Register(DevExpress.ExpressApp.Actions.ActionBase)) method to create platform-specific controls for Actions.
+
+Example (Windows Forms):
+- **SimpleAction** creates a `BarButtonItem` button control
+- **SingleChoiceAction** creates a `BarEditItem` dropdown control
+
+### ASP.NET Core Blazor Action Containers
 
 The following images show Action Container placement in ASP.NET Core Blazor application UI:
 
@@ -33,53 +50,65 @@ The following images show Action Container placement in ASP.NET Core Blazor appl
 ![|ASP.NET Core Blazor Containers in Popup Windows|](~/images/action-container-popup-blazor-devexpress.png)
 
 > [!TIP]
-> For more information about Actions in grid columns in ASP.NET Core Blazor application, refer to the following topic: [](xref:404559).
+> For more information about Actions in grid columns in ASP.NET Core Blazor applications, refer to the following topic: [](xref:404559).
 
-## Action Container Creation
+## Customize Action Containers in the Application Model
 
-When XAF creates a Template, it also creates all Action Containers that belong to this Template. The built-in `FillActionContainers` Controller determines Actions that populate each Action Container. That information comes from the **ActionDesign** | **ActionToContainerMapping** node of the [Application Model](xref:112580). The `FillActionContainers` Controller calls the Action Container's `Register` method to create a control for each Action. For example, in a Windows Forms application, the `ActionContainerBarItem` Action Container creates a `BarButtonItem` object for a `SimpleAction` and a `BarEditItem` control for a `SingleChoiceAction`.
+**When to use:** Move Actions between existing containers (toolbars/menus) or delete Actions at design time or runtime.
 
-## Action Container Customization
+For a detailed scenario, refer to the following topic: [How to: Place an Action in a Different Location](xref:402145).
 
-You can customize the Actions of a particular Action Container in code, at design time, and at runtime.
+For more information about this Application Model node, refer to the [](xref:DevExpress.ExpressApp.Model.IModelActions) interface description.
 
-### In the Application Model
-	
-The [Application Model](xref:112580) contains the **ActionDesign**  | **ActionToContainerMapping** node. This node contains information on what Actions a particular Action Container must display. You can customize the automatically generated information in the [Model Editor](xref:112582) at design time or at runtime (see [](xref:402145)). In this node, you can move an Action to another Action Container, delete an Action from a particular Action Container, etc. You can also add a new Action Container and add Actions to it, but such an Action Container only appears in a UI if it belongs to a Template. For more information about this Application Model node, refer to the [](xref:DevExpress.ExpressApp.Model.IModelActions) interface description.
+## Customize Action Containers in Code
 
-### In code
-	
-To customize an Action Container, handle the [Frame.ProcessActionContainer](xref:DevExpress.ExpressApp.Frame.ProcessActionContainer) event. You can customize an Action Container using its properties. You can also use the [IActionContainer.Actions](xref:DevExpress.ExpressApp.Templates.IActionContainer.Actions) property to access Actions of a particular Action Container and customize these Actions. For example, you can toggle an Action's [ActionBase.Active](xref:DevExpress.ExpressApp.Actions.ActionBase.Active) property to deactivate this Action. You can also access an Action's control and customize it.
+**When to use:** Apply conditional logic or dynamic behavior that cannot be configured in the Application Model.
 
-To customize a toolbar item, handle the `CustomizeActionControl` event of the corresponding bar item factory. For additional information, refer to the following topic: [](xref:113183).
+| API | Use |
+|-|-|
+| [Frame.ProcessActionContainer](xref:DevExpress.ExpressApp.Frame.ProcessActionContainer) | Use event's properties to customize Action Container |
+| [IActionContainer.Actions](xref:DevExpress.ExpressApp.Templates.IActionContainer.Actions) | Access Actions of a particular Action Container and customize these Actions. For example, you can toggle an Action's [ActionBase.Active](xref:DevExpress.ExpressApp.Actions.ActionBase.Active) property to deactivate this Action. You can also access an Action's control and customize it.|
+| [ActionBase.CustomizeControl](xref:DevExpress.ExpressApp.Actions.ActionBase.CustomizeControl) | Customize an Action Control. For a detailed scenario, refer to the following topic: [How to: Customize Action Controls](xref:113183) |
+| [ActionControlsSiteController.CustomizeContainerActions](xref:DevExpress.ExpressApp.SystemModule.ActionControlsSiteController.CustomizeContainerActions) | Customize the action-to-container mapping in code. |
 
-You can handle the [ActionControlsSiteController.CustomizeContainerActions](xref:DevExpress.ExpressApp.SystemModule.ActionControlsSiteController.CustomizeContainerActions) event to customize the action-to-container mapping in code.
+## Group Actions in a Drop-Down Menu (ASP.NET Core Blazor)
 
-### In ASP.NET Core Blazor Application Template
+**When to use:**
+- Group Actions in a drop-down menu
+- Display the root item as a split button (specify one of included Actions as default)
+- Enable a traditional sub-menu UI (specify a caption and/or image for the root item)
 
-In ASP.NET Core Blazor applications, you can group Actions in a drop-down menu. You can display the root item as a split button (specify one of included Actions as default). You can also enable a traditional sub-menu UI (specify a caption and/or image for the root item).
+> [!Important]
+> Drop-down menus do not support `ParametrizedAction` and `SingleChoiceAction` when [ItemType](xref:DevExpress.ExpressApp.Actions.SingleChoiceAction.ItemType) is set to [SingleChoiceActionItemType.ItemIsMode](xref:DevExpress.ExpressApp.Actions.SingleChoiceActionItemType).
 
-![|ASP.NET Blazor SaveOptions Container|](~/images/saveoptions-action-container-blazor-devexpress.png)
+### Action Container Properties
 
-Create a [custom Blazor application template](xref:403452) and specify the following Action Container properties:
+   | Property | Description |
+   |-|-|
+   | `isDropDown` | Specifies whether the container's Actions are grouped into a drop-down list. |
+   | `defaultActionId` | Specifies the root menu Action's identifier. |
+   | `autoChangeDefaultAction` | Specifies whether the last executed Action becomes the default one. |
+   | `imageName` | Specifies the image used as the root menu item. |
+   | `caption` | Specifies the caption used as the root menu item. |
 
-`isDropDown`
-:   Specifies whether the container's Actions are grouped into a drop-down list.
-`defaultActionId`
-:   Specifies the root menu Action's identifier.
-`autoChangeDefaultAction`
-:   Specifies whether the last executed Action becomes the default one.
-`imageName`
-:   Specifies the image used as the root menu item.
-`caption`
-:   Specifies the caption used as the root menu item.
+> [!tip]
+> - Image and caption are not mutually exclusive. You can use both as the root item at the same time.
+> - If you omit `defaultActionId`, `imageName`, and `caption` parameters, XAF displays the first Action as the root item.
+> - If you specify a [](xref:DevExpress.ExpressApp.Actions.SingleChoiceAction) as default, it is displayed in the main menu without child items.
 
-Image and caption are not mutually exclusive. You can use both as the root item at the same time.
+### Drop-Down Menu in Main Toolbar
+
+1. Create a [custom Blazor application template](xref:403452).
+2. Specify the Action Container properties.
+
+The following code snippet demonstrates the recommended approach (using an Action as the root item). Two alternative approaches are shown as comments.
+
+**File:** _MySolution.Blazor.Server/Templates/CustomApplicationWindowTemplate.cs_
 
 ```csharp
 using DevExpress.Blazor;
 using DevExpress.ExpressApp.Blazor.Templates;
-namespace YourSolutionName.Blazor.Server {
+namespace MySolution.Blazor.Server {
     public class CustomApplicationWindowTemplate : ApplicationWindowTemplate {
         public CustomApplicationWindowTemplate() {
             // Action as the root item
@@ -93,26 +122,75 @@ namespace YourSolutionName.Blazor.Server {
 }
 ```
 
-If you omit `defaultActionId`, `imageName`, and `caption` parameters, XAF displays the first Action as the root item.
+![|ASP.NET Blazor SaveOptions Container|](~/images/saveoptions-action-container-blazor-devexpress.png)
 
-If you specify a [](xref:DevExpress.ExpressApp.Actions.SingleChoiceAction) as default, it is displayed in the main menu without child items.
+### Drop-Down Menu in Ribbon UI
 
-The drop-down menu does not support `ParametrizedAction` and `SingleChoiceAction` with [ItemType](xref:DevExpress.ExpressApp.Actions.SingleChoiceAction.ItemType) set to [SingleChoiceActionItemType.ItemIsMode](xref:DevExpress.ExpressApp.Actions.SingleChoiceActionItemType).
+1. Under the _MySolution.Blazor.Server_ project, [add a Window Controller](xref:405447#create-a-new-item) to the _Controllers_ folder.
+2. Override the `OnActivated` method to access the `BlazorRibbonController` and subscribe to its `RibbonActionContainerCreating` event. This event fires when the controller generates a [DxRibbon](xref:DevExpress.Blazor.DxRibbon) [Action Container](xref:112610) model.
+3. Specify the Action Container properties.
 
-## Implement Your Own Action Container
+The following code snippet:
+- Groups the Actions in the `SaveOptions` Container in a drop-down menu
+- Sets the default Action to **SaveAndClose**
+- Sets the last executed Action as the default
 
-If you need to change controls used to display Actions, you can implement your own Action Containers. To do this, inherit from the required control and implement the [](xref:DevExpress.ExpressApp.Templates.IActionContainer) interface. Alternatively, you can derive your custom container from one of the existing Action Containers. You may also need to specify the controls XAF should use for each Action type.
+    **File:** _MySolution.Blazor.Server\Controllers\CustomizeRibbonActionContainerController.cs_
 
-After you declared your own Action Container, create a new Template or customize an existing template as described in the following topics:
+    ```csharp
+    using DevExpress.ExpressApp;
+    using DevExpress.ExpressApp.Blazor.SystemModule;
 
-* [](xref:403452)
-* [](xref:113706)
-* [](xref:112618)
+    namespace MySolution.Blazor.Server.Controllers;
 
-Add your Action Container to the Template and add your Action Container's instance to the list returned by the Template's [IFrameTemplate.GetContainers](xref:DevExpress.ExpressApp.Templates.IFrameTemplate.GetContainers) method.
+    public class CustomizeRibbonActionContainerController : WindowController {
+        protected override void OnActivated() {
+            base.OnActivated();
+            var controller = Frame.GetController<BlazorRibbonController>();
+            if(controller != null) {
+                controller.RibbonActionContainerCreating += Controller_RibbonActionContainerCreating;
+            }
+        }
+        private void Controller_RibbonActionContainerCreating(object sender, RibbonActionContainerCreatingEventArgs e) {
+            if(e.ActionContainer.ContainerId == "SaveOptions") {
+                e.ActionContainer.IsDropDown = true;
+                e.ActionContainer.DefaultActionId = "SaveAndClose";
+                e.ActionContainer.AutoChangeDefaultAction = true;
+            }
+        }
+        protected override void OnDeactivated() {
+            var controller = Frame.GetController<BlazorRibbonController>();
+            if(controller != null) {
+                controller.RibbonActionContainerCreating -= Controller_RibbonActionContainerCreating;
+            }
+            base.OnDeactivated();
+        }
+    }
+    ```
 
-If you have XAF sources installed, you can see how built-in Action Containers are implemented in the following locations:
+## Implement a Custom Action Container
 
-* [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Web\Templates\ActionContainers\
-* [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Win\Templates\ActionContainers\
-* [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Blazor\Templates\
+**When to use:** Replace the default controls with custom UI components (advanced scenario).
+
+1. Inherit from the desired platform control and implement the [](xref:DevExpress.ExpressApp.Templates.IActionContainer) interface. Alternatively, you can inherit your custom container from one of the existing Action Containers. You may also need to specify the controls XAF should use for each Action type.
+2. After you declared your own Action Container, create a new Template or customize an existing template as described in the following topics:
+
+    - [](xref:403452)
+    - [](xref:113706)
+    - [](xref:112618)
+
+3. Add your Action Container to the Template and add your Action Container's instance to the list returned by the Template's [IFrameTemplate.GetContainers](xref:DevExpress.ExpressApp.Templates.IFrameTemplate.GetContainers) method.
+
+> [!Tip]
+> If you have XAF sources installed, you can see how built-in Action Containers are implemented in the following locations:
+> - [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Web\Templates\ActionContainers\
+> - [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Win\Templates\ActionContainers\
+> - [!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp\DevExpress.ExpressApp.Blazor\Templates\
+
+## API Reference
+
+| API | Description |
+|-|-|
+| @DevExpress.ExpressApp.Actions.ActionBase.Category | Specifies the Action Container where XAF displays the current Action. |
+| @DevExpress.ExpressApp.Editors.ListEditor.ContextMenuTemplate | Offers access to a List Editor's Context Menu Template. |
+| @DevExpress.ExpressApp.SystemModule.ActionControlsSiteController.CustomizeContainerActions | Fires when Actions are added to the Action Containers. |

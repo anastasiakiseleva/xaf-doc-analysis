@@ -10,6 +10,6 @@ syntax:
     type: System.TimeSpan
     description: A @System.TimeSpan value that specifies the user lockout duration.
 seealso: []
+defaultMemberValue: TimeSpan.FromMinutes(5)
 ---
-
-This property is set to 5 minutes by default.
+[!include[](~/templates/lockout-options.md)]

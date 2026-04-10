@@ -43,7 +43,7 @@ In the code above, the new [](xref:DevExpress.ExpressApp.Actions.PopupWindowShow
 
 To process end-user clicks on the accept and cancel buttons, handle the [PopupWindowShowAction.Execute](xref:DevExpress.ExpressApp.Actions.PopupWindowShowAction.Execute) and [PopupWindowShowAction.Cancel](xref:DevExpress.ExpressApp.Actions.PopupWindowShowAction.Cancel) events, respectively. Built-in [Action Containers](xref:112610) display Pop-up Window Show Actions via a button.
 
-To add a Pop-up Window Show Action to a [Controller](xref:112621), drag and drop the **PopupWindowShowAction** item from the **XAF Actions** section on the **Toolbox** to the required Controller's **Designer** area (see [](xref:402158)).  You can also use the [](xref:DevExpress.Persistent.Base.ActionAttribute) to convert a business class' method to an Action that displays a [non-persistent object](xref:116516) in a popup (see [How to: Create an Action Using the Action Attribute](xref:112619)).
+To add a Pop-up Window Show Action to a [Controller](xref:112621), use the [](xref:DevExpress.Persistent.Base.ActionAttribute) to convert a business class' method to an Action that displays a [non-persistent object](xref:116516) in a popup (see [How to: Create an Action Using the Action Attribute](xref:112619)).
 
 [!include[coderush-templates-actions-controllers](~/templates/coderush-templates-actions-controllers.md)]
 

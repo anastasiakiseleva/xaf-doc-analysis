@@ -119,10 +119,6 @@ public sealed partial class ResourceLocalizerModule : ModuleBase {
 ```
 ***
 
-In this instance, you can add or remove a localizer in the Application Designer.
-
-![LocalizeCustomConstants_ResourcesExportedToModel](~/images/localizecustomconstants_resourcesexportedtomodel116880.png)
-
 Rebuild the solution and invoke the Model Editor. You can see that items from the _MyResource.resx_ resource are exported to the Application Model.
 
 ![LocalizeCustomConstants_ModelEditor](~/images/localizecustomconstants_modeleditor116879.png)

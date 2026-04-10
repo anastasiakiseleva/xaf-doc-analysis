@@ -13,7 +13,8 @@ This topic describes how to create and view a dashboard at runtime in a WinForms
 	![DashboardWinNew](~/images/dashboardwinnew125570.png)
 	
 	> [!NOTE]
-	> If you cannot locate the **Reports** | **Dashboards** navigation item, ensure that the Dashboards Module is added in the Application Designer and the [DashboardsModule.GenerateNavigationItem](xref:DevExpress.ExpressApp.Dashboards.DashboardsModule.GenerateNavigationItem) property is set to **true**.
+	> If you cannot locate the **Reports** | **Dashboards** navigation item, ensure that the Dashboards Module is added to the project and the [DashboardsModule.GenerateNavigationItem](xref:DevExpress.ExpressApp.Dashboards.DashboardsModule.GenerateNavigationItem) property is set to `true`.
+
 * In the invoked [Data Source Wizard](xref:115219), select **XAF Object Data Source** and click **Next**.
 	
 	![DashboardWinDataSource](~/images/dashboardwindatasource125572.png)
@@ -22,7 +23,7 @@ This topic describes how to create and view a dashboard at runtime in a WinForms
 	![DashboardWinDataType](~/images/dashboardwindatatype125573.png)
 	
 	> [!TIP]
-	> In the types list, you can see the types that have the [](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) or [](xref:DevExpress.Persistent.Base.VisibleInDashboardsAttribute) applied, or have the [IModelClassDashboardsVisibility.IsVisibleInDashboards](xref:DevExpress.ExpressApp.Model.IModelClassDashboardsVisibility.IsVisibleInDashboards) property set to **true**.
+	> In the types list, you can see the types that have the [](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) or [](xref:DevExpress.Persistent.Base.VisibleInDashboardsAttribute) applied, or have the [IModelClassDashboardsVisibility.IsVisibleInDashboards](xref:DevExpress.ExpressApp.Model.IModelClassDashboardsVisibility.IsVisibleInDashboards) property set to `true`.
 * In the invoked [Dashboard Designer](xref:116518), setup the dashboard according to the [Creating Dashboards in the WinForms Designer](xref:115954) guidelines.
 	
 	![DashboardWinDesigner](~/images/dashboardwindesigner125576.png)

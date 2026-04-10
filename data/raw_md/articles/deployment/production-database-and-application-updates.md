@@ -19,15 +19,16 @@ This topic describes how to update an application deployed on a user machine or 
     * `-forceUpdate` forces a schema update on each run.
 1. Follow the on-screen instructions.
 
-# [Console (Windows)](#tab/tabid-cmd-win)
-```Console
-C:\Users\Public\MyApplication\MySolution.Blazor.Server.exe -updateDatabase -silent -forceUpdate
-```
-# [Console (Linux or MacOS)](#tab/tabid-cmd-mac)
-```Console
-dotnet MyApplication/MySolution.Blazor.ServerSide.dll -updateDatabase -silent -forceUpdate
-```
-***
+    # [Console (Windows)](#tab/tabid-cmd-win)
+    ```Console
+    C:\Users\Public\MyApplication\SolutionName.Blazor.Server.exe -updateDatabase -silent -forceUpdate
+    ```
+
+    # [Console (Linux or MacOS)](#tab/tabid-cmd-mac)
+    ```Console
+    dotnet MyApplication/SolutionName.Blazor.ServerSide.dll -updateDatabase -silent -forceUpdate
+    ```
+    ***
 
 ![Update a database for an ASP.NET Core Blazor application](~/images/update-a-database-cli.png)
 
@@ -50,7 +51,7 @@ To update an application, you can use the same technique as when you deployed it
 
 # [Console](#tab/tabid-cmd-win1)
 ```Console
-C:\Users\Public\MyApplication\MySolution.Win.exe -updateDatabase -silent -forceUpdate
+C:\Users\Public\MyApplication\SolutionName.Win.exe -updateDatabase -silent -forceUpdate
 ```
 ***
 
@@ -64,7 +65,7 @@ To update an application, you can use the same technique as when you deployed it
 * [Update ClickOnce applications](https://learn.microsoft.com/en-us/visualstudio/deployment/clickonce-security-and-deployment#update-clickonce-applications)
 
 > [!NOTE]
-> Do not overwrite a user's _MySolution.Win.dll.config_ or _Model.User.xafml_ files when you update an application. 
+> Do not overwrite user _SolutionName.Win.dll.config_ or _Model.User.xafml_ files when you update an application. 
 
 ### Update Application Files Automatically (Application Updater Utility)
 
@@ -77,11 +78,13 @@ Ensure that applications on end-user workstations and the new application you wa
 1. The [XafApplication.CheckCompatibilityType](xref:DevExpress.ExpressApp.XafApplication.CheckCompatibilityType) property is set to `ModuleInfo`.
 2. `NonPersistentObjectSpaceProvider` is not the first registered Provider in your application. XAF uses the first registered Object Space Provider while an application updates.
 
+[!include[checkcompatibilitytype-moduleinfo](~/templates/checkcompatibilitytype-moduleinfo.md)]
+
 #### Enable Auto Update
 
-1. Choose a file server in the end-user network. On this server, create a shared folder that stores newer application versions (for example, the _MySolutionUpdateSource_ folder). 
+1. Choose a file server in the end-user network. On this server, create a shared folder that stores newer application versions (for example, the _SolutionNameUpdateSource_ folder). 
 2. Ensure that all end users have a _read_ permission to this folder and do not have a _write_ permission.
-3. On all end-user workstations, open the _MySolution.Win.dll.config_ file, and set the `NewVersionServer` key to the [UNC path](https://learn.microsoft.com/en-us/dotnet/standard/io/file-path-formats#unc-paths) to this folder:
+3. On all end-user workstations, open the _SolutionName.Win.dll.config_ file, and set the `NewVersionServer` key to the [UNC path](https://learn.microsoft.com/en-us/dotnet/standard/io/file-path-formats#unc-paths) to this folder:
 
 	# [XML](#tab/tabid-xml)
 	
@@ -91,17 +94,21 @@ Ensure that applications on end-user workstations and the new application you wa
 	  <!-- ... -->
 	  <appSettings>
 	    <!-- ... -->
-	    <add key="NewVersionServer" value="\\FILESERVER\MySolutionUpdateSource\" />
+	    <add key="NewVersionServer" value="\\FILESERVER\SolutionNameUpdateSource\" />
       </appSettings>
 	</configuration>  
 	```
 	
 	***
 	
-4. Copy WinForms application folder contents from the end-user workstation to the _MySolutionUpdateSource_ shared folder.  
-The UNC path to the application executable should be "_\\FILESERVER\MySolutionUpdateSource\MySolition.Win.exe_".
-5. Copy the _%PROGRAMFILES%\DevExpress <:xx.x:>\Components\Tools\eXpressAppFrameworkNetCore\Application Updater\DevExpress.ExpressApp.Updater.exe_ file from the developer workstation to the _MySolutionUpdateSource_ shared folder.   
-The UNC path to this file should be "_\\FILESERVER\MySolutionUpdateSource\DevExpress.ExpressApp.Updater.exe_".
+4. Copy WinForms application folder contents from the end-user workstation to the _SolutionNameUpdateSource_ shared folder.  
+The UNC path to the application executable should be "_\\FILESERVER\SolutionNameUpdateSource\MySolition.Win.exe_".
+5. Copy the following files from the developer workstation to the _SolutionNameUpdateSource_ shared folder:
+    - _%PROGRAMFILES%\DevExpress <:xx.x:>\Components\Tools\eXpressAppFrameworkNetCore\Application Updater\DevExpress.ExpressApp.Updater.exe_
+    - _%PROGRAMFILES%\DevExpress <:xx.x:>\Components\Tools\eXpressAppFrameworkNetCore\Application Updater\DevExpress.ExpressApp.Updater.runtimeconfig.json_
+    - _%PROGRAMFILES%\DevExpress <:xx.x:>\Components\Tools\eXpressAppFrameworkNetCore\Application Updater\DevExpress.ExpressApp.Updater.dll_
+
+   The UNC path to these files should be "_\\FILESERVER\SolutionNameUpdateSource\\<file name\>_".
 6. When you run the WinForms application at an end-user workstation that was not updated, the following Updater progress bar is shown:
 	
 	![Deployment_Tutorial_0260](~/images/deployment_tutorial_0260116474.png)
@@ -117,13 +124,13 @@ The UNC path to this file should be "_\\FILESERVER\MySolutionUpdateSource\DevExp
 
 To deploy a new application version, follow the steps below:
 
-1. Replace the files located in the _MySolutionUpdateSource_ shared folder with new application files.
+1. Replace the files located in the _SolutionNameUpdateSource_ shared folder with new application files.
 2. Update the database version as described in the [Update Database](#update-a-database) section.
 
-When a user launches the WinForms application, it is instantly updated. The update process cannot be initiated if the database is not updated, even if the _MySolutionUpdateSource_ folder contains a new version of the application.
+When a user launches the WinForms application, it is instantly updated. The update process cannot be initiated if the database is not updated, even if the _SolutionNameUpdateSource_ folder contains a new version of the application.
 
 > [!NOTE]
-> * The _MySolutionUpdateSource_ folder should only store new application files. Do not store other files in this folder. Otherwise, they will be copied to each end-user workstation.
+> * The _SolutionNameUpdateSource_ folder should only store new application files. Do not store other files in this folder. Otherwise, they will be copied to each end-user workstation.
 > * If you want to change Updater utility behavior, change and recompile its sources. Updater tool sources are in the following folder: _[!include[PathToXafInstallation](~/templates/path-to-installation.md)]Sources\DevExpress.ExpressApp.Tools\DevExpress.ExpressApp.Updater_. For example, you can configure the Updater tool to download files from a remote web server instead of using a shared folder in a local network.
 
 ## Update Database on Microsoft Azure
@@ -143,7 +150,7 @@ These tools can be useful for the following actions in a multi-tenant applicatio
  
 ### How to Use ModuleUpdater to Update Database in Multi-Tenant Applications
 
-Since a multi-tenant application works with several databases of different structures, `ModuleUpdater` runs in the application in the following cases:
+Since a multi-tenant application works with multiple databases of different structures, `ModuleUpdater` runs in the application in the following cases:
 
 * When logging into the host interface
 * When logging into a tenant interface for the first time
@@ -152,7 +159,7 @@ It is essential to consider whether the update applies to a tenant database or t
 
 The XAF [Template Kit](xref:405447) generates projects with DevExpress.ExpressApp.MultiTenancy.ITenantProvider.TenantId and @DevExpress.ExpressApp.MultiTenancy.ITenantProvider.TenantName properties to identify the current tenant. These properties return `null` when the host database is being updated.
 
-The following code outlines the recommended structure of the updater class in multi-tenant applications:
+The following code sample outlines the recommended structure of the updater class in multi-tenant applications:
 
 ```csharp
 using DevExpress.ExpressApp;
@@ -160,7 +167,7 @@ using DevExpress.ExpressApp.MultiTenancy;
 using DevExpress.ExpressApp.Updating;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace MySolution.Module.DatabaseUpdate;
+namespace SolutionName.Module.DatabaseUpdate;
 public class Updater :ModuleUpdater {
     public Updater(IObjectSpace objectSpace, Version currentDBVersion) :
           base(objectSpace, currentDBVersion) {
@@ -224,11 +231,26 @@ public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace object
 
 Refer to the following help topic for more information about predefined Reports: <xref:113645>.
 
+## Update Database in Middle Tier Security Application
+
+1. Launch a command line interpreter, for instance, **Command Prompt**. 
+1. Run the application with the `-updateDatabase` command.
+    You can use the following additional parameters:
+    * `-silent` initiates a silent update without direct user interaction.
+    * `-forceUpdate` forces a schema update on each run.
+1. Follow the on-screen instructions.
+
+    ```Console
+    C:\Users\Public\MyApplication\SolutionName.MiddleTier.exe -updateDatabase -silent -forceUpdate
+    ```
+
+1. Run the application to ensure the update was successful.
+
 ## Important Notes
 
 * If you encounter issues with your application update, refer to the following help topic: [Deployment Troubleshooting Guide](xref:113238).
 
-* To prevent a module from updating the database, specify a fixed version of this modul's assembly (for example, _1.0.0.0_). Version synchronization of your WinForms and ASP.NET Core Blazor modules may be forced. The default build and revision numbers are specified with the asterisk (*), and Visual Studio automatically increments these numbers (see [AssemblyVersionAttribute](xref:System.Reflection.AssemblyVersionAttribute)). This leads to a database version mismatch on each module update.
+* To prevent a module from updating the database, specify a fixed version of this module's assembly (for example, _1.0.0.0_). Version synchronization of your WinForms and ASP.NET Core Blazor modules may be forced. The default build and revision numbers are specified with the asterisk (*), and Visual Studio automatically increments these numbers (see [AssemblyVersionAttribute](xref:System.Reflection.AssemblyVersionAttribute)). This leads to a database version mismatch on each module update.
 
 ## How Database is Updated in Debug Mode
 
@@ -247,7 +269,8 @@ public class SolutionNameBlazorApplication : BlazorApplication {
        e.Updater.Update();
        e.Handled = true;
        // ...
-
+    }
+}
 ```
 # [SolutionName.WebApi\Startup.cs](#tab/tabid-WebAPI)
 ```csharp
@@ -265,6 +288,9 @@ public class Startup {
                }
             });
          // ...
+      }
+    )}
+} 
 
 ```
 # [SolutionName.Win\WinApplication.cs](#tab/tabid-WinForms)
@@ -279,7 +305,8 @@ public class SolutionNameWindowsFormsApplication : WinApplication {
       e.Updater.Update();
       e.Handled = true;
       // ...
-
+   }
+}
 ```
 ***
 
@@ -299,6 +326,7 @@ builder.AddBuildStep(application => {
       };
    }
    //...
+})
 ```
 ***
 

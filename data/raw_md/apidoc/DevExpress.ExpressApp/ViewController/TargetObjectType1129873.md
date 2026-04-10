@@ -17,7 +17,7 @@ seealso:
 - linkId: DevExpress.ExpressApp.ViewController.TargetViewType
 - linkId: "113103"
 ---
-View Controllers are activated for both [Windows and Frames](xref:112608). However, you can specify the type of objects represented by a View to provide a View Controller activation. For this purpose, specify the **TargetObjectType** property in code or the **Designer**.
+View Controllers are activated for both [Windows and Frames](xref:112608). However, you can specify the type of objects represented by a View to provide a View Controller activation. For this purpose, specify the **TargetObjectType** property in code.
 
 To make a single View Controller available in Views of different business object types simultaneously, set the **TargetObjectType** property in code to an interface or their base class type, which is implemented or inherited by all these business types respectively. Also, for the same task, you can specify several View identifiers using the [ViewController.TargetViewId](xref:DevExpress.ExpressApp.ViewController.TargetViewId) property.
 

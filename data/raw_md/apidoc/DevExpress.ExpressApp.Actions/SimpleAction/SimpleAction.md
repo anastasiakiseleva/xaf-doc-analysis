@@ -15,7 +15,7 @@ The `SimpleAction` class inherits the basic functionality of [Actions](xref:1126
 
 ### Add a Simple Action
 
-You can add a Single Choice Action to a [Controller](xref:112621) in code: see the [Add a Simple Action (.NET)](xref:402157) tutorial.
+You can add a Single Choice Action to a [Controller](xref:112621) as described in the following topic: [](xref:402157).
 
 Alternatively, you can use the [](xref:DevExpress.Persistent.Base.ActionAttribute) to convert a business class' method to an Action (see [How to: Create an Action Using the Action Attribute](xref:112619)).
 

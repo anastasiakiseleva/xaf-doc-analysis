@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.XafApplication.LinkNewObjectToParentImmediately
 name: LinkNewObjectToParentImmediately
 type: Property
-summary: Specifies whether or not a link between a master and child object is created immediately when the [NewObjectViewController.NewObjectAction](xref:DevExpress.ExpressApp.SystemModule.NewObjectViewController.NewObjectAction) is executed in a nested List View with a non-aggregated collection.
+summary: Specifies whether a link between a master and child object is created immediately when the [NewObjectViewController.NewObjectAction](xref:DevExpress.ExpressApp.SystemModule.NewObjectViewController.NewObjectAction) is executed in a nested List View with a non-aggregated collection.
 syntax:
   content: |-
     [Browsable(false)]
@@ -45,5 +45,3 @@ To change the behavior for a specific [View](xref:112611), set the [NewObjectVie
 
 [!include[new-action-hidden-in-many-to-many-collection](~/templates/new-action-hidden-in-many-to-many-collection.md)]
 
-> [!TIP]
-> This property is hidden in the Application Designer. You can use it in code only.

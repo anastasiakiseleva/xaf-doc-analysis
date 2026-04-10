@@ -9,3 +9,4 @@ seealso:
 - linkId: DevExpress.ExpressApp.Security.LockoutOptions._members
   altText: LockoutOptions Members
 ---
+[!include[](~/templates/lockout-options.md)]

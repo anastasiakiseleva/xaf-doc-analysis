@@ -5,13 +5,15 @@ title: 'Assign the Same Permissions for All Users of an Active Directory Group'
 ---
 # Assign the Same Permissions for All Users of an Active Directory Group
 
-The [](xref:DevExpress.ExpressApp.Security.AuthenticationActiveDirectory) authentication type does not support [Active Directory Security Groups](https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/active-directory-security-groups) out of the box. This topic demonstrates how to map XAF security roles to AD groups. When a user logs on for the first time, existing roles with names matching the user's AD group names are automatically assigned. If the user membership in AD groups was modified, the associated roles collection will be updated accordingly on the next logon.
+The [](xref:DevExpress.ExpressApp.Security.AuthenticationActiveDirectory) authentication type does not support [Active Directory Security Groups](https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/active-directory-security-groups) out of the box.
+
+This topic teaches you to map XAF security roles to AD groups. When a user logs on for the first time, existing roles with names matching the user's AD group names are automatically assigned. If the user membership in AD groups was modified, the associated roles collection will be updated accordingly on the next logon.
 
 > [!NOTE]
 > ASP.NET Core Blazor applications do not support Active Directory authentication.
 
-* In the [module project](xref:112569), reference the _System.DirectoryServices.AccountManagement.dll_ assembly, which provides the [UserPrincipal](https://learn.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.userprincipal) class.
-* Inherit **AuthenticationActiveDirectory** and override the  [AuthenticationActiveDirectory.Authenticate](xref:DevExpress.ExpressApp.Security.AuthenticationActiveDirectory.Authenticate(DevExpress.ExpressApp.IObjectSpace)) method:
+1. In the [module project](xref:112569), reference the _System.DirectoryServices.AccountManagement.dll_ assembly, which provides the [UserPrincipal](https://learn.microsoft.com/en-us/dotnet/api/system.directoryservices.accountmanagement.userprincipal) class.
+2. Inherit `AuthenticationActiveDirectory` and override the  [AuthenticationActiveDirectory.Authenticate](xref:DevExpress.ExpressApp.Security.AuthenticationActiveDirectory.Authenticate(DevExpress.ExpressApp.IObjectSpace)) method:
 	
 	# [C#](#tab/tabid-csharp)
 	
@@ -58,7 +60,5 @@ The [](xref:DevExpress.ExpressApp.Security.AuthenticationActiveDirectory) authen
 
 	***
 
-* Rebuild the solution.
-* Run the Application Designer and replace the **AuthenticationActiveDirectory** component with the **CustomAuthenticationActiveDirectory** component from the toolbox (as it is demonstrated in the **Pass the Custom Classes to the Security System** section of the [How to: Use Custom Logon Parameters and Authentication](xref:404264) topic).
-	
-	![CustomAuthenticationActiveDirectory](~/images/customauthenticationactivedirectory128642.png)
+3. Rebuild the solution.
+4. Replace the `AuthenticationActiveDirectory` with the `CustomAuthenticationActiveDirectory`. You can find the detailed instructions in the following topic: [How to: Use Custom Logon Parameters and Authentication](xref:404264#pass-custom-classes-to-the-security-system).

@@ -56,9 +56,22 @@ public class MyLogonParameters : AuthenticationStandardLogonParameters, ICustomO
 
 Take note of the [ICustomObjectSerialize.ReadPropertyValues](xref:DevExpress.ExpressApp.Utils.ICustomObjectSerialize.ReadPropertyValues(DevExpress.ExpressApp.Utils.SettingsStorage)) and [ICustomObjectSerialize.WritePropertyValues](xref:DevExpress.ExpressApp.Utils.ICustomObjectSerialize.WritePropertyValues(DevExpress.ExpressApp.Utils.SettingsStorage)) methods implementation. In the `ReadPropertyValues` method, the logon parameter values are loaded via the `SettingsStorage.LoadOption` and `SettingsStorage.LoadBoolOption` methods. In the `WritePropertyValues` method, the logon parameter values are saved via the `SettingsStorage.SaveOption` method. Non-string values should be converted to strings before saving. The `RememberPassword` property will be displayed in the Logon Window, together with the `UserName` and `Password` properties exposed by the `AuthenticationStandardLogonParameters` ancestor class. However, the `RememberPassword` property is not included in the authentication process.
 
-To use custom logon parameters in the XAF application, specify the `LogonParametersType` property in the Application Designer.
+To use custom logon parameters in the XAF application, set the provider's @DevExpress.ExpressApp.Security.AuthenticationStandardProviderOptions.LogonParametersType option to `CustomLogonParameters` in the `AddPasswordAuthentication` method call.
 
-![LogonParameters_Custom](~/images/logonparameters_custom116343.png)
+**Files:** _SolutionName.Blazor.Server\Startup.cs_, _SolutionName.MiddleTier\Startup.cs_
+
+[!codesnippet-csharp[dx-examples](xaf-custom-logon-parameters/CS/EF/EFCoreCustomLogonAll.Blazor.Server/Startup.cs?line=66,67,72-76)]
+```csharp
+builder.Security
+// ...
+    .UseIntegratedMode(options => {
+    // ...
+    })
+    .AddPasswordAuthentication(options => {
+        options.IsSupportChangePassword = true;
+        options.LogonParametersType = typeof(CustomLogonParameters);
+    });
+```
 
 Run the application.
 

@@ -6,7 +6,7 @@ title: IDE Integration
 ---
 # IDE Integration
 
-The **XAF** supplies the following design-time features which simplify application design.
+XAF supplies the following design-time features which simplify application design.
 
 * [Template Kit](xref:405447)
 * [Model Editor](xref:112830)

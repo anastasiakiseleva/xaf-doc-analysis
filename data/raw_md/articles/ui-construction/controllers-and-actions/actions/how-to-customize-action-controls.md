@@ -13,7 +13,7 @@ title: 'How to: Customize Action Controls'
 ---
 # How to: Customize Action Controls
 
-This example demonstrates how to customize the control that visualizes an [Action](xref:112622) in a UI. A custom Action will be created, allowing users to enter a date and filter the List View accordingly. The implemented Action will accept keyboard input, as well as provide a drop-down calendar. The control representing the Action will be customized to accept keyboard input using a custom mask. The image below shows the resulting Action in a UI.
+This example customizes the UI control that visualizes an [Action](xref:112622). It creates a custom Action that allows users to enter a date and filter the List View. The Action accepts keyboard input and shows a drop-down calendar. The example applies a custom mask to the Action’s editor to control keyboard input. The following image shows the resulting Action:
 
 ![AccessActionControl](~/images/accessactioncontrol116324.png)
 

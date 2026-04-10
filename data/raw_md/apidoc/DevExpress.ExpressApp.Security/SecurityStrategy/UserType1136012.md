@@ -11,4 +11,4 @@ syntax:
     description: The type of user that is supported by the security strategy.
 seealso: []
 ---
-<!--TODO: how do we change the property's value without Application Designer? -->
+For more information, refer to the following topic: [SecurityStrategyComplex](xref:DevExpress.ExpressApp.Security.SecurityStrategyComplex).

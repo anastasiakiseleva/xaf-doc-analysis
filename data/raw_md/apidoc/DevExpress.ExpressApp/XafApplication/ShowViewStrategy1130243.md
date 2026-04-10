@@ -14,7 +14,7 @@ syntax:
 seealso: []
 ---
 A Show View Strategy is the object that manages how to display [Views](xref:112611): whether to show a View in a lookup or common [Window](xref:112608), in a new or the current Window, in a pop-up or modal Window, and so on. XAF supplies several Show View Strategies:
-* `DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy`
+* @DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy
 * `DevExpress.ExpressApp.Blazor.BlazorShowViewStrategy`
 * [](xref:DevExpress.ExpressApp.Win.ShowInSingleWindowStrategy)
 * [](xref:DevExpress.ExpressApp.Win.ShowInMultipleWindowsStrategy)

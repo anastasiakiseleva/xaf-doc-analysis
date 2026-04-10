@@ -10,6 +10,6 @@ syntax:
     type: System.Boolean
     description: '`true` if user lockout is enabled; otherwise, `false`.'
 seealso: []
+defaultMemberValue: 'false'
 ---
-
-By default, user lockout is disabled.
+[!include[](~/templates/lockout-options.md)]

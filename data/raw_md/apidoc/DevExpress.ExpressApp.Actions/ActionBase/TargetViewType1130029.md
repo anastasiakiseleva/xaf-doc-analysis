@@ -17,4 +17,4 @@ seealso:
 - linkId: DevExpress.ExpressApp.Actions.ActionBase.TargetViewNesting
 - linkId: "113103"
 ---
-If an Action is contained in a [](xref:DevExpress.ExpressApp.ViewController), you can use this property to specify the type of a View for which the Action will be activated. By default, this property is set to [ViewType.Any](xref:DevExpress.ExpressApp.ViewType.Any). You can set another value in the Controller's constructor or **Designer**. This value will be saved to the [Application Model](xref:112580)'s [](xref:DevExpress.ExpressApp.Model.IModelAction) node.
+If an Action is contained in a [](xref:DevExpress.ExpressApp.ViewController), you can use this property to specify the type of a View for which the Action will be activated. By default, this property is set to [ViewType.Any](xref:DevExpress.ExpressApp.ViewType.Any). You can set another value in the Controller's constructor. This value will be saved to the [Application Model](xref:112580)'s [](xref:DevExpress.ExpressApp.Model.IModelAction) node.

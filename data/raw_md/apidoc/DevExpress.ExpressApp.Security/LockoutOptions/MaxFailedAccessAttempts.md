@@ -10,6 +10,6 @@ syntax:
     type: System.Int32
     description: An integer value that specifies the maximum number of failed login attempts before XAF locks out the user.
 seealso: []
+defaultMemberValue: '5'
 ---
-
-By default, this value is set to 5.
+[!include[](~/templates/lockout-options.md)]

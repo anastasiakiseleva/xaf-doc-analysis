@@ -43,16 +43,11 @@ The table below describes all these steps in detail.
 | 
 |-
 
-| Application Initialization by the **Designer**
-| Then, the application is initialized by the values specified in the Application Designer. This is performed by the **InitializeComponent** method, automatically called in the constructor of your WinApplication class.
 | 
-|-
+| The [XafApplication.Modules](xref:DevExpress.ExpressApp.XafApplication.Modules) collection is populated by the modules added to the `Modules` collection. Each module is set up. The current `WinApplication` instance is assigned to the [ModuleBase.Application](xref:DevExpress.ExpressApp.ModuleBase.Application) property.
+| If you need to add a module, use one of the following approaches:
 
-| 
-| The [XafApplication.Modules](xref:DevExpress.ExpressApp.XafApplication.Modules) collection is populated by the modules added to the **Modules** section in the **Designer**. Each module is set up. This means that the current WinApplication instance is assigned to the [ModuleBase.Application](xref:DevExpress.ExpressApp.ModuleBase.Application) property.
-| If you need to add a module that is not registered in the **Toolbox**, and so cannot be added via the **Designer**, use one of the following approaches:
-
-Specify the required module name(s) in the application project's configuration file. Pass this string as a parameter of the [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method in the **Program.Main** method.
+Specify the required module name(s) in the application project's configuration file. Pass this string as a parameter of the [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method in the `Program.Main` method.
 
 Add this module to the module that is contained in your solution. To do this, use the [ModuleBase.RequiredModuleTypes](xref:DevExpress.ExpressApp.ModuleBase.RequiredModuleTypes) collection.
 
@@ -62,8 +57,7 @@ You can perform custom actions with a module, in addition to setting the Applica
 |-
 
 | 
-| The [XafApplication.Connection](xref:DevExpress.ExpressApp.XafApplication.Connection) property is set to the object of the type specified in the **Designer**'s **Connection** section. The connection string is specified in the **Properties** grid when the **Connection** section is selected.
-| You can avoid the use of the Designer by applying one of the following techniques:
+| The [XafApplication.Connection](xref:DevExpress.ExpressApp.XafApplication.Connection) property is set by applying one of the following techniques:
 
 Specify the connection string in the application project's configuration file. Assign this string to the [XafApplication.ConnectionString](xref:DevExpress.ExpressApp.XafApplication.ConnectionString) property (see this property's description).
 
@@ -71,10 +65,10 @@ Set the [XafApplication.Connection](xref:DevExpress.ExpressApp.XafApplication.Co
 |-
 
 | 
-| The [XafApplication.Security](xref:DevExpress.ExpressApp.XafApplication.Security) property is set to the object of the type specified in the **Designer**'s **Security** section. The authentication strategy to be used by the [Security System](xref:113366) is specified in the same section. The User type to be used by the Security System is specified in the **Properties** grid when the **Security** section is selected.
-| The **XAF** supplies the **SecurityStrategyComplex** security system type. You can set it using the Application Designer. If you need to use a custom security type that implements the **ISecurityStrategyBase** interface, create and assign it to the [XafApplication.Security](xref:DevExpress.ExpressApp.XafApplication.Security) property in code, before the [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method is called. If you need to use a custom authentication strategy or a custom User type, initialize them and the **XafApplication.Security** property, before the **XafApplication.Setup** method is invoked.
+| The [XafApplication.Security](xref:DevExpress.ExpressApp.XafApplication.Security) property is set in the `Program.Main` method. The authentication strategy and the User type to be used by the [Security System](xref:113366) is specified in the same method.
+| The **XAF** supplies the **SecurityStrategyComplex** security system type. If you need to use a custom security type that implements the **ISecurityStrategyBase** interface, create and assign it to the [XafApplication.Security](xref:DevExpress.ExpressApp.XafApplication.Security) property in code, before the [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method is called. If you need to use a custom authentication strategy or a custom User type, initialize them and the **XafApplication.Security** property, before the **XafApplication.Setup** method is invoked.
 
-If you do not initialize a security system via the **Application Designer** or in code, a **SecurityDummy** will be used. This security type allows all operations with all types of objects. That's why the presence of the security system is invisible when you run an application.
+If you do not initialize a security system in code, a **SecurityDummy** will be used. This security type allows all operations with all types of objects. That is why the presence of the security system is invisible when you run an application.
 |-
 
 | 
@@ -85,7 +79,7 @@ If you do not initialize a security system via the **Application Designer** or i
 | Application Initialization by the **Setup** method
 | The [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method is called. This is performed by the **Program.Main** method that is automatically generated in your Windows Forms application project.
 
-There are several overloads of the **Setup** method. By default, the method without parameters is called. It leaves the properties that are already initialized as they are, and proceeds with the initialization process using default values:
+The **Setup** method has multiple overloads. XAF calls the method without parameters by default. It leaves the properties that are already initialized as they are, and proceeds with the initialization process using default values:
 | You can call the **Setup** method with the required parameters, depending on what custom objects you need to create. However, we recommend that you use the approaches presented above, instead.
 |-
 
@@ -119,11 +113,6 @@ In addition, you can override the **GetDefaultModuleTypes** method to return mod
 | 
 | The Object Space Provider and Controllers Manager are assigned to the application's corresponding properties: [XafApplication.ObjectSpaceProvider](xref:DevExpress.ExpressApp.XafApplication.ObjectSpaceProvider) and **ControllersManager**.
 | Subscribe to the [XafApplication.SettingUp](xref:DevExpress.ExpressApp.XafApplication.SettingUp) event, to customize the objects to be assigned to the application object. Use the event handler's parameters to access the required objects.
-|-
-
-| 
-| The modules from the Modules Manager's Modules collection are added to the [XafApplication.Modules](xref:DevExpress.ExpressApp.XafApplication.Modules) collection of the current application, since at this step the latter collection includes the modules that are only added via the Application Designer.
-| 
 |-
 
 | 

@@ -17,7 +17,7 @@ title: Middle Tier Security with XPO
 
 ## Application Architecture Basics: Middle-Tier Security
 
-The following images demonstrate how Blazor and WinForms applications with [Middle Tier Security](xref:113439) interacts with the database:
+The following images demonstrate how Blazor and WinForms applications with [Middle Tier Security](xref:113439) interact with the database:
 
 > [!ImageGallery]
 > ![Blazor application with the Middle Tier Application Server](~/images/ApplicationWithMiddleTier_blazor_diagram.png)
@@ -33,8 +33,10 @@ The following images demonstrate how Blazor and WinForms applications with [Midd
 ### Save Data to the Database
 
 1. The client-side @DevExpress.Xpo.Session serializes objects and passes them to the secure server-side @DevExpress.Xpo.Session.
-2. The secure server-side @DevExpress.Xpo.Session deserializes objects and copies their values that meet the Security permissions to the unsecure server-side @DevExpress.Xpo.Session.
+2. The secure server-side @DevExpress.Xpo.Session deserializes objects and copies their values (that meet Security permissions to the unsecure server-side @DevExpress.Xpo.Session.
 3. The unsecure server-side @DevExpress.Xpo.Session saves the passed values into original objects in the database.
+
+[!include[update-deployed-middle-tier-app](~/templates/update-deployed-middle-tier-app.md)]
 
 ## Important Notes
 

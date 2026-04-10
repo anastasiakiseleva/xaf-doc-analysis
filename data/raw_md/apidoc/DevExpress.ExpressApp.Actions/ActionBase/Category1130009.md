@@ -19,7 +19,7 @@ Use the Action's `Category` property to specify the [Action Container](xref:1126
 
 [!include[](~/templates/add-action.md)]
 
-The `Category` property is set to `DevExpress.Persistent.Base.PredefinedCategory.Unspecified` (the default setting). You can specify a different value in the Controller's constructor or **Designer**. XAF saves this value to the [Application Model](xref:112580)'s [!include[Node_Action](~/templates/node_action111373.md)] node. You can change this value in the [Model Editor](xref:112830) (see [](xref:402145) and [How to: Reorder an Action Container's Actions Collection](xref:112815)).
+The `Category` property is set to `DevExpress.Persistent.Base.PredefinedCategory.Unspecified` (the default setting). You can specify a different value in the Controller's constructor. XAF saves this value to the [Application Model](xref:112580)'s [!include[Node_Action](~/templates/node_action111373.md)] node. You can change this value in the [Model Editor](xref:112830) (see [](xref:402145) and [How to: Reorder an Action Container's Actions Collection](xref:112815)).
 
 In the UI, XAF displays the value specified in the Application Model's .xafml file that was loaded last. For more information about the load order of Application Model differences, refer to the following topic: [Application Model Basics](xref:112580).
 

@@ -14,7 +14,7 @@ You can perform [common tasks](xref:400495) with Main Toolbar [Actions](xref:112
 **Documentation**
 * [](xref:403452)
 * [Action Containers location in UI](xref:112610#aspnet-core-blazor-action-containers)
-* [Use SaveOptions Container](xref:112610#in-aspnet-core-blazor-application-template)
+* [Use SaveOptions Container](xref:112610#group-actions-in-a-drop-down-menu-aspnet-core-blazor)
 
 **Examples**
 * [XAF Blazor - Implement a custom Action type](https://github.com/DevExpress-Examples/xaf-custom-action-type-blazor)

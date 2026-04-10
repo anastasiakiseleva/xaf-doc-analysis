@@ -8,7 +8,6 @@ syntax:
   return:
     type: System.Boolean
     description: '**true** if the @DevExpress.ExpressApp.IObjectSpace.ObjectChanged event should occur each time you modify a control value in a DetailView; otherwise, **false**.'
-seealso:
-- linkId: DevExpress.ExpressApp.DetailView.RaiseObjectChangedOnControlValueChanged
+seealso: []
 ---
 Blazor applications do not support the `true` field value.

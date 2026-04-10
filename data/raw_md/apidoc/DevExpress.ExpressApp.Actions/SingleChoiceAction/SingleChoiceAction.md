@@ -21,7 +21,7 @@ You can specify the type of a Single Choice Action's items: they can represent e
 
 ### Add a Single Choice Action
 
-You can add a  Single Choice Action to a [Controller](xref:112621) in code: see the [Add an Action with Option Selection](xref:402159) tutorial.
+You can add a  Single Choice Action to a [Controller](xref:112621) as described in the following topic: [](xref:402159).
 
 [!include[coderush-templates-actions-controllers](~/templates/coderush-templates-actions-controllers.md)]
 

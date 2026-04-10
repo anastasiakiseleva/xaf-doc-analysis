@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.Security.SecurityStrategy.SaveUserObjectOnPasswordChanging
 name: SaveUserObjectOnPasswordChanging
 type: Property
-summary: Specifies whether or not changes in a Detail View should be saved when the [ResetPassword](xref:112649#administrator-generated-passwords) or [ChangeMyPassword](xref:112649#end-user-password-modifications) Action is executed.
+summary: Specifies whether or not changes in a Detail View should be saved when the [ResetPassword](xref:112649#update-user-passwords-to-administrator-generated-passwords) or [ChangeMyPassword](xref:112649#user-update-of-password) Action is executed.
 syntax:
   content: |-
     [Browsable(false)]

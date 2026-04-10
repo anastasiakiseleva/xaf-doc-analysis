@@ -32,7 +32,7 @@ This article explains how to access properties of a grid component displayed in 
             protected override void OnViewControlsCreated() {
                 base.OnViewControlsCreated();                
                 if (View.Editor is ColumnsListEditor listEditor) {
-                    editor.Model.IsFooterVisible = true;
+                    listEditor.Model.IsFooterVisible = true;
                     foreach (ColumnWrapper column in listEditor.Columns) {
                         if (column.PropertyName == nameof(Paycheck.NetPay)) {
                             column.AllowSummaryChange = false; }

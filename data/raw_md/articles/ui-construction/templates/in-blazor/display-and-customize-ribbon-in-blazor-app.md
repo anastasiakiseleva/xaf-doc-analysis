@@ -1,5 +1,8 @@
 ---
 uid: "405643"
+seealso:
+- linkId: "112610"
+  altText: 'Customize Action Containers in Ribbon UI'
 title: 'Display and Customize the Ribbon UI in an XAF Blazor Application'
 ---
 # Display and Customize the Ribbon UI in an XAF Blazor Application
@@ -35,45 +38,49 @@ An XAF application builds the Ribbon UI structure based on the model specified i
 
 
 
-![Ribbon Scheme](~/images/xaf-blazor-ribbon-scheme.png)
+        ![Ribbon Scheme](~/images/xaf-blazor-ribbon-scheme.png)
 
 ## Access the DxRibbon Component
 
 1. Under the _SolutionName.Blazor.Server_ project, [add a Window Controller](xref:405447#create-a-new-item) to the _Controllers_ folder.
 2. Override the `OnActivated` method as demonstrated in the following code snippet:
 
-```csharp
-using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Blazor.Services;
-using DevExpress.ExpressApp.Blazor.Templates.Ribbon;
+    **File:** _MySolution.Blazor.Server\Controllers\TabsCustomizationWindowController.cs_
 
-public class TabsCustomizationWindowController : WindowController {
-    private IImageUrlService imageUrlService;
+    ```csharp
+    using DevExpress.ExpressApp;
+    using DevExpress.ExpressApp.Blazor.Services;
+    using DevExpress.ExpressApp.Blazor.Templates.Ribbon;
 
-    public TabsCustomizationWindowController() {
-        TargetWindowType = WindowType.Main;
-    }
-    [ActivatorUtilitiesConstructor]
-    public TabsCustomizationWindowController(IImageUrlService imageUrlService) : this() {
-        this.imageUrlService = imageUrlService;
-    }
-    protected override void OnActivated() {
-        base.OnActivated();
-        Window.TemplateChanged += Window_TemplateChanged;
-    }
-    protected override void OnDeactivated() {
-        Window.TemplateChanged -= Window_TemplateChanged;
-        base.OnDeactivated();
-    }
-    private void Window_TemplateChanged(object sender, EventArgs e) {
-        if(Window.Template is ITemplateRibbonProvider ribbonProvider) {
-            ribbonProvider.Ribbon.RibbonModel.DropDownMenuMaxHeight = "400px";
-            foreach(var tab in ribbonProvider.Ribbon.Tabs) {
-                tab.IconUrl = imageUrlService.GetImageUrl("BO_Unknown");
+    namespace MySolution.Blazor.Server.Controllers;
+
+    public class TabsCustomizationWindowController : WindowController {
+        private IImageUrlService imageUrlService;
+
+        public TabsCustomizationWindowController() {
+            TargetWindowType = WindowType.Main;
+        }
+        [ActivatorUtilitiesConstructor]
+        public TabsCustomizationWindowController(IImageUrlService imageUrlService) : this() {
+            this.imageUrlService = imageUrlService;
+        }
+        protected override void OnActivated() {
+            base.OnActivated();
+            Window.TemplateChanged += Window_TemplateChanged;
+        }
+        protected override void OnDeactivated() {
+            Window.TemplateChanged -= Window_TemplateChanged;
+            base.OnDeactivated();
+        }
+        private void Window_TemplateChanged(object sender, EventArgs e) {
+            if(Window.Template is ITemplateRibbonProvider ribbonProvider) {
+                ribbonProvider.Ribbon.RibbonModel.DropDownMenuMaxHeight = "400px";
+                foreach(var tab in ribbonProvider.Ribbon.Tabs) {
+                    tab.IconUrl = imageUrlService.GetImageUrl("BO_Unknown");
+                }
             }
         }
     }
-}
-```
+    ```
 
-You can use the @DevExpress.ExpressApp.Actions.ActionBase.CustomizeControl event to access and customize individual Action control items in `DxRibbon`, such as `DxRibbonItemSimpleActionControl` and other `DxRibbonItemXXXControl` types.
+    You can use the @DevExpress.ExpressApp.Actions.ActionBase.CustomizeControl event to access and customize individual Action control items in `DxRibbon`, such as `DxRibbonItemSimpleActionControl` and other `DxRibbonItemXXXControl` types.

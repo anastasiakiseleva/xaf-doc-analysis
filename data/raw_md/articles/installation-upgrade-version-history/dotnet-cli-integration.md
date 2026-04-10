@@ -87,6 +87,8 @@ Default `dotnet new` options:
 :   Displays a summary of what would happen if the given command line were run.
 `--force`
 :   Forces content to be generated even if it would change existing files.
+`--framework`
+:   Specifies the .NET version of the target XAF solution.
 `--no-update-check`
 :   Disables the check for the template package updates when instantiating a template.
 `--project <project>`

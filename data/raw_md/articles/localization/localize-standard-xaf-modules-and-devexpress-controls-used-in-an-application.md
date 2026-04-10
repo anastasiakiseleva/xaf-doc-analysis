@@ -8,12 +8,12 @@ title: Localize Standard XAF Modules and DevExpress Controls Used in an Applicat
 ---
 # Localize Standard XAF Modules and DevExpress Controls Used in an Application
 
-The standard XAF modules and DevExpress controls supply most of the English texts an XAF application's interface uses. The [DevExpress .NET Localization Service](xref:16235) provides the ready-to-use translations of these texts into different languages - satellite assemblies (required for WinForms platforms). This topic describes how to use these translations in your application and how to manually localize standard XAF Modules and DevExpress controls when there are no ready-to-use translations for your language.
+The standard XAF modules and DevExpress controls supply most of the English texts an XAF application's interface uses. The [DevExpress UI Localization Service](xref:16235) offers ready-to-use translations of these texts into different languages as satellite assemblies (required for WinForms). This topic describes how to use these translations in your application and how to manually localize standard XAF Modules and DevExpress controls when there are no ready-to-use translations for your language.
 
 ## Satellite Assemblies for DevExpress Controls and XAF Modules
 You can install pre-built satellite assemblies in the Global Assembly Cache (GAC) to avoid translating texts supplied with DevExpress controls and XAF Modules. 
 
-The [.NET Product Installer](xref:2216) includes assemblies for **de**, **es**, and **ja** languages. You can install them at your discretion. Use the [DevExpress Localization Service](https://localization.devexpress.com/) to download satellite assemblies for other languages. Refer to the following topics for more information on how to register localization resources:
+The [Product Installer](xref:2216) includes assemblies for **de**, **es**, and **ja** languages. You can install them at your discretion. Use the [DevExpress Localization Service](https://localization.devexpress.com/) to download satellite assemblies for other languages. Refer to the following topics for more information on how to register localization resources:
 * [In the GAC](https://learn.microsoft.com/en-us/dotnet/framework/app-domains/install-assembly-into-gac)
 * [From Localization Service and Product Installer](xref:5755#embed)
 
@@ -75,21 +75,17 @@ If the technique described in the section above does not apply to you, follow th
 
 Culture-specific resources should be exported to the Application Model when you localize DevExpress Controls.
 
-* Invoke the Application Designer.
-* In the **Properties** window, click the [XafApplication.ResourcesExportedToModel](xref:DevExpress.ExpressApp.XafApplication.ResourcesExportedToModel) property's ellipsis button. In the invoked dialog, check the resources you want to localize. Click OK to submit the selection.
-	
-	![ResourceLocalizers](~/images/resourcelocalizers116198.png)
-* Invoke the Model Editor for the current application project and localize the **Localization** node's child nodes.
-	
-	![ResourceLocalizers_Model](~/images/resourcelocalizers_model116199.png)
+[!include[<DevExpress.ExpressApp.Win.Localization.GridControlLocalizer>](~/templates/resourcesexportedtomodel-property-access.md)]
 
-You can also use the module's [ModuleBase.ResourcesExportedToModel](xref:DevExpress.ExpressApp.ModuleBase.ResourcesExportedToModel) property to add localizable resources in the Module Designer. The resources added in a module cannot be removed from the localizable resources list in another module or application. For example, if you added the resources in the base Module, these resources are used in a platform-specific Modules, but you cannot delete these resources from the platform-specific Module.
+Invoke the Model Editor for the current application project. In the **Localization** node, you will find child nodes corresponding to the selected resources. Localize them, as with any other XAF string.
+
+![LocalizeTemplates_ModelEditor](~/images/localizetemplates_modeleditor122330.png)
 
 > [!NOTE]
-> Certain components added to a Model require a reference. For instance, after adding the **XtraGrid Control** to the Model, you get the following error: "**The type 'DevExpress.XtraGrid.Localization.GridResLocalizer' is defined in an assembly that is not referenced. You should add a reference to assembly 'DevExpress.XtraGrid.v<:xx.x:>…**". Add a reference to the required assembly to resolve this issue.
+> Certain components added to a Model require a reference. For example, after adding the `XtraGrid` Control to the Model, you get the following error: "The type 'DevExpress.XtraGrid.Localization.GridResLocalizer' is defined in an assembly that is not referenced. You should add a reference to assembly 'DevExpress.XtraGrid.v<:xx.x:>…". Add a reference to the required assembly to resolve this issue.
 
 ## Reuse Your Translations
 You can use one of the following approaches to reuse translations in different XAF applications:
 
 * Localize all standard XAF module captions using the Model Editor invoked for the application project and share the resulting XAFML files with translations;
-* Create a new XAF module and localize all standard XAF module captions using the Model Editor invoked for its _Model.DesignedDiffs.xafml_ file as described in the [How to: Localize XAF Application Items Using XAF Tools](xref:119411) topic. You can now use the Module or Application Designers to reuse this module in other applications.
+* Create a new XAF module and localize all standard XAF module captions using the Model Editor invoked for its _Model.DesignedDiffs.xafml_ file as described in the [How to: Localize XAF Application Items Using XAF Tools](xref:119411) topic.

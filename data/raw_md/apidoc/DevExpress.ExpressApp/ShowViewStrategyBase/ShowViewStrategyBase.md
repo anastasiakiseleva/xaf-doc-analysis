@@ -39,7 +39,7 @@ The `ShowViewStrategyBase` class is an abstract class from which all Show View S
 
 | ShowViewStrategyBase Descendant | Description |
 |---|---|
-| `DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy` | Used in XAF ASP.NET Core Blazor applications. Displays a new View in a separate tab within the main Window. |
+| @DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy | Used in XAF ASP.NET Core Blazor applications. Displays a new View in a separate tab within the main Window. |
 |`DevExpress.ExpressApp.Blazor.BlazorShowViewStrategy`| Used in XAF ASP.NET Core Blazor applications. Displays a new View in the main Window. |
 | [](xref:DevExpress.ExpressApp.Win.WinShowViewStrategyBase) | An abstract class from which all Show View Strategies used in the XAF Windows Forms applications are derived. |
 | [](xref:DevExpress.ExpressApp.Win.ShowInMultipleWindowsStrategy) | Used by default in XAF Windows Forms applications. |

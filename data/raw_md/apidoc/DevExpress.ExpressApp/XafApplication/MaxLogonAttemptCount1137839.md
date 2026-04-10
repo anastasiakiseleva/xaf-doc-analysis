@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.XafApplication.MaxLogonAttemptCount
 name: MaxLogonAttemptCount
 type: Property
-summary: Specifies the allowed number of failed login attempts before the application closes.
+summary: Specifies the number of failed login attempts before the application closes. (WinForms only)
 syntax:
   content: |-
     [DefaultValue(3)]
@@ -10,7 +10,9 @@ syntax:
   parameters: []
   return:
     type: System.Int32
-    description: An integer value that specifies the allowed number of failed login attempts before the application closes.
+    description: The allowed number of failed login attempts.
 seealso: []
 ---
-The application closes automatically is the failed logins count exceeds the **MaxLogonAttemptCount**. The default value is 3. You can modify this value in code.
+To limit the maximum login attempt count in both ASP.NET Core Blazor and Windows Forms XAF applications, use @DevExpress.ExpressApp.Security.LockoutOptions.
+
+The `MaxLogonAttemptCount` property takes effect when the [LockoutOptions.Enabled](xref:DevExpress.ExpressApp.Security.LockoutOptions.Enabled) property is set to `false`.
