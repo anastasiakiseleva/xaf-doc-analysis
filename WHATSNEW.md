@@ -1,5 +1,36 @@
 # What's New
 
+## 2026-04-10 — Phase 1: Resolve [!include] directives
+
+### Problem
+
+DocFX `[!include]` directives were passing through as raw markup into parsed sections. Before the fix, 1,026 raw text sections and 99 generated descriptions contained unresolved `[!include[...](path)]` markers — rendering descriptions unusable for search and LLM training.
+
+### Change
+
+Added an include-resolution system to `scripts/01_ingest_parse.py`:
+
+- **`build_template_lookup()`** loads 306 template `.md` files from `data/raw_md/templates/` into a lookup dictionary keyed by lowercase stem.
+- **`resolve_includes()`** handles two patterns:
+  - `[!include[label](path)]` — extracts filename from path, looks up content
+  - `[!includeShorthand]` — matches shorthand names directly
+- Template files are excluded from the document corpus to avoid duplication.
+- Resolution runs on raw text before section tokenization, so downstream phases (3, 7) benefit automatically.
+
+### Results
+
+| Metric | Before | After |
+|---|---|---|
+| Templates loaded | 0 | 306 |
+| Descriptions with `[!include]` | 99 | 11 (89% reduction) |
+| Total sections parsed | 11,235 | 11,548 (+313) |
+| Sections with xref links | 5,524 | 5,647 (+123) |
+| Avg word count per section | 86 | 90 |
+
+The 11 remaining descriptions contain non-standard include patterns (e.g., `[!includePathToMainDemo]`, `[!includeExtraModulesNote1]`) that reference shorthand names not present in the templates folder. These can be addressed by adding the missing template files.
+
+---
+
 ## 2026-04-10 — Phase 7: Nullify boilerplate/templated descriptions
 
 ### Problem

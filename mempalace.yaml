@@ -1,0 +1,40 @@
+wing: xaf_doc_analysis
+rooms:
+- name: configuration
+  description: Files from config/
+  keywords:
+  - configuration
+  - config
+- name: data
+  description: Files from data/
+  keywords:
+  - data
+  - data
+- name: documentation
+  description: Files from docs/
+  keywords:
+  - documentation
+  - docs
+- name: notebooks
+  description: Files from notebooks/
+  keywords:
+  - notebooks
+  - notebooks
+- name: outputs
+  description: Files from outputs/
+  keywords:
+  - outputs
+  - outputs
+- name: scripts
+  description: Files from scripts/
+  keywords:
+  - scripts
+  - scripts
+- name: testing
+  description: Files from tests/
+  keywords:
+  - testing
+  - tests
+- name: general
+  description: Files that don't fit other rooms
+  keywords: []

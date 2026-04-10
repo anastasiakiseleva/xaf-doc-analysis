@@ -14,6 +14,79 @@ from utils.pipeline_validators import (
     save_validation_report, load_validation_thresholds
 )
 
+# ============================================================================
+# Include Resolution
+# ============================================================================
+
+# Global template lookup (populated in main())
+_TEMPLATE_LOOKUP: Dict[str, str] = {}
+
+# Pattern: [!include[optional label](path)] or [!includeShorthand]
+# DocFX forms:
+#   [!include[label](~/templates/foo.md)]
+#   [!includeMySnippetName]
+#   [!include<code or xref>]  (these we skip)
+_INCLUDE_WITH_PATH_RE = re.compile(
+    r'\[!include[^\]]*\]\(([^)]+)\)', re.IGNORECASE
+)
+_INCLUDE_SHORTHAND_RE = re.compile(
+    r'\[!include([A-Za-z0-9_.\-]+)\]', re.IGNORECASE
+)
+
+
+def build_template_lookup(templates_dir: pathlib.Path) -> Dict[str, str]:
+    """
+    Build a lookup dict from template filename (without extension, case-insensitive)
+    to its content.
+    """
+    lookup = {}
+    if not templates_dir.exists():
+        return lookup
+    for f in templates_dir.rglob('*.md'):
+        content = f.read_text(encoding='utf-8', errors='ignore').strip()
+        # Key by filename without extension (lowercase for case-insensitive match)
+        key = f.stem.lower()
+        lookup[key] = content
+    return lookup
+
+
+def resolve_includes(text: str) -> str:
+    """
+    Resolve [!include] directives in markdown text using the global template lookup.
+    
+    Handles:
+      1. [!include[label](~/templates/foo.md)] -> content of foo.md
+      2. [!includeMySnippet] -> content of mysnippet.md (by filename match)
+    
+    Skips [!include<...>] (code/xref references).
+    """
+    if not _TEMPLATE_LOOKUP or '[!include' not in text.lower():
+        return text
+    
+    # First pass: resolve path-based includes [!include[label](path)]
+    def replace_path_include(match):
+        full = match.group(0)
+        path_str = match.group(1).strip()
+        # Extract filename from path like ~/templates/foo.md
+        fname = pathlib.PurePosixPath(path_str).stem.lower()
+        if fname in _TEMPLATE_LOOKUP:
+            return _TEMPLATE_LOOKUP[fname]
+        return full  # keep original if not found
+    
+    text = _INCLUDE_WITH_PATH_RE.sub(replace_path_include, text)
+    
+    # Second pass: resolve shorthand includes [!includeMySnippet]
+    def replace_shorthand_include(match):
+        full = match.group(0)
+        name = match.group(1).strip().lower()
+        if name in _TEMPLATE_LOOKUP:
+            return _TEMPLATE_LOOKUP[name]
+        return full  # keep original if not found
+    
+    text = _INCLUDE_SHORTHAND_RE.sub(replace_shorthand_include, text)
+    
+    return text
+
 
 def parse_markdown(path: pathlib.Path) -> Dict[str, Any]:
     """
@@ -96,6 +169,7 @@ def parse_markdown(path: pathlib.Path) -> Dict[str, Any]:
 
     # ---------- Read & tokenize ----------
     text = path.read_text(encoding="utf-8", errors="ignore")
+    text = resolve_includes(text)
     tokens = md.parse(text)
 
     page_uid = extract_uid(text)
@@ -336,6 +410,17 @@ def main():
     print("="*70)
     
     files = list(pathlib.Path('data/raw_md').rglob('*.md'))
+    
+    # Load templates for include resolution
+    global _TEMPLATE_LOOKUP
+    templates_dir = pathlib.Path('data/raw_md/templates')
+    _TEMPLATE_LOOKUP = build_template_lookup(templates_dir)
+    if _TEMPLATE_LOOKUP:
+        print(f"📎 Loaded {len(_TEMPLATE_LOOKUP)} templates for include resolution")
+    
+    # Exclude template files from the document corpus
+    files = [f for f in files if not str(f).replace('\\', '/').startswith('data/raw_md/templates')]
+    
     print(f"\n📁 Found {len(files):,} markdown files")
 
     if len(files) == 0:

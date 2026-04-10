@@ -1,7 +1,7 @@
 {
   "phase_name": "Ingest & Parse",
   "phase_number": 1,
-  "timestamp": "2026-04-07T13:31:24.954129",
+  "timestamp": "2026-04-10T12:10:32.663913",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -25,20 +25,20 @@
     {
       "check_name": "Documents with xref links",
       "passed": true,
-      "message": "Value 5524.00 meets threshold >= 1000",
+      "message": "Value 5647.00 meets threshold >= 1000",
       "severity": "info",
       "details": {
-        "actual_value": 5524,
+        "actual_value": 5647,
         "threshold_value": 1000
       }
     },
     {
       "check_name": "Average word count",
       "passed": true,
-      "message": "Value 85.99 meets threshold >= 80",
+      "message": "Value 89.80 meets threshold >= 80",
       "severity": "info",
       "details": {
-        "actual_value": 85.98716591690923,
+        "actual_value": 89.79822704419159,
         "threshold_value": 80
       }
     }
