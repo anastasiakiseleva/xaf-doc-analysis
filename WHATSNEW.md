@@ -1,5 +1,30 @@
 # What's New
 
+## 2026-04-10 — Phase 3 / 5.5: Platform concept routing and pair quality improvements
+
+### Problems fixed
+
+- `Blazor`, `WinForms`, `.NET Runtime`, and `Web API Service` were tagged as XAF concepts on almost every section, flooding semantic pairs with informationally useless shared labels. These are platform/runtime metadata, not knowledge concepts.
+- Phase 5.5 was feeding both `A→B` and `B→A` directions of the same pair into Phase 6, paying double the LLM cost for redundant classifications.
+- Phase 5.5 was boosting pairs by support ticket volume, a data source not yet integrated in the pipeline — this artificially surfaced broad concepts at the expense of specific ones.
+- Pairs whose only shared concepts were platform labels (e.g. two sections connected only by "Blazor") produced near-identical prompts and consistently classified as `related_to`.
+
+### Changes
+
+**`scripts/03_extract_concepts.py`**:
+- At compile time, builds `platform_concept_names` — all concept names whose `type` in `concepts.yml` is `Platform` or `runtime` (`Blazor`, `WinForms`, `Web API Service`, `.NET Runtime`).
+- After concept extraction and hierarchy enrichment, splits out platform-typed names from the `concepts` set and merges them into the `platforms` column instead.
+- Result: `platforms` column now populated (3,433 sections with at least one platform tag); the four platform names no longer appear in `concepts`.
+
+**`scripts/05_5_filter_high_value_pairs.py`** (significant refactor):
+- **Mirror-pair deduplication**: builds a canonical unordered pair key; after priority sort, keeps only the highest-priority direction of each undirected pair. Removed 12,086 redundant directions from 28,519 candidates.
+- **Noise-shared-concept filter**: drops pairs whose *shared* concepts are all platform/runtime noise labels. Requiring at least one substantive shared concept removed 10,955 pairs (28% of similarity-filtered candidates).
+- **Removed ticket boost logic**: `HIGH_TICKET_BOOST`, `CONCEPT_TO_TICKET_MAPPING`, and `max_tickets` column removed entirely. Priority is now `similarity × cross-corpus boost` only.
+- **Removed JSON import** and all dead code from the old ticket-loading block.
+- Net result: 5,000 output pairs drawn from 16,529 unique undirected pairs; top concepts are now substantive (`Audit Trail`, `Conditional Appearance`, `Office Module`) rather than platform labels.
+
+---
+
 ## 2026-04-10 — Phase 6: Improved relationship classification prompt and section typing
 
 ### Problems fixed

@@ -833,6 +833,14 @@ def main() -> None:
     hierarchy = build_hierarchy_map(concepts_cfg)
     regexes = compile_regexes(patterns_cfg)
 
+    # Names whose type is Platform or runtime — route to platforms column, not concepts
+    platform_concept_names = frozenset(
+        c["name"]
+        for c in concepts_cfg.get("concepts", [])
+        if c.get("type") in ("Platform", "runtime")
+    )
+    print(f"  Platform/runtime concepts (routed to platforms column): {sorted(platform_concept_names)}")
+
     # Load docs
     print("📚 Loading topics inventory…")
     docs_df = pd.read_parquet(TOPICS_INVENTORY, engine="pyarrow")
@@ -983,9 +991,14 @@ def main() -> None:
             
             # Enrich with hierarchical parents
             concepts = enrich_with_hierarchy(concepts, hierarchy)
-            
+
+            # Split platform/runtime-typed concepts into the platforms column
+            platform_from_concepts = {c for c in concepts if c in platform_concept_names}
+            concepts -= platform_from_concepts
+
             apis = extract_apis(section_text, regexes.get("apis", []))
             platforms = extract_platforms(section_text, regexes.get("platform_qualifiers", []))
+            platforms |= platform_from_concepts  # merge in concept-derived platforms
 
             # Density
             concept_density = round(len(concepts) / max(token_count, 1), 4)
