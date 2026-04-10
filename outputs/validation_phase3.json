@@ -1,7 +1,7 @@
 {
   "phase_name": "Extract Concepts",
   "phase_number": 3,
-  "timestamp": "2026-04-10T12:26:44.503564",
+  "timestamp": "2026-04-10T13:27:58.287235",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,49 +16,49 @@
     {
       "check_name": "Minimum sections",
       "passed": true,
-      "message": "Row count 11,548 is within acceptable range",
+      "message": "Row count 11,584 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 11548
+        "row_count": 11584
       }
     },
     {
       "check_name": "Minimum kept percentage",
       "passed": true,
-      "message": "Value 93.41 meets threshold >= 60.0",
+      "message": "Value 93.40 meets threshold >= 60.0",
       "severity": "info",
       "details": {
-        "actual_value": 93.41011430550745,
+        "actual_value": 93.3960635359116,
         "threshold_value": 60.0
       }
     },
     {
       "check_name": "Maximum kept percentage",
       "passed": true,
-      "message": "Value 93.41 meets threshold <= 95.0",
+      "message": "Value 93.40 meets threshold <= 95.0",
       "severity": "info",
       "details": {
-        "actual_value": 93.41011430550745,
+        "actual_value": 93.3960635359116,
         "threshold_value": 95.0
       }
     },
     {
       "check_name": "Minimum avg concepts/section",
       "passed": true,
-      "message": "Value 2.97 meets threshold >= 1.5",
+      "message": "Value 2.96 meets threshold >= 1.5",
       "severity": "info",
       "details": {
-        "actual_value": 2.9698711411884675,
+        "actual_value": 2.962380996395231,
         "threshold_value": 1.5
       }
     },
     {
       "check_name": "Maximum avg concepts/section",
       "passed": true,
-      "message": "Value 2.97 meets threshold <= 4.0",
+      "message": "Value 2.96 meets threshold <= 4.0",
       "severity": "info",
       "details": {
-        "actual_value": 2.9698711411884675,
+        "actual_value": 2.962380996395231,
         "threshold_value": 4.0
       }
     },
@@ -75,10 +75,10 @@
     {
       "check_name": "Minimum API sections",
       "passed": true,
-      "message": "Value 6545.00 meets threshold >= 4000",
+      "message": "Value 6557.00 meets threshold >= 4000",
       "severity": "info",
       "details": {
-        "actual_value": 6545,
+        "actual_value": 6557,
         "threshold_value": 4000
       }
     }

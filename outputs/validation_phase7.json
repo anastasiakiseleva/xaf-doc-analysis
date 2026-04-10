@@ -1,7 +1,7 @@
 {
   "phase_name": "Generate Metadata",
   "phase_number": 7,
-  "timestamp": "2026-04-10T12:45:24.930092",
+  "timestamp": "2026-04-10T13:28:12.355097",
   "passed": true,
   "has_warnings": true,
   "has_errors": false,
@@ -16,19 +16,19 @@
     {
       "check_name": "Minimum sections",
       "passed": true,
-      "message": "Row count 10,787 is within acceptable range",
+      "message": "Row count 10,819 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 10787
+        "row_count": 10819
       }
     },
     {
       "check_name": "Description coverage",
       "passed": false,
-      "message": "Value 73.30 fails threshold >= 95.0",
+      "message": "Value 73.26 fails threshold >= 95.0",
       "severity": "warning",
       "details": {
-        "actual_value": 73.30119588393437,
+        "actual_value": 73.26000554579906,
         "threshold_value": 95.0,
         "comparison": ">="
       }
@@ -36,20 +36,20 @@
     {
       "check_name": "Minimum avg tags",
       "passed": true,
-      "message": "Value 3.97 meets threshold >= 3.0",
+      "message": "Value 3.96 meets threshold >= 3.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.9698711411884675,
+        "actual_value": 3.962380996395231,
         "threshold_value": 3.0
       }
     },
     {
       "check_name": "Maximum avg tags",
       "passed": true,
-      "message": "Value 3.97 meets threshold <= 12.0",
+      "message": "Value 3.96 meets threshold <= 12.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.9698711411884675,
+        "actual_value": 3.962380996395231,
         "threshold_value": 12.0
       }
     },

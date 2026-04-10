@@ -77,6 +77,11 @@ data/raw_md/apidoc/DevExpress.Persistent.Base/ImageSizeMode/CenterImage1132928,C
 data/raw_md/apidoc/DevExpress.Persistent.Base/ImageSizeMode/Normal1132929,Normal1132929,Field,0,DevExpress.Persistent.Base.ImageSizeMode.Normal
 data/raw_md/apidoc/DevExpress.Persistent.Base/ImageSizeMode/StretchImage1132930,StretchImage1132930,Field,0,DevExpress.Persistent.Base.ImageSizeMode.StretchImage
 data/raw_md/apidoc/DevExpress.Persistent.Base/ImageSizeMode/Zoom1131743,Zoom1131743,Field,0,DevExpress.Persistent.Base.ImageSizeMode.Zoom
+data/raw_md/apidoc/DevExpress.Persistent.Base/Locations/Bottom,Bottom,Field,0,DevExpress.Persistent.Base.Locations.Bottom
+data/raw_md/apidoc/DevExpress.Persistent.Base/Locations/Default,Default,Field,0,DevExpress.Persistent.Base.Locations.Default
+data/raw_md/apidoc/DevExpress.Persistent.Base/Locations/Left,Left,Field,0,DevExpress.Persistent.Base.Locations.Left
+data/raw_md/apidoc/DevExpress.Persistent.Base/Locations/Right,Right,Field,0,DevExpress.Persistent.Base.Locations.Right
+data/raw_md/apidoc/DevExpress.Persistent.Base/Locations/Top,Top,Field,0,DevExpress.Persistent.Base.Locations.Top
 data/raw_md/apidoc/DevExpress.Persistent.Base/LookupEditorMode/AllItems1132097,AllItems1132097,Field,0,DevExpress.Persistent.Base.LookupEditorMode.AllItems
 data/raw_md/apidoc/DevExpress.Persistent.Base/LookupEditorMode/AllItemsWithSearch1132098,AllItemsWithSearch1132098,Field,0,DevExpress.Persistent.Base.LookupEditorMode.AllItemsWithSearch
 data/raw_md/apidoc/DevExpress.Persistent.Base/LookupEditorMode/Auto1132099,Auto1132099,Field,32,DevExpress.Persistent.Base.LookupEditorMode.Auto
@@ -448,6 +453,10 @@ data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.Editors/RowClickMode/ProcessOnDo
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.Editors/RowClickMode/ProcessOnSingle,ProcessOnSingle,Field,0,DevExpress.ExpressApp.Blazor.Editors.RowClickMode.ProcessOnSingle
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor.Editors/RowClickMode/SelectOnSingleProcessOnDouble,SelectOnSingleProcessOnDouble,Field,0,DevExpress.ExpressApp.Blazor.Editors.RowClickMode.SelectOnSingleProcessOnDouble
 data/raw_md/apidoc/DevExpress.ExpressApp.Blazor/BlazorApplication/CreateViewControllersForMainWindowInTabbedMDI,CreateViewControllersForMainWindowInTabbedMDI,Field,0,DevExpress.ExpressApp.Blazor.BlazorApplication.CreateViewControllersForMainWindowInTabbedMDI
+data/raw_md/apidoc/DevExpress.ExpressApp.Blazor/TabOverflowStrategy/BlockNewTab,BlockNewTab,Field,0,DevExpress.ExpressApp.Blazor.TabOverflowStrategy.BlockNewTab
+data/raw_md/apidoc/DevExpress.ExpressApp.Blazor/TabOverflowStrategy/CloseLeastRecentTab,CloseLeastRecentTab,Field,0,DevExpress.ExpressApp.Blazor.TabOverflowStrategy.CloseLeastRecentTab
+data/raw_md/apidoc/DevExpress.ExpressApp.Blazor/TabOverflowStrategy/NoLimit,NoLimit,Field,0,DevExpress.ExpressApp.Blazor.TabOverflowStrategy.NoLimit
+data/raw_md/apidoc/DevExpress.ExpressApp.Blazor/TabOverflowStrategy/UnloadLeastRecentTab,UnloadLeastRecentTab,Field,0,DevExpress.ExpressApp.Blazor.TabOverflowStrategy.UnloadLeastRecentTab
 data/raw_md/apidoc/DevExpress.ExpressApp.Actions/ActionBase/AnyCaption1129995,AnyCaption1129995,Field,0,DevExpress.ExpressApp.Actions.ActionBase.AnyCaption
 data/raw_md/apidoc/DevExpress.ExpressApp.Actions/ActionBase/RequireMultipleObjectsContext1131266,RequireMultipleObjectsContext1131266,Field,0,DevExpress.ExpressApp.Actions.ActionBase.RequireMultipleObjectsContext
 data/raw_md/apidoc/DevExpress.ExpressApp.Actions/ActionBase/RequireSingleObjectContext1131267,RequireSingleObjectContext1131267,Field,0,DevExpress.ExpressApp.Actions.ActionBase.RequireSingleObjectContext
@@ -510,7 +519,7 @@ data/raw_md/apidoc/DevExpress.ExpressApp/DatabaseUpdateMode/UpdateOldDatabase113
 data/raw_md/apidoc/DevExpress.ExpressApp/DefaultListViewOptionsAttribute/Default1132381,Default1132381,Field,0,DevExpress.ExpressApp.DefaultListViewOptionsAttribute.Default
 data/raw_md/apidoc/DevExpress.ExpressApp/DefaultListViewOptionsAttribute/DefaultMasterDetailMode1132382,DefaultMasterDetailMode1132382,Field,0,DevExpress.ExpressApp.DefaultListViewOptionsAttribute.DefaultMasterDetailMode
 data/raw_md/apidoc/DevExpress.ExpressApp/DefaultListViewOptionsAttribute/DefaultNewItemRowPosition1132383,DefaultNewItemRowPosition1132383,Field,0,DevExpress.ExpressApp.DefaultListViewOptionsAttribute.DefaultNewItemRowPosition
-data/raw_md/apidoc/DevExpress.ExpressApp/DetailView/DefaultRaiseObjectChangedOnControlValueChanged,DefaultRaiseObjectChangedOnControlValueChanged,Field,69,DevExpress.ExpressApp.DetailView.DefaultRaiseObjectChangedOnControlValueChanged
+data/raw_md/apidoc/DevExpress.ExpressApp/DetailView/DefaultRaiseObjectChangedOnControlValueChanged,DefaultRaiseObjectChangedOnControlValueChanged,Field,8,DevExpress.ExpressApp.DetailView.DefaultRaiseObjectChangedOnControlValueChanged
 data/raw_md/apidoc/DevExpress.ExpressApp/DetailView/DetailViewReadOnlyKey1130741,DetailViewReadOnlyKey1130741,Field,0,DevExpress.ExpressApp.DetailView.DetailViewReadOnlyKey
 data/raw_md/apidoc/DevExpress.ExpressApp/DetailView/UseAsyncLoading,UseAsyncLoading,Field,170,DevExpress.ExpressApp.DetailView.UseAsyncLoading
 data/raw_md/apidoc/DevExpress.ExpressApp/FormStyle/Ribbon,Ribbon,Field,21,DevExpress.ExpressApp.FormStyle.Ribbon
@@ -532,7 +541,7 @@ data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v24_
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v24_2,v24_2,Field,26,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v24_2
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v25_1,v25_1,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v25_1
 data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v25_2,v25_2,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v25_2
-data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v26_1,v26_1,Field,0,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v26_1
+data/raw_md/apidoc/DevExpress.ExpressApp/FrameworkSettingsCompatibilityMode/v26_1,v26_1,Field,19,DevExpress.ExpressApp.FrameworkSettingsCompatibilityMode.v26_1
 data/raw_md/apidoc/DevExpress.ExpressApp/InformationType/Error1189207,Error1189207,Field,0,DevExpress.ExpressApp.InformationType.Error
 data/raw_md/apidoc/DevExpress.ExpressApp/InformationType/Info1189208,Info1189208,Field,0,DevExpress.ExpressApp.InformationType.Info
 data/raw_md/apidoc/DevExpress.ExpressApp/InformationType/Success1189209,Success1189209,Field,0,DevExpress.ExpressApp.InformationType.Success
@@ -604,7 +613,7 @@ data/raw_md/apidoc/DevExpress.ExpressApp/TemplateContext/ViewContextName1197204,
 data/raw_md/apidoc/DevExpress.ExpressApp/UIType/MultipleWindowSDI1134305,MultipleWindowSDI1134305,Field,15,DevExpress.ExpressApp.UIType.MultipleWindowSDI
 data/raw_md/apidoc/DevExpress.ExpressApp/UIType/SingleWindowSDI1134306,SingleWindowSDI1134306,Field,23,DevExpress.ExpressApp.UIType.SingleWindowSDI
 data/raw_md/apidoc/DevExpress.ExpressApp/UIType/StandardMDI1134307,StandardMDI1134307,Field,18,DevExpress.ExpressApp.UIType.StandardMDI
-data/raw_md/apidoc/DevExpress.ExpressApp/UIType/TabbedMDI1134308,TabbedMDI1134308,Field,26,DevExpress.ExpressApp.UIType.TabbedMDI
+data/raw_md/apidoc/DevExpress.ExpressApp/UIType/TabbedMDI1134308,TabbedMDI1134308,Field,27,DevExpress.ExpressApp.UIType.TabbedMDI
 data/raw_md/apidoc/DevExpress.ExpressApp/View/SecurityReadOnlyItemName1130893,SecurityReadOnlyItemName1130893,Field,0,DevExpress.ExpressApp.View.SecurityReadOnlyItemName
 data/raw_md/apidoc/DevExpress.ExpressApp/ViewController/ViewIsAssignedReason1131350,ViewIsAssignedReason1131350,Field,0,DevExpress.ExpressApp.ViewController.ViewIsAssignedReason
 data/raw_md/apidoc/DevExpress.ExpressApp/ViewItemsChangedType/Added1135834,Added1135834,Field,0,DevExpress.ExpressApp.ViewItemsChangedType.Added

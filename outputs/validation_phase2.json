@@ -1,7 +1,7 @@
 {
   "phase_name": "Build Explicit Graph",
   "phase_number": 2,
-  "timestamp": "2026-04-07T13:31:26.474866",
+  "timestamp": "2026-04-10T13:15:22.151200",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -23,10 +23,10 @@
     {
       "check_name": "Link resolution rate",
       "passed": true,
-      "message": "Value 98.00 meets threshold >= 0.7",
+      "message": "Value 97.97 meets threshold >= 0.7",
       "severity": "info",
       "details": {
-        "actual_value": 98.00102220455449,
+        "actual_value": 97.97286161621712,
         "threshold_value": 0.7
       }
     },
@@ -40,10 +40,10 @@
     {
       "check_name": "Minimum connected documents",
       "passed": true,
-      "message": "Value 5473.00 meets threshold >= 5000",
+      "message": "Value 5531.00 meets threshold >= 5000",
       "severity": "info",
       "details": {
-        "actual_value": 5473,
+        "actual_value": 5531,
         "threshold_value": 5000
       }
     }

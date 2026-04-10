@@ -1,7 +1,7 @@
 {
   "phase_name": "Rollup Document Metadata",
   "phase_number": 10,
-  "timestamp": "2026-04-07T13:43:10.882720",
+  "timestamp": "2026-04-10T13:28:20.178452",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,36 +16,36 @@
     {
       "check_name": "Minimum documents",
       "passed": true,
-      "message": "Row count 5,422 is within acceptable range",
+      "message": "Row count 5,517 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 5422
+        "row_count": 5517
       }
     },
     {
       "check_name": "Document completeness",
       "passed": true,
-      "message": "All 5422 documents from section metadata are present",
+      "message": "All 5517 documents from section metadata are present",
       "severity": "info",
       "details": null
     },
     {
       "check_name": "Minimum avg tags",
       "passed": true,
-      "message": "Value 3.74 meets threshold >= 3.0",
+      "message": "Value 3.83 meets threshold >= 3.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.7421615639985246,
+        "actual_value": 3.826173645096973,
         "threshold_value": 3.0
       }
     },
     {
       "check_name": "Maximum avg tags",
       "passed": true,
-      "message": "Value 3.74 meets threshold <= 12.0",
+      "message": "Value 3.83 meets threshold <= 12.0",
       "severity": "info",
       "details": {
-        "actual_value": 3.7421615639985246,
+        "actual_value": 3.826173645096973,
         "threshold_value": 12.0
       }
     },
