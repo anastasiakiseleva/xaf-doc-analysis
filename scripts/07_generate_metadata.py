@@ -150,7 +150,12 @@ def extract_api_summary(raw_text):
     """
     # Try to extract summary using regex (handles both delimited and non-delimited YAML)
     # Pattern matches: summary: followed by the text until the next field or newline
+    # Also handles inline format where fields are concatenated without newlines
     summary_match = re.search(r'summary:\s*(.+?)(?=\n(?:syntax:|seealso:|remarks:|$))', raw_text, re.DOTALL | re.IGNORECASE)
+    
+    # Fallback: try inline format (no newline before next field)
+    if not summary_match:
+        summary_match = re.search(r'summary:\s*(.+?)(?=syntax:|seealso:|remarks:|$)', raw_text, re.DOTALL | re.IGNORECASE)
     
     if summary_match:
         summary = summary_match.group(1).strip()
@@ -188,6 +193,41 @@ def extract_api_summary(raw_text):
     return None
 
 
+def extract_frontmatter_description(text):
+    """
+    Extract a usable description or title from inline YAML frontmatter.
+    
+    Handles text like:
+      uid: "403179"title: 'Application Shell...'description: 'Learn about...'
+    
+    Returns the description value if found, else the title, else None.
+    """
+    if not text:
+        return None
+    
+    # Try to extract description: value (quoted or unquoted)
+    desc_match = re.search(
+        r"""description:\s*['"](.+?)['"](?=\s*(?:tags:|proficiencyLevel:|seealso:|linkId:|linkType:|$))""",
+        text, re.IGNORECASE
+    )
+    if desc_match:
+        val = desc_match.group(1).strip()
+        if len(val) >= 30 and not val.startswith(('uid:', 'linkId:')):
+            return val
+    
+    # Fallback: extract title: value
+    title_match = re.search(
+        r"""title:\s*['"]?(.+?)['"]?(?=\s*(?:description:|seealso:|linkId:|linkType:|tags:|proficiencyLevel:|$))""",
+        text, re.IGNORECASE
+    )
+    if title_match:
+        val = title_match.group(1).strip().strip("'\"")
+        if len(val) >= 5 and not val.startswith(('uid:', 'linkId:')):
+            return val
+    
+    return None
+
+
 def clean_markdown_text(text):
     """
     Remove markdown artifacts and extract clean content
@@ -195,7 +235,25 @@ def clean_markdown_text(text):
     if not text:
         return ""
     
-    # Remove markdown metadata blocks (uid:, title:, description: at start)
+    # Remove inline YAML frontmatter fields (may be concatenated on one line)
+    # Order matters: remove uid/seealso/linkId/linkType/altText/tags/proficiencyLevel first,
+    # then title/description since those may contain useful content handled elsewhere.
+    text = re.sub(r'uid:\s*["\']?[^"\'\n]*?["\']?(?=\s*(?:title:|description:|seealso:|linkId:|linkType:|tags:|proficiencyLevel:|$))', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'seealso:\s*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'linkId:\s*["\']?[^\s"\']*["\']?\s*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'linkType:\s*\S+\s*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'altText:\s*["\']?[^"\'\n]*?["\']?(?=\s*(?:linkId:|linkType:|title:|$))', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'proficiencyLevel:\s*\S+', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'tags:\s*\n(?:\s*\S+\s*\n?)*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'title:\s*["\']?[^"\'\n]*?["\']?(?=\s*(?:description:|seealso:|tags:|proficiencyLevel:|$))', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'description:\s*["\']?[^"\'\n]*?["\']?(?=\s*(?:tags:|proficiencyLevel:|seealso:|$))', '', text, flags=re.IGNORECASE)
+    
+    # Remove API-doc inline metadata fields (id:, type:, return:type: patterns)
+    text = re.sub(r'\bid:\s*\w+(?:type:|$)', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\btype:\s*[\w.`<>]+', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'\breturn:\s*', '', text, flags=re.IGNORECASE)
+    
+    # Also remove line-based metadata (original patterns)
     text = re.sub(r'^uid:\s*["\']?[^"\'\n]*["\']?\s*$', '', text, flags=re.MULTILINE)
     text = re.sub(r'^title:\s*["\']?[^"\'\n]*["\']?\s*$', '', text, flags=re.MULTILINE)
     text = re.sub(r'^description:\s*["\']?[^"\'\n]*["\']?\s*$', '', text, flags=re.MULTILINE)
@@ -249,6 +307,19 @@ def generate_description(row, inventory_df):
     
     raw_text = section.get('text', '').strip()
     heading = section.get('heading', '').strip()
+    
+    # For non-API content, try to extract description/title from inline frontmatter first
+    if not is_api:
+        fm_desc = extract_frontmatter_description(raw_text)
+        if fm_desc:
+            # We got a description from the frontmatter - clean and use it
+            fm_desc = re.sub(r'\s+', ' ', fm_desc).strip()
+            if len(fm_desc) > 160:
+                truncated = fm_desc[:150].rsplit(' ', 1)[0]
+                fm_desc = truncated + '...'
+            if not fm_desc.endswith(('.', '!', '?', '...')):
+                fm_desc += '.'
+            return fm_desc
     
     # For API reference - parse structured documentation
     if is_api:
@@ -463,7 +534,19 @@ def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=N
             'original_apis': safe_list(row.get('apis', []))
         })
     
-    return pd.DataFrame(metadata_rows)
+    result_df = pd.DataFrame(metadata_rows)
+    
+    # Post-processing: nullify descriptions that still contain metadata artifacts
+    _artifact_prefixes = ('uid:', 'linkId:', 'id:', 'seealso:', 'name:')
+    artifact_mask = result_df['suggested_description'].apply(
+        lambda d: isinstance(d, str) and d.strip().startswith(_artifact_prefixes)
+    )
+    if artifact_mask.any():
+        count = artifact_mask.sum()
+        print(f"  Post-processing: removed {count} descriptions with leaked metadata artifacts")
+        result_df.loc[artifact_mask, 'suggested_description'] = None
+    
+    return result_df
 
 
 def validate_phase7_output(df: pd.DataFrame, run_quality_checks: bool = False) -> ValidationReport:
