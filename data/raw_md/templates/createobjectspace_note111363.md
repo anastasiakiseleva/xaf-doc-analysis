@@ -1,0 +1,2 @@
+> [!NOTE]
+> Do not use another View's [View.ObjectSpace](xref:DevExpress.ExpressApp.View.ObjectSpace) for the creation of a new root View in it. Instead, create a new Object Space using the [XafApplication.CreateObjectSpace](xref:DevExpress.ExpressApp.XafApplication.CreateObjectSpace*) method for the new root View.

@@ -1,0 +1,1 @@
+Do not mix a View's focused object changes with property value changes. To track object instance's changes, handle the [IObjectSpace.ObjectChanged](xref:DevExpress.ExpressApp.IObjectSpace.ObjectChanged), [INotifyPropertyChanged.PropertyChanged](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged) or other suitable events.

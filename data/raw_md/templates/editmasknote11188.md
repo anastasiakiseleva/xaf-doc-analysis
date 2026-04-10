@@ -1,0 +1,2 @@
+> [!NOTE]
+> The **EditMask** property does not prohibit users from saving an incorrect value to a database (for example, when they do not fill all the required digits in a phone number). Configure [Validation](xref:113684) settings to prevent data errors.

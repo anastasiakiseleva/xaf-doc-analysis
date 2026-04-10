@@ -1,0 +1,1 @@
+Allows you to register and configure Object Space Providers in your application, and chain further provider registrations. 

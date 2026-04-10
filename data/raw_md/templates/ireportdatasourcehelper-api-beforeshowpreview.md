@@ -1,0 +1,1 @@
+Handle this event to modify the report content before it is displayed. For instance, you can [merge two reports](xref:3321) immediately before they are displayed. See the following topic for an example: [How to: Merge the Pages of Two Reports](xref:113606).

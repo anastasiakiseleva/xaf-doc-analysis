@@ -1,0 +1,1 @@
+Instead of directly accessing the editor's control, you can customize the appearance object. Iterate through the [ApplyAppearanceEventArgs.AppearanceItems](xref:DevExpress.ExpressApp.ConditionalAppearance.ApplyAppearanceEventArgs.AppearanceItems) list to select the required item.

@@ -1,0 +1,1 @@
+Only WinForms applications and and ASP.NET Core Blazor applications with the [](xref:DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor) support [MasterDetailMode.ListViewAndDetailView](xref:DevExpress.ExpressApp.MasterDetailMode.ListViewAndDetailView) mode.

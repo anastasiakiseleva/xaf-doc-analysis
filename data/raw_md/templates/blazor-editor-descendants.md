@@ -1,0 +1,1 @@
+In ASP.NET Core Blazor, [BlazorPropertyEditorBase.ComponentModel](xref:DevExpress.ExpressApp.Blazor.Editors.BlazorPropertyEditorBase.ComponentModel) returns an `IComponentModel` descendant that wraps properties and events of a corresponding [ASP.NET Core Blazor Editor](xref:401156).

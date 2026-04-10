@@ -1,0 +1,1 @@
+You can also specify predefined values in the [Model Editor](xref:112582) using the [IModelCommonMemberViewItem.PredefinedValues](xref:DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.PredefinedValues) property. This approach is much simpler because it does not require extra coding, but you will be unable to update the values list dynamically in code in this instance.

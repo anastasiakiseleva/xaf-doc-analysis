@@ -1,0 +1,1 @@
+To use the implemented Property Editor with all `DateTime` properties, pass `true` as the [PropertyEditorAttribute](xref:DevExpress.ExpressApp.Editors.PropertyEditorAttribute.#ctor*) constructor's `defaultEditor` parameter.

@@ -1,0 +1,1 @@
+To localize a custom Ribbon Template, use the technique described in the following topic: [How to: Localize a WinForms Template](xref:114495).

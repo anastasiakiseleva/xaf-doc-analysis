@@ -1,0 +1,1 @@
+The [Template Kit](xref:405447) enables the `<:0:>` property in new projects. [!include[default_settings_compatibility_mode_set_to_latest](~/templates/default_settings_compatibility_mode_set_to_latest.md)] 

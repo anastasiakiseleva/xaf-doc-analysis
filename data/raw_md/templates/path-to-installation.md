@@ -1,0 +1,1 @@
+%PROGRAMFILES%\DevExpress <:xx.x:>\Components\

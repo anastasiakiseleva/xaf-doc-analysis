@@ -1,0 +1,2 @@
+* [!include[ExtraModulesNote1](~/templates/extramodulesnote1111180.md)]
+* To add an extra module in code, add it to the [XafApplication.Modules](xref:DevExpress.ExpressApp.XafApplication.Modules) or [ModuleBase.RequiredModuleTypes](xref:DevExpress.ExpressApp.ModuleBase.RequiredModuleTypes) list (adding a reference to the module assembly is insufficient).

@@ -1,0 +1,1 @@
+[!include[](~/templates/path-to-all-xaf-demos.md)]\MainDemo.NET.EFCore

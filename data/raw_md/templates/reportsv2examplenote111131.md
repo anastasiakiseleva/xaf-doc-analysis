@@ -1,0 +1,1 @@
+In this topic, it is assumed that you have an XAF application that uses the [Reports V2 Module](xref:113591), and you have created one or more reports (see [Reports V2 Module Overview](xref:113591)).

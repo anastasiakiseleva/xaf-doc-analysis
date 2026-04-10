@@ -1,0 +1,1 @@
+Always use a **Node Generator** or **Generator Updater** to customize the current node and its child nodes. To update nodes outside the current node hierarchy, create separate **Node Generators** or **Generator Updaters**.  

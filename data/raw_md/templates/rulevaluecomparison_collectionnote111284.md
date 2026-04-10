@@ -1,0 +1,1 @@
+**RuleValueComparison** is not checked if the collection property is empty. Use the [](xref:DevExpress.Persistent.Validation.RuleRequiredFieldAttribute) instead.

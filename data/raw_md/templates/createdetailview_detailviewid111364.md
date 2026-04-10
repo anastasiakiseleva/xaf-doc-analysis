@@ -1,0 +1,1 @@
+The _detailViewID_ parameter should be equal the **Id** property of an existing IModelDetailView node from the Application Model's Views node. If your Application Model contains several DetailView models of a certain business class, use this parameter to define which model should be used for the created View.

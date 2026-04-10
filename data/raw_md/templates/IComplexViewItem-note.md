@@ -1,0 +1,1 @@
+You can also implement @DevExpress.ExpressApp.Editors.IComplexViewItem in this Property Editor. This interface allows the editor to access the **XafApplication** instance and use an Object Space to load data from an application database.

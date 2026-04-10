@@ -1,0 +1,1 @@
+This member is a wrapper for the [DxGrid](xref:DevExpress.Blazor.DxGrid) component's [DxGrid.<:0:>](xref:DevExpress.Blazor.DxGrid.<:0:>) member. Refer to its description for more information.

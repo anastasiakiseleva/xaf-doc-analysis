@@ -1,0 +1,2 @@
+> [!NOTE]
+> Ensure that the **DevExpress.ExpressApp.Win.Design** NuGet package is added to the **SolutionName.Win** project. This package contains the required design-time functionality based on .NET preview features.

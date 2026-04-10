@@ -1,0 +1,1 @@
+The [Template Kit](xref:405447) generates the code shown in this help topic when you create an application. Follow this article if you want to implement the demonstrated functionality in an existing XAF solution. 

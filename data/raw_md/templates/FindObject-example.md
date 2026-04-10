@@ -1,0 +1,1 @@
+To learn how to use this method, refer to the [IObjectSpace.FindObject(Type, CriteriaOperator, Boolean)](xref:DevExpress.ExpressApp.IObjectSpace.FindObject(System.Type,DevExpress.Data.Filtering.CriteriaOperator,System.Boolean)) method description.

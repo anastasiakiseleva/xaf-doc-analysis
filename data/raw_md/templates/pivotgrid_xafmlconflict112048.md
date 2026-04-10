@@ -1,0 +1,5 @@
+> [!IMPORTANT]
+> Set the **IPivotSettings.CustomizationEnabled** property value depending on your application's prevailing usage scenario.
+> 
+> * Choose **false** if you want to present data to end users in a specific layout. The **false** setting gives you full control over the pivot table's behavior and prevents users from changing it.
+> * Choose **true** if end users need to frequently modify the pivot table's data layout. Note that once the user changes the pivot table's settings, they are recorded to the [Application Model](xref:112580)'s top-layer *.xafml file and you cannot overwrite them. In some cases, an end user's settings may merge with the modifications the developer specified in lower-level *.xafml files, and cause unpredictable behavior. The end user can get your default settings by right-clicking the pivot table and selecting **Reset View Settings** in the context menu.

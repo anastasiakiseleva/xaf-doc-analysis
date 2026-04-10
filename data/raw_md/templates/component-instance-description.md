@@ -1,0 +1,3 @@
+A component model replicates all [parameters](https://learn.microsoft.com/en-us/aspnet/core/blazor/components#component-parameters) of the related component. You can use these parameters to configure the underlying component before creation. However, the model does not allow you to access the current component state (for instance, a page index) or call its methods directly.
+
+Use the `ComponentInstance` property to access underlying component instance and its full API.

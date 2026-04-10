@@ -1,0 +1,2 @@
+> [!TIP]
+> To access and customize Dashboard View Item controls, use the @DevExpress.ExpressApp.DashboardViewExtensions.CustomizeViewItemControl``1(DevExpress.ExpressApp.DashboardView,DevExpress.ExpressApp.Controller,System.Action{``0}) method.

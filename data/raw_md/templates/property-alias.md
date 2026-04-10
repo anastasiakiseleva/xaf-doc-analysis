@@ -1,0 +1,1 @@
+If the `propertyType` parameter value is not a @System.Object type, do not use built-in editor aliases. If you need to register a custom editor for a built-in alias, use the solution from the [ModuleBase](xref:DevExpress.ExpressApp.ModuleBase) topic.

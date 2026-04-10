@@ -1,0 +1,1 @@
+The following example uses a [Parametrized Action](xref:DevExpress.ExpressApp.Actions.ParametrizedAction) to search for a **Person** by **LastName**. After that, this example invokes the default mail client and creates a new draft of a message for that person.

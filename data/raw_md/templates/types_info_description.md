@@ -1,0 +1,1 @@
+An @DevExpress.ExpressApp.DC.ITypesInfo object that provides access to XAF-related information on business classes.

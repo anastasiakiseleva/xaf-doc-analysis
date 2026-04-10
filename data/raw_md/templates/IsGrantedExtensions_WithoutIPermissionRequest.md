@@ -1,0 +1,1 @@
+You can also use the @DevExpress.ExpressApp.Security.IsGrantedExtensions class methods to check <:0:>. These methods do not require an <:1:> object.

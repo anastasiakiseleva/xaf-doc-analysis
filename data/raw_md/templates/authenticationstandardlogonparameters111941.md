@@ -1,0 +1,1 @@
+When the [](xref:DevExpress.ExpressApp.Security.AuthenticationStandard) authentication is used, the [](xref:DevExpress.ExpressApp.Security.AuthenticationStandardLogonParameters) object is returned by default/

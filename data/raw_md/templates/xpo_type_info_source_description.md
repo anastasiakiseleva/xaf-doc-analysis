@@ -1,0 +1,1 @@
+An `XpoTypeInfoSource` object that is a source of XPO-related information on business classes.

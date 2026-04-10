@@ -1,0 +1,1 @@
+You can find the currently supported EF Core package versions in the following help topic: [Supported EF Core Versions](xref:404215). To locate the version you use, check the **Microsoft.EntityFrameworkCore** package - a dependency of the _YourProjectName.Module_ project.

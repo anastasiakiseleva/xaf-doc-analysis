@@ -1,0 +1,1 @@
+You can add modules to your application when you use the [Template Kit](xref:405447) to create a new XAF solution. Select modules in the **Additional Modules** section.

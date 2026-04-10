@@ -1,0 +1,1 @@
+In `DataSourceCriteria`, `\@This` refers to the master object (for which the lookup editor is displayed) even if the lookup editor displays a complex property. For example, if the property is `Task.Project.Manager`, then `\@This` refers to `Task` and not to `Project`.

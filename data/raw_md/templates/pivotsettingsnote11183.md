@@ -1,0 +1,2 @@
+* Do not create pivot columns with duplicate or empty **FieldName** values. In this case, the pivot layout will be loaded incorrectly.
+* By default, columns deleted in the last Application Model layer, but that exist in previous layers, are retained. To change this behavior, use the [IPivotSettings.AddNewColumns](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.AddNewColumns) property.

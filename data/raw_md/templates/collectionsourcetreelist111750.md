@@ -1,0 +1,1 @@
+Currently, [](xref:DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditor) has limited filtering capabilities. Only root tree nodes are filtered if you specify the Collection Source's **Criteria** property when filtering the List View.

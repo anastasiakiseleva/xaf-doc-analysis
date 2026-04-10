@@ -1,0 +1,1 @@
+The **New**, **Delete** and **Save** Actions are available for [non-persistent objects](xref:116516). To access all created, deleted and modified objects within `NonPersistentObjectSpace`, use the [NonPersistentObjectSpace.ModifiedObjects](xref:DevExpress.ExpressApp.NonPersistentObjectSpace.ModifiedObjects) property.

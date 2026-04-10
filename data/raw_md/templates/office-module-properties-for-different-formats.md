@@ -1,0 +1,1 @@
+You can use a byte array property to save documents in the DOCX format or a [string property](xref:113528) to store documents in the RTF and HTML formats.

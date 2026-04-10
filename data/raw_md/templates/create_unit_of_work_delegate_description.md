@@ -1,0 +1,1 @@
+A `CreateUnitOfWorkHandler` object, which is a delegate that encapsulates a method. This method creates a @DevExpress.Xpo.UnitOfWork for the Object Space’s [`XPObjectSpace.Session`](xref:DevExpress.ExpressApp.Xpo.XPObjectSpace.Session).

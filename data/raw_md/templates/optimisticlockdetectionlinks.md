@@ -1,0 +1,3 @@
+For more information on how to specify this option, refer to the following help topic: [Configure Conflict Detection and Handling Options](xref:405384#configure-concurrency-options).
+
+For more information on how @DevExpress.ExpressApp.DC.OptimisticLockHandling and @DevExpress.ExpressApp.DC.OptimisticLockDetection work together, refer to the following section: [Collision Detection and Handling Behaviors](xref:405384#resolve-collisions-behavior).

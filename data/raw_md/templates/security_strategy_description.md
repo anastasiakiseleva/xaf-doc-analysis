@@ -1,0 +1,1 @@
+The @DevExpress.ExpressApp.Security.ISecurityStrategyBase object that is the [Security Strategy](xref:113366) used in the application.

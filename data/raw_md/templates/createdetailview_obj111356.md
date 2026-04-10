@@ -1,0 +1,1 @@
+The object specified in the _obj_ parameter should belong to the Object Space specified in the _objectSpace_ parameter. To pass an object from another Object Space to this Object Space, use the [IObjectSpace.GetObject](xref:DevExpress.ExpressApp.IObjectSpace.GetObject(System.Object)) method.

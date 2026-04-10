@@ -1,0 +1,1 @@
+If you prefer to watch a video rather than walk through these step-by-step instructions, visit the corresponding tutorial on the DevExpress YouTube Channel:

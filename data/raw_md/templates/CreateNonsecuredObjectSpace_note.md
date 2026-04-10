@@ -1,0 +1,3 @@
+Note the following when you operate with a non-secured Object Space:
+* The non-secured Object Space ignores security permissions and provides access to all data. This means that the current user can modify data regardless of assigned roles.
+* If you need to interact with objects from the main (secured) and non-secured Object Spaces, use the @DevExpress.ExpressApp.IObjectSpace.GetObject(System.Object) method to copy the object from one Object Space to another.

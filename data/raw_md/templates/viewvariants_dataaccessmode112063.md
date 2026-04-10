@@ -1,0 +1,3 @@
+For [List View variants](xref:113011), the root varied View and each variant View can have individual **DataAccessMode** property values. When the end user switches to a different View Variant, XAF ignores the target View's **DataAccessMode** and uses the root View's value instead. In some scenarios, the View Variant's [List Editor](xref:113189) does not support the root View's **DataAccessMode** value. In this case, XAF uses the **DataAccessMode** value from that View Variant's **IModelListView** node.
+
+When the View Variants are displayed in Navigation (see [View Variants Module](xref:113011)), XAF displays the variant Views using their **DataAccessMode** setting, instead of the root View's value.

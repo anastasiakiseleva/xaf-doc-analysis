@@ -1,0 +1,3 @@
+## Important Disclaimer
+
+These deployment recommendations do not apply to all possible configurations and should not be considered comprehensive. We offer these instructions as a getting-started reference. Steps may vary depending on your operating system, installed software, and DevExpress versions. You, the developer, are responsible for the application, database, network, and other configurations based on your client, security, environment, and other requirements. We recommend that you review these settings with your database, network, and IT infrastructure administrators and consider their recommendations tailored to your case. We also recommend that you review [Performance Optimization](xref:402148) tips for deployed applications.

@@ -1,0 +1,3 @@
+To display data in a tree-like structure, implement the [](xref:DevExpress.Persistent.Base.General.ITreeNode) interface in the corresponding business classes. XAF uses the `DxTreeList` and `TreeList` controls provided by the TreeList Editors module and [DevExpress.ExpressApp.Blazor](xref:DevExpress.ExpressApp.Blazor) base module to display objects that support [](xref:DevExpress.Persistent.Base.General.ITreeNode).
+
+For more information about the `ITreeNode` interface, refer to the following topic: [](xref:112836).

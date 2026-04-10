@@ -1,0 +1,1 @@
+The **RuleFromBoolPropertyAttribute** attribute's @DevExpress.Persistent.Validation.RuleBaseAttribute.SkipNullOrEmptyValues property is set to **true**. To run rules when used properties are null or empty, set **SkipNullOrEmptyValues** to **false**.

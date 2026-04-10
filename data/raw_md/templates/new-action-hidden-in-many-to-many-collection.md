@@ -1,0 +1,2 @@
+> [!NOTE]
+> In Many-to-Many collections, the **New** Action is hidden when [NewObjectViewController.LinkNewObjectToParentImmediately](xref:DevExpress.ExpressApp.SystemModule.NewObjectViewController.LinkNewObjectToParentImmediately) is set to `true`.

@@ -1,0 +1,4 @@
+The **Server**, **ServerView**, **InstantFeedback**, or **InstantFeedbackView** mode option and the `DataSourceProperty` attribute do not work simultaneously. 
+
+An independent server-mode collection is created as a data source for a lookup ListView when the [IModelListView.DataAccessMode](xref:DevExpress.ExpressApp.Model.IModelListView.DataAccessMode) option is set to **Server**, **ServerView**, **InstantFeedback**, or **InstantFeedbackView** for that ListView model. However, when the [](xref:DevExpress.Persistent.Base.DataSourcePropertyAttribute) is applied for the lookup property, the property pointed in the attribute is used as a lookup data source, and the standalone independent server-mode collection is not created and is not used at all.
+The reason is that the data source property getter contains logic calculated on the client side and the data source is populated by the client application at the moment when the lookup editor requests to display objects.

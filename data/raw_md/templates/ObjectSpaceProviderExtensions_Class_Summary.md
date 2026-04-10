@@ -1,0 +1,1 @@
+Extends the @DevExpress.ExpressApp.ApplicationBuilder.IObjectSpaceProviderServiceBasedBuilder`1 interface with a method to add the <:0:> to your application. 

@@ -1,0 +1,1 @@
+`DxFileDataPropertyEditor` displays the property's value as a hyperlinked file name. A user can click the link to download the file. The Detail View displays the **Select File** and **Clear** buttons. A user should save changes after a file upload to display a link instead of a plain text file name. The editor displays upload progress.

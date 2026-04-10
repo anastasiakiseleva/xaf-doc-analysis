@@ -1,0 +1,1 @@
+Allows you to register and configure Modules in your application, and chain further Module registrations.

@@ -1,0 +1,1 @@
+The default location of the application is _[!include[PathToFeatureCenter](~/templates/path-to-feature-center.md)]_.

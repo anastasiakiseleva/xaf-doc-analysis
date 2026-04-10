@@ -1,0 +1,1 @@
+If the passed property name conflicts with a function name, wrap the name in square brackets (e.g. "Oid;[Count];Price"). If you subsequently need to access such a property via a data record, you do not need to use brackets.

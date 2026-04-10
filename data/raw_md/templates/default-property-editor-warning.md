@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> <:0:> has a number of limitations and we do not recommend that you use it intentionally in your applications. For instance, this Property Editor does not support [Conditional Appearance](xref:113286) functionality.

@@ -1,0 +1,1 @@
+For more information about user permissions, refer to the following topic: [](xref:113366) and the SecurityDemo XAF application. This demo application is available in the _%PUBLIC%\Documents\DevExpress Demos 23.1\Components\XAF\SecurityDemo.NETFramework.XPO_ folder.

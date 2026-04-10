@@ -1,0 +1,1 @@
+In the [](xref:DevExpress.ExpressApp.BaseObjectSpace) descendant, the [BaseObjectSpace.CommitChanges](xref:DevExpress.ExpressApp.BaseObjectSpace.CommitChanges) method invokes the **BaseObjectSpace.DoCommit** method and raises the **<:0:>** event. Override the **BaseObjectSpace.DoCommit** method to implement your logic to persist changes.  

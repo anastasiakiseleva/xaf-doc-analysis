@@ -1,0 +1,1 @@
+This member is a wrapper for the [DxDashboard](xref:DevExpress.DashboardBlazor.DxDashboard) component's [DxDashboard.<:0:>](xref:DevExpress.DashboardBlazor.DxDashboard.<:0:>) member. Refer to its description for more information.

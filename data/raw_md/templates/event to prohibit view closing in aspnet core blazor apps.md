@@ -1,0 +1,1 @@
+XAF does not trigger the `QueryCanClose` event in ASP.NET Core Blazor applications. Use the `DevExpress.ExpressApp.Blazor.BlazorWindow.Closing` event to prohibit closing a View under certain conditions.

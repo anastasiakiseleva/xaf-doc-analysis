@@ -1,0 +1,1 @@
+In the current example, the _cancellationToken_ parameter is used for demonstration purposes. You can skip it or use to cancel an asynchronous operation as shown in the @System.Threading.CancellationToken topic.

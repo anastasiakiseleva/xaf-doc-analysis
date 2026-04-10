@@ -1,0 +1,1 @@
+For this purpose, the kit generates new projects with the [FrameworkSettings.DefaultSettingsCompatibilityMode](xref:DevExpress.ExpressApp.FrameworkSettings.DefaultSettingsCompatibilityMode) property set to `Latest`.

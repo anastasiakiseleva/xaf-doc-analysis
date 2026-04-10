@@ -1,0 +1,1 @@
+This component is available in the **DX.<:xx.x:>: XAF Data Sources for Reports** group of the Visual Studio **Toolbox**.

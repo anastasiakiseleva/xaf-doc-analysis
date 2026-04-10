@@ -1,0 +1,1 @@
+Below is an example of using the **GetObjects\<T>** method. Here, **objectSpace** is the Object Space instance which can be accessed as described in the [](xref:113707) topic.

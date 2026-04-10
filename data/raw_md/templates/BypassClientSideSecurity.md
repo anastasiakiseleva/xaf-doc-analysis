@@ -1,0 +1,1 @@
+Keeping security logic in the client application is not safe or flexible since users can bypass the security system and access the database directly.

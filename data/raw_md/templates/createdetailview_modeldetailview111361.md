@@ -1,0 +1,1 @@
+If your Application Model contains several DetailView models of a certain business class, use the _modelDetailView_ parameter to define which model should be used for the created View. To get the default model, use the [IModelClass.DefaultDetailView](xref:DevExpress.ExpressApp.Model.IModelClass.DefaultDetailView) property.

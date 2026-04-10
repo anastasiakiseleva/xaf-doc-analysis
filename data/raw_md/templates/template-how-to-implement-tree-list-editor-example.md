@@ -1,0 +1,1 @@
+`DxTreeListEditor` ships with the base `DevExpress.ExpressApp.Blazor` module. You do not need to add a module to an existing XAF ASP.NET Core Blazor application to start using it.

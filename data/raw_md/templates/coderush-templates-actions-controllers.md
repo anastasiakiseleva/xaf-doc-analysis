@@ -1,0 +1,2 @@
+> [!NOTE]
+> [CodeRush](https://www.devexpress.com/products/coderush/) allows you to add Actions and Controllers with a few keystrokes. To learn about the Code Templates for **XAF**, refer to the following help topic: [XAF Templates](xref:403133).

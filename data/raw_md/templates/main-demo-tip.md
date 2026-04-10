@@ -1,0 +1,2 @@
+> [!tip]
+> You can find examples of this functionality in the **MainDemo** demo included with XAF. The demo illustrates various XAF features (including <:0:>) and is located in the _[!include[PathToMainDemo](~/templates/path-to-main-demo-ef-core.md)]_ folder.

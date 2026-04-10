@@ -1,0 +1,1 @@
+[!include[Node_DetailView](~/templates/node_detailview111382.md)]&nbsp;|&nbsp;**Layout**

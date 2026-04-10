@@ -1,0 +1,1 @@
+Refer to the following topic for more information and an example: [How to: Access the Navigation Control](xref:112617#aspnet-core-blazor-controller).

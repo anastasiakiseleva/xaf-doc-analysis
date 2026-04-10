@@ -1,0 +1,1 @@
+%PUBLIC%\Documents\DevExpress Demos <:xx.x:>\Components\XAF

@@ -1,0 +1,1 @@
+Allows you to enable and configure the [Security System](xref:113366) in your application, and chain further configuration. 

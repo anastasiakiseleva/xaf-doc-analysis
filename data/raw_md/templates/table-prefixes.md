@@ -1,0 +1,1 @@
+To change table prefixes, use approaches from the [How to separate database tables from built-in system tables via a prefix or custom schema](https://supportcenter.devexpress.com/Ticket/Details/B186657/how-to-separate-database-tables-from-built-in-system-tables-via-a-prefix-or-custom-schema) article.

@@ -1,0 +1,3 @@
+Description:
+
+`TagBoxListPropertyEditor` allows users to select multiple items from its drop-down list. Use this editor as an alternative for large data grids when you want to save space in Detail Forms for collection data. The editor supports CRUD operations, Security System, Application Model options such as `AllowEdit` or `AllowClear`, `DataSourceXXX` filtering attributes, @DevExpress.ExpressApp.Editors.PropertyEditor.ImmediatePostData, and other standard XAF features.

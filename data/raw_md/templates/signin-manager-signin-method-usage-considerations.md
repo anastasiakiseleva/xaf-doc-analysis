@@ -1,0 +1,2 @@
+- When called, all of the `UserManager.SignIn*` methods first ensure that no user is logged in within the current scope. Note that in WinForms applications this guarantees that no user is logged in at all. Blazor apps allow multiple active scopes, so the same guarantee does not apply. If a user is already logged in, these methods throw the `InvalidOperationException` with the following message: *"Authentication failed: security user already initialized."*. 
+

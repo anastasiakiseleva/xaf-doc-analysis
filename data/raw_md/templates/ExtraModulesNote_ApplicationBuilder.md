@@ -1,0 +1,1 @@
+In XAF applications, you can call the <:0:> method in your <:1:> application builder.

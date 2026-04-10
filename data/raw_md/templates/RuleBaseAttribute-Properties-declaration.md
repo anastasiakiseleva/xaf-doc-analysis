@@ -1,0 +1,1 @@
+Declare the [](xref:DevExpress.Persistent.Validation.RuleBaseAttribute) descendant's **Properties** property as non-public. Use the [new](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/new-modifier) modifier to hide the base class **Properties** property.

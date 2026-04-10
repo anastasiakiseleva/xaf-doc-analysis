@@ -1,0 +1,3 @@
+Intended for byte array properties and can be used in List and Detail Views. This Property Editor is supplied with the [Office Module](xref:400003).
+	
+This Property Editor allows you to [edit rich text documents](xref:400004) stored in the DOCX format and create [Mail Merge](xref:400006) templates. Refer to the [Use Rich Text Documents in Business Objects](xref:400004) topic for more information about the
