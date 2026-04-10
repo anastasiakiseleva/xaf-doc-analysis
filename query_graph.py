@@ -393,8 +393,8 @@ def show_stats(pairs: pd.DataFrame, classified: pd.DataFrame, concepts: pd.DataF
         print(f"  {gate:30} | {count:6,} pairs")
 
 
-def find_prerequisites(classified: pd.DataFrame, concepts: pd.DataFrame, concept_name: str):
-    """Find prerequisite knowledge paths using 'requires' relationships"""
+def find_prerequisites(classified: pd.DataFrame, concepts: pd.DataFrame, inventory: pd.DataFrame, concept_name: str):
+    """Find prerequisite documents using 'requires' relationships"""
     if classified is None or len(classified) == 0:
         print("\n❌ Classified relationships required for prerequisite analysis")
         print("   Run: python scripts/06_classify_relationships.py\n")
@@ -413,35 +413,72 @@ def find_prerequisites(classified: pd.DataFrame, concepts: pd.DataFrame, concept
     
     section_ids = set(zip(concept_sections["doc_id"], concept_sections["section_id"]))
     
-    # Find 'requires' relationships where concept sections are the target
+    # Build doc_id → title lookup from inventory
+    title_lookup = dict(zip(inventory["doc_id"], inventory["title"]))
+    
+    # Find 'requires' relationships where concept sections are the SOURCE.
+    # "source requires target" means target is foundational to source —
+    # so targets are the prerequisites of this concept.
+    # Filters applied:
+    #   - exclude API reference pages (not conceptual learning material)
+    #   - exclude how-to articles (task-focused; assume prior knowledge of the concept)
+    #   - exclude targets that already cover this concept (circular)
     prereqs = []
     for _, row in classified.iterrows():
-        tgt = (row["target_doc"], row["target_section"])
-        if tgt in section_ids and row["relationship_type"] == "requires":
-            prereqs.append({
-                "prerequisite_doc": row["source_doc"],
-                "prerequisite_section": row["source_section"],
-                "confidence": row["relationship_confidence"],
-                "concepts": row.get("source_concepts", []),
-                "bidirectional": row.get("relationship_bidirectional", False)
-            })
+        src = (row["source_doc"], row["source_section"])
+        if src not in section_ids or row["relationship_type"] != "requires":
+            continue
+        # skip API reference pages
+        if row.get("target_is_api", False):
+            continue
+        # skip how-to articles and tutorials — they are task/walkthrough guides that assume
+        # prior knowledge of the concept, not foundational reading
+        target_path = str(row["target_doc"]).lower()
+        if "/how-to" in target_path or "tutorial" in target_path or "getting-started" in target_path or "get-started" in target_path:
+            continue
+        # skip docs that already cover the queried concept (circular)
+        if concept_name in safe_list(row.get("target_concepts", [])):
+            continue
+        prereqs.append({
+            "doc_id": row["target_doc"],
+            "confidence": row["relationship_confidence"],
+            "concepts": safe_list(row.get("target_concepts", [])),
+        })
     
     if len(prereqs) == 0:
         print(f"✅ No prerequisites found for '{concept_name}'")
-        print("   This concept does not require other knowledge first\\n")
+        print("   This concept does not require other knowledge first\n")
         return
     
-    df_prereqs = pd.DataFrame(prereqs).sort_values("confidence", ascending=False)
+    # Aggregate to doc level: max confidence, union of concepts
+    df = pd.DataFrame(prereqs)
+    def agg_doc(g):
+        all_concepts = [c for cs in g["concepts"] for c in cs]
+        top_concepts = [c for c, _ in Counter(all_concepts).most_common(5)]
+        return pd.Series({
+            "confidence": g["confidence"].max(),
+            "key_concepts": top_concepts,
+            "section_count": len(g),
+        })
+    df_prereqs = (
+        df.groupby("doc_id", sort=False)
+        .apply(agg_doc)
+        .reset_index()
+        .sort_values("confidence", ascending=False)
+    )
     
-    print(f"⚠️  {len(df_prereqs)} prerequisite(s) found:\\n")
-    print("You should understand these topics BEFORE learning about '{}':\\n".format(concept_name))
+    print(f"⚠️  {len(df_prereqs)} prerequisite document(s) found:\n")
+    print(f"You should understand these topics BEFORE learning about '{concept_name}':\n")
     
     for i, (_, row) in enumerate(df_prereqs.iterrows(), 1):
-        print(f"{i}. {row['prerequisite_doc'][:80]}")
-        print(f"   Confidence: {row['confidence']:.3f}")
-        prereq_concepts = safe_list(row.get('concepts', []))
-        if prereq_concepts:
-            print(f"   Prerequisites concepts: {', '.join(prereq_concepts[:5])}")
+        title = title_lookup.get(row["doc_id"], row["doc_id"])
+        sections = int(row["section_count"])
+        sec_label = "section" if sections == 1 else "sections"
+        print(f"{i}. {title}")
+        print(f"   Path:       {row['doc_id']}")
+        print(f"   Confidence: {row['confidence']:.3f}  ({sections} matching {sec_label})")
+        if row["key_concepts"]:
+            print(f"   Key topics: {', '.join(row['key_concepts'])}")
         print()
 
 
@@ -533,7 +570,7 @@ def main():
     
     elif args.mode == "prereqs":
         if args.concept:
-            find_prerequisites(classified, concepts, args.concept)
+            find_prerequisites(classified, concepts, inventory, args.concept)
         else:
             print("❌ Please specify --concept for prereqs mode")
     

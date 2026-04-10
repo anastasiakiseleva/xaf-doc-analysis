@@ -47,11 +47,13 @@ def load_relationship_prompt() -> str:
     prompt_path = Path("config/prompts/relationship_classification.md")
     if not prompt_path.exists():
         print(f"Warning: {prompt_path} not found, using default prompt")
-        return """You are classifying relationships between two XAF documentation sections.
+        return """You are classifying the directional relationship FROM Section A TO Section B in XAF documentation.
 
-Return JSON with fields: relationship (one of: explains, requires, uses, extends, applies_to, contrasts_with, related_to), confidence (0–1), rationale (bullet points), evidence (direct quotes), and which concepts/APIs overlap.
+Section types: API Reference, How-to Task (single scenario), Tutorial (multi-step end-to-end walkthrough), Conceptual (explains what and why).
 
-Prefer 'requires' when one topic is prerequisite knowledge or feature dependency. Prefer 'uses' when APIs or features are invoked. Prefer 'explains' when one is conceptual overview and the other is a how-to. Use 'contrasts_with' for side-by-side alternatives (e.g., Blazor vs WinForms). Use 'applies_to' when platform scoping is explicit. Fall back to 'related_to' if none fit."""
+Prefer 'requires' when A cannot be understood without first reading B (B is more foundational). Prefer 'uses' when A invokes an API or feature B documents. Prefer 'explains' when A is a conceptual overview describing what B implements. Use 'extends' when A customises or subclasses B. Use 'contrasts_with' for alternatives. Use 'applies_to' for platform/version scoping. Fall back to 'related_to' if none fit.
+
+Return ONLY valid JSON."""
     
     return prompt_path.read_text(encoding='utf-8')
 
@@ -236,12 +238,24 @@ def build_classification_prompt(
 ) -> str:
     """Build the full classification prompt for an LLM."""
     
+    def _section_type(is_api: bool, doc_path: str) -> str:
+        if is_api:
+            return "API Reference"
+        p = doc_path.lower()
+        if "/how-to" in p:
+            return "How-to Task"
+        if "tutorial" in p or "getting-started" in p or "get-started" in p:
+            return "Tutorial"
+        return "Conceptual"
+
+    shared_concepts = sorted(set(source_concepts) & set(target_concepts))
+
     prompt = f"""{base_prompt}
 
 ## Section A (Source)
 **Document**: {source_doc}
 **Section ID**: {source_section}
-**Type**: {"API Reference" if source_is_api else "Conceptual/Tutorial"}
+**Type**: {_section_type(source_is_api, source_doc)}
 **Concepts**: {', '.join(source_concepts) if source_concepts else 'None'}
 **Content**:
 {source_text}
@@ -249,23 +263,22 @@ def build_classification_prompt(
 ## Section B (Target)
 **Document**: {target_doc}
 **Section ID**: {target_section}
-**Type**: {"API Reference" if target_is_api else "Conceptual/Tutorial"}
+**Type**: {_section_type(target_is_api, target_doc)}
 **Concepts**: {', '.join(target_concepts) if target_concepts else 'None'}
 **Content**:
 {target_text}
 
 ## Context
-- Semantic similarity score: {similarity:.3f}
-- Overlapping concepts: {', '.join(set(source_concepts) & set(target_concepts))}
+- Semantic similarity: {similarity:.3f}
+- Shared concepts: {', '.join(shared_concepts) if shared_concepts else 'None'}
 
-Classify the relationship from Section A to Section B. Return ONLY valid JSON:
+Classify the relationship FROM Section A TO Section B. Return ONLY valid JSON with exactly these keys:
 {{
-  "relationship": "<one of: explains, requires, uses, extends, applies_to, contrasts_with, related_to>",
-  "confidence": <0.0 to 1.0>,
-  "rationale": ["<reason 1>", "<reason 2>"],
-  "evidence": ["<quote from text>", "<quote from text>"],
-  "bidirectional": <true if relationship works both ways, false otherwise>
-}}"""
+  "relationship": "<one of: requires|explains|uses|extends|applies_to|contrasts_with|related_to>",
+  "confidence": <number between 0 and 1>,
+  "bidirectional": <true|false>
+}}
+No additional keys. No prose."""
     
     return prompt
 
@@ -367,7 +380,7 @@ def classify_with_llm(prompt: str, api_config: Dict[str, Any]) -> Optional[Dict]
         return {
             "relationship": "related_to",
             "confidence": 0.5,
-            "rationale": ["Mock classification - configure LLM provider"],
+            "rationale": [],
             "evidence": [],
             "bidirectional": True
         }
@@ -536,8 +549,6 @@ def classify_pairs(
                     **row.to_dict(),
                     "relationship_type": classification.get("relationship"),
                     "relationship_confidence": classification.get("confidence"),
-                    "relationship_rationale": classification.get("rationale", []),
-                    "relationship_evidence": classification.get("evidence", []),
                     "relationship_bidirectional": classification.get("bidirectional", False)
                 }
                 results.append(result_row)

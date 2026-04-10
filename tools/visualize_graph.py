@@ -275,12 +275,26 @@ def main():
         "keyboard": { "enabled": true }
       },
       "physics": {
-        "stabilization": { "iterations": 200 }
+        "stabilization": { "iterations": 200, "fit": true }
       }
     }
     """)
 
     net.save_graph(out)
+
+    # Inject JS to freeze the graph once stabilization finishes.
+    # Use binary mode so we don't care about the platform encoding pyvis used.
+    raw = Path(out).read_bytes()
+    freeze_js = (
+        b"<script>\n"
+        b"  network.once('stabilizationIterationsDone', function() {\n"
+        b"    network.setOptions({ physics: { enabled: false } });\n"
+        b"  });\n"
+        b"</script>\n"
+    )
+    raw = raw.replace(b"</body>", freeze_js + b"</body>")
+    Path(out).write_bytes(raw)
+
     print(f"\nSaved: {out}")
     print("Open this file in your browser to explore the graph.")
 

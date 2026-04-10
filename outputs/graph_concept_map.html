@@ -178,7 +178,7 @@
                   // adding nodes and edges to the graph
                   data = {nodes: nodes, edges: edges};
 
-                  var options = {"interaction": {"hover": true, "tooltipDelay": 100, "navigationButtons": true, "keyboard": {"enabled": true}}, "physics": {"stabilization": {"iterations": 200}}};
+                  var options = {"interaction": {"hover": true, "tooltipDelay": 100, "navigationButtons": true, "keyboard": {"enabled": true}}, "physics": {"stabilization": {"iterations": 200, "fit": true}}};
 
                   
 
@@ -218,5 +218,10 @@
               }
               drawGraph();
         </script>
-    </body>
+    <script>
+  network.once('stabilizationIterationsDone', function() {
+    network.setOptions({ physics: { enabled: false } });
+  });
+</script>
+</body>
 </html>

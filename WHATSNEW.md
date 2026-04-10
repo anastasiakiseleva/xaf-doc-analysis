@@ -1,5 +1,36 @@
 # What's New
 
+## 2026-04-10 — Phase 6: Improved relationship classification prompt and section typing
+
+### Problems fixed
+
+- `requires` direction was ambiguous — the LLM had no clear rule about which section should be the one declaring the dependency, leading to reversed prerequisite suggestions in query results.
+- How-to articles, tutorials, and conceptual pages were all labelled `"Conceptual/Tutorial"`, so the LLM could not distinguish them and would classify how-tos as prerequisites for the concepts they assume.
+- The output schema required `rationale` and `evidence` arrays, adding token cost with no downstream use.
+- Relationship definitions were vague one-liners with no tie-breaker guidance.
+
+### Changes
+
+**`config/prompts/relationship_classification.md`** (complete rewrite):
+- Added "Evaluate all relationship types before choosing one" instruction to prevent premature anchoring.
+- Split `Conceptual/Tutorial` into three distinct section types: **API Reference**, **How-to Task**, **Tutorial**, **Conceptual**.
+- Replaced table-style relationship definitions with precise per-type bullet rules including explicit `requires` direction rule and `uses` vs `explains` tie-breaker.
+- Added **Decision order** section clarifying the tie-breaker is only for genuinely ambiguous cases, not a global ranking.
+- Added **Confidence calibration** bands with concrete thresholds.
+- Added **Bidirectionality** rule: default `false`; `true` only for symmetric relationships (`contrasts_with`, occasionally `related_to`).
+- Output format trimmed to three keys only: `relationship`, `confidence` (float), `bidirectional`.
+
+**`scripts/06_classify_relationships.py`**:
+- `_section_type()` helper now returns `"How-to Task"` for `/how-to` paths, `"Tutorial"` for `tutorial`/`getting-started`/`get-started` paths, and `"Conceptual"` otherwise.
+- Prompt template JSON schema updated to match the new 3-key output format.
+- `relationship_rationale` and `relationship_evidence` columns removed from result rows (no longer requested from the LLM).
+
+**`query_graph.py`** (`find_prerequisites`):
+- Fixed direction inversion: now queries `source → target` (SS sections as source) to find what they depend on, rather than the reverse.
+- Added filters to exclude API reference pages, how-to articles, and tutorial pages from prerequisite suggestions — these content types assume prior knowledge and cannot be foundational reading.
+
+---
+
 ## 2026-04-10 — New tool: Interactive knowledge graph visualization
 
 ### What's new
