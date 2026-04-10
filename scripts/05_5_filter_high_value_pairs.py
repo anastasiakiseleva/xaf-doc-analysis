@@ -56,6 +56,12 @@ def main():
     high_sim = pairs_df[pairs_df['similarity'] >= MIN_SIMILARITY].copy()
     print(f"  Remaining: {len(high_sim):,} pairs ({len(high_sim)/len(pairs_df)*100:.1f}%)")
 
+    # Remove self-pairs (same document on both sides).
+    # frozenset dedup below won't catch these since frozenset([a, a]) == frozenset([a]).
+    before_self = len(high_sim)
+    high_sim = high_sim[high_sim['source_doc'] != high_sim['target_doc']].copy()
+    print(f"\nRemoved {before_self - len(high_sim):,} self-pairs → {len(high_sim):,} remaining")
+
     # Drop pairs where the shared (overlapping) concepts are all noise.
     # Pairs whose only common ground is e.g. "Blazor" and "WinForms" produce
     # near-identical prompts and mostly classify as related_to at unnecessary cost.
@@ -69,6 +75,22 @@ def main():
     before_noise = len(high_sim)
     high_sim = high_sim[substantive_mask].copy()
     print(f"  Removed {before_noise - len(high_sim):,} noise-shared pairs → {len(high_sim):,} remaining")
+
+    # Drop API-to-API sibling pairs that share a common parent path segment.
+    # E.g. DxDashboardModel/ChildContent → DxDashboardModel/ComponentInstance
+    # are sibling members of the same class — not useful relationship targets.
+    print("\nFiltering out API-sibling (same-parent) pairs...")
+    def same_api_parent(row):
+        if not (row['source_is_api'] and row['target_is_api']):
+            return False
+        src_parts = str(row['source_doc']).rstrip('/').split('/')
+        tgt_parts = str(row['target_doc']).rstrip('/').split('/')
+        # Same parent = last two path segments share the second-to-last segment
+        return len(src_parts) >= 2 and len(tgt_parts) >= 2 and src_parts[-2] == tgt_parts[-2]
+    sibling_mask = high_sim.apply(same_api_parent, axis=1)
+    before_sib = len(high_sim)
+    high_sim = high_sim[~sibling_mask].copy()
+    print(f"  Removed {before_sib - len(high_sim):,} API-sibling pairs → {len(high_sim):,} remaining")
 
     # Calculate priority scores
     print("\nCalculating priority scores...")
@@ -86,19 +108,18 @@ def main():
     # Sort by priority
     high_sim = high_sim.sort_values('priority_score', ascending=False)
 
-    # Deduplicate mirror pairs (A→B and B→A both present).
-    # Build a canonical unordered key; keep the first occurrence (highest priority).
+    # Deduplicate at doc level: keep only the highest-priority section pair
+    # per unique (source_doc, target_doc) undirected combination.
+    # This prevents multiple sections of the same two documents from all
+    # appearing as separate pairs and dominating the top of the ranked list.
     high_sim['_pair_key'] = high_sim.apply(
-        lambda r: frozenset([
-            str(r['source_doc']) + '::' + str(r['source_section']),
-            str(r['target_doc']) + '::' + str(r['target_section']),
-        ]),
+        lambda r: frozenset([str(r['source_doc']), str(r['target_doc'])]),
         axis=1,
     )
     before_dedup = len(high_sim)
     high_sim = high_sim.drop_duplicates(subset=['_pair_key']).drop(columns=['_pair_key'])
-    print(f"Mirror-pair deduplication: {before_dedup:,} → {len(high_sim):,} pairs "
-          f"({before_dedup - len(high_sim):,} redundant directions removed)")
+    print(f"Doc-level mirror deduplication: {before_dedup:,} → {len(high_sim):,} pairs "
+          f"({before_dedup - len(high_sim):,} removed)")
 
     # Take top N
     filtered = high_sim.head(MAX_PAIRS)

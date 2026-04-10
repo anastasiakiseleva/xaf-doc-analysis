@@ -1,5 +1,21 @@
 # What's New
 
+## 2026-04-10 — Phase 5.5: Self-pair and API-sibling pair filters
+
+### Problems fixed
+
+- Sections of the same document have the highest cosine similarity to each other, so they dominated the top of the ranked pairs list. These `A→A` self-pairs produced nonsensical classifications (e.g. `contrasts_with` a document with itself) and inflated pair counts. 21,932 self-pairs were present in the similarity-filtered candidates (55% of input above 0.70 threshold).
+- API member pages belonging to the same parent class (e.g. `DxDashboardModel/ChildContent → DxDashboardModel/ComponentInstance`) shared a parent path segment and identical concept sets. These sibling pairs consistently classify as `related_to` at low confidence — they are navigation noise, not meaningful relationships.
+
+### Changes
+
+**`scripts/05_5_filter_high_value_pairs.py`**:
+- Added explicit self-pair filter (`source_doc != target_doc`) applied before priority scoring. Removed 21,932 pairs.
+- Added API-sibling filter: drops pairs where both sides are API pages and their second-to-last path segment is identical (same parent class). Removed 490 additional pairs.
+- Net result: 3,302 unique doc pairs (down from 4,057), with 46% cross-corpus.
+
+---
+
 ## 2026-04-10 — Phase 3 / 5.5: Platform concept routing and pair quality improvements
 
 ### Problems fixed
