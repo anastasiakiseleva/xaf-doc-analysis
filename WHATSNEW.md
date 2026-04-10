@@ -1,5 +1,34 @@
 # What's New
 
+## 2026-04-10 — Phase 7: Nullify boilerplate/templated descriptions
+
+### Problem
+
+219 unique descriptions were repeated across 1,266 sections — generic API boilerplate that adds no value for search or discoverability (e.g., *"Initializes a new instance of the class."* appeared 188 times).
+
+### Change
+
+Added a post-processing step in `scripts/07_generate_metadata.py` that detects descriptions used 3 or more times and sets them to `None`. Categories of removed descriptions:
+
+- **Generic constructor summaries** (348 sections) — *"Initializes a new instance of the class."*
+- **Assembly reference lines** (136 sections) — *"Assembly: DevExpress.ExpressApp.Blazor.v<:xx.x:>.dll."*
+- **Module boilerplate** (80 sections) — *"Returns the list of updaters that handle database updates for the module."*
+- **Internal-use warnings** (14 sections) — *"This method is not intended to be called from your code."*
+- **Other repeated descriptions** (688 sections)
+
+A full listing of affected documents is in `outputs/templated_descriptions_report.md`.
+
+### Results
+
+| Metric | Before | After |
+|---|---|---|
+| Boilerplate descriptions | 1,266 | 0 |
+| Description coverage | 87.3% | 75.1% |
+
+Coverage dropped because these were replaced with `None` rather than context-aware alternatives. This is intentional — no description is better than a misleading one.
+
+---
+
 ## 2026-04-10 — Phase 7: Fix metadata artifact leakage in descriptions
 
 ### Problem

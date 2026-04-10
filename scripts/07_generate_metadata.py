@@ -546,6 +546,17 @@ def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=N
         print(f"  Post-processing: removed {count} descriptions with leaked metadata artifacts")
         result_df.loc[artifact_mask, 'suggested_description'] = None
     
+    # Post-processing: nullify boilerplate/templated descriptions (used 3+ times)
+    desc_col = 'suggested_description'
+    valid_mask = result_df[desc_col].notna() & (result_df[desc_col] != 'nan')
+    desc_counts = result_df.loc[valid_mask, desc_col].value_counts()
+    boilerplate_descs = set(desc_counts[desc_counts >= 3].index)
+    if boilerplate_descs:
+        boilerplate_mask = result_df[desc_col].isin(boilerplate_descs)
+        count = boilerplate_mask.sum()
+        print(f"  Post-processing: removed {count} boilerplate descriptions (used 3+ times, {len(boilerplate_descs)} unique)")
+        result_df.loc[boilerplate_mask, desc_col] = None
+    
     return result_df
 
 

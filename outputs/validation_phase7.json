@@ -1,7 +1,7 @@
 {
   "phase_name": "Generate Metadata",
   "phase_number": 7,
-  "timestamp": "2026-04-10T11:11:06.710879",
+  "timestamp": "2026-04-10T11:44:18.453630",
   "passed": true,
   "has_warnings": true,
   "has_errors": false,
@@ -25,10 +25,10 @@
     {
       "check_name": "Description coverage",
       "passed": false,
-      "message": "Value 87.34 fails threshold >= 95.0",
+      "message": "Value 75.13 fails threshold >= 95.0",
       "severity": "warning",
       "details": {
-        "actual_value": 87.33616037008481,
+        "actual_value": 75.1349267540478,
         "threshold_value": 95.0,
         "comparison": ">="
       }
