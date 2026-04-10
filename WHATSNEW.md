@@ -1,5 +1,39 @@
 # What's New
 
+## 2026-04-10 — New tool: Interactive knowledge graph visualization
+
+### What's new
+
+Added `tools/visualize_graph.py` — generates self-contained interactive HTML files from `outputs/knowledge_graph.json` using [pyvis](https://pyvis.readthedocs.io/). Open the output files in any browser; no server required.
+
+### Three views
+
+| View | Command | Output |
+|---|---|---|
+| **Concept map** | `--view concept-map` | 150 concept nodes connected by section co-occurrence. Node size = section count. Shows the full concept landscape at a glance. |
+| **Hub documents** | `--view hub-docs` | Top N documents ranked by in-degree on the explicit xref graph. Node size = in-links. Shows navigation centers. |
+| **Concept neighbourhood** | `--view neighbourhood --concept "..."` | All nodes reachable from a named concept within N hops. Good for deep-diving a single concept area. |
+
+### Usage
+
+```bash
+# Concept co-occurrence map (all 150 concepts)
+python tools/visualize_graph.py --view concept-map
+
+# Top 50 hub documents and their explicit cross-links
+python tools/visualize_graph.py --view hub-docs --top 50
+
+# 2-hop neighbourhood of Security System
+python tools/visualize_graph.py --view neighbourhood --concept "Security System" --hops 2
+
+# 1-hop neighbourhood of a different concept
+python tools/visualize_graph.py --view neighbourhood --concept "Object Space" --hops 1
+```
+
+All outputs are saved to `outputs/graph_*.html`.
+
+---
+
 ## 2026-04-10 — Phase 1: Resolve [!include] directives
 
 ### Problem
