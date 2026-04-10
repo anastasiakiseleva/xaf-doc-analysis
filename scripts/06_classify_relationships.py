@@ -446,19 +446,29 @@ def classify_with_llm(prompt: str, api_config: Dict[str, Any]) -> Optional[Dict]
         
         client = anthropic.Anthropic(api_key=api_key)
         
-        try:
-            response = client.messages.create(
-                model=api_config.get("model", "claude-3-haiku-20240307"),
-                max_tokens=1024,
-                messages=[{"role": "user", "content": prompt + "\n\nReturn ONLY valid JSON with no additional text."}]
-            )
-            
-            # Extract text from response and use robust JSON parser
-            response_text = response.content[0].text
-            return robust_json_parse(response_text)
-        except Exception as e:
-            print(f"  Error calling Anthropic: {e}")
-            return None
+        max_retries = 5
+        for attempt in range(max_retries):
+            try:
+                response = client.messages.create(
+                    model=api_config.get("model", "claude-3-haiku-20240307"),
+                    max_tokens=1024,
+                    messages=[{"role": "user", "content": prompt + "\n\nReturn ONLY valid JSON with no additional text."}]
+                )
+                
+                # Extract text from response and use robust JSON parser
+                response_text = response.content[0].text
+                return robust_json_parse(response_text)
+            except anthropic.APIStatusError as e:
+                if e.status_code in (429, 529, 503) and attempt < max_retries - 1:
+                    wait = 2 ** attempt * 2  # 2, 4, 8, 16, 32 seconds
+                    print(f"  Retryable error {e.status_code}, waiting {wait}s (attempt {attempt+1}/{max_retries})")
+                    time.sleep(wait)
+                    continue
+                print(f"  Error calling Anthropic: {e}")
+                return None
+            except Exception as e:
+                print(f"  Error calling Anthropic: {e}")
+                return None
     
     else:
         raise ValueError(f"Unknown provider: {provider}")
