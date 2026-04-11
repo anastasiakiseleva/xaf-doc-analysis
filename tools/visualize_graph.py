@@ -219,8 +219,16 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
 #graph-container { flex: 1; position: relative; }
 #network { width: 100%; height: 100%; }
 
+/* ── Spotlight bar ── */
+#spotlight-bar { display: none; position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: #1f6feb; color: #fff; font-size: 13px; padding: 6px 16px; border-radius: 20px; cursor: pointer; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,0.5); white-space: nowrap; }
+#spotlight-bar:hover { background: #388bfd; }
+
 /* ── Sidebar ── */
-#sidebar { width: 300px; min-width: 260px; background: #161b22; border-left: 1px solid #30363d; display: flex; flex-direction: column; overflow: hidden; }
+#resize-handle { width: 5px; background: #21262d; cursor: col-resize; flex-shrink: 0; transition: background 0.15s; }
+#resize-handle:hover, #resize-handle.dragging { background: #58a6ff; }
+#sidebar { width: 300px; min-width: 180px; max-width: 600px; background: #161b22; border-left: 1px solid #30363d; display: flex; flex-direction: column; overflow: hidden; transition: width 0.0s; }
+#sidebar.collapsed { width: 0 !important; min-width: 0; overflow: hidden; border: none; }
+#resize-handle.collapsed { background: #30363d; }
 #sidebar-toggle { cursor: pointer; font-size: 12px; padding: 4px 8px; color: #58a6ff; background: none; border: none; }
 #details-panel { flex: 1; overflow-y: auto; padding: 12px; border-bottom: 1px solid #30363d; }
 #details-panel h3 { font-size: 13px; color: #58a6ff; margin-bottom: 8px; }
@@ -249,6 +257,18 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
 .legend-item { display: inline-flex; align-items: center; gap: 4px; margin-right: 10px; }
 .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
+/* ── Doc search autocomplete ── */
+#doc-search-wrap { position: relative; }
+#doc-search { padding: 5px 10px; border-radius: 6px; border: 1px solid #30363d; background: #0d1117; color: #e6edf3; font-size: 13px; width: 220px; }
+#doc-search:focus { outline: none; border-color: #f1a14e; }
+#doc-search-results { display: none; position: absolute; top: calc(100% + 4px); left: 0; width: 380px; max-height: 260px; overflow-y: auto; background: #161b22; border: 1px solid #30363d; border-radius: 6px; z-index: 999; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+#doc-search-results.open { display: block; }
+.doc-result { padding: 6px 10px; font-size: 12px; cursor: pointer; border-bottom: 1px solid #21262d; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.doc-result:hover { background: #21262d; }
+.doc-result .doc-type { font-size: 10px; color: #484f58; margin-left: 6px; }
+.doc-result.is-api { color: #e76f6f; }
+.doc-result.is-article { color: #f1a14e; }
+
 /* ── Tooltip override ── */
 .vis-tooltip { background: #161b22 !important; border: 1px solid #30363d !important; color: #e6edf3 !important; font-size: 12px !important; border-radius: 6px !important; padding: 6px 10px !important; }
 </style>
@@ -258,6 +278,10 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
 <div id="toolbar">
   <h1>XAF Knowledge Graph</h1>
   <input id="search" type="text" placeholder="&#128269; Search nodes..." oninput="onSearch(this.value)" />
+  <div id="doc-search-wrap">
+    <input id="doc-search" type="text" placeholder="&#128196; Find document..." oninput="onDocSearch(this.value)" onblur="closeDocResults()" autocomplete="off" />
+    <div id="doc-search-results"></div>
+  </div>
   <button class="mode-btn active" id="btn-concept" onclick="setMode('concept')">Concept Map</button>
   <button class="mode-btn" id="btn-rel" onclick="setMode('relationship')">Relationship Map</button>
   <div id="cooc-ctrl">
@@ -268,8 +292,11 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
 </div>
 
 <div id="main">
-  <div id="graph-container"><div id="network"></div></div>
-
+  <div id="graph-container">
+    <div id="network"></div>
+    <div id="spotlight-bar" onclick="clearSpotlight()">&#10005; Clear highlight &mdash; click to restore graph</div>
+  </div>
+  <div id="resize-handle" title="Drag to resize · Double-click to collapse"></div>
   <div id="sidebar">
     <div id="details-panel">
       <div id="placeholder">&#128270; Click a node to explore its connections</div>
@@ -311,6 +338,7 @@ let selectedNodeId = null;
 let expandedConcept = null;
 let minCooc = 3;
 const hiddenEdgeTypes = new Set();
+let _spotlitNodeId = null;  // currently spotlit doc node
 
 // ── vis-network options ───────────────────────────────────────────────────
 const NET_OPTIONS = {
@@ -334,6 +362,7 @@ function initNetwork(nodes, edges) {
   network = new vis.Network(container, { nodes: nodesDS, edges: edgesDS }, NET_OPTIONS);
   network.on('click', onNodeClick);
   network.on('stabilizationIterationsDone', () => { network.setOptions({ physics: { enabled: false } }); });
+  enableRightClickPan(container);
 }
 
 // ── Mode: Concept Map ─────────────────────────────────────────────────────
@@ -377,15 +406,24 @@ function expandNeighbourhood(conceptId) {
   expandedConcept = conceptId;
 
   const docs = DATA.conceptTopDocs[conceptId] || [];
-  const docNodes = docs.map(d => ({
-    id: d.id,
-    label: d.title.length > 35 ? d.title.slice(0, 33) + '…' : d.title,
-    title: d.title,
-    size: 10,
-    color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
-    group: d.isApi ? 'api' : 'article',
-    _expanded: true,
-  }));
+
+  // Position new nodes in a circle around the concept node's current canvas position.
+  const centre = network.getPosition(conceptId);
+  const radius = 180 + docs.length * 8;
+  const docNodes = docs.map((d, i) => {
+    const angle = (2 * Math.PI * i) / docs.length;
+    return {
+      id: d.id,
+      label: d.title.length > 35 ? d.title.slice(0, 33) + '…' : d.title,
+      title: d.title,
+      size: 10,
+      color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+      group: d.isApi ? 'api' : 'article',
+      _expanded: true,
+      x: centre.x + radius * Math.cos(angle),
+      y: centre.y + radius * Math.sin(angle),
+    };
+  });
 
   // Edges: concept → doc (belongs-to)
   const docEdges = docs.map(d => ({
@@ -572,7 +610,7 @@ function resetDetails() {
     '<div id="placeholder">&#128270; Click a node to explore its connections</div>';
 }
 
-// ── Search ────────────────────────────────────────────────────────────────
+// ── Node search (concept/doc labels in current view) ───────────────────────
 function onSearch(q) {
   q = q.trim().toLowerCase();
   const updates = nodesDS.get().map(n => {
@@ -584,6 +622,122 @@ function onSearch(q) {
     const first = nodesDS.get().find(n => (n.label || '').toLowerCase().includes(q));
     if (first) network.focus(first.id, { animation: true, scale: 0.8 });
   }
+}
+
+// ── Document title search ─────────────────────────────────────────────────
+let _docResultsTimeout = null;
+
+function onDocSearch(q) {
+  clearTimeout(_docResultsTimeout);
+  const box = document.getElementById('doc-search-results');
+  q = q.trim().toLowerCase();
+  if (q.length < 2) { box.classList.remove('open'); box.innerHTML = ''; return; }
+
+  const matches = Object.entries(DATA.docDetails)
+    .filter(([, d]) => (d.title || '').toLowerCase().includes(q))
+    .sort((a, b) => {
+      // Exact start-of-title matches first
+      const as = a[1].title.toLowerCase().startsWith(q) ? 0 : 1;
+      const bs = b[1].title.toLowerCase().startsWith(q) ? 0 : 1;
+      return as - bs || a[1].title.localeCompare(b[1].title);
+    })
+    .slice(0, 30);
+
+  if (!matches.length) { box.innerHTML = '<div class="doc-result" style="color:#484f58">No results</div>'; box.classList.add('open'); return; }
+
+  box.innerHTML = matches.map(([id, d]) =>
+    `<div class="doc-result ${d.isApi ? 'is-api' : 'is-article'}" onmousedown="selectDocResult('${CSS.escape(id)}')">
+      ${d.isApi ? '⚙' : '📄'} ${d.title}<span class="doc-type">${d.isApi ? 'API' : 'Article'}</span>
+    </div>`
+  ).join('');
+  box.classList.add('open');
+}
+
+function selectDocResult(docId) {
+  document.getElementById('doc-search').value = DATA.docDetails[docId]?.title || '';
+  document.getElementById('doc-search-results').classList.remove('open');
+
+  // Switch to relationship map so the doc node exists
+  if (currentMode !== 'relationship') setMode('relationship');
+
+  // Wait one tick for the mode switch to settle, then spotlight
+  setTimeout(() => {
+    spotlightDoc(docId);
+    showDocDetails(docId);
+  }, 50);
+}
+
+function spotlightDoc(docId) {
+  clearSpotlight(false); // clear previous without hiding bar yet
+  _spotlitNodeId = docId;
+
+  const target = nodesDS.get(docId);
+  if (!target) {
+    // Node not in current view — just show details
+    return;
+  }
+
+  // Dim all other nodes
+  const updates = nodesDS.get().map(n => {
+    if (n.id === docId) return null;
+    return { id: n.id, opacity: 0.08 };
+  }).filter(Boolean);
+  nodesDS.update(updates);
+
+  // Enlarge and highlight the target node
+  const d = DATA.docDetails[docId] || {};
+  nodesDS.update([{
+    id: docId,
+    size: 32,
+    borderWidth: 4,
+    color: {
+      background: d.isApi ? '#7a2020' : '#7a4200',
+      border: '#ffffff',
+      highlight: { background: d.isApi ? '#ff6b6b' : '#ffc27a', border: '#ffffff' },
+    },
+    font: { size: 16, color: '#ffffff', bold: true },
+    shadow: { enabled: true, color: '#ffffff', size: 20, x: 0, y: 0 },
+    opacity: 1,
+  }]);
+
+  network.selectNodes([docId]);
+  network.focus(docId, { animation: { duration: 600, easingFunction: 'easeInOutQuad' }, scale: 2.0 });
+
+  document.getElementById('spotlight-bar').style.display = 'block';
+}
+
+function clearSpotlight(showBar) {
+  if (!_spotlitNodeId) return;
+  const prevId = _spotlitNodeId;
+  _spotlitNodeId = null;
+
+  // Restore all node opacities
+  const updates = nodesDS.get().map(n => ({ id: n.id, opacity: 1 }));
+  nodesDS.update(updates);
+
+  // Restore the spotlit node's original appearance
+  const d = DATA.docDetails[prevId] || {};
+  nodesDS.update([{
+    id: prevId,
+    size: undefined,
+    borderWidth: 2,
+    color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+    font: { size: 13, color: '#c9d1d9', bold: false },
+    shadow: false,
+    opacity: 1,
+  }]);
+
+  if (showBar !== false) {
+    document.getElementById('spotlight-bar').style.display = 'none';
+    document.getElementById('doc-search').value = '';
+  }
+}
+
+function closeDocResults() {
+  // Short delay so onmousedown on a result fires before blur hides it
+  _docResultsTimeout = setTimeout(() => {
+    document.getElementById('doc-search-results').classList.remove('open');
+  }, 150);
 }
 
 // ── Filters ───────────────────────────────────────────────────────────────
@@ -664,6 +818,102 @@ function togglePhysics() {
 }
 
 function fitGraph() { network.fit({ animation: true }); }
+
+// ── Right-click pan ───────────────────────────────────────────────────────
+function enableRightClickPan(container) {
+  // Remove any listener attached by a previous network instance
+  if (container._rmRightPan) container._rmRightPan();
+
+  let dragging = false;
+  let lastX = 0, lastY = 0;
+
+  function onContextMenu(e) { e.preventDefault(); }
+  function onMouseDown(e) {
+    if (e.button !== 2) return;
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    container.style.cursor = 'grabbing';
+    e.preventDefault();
+  }
+  function onMouseMove(e) {
+    if (!dragging) return;
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    const scale = network.getScale();
+    const pos = network.getViewPosition();
+    network.moveTo({ position: { x: pos.x - dx / scale, y: pos.y - dy / scale }, scale });
+  }
+  function onMouseUp(e) {
+    if (e.button !== 2) return;
+    dragging = false;
+    container.style.cursor = '';
+  }
+
+  container.addEventListener('contextmenu', onContextMenu);
+  container.addEventListener('mousedown', onMouseDown);
+  window.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mouseup', onMouseUp);
+
+  // Cleanup hook for when network is re-initialised
+  container._rmRightPan = () => {
+    container.removeEventListener('contextmenu', onContextMenu);
+    container.removeEventListener('mousedown', onMouseDown);
+    window.removeEventListener('mousemove', onMouseMove);
+    window.removeEventListener('mouseup', onMouseUp);
+  };
+}
+
+// ── Sidebar resize ────────────────────────────────────────────────────────
+(function () {
+  const handle = document.getElementById('resize-handle');
+  const sidebar = document.getElementById('sidebar');
+  let dragging = false;
+  let lastWidth = 300;
+
+  handle.addEventListener('mousedown', e => {
+    dragging = true;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const mainRect = document.getElementById('main').getBoundingClientRect();
+    const newWidth = Math.max(180, Math.min(600, mainRect.right - e.clientX));
+    sidebar.style.width = newWidth + 'px';
+    sidebar.classList.remove('collapsed');
+    handle.classList.remove('collapsed');
+    lastWidth = newWidth;
+    if (network) network.redraw();
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+
+  // Double-click handle to collapse/expand
+  handle.addEventListener('dblclick', () => {
+    if (sidebar.classList.contains('collapsed')) {
+      sidebar.style.width = lastWidth + 'px';
+      sidebar.classList.remove('collapsed');
+      handle.classList.remove('collapsed');
+    } else {
+      lastWidth = sidebar.offsetWidth;
+      sidebar.classList.add('collapsed');
+      handle.classList.add('collapsed');
+    }
+    if (network) setTimeout(() => network.redraw(), 50);
+  });
+})();
 </script>
 </body>
 </html>
