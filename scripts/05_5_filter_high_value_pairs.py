@@ -92,6 +92,24 @@ def main():
     high_sim = high_sim[~sibling_mask].copy()
     print(f"  Removed {before_sib - len(high_sim):,} API-sibling pairs → {len(high_sim):,} remaining")
 
+    # Drop broad-intro section pairs: early sections (index ≤ 2) of conceptual
+    # articles with few concepts (≤ 5) paired with API pages.
+    # These are overview/hub article preambles that match API pages purely due
+    # to shared vocabulary, not specific content relevance.
+    # E.g. views::2 (5 generic concepts) → DataAccessMode1137762 (a specific API property).
+    print("\nFiltering out broad-intro section pairs (article→API)...")
+    high_sim['_src_sec_idx'] = high_sim['source_section'].str.extract(r'::(\d+)$').astype(float)
+    high_sim['_src_n_concepts'] = high_sim['source_concepts'].apply(lambda x: len(safe_list(x)))
+    broad_intro_mask = (
+        (~high_sim['source_is_api']) &
+        high_sim['target_is_api'] &
+        (high_sim['_src_sec_idx'] <= 2) &
+        (high_sim['_src_n_concepts'] <= 5)
+    )
+    before_intro = len(high_sim)
+    high_sim = high_sim[~broad_intro_mask].drop(columns=['_src_sec_idx', '_src_n_concepts']).copy()
+    print(f"  Removed {before_intro - len(high_sim):,} broad-intro pairs → {len(high_sim):,} remaining")
+
     # Calculate priority scores
     print("\nCalculating priority scores...")
 

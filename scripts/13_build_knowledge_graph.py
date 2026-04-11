@@ -171,12 +171,21 @@ def build_nodes(inputs: Dict[str, Any], include_section_nodes: bool) -> List[Dic
     nodes: List[Dict[str, Any]] = []
     seen: Set[str] = set()
 
+    # Language-tab headings that Phase 1 sometimes captures as document titles
+    # for API pages that only contain a code example. Match by prefix to catch
+    # variants like "C# (EF Core)", "C# (Integrated security)", etc.
+    _LANG_TAB_PREFIXES = ("C#", "VB.NET", "C++ / CLI", "F#", "JavaScript", "TypeScript")
+
     # Document nodes
     for _, row in topics.iterrows():
         doc_id = str(row.get("doc_id"))
         title = row.get("title")
         uid = row.get("uid")
         doc_type = row.get("doc_type")
+
+        # Fall back to path stem when the title is a language-tab heading
+        if not title or str(title).strip().startswith(_LANG_TAB_PREFIXES):
+            title = doc_id.rstrip("/").split("/")[-1]
 
         nid = node_id("doc", doc_id)
         if nid in seen:
