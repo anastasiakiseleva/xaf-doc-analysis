@@ -267,7 +267,11 @@ def clean_markdown_text(text):
     
     # Remove xref links but keep the text
     text = re.sub(r'<xref[^>]*>', '', text)
-    
+
+    # Remove empty-text markdown links (e.g. [](xref:...) or [](https://...)) before
+    # processing regular links — otherwise they leave dangling articles ("The is a...")
+    text = re.sub(r'\[\]\([^\)]+\)', '', text)
+
     # Remove markdown links but keep link text
     text = re.sub(r'\[([^\]]+)\]\([^\)]+\)', r'\1', text)
     
