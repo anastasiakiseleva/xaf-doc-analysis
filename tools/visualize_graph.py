@@ -965,6 +965,17 @@ def main() -> None:
 
     size_kb = out.stat().st_size // 1024
     print(f"\nSaved: {out}  ({size_kb} KB)")
+
+    # Auto-copy to docs/ for GitHub Pages deployment (only for the default output path)
+    if not args.output:
+        import shutil
+        docs_path = PROJECT_ROOT / "docs" / "knowledge_graph_explorer.html"
+        try:
+            shutil.copy2(out, docs_path)
+            print(f"Copied to {docs_path} (GitHub Pages)")
+        except Exception as e:
+            print(f"Warning: could not copy to docs/: {e}")
+
     print("Open this file in your browser to explore the graph.")
 
 

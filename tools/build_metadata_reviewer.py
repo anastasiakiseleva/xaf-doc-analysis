@@ -835,6 +835,16 @@ def main():
     OUT_PATH.write_text(html, encoding="utf-8")
     size_kb = OUT_PATH.stat().st_size // 1024
     print(f"✅ Written to {OUT_PATH}  ({size_kb} KB)")
+
+    # Auto-copy to docs/ for GitHub Pages deployment
+    docs_path = ROOT / "docs" / "metadata_reviewer.html"
+    try:
+        import shutil
+        shutil.copy2(OUT_PATH, docs_path)
+        print(f"   Copied to {docs_path} (GitHub Pages)")
+    except Exception as e:
+        print(f"   Warning: could not copy to docs/: {e}")
+
     print()
     print("Keyboard shortcuts inside the tool:")
     print("  a  → Approve    f → Flag    s → Skip")
