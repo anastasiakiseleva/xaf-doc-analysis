@@ -121,7 +121,13 @@ def main():
         action="store_true",
         help="Overwrite input file (use with caution)"
     )
-    
+    parser.add_argument(
+        "--min-confidence",
+        type=float,
+        default=0.70,
+        help="Drop pairs below this confidence threshold (default: 0.70)"
+    )
+
     args = parser.parse_args()
     
     print("=" * 70)
@@ -138,7 +144,23 @@ def main():
     print(f"  Bidirectional: {df['relationship_bidirectional'].sum()} ({100*df['relationship_bidirectional'].sum()/len(df):.1f}%)")
     print(f"  Relationship types: {df['relationship_type'].nunique()}")
     print(f"  Average confidence: {df['relationship_confidence'].mean():.3f}")
-    
+
+    # Drop low-confidence pairs
+    if args.min_confidence > 0:
+        before_conf = len(df)
+        low_conf = df[df['relationship_confidence'] < args.min_confidence]
+        if args.dry_run:
+            print(f"\n[DRY RUN] Confidence filter (>= {args.min_confidence}): would drop {len(low_conf):,} pairs")
+            print(f"  Breakdown of pairs that would be dropped:")
+            print(low_conf['relationship_type'].value_counts().to_string())
+        else:
+            df = df[df['relationship_confidence'] >= args.min_confidence].copy()
+            dropped = before_conf - len(df)
+            print(f"\nConfidence filter (>= {args.min_confidence}): dropped {dropped:,} pairs → {len(df):,} remaining")
+            if dropped > 0:
+                print(f"  Dropped by type:")
+                print(low_conf['relationship_type'].value_counts().to_string())
+
     # Apply corrections
     df_corrected = correct_bidirectional_marking(df, dry_run=args.dry_run)
     
