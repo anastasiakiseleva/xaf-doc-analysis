@@ -1,303 +1,724 @@
 """
 tools/visualize_graph.py
 
-Generate interactive HTML visualizations of the XAF knowledge graph using pyvis.
+Generate a rich self-contained interactive HTML visualisation of the XAF
+knowledge graph.  Opens in any browser — no server needed.
 
-Views:
-  concept-map     -- 150 concept nodes connected by shared section co-occurrence
-  neighborhood    -- All nodes within N hops of a given concept
-  hub-docs        -- Top hub documents and their explicit cross-links
+Modes (selectable in the browser):
+  Concept Map      — 146 concept nodes connected by section co-occurrence.
+                     Click a concept to expand its top documents.
+  Relationship Map — 1,940 document-to-document typed edges from Phase 6
+                     (uses / explains / requires / extends / contrasts_with /
+                      applies_to / related_to).  Toggle types on/off.
+
+Controls:
+  Search box       — highlight/filter nodes by name
+  Details sidebar  — click any node for full info
+  Edge-type filter — checkboxes per relationship type
+  Min links slider — co-occurrence threshold (Concept Map)
+  Fit / Physics    — standard vis-network controls
 
 Usage:
-  python tools/visualize_graph.py --view concept-map
-  python tools/visualize_graph.py --view neighborhood --concept "Security System" --hops 2
-  python tools/visualize_graph.py --view hub-docs --top 30
+  python tools/visualize_graph.py
+  python tools/visualize_graph.py --min-cooc 5 --output outputs/my_graph.html
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-import sys
 from collections import Counter, defaultdict
+from itertools import combinations
 from pathlib import Path
-
-import pandas as pd
-from pyvis.network import Network
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 KG_PATH = PROJECT_ROOT / "outputs" / "knowledge_graph.json"
 OUT_DIR = PROJECT_ROOT / "outputs"
 
-# ── Colour palette ──────────────────────────────────────────────────────────
-COLOURS = {
-    "concept": "#4e9af1",
-    "document": "#f1a14e",
-    "section": "#a4d65e",
-    "api": "#e76f6f",
-    "uid": "#b0b0b0",
-}
-EDGE_COLOURS = {
-    "links_to": "#999999",
-    "semantic_similar": "#aad4f5",
-    "tagged_with": "#c8e6c9",
-    "implements_concept": "#ffe082",
-    "rel:uses": "#ef9a9a",
-    "rel:explains": "#80cbc4",
-    "rel:requires": "#f48fb1",
-    "rel:extends": "#ce93d8",
-    "rel:related_to": "#cccccc",
-    "rel:contrasts_with": "#ff8a65",
-    "rel:applies_to": "#a5d6a7",
-    "contains": "#dddddd",
-}
+
+# ── vis-network embedding ────────────────────────────────────────────────────
+
+def _vis_js() -> str:
+    """Return an inline <script> tag with vis-network JS from the pyvis package."""
+    try:
+        import pyvis
+        for candidate in sorted(Path(pyvis.__file__).parent.glob("**/vis-network.min.js")):
+            return f"<script>\n{candidate.read_text(encoding='utf-8')}\n</script>"
+    except Exception:
+        pass
+    # Fallback to CDN
+    return '<script src="https://unpkg.com/vis-network@9.1.2/dist/vis-network.min.js"></script>'
 
 
-def load_kg() -> dict:
-    print(f"Loading {KG_PATH} …")
-    with open(KG_PATH, encoding="utf-8") as f:
-        return json.load(f)
+# ── Data preparation ─────────────────────────────────────────────────────────
+
+def _sec_to_doc(sec_id: str) -> str:
+    path = sec_id.removeprefix("sec:")
+    if "#" in path:
+        path = path.split("#")[0]
+    return f"doc:{path}"
 
 
-# ── View 1: Concept Map ──────────────────────────────────────────────────────
+def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
+    """Build all graph data needed by the browser app."""
 
-def build_concept_map(kg: dict, min_edge_weight: int = 3) -> Network:
-    """
-    150-node concept graph.
-    Edge weight = number of sections tagged with BOTH concepts (co-occurrence).
-    """
-    nodes = {n["id"]: n for n in kg["nodes"]}
-    concepts = [n for n in kg["nodes"] if n["type"] == "concept"]
+    nodes_by_id: dict[str, dict] = {n["id"]: n for n in kg["nodes"]}
 
-    # For each section, collect its tagged concepts
-    section_concepts: dict[str, list[str]] = defaultdict(list)
-    for e in kg["edges"]:
-        if e["type"] == "tagged_with":
-            sec = e["source"]
-            con = e["target"]
-            section_concepts[sec].append(con)
-
-    # Count concept-concept co-occurrences
-    cooc: Counter = Counter()
-    for sec, cons in section_concepts.items():
-        clist = sorted(set(cons))
-        for i in range(len(clist)):
-            for j in range(i + 1, len(clist)):
-                cooc[(clist[i], clist[j])] += 1
-
-    # Concept → section count
+    # ── Concept section/doc counts ────────────────────────────────────────
     concept_sections: Counter = Counter()
+    concept_doc_set: dict[str, set] = defaultdict(set)
+    section_concepts: dict[str, set] = defaultdict(set)
+
     for e in kg["edges"]:
         if e["type"] == "tagged_with":
-            concept_sections[e["target"]] += 1
+            sec_id = e["source"]
+            con_id = e["target"]
+            concept_sections[con_id] += 1
+            concept_doc_set[con_id].add(_sec_to_doc(sec_id))
+            section_concepts[sec_id].add(con_id)
 
-    net = Network(height="900px", width="100%", bgcolor="#1a1a2e", font_color="white",
-                  heading="XAF Knowledge Graph — Concept Map")
-    net.barnes_hut(spring_length=150, spring_strength=0.02, damping=0.9)
+    # ── Concept co-occurrence ─────────────────────────────────────────────
+    cooc: Counter = Counter()
+    for concepts in section_concepts.values():
+        for a, b in combinations(sorted(concepts), 2):
+            cooc[(a, b)] += 1
 
-    for c in concepts:
-        cid = c["id"]
-        label = c.get("name") or cid.replace("con:", "")
-        size = max(10, min(60, concept_sections[cid] / 8))
-        net.add_node(cid, label=label, title=f"{label}\n{concept_sections[cid]} sections",
-                     color=COLOURS["concept"], size=size, font={"size": 14})
+    concept_ids = {n["id"] for n in kg["nodes"] if n["type"] == "concept"}
 
-    added = 0
-    for (a, b), w in cooc.items():
-        if w >= min_edge_weight and a in {c["id"] for c in concepts} and b in {c["id"] for c in concepts}:
-            net.add_edge(a, b, value=w, title=f"{w} shared sections",
-                         color={"color": "#4e9af1", "opacity": 0.4})
-            added += 1
+    cooc_edges = [
+        {"from": a, "to": b, "weight": w}
+        for (a, b), w in cooc.items()
+        if w >= min_cooc and a in concept_ids and b in concept_ids
+    ]
 
-    print(f"  Concept map: {len(concepts)} nodes, {added} edges (min co-occurrence={min_edge_weight})")
-    return net
+    # ── Concept nodes ─────────────────────────────────────────────────────
+    concept_nodes = [
+        {
+            "id": n["id"],
+            "name": n.get("name", n["id"].replace("concept:", "")),
+            "sectionCount": concept_sections[n["id"]],
+            "docCount": len(concept_doc_set[n["id"]]),
+        }
+        for n in kg["nodes"]
+        if n["type"] == "concept"
+    ]
 
-
-# ── View 2: Concept Neighbourhood ───────────────────────────────────────────
-
-def build_neighbourhood(kg: dict, concept_name: str, hops: int = 2,
-                        max_nodes: int = 300) -> Network:
-    """
-    All nodes reachable from a concept within N hops.
-    Strips out semantic_similar edges to keep it readable (use hops=1 for those).
-    """
-    nodes_by_id = {n["id"]: n for n in kg["nodes"]}
-
-    # Find seed concept node
-    seed = None
+    # ── Document details ──────────────────────────────────────────────────
+    doc_details: dict[str, dict] = {}
     for n in kg["nodes"]:
-        if n["type"] == "concept" and concept_name.lower() in (n.get("name") or "").lower():
-            seed = n["id"]
-            break
-    if seed is None:
-        print(f"ERROR: concept '{concept_name}' not found. Available concept names:")
-        for n in kg["nodes"]:
-            if n["type"] == "concept":
-                print(f"  {n.get('name')}")
-        sys.exit(1)
+        if n["type"] in ("document", "api"):
+            doc_details[n["id"]] = {
+                "title": (n.get("title") or n["id"].split("/")[-1])[:80],
+                "path": n.get("doc_id", ""),
+                "isApi": n["type"] == "api",
+            }
 
-    # BFS
-    SKIP_TYPES = {"semantic_similar", "contains"}
-    adj: dict[str, list[tuple[str, str]]] = defaultdict(list)
+    # ── Top docs per concept (for sidebar) ───────────────────────────────
+    concept_top_docs: dict[str, list] = {}
+    for con_id, doc_set in concept_doc_set.items():
+        top = sorted(
+            doc_set,
+            key=lambda d: doc_details.get(d, {}).get("title", ""),
+        )[:20]
+        concept_top_docs[con_id] = [
+            {
+                "id": d,
+                "title": doc_details.get(d, {}).get("title", d.split("/")[-1]),
+                "isApi": doc_details.get(d, {}).get("isApi", False),
+            }
+            for d in top
+        ]
+
+    # ── Classified relationship edges (doc-level) ─────────────────────────
+    rel_edges: list[dict] = []
+    seen_rel: set[tuple] = set()
+
     for e in kg["edges"]:
-        if e["type"] not in SKIP_TYPES:
-            adj[e["source"]].append((e["target"], e["type"]))
-            adj[e["target"]].append((e["source"], e["type"]))
+        if not e["type"].startswith("rel:"):
+            continue
+        src_doc = _sec_to_doc(e["source"])
+        tgt_doc = _sec_to_doc(e["target"])
+        if src_doc == tgt_doc:
+            continue
+        rel_type = e["type"].replace("rel:", "")
+        key = (src_doc, tgt_doc, rel_type)
+        if key in seen_rel:
+            continue
+        seen_rel.add(key)
+        rel_edges.append(
+            {
+                "from": src_doc,
+                "to": tgt_doc,
+                "type": rel_type,
+                "confidence": round(float(e.get("confidence", 0)), 2),
+                "bidirectional": bool(e.get("bidirectional", False)),
+                "sourceTitle": doc_details.get(src_doc, {}).get("title", src_doc.split("/")[-1]),
+                "targetTitle": doc_details.get(tgt_doc, {}).get("title", tgt_doc.split("/")[-1]),
+            }
+        )
 
-    visited: set[str] = set()
-    frontier = {seed}
-    edge_set: list[dict] = []
-    for _ in range(hops):
-        next_frontier: set[str] = set()
-        for node in frontier:
-            if node in visited:
-                continue
-            visited.add(node)
-            for neighbour, etype in adj[node]:
-                if neighbour not in visited:
-                    next_frontier.add(neighbour)
-                    edge_set.append({"source": node, "target": neighbour, "type": etype})
-        frontier = next_frontier
-        if len(visited) + len(frontier) > max_nodes:
-            break
-    visited |= frontier
+    # ── Per-concept connected concepts (for sidebar) ──────────────────────
+    concept_neighbours: dict[str, list[str]] = defaultdict(list)
+    for (a, b), w in cooc.items():
+        if w >= min_cooc and a in concept_ids and b in concept_ids:
+            concept_neighbours[a].append(b)
+            concept_neighbours[b].append(a)
 
-    print(f"  Neighbourhood of '{concept_name}' ({hops} hops): {len(visited)} nodes")
-
-    net = Network(height="900px", width="100%", bgcolor="#1a1a2e", font_color="white",
-                  heading=f"XAF Graph — '{concept_name}' neighbourhood ({hops} hops)")
-    net.barnes_hut()
-
-    for nid in visited:
-        n = nodes_by_id.get(nid, {})
-        ntype = n.get("type", "uid")
-        label = n.get("title") or n.get("name") or nid.split(":")[-1][:40]
-        size = 30 if nid == seed else (20 if ntype == "concept" else 10)
-        border = "#ffffff" if nid == seed else COLOURS.get(ntype, "#aaaaaa")
-        net.add_node(nid, label=label, title=f"[{ntype}] {label}",
-                     color={"background": COLOURS.get(ntype, "#aaaaaa"), "border": border},
-                     size=size)
-
-    seen_edges: set[tuple] = set()
-    for e in edge_set:
-        key = (min(e["source"], e["target"]), max(e["source"], e["target"]), e["type"])
-        if key not in seen_edges and e["source"] in visited and e["target"] in visited:
-            seen_edges.add(key)
-            net.add_edge(e["source"], e["target"],
-                         title=e["type"],
-                         color={"color": EDGE_COLOURS.get(e["type"], "#888888"), "opacity": 0.7})
-
-    return net
+    return {
+        "conceptNodes": concept_nodes,
+        "coocEdges": cooc_edges,
+        "relEdges": rel_edges,
+        "docDetails": doc_details,
+        "conceptTopDocs": concept_top_docs,
+        "conceptNeighbours": {k: v for k, v in concept_neighbours.items()},
+        "meta": {
+            "conceptCount": len(concept_nodes),
+            "coocEdgeCount": len(cooc_edges),
+            "relEdgeCount": len(rel_edges),
+            "minCooc": min_cooc,
+        },
+    }
 
 
-# ── View 3: Hub Documents ────────────────────────────────────────────────────
+# ── HTML generation ──────────────────────────────────────────────────────────
 
-def build_hub_docs(kg: dict, top_n: int = 40) -> Network:
-    """
-    Top hub documents by in-degree on the explicit links_to graph.
-    """
-    in_degree: Counter = Counter()
-    out_degree: Counter = Counter()
-    edge_list = []
-    for e in kg["edges"]:
-        if e["type"] == "links_to":
-            in_degree[e["target"]] += 1
-            out_degree[e["source"]] += 1
-            edge_list.append(e)
+_REL_COLOURS = {
+    "uses":          "#ef9a9a",
+    "explains":      "#80cbc4",
+    "requires":      "#f48fb1",
+    "extends":       "#ce93d8",
+    "related_to":    "#bdbdbd",
+    "contrasts_with":"#ffb74d",
+    "applies_to":    "#a5d6a7",
+}
 
-    top_ids = {nid for nid, _ in in_degree.most_common(top_n)}
-    top_ids |= {nid for nid, _ in out_degree.most_common(top_n // 2)}
+_HTML_TEMPLATE = r"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>XAF Knowledge Graph Explorer</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
 
-    nodes_by_id = {n["id"]: n for n in kg["nodes"]}
+/* ── Toolbar ── */
+#toolbar { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: #161b22; border-bottom: 1px solid #30363d; flex-shrink: 0; flex-wrap: wrap; }
+#toolbar h1 { font-size: 14px; font-weight: 600; color: #58a6ff; white-space: nowrap; margin-right: 4px; }
+#search { padding: 5px 10px; border-radius: 6px; border: 1px solid #30363d; background: #0d1117; color: #e6edf3; font-size: 13px; width: 200px; }
+#search:focus { outline: none; border-color: #58a6ff; }
+.mode-btn { padding: 4px 12px; border-radius: 6px; border: 1px solid #30363d; background: #21262d; color: #8b949e; font-size: 13px; cursor: pointer; }
+.mode-btn.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+.ctrl-btn { padding: 4px 10px; border-radius: 6px; border: 1px solid #30363d; background: #21262d; color: #8b949e; font-size: 13px; cursor: pointer; }
+.ctrl-btn:hover { border-color: #58a6ff; color: #58a6ff; }
+label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+#min-cooc-val { color: #e6edf3; font-weight: 600; min-width: 20px; }
+#cooc-ctrl { display: flex; align-items: center; gap: 6px; }
 
-    net = Network(height="900px", width="100%", bgcolor="#1a1a2e", font_color="white",
-                  heading=f"XAF Knowledge Graph — Top {top_n} Hub Documents")
-    net.barnes_hut(spring_length=200)
+/* ── Main layout ── */
+#main { display: flex; flex: 1; overflow: hidden; }
+#graph-container { flex: 1; position: relative; }
+#network { width: 100%; height: 100%; }
 
-    for nid in top_ids:
-        n = nodes_by_id.get(nid, {})
-        label = (n.get("title") or nid.split("/")[-1])[:35]
-        deg = in_degree[nid]
-        size = max(10, min(60, deg * 2))
-        net.add_node(nid, label=label,
-                     title=f"{label}\nin-links: {in_degree[nid]}, out-links: {out_degree[nid]}",
-                     color=COLOURS.get(n.get("type", "document"), "#f1a14e"), size=size)
+/* ── Sidebar ── */
+#sidebar { width: 300px; min-width: 260px; background: #161b22; border-left: 1px solid #30363d; display: flex; flex-direction: column; overflow: hidden; }
+#sidebar-toggle { cursor: pointer; font-size: 12px; padding: 4px 8px; color: #58a6ff; background: none; border: none; }
+#details-panel { flex: 1; overflow-y: auto; padding: 12px; border-bottom: 1px solid #30363d; }
+#details-panel h3 { font-size: 13px; color: #58a6ff; margin-bottom: 8px; }
+#details-panel .stat { font-size: 12px; color: #8b949e; margin-bottom: 4px; }
+#details-panel .stat span { color: #e6edf3; font-weight: 600; }
+#details-panel .doc-list { list-style: none; margin-top: 8px; }
+#details-panel .doc-list li { font-size: 11px; padding: 3px 4px; border-radius: 4px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#details-panel .doc-list li:hover { background: #21262d; }
+#details-panel .doc-list li.api { color: #e76f6f; }
+#details-panel .doc-list li.article { color: #f1a14e; }
+.expand-btn { margin-top: 8px; padding: 4px 10px; border-radius: 6px; border: 1px solid #30363d; background: #21262d; color: #8b949e; font-size: 12px; cursor: pointer; width: 100%; }
+.expand-btn:hover { border-color: #58a6ff; color: #58a6ff; }
+#placeholder { color: #484f58; font-size: 13px; text-align: center; padding: 40px 12px; line-height: 1.6; }
 
-    added = 0
-    for e in edge_list:
-        if e["source"] in top_ids and e["target"] in top_ids:
-            net.add_edge(e["source"], e["target"],
-                         color={"color": "#999999", "opacity": 0.5},
-                         arrows="to")
-            added += 1
+/* ── Filters ── */
+#filters-panel { padding: 12px; overflow-y: auto; flex-shrink: 0; }
+#filters-panel h4 { font-size: 12px; color: #8b949e; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 8px; }
+.filter-row { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; cursor: pointer; user-select: none; }
+.filter-row input[type=checkbox] { accent-color: #58a6ff; }
+.filter-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.filter-label { font-size: 12px; color: #c9d1d9; }
+.filter-count { font-size: 11px; color: #484f58; margin-left: auto; }
 
-    print(f"  Hub docs: {len(top_ids)} nodes, {added} edges")
-    return net
+/* ── Legend ── */
+#legend { padding: 8px 12px; border-top: 1px solid #30363d; font-size: 11px; color: #484f58; }
+.legend-item { display: inline-flex; align-items: center; gap: 4px; margin-right: 10px; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+/* ── Tooltip override ── */
+.vis-tooltip { background: #161b22 !important; border: 1px solid #30363d !important; color: #e6edf3 !important; font-size: 12px !important; border-radius: 6px !important; padding: 6px 10px !important; }
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <h1>XAF Knowledge Graph</h1>
+  <input id="search" type="text" placeholder="&#128269; Search nodes..." oninput="onSearch(this.value)" />
+  <button class="mode-btn active" id="btn-concept" onclick="setMode('concept')">Concept Map</button>
+  <button class="mode-btn" id="btn-rel" onclick="setMode('relationship')">Relationship Map</button>
+  <div id="cooc-ctrl">
+    <label class="slider-label">Min links: <input type="range" id="min-cooc" min="1" max="30" value="3" oninput="onMinCooc(this.value)" /> <span id="min-cooc-val">3</span></label>
+  </div>
+  <button class="ctrl-btn" onclick="fitGraph()">&#8862; Fit</button>
+  <button class="ctrl-btn" id="phys-btn" onclick="togglePhysics()">&#9881; Physics: Off</button>
+</div>
+
+<div id="main">
+  <div id="graph-container"><div id="network"></div></div>
+
+  <div id="sidebar">
+    <div id="details-panel">
+      <div id="placeholder">&#128270; Click a node to explore its connections</div>
+    </div>
+    <div id="filters-panel">
+      <h4>Edge filters</h4>
+      <div id="filter-list"></div>
+    </div>
+    <div id="legend">
+      <span class="legend-item"><span class="legend-dot" style="background:#4e9af1"></span>Concept</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#f1a14e"></span>Article</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#e76f6f"></span>API</span>
+    </div>
+  </div>
+</div>
+
+VIS_SCRIPT_PLACEHOLDER
+
+<script>
+// ── Data injected by Python ───────────────────────────────────────────────
+const DATA = DATA_JSON_PLACEHOLDER;
+
+// ── Colour constants ──────────────────────────────────────────────────────
+const NODE_COLOURS = {
+  concept: { background: '#1e3a5f', border: '#4e9af1', highlight: { background: '#2a5298', border: '#7ec8e3' } },
+  article: { background: '#4a2800', border: '#f1a14e', highlight: { background: '#7a4200', border: '#ffc085' } },
+  api:     { background: '#4a1515', border: '#e76f6f', highlight: { background: '#7a2020', border: '#ff9a9a' } },
+};
+const REL_COLOURS = DATA_REL_COLOURS_PLACEHOLDER;
+const COOC_COLOUR = { color: '#4e9af1', opacity: 0.25 };
+
+// ── State ─────────────────────────────────────────────────────────────────
+let network = null;
+let nodesDS = null;
+let edgesDS = null;
+let currentMode = 'concept';
+let physicsEnabled = false;
+let selectedNodeId = null;
+let expandedConcept = null;
+let minCooc = 3;
+const hiddenEdgeTypes = new Set();
+
+// ── vis-network options ───────────────────────────────────────────────────
+const NET_OPTIONS = {
+  nodes: { shape: 'dot', borderWidth: 2, shadow: false, font: { color: '#c9d1d9', size: 13 } },
+  edges: { smooth: { type: 'continuous', roundness: 0.2 }, shadow: false, selectionWidth: 2 },
+  physics: { enabled: false, forceAtlas2Based: { gravitationalConstant: -60, springLength: 120, avoidOverlap: 0.5 }, solver: 'forceAtlas2Based', stabilization: { iterations: 500, fit: true } },
+  interaction: { hover: true, tooltipDelay: 150, hideEdgesOnDrag: true, multiselect: false },
+};
+
+// ── Initialisation ────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildFilterUI();
+  initConceptMap();
+});
+
+function initNetwork(nodes, edges) {
+  nodesDS = new vis.DataSet(nodes);
+  edgesDS = new vis.DataSet(edges);
+  const container = document.getElementById('network');
+  if (network) network.destroy();
+  network = new vis.Network(container, { nodes: nodesDS, edges: edgesDS }, NET_OPTIONS);
+  network.on('click', onNodeClick);
+  network.on('stabilizationIterationsDone', () => { network.setOptions({ physics: { enabled: false } }); });
+}
+
+// ── Mode: Concept Map ─────────────────────────────────────────────────────
+function initConceptMap() {
+  const nodes = DATA.conceptNodes.map(c => ({
+    id: c.id,
+    label: c.name,
+    title: `${c.name}\n${c.sectionCount} sections · ${c.docCount} docs`,
+    size: Math.max(8, Math.min(50, c.sectionCount / 6)),
+    color: NODE_COLOURS.concept,
+    group: 'concept',
+    _data: c,
+  }));
+
+  const edges = coocEdgesFiltered();
+  initNetwork(nodes, edges);
+  expandedConcept = null;
+  resetDetails();
+}
+
+function coocEdgesFiltered() {
+  return DATA.coocEdges
+    .filter(e => e.weight >= minCooc && !hiddenEdgeTypes.has('cooccurrence'))
+    .map(e => ({
+      id: `cooc_${e.from}_${e.to}`,
+      from: e.from, to: e.to,
+      value: e.weight,
+      title: `${e.weight} shared sections`,
+      color: { color: '#4e9af1', opacity: Math.min(0.8, 0.15 + e.weight / 60) },
+      _edgeType: 'cooccurrence',
+    }));
+}
+
+// Add/remove document neighbourhood for a clicked concept
+function expandNeighbourhood(conceptId) {
+  if (expandedConcept === conceptId) {
+    collapseNeighbourhood();
+    return;
+  }
+  collapseNeighbourhood();
+  expandedConcept = conceptId;
+
+  const docs = DATA.conceptTopDocs[conceptId] || [];
+  const docNodes = docs.map(d => ({
+    id: d.id,
+    label: d.title.length > 35 ? d.title.slice(0, 33) + '…' : d.title,
+    title: d.title,
+    size: 10,
+    color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+    group: d.isApi ? 'api' : 'article',
+    _expanded: true,
+  }));
+
+  // Edges: concept → doc (belongs-to)
+  const docEdges = docs.map(d => ({
+    id: `exp_${d.id}`,
+    from: conceptId, to: d.id,
+    color: { color: '#4e9af1', opacity: 0.3 },
+    dashes: true,
+    _expanded: true,
+    _edgeType: 'cooccurrence',
+  }));
+
+  // Rel edges between these docs
+  const docIds = new Set(docs.map(d => d.id));
+  const relEdges = DATA.relEdges
+    .filter(e => docIds.has(e.from) && docIds.has(e.to) && !hiddenEdgeTypes.has(e.type))
+    .map(e => ({
+      id: `rel_exp_${e.from}_${e.to}_${e.type}`,
+      from: e.from, to: e.to,
+      title: `${e.type} (conf ${e.confidence})`,
+      color: { color: REL_COLOURS[e.type] || '#888', opacity: 0.8 },
+      arrows: e.bidirectional ? { to: true, from: true } : { to: true },
+      width: 2,
+      _expanded: true,
+      _edgeType: e.type,
+    }));
+
+  nodesDS.add(docNodes);
+  edgesDS.add([...docEdges, ...relEdges]);
+  document.getElementById('exp-btn') && (document.getElementById('exp-btn').textContent = '▲ Collapse neighbourhood');
+}
+
+function collapseNeighbourhood() {
+  if (!expandedConcept) return;
+  const toRemoveNodes = nodesDS.get({ filter: n => n._expanded }).map(n => n.id);
+  const toRemoveEdges = edgesDS.get({ filter: e => e._expanded }).map(e => e.id);
+  nodesDS.remove(toRemoveNodes);
+  edgesDS.remove(toRemoveEdges);
+  expandedConcept = null;
+}
+
+// ── Mode: Relationship Map ────────────────────────────────────────────────
+function initRelationshipMap() {
+  // Collect unique doc IDs from active rel edges
+  const activeTypes = new Set(
+    Object.keys(REL_COLOURS).filter(t => !hiddenEdgeTypes.has(t))
+  );
+  const activeEdges = DATA.relEdges.filter(e => activeTypes.has(e.type));
+  const docIds = new Set(activeEdges.flatMap(e => [e.from, e.to]));
+
+  // Count relationships per node for sizing
+  const relCount = {};
+  for (const e of activeEdges) {
+    relCount[e.from] = (relCount[e.from] || 0) + 1;
+    relCount[e.to] = (relCount[e.to] || 0) + 1;
+  }
+
+  const nodes = [...docIds].map(id => {
+    const d = DATA.docDetails[id] || {};
+    const cnt = relCount[id] || 1;
+    return {
+      id,
+      label: (d.title || id.split('/').pop()).slice(0, 30),
+      title: d.title || id,
+      size: Math.max(6, Math.min(40, cnt * 3)),
+      color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+      group: d.isApi ? 'api' : 'article',
+      _data: d,
+    };
+  });
+
+  const edges = activeEdges.map((e, i) => ({
+    id: `rel_${i}`,
+    from: e.from, to: e.to,
+    title: `${e.type} (conf ${e.confidence})`,
+    color: { color: REL_COLOURS[e.type] || '#888', opacity: 0.7 },
+    arrows: e.bidirectional ? { to: true, from: true } : { to: true },
+    width: 1 + e.confidence,
+    _edgeType: e.type,
+  }));
+
+  initNetwork(nodes, edges);
+  resetDetails();
+}
+
+// ── Mode switching ────────────────────────────────────────────────────────
+function setMode(mode) {
+  currentMode = mode;
+  document.getElementById('btn-concept').classList.toggle('active', mode === 'concept');
+  document.getElementById('btn-rel').classList.toggle('active', mode === 'relationship');
+  document.getElementById('cooc-ctrl').style.display = mode === 'concept' ? '' : 'none';
+  selectedNodeId = null;
+  if (mode === 'concept') initConceptMap();
+  else initRelationshipMap();
+  rebuildFilterUI();
+}
+
+// ── Node click handler ────────────────────────────────────────────────────
+function onNodeClick(params) {
+  if (!params.nodes.length) { resetDetails(); selectedNodeId = null; return; }
+  const id = params.nodes[0];
+  selectedNodeId = id;
+
+  if (id.startsWith('concept:')) {
+    showConceptDetails(id);
+  } else {
+    showDocDetails(id);
+  }
+}
+
+function showConceptDetails(id) {
+  const node = nodesDS.get(id);
+  const d = node ? node._data : null;
+  const nei = (DATA.conceptNeighbours[id] || []).map(cid => {
+    const cn = nodesDS.get(cid);
+    return cn ? cn.label : cid.replace('concept:', '');
+  }).sort().slice(0, 12);
+
+  const docs = (DATA.conceptTopDocs[id] || []).slice(0, 15);
+  const docsHtml = docs.map(doc =>
+    `<li class="${doc.isApi ? 'api' : 'article'}" title="${doc.title}" onclick="highlightRelDoc('${doc.id}')">${doc.isApi ? '⚙ ' : '📄 '}${doc.title}</li>`
+  ).join('');
+
+  const neiHtml = nei.map(n =>
+    `<span style="display:inline-block;background:#21262d;border-radius:4px;padding:2px 6px;margin:2px;font-size:11px;cursor:pointer" onclick="selectConcept('concept:${n}')">${n}</span>`
+  ).join('');
+
+  document.getElementById('details-panel').innerHTML = `
+    <h3>${d ? d.name : id.replace('concept:', '')}</h3>
+    ${d ? `<div class="stat">Sections: <span>${d.sectionCount}</span></div>
+    <div class="stat">Documents: <span>${d.docCount}</span></div>` : ''}
+    ${nei.length ? `<div class="stat" style="margin-top:10px">Connected concepts:</div><div style="margin-top:4px">${neiHtml}</div>` : ''}
+    ${docs.length ? `<div class="stat" style="margin-top:10px">Top documents:</div><ul class="doc-list">${docsHtml}</ul>` : ''}
+    <button class="expand-btn" id="exp-btn" onclick="expandNeighbourhood('${id}')">▼ Expand document neighbourhood</button>
+  `;
+}
+
+function showDocDetails(id) {
+  const d = DATA.docDetails[id] || {};
+  const title = d.title || id.split('/').pop();
+  const path = (d.path || id.replace('doc:', '')).replace('data/raw_md/', '');
+
+  // Find rel edges involving this doc
+  const outgoing = DATA.relEdges.filter(e => e.from === id).slice(0, 15);
+  const incoming = DATA.relEdges.filter(e => e.to === id).slice(0, 10);
+
+  const relHtml = (edges, dir) => edges.map(e => {
+    const other = dir === 'out' ? e.targetTitle : e.sourceTitle;
+    const otherId = dir === 'out' ? e.to : e.from;
+    const arrow = dir === 'out' ? '→' : '←';
+    const col = REL_COLOURS[e.type] || '#888';
+    return `<li style="font-size:11px;padding:3px 0;border-bottom:1px solid #21262d" onclick="highlightRelDoc('${otherId}')">
+      <span style="color:${col};font-weight:600">${e.type}</span> ${arrow}
+      <span style="color:#c9d1d9">${other}</span>
+      <span style="color:#484f58"> (${e.confidence})</span>
+    </li>`;
+  }).join('');
+
+  document.getElementById('details-panel').innerHTML = `
+    <h3>${title}</h3>
+    <div class="stat">Type: <span>${d.isApi ? 'API Reference' : 'Article'}</span></div>
+    <div class="stat" style="word-break:break-all;font-size:11px;color:#484f58;margin-top:4px">${path}</div>
+    ${outgoing.length ? `<div class="stat" style="margin-top:10px">Outgoing relationships:</div><ul class="doc-list" style="list-style:none">${relHtml(outgoing, 'out')}</ul>` : ''}
+    ${incoming.length ? `<div class="stat" style="margin-top:8px">Incoming relationships:</div><ul class="doc-list" style="list-style:none">${relHtml(incoming, 'in')}</ul>` : ''}
+    ${!outgoing.length && !incoming.length ? '<div class="stat" style="margin-top:10px;color:#484f58">No classified relationships for this document.</div>' : ''}
+  `;
+}
+
+function highlightRelDoc(id) {
+  if (nodesDS.get(id)) {
+    network.selectNodes([id]);
+    network.focus(id, { animation: true, scale: 0.8 });
+    showDocDetails(id);
+  }
+}
+
+function selectConcept(id) {
+  network.selectNodes([id]);
+  network.focus(id, { animation: true, scale: 0.8 });
+  showConceptDetails(id);
+}
+
+function resetDetails() {
+  document.getElementById('details-panel').innerHTML =
+    '<div id="placeholder">&#128270; Click a node to explore its connections</div>';
+}
+
+// ── Search ────────────────────────────────────────────────────────────────
+function onSearch(q) {
+  q = q.trim().toLowerCase();
+  const updates = nodesDS.get().map(n => {
+    const match = !q || (n.label || '').toLowerCase().includes(q) || (n.title || '').toLowerCase().includes(q);
+    return { id: n.id, opacity: match ? 1 : 0.12 };
+  });
+  nodesDS.update(updates);
+  if (q) {
+    const first = nodesDS.get().find(n => (n.label || '').toLowerCase().includes(q));
+    if (first) network.focus(first.id, { animation: true, scale: 0.8 });
+  }
+}
+
+// ── Filters ───────────────────────────────────────────────────────────────
+function buildFilterUI() {
+  rebuildFilterUI();
+}
+
+function rebuildFilterUI() {
+  const container = document.getElementById('filter-list');
+  container.innerHTML = '';
+
+  const types = currentMode === 'concept'
+    ? [{ type: 'cooccurrence', label: 'Co-occurrence', colour: '#4e9af1', count: DATA.coocEdges.filter(e => e.weight >= minCooc).length }]
+    : [];
+
+  for (const [type, colour] of Object.entries(REL_COLOURS)) {
+    const count = DATA.relEdges.filter(e => e.type === type).length;
+    if (count > 0) types.push({ type, label: type.replace('_', ' '), colour, count });
+  }
+
+  for (const { type, label, colour, count } of types) {
+    const checked = !hiddenEdgeTypes.has(type);
+    const row = document.createElement('label');
+    row.className = 'filter-row';
+    row.innerHTML = `
+      <input type="checkbox" ${checked ? 'checked' : ''} data-etype="${type}" onchange="onFilterChange(this)">
+      <span class="filter-dot" style="background:${colour}"></span>
+      <span class="filter-label">${label}</span>
+      <span class="filter-count">${count}</span>
+    `;
+    container.appendChild(row);
+  }
+}
+
+function onFilterChange(el) {
+  const type = el.dataset.etype;
+  if (el.checked) hiddenEdgeTypes.delete(type);
+  else hiddenEdgeTypes.add(type);
+  refreshEdges();
+}
+
+function refreshEdges() {
+  if (currentMode === 'concept') {
+    // Remove all cooc edges and re-add filtered ones
+    const allEdges = edgesDS.get();
+    const coocIds = allEdges.filter(e => e._edgeType === 'cooccurrence' && !e._expanded).map(e => e.id);
+    edgesDS.remove(coocIds);
+    edgesDS.add(coocEdgesFiltered());
+    // Also toggle visibility of rel edges in expanded neighbourhood
+    const expEdges = edgesDS.get({ filter: e => e._expanded && e._edgeType !== 'cooccurrence' });
+    edgesDS.update(expEdges.map(e => ({
+      id: e.id,
+      hidden: hiddenEdgeTypes.has(e._edgeType),
+    })));
+  } else {
+    // Relationship map: rebuild entirely
+    initRelationshipMap();
+  }
+}
+
+// ── Min co-occurrence slider ──────────────────────────────────────────────
+function onMinCooc(val) {
+  minCooc = parseInt(val, 10);
+  document.getElementById('min-cooc-val').textContent = val;
+  if (currentMode === 'concept') {
+    const coocIds = edgesDS.get().filter(e => e._edgeType === 'cooccurrence' && !e._expanded).map(e => e.id);
+    edgesDS.remove(coocIds);
+    edgesDS.add(coocEdgesFiltered());
+    rebuildFilterUI();
+  }
+}
+
+// ── Physics ───────────────────────────────────────────────────────────────
+function togglePhysics() {
+  physicsEnabled = !physicsEnabled;
+  network.setOptions({ physics: { enabled: physicsEnabled } });
+  document.getElementById('phys-btn').textContent = `⚙ Physics: ${physicsEnabled ? 'On' : 'Off'}`;
+}
+
+function fitGraph() { network.fit({ animation: true }); }
+</script>
+</body>
+</html>
+"""
+
+
+def build_html(data: dict, vis_js: str) -> str:
+    rel_colours_js = json.dumps(_REL_COLOURS)
+    data_js = json.dumps(data, ensure_ascii=False)
+
+    html = _HTML_TEMPLATE
+    html = html.replace("VIS_SCRIPT_PLACEHOLDER", vis_js)
+    html = html.replace("DATA_JSON_PLACEHOLDER", data_js)
+    html = html.replace("DATA_REL_COLOURS_PLACEHOLDER", rel_colours_js)
+    return html
 
 
 # ── CLI ──────────────────────────────────────────────────────────────────────
 
-def main():
-    parser = argparse.ArgumentParser(description="Visualize XAF knowledge graph as interactive HTML")
-    parser.add_argument("--view", choices=["concept-map", "neighbourhood", "hub-docs"],
-                        default="concept-map", help="Which view to render")
-    parser.add_argument("--concept", default="Security System",
-                        help="Concept name for neighbourhood view")
-    parser.add_argument("--hops", type=int, default=2,
-                        help="Number of hops for neighbourhood view")
-    parser.add_argument("--top", type=int, default=40,
-                        help="Top N hubs for hub-docs view")
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Generate rich interactive HTML knowledge graph visualisation"
+    )
     parser.add_argument("--min-cooc", type=int, default=3,
-                        help="Min co-occurrence for concept-map edges")
+                        help="Minimum co-occurrence weight to show an edge in concept map (default: 3)")
     parser.add_argument("--output", default=None,
-                        help="Output HTML file path (default: outputs/<view>.html)")
+                        help="Output HTML path (default: outputs/knowledge_graph_explorer.html)")
     args = parser.parse_args()
 
-    kg = load_kg()
+    print(f"Loading {KG_PATH} …")
+    with open(KG_PATH, encoding="utf-8") as f:
+        kg = json.load(f)
 
-    if args.view == "concept-map":
-        net = build_concept_map(kg, min_edge_weight=args.min_cooc)
-        out = args.output or str(OUT_DIR / "graph_concept_map.html")
-    elif args.view == "neighbourhood":
-        net = build_neighbourhood(kg, args.concept, args.hops)
-        slug = args.concept.lower().replace(" ", "_")
-        out = args.output or str(OUT_DIR / f"graph_neighbourhood_{slug}.html")
-    else:
-        net = build_hub_docs(kg, args.top)
-        out = args.output or str(OUT_DIR / "graph_hub_docs.html")
+    print("Preparing graph data …")
+    data = prepare_data(kg, min_cooc=args.min_cooc)
+    m = data["meta"]
+    print(f"  {m['conceptCount']} concepts, {m['coocEdgeCount']} co-occurrence edges "
+          f"(min {m['minCooc']}), {m['relEdgeCount']} relationship edges")
 
-    net.set_options("""
-    {
-      "interaction": {
-        "hover": true,
-        "tooltipDelay": 100,
-        "navigationButtons": true,
-        "keyboard": { "enabled": true }
-      },
-      "physics": {
-        "stabilization": { "iterations": 200, "fit": true }
-      }
-    }
-    """)
+    print("Loading vis-network …")
+    vis_js = _vis_js()
 
-    net.save_graph(out)
+    print("Generating HTML …")
+    html = build_html(data, vis_js)
 
-    # Inject JS to freeze the graph once stabilization finishes.
-    # Use binary mode so we don't care about the platform encoding pyvis used.
-    raw = Path(out).read_bytes()
-    freeze_js = (
-        b"<script>\n"
-        b"  network.once('stabilizationIterationsDone', function() {\n"
-        b"    network.setOptions({ physics: { enabled: false } });\n"
-        b"  });\n"
-        b"</script>\n"
-    )
-    raw = raw.replace(b"</body>", freeze_js + b"</body>")
-    Path(out).write_bytes(raw)
+    out = Path(args.output) if args.output else OUT_DIR / "knowledge_graph_explorer.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html, encoding="utf-8")
 
-    print(f"\nSaved: {out}")
+    size_kb = out.stat().st_size // 1024
+    print(f"\nSaved: {out}  ({size_kb} KB)")
     print("Open this file in your browser to explore the graph.")
 
 
 if __name__ == "__main__":
     main()
+
+
