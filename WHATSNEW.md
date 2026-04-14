@@ -1,5 +1,23 @@
 # What's New
 
+## 2026-04-14 — Phase 5.5: Explicit-link bypass for noise-concept filter
+
+### Problem fixed
+
+The `shared_substantive()` noise filter in `scripts/05_5_filter_high_value_pairs.py` dropped doc pairs whose only shared concepts were all in the noise set (Blazor, WinForms, Windows, etc.). This correctly suppressed weak platform-only matches, but had an unintended side-effect: pairs with a confirmed hyperlink in the source docs were also dropped when their concept tags happened to be disjoint.
+
+**Example:** "Filter Data at Grid Control Level" explicitly links to `xref:113564` ("Criteria Properties") in its Filter Builder section. Both articles scored 0.740 cosine similarity at the section level — above the 0.70 threshold — but shared zero concept tags. The noise filter eliminated them before the LLM classifier could assign a typed relationship (`uses`, `explains`, etc.).
+
+### Fix
+
+`scripts/05_5_filter_high_value_pairs.py` now loads `outputs/explicit_graph.parquet` at startup and builds an `explicit_pairs` set of all `(source_doc, target_doc)` pairs with a confirmed hyperlink. The `keep_pair()` function short-circuits the noise filter for any pair in that set: an explicit link is ground truth that a relationship exists and deserves a typed label.
+
+Pairs with no explicit link continue to be filtered by `shared_substantive()` as before.
+
+**Impact on the 2026-04-14 run:** 1,811 previously-dropped explicit-link pairs were rescued; the high-value output grew to 3,527 pairs.
+
+---
+
 ## 2026-04-11 — New visualizer: Knowledge Graph Explorer
 
 Replaced the three separate pyvis HTML files with a single self-contained interactive app (`tools/visualize_graph.py` → `outputs/knowledge_graph_explorer.html`). Opens in any browser; no server or Python runtime required at view time.
