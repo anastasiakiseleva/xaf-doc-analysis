@@ -16,6 +16,11 @@ MIN_SIMILARITY = 0.70  # High-confidence pairs only
 MAX_PAIRS = 5000  # Target output size
 CROSS_CORPUS_BOOST = 1.5  # Boost score for conceptual ↔ API links
 
+# Path to the explicit link graph produced by Phase 2.
+# Pairs whose (source_doc, target_doc) appear here bypass the noise-concept
+# filter — an explicit hyperlink is ground truth that a relationship exists.
+F_EXPLICIT = OUTPUT_DIR / "explicit_graph.parquet"
+
 # Concepts that are too generic to produce distinguishable relationships.
 # Pairs whose only shared concepts are from this set are filtered out.
 NOISE_CONCEPTS = frozenset([
@@ -41,6 +46,18 @@ def main():
     print("High-Value Semantic Pairs Filter")
     print("="*70)
 
+    # Load explicit cross-links (Phase 2 output) to build a bypass set.
+    # Any (source_doc, target_doc) pair that already has a confirmed hyperlink
+    # will skip the substantive-concept noise filter below.
+    explicit_pairs: set[frozenset] = set()
+    if F_EXPLICIT.exists():
+        eg = pd.read_parquet(F_EXPLICIT)
+        for _, row in eg.iterrows():
+            explicit_pairs.add(frozenset([str(row['source_doc']), str(row['target_doc'])]))
+        print(f"\nLoaded {len(explicit_pairs):,} explicit doc-pairs from {F_EXPLICIT.name}")
+    else:
+        print(f"\n[WARN] {F_EXPLICIT} not found — explicit-link bypass disabled")
+
     # Load semantic pairs
     pairs_path = OUTPUT_DIR / "semantic_pairs.parquet"
     print(f"\nLoading semantic pairs from {pairs_path}...")
@@ -65,16 +82,27 @@ def main():
     # Drop pairs where the shared (overlapping) concepts are all noise.
     # Pairs whose only common ground is e.g. "Blazor" and "WinForms" produce
     # near-identical prompts and mostly classify as related_to at unnecessary cost.
-    print("\nFiltering out noise-only shared-concept pairs...")
+    # Exception: pairs that already appear as an explicit hyperlink in the docs
+    # are kept regardless — the link itself is ground truth that a relationship
+    # exists and deserves a typed label from the classifier.
+    print("\nFiltering out noise-only shared-concept pairs (with explicit-link bypass)...")
     def shared_substantive(row):
         src = set(safe_list(row['source_concepts']))
         tgt = set(safe_list(row['target_concepts']))
         shared = src & tgt
         return any(c not in NOISE_CONCEPTS for c in shared)
+    def keep_pair(row):
+        if frozenset([str(row['source_doc']), str(row['target_doc'])]) in explicit_pairs:
+            return True  # explicit hyperlink — bypass noise filter
+        return shared_substantive(row)
+    keep_mask = high_sim.apply(keep_pair, axis=1)
     substantive_mask = high_sim.apply(shared_substantive, axis=1)
+    bypassed = keep_mask.sum() - substantive_mask.sum()
     before_noise = len(high_sim)
-    high_sim = high_sim[substantive_mask].copy()
+    high_sim = high_sim[keep_mask].copy()
     print(f"  Removed {before_noise - len(high_sim):,} noise-shared pairs → {len(high_sim):,} remaining")
+    if bypassed > 0:
+        print(f"  (Kept {bypassed:,} explicit-link pairs that would otherwise have been dropped)")
 
     # Drop API-to-API sibling pairs that share a common parent path segment.
     # E.g. DxDashboardModel/ChildContent → DxDashboardModel/ComponentInstance
