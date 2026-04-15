@@ -25,7 +25,7 @@
           ],
           "keywords": [
             "Swagger"
-        ]
+          ]
         },
         "api_surface": {
           "primary_types": [
@@ -57,7 +57,7 @@
             "database-provider",
             "change-tracking",
             "migrations"
-        ]
+          ]
         },
         "api_surface": {
           "primary_types": [
@@ -72,6 +72,15 @@
             "UseSqlServer",
             "UseNpgsql",
             "UseMySql"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.data.orm.xpo",
+            "xaf.data.updates.database-update",
+            "xaf.data.database.database-connection",
+            "xaf.migration.migration.migration"
           ]
         }
       },
@@ -91,7 +100,7 @@
             "session-management",
             "data-layer",
             "connection-pooling"
-        ]
+          ]
         },
         "api_surface": {
           "primary_types": [
@@ -107,6 +116,13 @@
             "XPDictionary",
             "DataStoreProvider",
             "ConnectionPoolString"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.data.orm.entity-framework-core",
+            "xaf.data.database.database-connection"
           ]
         }
       },
@@ -136,8 +152,16 @@
           ]
         },
         "tags": [
-          "in-memory"          
-        ]
+          "in-memory"
+        ],
+        "relations": {
+          "is_a": [
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.object-space.object-space"
+          ]
+        }
       },
       {
         "id": "xaf.data.business-model.business-object",
@@ -167,8 +191,19 @@
           ],
           "related_types": []
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.data.business-model.validation",
+            "xaf.data.object-space.business-logic",
+            "xaf.data.concurrency.optimistic-locking",
+            "xaf.data.business-model.clone-object",
+            "xaf.data.business-model.state-machine",
+            "xaf.data.business-model.tree-node-interface",
+            "xaf.ui.editors.property-editors"
+          ]
+        }
       },
       {
         "id": "xaf.data.object-space.business-logic",
@@ -218,6 +253,12 @@
             "IObjectSpace.CommitChanges",
             "IObjectSpace.GetObjectsQuery"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.criteria.criteria",
+            "xaf.data.business-model.business-object"
+          ]
         }
       },
       {
@@ -232,7 +273,7 @@
             "Auth",
             "roles",
             "permissions",
-            "access rights",          
+            "access rights",
             "XAF Security",
             "Application Security",
             "Data Access Security",
@@ -277,8 +318,12 @@
             "SecurityStrategy.RoleType"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.architecture.multi-tenancy.multi-tenancy"
+          ]
+        }
       },
       {
         "id": "xaf.security.authentication.authentication",
@@ -366,6 +411,14 @@
           "platforms": [
             "blazor"
           ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.security.core.middle-tier"
+          ]
         }
       },
       {
@@ -415,6 +468,11 @@
             "ObjectPermissionObject",
             "IdentityRole",
             "RBAC"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.security.core.security-system"
           ]
         }
       },
@@ -469,6 +527,13 @@
             "UpdateNode",
             "AddNode"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views",
+            "xaf.ui.theming.conditional-appearance",
+            "xaf.ui.controllers.controllers-and-actions"
+          ]
         }
       },
       {
@@ -518,8 +583,18 @@
             "ListEditor"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.data.criteria.criteria",
+            "xaf.architecture.application-model.application-model",
+            "xaf.ui.controllers.controllers-and-actions",
+            "xaf.ui.navigation.navigation",
+            "xaf.ui.views.reports",
+            "xaf.ui.views.scheduler",
+            "xaf.ui.views.dashboards"
+          ]
+        }
       },
       {
         "id": "xaf.ui.editors.property-editors",
@@ -562,8 +637,7 @@
             "blazor"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "api_surface": {
           "related_types": [
             "ViewItem",
@@ -581,6 +655,14 @@
             "View.CustomizeViewItemControl",
             "ReadValue",
             "WriteValue"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object",
+            "xaf.data.business-model.validation",
+            "xaf.data.properties.file-attachments",
+            "xaf.ui.editors.office-module"
           ]
         }
       },
@@ -600,7 +682,7 @@
             "nested List View",
             "master-detail List View"
           ]
-      },
+        },
         "api_surface": {
           "related_types": [
             "ListEditor",
@@ -626,6 +708,11 @@
             "ListView.Editor",
             "CollectionSourceBase",
             "PropertyCollectionSource"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.list-view"
           ]
         }
       },
@@ -683,6 +770,12 @@
             "RecordsNavigationController",
             "ShowNavigationItemController"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views",
+            "xaf.architecture.application-model.application-model"
+          ]
         }
       },
       {
@@ -709,8 +802,7 @@
             "Frame.Application"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.windows-frames.windows",
@@ -742,8 +834,7 @@
             "Window.Context"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.templates.application-templates",
@@ -800,8 +891,12 @@
             "DetailRibbonFormV2"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.ui.theming.theming"
+          ]
+        }
       },
       {
         "id": "xaf.ui.layout.layout",
@@ -841,7 +936,7 @@
         },
         "relations": {
           "part_of": [
-            "Views"
+            "xaf.ui.views.views"
           ]
         }
       },
@@ -878,6 +973,15 @@
           "platforms": [
             "blazor"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.applicationbuilder",
+            "xaf.architecture.dependency-injection.dependency-injection",
+            "xaf.architecture.modules.modules",
+            "xaf.quality.testing.testing",
+            "xaf.ops.deployment.deployment"
+          ]
         }
       },
       {
@@ -910,7 +1014,14 @@
         },
         "tags": [
           "extensibility"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.applicationbuilder",
+            "xaf.architecture.dependency-injection.dependency-injection",
+            "xaf.architecture.core.xaf-application"
+          ]
+        }
       },
       {
         "id": "xaf.architecture.application-model.model-nodes",
@@ -937,7 +1048,7 @@
         },
         "relations": {
           "part_of": [
-            "Application Model"
+            "xaf.architecture.application-model.application-model"
           ]
         },
         "tags": [
@@ -961,11 +1072,10 @@
         },
         "relations": {
           "part_of": [
-            "Application Model"
+            "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.architecture.application-model.model-differences",
@@ -998,11 +1108,10 @@
         },
         "relations": {
           "part_of": [
-            "Application Model"
+            "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.architecture.application-model.model-extension",
@@ -1026,11 +1135,10 @@
         },
         "relations": {
           "part_of": [
-            "Application Model"
+            "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.architecture.application-model.model-cache",
@@ -1059,11 +1167,10 @@
         },
         "relations": {
           "part_of": [
-            "Application Model"
+            "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.architecture.core.applicationbuilder",
@@ -1094,8 +1201,13 @@
             "blazor"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application",
+            "xaf.architecture.modules.modules"
+          ]
+        }
       },
       {
         "id": "xaf.architecture.dependency-injection.dependency-injection",
@@ -1122,6 +1234,12 @@
             "FillServices",
             "DI"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application",
+            "xaf.architecture.modules.modules"
+          ]
         }
       },
       {
@@ -1147,6 +1265,14 @@
             "MiddleTierServerApplication",
             "MiddleTierClientApplication",
             "UseMiddleTier"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.security.authentication.authentication"
           ]
         }
       },
@@ -1241,8 +1367,17 @@
             "CRUD"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object",
+            "xaf.data.orm.entity-framework-core",
+            "xaf.data.orm.xpo",
+            "xaf.data.business-model.non-persistent-object",
+            "xaf.data.updates.database-update",
+            "xaf.quality.performance.performance-optimization"
+          ]
+        }
       },
       {
         "id": "xaf.data.object-space.object-space-provider",
@@ -1264,8 +1399,7 @@
             "NonPersistentObjectSpaceProvider"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.data.database.database-connection",
@@ -1296,8 +1430,13 @@
             "App.config"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.entity-framework-core",
+            "xaf.data.orm.xpo"
+          ]
+        }
       },
       {
         "id": "xaf.data.relationships.object-relationships",
@@ -1329,11 +1468,14 @@
         },
         "relations": {
           "part_of": [
-            "Business Objects"
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.properties.reference-property",
+            "xaf.data.properties.collection-property"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.data.business-model.business-object-lifecycle",
@@ -1366,7 +1508,7 @@
         },
         "relations": {
           "part_of": [
-            "Business Objects"
+            "xaf.data.business-model.business-object"
           ]
         },
         "tags": [
@@ -1397,8 +1539,15 @@
             "AllowUnlink"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "part_of": [
+            "xaf.data.properties.property-metadata"
+          ],
+          "related_to": [
+            "xaf.data.relationships.object-relationships"
+          ]
+        }
       },
       {
         "id": "xaf.data.properties.reference-property",
@@ -1425,8 +1574,15 @@
             "Aggregated"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "part_of": [
+            "xaf.data.properties.property-metadata"
+          ],
+          "related_to": [
+            "xaf.data.relationships.object-relationships"
+          ]
+        }
       },
       {
         "id": "xaf.data.properties.calculated-property",
@@ -1449,8 +1605,12 @@
             "CalculatedPersistentAliasAttribute"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "part_of": [
+            "xaf.data.properties.property-metadata"
+          ]
+        }
       },
       {
         "id": "xaf.data.properties.property-metadata",
@@ -1479,8 +1639,7 @@
             "CalculatedPersistentAliasHelper"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.data.criteria.criteria",
@@ -1516,7 +1675,13 @@
         "tags": [
           "query",
           "filtering"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.business-logic",
+            "xaf.ui.views.views"
+          ]
+        }
       },
       {
         "id": "xaf.data.criteria.built-in-criteria-operators",
@@ -1553,7 +1718,7 @@
         },
         "relations": {
           "part_of": [
-            "Criteria"
+            "xaf.data.criteria.criteria"
           ]
         },
         "tags": [
@@ -1593,7 +1758,7 @@
         },
         "relations": {
           "part_of": [
-            "Criteria"
+            "xaf.data.criteria.criteria"
           ]
         },
         "tags": [
@@ -1626,6 +1791,11 @@
             "AutoCommitAdditionalObjectSpaces",
             "AutoRefreshAdditionalObjectSpaces",
             "AutoDisposeAdditionalObjectSpaces"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.multi-tenancy.multi-tenancy"
           ]
         }
       },
@@ -1661,8 +1831,7 @@
             "Session.ExecuteSproc"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.data.properties.auto-increment-fields",
@@ -1690,6 +1859,11 @@
           ],
           "related_types": [
             "Session.Reload"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.properties.property-metadata"
           ]
         }
       },
@@ -1721,6 +1895,14 @@
             "ConcurrencyToken",
             "DbUpdateConcurrencyException",
             "TrackPropertiesModifications"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.data.object-space.business-logic"
+          ],
+          "related_to": [
+            "xaf.data.business-model.business-object"
           ]
         }
       },
@@ -1756,7 +1938,12 @@
         },
         "tags": [
           "hierarchy"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object"
+          ]
+        }
       },
       {
         "id": "xaf.data.updates.database-update",
@@ -1785,7 +1972,13 @@
         },
         "tags": [
           "lifecycle"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.entity-framework-core",
+            "xaf.data.object-space.object-space"
+          ]
+        }
       },
       {
         "id": "xaf.ui.views.view-types",
@@ -1824,11 +2017,10 @@
         },
         "relations": {
           "part_of": [
-            "Views"
+            "xaf.ui.views.views"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.list-view",
@@ -1867,12 +2059,15 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Types"
+          "is_a": [
+            "xaf.ui.views.view-types"
+          ],
+          "related_to": [
+            "xaf.ui.list-editors.list-editors",
+            "xaf.quality.performance.performance-optimization"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.list-view-data-access-modes",
@@ -1912,7 +2107,7 @@
         },
         "relations": {
           "part_of": [
-            "List View"
+            "xaf.ui.views.list-view"
           ]
         }
       },
@@ -1952,12 +2147,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Types"
+          "is_a": [
+            "xaf.ui.views.view-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.dashboard-view",
@@ -1991,8 +2185,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Types"
+          "is_a": [
+            "xaf.ui.views.view-types"
           ]
         },
         "tags": [
@@ -2030,12 +2224,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Types"
+          "is_a": [
+            "xaf.ui.views.view-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.view-items",
@@ -2080,11 +2273,10 @@
         },
         "relations": {
           "part_of": [
-            "Views"
+            "xaf.ui.views.views"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.static-view-items",
@@ -2119,12 +2311,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Items"
+          "is_a": [
+            "xaf.ui.views.view-items"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.dashboard-view-items",
@@ -2155,12 +2346,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Items"
+          "is_a": [
+            "xaf.ui.views.view-items"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.action-container-view-items",
@@ -2196,12 +2386,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "View Items"
+          "is_a": [
+            "xaf.ui.views.view-items"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.view-customization",
@@ -2244,11 +2433,10 @@
         },
         "relations": {
           "part_of": [
-            "Views"
+            "xaf.ui.views.views"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.views.master-detail-views",
@@ -2282,7 +2470,7 @@
         },
         "relations": {
           "part_of": [
-            "View Customization"
+            "xaf.ui.views.view-customization"
           ]
         }
       },
@@ -2321,7 +2509,7 @@
         },
         "relations": {
           "part_of": [
-            "View Customization"
+            "xaf.ui.views.view-customization"
           ]
         }
       },
@@ -2356,11 +2544,10 @@
         },
         "relations": {
           "part_of": [
-            "View Customization"
+            "xaf.ui.views.view-customization"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "ownership": {
           "module": "view-variants"
         }
@@ -2401,7 +2588,7 @@
         },
         "relations": {
           "part_of": [
-            "Views"
+            "xaf.ui.views.views"
           ]
         },
         "tags": [
@@ -2438,7 +2625,7 @@
         },
         "relations": {
           "part_of": [
-            "Layout"
+            "xaf.ui.layout.layout"
           ]
         },
         "tags": [
@@ -2477,11 +2664,10 @@
         },
         "relations": {
           "part_of": [
-            "Layout"
+            "xaf.ui.layout.layout"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.windows-frames.popup-windows",
@@ -2523,8 +2709,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Windows"
+          "is_a": [
+            "xaf.ui.windows-frames.windows"
           ]
         },
         "tags": [
@@ -2576,7 +2762,12 @@
         "tags": [
           "editing",
           "grid"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.ui.list-editors.list-editors"
+          ]
+        }
       },
       {
         "id": "xaf.ui.list-editors.tree-list",
@@ -2614,10 +2805,14 @@
             "IModelColumnTreeListWin"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "ownership": {
           "module": "tree-list-editors"
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.list-editors.list-editors"
+          ]
         }
       },
       {
@@ -2665,11 +2860,10 @@
         },
         "relations": {
           "part_of": [
-            "Property Editors"
+            "xaf.ui.editors.property-editors"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.editors.standard-property-editors",
@@ -2723,12 +2917,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Property Editor Types"
+          "is_a": [
+            "xaf.ui.editors.property-editor-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.editors.lookup-property-editors",
@@ -2778,8 +2971,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Property Editor Types"
+          "is_a": [
+            "xaf.ui.editors.property-editor-types"
           ]
         },
         "tags": [
@@ -2828,8 +3021,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Property Editor Types"
+          "is_a": [
+            "xaf.ui.editors.property-editor-types"
           ]
         },
         "tags": [
@@ -2878,12 +3071,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Property Editor Types"
+          "is_a": [
+            "xaf.ui.editors.property-editor-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.editors.property-editor-customization",
@@ -2927,11 +3119,10 @@
         },
         "relations": {
           "part_of": [
-            "Property Editors"
+            "xaf.ui.editors.property-editors"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.editors.property-editor-features",
@@ -2972,7 +3163,7 @@
         },
         "relations": {
           "part_of": [
-            "Property Editors"
+            "xaf.ui.editors.property-editors"
           ]
         },
         "tags": [
@@ -3016,11 +3207,10 @@
         },
         "relations": {
           "part_of": [
-            "Controllers"
+            "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.controllers.view-controller",
@@ -3056,12 +3246,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Controller Types"
+          "is_a": [
+            "xaf.ui.controllers.controller-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.controllers.generic-view-controllers",
@@ -3097,8 +3286,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Controller Types"
+          "is_a": [
+            "xaf.ui.controllers.controller-types"
           ]
         },
         "tags": [
@@ -3137,8 +3326,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Controller Types"
+          "is_a": [
+            "xaf.ui.controllers.controller-types"
           ]
         },
         "tags": [
@@ -3177,12 +3366,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Controller Types"
+          "is_a": [
+            "xaf.ui.controllers.controller-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.controllers.dialog-controller",
@@ -3216,8 +3404,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Controller Types"
+          "is_a": [
+            "xaf.ui.controllers.controller-types"
           ]
         },
         "tags": [
@@ -3259,11 +3447,10 @@
         },
         "relations": {
           "part_of": [
-            "Controllers"
+            "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.controllers.target-properties",
@@ -3299,11 +3486,10 @@
         },
         "relations": {
           "part_of": [
-            "Controller Activation"
+            "xaf.ui.controllers.controller-activation"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.controllers.controller-lifecycle",
@@ -3342,7 +3528,7 @@
         },
         "relations": {
           "part_of": [
-            "Controllers"
+            "xaf.ui.controllers.controllers-and-actions"
           ]
         },
         "tags": [
@@ -3381,7 +3567,7 @@
         },
         "relations": {
           "part_of": [
-            "Controllers"
+            "xaf.ui.controllers.controllers-and-actions"
           ]
         },
         "tags": [
@@ -3412,8 +3598,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Built-in Controllers"
+          "is_a": [
+            "xaf.ui.controllers.built-in-controllers"
           ]
         },
         "tags": [
@@ -3443,8 +3629,8 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Built-in Controllers"
+          "is_a": [
+            "xaf.ui.controllers.built-in-controllers"
           ]
         },
         "tags": [
@@ -3490,11 +3676,10 @@
         },
         "relations": {
           "part_of": [
-            "Controllers"
+            "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.navigation.tabbed-mdi-interface",
@@ -3521,8 +3706,7 @@
             "winforms"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.ux.context-menus",
@@ -3540,8 +3724,7 @@
             "Shortcut Menu"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.ux.loading-indicators",
@@ -3618,10 +3801,14 @@
             "OpenXml"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "ownership": {
           "module": "office"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.list-editors.list-editors"
+          ]
         }
       },
       {
@@ -3645,7 +3832,12 @@
         },
         "tags": [
           "graphics"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.ui.theming.theming"
+          ]
+        }
       },
       {
         "id": "xaf.ui.layout.accordion-control",
@@ -3686,7 +3878,12 @@
         },
         "tags": [
           "styling"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.ui.templates.application-templates"
+          ]
+        }
       },
       {
         "id": "xaf.ui.navigation.navigation",
@@ -3710,6 +3907,11 @@
           "primary_types": [
             "ShowNavigationItemController"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -3727,8 +3929,7 @@
             "Command"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.action-types",
@@ -3761,11 +3962,10 @@
         },
         "relations": {
           "part_of": [
-            "Actions"
+            "xaf.ui.actions.actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.simple-action",
@@ -3800,12 +4000,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Action Types"
+          "is_a": [
+            "xaf.ui.actions.action-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.parametrized-action",
@@ -3839,12 +4038,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Action Types"
+          "is_a": [
+            "xaf.ui.actions.action-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.popup-window-show-action",
@@ -3881,12 +4079,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Action Types"
+          "is_a": [
+            "xaf.ui.actions.action-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.single-choice-action",
@@ -3925,12 +4122,11 @@
           ]
         },
         "relations": {
-          "part_of": [
-            "Action Types"
+          "is_a": [
+            "xaf.ui.actions.action-types"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.action-containers",
@@ -3977,11 +4173,10 @@
         },
         "relations": {
           "part_of": [
-            "Actions"
+            "xaf.ui.actions.actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.action-state-management",
@@ -4025,7 +4220,7 @@
         },
         "relations": {
           "part_of": [
-            "Actions"
+            "xaf.ui.actions.actions"
           ]
         },
         "tags": [
@@ -4075,11 +4270,10 @@
         },
         "relations": {
           "part_of": [
-            "Actions"
+            "xaf.ui.actions.actions"
           ]
         },
-        "tags": [
-        ]
+        "tags": []
       },
       {
         "id": "xaf.ui.actions.built-in-actions",
@@ -4120,7 +4314,7 @@
         },
         "relations": {
           "part_of": [
-            "Actions"
+            "xaf.ui.actions.actions"
           ]
         },
         "tags": [
@@ -4160,8 +4354,12 @@
             "ApplicationUserLoginInfo"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "is_a": [
+            "xaf.security.core.security-system"
+          ]
+        }
       },
       {
         "id": "xaf.security.authorization.permission-policies",
@@ -4190,6 +4388,11 @@
             "TypePermissions",
             "ObjectPermissions",
             "MemberPermissions"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.security.authorization.authorization"
           ]
         }
       },
@@ -4233,7 +4436,12 @@
         },
         "tags": [
           "compliance"
-        ]
+        ],
+        "relations": {
+          "is_a": [
+            "xaf.security.core.security-system"
+          ]
+        }
       },
       {
         "id": "xaf.data.business-model.validation",
@@ -4271,6 +4479,13 @@
         },
         "ownership": {
           "module": "validation"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object",
+            "xaf.ui.editors.property-editors",
+            "xaf.ui.ux.error-styling"
+          ]
         }
       },
       {
@@ -4307,6 +4522,11 @@
         ],
         "ownership": {
           "module": "validation"
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.validation"
+          ]
         }
       },
       {
@@ -4343,7 +4563,15 @@
         },
         "tags": [
           "validation"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.validation"
+          ],
+          "related_to": [
+            "xaf.data.business-model.validation"
+          ]
+        }
       },
       {
         "id": "xaf.ui.theming.conditional-appearance",
@@ -4379,10 +4607,14 @@
             "IAppearanceRuleProperties"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "ownership": {
           "module": "conditional-appearance"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.application-model.application-model"
+          ]
         }
       },
       {
@@ -4443,6 +4675,11 @@
         ],
         "ownership": {
           "module": "reports"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -4482,6 +4719,11 @@
         ],
         "ownership": {
           "module": "reports"
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.reports"
+          ]
         }
       },
       {
@@ -4527,6 +4769,11 @@
         ],
         "ownership": {
           "module": "reports"
+        },
+        "relations": {
+          "replaces": [
+            "xaf.ui.views.reports"
+          ]
         }
       },
       {
@@ -4572,6 +4819,11 @@
         ],
         "ownership": {
           "module": "office"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.editors.office-module"
+          ]
         }
       },
       {
@@ -4623,6 +4875,14 @@
         ],
         "ownership": {
           "module": "dashboards"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -4665,6 +4925,11 @@
         ],
         "ownership": {
           "module": "scheduler"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -4710,7 +4975,7 @@
         },
         "relations": {
           "part_of": [
-            "Scheduler"
+            "xaf.ui.views.scheduler"
           ]
         },
         "tags": [
@@ -4808,6 +5073,14 @@
         ],
         "ownership": {
           "module": "state-machine"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.data.object-space.business-logic"
+          ],
+          "related_to": [
+            "xaf.data.business-model.business-object"
+          ]
         }
       },
       {
@@ -4856,6 +5129,11 @@
         ],
         "ownership": {
           "module": "file-attachments"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.editors.property-editors"
+          ]
         }
       },
       {
@@ -4897,6 +5175,11 @@
         ],
         "ownership": {
           "module": "charts"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -4935,6 +5218,11 @@
         ],
         "ownership": {
           "module": "pivot-grid"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ]
         }
       },
       {
@@ -4965,10 +5253,17 @@
             "ICloneable"
           ]
         },
-        "tags": [
-        ],
+        "tags": [],
         "ownership": {
           "module": "clone-object"
+        },
+        "relations": {
+          "is_a": [
+            "xaf.data.object-space.business-logic"
+          ],
+          "related_to": [
+            "xaf.data.business-model.business-object"
+          ]
         }
       },
       {
@@ -5026,6 +5321,12 @@
         ],
         "ownership": {
           "module": "office"
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.editors.property-editors",
+            "xaf.ui.editors.mail-merge"
+          ]
         }
       },
       {
@@ -5057,8 +5358,12 @@
             "GetMemberCaption"
           ]
         },
-        "tags": [
-        ]
+        "tags": [],
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
+          ]
+        }
       },
       {
         "id": "xaf.localization.localization.localization-basics",
@@ -5157,6 +5462,11 @@
             "localization.devexpress.com",
             "ResourcesExportedToModel"
           ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
+          ]
         }
       },
       {
@@ -5185,6 +5495,11 @@
         "facets": {
           "platforms": [
             "blazor"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
           ]
         }
       },
@@ -5216,7 +5531,12 @@
         },
         "tags": [
           "formatting"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
+          ]
+        }
       },
       {
         "id": "xaf.architecture.multi-tenancy.multi-tenancy",
@@ -5256,7 +5576,13 @@
         },
         "tags": [
           "tenancy"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.data.database.multiple-databases",
+            "xaf.security.core.security-system"
+          ]
+        }
       },
       {
         "id": "xaf.architecture.multi-tenancy.tenant",
@@ -5291,7 +5617,12 @@
         },
         "tags": [
           "tenancy"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.architecture.multi-tenancy.multi-tenancy"
+          ]
+        }
       },
       {
         "id": "xaf.ops.deployment.deployment",
@@ -5332,6 +5663,11 @@
             "--updateDatabase",
             "IIS Deployment"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application"
+          ]
         }
       },
       {
@@ -5371,6 +5707,11 @@
           "platforms": [
             "blazor"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application"
+          ]
         }
       },
       {
@@ -5405,6 +5746,11 @@
             "eXpressAppFrameworkTraceLevel",
             "Tracing.LogSensitiveData"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ops.diagnostics.diagnostic-tools"
+          ]
         }
       },
       {
@@ -5438,7 +5784,12 @@
         },
         "tags": [
           "debugging"
-        ]
+        ],
+        "relations": {
+          "related_to": [
+            "xaf.ops.logging.logging"
+          ]
+        }
       },
       {
         "id": "xaf.quality.performance.performance-optimization",
@@ -5477,6 +5828,12 @@
             "Server-side filtering",
             "Database denormalization"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.ui.views.list-view"
+          ]
         }
       },
       {
@@ -5510,7 +5867,12 @@
         },
         "tags": [
           "memory"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.quality.performance.performance-optimization"
+          ]
+        }
       },
       {
         "id": "xaf.ops.deployment.scaling-architecture",
@@ -5545,7 +5907,12 @@
         },
         "tags": [
           "scaling"
-        ]
+        ],
+        "relations": {
+          "part_of": [
+            "xaf.ops.deployment.deployment"
+          ]
+        }
       },
       {
         "id": "xaf.tooling.project-creation.package-management",
@@ -5637,7 +6004,12 @@
         "tags": [
           "setup",
           "scaffolding"
-        ]
+        ],
+        "relations": {
+          "replaces": [
+            "xaf.tooling.project-creation.project-wizards"
+          ]
+        }
       },
       {
         "id": "xaf.migration.legacy.legacy-net-framework",
@@ -5672,6 +6044,11 @@
           "platforms": [
             "winforms"
           ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.migration.migration.migration"
+          ]
         }
       },
       {
@@ -5699,6 +6076,12 @@
             "MultiTargeting",
             "SDK-style",
             "EF6toEFCore"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.migration.legacy.legacy-net-framework",
+            "xaf.data.orm.entity-framework-core"
           ]
         }
       },
