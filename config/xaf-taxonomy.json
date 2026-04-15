@@ -39,7 +39,17 @@
         "tags": [
           "non-XAF",
           "middleware"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
+        }
       },
       {
         "id": "xaf.data.orm.entity-framework-core",
@@ -82,6 +92,17 @@
             "xaf.data.database.database-connection",
             "xaf.migration.migration.migration"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -124,6 +145,17 @@
             "xaf.data.orm.entity-framework-core",
             "xaf.data.database.database-connection"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -161,6 +193,16 @@
           "related_to": [
             "xaf.data.object-space.object-space"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -203,6 +245,17 @@
             "xaf.data.business-model.tree-node-interface",
             "xaf.ui.editors.property-editors"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -259,6 +312,17 @@
             "xaf.data.criteria.criteria",
             "xaf.data.business-model.business-object"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -323,6 +387,17 @@
           "related_to": [
             "xaf.architecture.multi-tenancy.multi-tenancy"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -409,8 +484,17 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "is_a": [
@@ -474,6 +558,20 @@
           "is_a": [
             "xaf.security.core.security-system"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -534,6 +632,20 @@
             "xaf.ui.theming.conditional-appearance",
             "xaf.ui.controllers.controllers-and-actions"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -594,6 +706,17 @@
             "xaf.ui.views.scheduler",
             "xaf.ui.views.dashboards"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -634,8 +757,14 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [],
         "api_surface": {
@@ -714,6 +843,17 @@
           "related_to": [
             "xaf.ui.views.list-view"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -776,6 +916,17 @@
             "xaf.ui.views.views",
             "xaf.architecture.application-model.application-model"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -802,7 +953,17 @@
             "Frame.Application"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.windows-frames.windows",
@@ -834,7 +995,17 @@
             "Window.Context"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.templates.application-templates",
@@ -896,6 +1067,16 @@
           "related_to": [
             "xaf.ui.theming.theming"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -938,6 +1119,17 @@
           "part_of": [
             "xaf.ui.views.views"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -971,8 +1163,14 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "related_to": [
@@ -1021,6 +1219,17 @@
             "xaf.architecture.dependency-injection.dependency-injection",
             "xaf.architecture.core.xaf-application"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1053,7 +1262,21 @@
         },
         "tags": [
           "metadata"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.tooling.model-editor.model-editor",
@@ -1075,7 +1298,20 @@
             "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.architecture.application-model.model-differences",
@@ -1111,7 +1347,21 @@
             "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.architecture.application-model.model-extension",
@@ -1138,7 +1388,21 @@
             "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.architecture.application-model.model-cache",
@@ -1170,7 +1434,22 @@
             "xaf.architecture.application-model.application-model"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.architecture.core.applicationbuilder",
@@ -1198,8 +1477,14 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
         },
         "tags": [],
         "relations": {
@@ -1240,6 +1525,17 @@
             "xaf.architecture.core.xaf-application",
             "xaf.architecture.modules.modules"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
         }
       },
       {
@@ -1274,6 +1570,20 @@
           "related_to": [
             "xaf.security.authentication.authentication"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1321,7 +1631,21 @@
         },
         "tags": [
           "threading"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.object-space.object-space",
@@ -1377,6 +1701,16 @@
             "xaf.data.updates.database-update",
             "xaf.quality.performance.performance-optimization"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1399,7 +1733,18 @@
             "NonPersistentObjectSpaceProvider"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.database.database-connection",
@@ -1436,6 +1781,19 @@
             "xaf.data.orm.entity-framework-core",
             "xaf.data.orm.xpo"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1475,7 +1833,17 @@
             "xaf.data.properties.collection-property"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.business-model.business-object-lifecycle",
@@ -1513,7 +1881,20 @@
         },
         "tags": [
           "lifecycle"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.properties.collection-property",
@@ -1547,6 +1928,17 @@
           "related_to": [
             "xaf.data.relationships.object-relationships"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1582,6 +1974,17 @@
           "related_to": [
             "xaf.data.relationships.object-relationships"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1610,6 +2013,17 @@
           "part_of": [
             "xaf.data.properties.property-metadata"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1639,7 +2053,18 @@
             "CalculatedPersistentAliasHelper"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.criteria.criteria",
@@ -1681,6 +2106,16 @@
             "xaf.data.object-space.business-logic",
             "xaf.ui.views.views"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1725,7 +2160,17 @@
           "query",
           "filtering",
           "operators"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.criteria.custom-criteria-functions",
@@ -1764,7 +2209,18 @@
         "tags": [
           "query",
           "filtering"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.database.multiple-databases",
@@ -1797,6 +2253,21 @@
           "related_to": [
             "xaf.architecture.multi-tenancy.multi-tenancy"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime",
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1831,7 +2302,18 @@
             "Session.ExecuteSproc"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.data.properties.auto-increment-fields",
@@ -1865,6 +2347,17 @@
           "part_of": [
             "xaf.data.properties.property-metadata"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1904,6 +2397,19 @@
           "related_to": [
             "xaf.data.business-model.business-object"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1943,6 +2449,16 @@
           "related_to": [
             "xaf.data.business-model.business-object"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -1978,6 +2494,19 @@
             "xaf.data.orm.entity-framework-core",
             "xaf.data.object-space.object-space"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2020,7 +2549,18 @@
             "xaf.ui.views.views"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.list-view",
@@ -2067,7 +2607,18 @@
             "xaf.quality.performance.performance-optimization"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.list-view-data-access-modes",
@@ -2109,6 +2660,17 @@
           "part_of": [
             "xaf.ui.views.list-view"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2151,7 +2713,18 @@
             "xaf.ui.views.view-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.dashboard-view",
@@ -2191,7 +2764,17 @@
         },
         "tags": [
           "analytics"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.lookup-view",
@@ -2228,7 +2811,18 @@
             "xaf.ui.views.view-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.view-items",
@@ -2268,8 +2862,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "part_of": [
@@ -2315,7 +2914,17 @@
             "xaf.ui.views.view-items"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.views.dashboard-view-items",
@@ -2350,7 +2959,17 @@
             "xaf.ui.views.view-items"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.action-container-view-items",
@@ -2383,7 +3002,11 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "is_a": [
@@ -2428,8 +3051,17 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "part_of": [
@@ -2472,6 +3104,16 @@
           "part_of": [
             "xaf.ui.views.view-customization"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2511,6 +3153,16 @@
           "part_of": [
             "xaf.ui.views.view-customization"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2550,6 +3202,16 @@
         "tags": [],
         "ownership": {
           "module": "view-variants"
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2593,7 +3255,21 @@
         },
         "tags": [
           "lifecycle"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.layout.layout-generation",
@@ -2630,7 +3306,20 @@
         },
         "tags": [
           "generation"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.layout.layout-runtime-customization",
@@ -2667,7 +3356,21 @@
             "xaf.ui.layout.layout"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.windows-frames.popup-windows",
@@ -2715,7 +3418,17 @@
         },
         "tags": [
           "dialogs"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.ux.inline-editing",
@@ -2757,7 +3470,11 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "editing",
@@ -2813,6 +3530,16 @@
           "part_of": [
             "xaf.ui.list-editors.list-editors"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -2855,8 +3582,14 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "part_of": [
@@ -2921,7 +3654,18 @@
             "xaf.ui.editors.property-editor-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.lookup-property-editors",
@@ -2977,7 +3721,17 @@
         },
         "tags": [
           "lookup"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.collection-property-editors",
@@ -3027,7 +3781,17 @@
         },
         "tags": [
           "collection"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.specialized-property-editors",
@@ -3075,7 +3839,18 @@
             "xaf.ui.editors.property-editor-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.property-editor-customization",
@@ -3122,7 +3897,17 @@
             "xaf.ui.editors.property-editors"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.property-editor-features",
@@ -3168,7 +3953,17 @@
         },
         "tags": [
           "formatting"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.controller-types",
@@ -3210,7 +4005,17 @@
             "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.view-controller",
@@ -3250,7 +4055,17 @@
             "xaf.ui.controllers.controller-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.generic-view-controllers",
@@ -3292,7 +4107,18 @@
         },
         "tags": [
           "generics"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.object-view-controllers",
@@ -3332,7 +4158,18 @@
         },
         "tags": [
           "generics"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.window-controller",
@@ -3370,7 +4207,17 @@
             "xaf.ui.controllers.controller-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.dialog-controller",
@@ -3410,7 +4257,18 @@
         },
         "tags": [
           "dialogs"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.controller-activation",
@@ -3450,7 +4308,20 @@
             "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.target-properties",
@@ -3489,7 +4360,17 @@
             "xaf.ui.controllers.controller-activation"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.controller-lifecycle",
@@ -3533,7 +4414,21 @@
         },
         "tags": [
           "lifecycle"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.built-in-controllers",
@@ -3572,7 +4467,17 @@
         },
         "tags": [
           "system"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.crud-controllers",
@@ -3605,7 +4510,17 @@
         "tags": [
           "system",
           "crud"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.list-view-controllers",
@@ -3636,7 +4551,18 @@
         "tags": [
           "system",
           "listview"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.controllers.controller-customization",
@@ -3679,7 +4605,17 @@
             "xaf.ui.controllers.controllers-and-actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.navigation.tabbed-mdi-interface",
@@ -3704,7 +4640,11 @@
         "facets": {
           "platforms": [
             "winforms"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": []
       },
@@ -3724,7 +4664,20 @@
             "Shortcut Menu"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.ux.loading-indicators",
@@ -3741,6 +4694,18 @@
             "Progress Indicator",
             "Wait Indicator"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3770,7 +4735,17 @@
         },
         "tags": [
           "query"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.editors.spreadsheet-control",
@@ -3809,6 +4784,16 @@
           "is_a": [
             "xaf.ui.list-editors.list-editors"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3837,6 +4822,16 @@
           "part_of": [
             "xaf.ui.theming.theming"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3852,6 +4847,16 @@
             "Collapsible Panels",
             "Expandable Sections"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3883,6 +4888,17 @@
           "related_to": [
             "xaf.ui.templates.application-templates"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3912,6 +4928,17 @@
           "related_to": [
             "xaf.ui.views.views"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -3929,7 +4956,18 @@
             "Command"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.action-types",
@@ -3965,7 +5003,18 @@
             "xaf.ui.actions.actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.simple-action",
@@ -4004,7 +5053,18 @@
             "xaf.ui.actions.action-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.parametrized-action",
@@ -4042,7 +5102,17 @@
             "xaf.ui.actions.action-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.popup-window-show-action",
@@ -4083,7 +5153,17 @@
             "xaf.ui.actions.action-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.single-choice-action",
@@ -4126,7 +5206,17 @@
             "xaf.ui.actions.action-types"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.action-containers",
@@ -4176,7 +5266,17 @@
             "xaf.ui.actions.actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.action-state-management",
@@ -4225,7 +5325,17 @@
         },
         "tags": [
           "state"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.action-customization",
@@ -4273,7 +5383,17 @@
             "xaf.ui.actions.actions"
           ]
         },
-        "tags": []
+        "tags": [],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.ui.actions.built-in-actions",
@@ -4319,7 +5439,17 @@
         },
         "tags": [
           "system"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.security.users.custom-user-management",
@@ -4359,6 +5489,16 @@
           "is_a": [
             "xaf.security.core.security-system"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4394,6 +5534,16 @@
           "is_a": [
             "xaf.security.authorization.authorization"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4441,6 +5591,16 @@
           "is_a": [
             "xaf.security.core.security-system"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4486,6 +5646,17 @@
             "xaf.ui.editors.property-editors",
             "xaf.ui.ux.error-styling"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4527,6 +5698,17 @@
           "part_of": [
             "xaf.data.business-model.validation"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4571,6 +5753,16 @@
           "related_to": [
             "xaf.data.business-model.validation"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4615,6 +5807,20 @@
           "related_to": [
             "xaf.architecture.application-model.application-model"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4667,8 +5873,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "deprecated"
         },
         "tags": [
           "reporting"
@@ -4724,6 +5935,16 @@
           "part_of": [
             "xaf.ui.views.reports"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -4761,8 +5982,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "evolving"
         },
         "tags": [
           "reporting"
@@ -4811,7 +6037,11 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "reporting",
@@ -4867,8 +6097,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "analytics"
@@ -4917,8 +6152,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "calendar"
@@ -4983,6 +6223,16 @@
         ],
         "ownership": {
           "module": "scheduler"
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5020,7 +6270,14 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "alerts"
@@ -5065,8 +6322,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "workflow"
@@ -5120,8 +6382,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "files",
@@ -5180,6 +6447,16 @@
           "is_a": [
             "xaf.ui.views.views"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5223,6 +6500,16 @@
           "is_a": [
             "xaf.ui.views.views"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5264,6 +6551,16 @@
           "related_to": [
             "xaf.data.business-model.business-object"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5313,7 +6610,11 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "tags": [
           "office",
@@ -5363,6 +6664,16 @@
           "part_of": [
             "xaf.localization.localization.localization-basics"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5400,6 +6711,17 @@
             "PreferredLanguage",
             "XAFML"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5431,6 +6753,16 @@
           "primary_types": [
             "ITranslatorProvider"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5467,6 +6799,19 @@
           "part_of": [
             "xaf.localization.localization.localization-basics"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5495,7 +6840,11 @@
         "facets": {
           "platforms": [
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "part_of": [
@@ -5536,6 +6885,16 @@
           "part_of": [
             "xaf.localization.localization.localization-basics"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5582,6 +6941,20 @@
             "xaf.data.database.multiple-databases",
             "xaf.security.core.security-system"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
         }
       },
       {
@@ -5622,6 +6995,20 @@
           "part_of": [
             "xaf.architecture.multi-tenancy.multi-tenancy"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
         }
       },
       {
@@ -5668,6 +7055,19 @@
           "related_to": [
             "xaf.architecture.core.xaf-application"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5705,8 +7105,13 @@
         },
         "facets": {
           "platforms": [
+            "winforms",
             "blazor"
-          ]
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         },
         "relations": {
           "related_to": [
@@ -5751,6 +7156,19 @@
           "related_to": [
             "xaf.ops.diagnostics.diagnostic-tools"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5789,6 +7207,20 @@
           "related_to": [
             "xaf.ops.logging.logging"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5834,6 +7266,20 @@
             "xaf.data.object-space.object-space",
             "xaf.ui.views.list-view"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5872,6 +7318,20 @@
           "part_of": [
             "xaf.quality.performance.performance-optimization"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5912,6 +7372,20 @@
           "part_of": [
             "xaf.ops.deployment.deployment"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -5944,7 +7418,21 @@
         },
         "tags": [
           "setup"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.tooling.project-creation.assembly-references",
@@ -5973,7 +7461,20 @@
         "tags": [
           "setup",
           "troubleshooting"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        }
       },
       {
         "id": "xaf.tooling.project-creation.template-kit",
@@ -6009,6 +7510,20 @@
           "replaces": [
             "xaf.tooling.project-creation.project-wizards"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "evolving"
         }
       },
       {
@@ -6043,7 +7558,16 @@
         "facets": {
           "platforms": [
             "winforms"
-          ]
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "deprecated"
         },
         "relations": {
           "related_to": [
@@ -6083,6 +7607,21 @@
             "xaf.migration.legacy.legacy-net-framework",
             "xaf.data.orm.entity-framework-core"
           ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
         }
       },
       {
@@ -6110,7 +7649,20 @@
         },
         "tags": [
           "setup"
-        ]
+        ],
+        "facets": {
+          "platforms": [
+            "winforms"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "deprecated"
+        }
       }
     ]
   }
