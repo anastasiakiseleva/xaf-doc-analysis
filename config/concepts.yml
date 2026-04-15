@@ -9,8 +9,6 @@ concepts:
   tags:
   - platform
   - UI client
-  - .NET Core
-  - .NET
   - Blazor App
   - Blazor WebAssembly
   - Blazor WASM
@@ -27,8 +25,7 @@ concepts:
   tags:
   - platform
   - UI client
-  - .NET Core
-  - .NET
+
   keywords: []
   description: Windows Forms desktop UI platform for building XAF desktop applications
 - name: Web API Service
@@ -45,8 +42,7 @@ concepts:
   - backend
   - Swagger
   - OpenAPI
-  - .NET Core
-  - .NET
+
   - security
   - non-XAF
   - middleware
@@ -67,8 +63,7 @@ concepts:
   tags:
   - orm
   - data
-  - .NET Core
-  - .NET
+
   - DbContext
   - DB
   - database
@@ -90,8 +85,7 @@ concepts:
   tags:
   - orm
   - data
-  - .NET Core
-  - .NET
+
   - Session
   - UnitOfWork
   - XPCollection
@@ -116,8 +110,7 @@ concepts:
   - Nonpersistent
   - Non persistent
   tags:
-  - .NET Core
-  - .NET
+
   - data
   - runtime
   - in-memory; on the fly
@@ -144,8 +137,7 @@ concepts:
   tags:
   - EF
   - XPO
-  - .NET Core
-  - .NET
+
   - data
   - data table
   - stored procedures
@@ -738,33 +730,6 @@ concepts:
   - layout
   description: Detail View layout arrangement system for organizing UI elements (Layout
     Items and Layout Groups)
-- name: .NET Runtime
-  type: runtime
-  synonyms:
-  - .NET
-  - .NET Core
-  - .NET 5
-  - .NET 6
-  - .NET 7
-  - .NET 8
-  - .NET 9
-  - .NET 10
-  keywords:
-  - TargetFramework
-  - net8.0
-  - net6.0
-  - SDK-style
-  - AspNetCoreApplication
-  - FrameworkSettings
-  - DefaultSettingsCompatibilityMode
-  - Kestrel
-  - dotnet publish
-  - .NET Core Hosting Bundle
-  - PackageReference
-  - Modern .NET
-  tags:
-  - runtime
-  description: Modern .NET runtime platform
 - name: XAF Application
   type: architecture
   synonyms:

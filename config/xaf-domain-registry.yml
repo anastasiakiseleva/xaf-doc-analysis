@@ -1,0 +1,144 @@
+schema_version: 1.0
+
+taxonomy_domains:
+
+  - id: architecture
+    name: Architecture
+    description: >
+      Core structural concepts that define how XAF applications are composed,
+      initialized, extended, and scaled.
+    subdomains:
+      - id: core
+        name: Core Application
+      - id: modules
+        name: Modular Architecture
+      - id: application-model
+        name: Application Model
+      - id: dependency-injection
+        name: Dependency Injection
+      - id: multi-tenancy
+        name: Multi-Tenancy
+
+  - id: ui
+    name: UI Framework
+    description: >
+      User interface framework concepts including views, editors, actions,
+      controllers, layout, navigation, and UX behavior.
+    subdomains:
+      - id: views
+        name: Views
+      - id: layout
+        name: Layout
+      - id: templates
+        name: Templates
+      - id: editors
+        name: Property Editors
+      - id: list-editors
+        name: List Editors
+      - id: controllers
+        name: Controllers
+      - id: actions
+        name: Actions
+      - id: windows-frames
+        name: Windows & Frames
+      - id: navigation
+        name: Navigation
+      - id: theming
+        name: Theming & Styling
+      - id: ux
+        name: UX & Interaction Patterns
+
+  - id: data
+    name: Data & Persistence
+    description: >
+      Business data modeling, persistence, querying, concurrency,
+      and database interaction.
+    subdomains:
+      - id: business-model
+        name: Business Model
+      - id: object-space
+        name: Object Space
+      - id: orm
+        name: Object-Relational Mapping
+      - id: relationships
+        name: Object Relationships
+      - id: properties
+        name: Business Properties
+      - id: criteria
+        name: Criteria & Query Language
+      - id: concurrency
+        name: Concurrency Control
+      - id: database
+        name: Database Integration
+      - id: updates
+        name: Database Updates & Seeding
+
+  - id: security
+    name: Security
+    description: >
+      Authentication, authorization, permissions, auditing, and
+      secured data access.
+    subdomains:
+      - id: core
+        name: Security Core
+      - id: authentication
+        name: Authentication
+      - id: authorization
+        name: Authorization
+      - id: users
+        name: Users & Roles
+      - id: auditing
+        name: Auditing
+
+  - id: ops
+    name: Operations
+    description: >
+      Deployment, hosting, logging, diagnostics, and production operations.
+    subdomains:
+      - id: deployment
+        name: Deployment
+      - id: logging
+        name: Logging
+      - id: diagnostics
+        name: Diagnostics & Tracing
+
+  - id: quality
+    name: Quality & Performance
+    description: >
+      Validation quality, testing, performance tuning,
+      and memory management.
+    subdomains:
+      - id: testing
+        name: Testing
+      - id: performance
+        name: Performance Optimization
+
+  - id: tooling
+    name: Tooling & Setup
+    description: >
+      Development tools, project scaffolding,
+      and package management.
+    subdomains:
+      - id: project-creation
+        name: Project Creation
+      - id: model-editor
+        name: Model Editor
+
+  - id: migration
+    name: Migration & Legacy
+    description: >
+      Legacy support, platform migration,
+      and upgrade paths.
+    subdomains:
+      - id: legacy
+        name: Legacy Platforms
+      - id: migration
+        name: Migration & Upgrades
+
+  - id: localization
+    name: Localization
+    description: >
+      Language, culture, and localization support.
+    subdomains:
+      - id: localization
+        name: Localization

@@ -1,5 +1,36 @@
 # What's New
 
+## 2026-04-15 — Formal faceted taxonomy (`config/xaf-taxonomy.json`)
+
+### Problem
+
+`config/concepts.yml` was a flat list of concept names, synonyms, keywords, and free-form tags. Several issues:
+
+- **No schema or validation** — typos, duplicate synonyms, and inconsistent tagging went undetected.
+- **`.NET` / `.NET Core` tags sprayed across nearly every concept** — they added no discriminating value and inflated co-occurrence noise in the knowledge graph.
+- **No domain structure** — concepts had a `type` field (e.g. `architecture`, `ui`, `data`) but no formal subdomain hierarchy, making it impossible to scope queries or generate per-domain reports.
+- **No governed contribution workflow** — anyone could add a concept or tag without understanding the downstream impact on classification, search, and analytics.
+
+### What changed
+
+| File | Purpose |
+|---|---|
+| `config/xaf-taxonomy.json` | New 5,908-line canonical taxonomy with 146 concepts migrated from `concepts.yml` into a structured schema: `id`, `name`, `artifact_kind`, `domain`/`subdomain`, `description`, `terminology` (synonyms/keywords), `api_surface`, `relations`, `facets`, and `tags`. |
+| `config/xaf-taxonomy.schema.json` | JSON Schema (2020-12 draft) for CI validation of the taxonomy file. |
+| `config/xaf-taxonomy-schema-contract.md` | Human-readable contract: every field's semantic meaning, governance rules, and evolution strategy. |
+| `config/xaf-taxonomy-contribution-guide.md` | Step-by-step guide for adding or modifying concepts safely. |
+| `config/xaf-domain-registry.yml` | 10 top-level domains (architecture, ui, data, security, ops, …) with named subdomains. Referenced by `domain`/`subdomain` fields in the taxonomy. |
+| `config/taxonomy sources.md` | Reference bibliography (ANSI/NISO Z39.19, SKOS, faceted classification literature). |
+| `config/concepts.yml` | Removed the `.NET Runtime` concept and stripped `.NET` / `.NET Core` tags from all remaining concepts to eliminate co-occurrence noise. |
+
+### Migration notes
+
+- Concept IDs follow a dotted path convention: `xaf.<domain>.<subdomain>.<slug>` (e.g. `xaf.data.orm.xpo`).
+- The `relations` array on each concept encodes typed cross-references (`requires`, `extends`, `part_of`, `related_to`, `contrasts_with`) that downstream scripts can consume directly instead of inferring relationships from tag overlap.
+- Existing pipeline scripts (`05_*`, `06_*`) continue to read `concepts.yml` for now; a follow-up commit will switch them to the new taxonomy loader.
+
+---
+
 ## 2026-04-14 — Phase 5.5: Explicit-link bypass for noise-concept filter
 
 ### Problem fixed
