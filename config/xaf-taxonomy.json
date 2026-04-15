@@ -1,0 +1,362 @@
+schema_version: 1.0
+
+taxonomy:
+  metadata:
+    product: DevExpress XAF
+    purpose: Documentation taxonomy
+    owner: Documentation Team
+    last_updated: 2026-04-14
+
+  concepts:
+
+    # XAF Application
+    - id: xaf.architecture.application
+      name: XAF Application
+      description: >
+        The root application object that initializes modules, manages object spaces,
+        controllers, views, and the overall application lifecycle.
+
+      artifact_kind: conceptual
+      domain: architecture
+      subdomain: core
+
+      ownership:
+        module: system
+        team: framework
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [intermediate, advanced, architect]
+        stability: stable
+
+      relations:
+        part_of:
+          - xaf.architecture.framework
+
+      api_surface:
+        primary_types:
+          - XafApplication
+        related_types:
+          - WinApplication
+          - BlazorApplication
+
+      documentation:
+        doc_intents: [concept, configuration, reference]
+
+      tags: [core, bootstrap]
+
+
+    # Modules
+    - id: xaf.architecture.modules
+      name: XAF Modules
+      description: >
+        Modular building blocks that extend XAF applications with features,
+        services, and UI functionality.
+
+      artifact_kind: conceptual
+      domain: architecture
+      subdomain: modules
+
+      ownership:
+        module: system
+        team: framework
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [design_time, runtime]
+        audiences: [beginner, intermediate]
+        stability: stable
+
+      relations:
+        part_of:
+          - xaf.architecture.application
+
+      api_surface:
+        primary_types:
+          - ModuleBase
+
+      documentation:
+        doc_intents: [concept, how_to, reference]
+
+      tags: [extensibility]
+
+
+    # Business Object
+    - id: xaf.data.business-object
+      name: Business Object
+      description: >
+        Domain entity representing business data and logic, persisted using
+        XPO or Entity Framework Core.
+
+      artifact_kind: conceptual
+      domain: data
+      subdomain: model
+
+      ownership:
+        module: orm
+        team: persistence
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [beginner, intermediate]
+        stability: stable
+
+      relations:
+        related_to:
+          - xaf.data.object-space
+
+      documentation:
+        doc_intents: [concept, how_to]
+
+      tags: [domain, entities]
+
+
+    # Object Space
+    - id: xaf.data.object-space
+      name: Object Space
+      description: >
+        Abstraction layer that provides transactional access to persistent and
+        non-persistent objects.
+
+      artifact_kind: conceptual
+      domain: data
+      subdomain: persistence
+
+      ownership:
+        module: orm
+        team: persistence
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [intermediate, advanced]
+        stability: stable
+
+      relations:
+        related_to:
+          - xaf.data.business-object
+
+      api_surface:
+        primary_types:
+          - IObjectSpace
+
+      documentation:
+        doc_intents: [concept, reference]
+
+      tags: [orm, transactions]
+
+
+    # Entity Framework Core
+    - id: xaf.data.orm.ef-core
+      name: Entity Framework Core
+      short_name: EF Core
+      description: >
+        ORM provider that integrates Entity Framework Core with XAF
+        through EFCoreObjectSpace.
+
+      artifact_kind: api
+      domain: data
+      subdomain: orm
+
+      ownership:
+        module: efcore
+        team: persistence
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime, deployment]
+        audiences: [intermediate, advanced]
+        stability: stable
+
+      relations:
+        is_a:
+          - xaf.data.orm
+
+      documentation:
+        doc_intents: [concept, how_to, reference]
+
+      tags: [database, orm]
+
+
+    # Views
+    - id: xaf.ui.views.view
+      name: View
+      description: >
+        Visual component that displays or edits business objects using lists,
+        forms, or dashboards.
+
+      artifact_kind: conceptual
+      domain: ui
+      subdomain: views
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [beginner]
+        stability: stable
+
+      relations:
+        part_of:
+          - xaf.ui.framework
+
+      documentation:
+        doc_intents: [concept]
+
+      tags: [ui]
+
+
+    # List View
+    - id: xaf.ui.views.list-view
+      name: List View
+      short_name: ListView
+      description: >
+        Grid-based view used to display and manage collections of business objects.
+
+      artifact_kind: conceptual
+      domain: ui
+      subdomain: views
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [beginner, intermediate]
+        stability: stable
+
+      relations:
+        is_a:
+          - xaf.ui.views.view
+        related_to:
+          - xaf.ui.editors.list-editor
+
+      api_surface:
+        primary_types:
+          - ListView
+
+      documentation:
+        doc_intents: [concept, how_to, reference]
+
+      tags: [grid, collections]
+
+
+    # Controllers
+    - id: xaf.ui.controllers
+      name: Controllers
+      description: >
+        Components that implement UI behavior and handle user interactions
+        in views and windows.
+
+      artifact_kind: conceptual
+      domain: ui
+      subdomain: controllers
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [intermediate]
+        stability: stable
+
+      relations:
+        part_of:
+          - xaf.ui.framework
+
+      documentation:
+        doc_intents: [concept, reference]
+
+      tags: [behavior]
+
+
+    # Actions
+    - id: xaf.ui.actions
+      name: Actions
+      description: >
+        Command objects that represent user-triggered operations such as buttons,
+        menu items, and toolbar actions.
+
+      artifact_kind: conceptual
+      domain: ui
+      subdomain: actions
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [beginner, intermediate]
+        stability: stable
+
+      relations:
+        related_to:
+          - xaf.ui.controllers
+
+      documentation:
+        doc_intents: [concept, how_to, reference]
+
+      tags: [commands]
+
+
+    # Security System
+    - id: xaf.security.system
+      name: Security System
+      description: >
+        Framework subsystem that enforces authentication, authorization,
+        and secured data access.
+
+      artifact_kind: conceptual
+      domain: security
+      subdomain: core
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [intermediate, architect]
+        stability: stable
+
+      documentation:
+        doc_intents: [concept, configuration, reference]
+
+      tags: [auth, permissions]
+
+
+    # Validation Module
+    - id: xaf.modules.validation
+      name: Validation Module
+      description: >
+        Module that provides declarative and programmatic business rule validation.
+
+      artifact_kind: module
+      domain: quality
+      subdomain: validation
+
+      facets:
+        platforms: [winforms, blazor]
+        lifecycle_phases: [runtime]
+        audiences: [beginner, intermediate]
+        stability: stable
+
+      documentation:
+        doc_intents: [concept, how_to, reference]
+
+      tags: [rules, data-quality]
+
+
+    # Deployment
+    - id: xaf.ops.deployment
+      name: Deployment
+      description: >
+        Configuration and processes used to publish and host XAF applications
+        in production environments.
+
+      artifact_kind: conceptual
+      domain: ops
+      subdomain: deployment
+
+      facets:
+        platforms: [blazor, winforms]
+        lifecycle_phases: [deployment]
+        audiences: [advanced, architect]
+        stability: stable
+
+      documentation:
+        doc_intents: [concept, how_to]
+
+      tags: [hosting, devops]

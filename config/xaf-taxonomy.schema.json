@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.devexpress.com/xaf/taxonomy.schema.json",
+  "title": "DevExpress XAF Documentation Taxonomy Schema",
+  "description": "Schema for XAF documentation taxonomy and concept registry",
+  "type": "object",
+  "required": ["schema_version", "taxonomy"],
+  "additionalProperties": false,
+
+  "properties": {
+    "schema_version": {
+      "type": ["string", "number"],
+      "description": "Version of the taxonomy schema"
+    },
+
+    "taxonomy": {
+      "type": "object",
+      "required": ["metadata", "concepts"],
+      "additionalProperties": false,
+
+      "properties": {
+        "metadata": {
+          "type": "object",
+          "required": ["product", "purpose"],
+          "additionalProperties": false,
+          "properties": {
+            "product": { "type": "string" },
+            "purpose": { "type": "string" },
+            "owner": { "type": "string" },
+            "last_updated": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        },
+
+        "concepts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/concept"
+          }
+        }
+      }
+    }
+  },
+
+  "$defs": {
+    "concept": {
+      "type": "object",
+      "required": ["id", "name", "artifact_kind", "domain"],
+      "additionalProperties": false,
+
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Globally unique, stable concept identifier",
+          "pattern": "^[a-z][a-z0-9\\.-]+$"
+        },
+
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+
+        "short_name": {
+          "type": "string"
+        },
+
+        "description": {
+          "type": "string"
+        },
+
+        "artifact_kind": {
+          "type": "string",
+          "enum": [
+            "conceptual",
+            "module",
+            "api",
+            "pattern",
+            "tool",
+            "feature"
+          ]
+        },
+
+        "domain": {
+          "type": "string",
+          "enum": [
+            "ui",
+            "data",
+            "security",
+            "architecture",
+            "ops",
+            "tooling",
+            "learning",
+            "migration",
+            "quality",
+            "performance",
+            "localization"
+          ]
+        },
+
+        "subdomain": {
+          "type": "string"
+        },
+
+        "ownership": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "module": { "type": "string" },
+            "team": { "type": "string" }
+          }
+        },
+
+        "facets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "platforms": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["winforms", "blazor", "headless"]
+              }
+            },
+
+            "lifecycle_phases": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["design_time", "runtime", "deployment"]
+              }
+            },
+
+            "audiences": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "beginner",
+                  "intermediate",
+                  "advanced",
+                  "architect"
+                ]
+              }
+            },
+
+            "stability": {
+              "type": "string",
+              "enum": ["stable", "evolving", "deprecated"]
+            }
+          }
+        },
+
+        "relations": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "is_a": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "part_of": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "related_to": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "replaces": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+
+        "terminology": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "synonyms": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "keywords": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+
+        "api_surface": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "primary_types": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "related_types": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+
+        "documentation": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "doc_intents": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "concept",
+                  "how_to",
+                  "tutorial",
+                  "reference",
+                  "configuration",
+                  "troubleshooting"
+                ]
+              }
+            },
+
+            "see_also": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}
