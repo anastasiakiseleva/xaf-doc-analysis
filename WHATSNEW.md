@@ -31,6 +31,27 @@
 
 ---
 
+## 2026-04-15 — Taxonomy loader adapter (`utils/taxonomy_loader.py`)
+
+### Problem
+
+Pipeline scripts loaded concepts via `yaml.safe_load()` on `concepts.yml` and expected a flat dict shape (`name`, `type`, `synonyms`, `tags`, `keywords`, `description`). The new `xaf-taxonomy.json` uses a richer nested structure (`artifact_kind`, `domain`/`subdomain`, `terminology`, `api_surface`, `relations`, `facets`), so scripts would break if pointed at the new file directly.
+
+### What changed
+
+| File | Purpose |
+|---|---|
+| `utils/taxonomy_loader.py` | Adapter module that reads `xaf-taxonomy.json` and returns the flat `{"concepts": [dict, …]}` shape scripts expect. Provides `load_concepts()` (flat, backward-compatible) and `load_taxonomy_raw()` (full rich structure). Reverse-maps `(artifact_kind, domain)` back to the original `type` values (`"Platform"`, `"Data Access & Business Logic"`, `"security"`, etc.). |
+| `tests/test_taxonomy_loader.py` | 276-line test suite (pytest): verifies every concept round-trips correctly against `concepts.yml`, checks required fields, synonym/keyword preservation, `load_taxonomy_raw()` structure, and edge cases (missing fields, empty taxonomy). |
+
+### Key design decisions
+
+- **Zero pipeline breakage** — `load_concepts()` returns the exact same field names downstream scripts use today; no script edits required to switch from YAML to JSON.
+- **Bonus fields forwarded** — flat dicts also include `id`, `domain`, `subdomain`, `artifact_kind`, `facets`, and `api_surface` so scripts can opt into richer data incrementally.
+- **Reverse type mapping** — a `_KIND_DOMAIN_TO_TYPE` lookup table plus special-case sets (`_PLATFORM_NAMES`, `_DATA_ACCESS_NAMES`) reproduce the original `type` strings for backward compatibility.
+
+---
+
 ## 2026-04-14 — Phase 5.5: Explicit-link bypass for noise-concept filter
 
 ### Problem fixed
