@@ -22,7 +22,10 @@
             "Service",
             "Backend",
             "application server"
-          ]
+          ],
+          "keywords": [
+            "Swagger"
+        ]
         },
         "api_surface": {
           "primary_types": [
@@ -30,14 +33,10 @@
             "WebAPI"
           ],
           "related_types": [
-            "ASP.NET Core",
-            "API",
             "OpenAPI"
           ]
         },
         "tags": [
-          "backend",
-          "Swagger",
           "non-XAF",
           "middleware"
         ]
@@ -53,7 +52,12 @@
           "synonyms": [
             "EF Core",
             "Entity Framework"
-          ]
+          ],
+          "keywords": [
+            "database-provider",
+            "change-tracking",
+            "migrations"
+        ]
         },
         "api_surface": {
           "primary_types": [
@@ -69,13 +73,7 @@
             "UseNpgsql",
             "UseMySql"
           ]
-        },
-        "tags": [
-          "persistence",
-          "database-provider",
-          "change-tracking",
-          "migrations"
-        ]
+        }
       },
       {
         "id": "xaf.data.orm.xpo",
@@ -88,7 +86,12 @@
           "synonyms": [
             "eXpress Persistent Objects",
             "XPO ORM"
-          ]
+          ],
+          "keywords": [
+            "session-management",
+            "data-layer",
+            "connection-pooling"
+        ]
         },
         "api_surface": {
           "primary_types": [
@@ -105,13 +108,7 @@
             "DataStoreProvider",
             "ConnectionPoolString"
           ]
-        },
-        "tags": [
-          "persistence",
-          "session-management",
-          "data-layer",
-          "connection-pooling"
-        ]
+        }
       },
       {
         "id": "xaf.data.business-model.non-persistent-object",
@@ -123,7 +120,11 @@
         "terminology": {
           "synonyms": [
             "Nonpersistent",
-            "Non persistent"
+            "Non persistent",
+            "NPO",
+            "DTO",
+            "POCO",
+            "on the fly"
           ]
         },
         "api_surface": {
@@ -135,13 +136,7 @@
           ]
         },
         "tags": [
-          "runtime",
-          "in-memory; on the fly",
-          "intermediate",
-          "middleware",
-          "NPO",
-          "DTO",
-          "POCO"
+          "in-memory"          
         ]
       },
       {
@@ -173,9 +168,6 @@
           "related_types": []
         },
         "tags": [
-          "data table",
-          "stored procedures",
-          "SQL Views"
         ]
       },
       {
@@ -191,7 +183,15 @@
             "database context",
             "database connection",
             "Session",
-            "Business Logic"
+            "Business Logic",
+            "transaction",
+            "business layer",
+            "repository",
+            "CRUD"
+          ],
+          "keywords": [
+            "LINQ",
+            "SQL"
           ]
         },
         "api_surface": {
@@ -218,21 +218,7 @@
             "IObjectSpace.CommitChanges",
             "IObjectSpace.GetObjectsQuery"
           ]
-        },
-        "tags": [
-          "create",
-          "read",
-          "update",
-          "delete",
-          "api",
-          "transaction",
-          "logic",
-          "business layer",
-          "repository",
-          "CRUD",
-          "LINQ",
-          "SQL"
-        ]
+        }
       },
       {
         "id": "xaf.security.core.security-system",
@@ -243,6 +229,10 @@
         "description": "Comprehensive XAF security framework integrating authentication, authorization, and data access control",
         "terminology": {
           "synonyms": [
+            "Auth",
+            "roles",
+            "permissions",
+            "access rights",          
             "XAF Security",
             "Application Security",
             "Data Access Security",
@@ -288,18 +278,6 @@
           ]
         },
         "tags": [
-          "secure",
-          "secured",
-          "sensitive",
-          "protected",
-          "Auth",
-          "sec",
-          "roles",
-          "permissions",
-          "access rights",
-          "Middle Tier Security",
-          "Middle-tier",
-          "application server"
         ]
       },
       {
@@ -311,12 +289,41 @@
         "description": "User identity verification and login management system",
         "terminology": {
           "synonyms": [
+            "logon",
+            "password",
+            "login",
+            "logon parameters",
+            "user info",
+            "sign in",
+            "sign on",
+            "log off",
+            "sign off",
+            "Credentials",
             "Auth",
             "Identity",
             "Login",
             "Logon",
             "User Management",
             "Identity Provider"
+          ],
+          "keywords": [
+            "OpenID Connect",
+            "Single Sign-On",
+            "Two-Factor Authentication",
+            "Multi-Factor Authentication",
+            "Microsoft Entra ID",
+            "Google Authentication",
+            "Active Directory",
+            "Standard Authentication",
+            "Forms Authentication",
+            "passkey",
+            "passwordless",
+            "2FA",
+            "access token",
+            "Bearer Token",
+            "Refresh Token",
+            "Cookie based authentication",
+            "Claim"
           ]
         },
         "api_surface": {
@@ -359,40 +366,7 @@
           "platforms": [
             "blazor"
           ]
-        },
-        "tags": [
-          "secure",
-          "secured",
-          "sensitive",
-          "protected",
-          "logon",
-          "password",
-          "login",
-          "logon parameters",
-          "user info",
-          "sign in",
-          "sign on",
-          "log off",
-          "sign off",
-          "Credentials",
-          "OpenID Connect",
-          "Single Sign-On",
-          "Two-Factor Authentication",
-          "Multi-Factor Authentication",
-          "Microsoft Entra ID",
-          "Google Authentication",
-          "Active Directory",
-          "Standard Authentication",
-          "Forms Authentication",
-          "passkey",
-          "passwordless",
-          "2FA",
-          "access token",
-          "Bearer Token",
-          "Refresh Token",
-          "Cookie based authentication",
-          "Claim"
-        ]
+        }
       },
       {
         "id": "xaf.security.authorization.authorization",
@@ -410,6 +384,15 @@
             "Role Management",
             "Access Rules",
             "Security Permissions"
+          ],
+          "keywords": [
+            "field-level permission",
+            "object-level permission",
+            "member permission",
+            "data record permission",
+            "navigation permission",
+            "type permission",
+            "Allow / Deny Permission Policy"
           ]
         },
         "api_surface": {
@@ -433,20 +416,7 @@
             "IdentityRole",
             "RBAC"
           ]
-        },
-        "tags": [
-          "secure",
-          "secured",
-          "sensitive",
-          "protected",
-          "field-level permission",
-          "object-level permission",
-          "member permission",
-          "data record permission",
-          "navigation permission",
-          "type permission",
-          "Allow / Deny Permission Policy"
-        ]
+        }
       },
       {
         "id": "xaf.architecture.application-model.application-model",
@@ -463,6 +433,10 @@
             "UI structure",
             "UI configuration",
             "Model Editor"
+          ],
+          "keywords": [
+            "Node Generators",
+            "Model Node Generator Updater"
           ]
         },
         "api_surface": {
@@ -495,18 +469,7 @@
             "UpdateNode",
             "AddNode"
           ]
-        },
-        "tags": [
-          "user interface",
-          "configuration",
-          "model differences",
-          "user differences",
-          "model difference layers",
-          "Module-Level Differences",
-          "Administrator Differences",
-          "Node Generators",
-          "Model Node Generator Updater"
-        ]
+        }
       },
       {
         "id": "xaf.ui.views.views",
@@ -524,7 +487,10 @@
             "View Types",
             "Master-Detail View",
             "Nested List View",
-            "Popup View"
+            "Popup View",
+            "form",
+            "page",
+            "window"
           ]
         },
         "api_surface": {
@@ -553,13 +519,6 @@
           ]
         },
         "tags": [
-          "form",
-          "page",
-          "window",
-          "data representation",
-          "UI Editors",
-          "List Editor",
-          "Layout Manager"
         ]
       },
       {
@@ -577,6 +536,25 @@
             "Form Controls",
             "Field Editors",
             "Fields"
+          ],
+          "keywords": [
+            "text editor",
+            "button",
+            "checkbox",
+            "combo box",
+            "date editor",
+            "lookup editor",
+            "memo editor",
+            "spin editor",
+            "time editor",
+            "image editor",
+            "file editor",
+            "rich text editor",
+            "drop down editor",
+            "lookup",
+            "progress bar",
+            "list box",
+            "custom property editor"
           ]
         },
         "facets": {
@@ -585,41 +563,6 @@
           ]
         },
         "tags": [
-          "UI Editors",
-          "form editors",
-          "data editors",
-          "user controls",
-          "Lookup Property Editor",
-          "List Property Editor",
-          "Object Property Editor",
-          "Static Text",
-          "Type Property Editor",
-          "Integer Property Editor",
-          "String Property Editor",
-          "Date Property Editor",
-          "Boolean Property Editor",
-          "Image Property Editor",
-          "Enumeration Property Editor",
-          "control",
-          "component",
-          "component model",
-          "component adapter",
-          "text editor",
-          "button",
-          "checkbox",
-          "combo box",
-          "date editor",
-          "lookup editor",
-          "memo editor",
-          "spin editor",
-          "time editor",
-          "image editor",
-          "file editor",
-          "rich text editor",
-          "drop down editor",
-          "lookup",
-          "progress bar",
-          "list box"
         ],
         "api_surface": {
           "related_types": [
@@ -648,26 +591,16 @@
         "domain": "ui",
         "subdomain": "list-editors",
         "description": "Controls used by List Views to visualize and interact with object collections, including grid, tree, and specialized data presentation formats",
-        "tags": [
-          "List Editor",
-          "Custom Property Editors",
-          "list",
-          "collection",
-          "nested List View",
-          "master-detail List View",
-          "grid",
-          "data grid",
-          "tree",
-          "treelist",
-          "scheduler",
-          "pivotgrid",
-          "chart",
-          "calendar",
-          "Data Access Mode",
-          "Server Mode",
-          "Data View mode",
-          "Client Mode"
-        ],
+        "terminology": {
+          "synonyms": [
+            "grid",
+            "data grid"
+          ],
+          "keywords": [
+            "nested List View",
+            "master-detail List View"
+          ]
+      },
         "api_surface": {
           "related_types": [
             "ListEditor",
@@ -705,11 +638,17 @@
         "description": "Controller classes and Action components for implementing UI commands and user interactions",
         "terminology": {
           "synonyms": [
+            "XAF Controller",
+            "view controller",
+            "window controller",
             "Controllers",
             "Actions",
             "Menu Commands",
             "Ribbon Actions",
             "Toolbar Actions"
+          ],
+          "keywords": [
+            "Action Handlers"
           ]
         },
         "api_surface": {
@@ -722,7 +661,7 @@
             "SingleChoiceAction",
             "PopupWindowShowAction",
             "ObjectViewController<ViewType>",
-            "ObjectType>",
+            "ObjectType",
             "ViewController<ListView>"
           ],
           "related_types": [
@@ -744,19 +683,7 @@
             "RecordsNavigationController",
             "ShowNavigationItemController"
           ]
-        },
-        "tags": [
-          "menu",
-          "commands",
-          "Action Handlers",
-          "XAF Controller",
-          "view controller",
-          "window controller",
-          "toolbar",
-          "ribbon",
-          "menu items",
-          "action containers"
-        ]
+        }
       },
       {
         "id": "xaf.ui.windows-frames.frames",
@@ -783,8 +710,6 @@
           ]
         },
         "tags": [
-          "frame",
-          "customization"
         ]
       },
       {
@@ -818,8 +743,6 @@
           ]
         },
         "tags": [
-          "window",
-          "customization"
         ]
       },
       {
@@ -878,7 +801,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {
@@ -1019,8 +941,7 @@
           ]
         },
         "tags": [
-          "metadata",
-          "configuration"
+          "metadata"
         ]
       },
       {
@@ -1044,8 +965,6 @@
           ]
         },
         "tags": [
-          "tools",
-          "configuration"
         ]
       },
       {
@@ -1083,8 +1002,6 @@
           ]
         },
         "tags": [
-          "storage",
-          "configuration"
         ]
       },
       {
@@ -1113,8 +1030,6 @@
           ]
         },
         "tags": [
-          "api",
-          "code"
         ]
       },
       {
@@ -1148,8 +1063,6 @@
           ]
         },
         "tags": [
-          "optimization",
-          "configuration"
         ]
       },
       {
@@ -1182,7 +1095,6 @@
           ]
         },
         "tags": [
-          "configuration"
         ]
       },
       {
@@ -1330,8 +1242,6 @@
           ]
         },
         "tags": [
-          "repository",
-          "unit-of-work"
         ]
       },
       {
@@ -1355,7 +1265,6 @@
           ]
         },
         "tags": [
-          "api"
         ]
       },
       {
@@ -1388,7 +1297,6 @@
           ]
         },
         "tags": [
-          "configuration"
         ]
       },
       {
@@ -1425,7 +1333,6 @@
           ]
         },
         "tags": [
-          "model"
         ]
       },
       {
@@ -1463,7 +1370,6 @@
           ]
         },
         "tags": [
-          "model",
           "lifecycle"
         ]
       },
@@ -1492,8 +1398,6 @@
           ]
         },
         "tags": [
-          "property",
-          "relationship"
         ]
       },
       {
@@ -1522,8 +1426,6 @@
           ]
         },
         "tags": [
-          "property",
-          "relationship"
         ]
       },
       {
@@ -1548,7 +1450,6 @@
           ]
         },
         "tags": [
-          "property"
         ]
       },
       {
@@ -1579,8 +1480,6 @@
           ]
         },
         "tags": [
-          "property",
-          "metadata"
         ]
       },
       {
@@ -1699,8 +1598,7 @@
         },
         "tags": [
           "query",
-          "filtering",
-          "customization"
+          "filtering"
         ]
       },
       {
@@ -1764,7 +1662,6 @@
           ]
         },
         "tags": [
-          "advanced"
         ]
       },
       {
@@ -1858,7 +1755,6 @@
           ]
         },
         "tags": [
-          "interfaces",
           "hierarchy"
         ]
       },
@@ -1932,7 +1828,6 @@
           ]
         },
         "tags": [
-          "types"
         ]
       },
       {
@@ -1977,7 +1872,6 @@
           ]
         },
         "tags": [
-          "types"
         ]
       },
       {
@@ -2063,7 +1957,6 @@
           ]
         },
         "tags": [
-          "types"
         ]
       },
       {
@@ -2103,7 +1996,6 @@
           ]
         },
         "tags": [
-          "types",
           "analytics"
         ]
       },
@@ -2143,7 +2035,6 @@
           ]
         },
         "tags": [
-          "types"
         ]
       },
       {
@@ -2193,7 +2084,6 @@
           ]
         },
         "tags": [
-          "components"
         ]
       },
       {
@@ -2234,7 +2124,6 @@
           ]
         },
         "tags": [
-          "components"
         ]
       },
       {
@@ -2271,7 +2160,6 @@
           ]
         },
         "tags": [
-          "components"
         ]
       },
       {
@@ -2313,7 +2201,6 @@
           ]
         },
         "tags": [
-          "components"
         ]
       },
       {
@@ -2361,7 +2248,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {
@@ -2474,8 +2360,6 @@
           ]
         },
         "tags": [
-          "customization",
-          "module"
         ],
         "ownership": {
           "module": "view-variants"
@@ -2597,7 +2481,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {
@@ -2732,7 +2615,6 @@
           ]
         },
         "tags": [
-          "collection"
         ],
         "ownership": {
           "module": "tree-list-editors"
@@ -2787,7 +2669,6 @@
           ]
         },
         "tags": [
-          "types"
         ]
       },
       {
@@ -2847,8 +2728,6 @@
           ]
         },
         "tags": [
-          "types",
-          "basic"
         ]
       },
       {
@@ -2904,7 +2783,6 @@
           ]
         },
         "tags": [
-          "types",
           "lookup"
         ]
       },
@@ -2955,7 +2833,6 @@
           ]
         },
         "tags": [
-          "types",
           "collection"
         ]
       },
@@ -3006,8 +2883,6 @@
           ]
         },
         "tags": [
-          "types",
-          "specialized"
         ]
       },
       {
@@ -3056,7 +2931,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {
@@ -3146,8 +3020,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types"
         ]
       },
       {
@@ -3189,8 +3061,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types"
         ]
       },
       {
@@ -3232,8 +3102,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types",
           "generics"
         ]
       },
@@ -3274,8 +3142,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types",
           "generics"
         ]
       },
@@ -3316,8 +3182,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types"
         ]
       },
       {
@@ -3357,8 +3221,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "types",
           "dialogs"
         ]
       },
@@ -3401,8 +3263,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "configuration"
         ]
       },
       {
@@ -3443,8 +3303,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "configuration"
         ]
       },
       {
@@ -3488,7 +3346,6 @@
           ]
         },
         "tags": [
-          "behavior",
           "lifecycle"
         ]
       },
@@ -3528,7 +3385,6 @@
           ]
         },
         "tags": [
-          "behavior",
           "system"
         ]
       },
@@ -3561,7 +3417,6 @@
           ]
         },
         "tags": [
-          "behavior",
           "system",
           "crud"
         ]
@@ -3593,7 +3448,6 @@
           ]
         },
         "tags": [
-          "behavior",
           "system",
           "listview"
         ]
@@ -3640,8 +3494,6 @@
           ]
         },
         "tags": [
-          "behavior",
-          "customization"
         ]
       },
       {
@@ -3670,7 +3522,6 @@
           ]
         },
         "tags": [
-          "winforms"
         ]
       },
       {
@@ -3690,7 +3541,6 @@
           ]
         },
         "tags": [
-          "commands"
         ]
       },
       {
@@ -3769,7 +3619,6 @@
           ]
         },
         "tags": [
-          "control"
         ],
         "ownership": {
           "module": "office"
@@ -3836,8 +3685,7 @@
           ]
         },
         "tags": [
-          "styling",
-          "customization"
+          "styling"
         ]
       },
       {
@@ -3880,7 +3728,6 @@
           ]
         },
         "tags": [
-          "commands"
         ]
       },
       {
@@ -3918,8 +3765,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "types"
         ]
       },
       {
@@ -3960,8 +3805,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "types"
         ]
       },
       {
@@ -4001,8 +3844,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "types"
         ]
       },
       {
@@ -4045,8 +3886,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "types"
         ]
       },
       {
@@ -4091,8 +3930,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "types"
         ]
       },
       {
@@ -4144,7 +3981,6 @@
           ]
         },
         "tags": [
-          "commands"
         ]
       },
       {
@@ -4193,7 +4029,6 @@
           ]
         },
         "tags": [
-          "commands",
           "state"
         ]
       },
@@ -4244,8 +4079,6 @@
           ]
         },
         "tags": [
-          "commands",
-          "customization"
         ]
       },
       {
@@ -4291,7 +4124,6 @@
           ]
         },
         "tags": [
-          "commands",
           "system"
         ]
       },
@@ -4329,7 +4161,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {
@@ -4472,8 +4303,7 @@
           ]
         },
         "tags": [
-          "validation",
-          "customization"
+          "validation"
         ],
         "ownership": {
           "module": "validation"
@@ -4550,7 +4380,6 @@
           ]
         },
         "tags": [
-          "behavior"
         ],
         "ownership": {
           "module": "conditional-appearance"
@@ -4975,8 +4804,7 @@
           ]
         },
         "tags": [
-          "workflow",
-          "behavior"
+          "workflow"
         ],
         "ownership": {
           "module": "state-machine"
@@ -5138,7 +4966,6 @@
           ]
         },
         "tags": [
-          "functionality"
         ],
         "ownership": {
           "module": "clone-object"
@@ -5231,7 +5058,6 @@
           ]
         },
         "tags": [
-          "customization"
         ]
       },
       {

@@ -51,7 +51,10 @@ class TestLoadConcepts:
         assert actual == expected, f"Expected {expected} concepts, got {actual}"
 
     def test_every_concept_has_required_fields(self):
-        required = {"name", "type", "synonyms", "tags", "keywords", "description", "parent"}
+        required = {
+            "name", "type", "synonyms", "tags", "keywords", "description",
+            "parent", "part_of", "is_a", "related_to", "replaces",
+        }
         for c in load_concepts()["concepts"]:
             missing = required - set(c.keys())
             assert not missing, f"Concept '{c.get('name')}' missing fields: {missing}"
@@ -189,12 +192,14 @@ class TestTypeReverseMapping:
 # ── hierarchy (parent field) ──────────────────────────────────────────────
 
 class TestHierarchy:
-    """Verify parent extraction from relations.part_of."""
+    """Verify parent extraction from relations.part_of (preferred) or is_a (fallback)."""
 
     EXPECTED_PARENTS = {
         "Layout":          "Views",
         "Model Nodes":     "Application Model",
         "View Items":      "Views",
+        "List View":       "View Types",
+        "Simple Action":   "Action Types",
     }
 
     @pytest.mark.parametrize("name,expected_parent", list(EXPECTED_PARENTS.items()))
@@ -209,7 +214,7 @@ class TestHierarchy:
     def test_concepts_without_parent_have_none(self):
         """Top-level concepts should have parent=None."""
         by_name = {c["name"]: c for c in load_concepts()["concepts"]}
-        for name in ("Security System", "Blazor", "XAF Application"):
+        for name in ("Security System", "XAF Application"):
             if name in by_name:
                 assert by_name[name]["parent"] is None, (
                     f"'{name}' should have no parent"
@@ -253,16 +258,65 @@ class TestLoadTaxonomyRaw:
 
 # ── edge cases ─────────────────────────────────────────────────────────────
 
+# ── relations ──────────────────────────────────────────────────────────────
+
+class TestRelations:
+    """Verify all four relation types are exposed and resolved to names."""
+
+    def test_relation_fields_are_lists(self):
+        for c in load_concepts()["concepts"]:
+            for field in ("part_of", "is_a", "related_to", "replaces"):
+                assert isinstance(c[field], list), (
+                    f"'{field}' for '{c['name']}' should be a list, got {type(c[field])}"
+                )
+
+    def test_is_a_populated(self):
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        assert "Security System" in by_name["Authentication"]["is_a"], (
+            "Authentication should is_a Security System"
+        )
+
+    def test_related_to_populated(self):
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        assert "Business Object" in by_name["Object Space"]["related_to"], (
+            "Object Space should be related_to Business Object"
+        )
+
+    def test_related_to_symmetric(self):
+        """Every related_to link must be reciprocated."""
+        concepts = load_concepts()["concepts"]
+        by_name = {c["name"]: c for c in concepts}
+        errors = []
+        for c in concepts:
+            for target in c["related_to"]:
+                if target not in by_name:
+                    continue
+                if c["name"] not in by_name[target]["related_to"]:
+                    errors.append(f"{c['name']} → {target} (no reverse)")
+        assert not errors, f"Asymmetric related_to: {errors}"
+
+    def test_replaces_populated(self):
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        assert "Project Wizards" in by_name["Template Kit"]["replaces"], (
+            "Template Kit should replace Project Wizards"
+        )
+
+
+# ── edge cases ─────────────────────────────────────────────────────────────
+
 class TestEdgeCases:
     def test_flatten_minimal_concept(self):
         """A concept with only required fields should not crash."""
         minimal = {"id": "xaf.test.minimal", "name": "Test", "artifact_kind": "conceptual", "domain": "data"}
-        flat = _flatten_concept(minimal)
+        flat = _flatten_concept(minimal, {})
         assert flat["name"] == "Test"
         assert flat["synonyms"] == []
         assert flat["tags"] == []
         assert flat["keywords"] == []
         assert flat["parent"] is None
+        assert flat["is_a"] == []
+        assert flat["related_to"] == []
+        assert flat["replaces"] == []
 
     def test_custom_path(self, tmp_path):
         """load_concepts() accepts a custom path."""

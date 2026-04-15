@@ -1,5 +1,30 @@
 # What's New
 
+## 2026-04-15 — Taxonomy relation graph (Phase 1: loader + test scaffold)
+
+### Problem
+
+Only `part_of` was populated in `xaf-taxonomy.json` (58 of 146 concepts); `is_a`, `related_to`, and `replaces` had zero instances. Relation targets used concept **names** (not IDs), causing ambiguity (`"Controllers"` vs the actual concept `"Controllers and Actions"`). The loader only extracted `part_of[0]` into a flat `parent` field — the other three relation types were invisible to the pipeline.
+
+### What changed
+
+| File | Change |
+|---|---|
+| `utils/taxonomy_loader.py` | `_flatten_concept()` now accepts an `id_to_name` lookup, resolves relation IDs to names, derives `parent` from `part_of[0] \|\| is_a[0]`, and exposes four new list fields: `part_of`, `is_a`, `related_to`, `replaces`. |
+| `tests/test_taxonomy_loader.py` | New `TestRelations` class (field-type checks, `is_a`/`related_to` symmetry enforcement, `replaces` population). `TestHierarchy` extended with `is_a`-fallback cases; stale `"Blazor"` reference removed. |
+
+### Design decisions
+
+- **`parent` backward compat** — `part_of[0]` is preferred; `is_a[0]` is the fallback. Downstream scripts that read `parent` continue to work unchanged.
+- **ID-based targets** — relation targets will switch from names to concept IDs (Phases 2–7) for machine-precision; the loader resolves them back to names for the flat dict.
+- **`related_to` symmetry** — enforced by test: if A lists B, B must list A.
+
+### Status
+
+3 intentionally-red tests (`test_is_a_populated`, `test_related_to_populated`, `test_replaces_populated`) will go green when Phases 2–7 populate the taxonomy data.
+
+---
+
 ## 2026-04-15 — Formal faceted taxonomy (`config/xaf-taxonomy.json`)
 
 ### Problem

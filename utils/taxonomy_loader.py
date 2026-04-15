@@ -79,12 +79,33 @@ def _reverse_type(concept: Dict[str, Any]) -> str:
     )
 
 
-def _flatten_concept(raw: Dict[str, Any]) -> Dict[str, Any]:
+def _resolve_ids(ids: List[str], id_to_name: Dict[str, str]) -> List[str]:
+    """Resolve a list of concept IDs to concept names."""
+    return [id_to_name.get(cid, cid) for cid in ids]
+
+
+def _flatten_concept(
+    raw: Dict[str, Any],
+    id_to_name: Dict[str, str],
+) -> Dict[str, Any]:
     """Convert a single taxonomy concept into the flat dict shape scripts expect."""
     terminology = raw.get("terminology") or {}
     api_surface = raw.get("api_surface") or {}
     relations = raw.get("relations") or {}
-    part_of = relations.get("part_of") or []
+    part_of_ids = relations.get("part_of") or []
+    is_a_ids = relations.get("is_a") or []
+    related_to_ids = relations.get("related_to") or []
+    replaces_ids = relations.get("replaces") or []
+
+    # Resolve relation IDs to names
+    part_of_names = _resolve_ids(part_of_ids, id_to_name)
+    is_a_names = _resolve_ids(is_a_ids, id_to_name)
+    related_to_names = _resolve_ids(related_to_ids, id_to_name)
+    replaces_names = _resolve_ids(replaces_ids, id_to_name)
+
+    # Parent: prefer part_of, fall back to is_a
+    parent_list = part_of_names or is_a_names
+    parent = parent_list[0] if parent_list else None
 
     # Merge api_surface into keywords (primary first, then related)
     keywords: List[str] = list(api_surface.get("primary_types") or [])
@@ -99,7 +120,12 @@ def _flatten_concept(raw: Dict[str, Any]) -> Dict[str, Any]:
         "tags":        list(raw.get("tags") or []),
         "keywords":    keywords,
         "description": raw.get("description", ""),
-        "parent":      part_of[0] if part_of else None,
+        "parent":      parent,
+        # ── relation fields (resolved to names) ──
+        "part_of":     part_of_names,
+        "is_a":        is_a_names,
+        "related_to":  related_to_names,
+        "replaces":    replaces_names,
         # ── bonus fields from the richer taxonomy ──
         "id":          raw.get("id", ""),
         "domain":      raw.get("domain", ""),
@@ -136,7 +162,8 @@ def load_concepts(path: Optional[str | Path] = None) -> Dict[str, Any]:
         data = json.load(f)
 
     raw_concepts = data.get("taxonomy", {}).get("concepts", [])
-    return {"concepts": [_flatten_concept(c) for c in raw_concepts]}
+    id_to_name = {c["id"]: c["name"] for c in raw_concepts if "id" in c}
+    return {"concepts": [_flatten_concept(c, id_to_name) for c in raw_concepts]}
 
 
 def load_taxonomy_raw(path: Optional[str | Path] = None) -> Dict[str, Any]:
