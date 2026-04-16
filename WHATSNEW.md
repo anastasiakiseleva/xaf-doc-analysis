@@ -1,5 +1,40 @@
 # What's New
 
+## 2026-04-16 — Taxonomy quality pass: relation semantics, reciprocity, and loader inverses
+
+### Problem
+
+A full review of `config/xaf-taxonomy.json` against **Hedden §4.3**, **ANSI/NISO Z39.19**, and **W3C SKOS** identified three structural issues:
+
+1. **`is_a` misclassified as whole-part** — 9 concepts used `is_a` where the relationship was compositional (e.g. Audit Trail `is_a` Security System), failing the Z39.19 §7.2.1 all-and-some test.
+2. **Reciprocity missing** — `part_of` and `is_a` were stored only on the child. Z39.19 §7.1 requires reciprocal entries; SKOS defines `broader`/`narrower` as inverse pairs. Parents had no way to enumerate their children.
+3. **Redundant `related_to`** — Dashboards had both `is_a` Views and `related_to` Views (same target), violating Z39.19 §8.2.
+
+### What changed
+
+| File | Change |
+|---|---|
+| `config/xaf-taxonomy.json` | 9 concepts corrected: `is_a` → `part_of` for Audit Trail, Authentication, Authorization, Middle Tier, Optimistic Locking, Clone Object, State Machine, Charts, Dashboards. Redundant Dashboards → Views `related_to` removed. Views → Dashboards `related_to` removed (now superseded by the hierarchical link). |
+| `utils/taxonomy_loader.py` | Added `_build_inverse_maps()` (single pass over raw concepts building parent→children maps). `_flatten_concept()` now takes two additional maps and adds `has_part` and `has_kind` as computed fields on every concept. `load_concepts()` builds the maps once and threads them through. |
+| `tests/test_taxonomy_loader.py` | 5 new tests: `test_has_part_is_inverse_of_part_of`, `test_has_kind_is_inverse_of_is_a`, `test_has_part_populated_for_known_parent`, `test_has_kind_populated_for_known_parent`, `test_inverse_fields_are_lists`. `test_flatten_minimal_concept` updated for new 4-arg signature. `test_is_a_populated` updated to reflect the corrected relation type. Total: 54 passed, 4 skipped. |
+| `config/xaf-taxonomy-schema-contract.md` | `has_part` and `has_kind` documented in §8 as computed read-only fields with explicit governance rule: inverses are never written to JSON — set `part_of`/`is_a` on the child only. |
+
+### Design decisions
+
+- **Option B (compute-at-load-time)** chosen over storing inverse relations in JSON. This mirrors how SKOS processors treat `skos:broader`/`skos:narrower` as `owl:inverseOf` pairs — the loader is the reasoning layer, the JSON is the single source of truth.
+- **`part_of` wins over `is_a`** as the primary whole-part relation going forward. `is_a` is reserved exclusively for true genus-species (all-and-some) specialisation.
+- **Breaking change**: `_flatten_concept()` now requires 4 arguments. All call sites updated; direct callers outside the loader must pass empty dicts `{}` for the two new map arguments.
+
+### Relation type guide (Z39.19 §7.2)
+
+| Relation | Test | Example |
+|---|---|---|
+| `is_a` | All X are Y | `List View is_a View Types` — all list views are view types ✓ |
+| `part_of` | X is a component of Y | `Audit Trail part_of Security System` — audit trail is a component, not a kind ✓ |
+| `related_to` | Neither hierarchical nor equivalent | `Object Space related_to Business Object` ✓ |
+
+---
+
 ## 2026-04-15 — Taxonomy relation graph (Phase 1: loader + test scaffold)
 
 ### Problem

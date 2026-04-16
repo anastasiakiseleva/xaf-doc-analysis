@@ -272,8 +272,8 @@ class TestRelations:
 
     def test_is_a_populated(self):
         by_name = {c["name"]: c for c in load_concepts()["concepts"]}
-        assert "Security System" in by_name["Authentication"]["is_a"], (
-            "Authentication should is_a Security System"
+        assert "Security System" in by_name["Authentication"]["part_of"], (
+            "Authentication should be part_of Security System"
         )
 
     def test_related_to_populated(self):
@@ -301,6 +301,65 @@ class TestRelations:
             "Template Kit should replace Project Wizards"
         )
 
+    def test_has_part_is_inverse_of_part_of(self):
+        """Every concept's has_part must equal the set of concepts that declare
+        part_of back to it.  Verifies Z39.19 §7.1 reciprocity for whole-part."""
+        concepts = load_concepts()["concepts"]
+        by_name = {c["name"]: c for c in concepts}
+        errors = []
+        for c in concepts:
+            for child_name in c["has_part"]:
+                if child_name not in by_name:
+                    continue
+                if c["name"] not in by_name[child_name]["part_of"]:
+                    errors.append(
+                        f"{c['name']}.has_part includes '{child_name}' "
+                        f"but '{child_name}'.part_of does not include '{c['name']}'"
+                    )
+        assert not errors, f"has_part/part_of mismatch: {errors}"
+
+    def test_has_kind_is_inverse_of_is_a(self):
+        """Every concept's has_kind must equal the set of concepts that declare
+        is_a back to it.  Verifies Z39.19 §7.1 reciprocity for generic (BT/NT)."""
+        concepts = load_concepts()["concepts"]
+        by_name = {c["name"]: c for c in concepts}
+        errors = []
+        for c in concepts:
+            for child_name in c["has_kind"]:
+                if child_name not in by_name:
+                    continue
+                if c["name"] not in by_name[child_name]["is_a"]:
+                    errors.append(
+                        f"{c['name']}.has_kind includes '{child_name}' "
+                        f"but '{child_name}'.is_a does not include '{c['name']}'"
+                    )
+        assert not errors, f"has_kind/is_a mismatch: {errors}"
+
+    def test_has_part_populated_for_known_parent(self):
+        """Application Model should list all four sub-concepts in has_part."""
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        has_part = by_name["Application Model"]["has_part"]
+        for expected in ("Model Cache", "Model Differences", "Model Extension", "Model Nodes"):
+            assert expected in has_part, (
+                f"Application Model.has_part should contain '{expected}', got {has_part}"
+            )
+
+    def test_has_kind_populated_for_known_parent(self):
+        """View Types should list its specialisations in has_kind."""
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        has_kind = by_name["View Types"]["has_kind"]
+        for expected in ("Detail View", "List View", "Dashboard View", "Lookup View"):
+            assert expected in has_kind, (
+                f"View Types.has_kind should contain '{expected}', got {has_kind}"
+            )
+
+    def test_inverse_fields_are_lists(self):
+        for c in load_concepts()["concepts"]:
+            for field in ("has_part", "has_kind"):
+                assert isinstance(c[field], list), (
+                    f"'{field}' for '{c['name']}' should be a list, got {type(c[field])}"
+                )
+
 
 # ── edge cases ─────────────────────────────────────────────────────────────
 
@@ -308,7 +367,7 @@ class TestEdgeCases:
     def test_flatten_minimal_concept(self):
         """A concept with only required fields should not crash."""
         minimal = {"id": "xaf.test.minimal", "name": "Test", "artifact_kind": "conceptual", "domain": "data"}
-        flat = _flatten_concept(minimal, {})
+        flat = _flatten_concept(minimal, {}, {}, {})
         assert flat["name"] == "Test"
         assert flat["synonyms"] == []
         assert flat["tags"] == []
@@ -317,6 +376,8 @@ class TestEdgeCases:
         assert flat["is_a"] == []
         assert flat["related_to"] == []
         assert flat["replaces"] == []
+        assert flat["has_part"] == []
+        assert flat["has_kind"] == []
 
     def test_custom_path(self, tmp_path):
         """load_concepts() accepts a custom path."""

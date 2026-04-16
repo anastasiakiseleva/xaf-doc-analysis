@@ -273,6 +273,30 @@ The referenced concept must be understood before this one.
 
 ---
 
+### has_part *(computed, read-only)*
+
+**Source:** Derived at load time from all concepts that declare `part_of` this concept.  
+**Never stored in JSON** — the child's `part_of` declaration is the single source of truth.
+
+SKOS equivalent: `skos:narrower` (whole-part axis).  
+Z39.19 §7.1: satisfies the reciprocal-entry requirement without duplicating data in the source file.
+
+**Governance rule:** Do not add `has_part` entries manually to the JSON. They are always computed. To connect a child to a parent, set `part_of` on the child.
+
+---
+
+### has_kind *(computed, read-only)*
+
+**Source:** Derived at load time from all concepts that declare `is_a` this concept.  
+**Never stored in JSON** — the child's `is_a` declaration is the single source of truth.
+
+SKOS equivalent: `skos:narrower` (generic/specialisation axis).  
+Z39.19 §7.1: satisfies the reciprocal-entry requirement without duplicating data in the source file.
+
+**Governance rule:** Do not add `has_kind` entries manually to the JSON. They are always computed. To connect a specialisation to its parent, set `is_a` on the child.
+
+---
+
 ## 9. Terminology
 
 ### terminology.synonyms

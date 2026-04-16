@@ -84,9 +84,40 @@ def _resolve_ids(ids: List[str], id_to_name: Dict[str, str]) -> List[str]:
     return [id_to_name.get(cid, cid) for cid in ids]
 
 
+def _build_inverse_maps(
+    raw_concepts: List[Dict[str, Any]],
+) -> tuple[Dict[str, List[str]], Dict[str, List[str]]]:
+    """Build reverse-lookup maps for hierarchical relations.
+
+    Returns
+    -------
+    id_to_has_part : dict
+        Maps parent ID → sorted list of child IDs that declare ``part_of`` this parent.
+    id_to_has_kind : dict
+        Maps parent ID → sorted list of child IDs that declare ``is_a`` this parent.
+
+    These are the SKOS ``narrower`` / inverse-``broader`` equivalents.
+    Computed once at load time so the JSON stays a single source of truth.
+    """
+    id_to_has_part: Dict[str, List[str]] = {c["id"]: [] for c in raw_concepts if "id" in c}
+    id_to_has_kind: Dict[str, List[str]] = {c["id"]: [] for c in raw_concepts if "id" in c}
+    for c in raw_concepts:
+        cid = c.get("id", "")
+        relations = c.get("relations") or {}
+        for parent_id in relations.get("part_of") or []:
+            if parent_id in id_to_has_part:
+                id_to_has_part[parent_id].append(cid)
+        for parent_id in relations.get("is_a") or []:
+            if parent_id in id_to_has_kind:
+                id_to_has_kind[parent_id].append(cid)
+    return id_to_has_part, id_to_has_kind
+
+
 def _flatten_concept(
     raw: Dict[str, Any],
     id_to_name: Dict[str, str],
+    id_to_has_part: Dict[str, List[str]],
+    id_to_has_kind: Dict[str, List[str]],
 ) -> Dict[str, Any]:
     """Convert a single taxonomy concept into the flat dict shape scripts expect."""
     terminology = raw.get("terminology") or {}
@@ -113,6 +144,11 @@ def _flatten_concept(
     # Also include terminology.keywords if present
     keywords.extend(terminology.get("keywords") or [])
 
+    # Computed inverse (narrower) relations — SKOS narrower / Z39.19 reciprocal
+    cid = raw.get("id", "")
+    has_part_names = _resolve_ids(id_to_has_part.get(cid, []), id_to_name)
+    has_kind_names = _resolve_ids(id_to_has_kind.get(cid, []), id_to_name)
+
     flat: Dict[str, Any] = {
         "name":        raw.get("name", ""),
         "type":        _reverse_type(raw),
@@ -122,12 +158,17 @@ def _flatten_concept(
         "description": raw.get("description", ""),
         "parent":      parent,
         # ── relation fields (resolved to names) ──
-        "part_of":     part_of_names,
-        "is_a":        is_a_names,
+        "part_of":     part_of_names,       # child → parent  (SKOS broader)
+        "is_a":        is_a_names,           # child → parent  (SKOS broader, generic)
         "related_to":  related_to_names,
         "replaces":    replaces_names,
+        # ── computed inverse relations (SKOS narrower) ──
+        # Derived at load time from the child-side declarations above.
+        # Never stored in JSON — single source of truth is always the child.
+        "has_part":    has_part_names,       # parent → children via part_of
+        "has_kind":    has_kind_names,       # parent → children via is_a
         # ── bonus fields from the richer taxonomy ──
-        "id":          raw.get("id", ""),
+        "id":          cid,
         "domain":      raw.get("domain", ""),
         "subdomain":   raw.get("subdomain", ""),
         "artifact_kind": raw.get("artifact_kind", ""),
@@ -163,7 +204,13 @@ def load_concepts(path: Optional[str | Path] = None) -> Dict[str, Any]:
 
     raw_concepts = data.get("taxonomy", {}).get("concepts", [])
     id_to_name = {c["id"]: c["name"] for c in raw_concepts if "id" in c}
-    return {"concepts": [_flatten_concept(c, id_to_name) for c in raw_concepts]}
+    id_to_has_part, id_to_has_kind = _build_inverse_maps(raw_concepts)
+    return {
+        "concepts": [
+            _flatten_concept(c, id_to_name, id_to_has_part, id_to_has_kind)
+            for c in raw_concepts
+        ]
+    }
 
 
 def load_taxonomy_raw(path: Optional[str | Path] = None) -> Dict[str, Any]:
