@@ -260,6 +260,10 @@ Defines structural containment or composition.
 ### relations.related_to
 Defines lateral conceptual relationships.
 
+**Symmetry rule:** Every `related_to` entry must be reciprocated — if A lists B, B must list A. This is enforced by CI (`test_related_to_symmetric`).
+
+Use for: peer associations, works-with, see-also, alternative-to. Do **not** use for learning prerequisites or structural dependencies — use `requires` instead.
+
 ---
 
 ### relations.replaces
@@ -270,6 +274,8 @@ Defines replacement relationships for deprecated concepts.
 ### relations.requires
 Defines prerequisite or dependency relationships.
 The referenced concept must be understood before this one.
+
+**Asymmetric by design** — do not add a reciprocal entry on the target concept.
 
 ---
 

@@ -127,12 +127,14 @@ def _flatten_concept(
     is_a_ids = relations.get("is_a") or []
     related_to_ids = relations.get("related_to") or []
     replaces_ids = relations.get("replaces") or []
+    requires_ids = relations.get("requires") or []
 
     # Resolve relation IDs to names
     part_of_names = _resolve_ids(part_of_ids, id_to_name)
     is_a_names = _resolve_ids(is_a_ids, id_to_name)
     related_to_names = _resolve_ids(related_to_ids, id_to_name)
     replaces_names = _resolve_ids(replaces_ids, id_to_name)
+    requires_names = _resolve_ids(requires_ids, id_to_name)
 
     # Parent: prefer part_of, fall back to is_a
     parent_list = part_of_names or is_a_names
@@ -162,6 +164,7 @@ def _flatten_concept(
         "is_a":        is_a_names,           # child → parent  (SKOS broader, generic)
         "related_to":  related_to_names,
         "replaces":    replaces_names,
+        "requires":    requires_names,
         # ── computed inverse relations (SKOS narrower) ──
         # Derived at load time from the child-side declarations above.
         # Never stored in JSON — single source of truth is always the child.

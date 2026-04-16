@@ -170,6 +170,10 @@
             "replaces": {
               "type": "array",
               "items": { "type": "string" }
+            },
+            "requires": {
+              "type": "array",
+              "items": { "type": "string" }
             }
           }
         },

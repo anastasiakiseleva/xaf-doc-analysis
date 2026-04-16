@@ -61,9 +61,7 @@
         },
         "relations": {
           "related_to": [
-            "xaf.ui.views.views",
-            "xaf.ui.theming.conditional-appearance",
-            "xaf.ui.controllers.controllers-and-actions"
+            "xaf.ui.views.views"
           ]
         },
         "facets": {
@@ -736,11 +734,8 @@
         "relations": {
           "related_to": [
             "xaf.data.object-space.object-space",
-            "xaf.data.business-model.validation",
             "xaf.data.object-space.business-logic",
             "xaf.data.concurrency.optimistic-locking",
-            "xaf.data.business-model.clone-object",
-            "xaf.data.business-model.state-machine",
             "xaf.data.business-model.tree-node-interface",
             "xaf.ui.editors.property-editors"
           ]
@@ -859,7 +854,7 @@
           "part_of": [
             "xaf.data.object-space.business-logic"
           ],
-          "related_to": [
+          "requires": [
             "xaf.data.business-model.business-object"
           ]
         },
@@ -1056,7 +1051,7 @@
           "part_of": [
             "xaf.data.object-space.business-logic"
           ],
-          "related_to": [
+          "requires": [
             "xaf.data.business-model.business-object"
           ]
         },
@@ -1162,10 +1157,11 @@
           "module": "validation"
         },
         "relations": {
+          "requires": [
+            "xaf.data.business-model.business-object"
+          ],
           "related_to": [
-            "xaf.data.business-model.business-object",
-            "xaf.ui.editors.property-editors",
-            "xaf.ui.ux.error-styling"
+            "xaf.ui.editors.property-editors"
           ]
         },
         "facets": {
@@ -1453,12 +1449,6 @@
           ]
         },
         "tags": [],
-        "relations": {
-          "related_to": [
-            "xaf.data.orm.entity-framework-core",
-            "xaf.data.orm.xpo"
-          ]
-        },
         "facets": {
           "platforms": [
             "winforms",
@@ -1780,7 +1770,6 @@
             "xaf.data.orm.entity-framework-core",
             "xaf.data.orm.xpo",
             "xaf.data.business-model.non-persistent-object",
-            "xaf.data.updates.database-update",
             "xaf.quality.performance.performance-optimization"
           ]
         },
@@ -1879,11 +1868,13 @@
           ]
         },
         "relations": {
+          "requires": [
+            "xaf.data.database.database-connection"
+          ],
           "related_to": [
             "xaf.data.object-space.object-space",
             "xaf.data.orm.xpo",
             "xaf.data.updates.database-update",
-            "xaf.data.database.database-connection",
             "xaf.migration.migration.migration"
           ]
         },
@@ -1943,10 +1934,12 @@
           ]
         },
         "relations": {
+          "requires": [
+            "xaf.data.database.database-connection"
+          ],
           "related_to": [
             "xaf.data.object-space.object-space",
-            "xaf.data.orm.entity-framework-core",
-            "xaf.data.database.database-connection"
+            "xaf.data.orm.entity-framework-core"
           ]
         },
         "facets": {
@@ -2380,9 +2373,11 @@
           "lifecycle"
         ],
         "relations": {
-          "related_to": [
-            "xaf.data.orm.entity-framework-core",
+          "requires": [
             "xaf.data.object-space.object-space"
+          ],
+          "related_to": [
+            "xaf.data.orm.entity-framework-core"
           ]
         },
         "facets": {
@@ -5033,7 +5028,7 @@
           ]
         },
         "relations": {
-          "related_to": [
+          "requires": [
             "xaf.ui.views.views",
             "xaf.architecture.application-model.application-model"
           ]
@@ -6561,7 +6556,7 @@
           ]
         },
         "relations": {
-          "related_to": [
+          "requires": [
             "xaf.ui.views.views"
           ]
         },
@@ -6742,7 +6737,7 @@
           "module": "conditional-appearance"
         },
         "relations": {
-          "related_to": [
+          "requires": [
             "xaf.architecture.application-model.application-model"
           ]
         },
@@ -6936,9 +6931,6 @@
         ],
         "relations": {
           "part_of": [
-            "xaf.data.business-model.validation"
-          ],
-          "related_to": [
             "xaf.data.business-model.validation"
           ]
         },
@@ -8547,8 +8539,6 @@
           "related_to": [
             "xaf.data.criteria.criteria",
             "xaf.architecture.application-model.application-model",
-            "xaf.ui.controllers.controllers-and-actions",
-            "xaf.ui.navigation.navigation",
             "xaf.ui.views.reports",
             "xaf.ui.views.scheduler"
           ]

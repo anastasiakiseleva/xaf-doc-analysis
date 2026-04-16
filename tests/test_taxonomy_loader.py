@@ -53,7 +53,7 @@ class TestLoadConcepts:
     def test_every_concept_has_required_fields(self):
         required = {
             "name", "type", "synonyms", "tags", "keywords", "description",
-            "parent", "part_of", "is_a", "related_to", "replaces",
+            "parent", "part_of", "is_a", "related_to", "replaces", "requires",
         }
         for c in load_concepts()["concepts"]:
             missing = required - set(c.keys())
@@ -265,7 +265,7 @@ class TestRelations:
 
     def test_relation_fields_are_lists(self):
         for c in load_concepts()["concepts"]:
-            for field in ("part_of", "is_a", "related_to", "replaces"):
+            for field in ("part_of", "is_a", "related_to", "replaces", "requires"):
                 assert isinstance(c[field], list), (
                     f"'{field}' for '{c['name']}' should be a list, got {type(c[field])}"
                 )
@@ -299,6 +299,18 @@ class TestRelations:
         by_name = {c["name"]: c for c in load_concepts()["concepts"]}
         assert "Project Wizards" in by_name["Template Kit"]["replaces"], (
             "Template Kit should replace Project Wizards"
+        )
+
+    def test_requires_populated_for_known_concept(self):
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        assert "Business Object" in by_name["Validation"]["requires"], (
+            "Validation should require Business Object"
+        )
+        assert "Views" in by_name["Navigation"]["requires"], (
+            "Navigation should require Views"
+        )
+        assert "Database Connection" in by_name["Entity Framework Core"]["requires"], (
+            "Entity Framework Core should require Database Connection"
         )
 
     def test_has_part_is_inverse_of_part_of(self):

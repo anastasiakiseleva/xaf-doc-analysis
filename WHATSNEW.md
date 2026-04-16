@@ -1,5 +1,48 @@
 # What's New
 
+## 2026-04-16 — Activate `requires` relation: differentiate learning prerequisites from peer associations
+
+### Problem
+
+All 88 `related_to` pairs in `config/xaf-taxonomy.json` used the same undifferentiated type, conflating structurally distinct semantic relationships:
+- **Peer associations** (`works_with`, `see_also`) — symmetric, order-independent
+- **Learning prerequisites** — asymmetric: concept A cannot be understood without first understanding concept B
+
+The schema contract already defined a `requires` relation type for prerequisites, but it was absent from the JSON Schema and never wired into the loader.
+
+### What changed
+
+| File | Change |
+|---|---|
+| `config/xaf-taxonomy.schema.json` | Added `requires` to `$defs.concept.relations.properties` (array of strings), making it a valid key in concept relation blocks. |
+| `config/xaf-taxonomy.json` | 11 learning-prerequisite pairs migrated from `related_to` → `requires` (see list below). Symmetric back-references removed from target concepts. Redundant `Error Styling → Validation` related_to removed (superseded by the existing `part_of` link). |
+| `utils/taxonomy_loader.py` | `requires_ids` extracted from `relations`, resolved to names, exposed as `"requires"` in every flattened concept dict. |
+| `tests/test_taxonomy_loader.py` | `"requires"` added to required-fields set and `test_relation_fields_are_lists` tuple. New test `test_requires_populated_for_known_concept` spot-checks Validation → Business Object, Navigation → Views, Entity Framework Core → Database Connection. |
+| `config/xaf-taxonomy-schema-contract.md` | `related_to` definition sharpened with symmetry rule and scope boundary. `requires` definition clarified as intentionally asymmetric. |
+
+### Pairs migrated to `requires` (11 total)
+
+| Source concept | Requires |
+|---|---|
+| Clone Object | Business Object |
+| State Machine | Business Object |
+| Validation | Business Object |
+| Conditional Appearance | Application Model |
+| Database Update | Object Space |
+| Entity Framework Core | Database Connection |
+| XPO | Database Connection |
+| Navigation | Views |
+| Controllers and Actions | Views |
+| Controllers and Actions | Application Model |
+
+### Design decisions
+
+- **Authentication ↔ Middle Tier** kept as `related_to` (symmetric peer): neither concept is a strict learning prerequisite for the other. Both are independently learnable security-domain topics that interact at runtime.
+- **Error Styling → Validation `related_to` dropped** (not migrated to `requires`): the `part_of` link already implies the dependency. Adding `requires` on top of `part_of` to the same target would be redundant per Z39.19 §8.2.
+- **`requires` is intentionally asymmetric** — `test_related_to_symmetric` does not extend to `requires`.
+
+---
+
 ## 2026-04-16 — Taxonomy quality pass: relation semantics, reciprocity, and loader inverses
 
 ### Problem
