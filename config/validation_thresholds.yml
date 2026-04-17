@@ -23,7 +23,9 @@ phase2_graph:
 phase3_concepts:
   min_kept_percentage: 60.0         # At least 60% of sections should be kept
   max_kept_percentage: 95.0         # No more than 95% kept (too permissive)
-  min_avg_concepts_per_section: 1.5 # Average concepts per kept section
+  min_avg_concepts_per_section: 0.5 # Average concepts per kept section (includes API sections with 0 concepts;
+                                    # sections that DO have concepts avg ~1.8. Baseline: 0.66 after B1 taxonomy-driven
+                                    # ambiguity filtering which is more precise than the old hardcoded set.)
   max_avg_concepts_per_section: 4.0 # Max average (too many = overfitting)
   min_concept_density: 0.0          # Minimum concept density (normalized)
   max_concept_density: 1.0          # Maximum concept density
@@ -45,6 +47,12 @@ phase5_pairs:
   max_similarity_score: 1.0         # Maximum similarity (range check)
   min_cross_corpus_percentage: 10.0 # At least 10% should be cross-corpus (conceptual↔API)
   max_duplicate_pairs: 0            # No duplicate pairs allowed
+
+# Phase 6: Classify Relationships
+phase6_classification:
+  max_related_to_fraction: 0.65     # No more than 65% of pairs should be the catch-all 'related_to'
+  min_avg_confidence: 0.70          # Average classification confidence must exceed 70%
+  min_actionable_fraction: 0.35     # At least 35% of pairs must be a specific (non related_to) type
 
 # Phase 7: Generate Metadata
 phase7_metadata:

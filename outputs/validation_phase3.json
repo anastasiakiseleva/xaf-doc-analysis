@@ -1,9 +1,9 @@
 {
   "phase_name": "Extract Concepts",
   "phase_number": 3,
-  "timestamp": "2026-04-10T21:19:10.888239",
+  "timestamp": "2026-04-17T11:33:53.331529",
   "passed": true,
-  "has_warnings": false,
+  "has_warnings": true,
   "has_errors": false,
   "results": [
     {
@@ -44,32 +44,33 @@
     },
     {
       "check_name": "Minimum avg concepts/section",
-      "passed": true,
-      "message": "Value 2.37 meets threshold >= 1.5",
-      "severity": "info",
+      "passed": false,
+      "message": "Value 0.66 fails threshold >= 1.5",
+      "severity": "warning",
       "details": {
-        "actual_value": 2.371291246880488,
-        "threshold_value": 1.5
+        "actual_value": 0.6579166281541732,
+        "threshold_value": 1.5,
+        "comparison": ">="
       }
     },
     {
       "check_name": "Maximum avg concepts/section",
       "passed": true,
-      "message": "Value 2.37 meets threshold <= 4.0",
+      "message": "Value 0.66 meets threshold <= 4.0",
       "severity": "info",
       "details": {
-        "actual_value": 2.371291246880488,
+        "actual_value": 0.6579166281541732,
         "threshold_value": 4.0
       }
     },
     {
       "check_name": "Concept density range [0.0-1.0]",
       "passed": true,
-      "message": "concept_density values in range [0.0000, 0.4167]",
+      "message": "concept_density values in range [0.0000, 0.3333]",
       "severity": "info",
       "details": {
         "min": 0.0,
-        "max": 0.4167
+        "max": 0.3333
       }
     },
     {

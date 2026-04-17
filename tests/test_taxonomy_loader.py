@@ -14,6 +14,11 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from utils.taxonomy_loader import load_concepts, load_taxonomy_raw, _flatten_concept
+from utils.taxonomy_loader import (
+    load_taxonomy_index,
+    get_concept_context_string,
+    get_platform_concepts,
+)
 
 CONFIG_DIR = Path(__file__).resolve().parent.parent / "config"
 TAXONOMY_PATH = CONFIG_DIR / "xaf-taxonomy.json"
@@ -401,3 +406,170 @@ class TestEdgeCases:
         result = load_concepts(p)
         assert len(result["concepts"]) == 1
         assert result["concepts"][0]["name"] == "Z"
+
+
+# ── Phase A: load_taxonomy_index() ───────────────────────────────────────────
+
+class TestLoadTaxonomyIndex:
+    """Verify load_taxonomy_index() returns a correct name-keyed dict."""
+
+    def test_returns_dict(self):
+        index = load_taxonomy_index()
+        assert isinstance(index, dict)
+
+    def test_has_expected_count(self):
+        index = load_taxonomy_index()
+        with TAXONOMY_PATH.open("r", encoding="utf-8") as f:
+            raw = json.load(f)
+        expected = len(raw["taxonomy"]["concepts"])
+        assert len(index) == expected, f"Expected {expected}, got {len(index)}"
+
+    def test_keys_are_concept_names(self):
+        index = load_taxonomy_index()
+        assert "Security System" in index
+        assert "Application Model" in index
+        assert "Object Space" in index
+
+    def test_values_have_required_fields(self):
+        index = load_taxonomy_index()
+        concept = index["Security System"]
+        for field in ("name", "domain", "subdomain", "artifact_kind",
+                      "facets", "api_surface", "documentation",
+                      "synonyms", "keywords", "description",
+                      "part_of", "is_a", "requires", "related_to"):
+            assert field in concept, f"'Security System' missing field '{field}'"
+
+    def test_domain_correct(self):
+        index = load_taxonomy_index()
+        assert index["Security System"]["domain"] == "security"
+        assert index["Application Model"]["domain"] == "architecture"
+
+    def test_relations_are_names_not_ids(self):
+        """Relation values must be resolved to concept names, not raw IDs."""
+        index = load_taxonomy_index()
+        for name, concept in index.items():
+            for field in ("part_of", "is_a", "requires", "related_to", "replaces"):
+                for val in concept.get(field) or []:
+                    assert not val.startswith("xaf."), (
+                        f"Concept '{name}' field '{field}' contains unresolved ID: {val}"
+                    )
+
+    def test_caching_returns_same_object(self):
+        """Second call must return the exact same dict object (cached)."""
+        index1 = load_taxonomy_index()
+        index2 = load_taxonomy_index()
+        assert index1 is index2
+
+    def test_documentation_field_present(self):
+        """documentation.doc_intents should come through for configured concepts."""
+        index = load_taxonomy_index()
+        concepts_with_intents = [
+            name for name, c in index.items()
+            if c.get("documentation") and c["documentation"].get("doc_intents")
+        ]
+        assert len(concepts_with_intents) > 10, (
+            f"Expected >10 concepts with doc_intents, got {len(concepts_with_intents)}"
+        )
+
+
+# ── Phase A: get_concept_context_string() ────────────────────────────────────
+
+class TestGetConceptContextString:
+    """Verify the rich text blob used for semantic embedding."""
+
+    def test_all_concepts_produce_nonempty_string(self):
+        index = load_taxonomy_index()
+        empty = [n for n in index if not get_concept_context_string(n, index)]
+        assert not empty, f"Empty context for: {empty[:3]}"
+
+    def test_context_includes_name(self):
+        index = load_taxonomy_index()
+        ctx = get_concept_context_string("Security System", index)
+        assert "Security System" in ctx
+
+    def test_context_includes_description(self):
+        index = load_taxonomy_index()
+        ctx = get_concept_context_string("Security System", index)
+        # description should make the string longer than just the name
+        assert len(ctx) > len("Security System")
+
+    def test_context_includes_domain(self):
+        index = load_taxonomy_index()
+        ctx = get_concept_context_string("Security System", index)
+        assert "security" in ctx.lower()
+
+    def test_context_includes_api_types(self):
+        index = load_taxonomy_index()
+        ctx = get_concept_context_string("Application Model", index)
+        # Application Model has XAFML as primary API type
+        assert "XAFML" in ctx or "Key APIs" in ctx
+
+    def test_context_includes_requires_relation(self):
+        index = load_taxonomy_index()
+        # Find a concept with requires and check it appears in context
+        concept_with_requires = next(
+            (n for n, c in index.items() if c.get("requires")), None
+        )
+        assert concept_with_requires is not None
+        ctx = get_concept_context_string(concept_with_requires, index)
+        assert "Requires" in ctx, (
+            f"Expected 'Requires' in context for '{concept_with_requires}', got: {ctx}"
+        )
+
+    def test_unknown_concept_returns_name(self):
+        index = load_taxonomy_index()
+        result = get_concept_context_string("NonExistentConcept", index)
+        assert result == "NonExistentConcept"
+
+    def test_auto_loads_index_when_not_provided(self):
+        """Should work without passing an index (loads internally)."""
+        ctx = get_concept_context_string("Security System")
+        assert "Security System" in ctx
+        assert len(ctx) > len("Security System")
+
+
+# ── Phase A: get_platform_concepts() ─────────────────────────────────────────
+
+class TestGetPlatformConcepts:
+    """Verify platform-scoped concept filtering."""
+
+    def test_blazor_returns_nonempty_list(self):
+        assert len(get_platform_concepts("blazor")) > 0
+
+    def test_winforms_returns_nonempty_list(self):
+        assert len(get_platform_concepts("winforms")) > 0
+
+    def test_results_are_sorted(self):
+        result = get_platform_concepts("blazor")
+        assert result == sorted(result)
+
+    def test_case_insensitive(self):
+        lower = get_platform_concepts("blazor")
+        upper = get_platform_concepts("BLAZOR")
+        mixed = get_platform_concepts("Blazor")
+        assert lower == upper == mixed
+
+    def test_nonexistent_platform_returns_empty(self):
+        assert get_platform_concepts("jupiter") == []
+
+    def test_all_returned_concepts_actually_have_platform(self):
+        index = load_taxonomy_index()
+        for name in get_platform_concepts("blazor", index):
+            facets = index[name].get("facets") or {}
+            platforms = [p.lower() for p in (facets.get("platforms") or [])]
+            assert "blazor" in platforms, (
+                f"Concept '{name}' returned for blazor but has platforms: {platforms}"
+            )
+
+    def test_winforms_blazor_share_some_concepts(self):
+        """Some concepts should be multi-platform."""
+        blazor = set(get_platform_concepts("blazor"))
+        winforms = set(get_platform_concepts("winforms"))
+        shared = blazor & winforms
+        assert len(shared) > 0, "Expected some concepts shared between blazor and winforms"
+
+    def test_auto_loads_index_when_not_provided(self):
+        """Should work without passing an index."""
+        result = get_platform_concepts("winforms")
+        assert isinstance(result, list)
+        assert len(result) > 0

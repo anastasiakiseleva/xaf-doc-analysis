@@ -1,7 +1,7 @@
 {
   "phase_name": "Pipeline Integration Tests",
   "phase_number": 0,
-  "timestamp": "2026-04-10T14:34:48.237576",
+  "timestamp": "2026-04-16T19:54:00.121567",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -34,7 +34,7 @@
     {
       "check_name": "Semantic pairs references",
       "passed": true,
-      "message": "All 64,241 semantic pairs reference valid sections",
+      "message": "All 67,120 semantic pairs reference valid sections",
       "severity": "info",
       "details": null
     },
@@ -55,7 +55,7 @@
     {
       "check_name": "Knowledge graph artifact",
       "passed": true,
-      "message": "knowledge_graph.json loaded: 21,405 nodes, 137,854 edges; missing_endpoints(sample)=0",
+      "message": "knowledge_graph.json loaded: 21,848 nodes, 139,148 edges; missing_endpoints(sample)=0",
       "severity": "info",
       "details": null
     }

@@ -1,7 +1,7 @@
 {
   "phase_name": "Build Knowledge Graph",
   "phase_number": 13,
-  "timestamp": "2026-04-11T16:44:20.486471",
+  "timestamp": "2026-04-16T20:55:04.829239",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,7 +16,7 @@
     {
       "check_name": "Unique node ids",
       "passed": true,
-      "message": "21,848 unique ids / 21,848 nodes",
+      "message": "21,845 unique ids / 21,845 nodes",
       "severity": "info",
       "details": null
     },
@@ -30,14 +30,14 @@
     {
       "check_name": "Min nodes",
       "passed": true,
-      "message": "nodes=21,848 (min=12000)",
+      "message": "nodes=21,845 (min=12000)",
       "severity": "info",
       "details": null
     },
     {
       "check_name": "Min edges",
       "passed": true,
-      "message": "edges=139,557 (min=120000)",
+      "message": "edges=122,511 (min=120000)",
       "severity": "info",
       "details": null
     }

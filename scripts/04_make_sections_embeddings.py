@@ -108,6 +108,10 @@ def parse_args():
     p.add_argument("--normalize", type=lambda x: str(x).lower() in {"1","t","true","y","yes"},
                    default=os.environ.get("EMB_NORMALIZE", "true"),
                    help="Normalize embeddings (recommended for cosine similarity).")
+    p.add_argument("--no-concept-context", action="store_true",
+                   default=False,
+                   help="Disable taxonomy-concept context enrichment (C1/C2). "
+                        "Use to compare embedding quality against the baseline.")
     return p.parse_args()
 
 
@@ -116,6 +120,18 @@ def ensure_exists(path: Path, what: str):
     if not path.exists():
         print(f"❌ Missing {what}: {path}")
         sys.exit(1)
+
+def _safe_list(val) -> list:
+    """Coerce parquet list-like values (pyarrow/numpy) into a plain Python list."""
+    if val is None or (isinstance(val, float) and pd.isna(val)):
+        return []
+    if isinstance(val, list):
+        return val
+    if hasattr(val, "tolist"):
+        return list(val.tolist())
+    if hasattr(val, "__iter__") and not isinstance(val, str):
+        return list(val)
+    return []
 
 def build_section_lookup(topics_df: pd.DataFrame) -> Dict[Tuple[str, str], dict]:
     """
@@ -148,13 +164,40 @@ def build_section_lookup(topics_df: pd.DataFrame) -> Dict[Tuple[str, str], dict]
             }
     return lookup
 
-def assemble_text(meta: dict, include_code: bool, max_chars: int) -> str:
+def assemble_text(
+    meta: dict,
+    include_code: bool,
+    max_chars: int,
+    *,
+    concepts: list = None,
+    concept_domains: dict = None,
+    apis: list = None,
+    is_api: bool = False,
+    concept_context: bool = True,
+) -> str:
+    """
+    Build embed-ready section text from raw metadata and optional taxonomy context.
+
+    C1 (concept_context=True): Appends a ``Concepts:`` line listing each concept with
+    its taxonomy domain, anchoring the embedding in the XAF concept space.
+
+    C2 (concept_context=True, is_api=True): Prepends extracted API symbols before the
+    heading/body so cross-corpus (API ↔ conceptual) matching reflects the actual API surface.
+    """
     title = meta.get("title", "")
     h_path_list = meta.get("h_path_list", [])
     h_path = " > ".join(h_path_list)
     body = meta.get("text", "")
 
-    parts = [title]
+    parts = []
+
+    # C2: For API sections, prepend the extracted API symbols as a compact anchor line.
+    # This improves cross-corpus retrieval between API reference and conceptual docs.
+    if concept_context and is_api and apis:
+        api_line = "API: " + ", ".join(sorted(set(apis))[:30])
+        parts.append(api_line)
+
+    parts.append(title)
     if h_path:
         parts.append(h_path)
     if body:
@@ -168,9 +211,19 @@ def assemble_text(meta: dict, include_code: bool, max_chars: int) -> str:
 
     text = "\n".join([p for p in parts if p]).strip()
 
-    # truncate hard limit
+    # truncate hard limit before appending concept context so we don't cut the concept line
     if len(text) > max_chars:
         text = text[:max_chars]
+
+    # C1: Append concept context line ("Concepts: XYZ (domain/sub), ABC (domain/sub)")
+    # Appended AFTER truncation so it is always present, even for very long sections.
+    if concept_context and concepts:
+        _domains = concept_domains or {}
+        concept_parts = []
+        for name in concepts[:20]:  # cap at 20 to stay within token budgets
+            domain = _domains.get(name, "")
+            concept_parts.append(f"{name} ({domain})" if domain else name)
+        text = text + "\nConcepts: " + ", ".join(concept_parts)
 
     return text
 
@@ -225,6 +278,14 @@ def main():
     sec_lookup = build_section_lookup(topics_df)
 
     # Reconstruct rows with merged metadata + assembled text
+    # Resolve concept_context flag (C3): default True, disabled by --no-concept-context
+    concept_context = not args.no_concept_context
+    if concept_context:
+        print("🏷️  Concept context enrichment: ENABLED (C1+C2) — use --no-concept-context to disable")
+
+    # Determine whether doc_concepts.parquet carries the Phase-B4 taxonomy metadata columns
+    has_concept_domains = "concept_domains" in dc_df.columns
+
     records = []
     missing = 0
     for _, row in dc_df.iterrows():
@@ -234,7 +295,26 @@ def main():
             missing += 1
             continue
 
-        text = assemble_text(meta, include_code=args.include_code, max_chars=args.max_chars)
+        # Pull concept metadata for text enrichment; gracefully absent in old parquet files
+        row_concepts = _safe_list(row.get("concepts"))
+        row_apis = _safe_list(row.get("apis"))
+        row_is_api = bool(row.get("is_api", False))
+        row_concept_domains: dict = {}
+        if has_concept_domains:
+            cd = row.get("concept_domains")
+            if isinstance(cd, dict):
+                row_concept_domains = cd
+
+        text = assemble_text(
+            meta,
+            include_code=args.include_code,
+            max_chars=args.max_chars,
+            concepts=row_concepts,
+            concept_domains=row_concept_domains,
+            apis=row_apis,
+            is_api=row_is_api,
+            concept_context=concept_context,
+        )
         wc = est_word_count(text)
         if wc < args.min_words:
             # silently skip ultra-short fragments; 03 already filtered most of them
@@ -245,10 +325,10 @@ def main():
             "section_id": row["section_id"],
             "title": meta.get("title", ""),
             "h_path": row.get("h_path", ""),
-            "is_api": bool(row.get("is_api", False)),
-            "concepts": row.get("concepts", []),
-            "platforms": row.get("platforms", []),
-            "apis": row.get("apis", []),
+            "is_api": row_is_api,
+            "concepts": row_concepts,
+            "platforms": _safe_list(row.get("platforms")),
+            "apis": row_apis,
             "text": text,
             "text_len": len(text),
             "word_count": wc,

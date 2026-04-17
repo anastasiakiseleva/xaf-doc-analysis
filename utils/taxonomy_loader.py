@@ -177,6 +177,7 @@ def _flatten_concept(
         "artifact_kind": raw.get("artifact_kind", ""),
         "facets":      raw.get("facets"),
         "api_surface": api_surface or None,
+        "documentation": raw.get("documentation"),
     }
     return flat
 
@@ -225,3 +226,140 @@ def load_taxonomy_raw(path: Optional[str | Path] = None) -> Dict[str, Any]:
     taxonomy_path = Path(path) if path else _DEFAULT_TAXONOMY
     with taxonomy_path.open("r", encoding="utf-8") as f:
         return json.load(f)
+
+
+# ── module-level index cache ────────────────────────────────────────────────
+
+_INDEX_CACHE: Dict[str, Dict[str, Any]] = {}
+_INDEX_CACHE_PATH: Optional[Path] = None
+
+
+def load_taxonomy_index(path: Optional[str | Path] = None) -> Dict[str, Dict[str, Any]]:
+    """Load xaf-taxonomy.json and return a dict keyed by concept **name**.
+
+    Unlike ``load_concepts()`` which returns a list, this provides O(1) lookup
+    by concept name for downstream scripts that need to enrich individual
+    concept references (Phase 3 validation, Phase 4 embedding, Phase 6 prompt).
+
+    The index is cached at module level — subsequent calls with the same path
+    return the cached object without re-reading the file.
+
+    Returns
+    -------
+    dict : ``{concept_name: flat_concept_dict}``
+
+    Each value is the same shape as an entry from ``load_concepts()["concepts"]``,
+    including ``domain``, ``subdomain``, ``artifact_kind``, ``facets``,
+    ``api_surface``, ``documentation``, and all resolved relation fields.
+    """
+    global _INDEX_CACHE, _INDEX_CACHE_PATH
+    taxonomy_path = Path(path) if path else _DEFAULT_TAXONOMY
+    if _INDEX_CACHE and _INDEX_CACHE_PATH == taxonomy_path:
+        return _INDEX_CACHE
+
+    concepts_data = load_concepts(taxonomy_path)
+    index = {c["name"]: c for c in concepts_data["concepts"]}
+
+    _INDEX_CACHE = index
+    _INDEX_CACHE_PATH = taxonomy_path
+    return index
+
+
+def get_concept_context_string(
+    name: str,
+    index: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> str:
+    """Build a rich text description of a concept for semantic embedding.
+
+    Combines name, description, synonyms, primary API types, domain context,
+    and known ``requires`` relations into a single string. This captures far
+    more of the taxonomy's structure than the bare concept name alone.
+
+    Used by:
+    - Phase 3: semantic validation of ambiguous concept matches
+    - Phase 4: embedding text enrichment (concept context lines)
+    - Phase 6: taxonomy context block in LLM prompts
+
+    Parameters
+    ----------
+    name : str
+        Concept name as it appears in the taxonomy (e.g. ``"Security System"``).
+    index : dict, optional
+        Pre-built taxonomy index from ``load_taxonomy_index()``.
+        Loaded and cached automatically if omitted.
+
+    Returns
+    -------
+    str
+        Rich context string. Falls back to just the name if the concept is
+        not found in the index.
+    """
+    if index is None:
+        index = load_taxonomy_index()
+
+    concept = index.get(name)
+    if not concept:
+        return name
+
+    parts: List[str] = [name]
+
+    description = concept.get("description", "")
+    if description:
+        parts.append(description)
+
+    synonyms = concept.get("synonyms") or []
+    if synonyms:
+        parts.append(f"Also known as: {', '.join(synonyms[:5])}")
+
+    api_surface = concept.get("api_surface") or {}
+    primary_types = api_surface.get("primary_types") or []
+    if primary_types:
+        parts.append(f"Key APIs: {', '.join(primary_types[:8])}")
+
+    domain = concept.get("domain", "")
+    subdomain = concept.get("subdomain", "")
+    if domain and subdomain:
+        parts.append(f"Domain: {domain}/{subdomain}")
+    elif domain:
+        parts.append(f"Domain: {domain}")
+
+    requires = concept.get("requires") or []
+    if requires:
+        parts.append(f"Requires: {', '.join(requires[:3])}")
+
+    return ". ".join(parts)
+
+
+def get_platform_concepts(
+    platform: str,
+    index: Optional[Dict[str, Dict[str, Any]]] = None,
+) -> List[str]:
+    """Return concept names whose ``facets.platforms`` includes the given platform.
+
+    Useful for Phase 3 (cross-checking detected platforms against taxonomy scope)
+    and Phase 6 (detecting platform mismatches between section pairs).
+
+    Parameters
+    ----------
+    platform : str
+        Platform name to filter by (e.g. ``"blazor"``, ``"winforms"``,
+        ``"web-api"``). Matching is case-insensitive.
+    index : dict, optional
+        Pre-built taxonomy index. Loaded automatically if omitted.
+
+    Returns
+    -------
+    list[str]
+        Sorted list of concept names scoped to this platform.
+    """
+    if index is None:
+        index = load_taxonomy_index()
+
+    platform_lower = platform.lower()
+    result = []
+    for name, concept in index.items():
+        facets = concept.get("facets") or {}
+        platforms = [p.lower() for p in (facets.get("platforms") or [])]
+        if platform_lower in platforms:
+            result.append(name)
+    return sorted(result)

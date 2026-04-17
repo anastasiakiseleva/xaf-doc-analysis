@@ -26,6 +26,8 @@ from tqdm import tqdm
 from openai import OpenAI
 import anthropic
 
+from utils.taxonomy_loader import load_taxonomy_index
+
 
 def safe_list(val):
     """Handle numpy arrays from parquet."""
@@ -222,6 +224,86 @@ def get_section_text(inventory_df: pd.DataFrame, doc_id: str, section_id: str, m
     return ""
 
 
+def build_taxonomy_context(
+    source_concepts: List[str],
+    target_concepts: List[str],
+    taxonomy_index: Dict[str, Any],
+) -> str:
+    """Build a Taxonomy Context block summarising what the taxonomy knows about these concepts."""
+    if not taxonomy_index or not (source_concepts or target_concepts):
+        return ""
+
+    lines: List[str] = []
+
+    # -- Known directed relations between any (source, target) concept pair --
+    relation_labels = {
+        "requires": "requires",
+        "part_of": "is part of",
+        "is_a": "is a kind of",
+        "related_to": "is related to",
+        "has_part": "has part",
+        "has_kind": "has kind",
+        "replaces": "replaces",
+    }
+    found_relations: List[str] = []
+    for src in source_concepts:
+        entry = taxonomy_index.get(src, {})
+        for rel_key, rel_label in relation_labels.items():
+            for tgt in target_concepts:
+                if tgt in (entry.get(rel_key) or []):
+                    found_relations.append(f"{src} {rel_label} {tgt}")
+    if found_relations:
+        lines.append("Known relations: " + "; ".join(found_relations))
+
+    # -- Shared domain / subdomain --
+    def _domains(concepts: List[str], field: str) -> set:
+        return {taxonomy_index.get(c, {}).get(field, "") for c in concepts} - {""}
+
+    shared_domains = _domains(source_concepts, "domain") & _domains(target_concepts, "domain")
+    if shared_domains:
+        lines.append("Shared domain: " + ", ".join(sorted(shared_domains)))
+
+    shared_subdomains = _domains(source_concepts, "subdomain") & _domains(target_concepts, "subdomain")
+    if shared_subdomains:
+        lines.append("Shared subdomain: " + ", ".join(sorted(shared_subdomains)))
+
+    # -- Platform scope overlap / mismatch --
+    def _platforms(concepts: List[str]) -> set:
+        plats: set = set()
+        for c in concepts:
+            facets = taxonomy_index.get(c, {}).get("facets") or {}
+            plats.update(facets.get("platforms") or [])
+        return plats
+
+    src_plats = _platforms(source_concepts)
+    tgt_plats = _platforms(target_concepts)
+    if src_plats and tgt_plats:
+        overlap = src_plats & tgt_plats
+        if overlap:
+            lines.append("Platform overlap: " + ", ".join(sorted(overlap)))
+        else:
+            lines.append(
+                f"Platform mismatch: A={sorted(src_plats)} vs B={sorted(tgt_plats)}"
+            )
+
+    # -- Audience mismatch --
+    def _audiences(concepts: List[str]) -> set:
+        auds: set = set()
+        for c in concepts:
+            facets = taxonomy_index.get(c, {}).get("facets") or {}
+            auds.update(facets.get("audiences") or [])
+        return auds
+
+    src_auds = _audiences(source_concepts)
+    tgt_auds = _audiences(target_concepts)
+    if src_auds and tgt_auds and src_auds != tgt_auds:
+        lines.append(f"Audience mismatch: A={sorted(src_auds)} vs B={sorted(tgt_auds)}")
+
+    if not lines:
+        return ""
+    return "## Taxonomy Context\n" + "\n".join(f"- {l}" for l in lines)
+
+
 def build_classification_prompt(
     base_prompt: str,
     source_doc: str,
@@ -234,7 +316,8 @@ def build_classification_prompt(
     target_text: str,
     target_concepts: List[str],
     target_is_api: bool,
-    similarity: float
+    similarity: float,
+    taxonomy_context: str = "",
 ) -> str:
     """Build the full classification prompt for an LLM."""
     
@@ -249,6 +332,8 @@ def build_classification_prompt(
         return "Conceptual"
 
     shared_concepts = sorted(set(source_concepts) & set(target_concepts))
+
+    taxonomy_section = f"\n\n{taxonomy_context}" if taxonomy_context else ""
 
     prompt = f"""{base_prompt}
 
@@ -270,7 +355,7 @@ def build_classification_prompt(
 
 ## Context
 - Semantic similarity: {similarity:.3f}
-- Shared concepts: {', '.join(shared_concepts) if shared_concepts else 'None'}
+- Shared concepts: {', '.join(shared_concepts) if shared_concepts else 'None'}{taxonomy_section}
 
 Classify the relationship FROM Section A TO Section B. Return ONLY valid JSON with exactly these keys:
 {{
@@ -279,7 +364,7 @@ Classify the relationship FROM Section A TO Section B. Return ONLY valid JSON wi
   "bidirectional": <true|false>
 }}
 No additional keys. No prose."""
-    
+
     return prompt
 
 
@@ -493,6 +578,7 @@ def classify_pairs(
     concepts_df: pd.DataFrame,
     base_prompt: str,
     api_config: Dict[str, Any],
+    taxonomy_index: Optional[Dict[str, Any]] = None,
     max_chars: int = 2000,
     checkpoint_every: int = 100
 ) -> pd.DataFrame:
@@ -524,6 +610,11 @@ def classify_pairs(
                 print(f"\nWarning: Missing text for pair {idx} - skipping (source empty: {not source_text}, target empty: {not target_text})")
             continue
         
+        # D2: Build taxonomy context for this pair
+        taxonomy_ctx = build_taxonomy_context(
+            source_concepts, target_concepts, taxonomy_index or {}
+        )
+
         # Build prompt
         prompt = build_classification_prompt(
             base_prompt,
@@ -537,7 +628,8 @@ def classify_pairs(
             target_text,
             target_concepts,
             row["target_is_api"],
-            row["sim_score"]
+            row["sim_score"],
+            taxonomy_context=taxonomy_ctx,
         )
         
         # Classify
@@ -750,7 +842,12 @@ def main():
     concepts_df = pd.read_parquet("outputs/doc_concepts.parquet", engine="pyarrow")
     print(f"  Topics inventory: {len(inventory_df):,} documents")
     print(f"  Concepts: {len(concepts_df):,} sections")
-    
+
+    # D1: Load taxonomy index once at startup
+    print("\nLoading taxonomy index...")
+    taxonomy_index = load_taxonomy_index()
+    print(f"  Loaded {len(taxonomy_index):,} concepts into taxonomy index")
+
     # Configure API
     api_config = {
         "provider": args.provider,
@@ -758,6 +855,15 @@ def main():
         "model": args.model,
         "delay": args.delay
     }
+
+    # Apply provider-specific model defaults when --model is not specified
+    if api_config["model"] is None:
+        _model_defaults = {
+            "anthropic": "claude-sonnet-4-20250514",
+            "openai": "gpt-4o-mini",
+            "ollama": "llama3.1:8b",
+        }
+        api_config["model"] = _model_defaults.get(args.provider)
     
     # Ollama is local and doesn't need an API key
     if args.provider not in ("mock", "ollama") and not api_config["api_key"]:
@@ -794,6 +900,7 @@ def main():
         concepts_df,
         base_prompt,
         api_config,
+        taxonomy_index=taxonomy_index,
         max_chars=args.max_chars
     )
     

@@ -63,29 +63,47 @@ def normalize_tag(text):
     return tag
 
 
-def classify_proficiency(row, connections_dict):
+def classify_proficiency(row, connections_dict, relationship_profiles=None):
     """
-    Classify proficiency level based on heuristics:
+    Classify proficiency level using concept heuristics and relationship types.
     
-    Beginner:
-    - Getting Started, Tutorial concepts
-    - High connectivity (>10 links) = well-integrated tutorial content
-    - Conceptual (not API)
+    When classified pairs are available, relationship types provide strong signals:
+    - Section is a frequent 'explains' SOURCE → Beginner (it teaches)
+    - Section is a frequent 'requires' TARGET → Beginner (it's foundational/prerequisite)
+    - Section has many 'requires' OUTGOING → Advanced/Expert (depends on many prereqs)
+    - Section has 'extends' or 'uses' outgoing → Advanced (builds on other content)
     
-    Advanced:
-    - API reference with examples
-    - Medium connectivity (5-10 links)
-    - Multiple platform/concept tags
-    
-    Expert:
-    - Low connectivity (<5 links) = specialized content
-    - Performance, Migration, Custom concepts
-    - Pure API reference
+    Falls back to the original heuristics when classified pairs are absent.
     """
     concepts = safe_list(row.get('concepts', []))
     is_api = row.get('is_api', False)
     section_key = (row['doc_id'], row['section_id'])
     num_connections = connections_dict.get(section_key, 0)
+    
+    # --- Relationship-based signals (when available) ---
+    profile = (relationship_profiles or {}).get(section_key)
+    if profile and profile['classified_connections'] >= 3:
+        incoming = profile['incoming']
+        outgoing = profile['outgoing']
+        
+        # Strong Expert signal: many outgoing 'requires' (needs lots of prereqs)
+        if outgoing.get('requires', 0) >= 3:
+            return 'Expert'
+        
+        # Strong Beginner signal: frequently explains things to others
+        if outgoing.get('explains', 0) >= 3:
+            return 'Beginner'
+        
+        # Strong Beginner signal: many sections require THIS section (foundational)
+        if incoming.get('requires', 0) >= 3:
+            return 'Beginner'
+        
+        # Advanced signal: extends or uses other content
+        extends_uses = outgoing.get('extends', 0) + outgoing.get('uses', 0)
+        if extends_uses >= 3:
+            return 'Advanced'
+    
+    # --- Concept-based heuristics (original logic, still useful) ---
     
     # Expert signals
     expert_concepts = {'Performance Optimization', 'Migration', 'Custom', 'Legacy .NET Framework'}
@@ -462,7 +480,7 @@ def calculate_tag_statistics(metadata_df):
 # ============================================================================
 
 def load_data():
-    """Load all required data files"""
+    """Load all required data files, including classified pairs when available"""
     print("Loading data files...")
     
     inventory = pd.read_parquet('outputs/topics_inventory.parquet')
@@ -476,7 +494,19 @@ def load_data():
     print(f"  Loaded {len(concepts)} sections (kept only)")
     print(f"  Loaded {len(pairs)} semantic pairs")
     
-    return inventory, concepts, pairs
+    # Load classified pairs (corrected preferred, raw as fallback)
+    classified = None
+    for cp_path in ['outputs/classified_pairs_corrected.parquet',
+                     'outputs/classified_pairs.parquet']:
+        if Path(cp_path).exists():
+            classified = pd.read_parquet(cp_path)
+            print(f"  Loaded {len(classified)} classified pairs from {cp_path}")
+            break
+    
+    if classified is None:
+        print("  No classified pairs found — proficiency will use heuristics only")
+    
+    return inventory, concepts, pairs, classified
 
 
 def build_connections_dict(pairs_df):
@@ -493,7 +523,70 @@ def build_connections_dict(pairs_df):
     return connections
 
 
-def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=None):
+def build_relationship_profiles(classified_df):
+    """
+    Build per-section relationship profiles from classified pairs.
+    
+    For each section, counts how many times it appears as source or target
+    for each relationship type, and tracks the dominant incoming/outgoing types.
+    This lets classify_proficiency use relationship semantics rather than
+    raw connection counts alone.
+    
+    Returns:
+        dict mapping (doc_id, section_id) -> {
+            'incoming': Counter of relationship types where this section is target,
+            'outgoing': Counter of relationship types where this section is source,
+            'avg_confidence': mean confidence across all classified edges,
+            'classified_connections': total classified edges touching this section,
+        }
+    """
+    if classified_df is None or classified_df.empty:
+        return {}
+    
+    from collections import Counter
+    
+    profiles = {}
+    
+    for _, row in classified_df.iterrows():
+        rel_type = row.get('relationship_type')
+        confidence = row.get('relationship_confidence', 0.5)
+        if not rel_type or pd.isna(rel_type):
+            continue
+        
+        src = (row['source_doc'], row['source_section'])
+        tgt = (row['target_doc'], row['target_section'])
+        
+        # Initialize profiles
+        for key in (src, tgt):
+            if key not in profiles:
+                profiles[key] = {
+                    'incoming': Counter(),
+                    'outgoing': Counter(),
+                    'confidences': [],
+                    'classified_connections': 0,
+                }
+        
+        # Source has outgoing edge, target has incoming edge
+        profiles[src]['outgoing'][rel_type] += 1
+        profiles[src]['confidences'].append(confidence)
+        profiles[src]['classified_connections'] += 1
+        
+        profiles[tgt]['incoming'][rel_type] += 1
+        profiles[tgt]['confidences'].append(confidence)
+        profiles[tgt]['classified_connections'] += 1
+    
+    # Compute avg confidence and convert counters to plain dicts for storage
+    for key, prof in profiles.items():
+        confs = prof.pop('confidences')
+        prof['avg_confidence'] = sum(confs) / len(confs) if confs else 0.0
+        prof['incoming'] = dict(prof['incoming'])
+        prof['outgoing'] = dict(prof['outgoing'])
+    
+    return profiles
+
+
+def generate_metadata(concepts_df, inventory_df, connections_dict,
+                      relationship_profiles=None, sample_size=None):
     """
     Generate metadata for all documents
     
@@ -501,6 +594,7 @@ def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=N
         concepts_df: Sections with concept/platform/API tags
         inventory_df: Full document text
         connections_dict: Connection counts per section
+        relationship_profiles: Per-section relationship type profiles (from classified pairs)
         sample_size: If provided, process only this many random documents (for testing)
     """
     print("\nGenerating metadata...")
@@ -519,11 +613,26 @@ def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=N
         # Generate all metadata fields
         tags = consolidate_tags(row)
         description = generate_description(row, inventory_df)
-        proficiency = classify_proficiency(row, connections_dict)
+        proficiency = classify_proficiency(row, connections_dict, relationship_profiles)
         
         # Calculate connectivity score
         section_key = (row['doc_id'], row['section_id'])
         num_connections = connections_dict.get(section_key, 0)
+        
+        # Extract dominant relationship type from profile (if available)
+        profile = (relationship_profiles or {}).get(section_key)
+        dominant_rel = None
+        classified_connections = 0
+        if profile:
+            classified_connections = profile['classified_connections']
+            # Combine incoming + outgoing to find the dominant type
+            all_rels = {}
+            for rel, count in profile['incoming'].items():
+                all_rels[rel] = all_rels.get(rel, 0) + count
+            for rel, count in profile['outgoing'].items():
+                all_rels[rel] = all_rels.get(rel, 0) + count
+            if all_rels:
+                dominant_rel = max(all_rels, key=all_rels.get)
         
         metadata_rows.append({
             'doc_id': row['doc_id'],
@@ -532,6 +641,8 @@ def generate_metadata(concepts_df, inventory_df, connections_dict, sample_size=N
             'suggested_description': description,
             'proficiency_level': proficiency,
             'num_semantic_connections': num_connections,
+            'num_classified_connections': classified_connections,
+            'dominant_relationship_type': dominant_rel,
             'is_api': row.get('is_api', False),
             'original_concepts': safe_list(row.get('concepts', [])),
             'original_platforms': safe_list(row.get('platforms', [])),
@@ -723,18 +834,24 @@ def main():
     print("="*70)
     
     # Load data
-    inventory_df, concepts_df, pairs_df = load_data()
+    inventory_df, concepts_df, pairs_df, classified_df = load_data()
     
     # Build connections dictionary
     print("\nBuilding connectivity index...")
     connections_dict = build_connections_dict(pairs_df)
-    print(f"  Indexed {len(connections_dict)} sections")
+    print(f"  Indexed {len(connections_dict)} sections with semantic connections")
+    
+    # Build relationship profiles from classified pairs
+    relationship_profiles = build_relationship_profiles(classified_df)
+    if relationship_profiles:
+        print(f"  Built relationship profiles for {len(relationship_profiles)} sections")
     
     # Generate metadata
     metadata_df = generate_metadata(
         concepts_df, 
         inventory_df, 
         connections_dict,
+        relationship_profiles=relationship_profiles,
         sample_size=args.sample
     )
     

@@ -1,11 +1,11 @@
 {
   "pipeline_execution": {
-    "start_time": "2026-04-10T13:13:16.112183",
-    "end_time": "2026-04-10T13:28:23.970125",
-    "total_duration_seconds": 907.857942,
+    "start_time": "2026-04-17T11:07:12.607504",
+    "end_time": "2026-04-17T11:33:54.330537",
+    "total_duration_seconds": 1601.723033,
     "validation_level": "quick",
-    "phases_run": 6,
-    "phases_succeeded": 6,
+    "phases_run": 3,
+    "phases_succeeded": 3,
     "overall_success": true
   },
   "phase_results": [
@@ -14,61 +14,34 @@
       "name": "Ingest & Parse",
       "success": true,
       "error": null,
-      "duration_seconds": 124.252266,
-      "start_time": "2026-04-10T13:13:16.112814",
-      "end_time": "2026-04-10T13:15:20.365080"
+      "duration_seconds": 107.420327,
+      "start_time": "2026-04-17T11:07:12.608294",
+      "end_time": "2026-04-17T11:09:00.028621"
     },
     {
       "phase": 2,
       "name": "Build Explicit Graph",
       "success": true,
       "error": null,
-      "duration_seconds": 1.926096,
-      "start_time": "2026-04-10T13:15:20.365881",
-      "end_time": "2026-04-10T13:15:22.291977"
+      "duration_seconds": 1.065098,
+      "start_time": "2026-04-17T11:09:00.029217",
+      "end_time": "2026-04-17T11:09:01.094315"
     },
     {
       "phase": 3,
       "name": "Extract Concepts",
       "success": true,
       "error": null,
-      "duration_seconds": 756.972594,
-      "start_time": "2026-04-10T13:15:22.292491",
-      "end_time": "2026-04-10T13:27:59.265085"
-    },
-    {
-      "phase": 7,
-      "name": "Generate Metadata",
-      "success": true,
-      "error": null,
-      "duration_seconds": 13.251336,
-      "start_time": "2026-04-10T13:27:59.265837",
-      "end_time": "2026-04-10T13:28:12.517173"
-    },
-    {
-      "phase": 8,
-      "name": "Export YAML",
-      "success": true,
-      "error": null,
-      "duration_seconds": 1.016824,
-      "start_time": "2026-04-10T13:28:12.517884",
-      "end_time": "2026-04-10T13:28:13.534708"
-    },
-    {
-      "phase": 10,
-      "name": "Rollup Document Metadata",
-      "success": true,
-      "error": null,
-      "duration_seconds": 6.765765,
-      "start_time": "2026-04-10T13:28:13.535363",
-      "end_time": "2026-04-10T13:28:20.301128"
+      "duration_seconds": 1493.235171,
+      "start_time": "2026-04-17T11:09:01.095169",
+      "end_time": "2026-04-17T11:33:54.330340"
     }
   ],
   "phase_validation_reports": [
     {
       "phase_name": "Ingest & Parse",
       "phase_number": 1,
-      "timestamp": "2026-04-10T13:15:20.220234",
+      "timestamp": "2026-04-17T11:08:59.862699",
       "passed": true,
       "has_warnings": false,
       "has_errors": false,
@@ -114,7 +87,7 @@
     {
       "phase_name": "Build Explicit Graph",
       "phase_number": 2,
-      "timestamp": "2026-04-10T13:15:22.151200",
+      "timestamp": "2026-04-17T11:09:00.978599",
       "passed": true,
       "has_warnings": false,
       "has_errors": false,
@@ -165,9 +138,9 @@
     {
       "phase_name": "Extract Concepts",
       "phase_number": 3,
-      "timestamp": "2026-04-10T13:27:58.287235",
+      "timestamp": "2026-04-17T11:33:53.331529",
       "passed": true,
-      "has_warnings": false,
+      "has_warnings": true,
       "has_errors": false,
       "results": [
         {
@@ -208,32 +181,33 @@
         },
         {
           "check_name": "Minimum avg concepts/section",
-          "passed": true,
-          "message": "Value 2.96 meets threshold >= 1.5",
-          "severity": "info",
+          "passed": false,
+          "message": "Value 0.66 fails threshold >= 1.5",
+          "severity": "warning",
           "details": {
-            "actual_value": 2.962380996395231,
-            "threshold_value": 1.5
+            "actual_value": 0.6579166281541732,
+            "threshold_value": 1.5,
+            "comparison": ">="
           }
         },
         {
           "check_name": "Maximum avg concepts/section",
           "passed": true,
-          "message": "Value 2.96 meets threshold <= 4.0",
+          "message": "Value 0.66 meets threshold <= 4.0",
           "severity": "info",
           "details": {
-            "actual_value": 2.962380996395231,
+            "actual_value": 0.6579166281541732,
             "threshold_value": 4.0
           }
         },
         {
           "check_name": "Concept density range [0.0-1.0]",
           "passed": true,
-          "message": "concept_density values in range [0.0000, 0.5000]",
+          "message": "concept_density values in range [0.0000, 0.3333]",
           "severity": "info",
           "details": {
             "min": 0.0,
-            "max": 0.5
+            "max": 0.3333
           }
         },
         {
@@ -247,150 +221,16 @@
           }
         }
       ]
-    },
-    {
-      "phase_name": "Generate Metadata",
-      "phase_number": 7,
-      "timestamp": "2026-04-10T13:28:12.355097",
-      "passed": true,
-      "has_warnings": true,
-      "has_errors": false,
-      "results": [
-        {
-          "check_name": "Schema validation",
-          "passed": true,
-          "message": "All 6 required columns present with correct types",
-          "severity": "info",
-          "details": null
-        },
-        {
-          "check_name": "Minimum sections",
-          "passed": true,
-          "message": "Row count 10,819 is within acceptable range",
-          "severity": "info",
-          "details": {
-            "row_count": 10819
-          }
-        },
-        {
-          "check_name": "Description coverage",
-          "passed": false,
-          "message": "Value 73.26 fails threshold >= 95.0",
-          "severity": "warning",
-          "details": {
-            "actual_value": 73.26000554579906,
-            "threshold_value": 95.0,
-            "comparison": ">="
-          }
-        },
-        {
-          "check_name": "Minimum avg tags",
-          "passed": true,
-          "message": "Value 3.96 meets threshold >= 3.0",
-          "severity": "info",
-          "details": {
-            "actual_value": 3.962380996395231,
-            "threshold_value": 3.0
-          }
-        },
-        {
-          "check_name": "Maximum avg tags",
-          "passed": true,
-          "message": "Value 3.96 meets threshold <= 12.0",
-          "severity": "info",
-          "details": {
-            "actual_value": 3.962380996395231,
-            "threshold_value": 12.0
-          }
-        },
-        {
-          "check_name": "Proficiency level vocabulary",
-          "passed": true,
-          "message": "All 3 unique values match vocabulary",
-          "severity": "info",
-          "details": {
-            "unique_values": 3,
-            "vocabulary_size": 4
-          }
-        }
-      ]
-    },
-    {
-      "phase_name": "Rollup Document Metadata",
-      "phase_number": 10,
-      "timestamp": "2026-04-10T13:28:20.178452",
-      "passed": true,
-      "has_warnings": false,
-      "has_errors": false,
-      "results": [
-        {
-          "check_name": "Schema validation",
-          "passed": true,
-          "message": "All 6 required columns present with correct types",
-          "severity": "info",
-          "details": null
-        },
-        {
-          "check_name": "Minimum documents",
-          "passed": true,
-          "message": "Row count 5,517 is within acceptable range",
-          "severity": "info",
-          "details": {
-            "row_count": 5517
-          }
-        },
-        {
-          "check_name": "Document completeness",
-          "passed": true,
-          "message": "All 5517 documents from section metadata are present",
-          "severity": "info",
-          "details": null
-        },
-        {
-          "check_name": "Minimum avg tags",
-          "passed": true,
-          "message": "Value 3.83 meets threshold >= 3.0",
-          "severity": "info",
-          "details": {
-            "actual_value": 3.826173645096973,
-            "threshold_value": 3.0
-          }
-        },
-        {
-          "check_name": "Maximum avg tags",
-          "passed": true,
-          "message": "Value 3.83 meets threshold <= 12.0",
-          "severity": "info",
-          "details": {
-            "actual_value": 3.826173645096973,
-            "threshold_value": 12.0
-          }
-        },
-        {
-          "check_name": "Documents with zero tags",
-          "passed": true,
-          "message": "Value 0.00 meets threshold <= 100",
-          "severity": "info",
-          "details": {
-            "actual_value": 0,
-            "threshold_value": 100
-          }
-        }
-      ]
     }
   ],
-  "integration_tests": {
-    "success": false,
-    "error": "Integration tests failed with exit code 1",
-    "duration_seconds": 3.667975
-  },
+  "integration_tests": null,
   "integration_test_report": {
     "phase_name": "Pipeline Integration Tests",
     "phase_number": 0,
-    "timestamp": "2026-04-10T13:28:20.995702",
-    "passed": false,
+    "timestamp": "2026-04-16T19:54:00.121567",
+    "passed": true,
     "has_warnings": false,
-    "has_errors": true,
+    "has_errors": false,
     "results": [
       {
         "check_name": "Phase 1\u21923 consistency",
@@ -419,51 +259,17 @@
       },
       {
         "check_name": "Semantic pairs references",
-        "passed": false,
-        "message": "Invalid references: 42 sources, 41 targets",
-        "severity": "error",
-        "details": {
-          "invalid_sources": 42,
-          "invalid_targets": 41,
-          "sample_invalid": [
-            [
-              "data/raw_md/articles/ui-construction/views/layout/view-items-layout-customization-blazor",
-              "view-items-layout-customization-blazor::6"
-            ],
-            [
-              "data/raw_md/articles/localization/how-to-localize-a-winforms-template",
-              "how-to-localize-a-winforms-template::3"
-            ],
-            [
-              "data/raw_md/articles/ui-construction/views/layout/view-items-layout-customization-blazor",
-              "view-items-layout-customization-blazor::13"
-            ],
-            [
-              "data/raw_md/articles/localization/how-to-localize-a-winforms-template",
-              "how-to-localize-a-winforms-template::7"
-            ],
-            [
-              "data/raw_md/articles/document-management/office-module/office-module",
-              "office-module::10"
-            ]
-          ]
-        }
+        "passed": true,
+        "message": "All 67,120 semantic pairs reference valid sections",
+        "severity": "info",
+        "details": null
       },
       {
         "check_name": "API entities references",
-        "passed": false,
-        "message": "14 section_ids in documents_api don't exist in doc_concepts",
-        "severity": "error",
-        "details": {
-          "invalid_count": 14,
-          "sample": [
-            "data/raw_md/apidoc/DevExpress.ExpressApp.ViewVariantsModule/ChangeVariantController/RefreshChangeVariantAction1137306::RefreshChangeVariantAction1137306::1",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.SystemModule/NewObjectViewController/CreateObject1132258::CreateObject1132258::1",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.Notifications/NotificationsOptionsBase/NotificationsRefreshInterval::NotificationsRefreshInterval::3",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.Notifications/NotificationsOptionsBase/ShowDismissAllAction::ShowDismissAllAction::3",
-            "data/raw_md/apidoc/DevExpress.ExpressApp.Notifications/NotificationsOptionsBase/ShowNotificationsWindow::ShowNotificationsWindow::3"
-          ]
-        }
+        "passed": true,
+        "message": "All 4,105 API section references are valid",
+        "severity": "info",
+        "details": null
       },
       {
         "check_name": "Explicit graph references",
@@ -475,7 +281,7 @@
       {
         "check_name": "Knowledge graph artifact",
         "passed": true,
-        "message": "knowledge_graph.json loaded: 21,405 nodes, 137,854 edges; missing_endpoints(sample)=0",
+        "message": "knowledge_graph.json loaded: 21,848 nodes, 139,148 edges; missing_endpoints(sample)=0",
         "severity": "info",
         "details": null
       }

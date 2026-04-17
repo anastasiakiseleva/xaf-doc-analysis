@@ -19,15 +19,16 @@ Output: outputs/api_implements_concept.parquet
 import argparse
 from pathlib import Path
 import pandas as pd
-import yaml
+import sys
 from collections import Counter
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from utils.taxonomy_loader import load_concepts
 
-def load_concept_definitions(path='config/concepts.yml'):
+
+def load_concept_definitions():
     """Load concept metadata for matching"""
-    with open(path, 'r', encoding='utf-8') as f:
-        data = yaml.safe_load(f)
-        return data.get('concepts', [])
+    return load_concepts().get('concepts', [])
 
 
 def build_namespace_concept_map():

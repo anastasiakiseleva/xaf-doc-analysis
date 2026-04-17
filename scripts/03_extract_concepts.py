@@ -48,6 +48,7 @@ from utils.pipeline_validators import (
     PipelineValidator, ValidationReport, ValidationResult,
     save_validation_report, load_validation_thresholds
 )
+from utils.taxonomy_loader import load_concepts, get_concept_context_string
 
 # Semantic extraction enhancement
 try:
@@ -64,7 +65,6 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_DIR = PROJECT_ROOT / "config"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 TOPICS_INVENTORY = OUTPUT_DIR / "topics_inventory.parquet"
-CONCEPTS_YML = CONFIG_DIR / "concepts.yml"
 PATTERNS_YML = CONFIG_DIR / "patterns.yml"
 OUT_PARQUET = OUTPUT_DIR / "doc_concepts.parquet"
 
@@ -271,6 +271,41 @@ def extract_concepts(text: str, concept_index: dict) -> Set[str]:
     return found
 
 
+# ---------------------------------------------------------------------------
+# Ambiguous-concept detection (B1: taxonomy-driven, computed once and cached)
+# ---------------------------------------------------------------------------
+_AMBIGUOUS_CONCEPTS_CACHE: Optional[frozenset] = None
+
+
+def _build_ambiguous_concepts(concepts_config: list) -> frozenset:
+    """
+    Derive concept names that need semantic disambiguation from taxonomy properties.
+
+    A concept is treated as ambiguous when its name is a generic English word or
+    phrase that could plausibly appear in unrelated technical text.  The heuristic:
+    feature / module / conceptual / pattern concepts without a rich API surface
+    (≤ 2 primary_types) have sufficiently generic names to cause false positives.
+    """
+    result: set = set()
+    for c in concepts_config:
+        name = c.get("name", "")
+        if not name:
+            continue
+        kind = c.get("artifact_kind", "")
+        primary_types = c.get("primary_types") or []
+        if kind in ("feature", "module", "conceptual", "pattern") and len(primary_types) <= 2:
+            result.add(name)
+    return frozenset(result)
+
+
+def _get_ambiguous_concepts(concepts_config: list) -> frozenset:
+    """Return cached ambiguous-concept set, building it on first call."""
+    global _AMBIGUOUS_CONCEPTS_CACHE
+    if _AMBIGUOUS_CONCEPTS_CACHE is None:
+        _AMBIGUOUS_CONCEPTS_CACHE = _build_ambiguous_concepts(concepts_config)
+    return _AMBIGUOUS_CONCEPTS_CACHE
+
+
 def extract_concepts_semantic(
     text: str,
     heading: str,
@@ -293,14 +328,9 @@ def extract_concepts_semantic(
         # Fallback: return lexical matches with default confidence
         return list(lexical_matches), {c: 1.0 for c in lexical_matches}
     
-    # Ambiguous concepts that need semantic validation (common words that could be false positives)
-    # Note: Application Templates removed - has dedicated domain coherence check already
-    AMBIGUOUS_CONCEPTS = {
-        'Deployment', 'Testing', 'Logging', 'Validation', 'Actions', 'Views', 
-        'Reports', 'Navigation', 'Migration', 'Controllers and Actions',
-        'Security System', 'Layout', 'Modules', 'Charts', 'Maps',
-        'Authentication', 'Authorization', 'Filtering UI', 'Theming', 'Notifications'
-    }
+    # Ambiguous concepts derived from taxonomy (computed once, cached at module level).
+    # These are concepts whose names are generic enough to appear in non-XAF contexts.
+    AMBIGUOUS_CONCEPTS = _get_ambiguous_concepts(concepts_config)
     
     # Step 2: Selective semantic validation (only for ambiguous concepts)
     import numpy as np
@@ -322,15 +352,8 @@ def extract_concepts_semantic(
                 model=model
             )
             
-            # Apply domain coherence filtering
-            if concept_name == 'Deployment':
-                confidence = _check_deployment_context(text, heading, confidence)
-            elif concept_name == 'Testing':
-                confidence = _check_testing_context(text, heading, confidence)
-            elif concept_name == 'Migration':
-                confidence = _check_migration_context(text, heading, confidence)
-            elif concept_name == 'Application Templates':
-                confidence = _check_application_templates_context(text, heading, confidence)
+            # Apply domain coherence filtering (generic + specialized per concept)
+            confidence = _check_domain_coherence(concept_name, text, heading, confidence, concept_def)
         else:
             # Trust lexical match for unambiguous concepts
             confidence = 1.0
@@ -371,14 +394,8 @@ def _validate_concept_semantically(
     """Validate concept match using semantic similarity"""
     import numpy as np
     
-    # Build concept description
-    concept_parts = [concept_name]
-    if 'description' in concept_def:
-        concept_parts.append(concept_def['description'])
-    synonyms = concept_def.get('synonyms', [])[:3]
-    if synonyms:
-        concept_parts.append(f"Also known as: {', '.join(synonyms)}")
-    concept_desc = " ".join(concept_parts)
+    # Build concept description using the taxonomy context string (richer embedding anchor)
+    concept_desc = get_concept_context_string(concept_name)
     
     # Build section description (heading + first 500 chars)
     section_desc = f"{heading}\n\n{text[:500]}"
@@ -514,6 +531,48 @@ def _check_application_templates_context(text: str, heading: str, base_confidenc
     elif ide_matches >= 1 and xaf_matches == 0:
         return base_confidence * 0.5  # Moderate IDE signal
     
+    return base_confidence
+
+
+def _check_domain_coherence(
+    concept_name: str,
+    text: str,
+    heading: str,
+    base_confidence: float,
+    concept_def: dict,
+) -> float:
+    """
+    Generic domain coherence check that keeps specialized logic for known concepts
+    and applies a taxonomy-keyword signal test for all other ambiguous concepts.
+
+    For concepts that have custom suppression functions, those functions are called
+    directly.  For all other concepts the taxonomy's ``keywords`` and
+    ``primary_types`` fields serve as positive-signal anchors: if the section
+    contains none of those terms, confidence is gently reduced.
+    """
+    # Delegate to specialized functions that encode domain-specific knowledge
+    _specialized = {
+        'Deployment': _check_deployment_context,
+        'Testing': _check_testing_context,
+        'Migration': _check_migration_context,
+        'Application Templates': _check_application_templates_context,
+    }
+    specialized_fn = _specialized.get(concept_name)
+    if specialized_fn is not None:
+        return specialized_fn(text, heading, base_confidence)
+
+    # Generic check: use taxonomy keywords and primary API types as positive signals
+    keywords = concept_def.get('keywords') or []
+    primary_types = concept_def.get('primary_types') or []
+    all_signals = keywords[:20] + primary_types[:10]
+    if not all_signals:
+        return base_confidence  # Cannot assess context without taxonomy signals
+
+    combined = (heading + " " + text[:500]).lower()
+    signal_count = sum(1 for sig in all_signals if sig.lower() in combined)
+    if signal_count == 0:
+        # Concept's own terminology absent — slight confidence reduction
+        return base_confidence * 0.80
     return base_confidence
 
 
@@ -827,11 +886,14 @@ def main() -> None:
         print(f"❌ Missing input: {TOPICS_INVENTORY}")
         sys.exit(1)
 
-    concepts_cfg = load_yaml(CONCEPTS_YML, required=True)             # required
+    concepts_cfg = load_concepts()                                    # from taxonomy
     patterns_cfg = load_yaml(PATTERNS_YML, required=False)            # optional
     concept_index = compile_concept_index(concepts_cfg)
     hierarchy = build_hierarchy_map(concepts_cfg)
     regexes = compile_regexes(patterns_cfg)
+
+    # Flat dict keyed by concept name — used to annotate output rows with taxonomy metadata
+    concept_definitions: dict = {c["name"]: c for c in concepts_cfg.get("concepts", [])}
 
     # Names whose type is Platform or runtime — route to platforms column, not concepts
     platform_concept_names = frozenset(
@@ -1015,6 +1077,23 @@ def main() -> None:
                 "is_api": bool(is_api),
                 "kept": True,
                 "skip_reason": skip_reason,
+                # Taxonomy metadata — lets downstream phases use structure without reloading
+                "concept_domains": {
+                    name: concept_definitions.get(name, {}).get("domain", "")
+                    for name in concepts
+                },
+                "concept_subdomains": {
+                    name: concept_definitions.get(name, {}).get("subdomain", "")
+                    for name in concepts
+                },
+                "concept_artifact_kinds": {
+                    name: concept_definitions.get(name, {}).get("artifact_kind", "")
+                    for name in concepts
+                },
+                "concept_audiences": {
+                    name: (concept_definitions.get(name, {}).get("facets") or {}).get("audiences", [])
+                    for name in concepts
+                },
             })
 
     out_df = pd.DataFrame(rows)

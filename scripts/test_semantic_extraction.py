@@ -1,11 +1,24 @@
 #!/usr/bin/env python
 """
-Test the enhanced concept extraction on the workflow-deployment false positive.
+Test the semantic concept extraction on the workflow-deployment false positive.
+Exercises extract_concepts_semantic from 03_extract_concepts.py directly.
 """
 
-import yaml
+import sys
+import importlib.util
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from sentence_transformers import SentenceTransformer
-from enhanced_concept_extraction import extract_concepts_enhanced
+from utils.taxonomy_loader import load_concepts
+
+# 03_extract_concepts.py has a numeric prefix so we load it via importlib
+_script_path = Path(__file__).parent / "03_extract_concepts.py"
+_spec = importlib.util.spec_from_file_location("extract_concepts_module", _script_path)
+_mod = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_mod)
+extract_concepts_semantic = _mod.extract_concepts_semantic
+compile_concept_index = _mod.compile_concept_index
 
 # Sample text from workflow-design-basics that incorrectly gets tagged with "Deployment"
 WORKFLOW_TEXT = """
@@ -53,27 +66,10 @@ DEPLOYMENT_HEADING = "Deployment > ASP.NET Core Blazor > Deploy to IIS"
 
 
 def build_concept_index():
-    """Build concept index from concepts.yml"""
-    with open('config/concepts.yml', 'r', encoding='utf-8') as f:
-        concepts_data = yaml.safe_load(f)
-    
-    concept_index = {}
-    concepts_config = concepts_data['concepts']
-    
-    for c in concepts_config:
-        name = c['name']
-        # Add concept name
-        concept_index[name.lower()] = {"name": name}
-        
-        # Add synonyms
-        for syn in c.get('synonyms', []):
-            concept_index[syn.lower()] = {"name": name}
-        
-        # Add tags (some may be terms to match)
-        for tag in c.get('tags', []):
-            if len(tag) > 3:  # Skip very short tags
-                concept_index[tag.lower()] = {"name": name}
-    
+    """Build concept index from taxonomy using the production compile_concept_index."""
+    concepts_cfg = load_concepts()
+    concept_index = compile_concept_index(concepts_cfg)
+    concepts_config = concepts_cfg.get('concepts', [])
     return concept_index, concepts_config
 
 
@@ -104,9 +100,9 @@ def test_semantic_extraction():
     print(f"Text snippet: {WORKFLOW_TEXT[:200]}...")
     print()
     
-    concepts_wf, confidences_wf = extract_concepts_enhanced(
-        section_text=WORKFLOW_TEXT,
-        section_heading=HEADING,
+    concepts_wf, confidences_wf = extract_concepts_semantic(
+        text=WORKFLOW_TEXT,
+        heading=HEADING,
         concept_index=concept_index,
         concepts_config=concepts_config,
         model=model
@@ -135,9 +131,9 @@ def test_semantic_extraction():
     print(f"Text snippet: {DEPLOYMENT_TEXT[:200]}...")
     print()
     
-    concepts_dep, confidences_dep = extract_concepts_enhanced(
-        section_text=DEPLOYMENT_TEXT,
-        section_heading=DEPLOYMENT_HEADING,
+    concepts_dep, confidences_dep = extract_concepts_semantic(
+        text=DEPLOYMENT_TEXT,
+        heading=DEPLOYMENT_HEADING,
         concept_index=concept_index,
         concepts_config=concepts_config,
         model=model
