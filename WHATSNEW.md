@@ -1,5 +1,62 @@
 # What's New
 
+## 2026-04-17 — Taxonomy quality pass: `api_surface.primary_types` corrected against XAF API
+
+### Problem
+
+A review of `api_surface.primary_types` across all 148 concepts in `config/xaf-taxonomy.json` against **Hedden's *The Accidental Taxonomist* §4.3**, **ANSI/NISO Z39.19**, and the **W3C SKOS Primer** found that many entries were not valid API type identifiers. Six violation categories were identified:
+
+1. **File format / extension** — `XAFML` is a file extension, not a class or interface.
+2. **Protocol / framework names** — `OData`, `WebAPI` are architectural protocols; the relevant XAF API types are the builder extension methods.
+3. **Abbreviations and concept descriptors** — `DI`, `MDI`, `SVG`, `ARR`, `AWS`, `EASYTEST`, `Selenium`, `Cross-IDE`, `WebForms` are technology acronyms or platform labels, not CLR types.
+4. **Ticket / KB identifiers** — `T1312589` is a DevExpress support ticket number with no value as a taxonomy type identifier.
+5. **Member-path notation** — `IModelApplication.PreferredLanguage`, `XafApplication.ResourcesExportedToModel` use dot-notation to reference a *member* of a type; the containing type belongs in `primary_types`, the member path belongs in `related_types`.
+6. **Lifecycle event / method names** — `Setup`, `SetupComplete`, `ExtendModelInterfaces`, `UpdateDatabaseAfterUpdateSchema`, `LogText`, `GetLocalizedText`, `AllowNew`, `AllowDelete` are callable members, not standalone types.
+7. **Infrastructure / MSBuild properties** — `Kestrel`, `PublishSingleFile`, `TargetFramework`, `MultiTargeting`, `SDK-style`, `ConnectionString`, `LocalDB`, `MultipleActiveResultSets` are deployment-platform or config concepts, not XAF API types.
+
+### What changed
+
+| File | Change |
+|---|---|
+| `config/xaf-taxonomy.json` | 22 concepts corrected across all violation categories (see table below). Non-type terms moved to `related_types` or removed. Correct XAF API types added where `primary_types` was left empty or incorrect. |
+| `scripts/_check_primary_types.py` | New one-off validation script that scans `primary_types` for all-caps abbreviations, dot-notation member paths, known non-type keywords, MSBuild/CLI terms, and ticket-number patterns. Exits clean against the updated file. |
+
+### Concepts corrected
+
+| Concept ID | Category | Was (problem entries) | Now (representative correction) |
+|---|---|---|---|
+| `xaf.architecture.application-model.application-model` | File extension | `["XAFML"]` | `["IModelApplication", "IModelNode", "ModelApplicationBase", "ModelNodeBase"]` |
+| `xaf.architecture.application-model.model-differences` | File extension | `[..., "XAFML"]` | `"XAFML"` removed; `"IModelDifferenceStore"` etc. retained |
+| `xaf.architecture.core.web-api-service` | Protocol names | `["OData", "WebAPI"]` | `["AddXafWebApi", "IXafEndpointRouteBuilder", "EnableCustomEndpoint", "CustomEndpointHandlerAsync"]` |
+| `xaf.architecture.core.xaf-application` | Event names | `["Setup", "SetupComplete", "AspNetCoreApplication"]` | Moved to `related_types`; primary: `["XafApplication", "WinApplication", "BlazorApplication"]` |
+| `xaf.architecture.dependency-injection.dependency-injection` | Abbreviation | `"DI"` | Removed |
+| `xaf.architecture.application-model.model-extension` | Method name | `"ExtendModelInterfaces"` | Moved to `related_types` |
+| `xaf.data.database.database-connection` | Config keywords | `["ConnectionString", "XpoProvider", "EFCoreProvider", "GetConnectionString", "LocalDB", "MultipleActiveResultSets"]` | `["EFCoreObjectSpaceProvider", "XPObjectSpaceProvider", "WithHostDatabaseConnectionString"]` |
+| `xaf.data.database.multiple-databases` | Property names | `["AdditionalObjectSpaces", "PopulateAdditionalObjectSpaces", "AutoCommit/Refresh/DisposeAdditionalObjectSpaces"]` | Moved to `related_types`; primary: `["CompositeObjectSpace", "IObjectSpaceProviderService"]` |
+| `xaf.data.object-space.object-space-provider` | Method / property names | `"CreateObjectSpace"`, `"ObjectSpaceProviders"` | Moved to `related_types` |
+| `xaf.data.properties.collection-property` | Abbreviated name + model properties | `"Association"`, `"AllowNew"`, `"AllowDelete"`, `"AllowLink"`, `"AllowUnlink"` | `"Association"` → `"AssociationAttribute"`; property names moved to `related_types` |
+| `xaf.data.updates.database-update` | Method names | `"UpdateDatabaseAfterUpdateSchema"`, `"UpdateDatabaseBeforeUpdateSchema"`, `"CurrentDBVersion"` | Moved to `related_types` |
+| `xaf.localization.localization.localization-basics` | Member-path notation | `"IModelApplication.PreferredLanguage"` | `"IModelApplication"` |
+| `xaf.localization.localization.satellite-assemblies` | Member-path notation | `"XafApplication.ResourcesExportedToModel"` | Removed from `primary_types`; preserved in `related_types` |
+| `xaf.localization.localization.programmatic-localization` | Method names | `"GetLocalizedText"`, `"SetLocalizedText"`, `"FindGroupNode"`, `"GetMemberCaption"` | Moved to `related_types` |
+| `xaf.migration.legacy.legacy-net-framework` | Platform name + ticket ID | `"WebForms"`, `"T1312589"` | Removed |
+| `xaf.migration.migration.migration` | MSBuild / project properties | `"TargetFramework"`, `"MultiTargeting"`, `"SDK-style"` | Removed |
+| `xaf.ops.deployment.deployment` | Infrastructure names | `["ARR", "Kestrel", "PublishSingleFile", "AWS"]` | `["AzureCompatibility"]`; others moved to `related_types` |
+| `xaf.ops.diagnostics.diagnostic-tools` | Sparse (only minor helper) | `["LogSubSeparator"]` | `["Tracing", "LogSubSeparator"]` |
+| `xaf.ops.logging.logging` | Static method names | `"LogText"`, `"LogValue"`, `"LogSeparator"`, `"LogError"` | Moved to `related_types`; `"Tracing"` added as primary type |
+| `xaf.quality.testing.testing` | Framework name + acronym | `"Selenium"`, `"EASYTEST"` | Moved to `related_types` |
+| `xaf.tooling.project-creation.template-kit` | Feature descriptor | `"Cross-IDE"` | Moved to `related_types`; `primary_types` removed (tool has no C# API surface) |
+| `xaf.ui.navigation.tabbed-mdi-interface` | Acronym | `"MDI"` | `["UIType"]`; `"MDI"` to `related_types` |
+| `xaf.ui.theming.svg-graphics` | Format acronym | `"SVG"` | `["SvgImageHelper", "ImageLoader"]`; `"SVG"` to `related_types` |
+
+### Design decisions
+
+- **`primary_types` semantic** — only CLR class, interface, enum, or attribute names that appear in the XAF public API and unambiguously identify the concept belong here. This mirrors Z39.19 §4.2.3: preferred terms must be unambiguous and specific.
+- **`related_types` is the right home** for member paths, event names, config keys, protocol labels, and platform names that aid full-text search and cross-referencing but are not canonical type identifiers.
+- **No data is discarded** — every removed entry was either relocated to `related_types` (if it has search value) or dropped only when it was an external platform name, a ticket number, or a pure abbreviation that adds no retrieval value over the synonyms in `terminology`.
+
+---
+
 ## 2026-04-16 — Activate `requires` relation: differentiate learning prerequisites from peer associations
 
 ### Problem

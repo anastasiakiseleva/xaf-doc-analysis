@@ -26,12 +26,16 @@
           ],
           "keywords": [
             "Node Generators",
-            "Model Node Generator Updater"
+            "Model Node Generator Updater",
+            "XAFML"
           ]
         },
         "api_surface": {
           "primary_types": [
-            "XAFML"
+            "IModelApplication",
+            "IModelNode",
+            "ModelApplicationBase",
+            "ModelNodeBase"
           ],
           "related_types": [
             "BOModel",
@@ -162,8 +166,7 @@
             "FileModelStore",
             "ModelDifferenceDbStore",
             "IModelDifferenceStore",
-            "ModelDifferenceAspect",
-            "XAFML"
+            "ModelDifferenceAspect"
           ],
           "related_types": [
             "Model.xafml",
@@ -215,8 +218,10 @@
         "api_surface": {
           "primary_types": [
             "IModelExtender",
-            "ExtendModelInterfaces",
             "ModelNodesGeneratorBase"
+          ],
+          "related_types": [
+            "ExtendModelInterfaces"
           ]
         },
         "relations": {
@@ -371,11 +376,15 @@
         },
         "api_surface": {
           "primary_types": [
-            "OData",
-            "WebAPI"
+            "AddXafWebApi",
+            "IXafEndpointRouteBuilder",
+            "EnableCustomEndpoint",
+            "CustomEndpointHandlerAsync"
           ],
           "related_types": [
-            "OpenAPI"
+            "OpenAPI",
+            "OData",
+            "WebAPI"
           ]
         },
         "tags": [
@@ -419,15 +428,15 @@
         "api_surface": {
           "primary_types": [
             "XafApplication",
-            "Setup",
-            "SetupComplete",
             "WinApplication",
-            "BlazorApplication",
-            "AspNetCoreApplication"
+            "BlazorApplication"
           ],
           "related_types": [
             "DevExpress.ExpressApp",
-            "Application.Setup"
+            "Application.Setup",
+            "Setup",
+            "SetupComplete",
+            "AspNetCoreApplication"
           ]
         },
         "facets": {
@@ -482,8 +491,7 @@
             "IServiceProvider",
             "AddServices",
             "ConfigureServices",
-            "FillServices",
-            "DI"
+            "FillServices"
           ]
         },
         "relations": {
@@ -1435,17 +1443,16 @@
         },
         "api_surface": {
           "primary_types": [
-            "ConnectionString",
-            "XpoProvider",
-            "EFCoreProvider",
-            "GetConnectionString",
-            "LocalDB",
-            "MultipleActiveResultSets",
+            "EFCoreObjectSpaceProvider",
+            "XPObjectSpaceProvider",
             "WithHostDatabaseConnectionString"
           ],
           "related_types": [
             "appsettings.json",
-            "App.config"
+            "App.config",
+            "ConnectionString",
+            "LocalDB",
+            "MultipleActiveResultSets"
           ]
         },
         "tags": [],
@@ -1541,9 +1548,11 @@
         "api_surface": {
           "primary_types": [
             "CompositeObjectSpace",
+            "IObjectSpaceProviderService"
+          ],
+          "related_types": [
             "AdditionalObjectSpaces",
             "PopulateAdditionalObjectSpaces",
-            "IObjectSpaceProviderService",
             "AutoCommitAdditionalObjectSpaces",
             "AutoRefreshAdditionalObjectSpaces",
             "AutoDisposeAdditionalObjectSpaces"
@@ -1803,15 +1812,15 @@
         "api_surface": {
           "primary_types": [
             "IObjectSpaceProvider",
-            "CreateObjectSpace",
-            "IObjectSpaceFactory",
-            "ObjectSpaceProviders"
+            "IObjectSpaceFactory"
           ],
           "related_types": [
             "XPObjectSpaceProvider",
             "EFCoreObjectSpaceProvider",
             "SecuredObjectSpaceProvider",
-            "NonPersistentObjectSpaceProvider"
+            "NonPersistentObjectSpaceProvider",
+            "CreateObjectSpace",
+            "ObjectSpaceProviders"
           ]
         },
         "tags": [],
@@ -2077,7 +2086,9 @@
         "api_surface": {
           "primary_types": [
             "XPCollection",
-            "Association",
+            "AssociationAttribute"
+          ],
+          "related_types": [
             "AllowNew",
             "AllowDelete",
             "AllowLink",
@@ -2362,11 +2373,13 @@
         "api_surface": {
           "primary_types": [
             "ModuleUpdater",
-            "UpdateDatabaseAfterUpdateSchema",
-            "UpdateDatabaseBeforeUpdateSchema",
-            "CurrentDBVersion",
             "DatabaseVersionMismatch",
             "DBUpdater"
+          ],
+          "related_types": [
+            "UpdateDatabaseAfterUpdateSchema",
+            "UpdateDatabaseBeforeUpdateSchema",
+            "CurrentDBVersion"
           ]
         },
         "tags": [
@@ -2476,7 +2489,7 @@
         },
         "api_surface": {
           "primary_types": [
-            "IModelApplication.PreferredLanguage",
+            "IModelApplication",
             "IModelLocalizationGroup",
             "IModelLocalizationItem"
           ],
@@ -2577,13 +2590,13 @@
           "primary_types": [
             "CaptionHelper",
             "ICaptionHelperProvider",
-            "GetLocalizedText",
-            "SetLocalizedText",
-            "LocalizationItem",
-            "FindGroupNode",
-            "GetMemberCaption"
+            "LocalizationItem"
           ],
           "related_types": [
+            "GetLocalizedText",
+            "SetLocalizedText",
+            "FindGroupNode",
+            "GetMemberCaption",
             "IModelLocalizationGroup"
           ]
         },
@@ -2677,13 +2690,13 @@
         },
         "api_surface": {
           "primary_types": [
-            "XafResourceLocalizer",
-            "XafApplication.ResourcesExportedToModel"
+            "XafResourceLocalizer"
           ],
           "related_types": [
             "GAC",
             "localization.devexpress.com",
-            "ResourcesExportedToModel"
+            "ResourcesExportedToModel",
+            "XafApplication.ResourcesExportedToModel"
           ]
         },
         "relations": {
@@ -2730,9 +2743,7 @@
             "WcfSecuredClient",
             "WcfDataServerHelper",
             "MiddleTierSerializableObjectLayerClient",
-            "WebForms",
-            "ASPxControl",
-            "T1312589"
+            "ASPxControl"
           ],
           "related_types": [
             "ASP.NET Web Forms",
@@ -2786,9 +2797,6 @@
             "XafApiConverter",
             "ProjectConverter",
             "FrameworkSettingsCompatibilityMode",
-            "TargetFramework",
-            "MultiTargeting",
-            "SDK-style",
             "EF6toEFCore"
           ]
         },
@@ -2843,12 +2851,13 @@
         },
         "api_surface": {
           "primary_types": [
+            "AzureCompatibility"
+          ],
+          "related_types": [
             "ARR",
             "Kestrel",
             "PublishSingleFile",
-            "AWS"
-          ],
-          "related_types": [
+            "AWS",
             "AzureCompatibility.Enable",
             "Azure App Service",
             "Azure SignalR Service",
@@ -2965,6 +2974,7 @@
         },
         "api_surface": {
           "primary_types": [
+            "Tracing",
             "LogSubSeparator"
           ],
           "related_types": [
@@ -3022,15 +3032,16 @@
         },
         "api_surface": {
           "primary_types": [
+            "Tracing",
             "TraceLogLocation",
             "LogLevel",
+            "TextWriterTraceListener"
+          ],
+          "related_types": [
             "LogText",
             "LogValue",
             "LogSeparator",
             "LogError",
-            "TextWriterTraceListener"
-          ],
-          "related_types": [
             "eXpressAppFramework.log",
             "DevExpress.Persistent.Base.Tracing",
             "Tracing.LogName",
@@ -3209,9 +3220,7 @@
         "api_surface": {
           "primary_types": [
             "TestExecutor",
-            "EasyTestConnectionString",
-            "Selenium",
-            "EASYTEST"
+            "EasyTestConnectionString"
           ],
           "related_types": [
             "DevExpress.ExpressApp.EasyTest.BlazorAdapter",
@@ -3219,7 +3228,9 @@
             "*.ets",
             "chromedriver",
             "msedgedriver",
-            "Functional Testing"
+            "Functional Testing",
+            "Selenium",
+            "EASYTEST"
           ]
         },
         "facets": {
@@ -3956,12 +3967,10 @@
           ]
         },
         "api_surface": {
-          "primary_types": [
-            "Cross-IDE"
-          ],
           "related_types": [
             "Template Kit",
-            "DevExpress Template Kit"
+            "DevExpress Template Kit",
+            "Cross-IDE"
           ]
         },
         "tags": [
@@ -6597,6 +6606,10 @@
         },
         "api_surface": {
           "primary_types": [
+            "UIType"
+          ],
+          "related_types": [
+            "IModelOptions.UIType",
             "MDI"
           ]
         },
@@ -6779,6 +6792,10 @@
         },
         "api_surface": {
           "primary_types": [
+            "SvgImageHelper",
+            "ImageLoader"
+          ],
+          "related_types": [
             "SVG"
           ]
         },
