@@ -256,9 +256,9 @@ This reveals:
 This is the "possible connections humans forgot to add."
 
 **Key Statistics:**
-- 93,905 semantic pairs discovered
-- 8.5 average connections per section
-- 19.8% cross-corpus links (API ↔ Conceptual)
+- 58,461 semantic pairs discovered
+- 5.4 average connections per section
+- 12.6% cross-corpus links (API ↔ Conceptual)
 - Quality gates: concept overlap, platform overlap, namespace overlap
 
 ## Phase 11 — Extract API Entities
@@ -395,7 +395,7 @@ Classification with LLMs is expensive/slow. This ensures you:
 `outputs/semantic_pairs_high_value.parquet`
 
 **Filtering Results:**
-- Input: 93,905 semantic pairs
+- Input: 58,461 semantic pairs
 - Output: ~5,000 high-value pairs (configurable)
 - Boost multipliers: 1.5x for cross-corpus, 2.0x for high-ticket concepts
 
@@ -707,12 +707,12 @@ python scripts/experimental/validate_ollama_accuracy.py --sample 50
 
 | Metric | Current State | Target |
 |--------|--------------|--------|
-| **Total Sections** | 11,082 | Stable |
-| **Semantic Pairs** | 93,905 | 95,000+ |
-| **Avg Connections/Section** | 8.5 | 9.0+ |
-| **Isolated Sections** | 603 (5.4%) | <3% |
-| **Cross-Corpus Links** | 18,613 (19.8%) | 21%+ |
-| **Concepts with Gaps** | 6 | 0 |
+| **Total Sections** | 10,819 (11,584 total) | Stable |
+| **Semantic Pairs** | 58,461 | 65,000+ |
+| **Avg Connections/Section** | 5.4 | 7.0+ |
+| **Isolated Sections** | 935 (8.6%) | <5% |
+| **Cross-Corpus Links** | 7,383 (12.6%) | 15%+ |
+| **Concepts with Gaps** | 15 | 0 |
 | **Under-Connected Concepts** | 16 | <8 |
 
 ### Quality Gates (Semantic Pairs)
@@ -994,7 +994,7 @@ xaf-doc-analysis/
 |------|---------|---------------|
 | `topics_inventory.parquet` | Full text of all sections | Reading actual content |
 | `doc_concepts.parquet` | Section metadata & concept tags | Filtering by concept/platform |
-| `semantic_pairs.parquet` | 93K relationship pairs | Analyzing connectivity |
+| `semantic_pairs.parquet` | 58K relationship pairs | Analyzing connectivity |
 | `sections_embeddings_*.parquet` | Vector embeddings | Similarity searches |
 | `knowledge_graph.json` | Unified knowledge graph | Downstream tooling, MCP, dashboards |
 | `classified_pairs_corrected.parquet` | Typed relationships (post-processed) | Learning paths, prerequisites |
@@ -1058,15 +1058,15 @@ python tools/save_baseline_metrics.py
 ## Success Metrics
 
 ### Phase 1 Complete When:
-- [ ] All 6 gap concepts have ≥10 cross-corpus links
+- [ ] All gap concepts have ≥10 cross-corpus links
 - [ ] Deployment concept has ≥50 cross-corpus links
-- [ ] Overall cross-corpus % ≥20.5% (currently 19.8%)
+- [ ] Overall cross-corpus % ≥15% (currently 12.6%)
 
 ### Project Success When:
-- [ ] Isolated sections <3% (currently 5.4%)
+- [ ] Isolated sections <5% (currently 8.6%)
 - [ ] Under-connected concepts <8 (currently 16)
-- [ ] Avg connections/section ≥9.0 (currently 8.5)
-- [ ] All concepts above 7.0 links/section threshold
+- [ ] Avg connections/section ≥7.0 (currently 5.4)
+- [ ] All concepts above 5.0 links/section threshold
 
 ---
 

@@ -70,6 +70,8 @@ def parse_args():
                    help="C→C: allow with no concept/platform overlap if sim ≥ this.")
     p.add_argument("--cross-fallback-sim", type=float, default=0.80,
                    help="Cross: allow with no overlap if sim ≥ this.")
+    p.add_argument("--aa-fallback-sim", type=float, default=0.85,
+                   help="A→A: allow with no namespace/platform overlap if sim ≥ this (fallback when apis column is empty).")
 
     # Ns prefix length for API namespace overlap
     p.add_argument("--ns-prefix-levels", type=int, default=3,
@@ -112,6 +114,31 @@ def namespace_overlap(apis1: Iterable[str], apis2: Iterable[str], levels: int) -
     roots1.discard("")
     roots2.discard("")
     return len(roots1.intersection(roots2)) > 0
+
+
+def doc_id_ns_root(doc_id: str, levels: int) -> str:
+    """Extract a namespace root from a doc_id path for API docs.
+
+    API docs live under paths like:
+      data/raw_md/apidoc/DevExpress.ExpressApp.Security/SecurityStrategyComplex
+    The namespace segment is the second-to-last component before the class name.
+    If the path has no recognisable namespace segment, returns the last path component.
+    """
+    parts = Path(doc_id).parts
+    # Find the apidoc segment and take the next one as namespace
+    for i, p in enumerate(parts):
+        if p == "apidoc" and i + 1 < len(parts):
+            ns = parts[i + 1]   # e.g. "DevExpress.ExpressApp.Security"
+            return ns_root(ns, levels)
+    # Fallback: use the last component (the class/file name itself)
+    return parts[-1] if parts else ""
+
+
+def doc_id_namespace_overlap(doc_id1: str, doc_id2: str, levels: int) -> bool:
+    """Compare namespace roots derived from the doc_id paths for two API sections."""
+    r1 = doc_id_ns_root(doc_id1, levels)
+    r2 = doc_id_ns_root(doc_id2, levels)
+    return bool(r1 and r2 and r1 == r2)
 
 def intersect(a: Iterable[str], b: Iterable[str]) -> List[str]:
     sa = {x for x in a if x}
@@ -181,24 +208,37 @@ def gate_cc(s_row, t_row, sim: float, args) -> Tuple[bool, List[str]]:
 def gate_aa(s_row, t_row, sim: float, args) -> Tuple[bool, List[str]]:
     """
     API→API
-    - require namespace overlap OR platform overlap
+    - Primary: namespace overlap (from apis column) OR platform overlap
+    - Secondary: namespace overlap derived from doc_id path (when apis column is empty,
+      e.g. config/patterns.yml does not exist)
+    - Fallback: sim ≥ aa_fallback_sim for any high-similarity API pair
     - sim must be ≥ min_sim_aa
     """
     gates = []
     if sim < args.min_sim_aa:
         return False, gates
-    
+
     ns_overlap = namespace_overlap(s_row["apis"], t_row["apis"], args.ns_prefix_levels)
     overlap_platforms = intersect(s_row["platforms"], t_row["platforms"])
-    
+
     if ns_overlap:
         gates.append("namespace_overlap")
     if overlap_platforms:
         gates.append("platform_overlap")
-    
+
     if ns_overlap or overlap_platforms:
         return True, gates
-    
+
+    # Secondary: namespace derived from doc_id path (self-contained, no patterns.yml needed)
+    if doc_id_namespace_overlap(s_row["doc_id"], t_row["doc_id"], args.ns_prefix_levels):
+        gates.append("doc_id_namespace_overlap")
+        return True, gates
+
+    # Fallback: very high similarity API sections are almost certainly related
+    if sim >= args.aa_fallback_sim:
+        gates.append("high_similarity_fallback")
+        return True, gates
+
     return False, gates
 
 

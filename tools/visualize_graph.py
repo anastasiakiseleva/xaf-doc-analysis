@@ -91,6 +91,17 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
         if w >= min_cooc and a in concept_ids and b in concept_ids
     ]
 
+    # ── Taxonomy index (for concept domain/kind enrichment) ────────────────
+    tax_index: dict = {}
+    try:
+        import sys as _sys
+        if str(PROJECT_ROOT) not in _sys.path:
+            _sys.path.insert(0, str(PROJECT_ROOT))
+        from utils.taxonomy_loader import load_taxonomy_index  # noqa: PLC0415
+        tax_index = load_taxonomy_index()
+    except Exception:
+        pass
+
     # ── Concept nodes ─────────────────────────────────────────────────────
     concept_nodes = [
         {
@@ -98,6 +109,9 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
             "name": n.get("name", n["id"].replace("concept:", "")),
             "sectionCount": concept_sections[n["id"]],
             "docCount": len(concept_doc_set[n["id"]]),
+            "domain": tax_index.get(n.get("name", ""), {}).get("domain", ""),
+            "subdomain": tax_index.get(n.get("name", ""), {}).get("subdomain", ""),
+            "artifactKind": tax_index.get(n.get("name", ""), {}).get("artifact_kind", ""),
         }
         for n in kg["nodes"]
         if n["type"] == "concept"
@@ -129,33 +143,91 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
             for d in top
         ]
 
-    # ── Classified relationship edges (doc-level) ─────────────────────────
+    # ── Classified relationship edges: parquet-first, KG rel: fallback ─────
     rel_edges: list[dict] = []
     seen_rel: set[tuple] = set()
 
-    for e in kg["edges"]:
-        if not e["type"].startswith("rel:"):
-            continue
-        src_doc = _sec_to_doc(e["source"])
-        tgt_doc = _sec_to_doc(e["target"])
-        if src_doc == tgt_doc:
-            continue
-        rel_type = e["type"].replace("rel:", "")
-        key = (src_doc, tgt_doc, rel_type)
-        if key in seen_rel:
-            continue
-        seen_rel.add(key)
-        rel_edges.append(
-            {
+    cp_path = PROJECT_ROOT / "outputs" / "classified_pairs.parquet"
+    _loaded_from_parquet = False
+    try:
+        import pandas as _pd  # noqa: PLC0415
+        if cp_path.exists():
+            cp = _pd.read_parquet(cp_path, columns=[
+                "source_doc", "target_doc", "source_is_api", "target_is_api",
+                "relationship_type", "relationship_confidence", "relationship_bidirectional",
+                "is_cross_corpus", "source_concepts", "target_concepts",
+            ])
+            # Normalise PyArrow-backed columns to plain Python types before iteration
+            for _col in ("source_is_api", "target_is_api", "relationship_bidirectional", "is_cross_corpus"):
+                if _col in cp.columns:
+                    cp[_col] = cp[_col].fillna(False).astype(bool)
+            for _col in ("source_concepts", "target_concepts"):
+                if _col in cp.columns:
+                    cp[_col] = cp[_col].apply(lambda x: list(x) if x is not None else [])
+
+            for row in cp.itertuples(index=False):
+                src_doc = f"doc:{row.source_doc}"
+                tgt_doc = f"doc:{row.target_doc}"
+                if src_doc == tgt_doc:
+                    continue
+                rel_type = str(row.relationship_type)
+                key = (src_doc, tgt_doc, rel_type)
+                if key in seen_rel:
+                    continue
+                seen_rel.add(key)
+                # Supplement doc_details for any doc not already in the KG
+                for did, is_api in [(src_doc, bool(row.source_is_api)),
+                                    (tgt_doc, bool(row.target_is_api))]:
+                    if did not in doc_details:
+                        raw = did.replace("doc:", "")
+                        doc_details[did] = {
+                            "title": raw.split("/")[-1].replace(".md", "")[:80],
+                            "path": raw,
+                            "isApi": is_api,
+                        }
+                src_concepts = [str(c) for c in row.source_concepts][:5]
+                tgt_concepts = [str(c) for c in row.target_concepts][:5]
+                rel_edges.append({
+                    "from": src_doc,
+                    "to": tgt_doc,
+                    "type": rel_type,
+                    "confidence": round(float(row.relationship_confidence), 2),
+                    "bidirectional": bool(row.relationship_bidirectional),
+                    "isCrossCorpus": bool(row.is_cross_corpus),
+                    "sourceConcepts": src_concepts,
+                    "targetConcepts": tgt_concepts,
+                    "sourceTitle": doc_details.get(src_doc, {}).get("title", src_doc.split("/")[-1]),
+                    "targetTitle": doc_details.get(tgt_doc, {}).get("title", tgt_doc.split("/")[-1]),
+                })
+            _loaded_from_parquet = len(rel_edges) > 0
+    except Exception as _e:
+        print(f"  Warning: classified_pairs.parquet load failed ({_e}), falling back to KG edges")
+
+    if not _loaded_from_parquet:
+        for e in kg["edges"]:
+            if not e["type"].startswith("rel:"):
+                continue
+            src_doc = _sec_to_doc(e["source"])
+            tgt_doc = _sec_to_doc(e["target"])
+            if src_doc == tgt_doc:
+                continue
+            rel_type = e["type"].replace("rel:", "")
+            key = (src_doc, tgt_doc, rel_type)
+            if key in seen_rel:
+                continue
+            seen_rel.add(key)
+            rel_edges.append({
                 "from": src_doc,
                 "to": tgt_doc,
                 "type": rel_type,
                 "confidence": round(float(e.get("confidence", 0)), 2),
                 "bidirectional": bool(e.get("bidirectional", False)),
+                "isCrossCorpus": False,
+                "sourceConcepts": [],
+                "targetConcepts": [],
                 "sourceTitle": doc_details.get(src_doc, {}).get("title", src_doc.split("/")[-1]),
                 "targetTitle": doc_details.get(tgt_doc, {}).get("title", tgt_doc.split("/")[-1]),
-            }
-        )
+            })
 
     # ── Per-concept connected concepts (for sidebar) ──────────────────────
     concept_neighbours: dict[str, list[str]] = defaultdict(list)
@@ -307,6 +379,11 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
     </div>
     <div id="legend">
       <span class="legend-item"><span class="legend-dot" style="background:#4e9af1"></span>Concept</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#4fc3f7;border-radius:2px"></span>UI</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#a5d6a7;border-radius:2px"></span>Arch</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#f48fb1;border-radius:2px"></span>Security</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#90caf9;border-radius:2px"></span>Data</span>
+      <span class="legend-item"><span class="legend-dot" style="background:#ffcc80;border-radius:2px"></span>Modules</span>
       <span class="legend-item"><span class="legend-dot" style="background:#f1a14e"></span>Article</span>
       <span class="legend-item"><span class="legend-dot" style="background:#e76f6f"></span>API</span>
     </div>
@@ -326,6 +403,23 @@ const NODE_COLOURS = {
   api:     { background: '#4a1515', border: '#e76f6f', highlight: { background: '#7a2020', border: '#ff9a9a' } },
 };
 const REL_COLOURS = DATA_REL_COLOURS_PLACEHOLDER;
+const DOMAIN_COLOURS = {
+  ui:           { background: '#1a3545', border: '#4fc3f7', hbg: '#1f4a60', hb: '#80d8ff' },
+  data:         { background: '#1a2e45', border: '#90caf9', hbg: '#1f3a60', hb: '#b3d9ff' },
+  security:     { background: '#3a1a2e', border: '#f48fb1', hbg: '#50202e', hb: '#ffb3cb' },
+  architecture: { background: '#1a3020', border: '#a5d6a7', hbg: '#203a28', hb: '#c8e6ca' },
+  modules:      { background: '#3a2e1a', border: '#ffcc80', hbg: '#50401a', hb: '#ffe0b2' },
+  ops:          { background: '#2e1a3a', border: '#ce93d8', hbg: '#3a2050', hb: '#e1bee7' },
+  quality:      { background: '#1a2e2e', border: '#80cbc4', hbg: '#1f3c3c', hb: '#b2dfdb' },
+  tooling:      { background: '#2e2e1a', border: '#fff176', hbg: '#3c3c20', hb: '#fff9c4' },
+  migration:    { background: '#3a1a1a', border: '#ef9a9a', hbg: '#50202a', hb: '#ffcdd2' },
+  localization: { background: '#1a2a3a', border: '#b0bec5', hbg: '#20364a', hb: '#cfd8e0' },
+};
+function domainColour(domain) {
+  const d = DOMAIN_COLOURS[domain];
+  if (!d) return NODE_COLOURS.concept;
+  return { background: d.background, border: d.border, highlight: { background: d.hbg, border: d.hb } };
+}
 const COOC_COLOUR = { color: '#4e9af1', opacity: 0.25 };
 
 // ── State ─────────────────────────────────────────────────────────────────
@@ -370,9 +464,9 @@ function initConceptMap() {
   const nodes = DATA.conceptNodes.map(c => ({
     id: c.id,
     label: c.name,
-    title: `${c.name}\n${c.sectionCount} sections · ${c.docCount} docs`,
+    title: `${c.name}${c.domain ? '\ndomain: ' + c.domain + (c.subdomain ? ' / ' + c.subdomain : '') : ''}${c.artifactKind ? '\nkind: ' + c.artifactKind : ''}\n${c.sectionCount} sections · ${c.docCount} docs`,
     size: Math.max(8, Math.min(50, c.sectionCount / 6)),
-    color: NODE_COLOURS.concept,
+    color: domainColour(c.domain),
     group: 'concept',
     _data: c,
   }));
@@ -497,7 +591,7 @@ function initRelationshipMap() {
   const edges = activeEdges.map((e, i) => ({
     id: `rel_${i}`,
     from: e.from, to: e.to,
-    title: `${e.type} (conf ${e.confidence})`,
+    title: `${e.type} (conf ${e.confidence})${e.isCrossCorpus ? ' \u21c4 cross-corpus' : ''}${e.sourceConcepts && e.sourceConcepts.length ? '\nA: ' + e.sourceConcepts.join(', ') : ''}${e.targetConcepts && e.targetConcepts.length ? '\nB: ' + e.targetConcepts.join(', ') : ''}`,
     color: { color: REL_COLOURS[e.type] || '#888', opacity: 0.7 },
     arrows: e.bidirectional ? { to: true, from: true } : { to: true },
     width: 1 + e.confidence,
@@ -553,7 +647,9 @@ function showConceptDetails(id) {
   document.getElementById('details-panel').innerHTML = `
     <h3>${d ? d.name : id.replace('concept:', '')}</h3>
     ${d ? `<div class="stat">Sections: <span>${d.sectionCount}</span></div>
-    <div class="stat">Documents: <span>${d.docCount}</span></div>` : ''}
+    <div class="stat">Documents: <span>${d.docCount}</span></div>
+    ${d.domain ? '<div class="stat">Domain: <span>' + d.domain + (d.subdomain ? ' / ' + d.subdomain : '') + '</span></div>' : ''}
+    ${d.artifactKind ? '<div class="stat">Kind: <span>' + d.artifactKind + '</span></div>' : ''}` : ''}
     ${nei.length ? `<div class="stat" style="margin-top:10px">Connected concepts:</div><div style="margin-top:4px">${neiHtml}</div>` : ''}
     ${docs.length ? `<div class="stat" style="margin-top:10px">Top documents:</div><ul class="doc-list">${docsHtml}</ul>` : ''}
     <button class="expand-btn" id="exp-btn" onclick="expandNeighbourhood('${id}')">▼ Expand document neighbourhood</button>
@@ -572,12 +668,15 @@ function showDocDetails(id) {
   const relHtml = (edges, dir) => edges.map(e => {
     const other = dir === 'out' ? e.targetTitle : e.sourceTitle;
     const otherId = dir === 'out' ? e.to : e.from;
+    const concepts = dir === 'out' ? (e.targetConcepts || []) : (e.sourceConcepts || []);
     const arrow = dir === 'out' ? '→' : '←';
     const col = REL_COLOURS[e.type] || '#888';
-    return `<li style="font-size:11px;padding:3px 0;border-bottom:1px solid #21262d" onclick="highlightRelDoc('${otherId}')">
-      <span style="color:${col};font-weight:600">${e.type}</span> ${arrow}
+    const crossTag = e.isCrossCorpus ? '<span style="color:#888;font-size:10px;margin-left:4px">⇄</span>' : '';
+    const conceptTag = concepts.length ? `<div style="font-size:10px;color:#6e7681;margin-top:2px">${concepts.slice(0, 3).join(' · ')}</div>` : '';
+    return `<li style="font-size:11px;padding:4px 0;border-bottom:1px solid #21262d" onclick="highlightRelDoc('${otherId}')">
+      <div><span style="color:${col};font-weight:600">${e.type}</span> ${arrow}
       <span style="color:#c9d1d9">${other}</span>
-      <span style="color:#484f58"> (${e.confidence})</span>
+      <span style="color:#484f58"> (${e.confidence})</span>${crossTag}</div>${conceptTag}
     </li>`;
   }).join('');
 

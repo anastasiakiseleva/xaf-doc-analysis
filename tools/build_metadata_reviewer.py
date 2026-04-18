@@ -220,62 +220,142 @@ def article_description_from_md(doc_id: str) -> str:
 # ---------------------------------------------------------------------------
 # Data loading
 # ---------------------------------------------------------------------------
+
+def _normalize_list_col(val) -> str:
+    """Convert parquet list/array/string column value to a comma-joined string."""
+    if val is None:
+        return ""
+    try:
+        if isinstance(val, float) and pd.isna(val):
+            return ""
+    except Exception:
+        pass
+    if isinstance(val, (list, tuple)):
+        return ", ".join(str(v) for v in val if v)
+    try:
+        import numpy as np  # noqa: PLC0415
+        if isinstance(val, np.ndarray):
+            return ", ".join(str(v) for v in val if v)
+    except ImportError:
+        pass
+    s = str(val).strip()
+    if s.startswith("["):
+        import ast  # noqa: PLC0415
+        try:
+            items = ast.literal_eval(s)
+            return ", ".join(str(i) for i in items if i)
+        except Exception:
+            pass
+    return s if s not in ("nan", "None", "") else ""
+
+
 def load_data():
-    df = pd.read_csv(CSV_PATH)
+    # ── Helpers ──────────────────────────────────────────────────────────────
+    def _join_unique(vals) -> str:
+        result: set = set()
+        for v in vals:
+            for part in _normalize_list_col(v).split(","):
+                p = part.strip()
+                if p:
+                    result.add(p)
+        return ", ".join(sorted(result))
 
-    # Deduplicate: collapse multiple sections per doc by joining unique values
-    def join_unique(series):
-        vals = set()
-        for v in series:
-            if pd.notna(v) and str(v).strip():
-                for part in str(v).split(","):
-                    s = part.strip()
-                    if s:
-                        vals.add(s)
-        return ", ".join(sorted(vals))
-
-    def phase7_desc(series):
-        # Fallback: first non-null description from Phase 7
+    def _phase7_desc(series) -> str:
         for v in series:
             if pd.notna(v) and str(v).strip():
                 return str(v).strip()
         return ""
 
-    def most_common(series):
+    def _most_common(series) -> str:
         mode = series.mode()
         return mode.iloc[0] if len(mode) else ""
 
-    def max_val(series):
+    def _max_val(series) -> int:
         return int(series.max()) if len(series) else 0
 
-    agg = (
-        df.groupby("doc_id", sort=False)
-        .agg(
-            is_api=("is_api", "first"),
-            suggested_tags=("suggested_tags", join_unique),
-            suggested_description=("suggested_description", phase7_desc),
-            proficiency_level=("proficiency_level", most_common),
-            num_semantic_connections=("num_semantic_connections", max_val),
-            original_concepts=("original_concepts", join_unique),
-            original_platforms=("original_platforms", join_unique),
+    # ── Primary: document_metadata.parquet (Phase 10 rolled-up) ─────────────
+    dm_path = ROOT / "outputs" / "document_metadata.parquet"
+    if dm_path.exists():
+        dm = pd.read_parquet(dm_path)
+        if "is_api_reference" in dm.columns and "is_api" not in dm.columns:
+            dm = dm.rename(columns={"is_api_reference": "is_api"})
+        for col, default in [
+            ("tags", ""), ("description", ""), ("proficiency_level", ""),
+            ("total_connections", 0), ("num_sections", 1),
+            ("concepts", ""), ("platforms", ""), ("apis", ""),
+        ]:
+            if col not in dm.columns:
+                dm[col] = default
+    else:
+        # Fallback: aggregate from Phase 7 CSV
+        df = pd.read_csv(CSV_PATH)
+        dm = (
+            df.groupby("doc_id", sort=False)
+            .agg(
+                is_api=("is_api", "first"),
+                tags=("suggested_tags", _join_unique),
+                description=("suggested_description", _phase7_desc),
+                proficiency_level=("proficiency_level", _most_common),
+                total_connections=("num_semantic_connections", _max_val),
+                concepts=("original_concepts", _join_unique),
+                platforms=("original_platforms", _join_unique),
+            )
+            .reset_index()
         )
-        .reset_index()
-    )
+        dm["num_sections"] = 1
+        dm["apis"] = ""
 
-    total = len(agg)
+    # ── Concept domains via taxonomy index (from doc concepts list) ───────────
+    doc_domains: dict[str, str] = {}
+    try:
+        import sys as _sys  # noqa: PLC0415
+        if str(ROOT) not in _sys.path:
+            _sys.path.insert(0, str(ROOT))
+        from utils.taxonomy_loader import load_taxonomy_index  # noqa: PLC0415
+        _tax_index = load_taxonomy_index()
+        for _, _row in dm.iterrows():
+            _concepts_str = _normalize_list_col(_row.get("concepts", ""))
+            _domains: set = set()
+            for _cname in _concepts_str.split(","):
+                _cname = _cname.strip()
+                if _cname:
+                    _domain = _tax_index.get(_cname, {}).get("domain", "")
+                    if _domain:
+                        _domains.add(_domain)
+            doc_domains[_row["doc_id"]] = ", ".join(sorted(_domains))
+    except Exception as e:
+        print(f"  Warning: could not load concept domains: {e}")
+
+    # ── Per-doc relationship summary from classified_pairs.parquet ────────────
+    rel_summary: dict[str, dict] = {}
+    cp_path = ROOT / "outputs" / "classified_pairs.parquet"
+    if cp_path.exists():
+        try:
+            from collections import Counter  # noqa: PLC0415
+            cp = pd.read_parquet(cp_path, columns=["source_doc", "target_doc", "relationship_type"])
+            _rel_cnts: dict[str, Counter] = {}
+            for row in cp.itertuples(index=False):
+                for doc in (row.source_doc, row.target_doc):
+                    if doc not in _rel_cnts:
+                        _rel_cnts[doc] = Counter()
+                    _rel_cnts[doc][str(row.relationship_type)] += 1
+            rel_summary = {k: dict(v) for k, v in _rel_cnts.items()}
+        except Exception as e:
+            print(f"  Warning: could not load relationship summary: {e}")
+
+    total = len(dm)
     llm_cache = _load_llm_cache()
     print(f"Building descriptions for {total} docs...")
     llm_hits = heuristic_hits = 0
 
-    # Build JSON records for the HTML
     records = []
-    for _, row in agg.iterrows():
+    for _, row in dm.iterrows():
         doc_id = row["doc_id"]
-        slug = doc_id.rstrip("/").split("/")[-1]
+        slug   = doc_id.rstrip("/").split("/")[-1]
+        is_api = bool(row.get("is_api", False))
 
-        # Priority for articles: LLM cache > heuristic (raw markdown) > Phase 7
-        # API docs always use Phase 7 structured summary.
-        if not row["is_api"]:
+        # Description priority: LLM cache > heuristic markdown > parquet value
+        if not is_api:
             if doc_id in llm_cache:
                 description = llm_cache[doc_id]
                 llm_hits += 1
@@ -285,27 +365,29 @@ def load_data():
                     description = md_desc
                     heuristic_hits += 1
                 else:
-                    description = row["suggested_description"]
+                    description = str(row.get("description", "") or "")
         else:
-            description = row["suggested_description"]
+            description = str(row.get("description", "") or "")
 
-        records.append(
-            {
-                "id": doc_id,
-                "slug": slug,
-                "is_api": bool(row["is_api"]),
-                "tags": row["suggested_tags"],
-                "description": description,
-                "proficiency": row["proficiency_level"],
-                "connections": int(row["num_semantic_connections"]),
-                "concepts": row["original_concepts"],
-                "platforms": row["original_platforms"],
-            }
-        )
+        records.append({
+            "id":          doc_id,
+            "slug":        slug,
+            "is_api":      is_api,
+            "tags":        _normalize_list_col(row.get("tags", "")),
+            "description": description,
+            "proficiency": str(row.get("proficiency_level", "") or ""),
+            "connections": int(row.get("total_connections", 0) or 0),
+            "num_sections": int(row.get("num_sections", 1) or 1),
+            "concepts":    _normalize_list_col(row.get("concepts", "")),
+            "platforms":   _normalize_list_col(row.get("platforms", "")),
+            "apis":        _normalize_list_col(row.get("apis", "")),
+            "domains":     doc_domains.get(doc_id, ""),
+            "rel_summary": rel_summary.get(doc_id, {}),
+        })
 
-    article_count = agg[~agg["is_api"]].shape[0]
+    article_count = sum(1 for r in records if not r["is_api"])
     fallback = article_count - llm_hits - heuristic_hits
-    print(f"Loaded {len(records)} unique docs from {len(df)} sections")
+    print(f"Loaded {len(records)} unique docs from {total} rows")
     print(f"  LLM (cache):      {llm_hits}/{article_count}")
     print(f"  Heuristic (md):   {heuristic_hits}/{article_count}")
     print(f"  Phase 7 fallback: {fallback}/{article_count}")
@@ -393,6 +475,7 @@ button.action { padding: 4px 10px; border: none; border-radius: 4px; cursor: poi
 .tag { font-size: 11px; padding: 2px 7px; border-radius: 3px; background: #313244; color: #cdd6f4; }
 .info-section .concepts-text { font-size: 11px; color: #6c7086; line-height: 1.4; }
 .info-section .plat-text { font-size: 11px; color: #89dceb; }
+.rel-chip { display: inline-flex; align-items: center; font-size: 10px; padding: 1px 6px; border-radius: 3px; margin: 2px; font-weight: 600; }
 
 /* ---- verdict bar ---- */
 #verdict-bar { flex: 0 0 auto; display: flex; gap: 8px; align-items: center; padding: 8px 14px; border-top: 1px solid #313244; background: #181825; }
@@ -455,6 +538,9 @@ button.nav:hover { background: #45475a; }
           <option value="flagged">Flagged</option>
           <option value="skip">Skipped</option>
         </select>
+        <select id="filter-domain">
+          <option value="all">All domains</option>
+        </select>
       </div>
       <div class="filter-row">
         <button class="fbtn" id="filter-has-desc" title="Only show docs with a description">Has description</button>
@@ -480,6 +566,7 @@ button.nav:hover { background: #45475a; }
         <span class="meta-pill" id="dm-type"></span>
         <span class="meta-pill" id="dm-prof"></span>
         <span class="meta-pill pill-conn" id="dm-conn"></span>
+        <span class="meta-pill pill-conn" id="dm-sections" style="display:none"></span>
         <span class="meta-pill" id="dm-plat" style="background:#89dceb22;color:#89dceb;border:1px solid #89dceb55;"></span>
       </div>
       <div id="detail-body">
@@ -501,6 +588,14 @@ button.nav:hover { background: #45475a; }
             <div class="info-section">
               <label>Suggested tags</label>
               <div class="tags-wrap" id="is-tags"></div>
+            </div>
+            <div class="info-section" id="is-apis">
+              <label>Related APIs</label>
+              <div class="concepts-text" id="is-apis-text"></div>
+            </div>
+            <div class="info-section">
+              <label>Relationships (Phase 6)</label>
+              <div class="tags-wrap" id="is-rels-wrap"></div>
             </div>
           </div>
         </div>
@@ -553,6 +648,7 @@ function applyFilters() {
   const type    = document.getElementById('filter-type').value;
   const prof    = document.getElementById('filter-proficiency').value;
   const status  = document.getElementById('filter-status').value;
+  const domain  = document.getElementById('filter-domain').value;
 
   filtered = ALL_DOCS.filter(d => {
     if (q && !d.id.toLowerCase().includes(q) && !d.slug.toLowerCase().includes(q)) return false;
@@ -561,6 +657,7 @@ function applyFilters() {
     if (prof !== 'all' && d.proficiency !== prof) return false;
     const v = (state[d.id] || {}).verdict || 'none';
     if (status !== 'all' && v !== status) return false;
+    if (domain !== 'all' && !(d.domains || '').split(',').map(s => s.trim()).includes(domain)) return false;
     if (activeToggles.hasDesc && !d.description) return false;
     if (activeToggles.noDesc && d.description) return false;
     if (activeToggles.isolated && d.connections !== 0) return false;
@@ -657,7 +754,27 @@ function selectDoc(idx) {
   const tagsWrap = document.getElementById('is-tags');
   tagsWrap.innerHTML = (d.tags || '').split(',').map(t => t.trim()).filter(Boolean)
     .map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
+  // Related APIs
+  const apisEl = document.getElementById('is-apis');
+  document.getElementById('is-apis-text').textContent = d.apis || '\u2014';
+  apisEl.style.display = d.is_api ? 'none' : '';
 
+  // Relationship summary
+  const relsWrap = document.getElementById('is-rels-wrap');
+  const relSummary = d.rel_summary || {};
+  const relOrder = ['uses','explains','requires','extends','contrasts_with','applies_to','related_to'];
+  const relColors = {uses:'#ef9a9a',explains:'#80cbc4',requires:'#f48fb1',extends:'#ce93d8',related_to:'#bdbdbd',contrasts_with:'#ffb74d',applies_to:'#a5d6a7'};
+  const relEntries = relOrder.filter(r => relSummary[r]).map(r =>
+    `<span class="rel-chip" style="background:${relColors[r]}22;color:${relColors[r]};border:1px solid ${relColors[r]}44">${r}\u00a0${relSummary[r]}</span>`
+  );
+  relsWrap.innerHTML = relEntries.join('') || '<span style="color:#6c7086;font-size:11px">None classified</span>';
+
+  // Sections count pill
+  const secEl = document.getElementById('dm-sections');
+  if (d.num_sections) {
+    secEl.textContent = `${d.num_sections} section${d.num_sections === 1 ? '' : 's'}`;
+    secEl.style.display = '';
+  } else { secEl.style.display = 'none'; }
   // YAML editor — use saved edit if any, else build from data
   const saved = state[d.id];
   const yaml  = (saved && saved.yaml) ? saved.yaml : buildYaml(d);
@@ -761,7 +878,16 @@ function escHtml(s) {
 document.getElementById('prog-total').textContent = `/ ${ALL_DOCS.length} docs`;
 
 // Filters
-['search-input','filter-type','filter-proficiency','filter-status'].forEach(id => {
+// Populate domain dropdown from data
+const domainSel = document.getElementById('filter-domain');
+const domainSet = new Set(ALL_DOCS.flatMap(d => (d.domains || '').split(',').map(s => s.trim()).filter(Boolean)));
+[...domainSet].sort().forEach(dom => {
+  const opt = document.createElement('option');
+  opt.value = dom; opt.textContent = dom;
+  domainSel.appendChild(opt);
+});
+
+['search-input','filter-type','filter-proficiency','filter-status','filter-domain'].forEach(id => {
   document.getElementById(id).addEventListener('input', applyFilters);
   document.getElementById(id).addEventListener('change', applyFilters);
 });

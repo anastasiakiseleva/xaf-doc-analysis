@@ -51,9 +51,12 @@ _DATA_ACCESS_NAMES = frozenset({
 })
 
 # Concepts whose original type was "Platform" or "runtime".
-# Only concepts that exist in xaf-taxonomy.json are listed here.
-# (Blazor and WinForms were removed from the taxonomy as standalone concepts.)
-_PLATFORM_NAMES = frozenset({"Web API Service"})
+# Blazor and WinForms were removed from the taxonomy as standalone concepts.
+# Web API Service is an architectural concept (artifact_kind=conceptual, domain=architecture),
+# NOT a deployment platform — removing it here fixes the misclassification that was routing
+# it to the `platforms` column in Phase 3 instead of the `concepts` column.
+# The xaf-taxonomy.json schema contract defines facets.platforms as {blazor, winforms} only.
+_PLATFORM_NAMES: frozenset = frozenset()
 
 
 def _is_platform(concept: Dict[str, Any]) -> bool:

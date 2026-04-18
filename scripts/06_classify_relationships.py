@@ -14,10 +14,14 @@ Usage:
 import argparse
 import json
 import os
+import sys
 import time
 from pathlib import Path
 from typing import Optional, Dict, List, Any
 import glob
+
+# Ensure project root is on sys.path when invoked as `python scripts/06_...py`
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 from tqdm import tqdm
@@ -757,8 +761,10 @@ def main():
         return
     
     # Resume from checkpoint(s) - merge all process-specific checkpoints
-    checkpoint_pattern = "outputs/classified_pairs_checkpoint*.parquet"
-    checkpoint_files = glob.glob(checkpoint_pattern)
+    # Pattern matches only pid-specific files (e.g. classified_pairs_checkpoint_pid_12345.parquet)
+    # Excludes backup files (which contain "backup" in the name)
+    checkpoint_pattern = "outputs/classified_pairs_checkpoint_pid_*.parquet"
+    checkpoint_files = [f for f in glob.glob(checkpoint_pattern) if "backup" not in Path(f).name]
     
     # Also check for explicit --resume file
     if args.resume and Path(args.resume).exists():

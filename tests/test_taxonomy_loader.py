@@ -133,20 +133,32 @@ class TestFieldCompatibility:
 # ── Platform routing (critical for 03_extract_concepts.py) ─────────────────
 
 class TestPlatformRouting:
-    """Ensure Platform concepts are correctly typed so
-    03_extract_concepts.py routes them to the platforms column.
+    """Ensure no taxonomy concepts are incorrectly typed as 'Platform'.
 
-    Note: Blazor and WinForms were removed from taxonomy.json as
-    standalone concepts.  Only Web API Service remains."""
+    Per the schema contract, facets.platforms contains deployment targets
+    (blazor, winforms) only. 'Web API Service' is an architectural concept
+    (domain=architecture, artifact_kind=conceptual) and must NOT appear as
+    type='Platform'. The _PLATFORM_NAMES set in taxonomy_loader.py must be
+    empty."""
 
-    PLATFORM_CONCEPTS = ["Web API Service"]
-
-    @pytest.mark.parametrize("name", PLATFORM_CONCEPTS)
-    def test_platform_type(self, name):
+    def test_web_api_service_is_not_platform_typed(self):
+        """Web API Service must resolve to an architecture type, not Platform."""
         by_name = {c["name"]: c for c in load_concepts()["concepts"]}
-        assert name in by_name, f"Platform concept '{name}' not found"
-        assert by_name[name]["type"] == "Platform", (
-            f"Expected type='Platform' for '{name}', got '{by_name[name]['type']}'"
+        assert "Web API Service" in by_name
+        assert by_name["Web API Service"]["type"] != "Platform", (
+            "Web API Service should not be typed as Platform — "
+            "it is an architectural concept (domain=architecture, artifact_kind=conceptual). "
+            "Check _PLATFORM_NAMES in taxonomy_loader.py."
+        )
+
+    def test_no_concept_is_platform_typed(self):
+        """The taxonomy has no Platform-typed concepts (Blazor/WinForms are
+        facets.platforms values, not standalone taxonomy concepts)."""
+        by_name = {c["name"]: c for c in load_concepts()["concepts"]}
+        platform_typed = [name for name, c in by_name.items() if c.get("type") == "Platform"]
+        assert platform_typed == [], (
+            f"No concepts should have type='Platform', but found: {platform_typed}. "
+            "Check _PLATFORM_NAMES in taxonomy_loader.py."
         )
 
     def test_non_platform_not_typed_platform(self):

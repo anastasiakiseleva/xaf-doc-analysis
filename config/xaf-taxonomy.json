@@ -21,8 +21,7 @@
             "UI Settings",
             "UI metadata",
             "UI structure",
-            "UI configuration",
-            "Model Editor"
+            "UI configuration"
           ],
           "keywords": [
             "Node Generators",
@@ -1014,9 +1013,7 @@
         "description": "Workflow engine for managing object state transitions",
         "terminology": {
           "synonyms": [
-            "State Machine Module",
-            "Workflow Engine",
-            "Workflow"
+            "State Machine Module"
           ],
           "keywords": [
             "Transition"
@@ -1323,7 +1320,8 @@
             "Filter Expression",
             "Where Clause",
             "Criteria Language",
-            "Criteria Operators"
+            "Criteria Operators",
+            "Filtering"
           ]
         },
         "api_surface": {
@@ -6731,7 +6729,6 @@
             "AppearanceAttribute",
             "AppearanceItemType",
             "TargetItems",
-            "Criteria",
             "FontColor",
             "BackColor",
             "FontStyle",
@@ -6978,15 +6975,13 @@
         "description": "User interface for filtering data in lists and grids",
         "terminology": {
           "synonyms": [
-            "Filtering",
             "Filter Panel",
             "Filter UI",
             "Data Filtering",
             "Grid Filtering",
             "Custom Filtering",
             "Filter Custom Logic",
-            "Programmatic Filtering",
-            "Dynamic Filters"
+            "Programmatic Filtering"
           ]
         },
         "api_surface": {
@@ -6997,6 +6992,11 @@
         "tags": [
           "query"
         ],
+        "relations": {
+          "related_to": [
+            "xaf.data.criteria.criteria"
+          ]
+        },
         "facets": {
           "platforms": [
             "winforms",
@@ -7394,7 +7394,8 @@
           "stability": "stable"
         },
         "tags": [
-          "analytics"
+          "analytics",
+          "Dynamic Filters"
         ],
         "ownership": {
           "module": "dashboards"
