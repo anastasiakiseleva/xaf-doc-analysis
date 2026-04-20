@@ -14,6 +14,7 @@ Strategy:
 """
 
 import argparse
+import re
 import sys
 from pathlib import Path
 import pandas as pd
@@ -25,6 +26,34 @@ from utils.pipeline_validators import (
     PipelineValidator, ValidationReport, ValidationResult,
     save_validation_report, load_validation_thresholds
 )
+from utils.taxonomy_loader import load_concepts
+
+
+def _build_taxonomy_tag_set() -> set:
+    """
+    Return a set of normalised tag strings derived from canonical taxonomy
+    concept names.  Uses the same normalisation as Phase 7's normalize_tag():
+    lowercase, spaces->hyphens, dots removed, non-alphanumeric-or-hyphen removed.
+    """
+    try:
+        result = load_concepts()
+        names = [c["name"] for c in result.get("concepts", []) if c.get("name")]
+    except Exception as exc:
+        print(f"WARNING: Could not load taxonomy for tag filtering ({exc}); all tags will be kept.")
+        return set()
+
+    def _norm(text: str) -> str:
+        t = text.lower()
+        t = t.replace(".", "")
+        t = t.replace(" ", "-")
+        t = re.sub(r"[^a-z0-9-]", "", t)
+        return t
+
+    return {_norm(n) for n in names if n}
+
+
+# Built once at module load
+_TAXONOMY_TAGS: set = _build_taxonomy_tag_set()
 
 
 def safe_list(val):
@@ -40,19 +69,19 @@ def safe_list(val):
 
 def aggregate_tags(section_tags_list, max_tags=12):
     """
-    Aggregate tags from multiple sections
-    
-    Strategy:
-    - Count tag frequency across sections
-    - Keep tags that appear in multiple sections (higher weight)
-    - Limit to max_tags most important
+    Aggregate tags from multiple sections.
+
+    Only tags that correspond to a canonical XAF taxonomy concept name are
+    kept (via _TAXONOMY_TAGS).  Within that allowed set the most frequent
+    tags across sections are returned, up to max_tags.
     """
     tag_counter = Counter()
-    
+
     for tags in section_tags_list:
         for tag in safe_list(tags):
-            tag_counter[tag] += 1
-    
+            if not _TAXONOMY_TAGS or tag in _TAXONOMY_TAGS:  # fallback: keep all if set empty
+                tag_counter[tag] += 1
+
     # Sort by frequency, take top N
     most_common = tag_counter.most_common(max_tags)
     return [tag for tag, count in most_common]

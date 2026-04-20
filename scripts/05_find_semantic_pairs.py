@@ -57,23 +57,23 @@ F_TOPICS     = OUTPUT_DIR / "topics_inventory.parquet"
 def parse_args():
     p = argparse.ArgumentParser(description="Find semantic section pairs with domain-aware gating.")
     # Top-K per category
-    p.add_argument("--topk-cc", type=int, default=15, help="Top-K neighbors for conceptual→conceptual.")
-    p.add_argument("--topk-aa", type=int, default=5,  help="Top-K neighbors for API→API.")
-    p.add_argument("--topk-ca", type=int, default=10, help="Top-K neighbors for conceptual→API.")
-    p.add_argument("--topk-ac", type=int, default=10, help="Top-K neighbors for API→conceptual.")
+    p.add_argument("--topk-cc", type=int, default=15, help="Top-K neighbors for conceptual->conceptual.")
+    p.add_argument("--topk-aa", type=int, default=5,  help="Top-K neighbors for API->API.")
+    p.add_argument("--topk-ca", type=int, default=10, help="Top-K neighbors for conceptual->API.")
+    p.add_argument("--topk-ac", type=int, default=10, help="Top-K neighbors for API->conceptual.")
 
     # Similarity thresholds
-    p.add_argument("--min-sim-cc", type=float, default=0.60, help="Min cosine similarity for C→C.")
-    p.add_argument("--min-sim-aa", type=float, default=0.70, help="Min cosine similarity for A→A.")
+    p.add_argument("--min-sim-cc", type=float, default=0.60, help="Min cosine similarity for C->C.")
+    p.add_argument("--min-sim-aa", type=float, default=0.70, help="Min cosine similarity for A->A.")
     p.add_argument("--min-sim-cross", type=float, default=0.65, help="Min cosine similarity for cross pairs.")
 
     # Fallback if no overlap (still allow very high-sim content)
     p.add_argument("--cc-fallback-sim", type=float, default=0.75,
-                   help="C→C: allow with no concept/platform overlap if sim ≥ this.")
+                   help="C->C: allow with no concept/platform overlap if sim >= this.")
     p.add_argument("--cross-fallback-sim", type=float, default=0.80,
-                   help="Cross: allow with no overlap if sim ≥ this.")
+                   help="Cross: allow with no overlap if sim >= this.")
     p.add_argument("--aa-fallback-sim", type=float, default=0.85,
-                   help="A→A: allow with no namespace/platform overlap if sim ≥ this (fallback when apis column is empty).")
+                   help="A->A: allow with no namespace/platform overlap if sim >= this (fallback when apis column is empty).")
 
     # Ns prefix length for API namespace overlap
     p.add_argument("--ns-prefix-levels", type=int, default=3,
@@ -95,7 +95,7 @@ def parse_args():
 # ------------------------------ Helpers ------------------------------
 def ensure_exists(path: Path, what: str):
     if not path.exists():
-        print(f"❌ Missing {what}: {path}")
+        print(f"ERROR: Missing {what}: {path}")
         sys.exit(1)
 
 def to_np_matrix(emb_series: pd.Series) -> np.ndarray:
@@ -159,7 +159,7 @@ def build_xref_index(topics_path: Path) -> Tuple[Dict[str, Set[str]], Dict[str, 
     links (via xref:) to an API section's document.
     """
     if not topics_path.exists():
-        print("⚠️  topics_inventory.parquet not found; xref gate disabled.")
+        print("WARNING: topics_inventory.parquet not found; xref gate disabled.")
         return {}, {}
 
     df = pd.read_parquet(topics_path, engine="pyarrow", columns=["doc_id", "uid", "internal_links"])
@@ -180,6 +180,88 @@ def build_xref_index(topics_path: Path) -> Tuple[Dict[str, Set[str]], Dict[str, 
             doc_to_links[doc_id] = {str(lnk) for lnk in raw if lnk}
 
     return doc_to_links, doc_to_uid
+
+
+def generate_xref_pairs(
+    df_c: pd.DataFrame,
+    X_c: np.ndarray,
+    df_a: pd.DataFrame,
+    X_a: np.ndarray,
+    doc_to_links: Dict[str, Set[str]],
+    doc_to_uid:   Dict[str, str],
+    xref_min_sim: float,
+) -> List[dict]:
+    """
+    Generate C<->A pairs directly from xref editorial links, bypassing NN search.
+
+    For each conceptual section whose doc links to an API doc (by UID), compute
+    the cosine similarity and emit a pair if sim >= xref_min_sim.  Pairs here
+    use neighbor_type="ca" and gates_passed=["xref_link"].
+
+    This is a targeted lookup (not exhaustive NN) so it runs quickly even for
+    large corpora.
+    """
+    # uid → list of row indices in df_a
+    uid_to_api_rows: Dict[str, List[int]] = {}
+    for idx, row in enumerate(df_a.itertuples(index=False)):
+        uid = doc_to_uid.get(row.doc_id, "")
+        if uid:
+            uid_to_api_rows.setdefault(uid, []).append(idx)
+
+    # Pre-normalise X_c and X_a for fast cosine via dot product
+    X_c_norm = X_c / (np.linalg.norm(X_c, axis=1, keepdims=True) + 1e-9)
+    X_a_norm = X_a / (np.linalg.norm(X_a, axis=1, keepdims=True) + 1e-9)
+
+    xref_pairs: List[dict] = []
+    seen: Set[Tuple[str, str]] = set()
+
+    for c_idx in tqdm(range(len(df_c)), desc="Xref C->A", ascii=True):
+        c_row = df_c.iloc[c_idx]
+        c_doc = c_row["doc_id"]
+        xrefs = doc_to_links.get(c_doc, set())
+        if not xrefs:
+            continue
+
+        for uid in xrefs:
+            api_rows = uid_to_api_rows.get(uid)
+            if not api_rows:
+                continue
+            for a_idx in api_rows:
+                key = (c_row["section_id"], df_a.iloc[a_idx]["section_id"])
+                if key in seen:
+                    continue
+                seen.add(key)
+
+                sim = float(X_c_norm[c_idx] @ X_a_norm[a_idx])
+                if sim < xref_min_sim:
+                    continue
+
+                a_row = df_a.iloc[a_idx]
+                xref_pairs.append({
+                    "source_doc": c_doc,
+                    "source_section": c_row["section_id"],
+                    "source_is_api": False,
+                    "source_concepts": c_row["concepts"],
+                    "source_platforms": c_row["platforms"],
+                    "source_apis": c_row["apis"],
+                    "target_doc": a_row["doc_id"],
+                    "target_section": a_row["section_id"],
+                    "target_is_api": True,
+                    "target_concepts": a_row["concepts"],
+                    "target_platforms": a_row["platforms"],
+                    "target_apis": a_row["apis"],
+                    "neighbor_type": "ca",
+                    "sim_score": sim,
+                    "overlap_concepts": intersect(c_row["concepts"], a_row["concepts"]),
+                    "overlap_platforms": intersect(c_row["platforms"], a_row["platforms"]),
+                    "overlap_apis": intersect(c_row["apis"], a_row["apis"]),
+                    "namespace_overlap": namespace_overlap(
+                        c_row["apis"], a_row["apis"], 3
+                    ),
+                    "gates_passed": ["xref_link"],
+                })
+
+    return xref_pairs
 
 
 def intersect(a: Iterable[str], b: Iterable[str]) -> List[str]:
@@ -353,7 +435,7 @@ def main():
     ensure_exists(F_CONCEPTUAL, "conceptual embeddings")
     ensure_exists(F_API, "API embeddings")
 
-    print("📚 Loading embeddings...")
+    print("Loading embeddings...")
     df_c = pd.read_parquet(F_CONCEPTUAL, engine="pyarrow")
     df_a = pd.read_parquet(F_API, engine="pyarrow")
 
@@ -362,13 +444,13 @@ def main():
 
     # Build xref index
     if not args.no_xref_gate:
-        print("📎 Building xref index from topics_inventory...")
+        print("Building xref index from topics_inventory...")
         doc_to_links, doc_to_uid = build_xref_index(F_TOPICS)
         xref_linked_pairs = sum(1 for links in doc_to_links.values() for _ in links)
         print(f"   {len(doc_to_links):,} docs with links, {xref_linked_pairs:,} total xref edges")
     else:
         doc_to_links, doc_to_uid = {}, {}
-        print("⚠️  Xref gate disabled via --no-xref-gate")
+        print("WARNING: Xref gate disabled via --no-xref-gate")
     
     # Convert embeddings to matrices
     X_c = to_np_matrix(df_c["embedding"])
@@ -376,11 +458,11 @@ def main():
     
     pairs = []
     
-    # C→C pairs
+    # C->C pairs
     if len(X_c) > 0:
-        print(f"\n🔍 Finding C→C neighbors (top-{args.topk_cc})...")
+        print(f"\n>>> Finding C->C neighbors (top-{args.topk_cc})...")
         idx_cc, sim_cc = nn_pairs(X_c, args.topk_cc)
-        for i in tqdm(range(len(df_c)), desc="C→C"):
+        for i in tqdm(range(len(df_c)), desc="C->C", ascii=True):
             s_row = df_c.iloc[i]
             for j_rank in range(idx_cc.shape[1]):
                 j = idx_cc[i, j_rank]
@@ -413,11 +495,11 @@ def main():
                     "gates_passed": gates,
                 })
     
-    # A→A pairs
+    # A->A pairs
     if len(X_a) > 0:
-        print(f"\n🔍 Finding A→A neighbors (top-{args.topk_aa})...")
+        print(f"\n>>> Finding A->A neighbors (top-{args.topk_aa})...")
         idx_aa, sim_aa = nn_pairs(X_a, args.topk_aa)
-        for i in tqdm(range(len(df_a)), desc="A→A"):
+        for i in tqdm(range(len(df_a)), desc="A->A", ascii=True):
             s_row = df_a.iloc[i]
             for j_rank in range(idx_aa.shape[1]):
                 j = idx_aa[i, j_rank]
@@ -452,11 +534,11 @@ def main():
                     "gates_passed": gates,
                 })
     
-    # C→A pairs
+    # C->A pairs
     if len(X_c) > 0 and len(X_a) > 0:
-        print(f"\n🔍 Finding C→A neighbors (top-{args.topk_ca})...")
+        print(f"\n>>> Finding C->A neighbors (top-{args.topk_ca})...")
         idx_ca, sim_ca = nn_pairs_cross(X_c, X_a, args.topk_ca)
-        for i in tqdm(range(len(df_c)), desc="C→A"):
+        for i in tqdm(range(len(df_c)), desc="C->A", ascii=True):
             s_row = df_c.iloc[i]
             for j_rank in range(idx_ca.shape[1]):
                 j = idx_ca[i, j_rank]
@@ -491,11 +573,11 @@ def main():
                     "gates_passed": gates,
                 })
     
-    # A→C pairs
+    # A->C pairs
     if len(X_a) > 0 and len(X_c) > 0:
-        print(f"\n🔍 Finding A→C neighbors (top-{args.topk_ac})...")
+        print(f"\n>>> Finding A->C neighbors (top-{args.topk_ac})...")
         idx_ac, sim_ac = nn_pairs_cross(X_a, X_c, args.topk_ac)
-        for i in tqdm(range(len(df_a)), desc="A→C"):
+        for i in tqdm(range(len(df_a)), desc="A->C", ascii=True):
             s_row = df_a.iloc[i]
             for j_rank in range(idx_ac.shape[1]):
                 j = idx_ac[i, j_rank]
@@ -530,24 +612,47 @@ def main():
                     "gates_passed": gates,
                 })
     
+    # Xref direct pairs (bypasses NN search entirely)
+    if not args.no_xref_gate and doc_to_links and doc_to_uid and len(X_c) > 0 and len(X_a) > 0:
+        print(f"\n>>> Generating xref C->A pairs (min sim {args.xref_min_sim})...")
+        xref_pairs = generate_xref_pairs(
+            df_c, X_c, df_a, X_a,
+            doc_to_links, doc_to_uid,
+            args.xref_min_sim,
+        )
+        if xref_pairs:
+            # Deduplicate: drop xref pairs whose (source_section, target_section)
+            # already exist in NN-found pairs
+            existing_keys: Set[Tuple[str, str]] = {
+                (p["source_section"], p["target_section"]) for p in pairs
+            }
+            new_xref = [
+                p for p in xref_pairs
+                if (p["source_section"], p["target_section"]) not in existing_keys
+            ]
+            print(f"   {len(xref_pairs):,} xref pairs generated, {len(new_xref):,} are new (not already in NN results)")
+            pairs.extend(new_xref)
+        else:
+            print("   No xref pairs met the similarity threshold.")
+
     # Create output dataframe
-    print(f"\n📊 Total pairs found: {len(pairs):,}")
+    print(f"\nTotal pairs found: {len(pairs):,}")
     if len(pairs) == 0:
-        print("⚠️  No pairs passed gates. Consider adjusting thresholds.")
+        print("WARNING: No pairs passed gates. Consider adjusting thresholds.")
         sys.exit(0)
     
     df_out = pd.DataFrame(pairs)
     
     # Stats
-    print("\n📈 Breakdown by type:")
+    print("\nBreakdown by type:")
     print(df_out["neighbor_type"].value_counts())
-    print("\n📈 Average similarity by type:")
+    print("\nAverage similarity by type:")
     print(df_out.groupby("neighbor_type")["sim_score"].mean().round(3))
     
     # Save
-    print(f"\n💾 Writing → {F_OUT}")
+    print(f"\nWriting -> {F_OUT}")
     df_out.to_parquet(F_OUT, engine="pyarrow", index=False)
-    print("✅ Phase 5 complete!")
+    print("Phase 5 complete!")
 
 
 if __name__ == "__main__":

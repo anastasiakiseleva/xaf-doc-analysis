@@ -80,11 +80,11 @@ phase9_quality:
 
 # Phase 10: Rollup Document Metadata
 phase10_rollup:
-  min_docs_with_tags: 5000          # Minimum documents with at least one tag (adjusted for unique docs)
-  min_avg_tags: 3.0                 # Minimum average tags per document
+  min_docs_with_tags: 2000          # Minimum documents with at least one tag (taxonomy-only filter reduces this)
+  min_avg_tags: 0.5                 # Minimum average tags per document (taxonomy-only: many API docs have 0-1 tags)
   max_avg_tags: 12.0                # Maximum average tags per document
   min_avg_connections: 3.0          # Minimum average semantic connections
-  max_docs_zero_tags: 100           # Maximum documents with zero tags
+  max_docs_zero_tags: 4000          # Maximum documents with zero tags (API docs often have no concept tag)
 
 # Phase 11: Extract API Entities
 phase11_api:
