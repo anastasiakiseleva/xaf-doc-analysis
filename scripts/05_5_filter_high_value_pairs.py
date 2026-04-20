@@ -12,9 +12,9 @@ from pathlib import Path
 
 # Configuration
 OUTPUT_DIR = Path("outputs")
-MIN_SIMILARITY = 0.70  # High-confidence pairs only
-MAX_PAIRS = 5000  # Target output size
-CROSS_CORPUS_BOOST = 1.5  # Boost score for conceptual ↔ API links
+MIN_SIMILARITY = 0.70  # High-confidence pairs only (bypassed for xref_link pairs)
+MAX_PAIRS = 25000  # Raised to accommodate xref_link pairs (~19K) plus high-sim pairs
+CROSS_CORPUS_BOOST = 1.5  # Boost score for conceptual <-> API links
 
 # Path to the explicit link graph produced by Phase 2.
 # Pairs whose (source_doc, target_doc) appear here bypass the noise-concept
@@ -68,16 +68,27 @@ def main():
     if 'similarity' not in pairs_df.columns and 'sim_score' in pairs_df.columns:
         pairs_df = pairs_df.rename(columns={'sim_score': 'similarity'})
 
-    # Filter by minimum similarity
-    print(f"\nApplying similarity filter (>= {MIN_SIMILARITY})...")
-    high_sim = pairs_df[pairs_df['similarity'] >= MIN_SIMILARITY].copy()
-    print(f"  Remaining: {len(high_sim):,} pairs ({len(high_sim)/len(pairs_df)*100:.1f}%)")
+    # Split out xref_link pairs — these bypass the sim floor and noise filter
+    # because editorial xref: links are ground truth regardless of embedding sim.
+    # Mean sim of xref pairs is ~0.62; 82% fall below the 0.70 floor.
+    def _has_xref(g):
+        return g is not None and 'xref_link' in g
+    xref_mask = pairs_df['gates_passed'].apply(_has_xref)
+    xref_pairs = pairs_df[xref_mask].copy()
+    non_xref = pairs_df[~xref_mask].copy()
+    print(f"\nSplit out {len(xref_pairs):,} xref_link pairs (bypass sim floor + noise filter)")
+    print(f"  Non-xref pairs to filter: {len(non_xref):,}")
+
+    # Filter by minimum similarity (non-xref only)
+    print(f"\nApplying similarity filter (>= {MIN_SIMILARITY}) to non-xref pairs...")
+    high_sim = non_xref[non_xref['similarity'] >= MIN_SIMILARITY].copy()
+    print(f"  Remaining: {len(high_sim):,} pairs ({len(high_sim)/len(non_xref)*100:.1f}%)")
 
     # Remove self-pairs (same document on both sides).
     # frozenset dedup below won't catch these since frozenset([a, a]) == frozenset([a]).
     before_self = len(high_sim)
     high_sim = high_sim[high_sim['source_doc'] != high_sim['target_doc']].copy()
-    print(f"\nRemoved {before_self - len(high_sim):,} self-pairs → {len(high_sim):,} remaining")
+    print(f"\nRemoved {before_self - len(high_sim):,} self-pairs -> {len(high_sim):,} remaining")
 
     # Drop pairs where the shared (overlapping) concepts are all noise.
     # Pairs whose only common ground is e.g. "Blazor" and "WinForms" produce
@@ -154,20 +165,46 @@ def main():
     # Sort by priority
     high_sim = high_sim.sort_values('priority_score', ascending=False)
 
-    # Deduplicate at doc level: keep only the highest-priority section pair
-    # per unique (source_doc, target_doc) undirected combination.
-    # This prevents multiple sections of the same two documents from all
-    # appearing as separate pairs and dominating the top of the ranked list.
+    # Deduplicate non-xref pairs at doc level: keep only the highest-priority
+    # section pair per unique (source_doc, target_doc) undirected combination.
     high_sim['_pair_key'] = high_sim.apply(
         lambda r: frozenset([str(r['source_doc']), str(r['target_doc'])]),
         axis=1,
     )
     before_dedup = len(high_sim)
     high_sim = high_sim.drop_duplicates(subset=['_pair_key']).drop(columns=['_pair_key'])
-    print(f"Doc-level mirror deduplication: {before_dedup:,} → {len(high_sim):,} pairs "
+    print(f"Doc-level mirror deduplication: {before_dedup:,} -> {len(high_sim):,} pairs "
           f"({before_dedup - len(high_sim):,} removed)")
 
+    # Merge xref pairs back in, deduped against the filtered non-xref set.
+    # xref pairs are NOT doc-level deduped — multiple sections of the same doc
+    # pair can appear if the author linked them separately (each is a distinct signal).
+    # We do remove xref pairs whose (source_section, target_section) key already
+    # appears in the non-xref filtered set (avoids double-counting NN+xref overlap).
+    print(f"\nMerging {len(xref_pairs):,} xref_link pairs back in...")
+    existing_section_keys = set(
+        zip(high_sim['source_section'], high_sim['target_section'])
+    )
+    xref_new = xref_pairs[
+        ~xref_pairs.apply(
+            lambda r: (r['source_section'], r['target_section']) in existing_section_keys,
+            axis=1,
+        )
+    ].copy()
+    print(f"  {len(xref_new):,} net-new xref pairs (after dedup with non-xref set)")
+
+    # Compute priority score for xref pairs too (cross-corpus boost applies)
+    xref_new['source_concepts_list'] = xref_new['source_concepts'].apply(safe_list)
+    xref_new['target_concepts_list'] = xref_new['target_concepts'].apply(safe_list)
+    xref_new['is_cross_corpus'] = xref_new['source_is_api'] != xref_new['target_is_api']
+    xref_new['priority_score'] = xref_new['similarity']
+    xref_new.loc[xref_new['is_cross_corpus'], 'priority_score'] *= CROSS_CORPUS_BOOST
+
+    high_sim = pd.concat([high_sim, xref_new], ignore_index=True)
+    print(f"  Combined total: {len(high_sim):,} pairs")
+
     # Take top N
+    high_sim = high_sim.sort_values('priority_score', ascending=False)
     filtered = high_sim.head(MAX_PAIRS)
 
     # Print summary statistics
@@ -200,8 +237,11 @@ def main():
     essential_cols = [
         'source_doc', 'source_section', 'source_is_api', 'source_concepts',
         'target_doc', 'target_section', 'target_is_api', 'target_concepts',
-        'similarity', 'priority_score', 'is_cross_corpus',
+        'similarity', 'priority_score', 'is_cross_corpus', 'gates_passed',
     ]
+    # gates_passed may not exist in older non-xref rows; fill with empty list
+    if 'gates_passed' not in filtered.columns:
+        filtered['gates_passed'] = [[] for _ in range(len(filtered))]
     filtered[essential_cols].to_parquet(output_path, index=False)
 
     csv_path = OUTPUT_DIR / "semantic_pairs_high_value.csv"

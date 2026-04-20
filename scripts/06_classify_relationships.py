@@ -689,6 +689,11 @@ def main():
         help="Maximum number of pairs to classify (for testing)"
     )
     parser.add_argument(
+        "--yes",
+        action="store_true",
+        help="Skip the large-batch confirmation prompt"
+    )
+    parser.add_argument(
         "--max-chars",
         type=int,
         default=2000,
@@ -828,8 +833,8 @@ def main():
         print(f"\nLimited to {len(pairs_df):,} pairs for testing")
     
     # Safety warning for large batches
-    if len(pairs_df) > 1000 and args.provider != "mock":
-        print(f"\n⚠️  WARNING: About to classify {len(pairs_df):,} pairs!")
+    if len(pairs_df) > 1000 and args.provider != "mock" and not args.yes:
+        print(f"\nWARNING: About to classify {len(pairs_df):,} pairs!")
         est_hours = (len(pairs_df) * 3.5) / 3600  # Conservative estimate
         print(f"   Estimated time: ~{est_hours:.1f} hours")
         print(f"   Consider using --limit 100 for testing first")
