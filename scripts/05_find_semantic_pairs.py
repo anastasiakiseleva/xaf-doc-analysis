@@ -10,6 +10,7 @@ Inputs
 ------
 - outputs/sections_embeddings_conceptual.parquet
 - outputs/sections_embeddings_api.parquet
+- outputs/topics_inventory.parquet  (for xref link gate; optional)
 
 Output
 ------
@@ -49,6 +50,7 @@ OUTPUT_DIR   = PROJECT_ROOT / "outputs"
 F_CONCEPTUAL = OUTPUT_DIR / "sections_embeddings_conceptual.parquet"
 F_API        = OUTPUT_DIR / "sections_embeddings_api.parquet"
 F_OUT        = OUTPUT_DIR / "semantic_pairs.parquet"
+F_TOPICS     = OUTPUT_DIR / "topics_inventory.parquet"
 
 
 # ------------------------------ CLI ------------------------------
@@ -76,6 +78,12 @@ def parse_args():
     # Ns prefix length for API namespace overlap
     p.add_argument("--ns-prefix-levels", type=int, default=3,
                    help="Compare first N namespace segments for API namespace overlap (e.g. DevExpress.ExpressApp).")
+
+    # Xref link gate
+    p.add_argument("--xref-min-sim", type=float, default=0.50,
+                   help="Min cosine similarity for cross pairs accepted via explicit xref link gate.")
+    p.add_argument("--no-xref-gate", action="store_true",
+                   help="Disable the xref link gate (accept only overlap/similarity gates).")
 
     # Misc
     p.add_argument("--metric", type=str, default="cosine", choices=["cosine"],
@@ -139,6 +147,40 @@ def doc_id_namespace_overlap(doc_id1: str, doc_id2: str, levels: int) -> bool:
     r1 = doc_id_ns_root(doc_id1, levels)
     r2 = doc_id_ns_root(doc_id2, levels)
     return bool(r1 and r2 and r1 == r2)
+
+# ------------------------------ Xref index ------------------------------
+def build_xref_index(topics_path: Path) -> Tuple[Dict[str, Set[str]], Dict[str, str]]:
+    """
+    Build two lookup tables from topics_inventory.parquet:
+      doc_to_links : {doc_id -> set of internal_link UIDs (strings)}
+      doc_to_uid   : {doc_id -> its own uid string}
+
+    Used by gate_cross to check whether a conceptual article explicitly
+    links (via xref:) to an API section's document.
+    """
+    if not topics_path.exists():
+        print("⚠️  topics_inventory.parquet not found; xref gate disabled.")
+        return {}, {}
+
+    df = pd.read_parquet(topics_path, engine="pyarrow", columns=["doc_id", "uid", "internal_links"])
+
+    doc_to_links: Dict[str, Set[str]] = {}
+    doc_to_uid: Dict[str, str] = {}
+
+    for row in df.itertuples(index=False):
+        doc_id = row.doc_id
+        uid    = row.uid
+        links  = row.internal_links
+
+        if uid and isinstance(uid, str):
+            doc_to_uid[doc_id] = uid
+
+        if links is not None:
+            raw = links.tolist() if hasattr(links, "tolist") else list(links)
+            doc_to_links[doc_id] = {str(lnk) for lnk in raw if lnk}
+
+    return doc_to_links, doc_to_uid
+
 
 def intersect(a: Iterable[str], b: Iterable[str]) -> List[str]:
     sa = {x for x in a if x}
@@ -242,21 +284,47 @@ def gate_aa(s_row, t_row, sim: float, args) -> Tuple[bool, List[str]]:
     return False, gates
 
 
-def gate_cross(s_row, t_row, sim: float, args) -> Tuple[bool, List[str]]:
+def gate_cross(
+    s_row,
+    t_row,
+    sim: float,
+    args,
+    doc_to_links: Dict[str, Set[str]] = None,
+    doc_to_uid:   Dict[str, str]      = None,
+) -> Tuple[bool, List[str]]:
     """
     Cross-corpus (C→A or A→C)
     - require (concept/API/namespace overlap) OR (platform overlap) OR sim ≥ cross_fallback_sim
-    - sim must be ≥ min_sim_cross
+      OR (explicit xref from conceptual doc to API doc and sim ≥ xref_min_sim)
+    - sim must be ≥ min_sim_cross  (bypassed for the xref gate, which uses xref_min_sim instead)
     """
     gates = []
+
+    # ----------------------------------------------------------------
+    # Xref link gate — runs BEFORE the similarity floor so that explicit
+    # editorial links are never discarded purely on embedding distance.
+    # ----------------------------------------------------------------
+    if not args.no_xref_gate and doc_to_links is not None and doc_to_uid is not None:
+        if sim >= args.xref_min_sim:
+            s_doc = s_row["doc_id"]
+            t_doc = t_row["doc_id"]
+            # Check both directions: source links to target, or target links to source
+            t_uid = doc_to_uid.get(t_doc, "")
+            s_uid = doc_to_uid.get(s_doc, "")
+            s_links = doc_to_links.get(s_doc, set())
+            t_links = doc_to_links.get(t_doc, set())
+            if (t_uid and t_uid in s_links) or (s_uid and s_uid in t_links):
+                gates.append("xref_link")
+                return True, gates
+
     if sim < args.min_sim_cross:
         return False, gates
-    
+
     overlap_concepts = intersect(s_row["concepts"], t_row["concepts"])
     overlap_platforms = intersect(s_row["platforms"], t_row["platforms"])
     overlap_apis = intersect(s_row["apis"], t_row["apis"])
     ns_overlap = namespace_overlap(s_row["apis"], t_row["apis"], args.ns_prefix_levels)
-    
+
     if overlap_concepts:
         gates.append("concept_overlap")
     if overlap_platforms:
@@ -265,15 +333,15 @@ def gate_cross(s_row, t_row, sim: float, args) -> Tuple[bool, List[str]]:
         gates.append("api_overlap")
     if ns_overlap:
         gates.append("namespace_overlap")
-    
+
     if overlap_concepts or overlap_platforms or overlap_apis or ns_overlap:
         return True, gates
-    
+
     # High similarity fallback
     if sim >= args.cross_fallback_sim:
         gates.append("high_similarity_fallback")
         return True, gates
-    
+
     return False, gates
 
 
@@ -284,13 +352,23 @@ def main():
     # Load inputs
     ensure_exists(F_CONCEPTUAL, "conceptual embeddings")
     ensure_exists(F_API, "API embeddings")
-    
+
     print("📚 Loading embeddings...")
     df_c = pd.read_parquet(F_CONCEPTUAL, engine="pyarrow")
     df_a = pd.read_parquet(F_API, engine="pyarrow")
-    
+
     print(f"  Conceptual: {len(df_c):,} sections")
     print(f"  API:        {len(df_a):,} sections")
+
+    # Build xref index
+    if not args.no_xref_gate:
+        print("📎 Building xref index from topics_inventory...")
+        doc_to_links, doc_to_uid = build_xref_index(F_TOPICS)
+        xref_linked_pairs = sum(1 for links in doc_to_links.values() for _ in links)
+        print(f"   {len(doc_to_links):,} docs with links, {xref_linked_pairs:,} total xref edges")
+    else:
+        doc_to_links, doc_to_uid = {}, {}
+        print("⚠️  Xref gate disabled via --no-xref-gate")
     
     # Convert embeddings to matrices
     X_c = to_np_matrix(df_c["embedding"])
@@ -385,12 +463,12 @@ def main():
                 sim = sim_ca[i, j_rank]
                 t_row = df_a.iloc[j]
                 
-                passed, gates = gate_cross(s_row, t_row, sim, args)
+                passed, gates = gate_cross(s_row, t_row, sim, args, doc_to_links, doc_to_uid)
                 if not passed:
                     continue
-                
+
                 ns_overlap = namespace_overlap(s_row["apis"], t_row["apis"], args.ns_prefix_levels)
-                
+
                 pairs.append({
                     "source_doc": s_row["doc_id"],
                     "source_section": s_row["section_id"],
@@ -424,12 +502,12 @@ def main():
                 sim = sim_ac[i, j_rank]
                 t_row = df_c.iloc[j]
                 
-                passed, gates = gate_cross(s_row, t_row, sim, args)
+                passed, gates = gate_cross(s_row, t_row, sim, args, doc_to_links, doc_to_uid)
                 if not passed:
                     continue
-                
+
                 ns_overlap = namespace_overlap(s_row["apis"], t_row["apis"], args.ns_prefix_levels)
-                
+
                 pairs.append({
                     "source_doc": s_row["doc_id"],
                     "source_section": s_row["section_id"],
