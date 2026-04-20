@@ -36,7 +36,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
 F_SEMANTIC_PAIRS = OUTPUT_DIR / "semantic_pairs.parquet"
-F_CLASSIFIED_PAIRS = OUTPUT_DIR / "classified_pairs_corrected.parquet"
+F_CLASSIFIED_PAIRS = OUTPUT_DIR / "classified_pairs.parquet"
 F_DOC_CONCEPTS = OUTPUT_DIR / "doc_concepts.parquet"
 F_TOPICS_INV = OUTPUT_DIR / "topics_inventory.parquet"
 

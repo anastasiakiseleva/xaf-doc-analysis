@@ -799,6 +799,9 @@
         "relations": {
           "part_of": [
             "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.quality.performance.performance-optimization"
           ]
         },
         "tags": [
@@ -4487,8 +4490,7 @@
             "PopupWindowShowAction.Execute",
             "PopupWindowShowAction.Cancel",
             "ShowView",
-            "ShowViewParameters",
-            "DialogController"
+            "ShowViewParameters"
           ]
         },
         "relations": {
@@ -4651,7 +4653,6 @@
         },
         "api_surface": {
           "primary_types": [
-            "DialogController",
             "ShowNavigationItemController",
             "RecordsNavigationController",
             "ViewNavigationController",
@@ -5024,7 +5025,6 @@
             "PopupWindowShowAction.CustomizePopupWindowParams",
             "ViewController<DetailView>",
             "OnActivated",
-            "DialogController",
             "RefreshController",
             "NewObjectViewController",
             "DeleteObjectsViewController",
@@ -6440,7 +6440,6 @@
             "DxTreeListEditor",
             "DxPivotGridListEditor",
             "PivotGridListEditor",
-            "ChartListEditor",
             "SchedulerListEditor",
             "DxSchedulerListEditor",
             "ColumnsListEditor",
@@ -8408,8 +8407,6 @@
           "primary_types": [
             "CompositeView",
             "ObjectView",
-            "DetailView",
-            "ListView",
             "DashboardView",
             "View",
             "IModelView",
@@ -8529,8 +8526,6 @@
         },
         "api_surface": {
           "primary_types": [
-            "ListView",
-            "DetailView",
             "DashboardView",
             "CreateDetailView",
             "CreateListView",
@@ -8660,8 +8655,7 @@
             "TargetWindow.NewModalWindow",
             "PopupWindow.DesignTimeInitSize",
             "WindowTemplateInfo.IsPopupWindow",
-            "PopupWindowShowAction",
-            "DialogController"
+            "PopupWindowShowAction"
           ]
         },
         "relations": {
