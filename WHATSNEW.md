@@ -1,6 +1,78 @@
 # What's New
 
+## 2026-04-20 — Phase 5 xref gate + taxonomy-only tags in Phase 10
+
+### Motivation
+
+Two independent gaps were identified:
+
+1. **Phase 5 (semantic pairs) never surfaced cross-corpus pairs for articles that explicitly link to API pages** — even when the article has dozens of `xref:` links to specific controller/action API members. The NN-based cosine similarity search was the only path to pair generation; if an API section wasn't in the top-K neighbors for a conceptual section, the editorial link was silently ignored.
+
+2. **Phase 10 (document metadata rollup) was producing tags from raw API short names and generic type labels** (`securitystrategy`, `viewcontroller`, `how-to`, `api-reference`) instead of canonical taxonomy concept names. Tags had no semantic alignment with the taxonomy and were not useful for filtering or discovery.
+
+---
+
+### Change 1 — `scripts/05_find_semantic_pairs.py`: xref direct-pairs pass
+
+**Root-cause diagnosis:** Running `concept_drilldown.py --concept "Built-in Controllers"` showed 0 cross-corpus pairs despite the article linking to ~100 API members. The NN search (`--topk-ca 10`) only evaluates pairs the embedding search surfaces; if the xref-linked API section isn't in the top-K, the gate never fires.
+
+**New `generate_xref_pairs()` function** — a dedicated second pass that generates C→A pairs directly from editorial `xref:` links, completely bypassing the NN search:
+
+1. `build_xref_index()` loads `topics_inventory.parquet` and builds:
+   - `doc_to_links`: `{doc_id → set of xref UIDs}`
+   - `doc_to_uid`: `{doc_id → its own uid}`
+2. After the four NN passes (C→C, A→A, C→A, A→C), `generate_xref_pairs()` iterates every conceptual section, looks up which API sections have UIDs matching the doc's xref links, computes cosine similarity via dot product on pre-normalised matrices, and emits pairs above `--xref-min-sim` (default `0.50`).
+3. Results are deduplicated against the NN-found pairs before appending; `gates_passed=["xref_link"]`.
+4. `--no-xref-gate` flag disables the entire xref pass for backwards compatibility.
+
+**New CLI args:**
+
+| Flag | Default | Purpose |
+|---|---|---|
+| `--xref-min-sim` | `0.50` | Min cosine similarity for xref pairs (lower than NN thresholds; editorial links are trusted) |
+| `--no-xref-gate` | `False` | Skip the xref pass entirely |
+
+**Results after re-run:**
+
+| Metric | Before | After |
+|---|---|---|
+| Total cross-corpus pairs | 7,383 | 17,853 (+142%) |
+| xref_link pairs generated | 0 | 10,179 (6,317 net-new after dedup) |
+| Isolated sections | 923 (8.5%) | 579 (5.4%) |
+| Concepts with zero cross-corpus links | 49 | 47 |
+
+**Encoding fix:** All Unicode arrows and emoji in `print()` statements and argparse help strings replaced with plain ASCII; `tqdm` calls use `ascii=True` to avoid cp1252 garbling on Windows consoles.
+
+---
+
+### Change 2 — `scripts/10_rollup_document_metadata.py`: taxonomy-only tags
+
+**`_build_taxonomy_tag_set()`** — new module-level function, called once at import time. Loads all 148 canonical concept names from `xaf-taxonomy.json` via `load_concepts()` and normalises them using the same rules as Phase 7's `normalize_tag()` (lowercase, spaces→hyphens, dots removed, non-alphanumeric stripped). Returns a `set` of 148 allowed tag strings.
+
+**`aggregate_tags()` updated** — tags that are not in `_TAXONOMY_TAGS` are silently dropped before frequency counting. The fallback `if not _TAXONOMY_TAGS` preserves original behaviour if the taxonomy fails to load.
+
+**Results:**
+
+| Metric | Before | After |
+|---|---|---|
+| Top tag | `securitystrategy` (raw API name) | `application-model` (taxonomy concept) |
+| Avg tags per doc | ~8 | 0.86 |
+| Docs with zero tags | ~100 | 3,167 |
+
+The zero-tag increase is expected and correct: ~57% of docs are API reference pages whose sections were only tagged with API short names and type labels in Phase 3 — none of which are taxonomy concepts. This surfaces the underlying Phase 3 gap (API docs not being labelled with concept names) rather than hiding it behind noisy tags.
+
+**`config/validation_thresholds.yml`** — `phase10_rollup` thresholds updated to reflect the stricter tag policy:
+
+| Threshold | Old | New |
+|---|---|---|
+| `min_avg_tags` | `3.0` | `0.5` |
+| `max_docs_zero_tags` | `100` | `4000` |
+| `min_docs_with_tags` | `5000` | `2000` |
+
+---
+
 ## 2026-04-17 — Taxonomy Improvement Plan (Phases A–D): fully utilise `xaf-taxonomy.json` across the pipeline
+
 
 ### Motivation
 
