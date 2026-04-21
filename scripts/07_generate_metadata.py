@@ -23,6 +23,36 @@ from utils.pipeline_validators import (
     PipelineValidator, ValidationReport, ValidationResult,
     save_validation_report, load_validation_thresholds
 )
+from utils.taxonomy_loader import load_concepts
+
+
+def _load_audience_concept_sets() -> tuple[frozenset, frozenset]:
+    """Load expert/beginner concept name sets from XAF taxonomy audience facets.
+
+    Taxonomy audience levels: beginner, intermediate, advanced, architect.
+    Mapping: advanced + architect → expert_concepts, beginner → beginner_concepts.
+    Falls back to hard-coded sets if taxonomy cannot be loaded.
+    """
+    try:
+        concepts_cfg = load_concepts()
+        all_concepts = concepts_cfg.get('concepts', [])
+        expert = frozenset(
+            c['name'] for c in all_concepts
+            if any(a in ('advanced', 'architect') for a in c.get('facets', {}).get('audiences', []))
+        )
+        beginner = frozenset(
+            c['name'] for c in all_concepts
+            if 'beginner' in c.get('facets', {}).get('audiences', [])
+        )
+        return expert, beginner
+    except Exception:
+        return (
+            frozenset({'Performance Optimization', 'Migration', 'Custom', 'Legacy .NET Framework'}),
+            frozenset({'Getting Started', 'Tutorial'}),
+        )
+
+
+_EXPERT_CONCEPTS, _BEGINNER_CONCEPTS = _load_audience_concept_sets()
 
 
 # ============================================================================
@@ -104,15 +134,13 @@ def classify_proficiency(row, connections_dict, relationship_profiles=None):
             return 'Advanced'
     
     # --- Concept-based heuristics (original logic, still useful) ---
-    
-    # Expert signals
-    expert_concepts = {'Performance Optimization', 'Migration', 'Custom', 'Legacy .NET Framework'}
-    if any(c in expert_concepts for c in concepts):
+
+    # Expert signals (taxonomy audience: advanced, architect)
+    if any(c in _EXPERT_CONCEPTS for c in concepts):
         return 'Expert'
-    
-    # Beginner signals
-    beginner_concepts = {'Getting Started', 'Tutorial'}
-    if any(c in beginner_concepts for c in concepts):
+
+    # Beginner signals (taxonomy audience: beginner)
+    if any(c in _BEGINNER_CONCEPTS for c in concepts):
         return 'Beginner'
     
     # High connectivity + conceptual = tutorial content (Beginner)

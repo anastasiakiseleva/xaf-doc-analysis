@@ -1,127 +1,127 @@
 ================================================================================
 CONCEPT QUALITY METRICS REPORT
-Generated: 2026-02-16 19:23:08
+Generated: 2026-04-21 09:18:53
 ================================================================================
 
 📊 METRIC 1: CONCEPT COVERAGE & SPECIFICITY
 --------------------------------------------------------------------------------
-Total sections: 10994
-Tagged sections: 10079 (91.7%)
-Unique concepts used: 151
-Avg sections per concept: 310.1
-Median sections per concept: 124
-Range: 1 - 3260
-⚠️  26 concepts have <20 sections (too specific?)
-⚠️  24 concepts have >500 sections (too generic?)
+Total sections: 10819
+Tagged sections: 3974 (36.7%)
+Unique concepts used: 133
+Avg sections per concept: 53.2
+Median sections per concept: 19
+Range: 1 - 672
+⚠️  68 concepts have <20 sections (too specific?)
+⚠️  2 concepts have >500 sections (too generic?)
 
 Top 10 most common concepts:
-  Views                                    3260 sections
-  Blazor                                   2455 sections
-  Actions                                  2238 sections
-  WinForms                                 2009 sections
-  View Types                               1923 sections
-  Web API Service                          1916 sections
-  Application Model                        1586 sections
-  .NET Runtime                             1543 sections
-  Business Logic                           1507 sections
-  Entity Framework Core                    1345 sections
+  Application Model                         672 sections
+  Model Editor                              580 sections
+  Views                                     414 sections
+  Security System                           349 sections
+  Property Editors                          267 sections
+  Validation                                253 sections
+  Template Kit                              249 sections
+  Actions                                   240 sections
+  Authentication                            201 sections
+  Controllers and Actions                   190 sections
 
 Bottom 10 least common concepts:
-  Programmatic Localization                   1 sections
+  Business Object Lifecycle                   1 sections
+  Layout Runtime Customization                1 sections
+  Performance Optimization                    1 sections
   Custom User Management                      1 sections
-  Navigation Controllers                      1 sections
   Async Operations                            1 sections
-  List View Controllers                       2 sections
-  View Lifecycle                              3 sections
-  Model Extension                             3 sections
-  CRUD Controllers                            4 sections
-  Generic View Controllers                    5 sections
-  Scaling Architecture                        7 sections
+  Object View Controllers                     1 sections
+  Generic View Controllers                    1 sections
+  Collection Property Editors                 2 sections
+  Custom Validation Rules                     2 sections
+  Controller Customization                    2 sections
 
 
 🔗 METRIC 2: CONCEPT CONNECTIVITY RATIOS
 --------------------------------------------------------------------------------
 LOWEST CONNECTIVITY (Potential noise or gaps):
   🔴 Async Operations                           0.0 links/section (1 sections)
-  🟡 Generic View Controllers                   5.0 links/section (5 sections)
-  🟡 Model Cache                                6.6 links/section (9 sections)
-  🟢 Static View Items                          8.3 links/section (32 sections)
-  🟢 Performance Optimization                  10.1 links/section (50 sections)
-  🟢 Single Choice Action                      10.7 links/section (114 sections)
-  🟢 Memory Management                         12.8 links/section (15 sections)
-  🟢 Tabbed MDI Interface                      13.1 links/section (23 sections)
-  🟢 Permission Policies                       13.3 links/section (32 sections)
-  🟢 Multiple Databases                        13.3 links/section (7 sections)
+  🔴 Performance Optimization                   0.0 links/section (1 sections)
+  🔴 Dependency Injection                       4.3 links/section (3 sections)
+  🔴 Direct SQL                                 4.5 links/section (2 sections)
+  🔴 Static View Items                          4.6 links/section (12 sections)
+  🟡 Collection Property                        6.2 links/section (4 sections)
+  🟡 Object Relationships                       7.8 links/section (6 sections)
+  🟢 Master-Detail Views                        8.0 links/section (2 sections)
+  🟢 Recurring Events                           8.2 links/section (5 sections)
+  🟢 Tabbed MDI Interface                       9.3 links/section (3 sections)
 
 HIGHEST CONNECTIVITY (Reference models):
-  🔵 Property Editor Customization             30.1 links/section (40 sections)
-  🔵 Reports V2                                31.5 links/section (133 sections)
-  🔵 Package Management                        31.7 links/section (98 sections)
-  🔵 Audit Trail                               32.4 links/section (265 sections)
-  🔵 Loading Indicators                        32.8 links/section (138 sections)
-  🔵 Event Scheduling Interfaces               33.3 links/section (12 sections)
-  🔵 Dialog Controller                         34.7 links/section (107 sections)
-  🔵 Custom User Management                    35.0 links/section (1 sections)
-  🔵 Optimistic Locking                        35.9 links/section (30 sections)
-  🔵 Programmatic Localization                 66.0 links/section (1 sections)
+  🔵 Clone Object                              32.6 links/section (27 sections)
+  🔵 Conditional Appearance                    33.0 links/section (104 sections)
+  🔵 Action Customization                      33.5 links/section (2 sections)
+  🔵 Non-persistent Object                     34.4 links/section (28 sections)
+  🔵 Custom User Management                    40.0 links/section (1 sections)
+  🔵 Controller Customization                  46.0 links/section (2 sections)
+  🔵 Built-in Controllers                      47.4 links/section (17 sections)
+  🔵 Property Editor Customization             48.2 links/section (18 sections)
+  🔵 Collection Property Editors               75.0 links/section (2 sections)
+  🔵 Custom Validation Rules                   82.0 links/section (2 sections)
 
 
 🚪 METRIC 3: SEMANTIC GATE QUALITY
 --------------------------------------------------------------------------------
-Total semantic pairs: 96452
-Overall quality: 🟢 HEALTHY
-Fallback usage: 1.0%
+Total semantic pairs: 75193
+Overall quality: 🔴 HIGH FALLBACK
+Fallback usage: 24.2%
 
 Gate passage rates:
-  concept_overlap                 76.5% ( 73789 pairs, avg sim: 0.732)
-  platform_overlap                32.0% ( 30858 pairs, avg sim: 0.768)
-  namespace_overlap               31.3% ( 30177 pairs, avg sim: 0.794)
-  api_overlap                      4.9% (  4701 pairs, avg sim: 0.710)
-  high_similarity_fallback         1.0% (   976 pairs, avg sim: 0.806)
+  xref_link                       25.6% ( 19265 pairs, avg sim: 0.621)
+  concept_overlap                 25.2% ( 18936 pairs, avg sim: 0.728)
+  doc_id_namespace_overlap        25.0% ( 18822 pairs, avg sim: 0.844)
+  high_similarity_fallback        24.2% ( 18170 pairs, avg sim: 0.861)
 
 Overall similarity distribution:
-  Mean: 0.755  Median: 0.732  Std: 0.102
-  Range: 0.600 - 1.000
+  Mean: 0.762  Median: 0.765  Std: 0.127
+  Range: 0.500 - 1.000
 
 
 🔀 METRIC 4: CONCEPT CO-OCCURRENCE PATTERNS
 --------------------------------------------------------------------------------
-Total unique concept pairs: 5598
+Total unique concept pairs: 574
 
 Top 10 co-occurring concept pairs:
-  View Types                     + Views                          1923x
-  Blazor                         + Web API Service                1752x
-  .NET Runtime                   + Blazor                         1496x
-  .NET Runtime                   + Web API Service                1431x
-  List View                      + View Types                     1190x
-  List View                      + Views                          1190x
-  Actions                        + Views                          1164x
-  Blazor                         + WinForms                       1120x
-  .NET Runtime                   + WinForms                        976x
-  Web API Service                + WinForms                        963x
+  Application Model              + Model Editor                    580x
+  Authentication                 + Security System                 201x
+  View Items                     + Views                           108x
+  Multi-Tenancy                  + Tenant                           98x
+  Action Types                   + Actions                          93x
+  View Types                     + Views                            79x
+  Actions                        + Controllers and Actions          75x
+  Dashboards                     + Views                            61x
+  View Customization             + Views                            56x
+  Controller Types               + Controllers and Actions          55x
 
 
 🏝️  METRIC 5: ISOLATED CONTENT ANALYSIS
 --------------------------------------------------------------------------------
-Total sections: 10994
-Isolated sections: 509 (4.6%)
-Quality flag: 🟢 HEALTHY
+Total sections: 10819
+Isolated sections: 559 (5.2%)
+Quality flag: 🟡 WATCH
 
 Concepts frequently appearing in isolated sections:
-  Views                                     123 isolated sections
-  Actions                                    78 isolated sections
-  View Types                                 64 isolated sections
-  Application Model                          44 isolated sections
-  Business Logic                             40 isolated sections
-  List View                                  40 isolated sections
-  Controllers                                38 isolated sections
-  Blazor                                     36 isolated sections
-  Controller Types                           36 isolated sections
-  WinForms                                   31 isolated sections
+  Application Model                          13 isolated sections
+  Model Editor                               12 isolated sections
+  Actions                                     6 isolated sections
+  Property Editors                            4 isolated sections
+  Controllers and Actions                     3 isolated sections
+  Views                                       3 isolated sections
+  Object Space                                2 isolated sections
+  Action Types                                2 isolated sections
+  Single Choice Action                        2 isolated sections
+  Package Management                          2 isolated sections
 
 
 ================================================================================
 📈 OVERALL QUALITY ASSESSMENT
 ================================================================================
 ⚠️  Action items:
-  🔴 Too many generic concepts - split into sub-concepts
+  🔴 Low concept coverage - add more concepts
+  🔴 High fallback usage - gates too strict OR concepts too sparse
