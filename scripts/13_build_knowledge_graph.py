@@ -49,6 +49,7 @@ from utils.pipeline_validators import (
     PipelineValidator, ValidationReport, ValidationResult,
     save_validation_report, load_validation_thresholds,
 )
+from utils.taxonomy_loader import load_concepts
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -159,6 +160,13 @@ def load_inputs() -> Dict[str, Any]:
 
     inputs["document_metadata"] = pd.read_parquet(F_DOC_META) if F_DOC_META.exists() else pd.DataFrame()
 
+    concepts_cfg = load_concepts()
+    inputs["taxonomy_concepts"] = {
+        str(c.get("name"))
+        for c in concepts_cfg.get("concepts", [])
+        if c.get("name")
+    }
+
     return inputs
 
 
@@ -222,13 +230,9 @@ def build_nodes(inputs: Dict[str, Any], include_section_nodes: bool) -> List[Dic
                 "is_api": bool(row.get("is_api", False)),
             })
 
-    # Concept nodes
-    all_concepts: Set[str] = set()
-    if "concepts" in doc_concepts.columns:
-        for val in doc_concepts["concepts"]:
-            all_concepts.update(str(c) for c in _safe_list(val) if c)
-
-    for concept in sorted(all_concepts):
+    # Concept nodes (taxonomy is single source of truth)
+    taxonomy_concepts: Set[str] = set(inputs.get("taxonomy_concepts", set()))
+    for concept in sorted(taxonomy_concepts):
         nid = node_id("concept", concept)
         if nid in seen:
             continue
@@ -306,6 +310,7 @@ def build_edges(inputs: Dict[str, Any], *, include_tag_edges: bool, include_sema
     pairs = inputs["pairs"]
     classified = inputs["classified"]
     api_implements = inputs["api_implements"]
+    taxonomy_concepts: Set[str] = set(inputs.get("taxonomy_concepts", set()))
 
     edges: List[Dict[str, Any]] = []
     seen: Set[EdgeKey] = set()
@@ -365,7 +370,7 @@ def build_edges(inputs: Dict[str, Any], *, include_tag_edges: bool, include_sema
             sid = node_id("sec", section_key(doc_id, section_id))
 
             for concept in _safe_list(row.get("concepts")):
-                if concept:
+                if concept and str(concept) in taxonomy_concepts:
                     add_edge(sid, node_id("concept", str(concept)), "tagged_with")
 
             for platform in _safe_list(row.get("platforms")):
@@ -383,6 +388,8 @@ def build_edges(inputs: Dict[str, Any], *, include_tag_edges: bool, include_sema
             concept = str(row.get("concept_name"))
             conf = row.get("confidence")
             mapping_src = str(row.get("source"))
+            if concept not in taxonomy_concepts:
+                continue
             add_edge(
                 node_id("api", api_id),
                 node_id("concept", concept),

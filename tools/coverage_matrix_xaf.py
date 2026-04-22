@@ -38,7 +38,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 CONFIG_DIR = PROJECT_ROOT / "config"
 OUTPUT_DIR = PROJECT_ROOT / "outputs"
 
-CONCEPTS_YML = CONFIG_DIR / "concepts.yml"
+TAXONOMY_JSON = CONFIG_DIR / "xaf-taxonomy.json"
 SUPPORT_MAP_YML = PROJECT_ROOT / "support_concept_map.yml"  # Use the full nested map
 TICKET_JSON = PROJECT_ROOT / "xaf_support_tickets_by_feature.json"
 DOC_CONCEPTS = OUTPUT_DIR / "doc_concepts.parquet"
@@ -52,11 +52,14 @@ def load_yaml(path: Path) -> dict:
 
 
 def load_concepts(path: Path) -> dict[str, dict]:
-    """Load concepts.yml and return {concept_name: concept_dict}."""
-    raw = load_yaml(path)
+    """Load xaf-taxonomy.json and return {concept_name: concept_dict}."""
+    import json
+    with open(path, encoding="utf-8") as f:
+        raw = json.load(f)
+    concepts_list = raw.get("taxonomy", {}).get("concepts", [])
     return {
         c["name"].strip(): c
-        for c in raw.get("concepts", [])
+        for c in concepts_list
         if c.get("name", "").strip()
     }
 
@@ -393,7 +396,7 @@ def main():
     
     # Load data
     print("Loading data...")
-    concepts = load_concepts(CONCEPTS_YML)
+    concepts = load_concepts(TAXONOMY_JSON)
     topics_df = pd.read_parquet(TOPICS_INVENTORY)
     concepts_df = pd.read_parquet(DOC_CONCEPTS)
     ticket_counts = load_ticket_counts(TICKET_JSON)

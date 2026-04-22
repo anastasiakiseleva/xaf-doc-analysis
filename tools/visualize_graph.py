@@ -236,6 +236,30 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
             concept_neighbours[a].append(b)
             concept_neighbours[b].append(a)
 
+    # ── Isolated documents (zero semantic connections) ────────────────────
+    isolated_docs: list[dict] = []
+    try:
+        dm_path = PROJECT_ROOT / "outputs" / "document_metadata.parquet"
+        if dm_path.exists():
+            import pandas as _pd2  # noqa: PLC0415
+            dm = _pd2.read_parquet(dm_path)
+            if "is_api_reference" in dm.columns and "is_api" not in dm.columns:
+                dm = dm.rename(columns={"is_api_reference": "is_api"})
+            dm["total_connections"] = dm["total_connections"].fillna(0)
+            iso = dm[dm["total_connections"] == 0]
+            for row in iso.itertuples(index=False):
+                doc_id = f"doc:{row.doc_id}"
+                d = doc_details.get(doc_id, {})
+                isolated_docs.append({
+                    "id":     doc_id,
+                    "title":  d.get("title") or row.doc_id.split("/")[-1],
+                    "path":   d.get("path") or row.doc_id,
+                    "isApi":  bool(getattr(row, "is_api", False)),
+                })
+            isolated_docs.sort(key=lambda x: (x["isApi"], x["title"].lower()))
+    except Exception as _ie:
+        print(f"  Warning: could not compute isolated docs ({_ie})")
+
     return {
         "conceptNodes": concept_nodes,
         "coocEdges": cooc_edges,
@@ -243,10 +267,12 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
         "docDetails": doc_details,
         "conceptTopDocs": concept_top_docs,
         "conceptNeighbours": {k: v for k, v in concept_neighbours.items()},
+        "isolatedDocs": isolated_docs,
         "meta": {
             "conceptCount": len(concept_nodes),
             "coocEdgeCount": len(cooc_edges),
             "relEdgeCount": len(rel_edges),
+            "isolatedCount": len(isolated_docs),
             "minCooc": min_cooc,
         },
     }
@@ -343,6 +369,80 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
 
 /* ── Tooltip override ── */
 .vis-tooltip { background: #161b22 !important; border: 1px solid #30363d !important; color: #e6edf3 !important; font-size: 12px !important; border-radius: 6px !important; padding: 6px 10px !important; }
+
+/* ── Light theme ── */
+body.light { background: #f6f8fa; color: #24292f; }
+body.light #toolbar { background: #ffffff; border-bottom-color: #d0d7de; }
+body.light #toolbar h1 { color: #0969da; }
+body.light #search, body.light #doc-search { background: #f6f8fa; color: #24292f; border-color: #d0d7de; }
+body.light .mode-btn { background: #f6f8fa; color: #57606a; border-color: #d0d7de; }
+body.light .mode-btn.active { background: #0969da; border-color: #0969da; color: #fff; }
+body.light .ctrl-btn { background: #f6f8fa; color: #57606a; border-color: #d0d7de; }
+body.light .ctrl-btn:hover { border-color: #0969da; color: #0969da; }
+body.light label.slider-label { color: #57606a; }
+body.light #min-cooc-val { color: #24292f; }
+body.light #resize-handle { background: #d0d7de; }
+body.light #resize-handle:hover, body.light #resize-handle.dragging { background: #0969da; }
+body.light #sidebar { background: #ffffff; border-left-color: #d0d7de; }
+body.light #details-panel h3 { color: #0969da; }
+body.light #details-panel .stat { color: #57606a; }
+body.light #details-panel .stat span { color: #24292f; }
+body.light #details-panel { border-bottom-color: #d0d7de; }
+body.light #details-panel .doc-list li:hover { background: #f6f8fa; }
+body.light #details-panel .doc-list li.api { color: #cf222e; }
+body.light #details-panel .doc-list li.article { color: #953800; }
+body.light .expand-btn { background: #f6f8fa; color: #57606a; border-color: #d0d7de; }
+body.light .expand-btn:hover { border-color: #0969da; color: #0969da; }
+body.light #placeholder { color: #8c959f; }
+body.light #filters-panel h4 { color: #57606a; }
+body.light .filter-label { color: #24292f; }
+body.light .filter-count { color: #8c959f; }
+body.light #legend { border-top-color: #d0d7de; color: #8c959f; }
+body.light #doc-search-results { background: #ffffff; border-color: #d0d7de; box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+body.light .doc-result { border-bottom-color: #f6f8fa; }
+body.light .doc-result:hover { background: #f6f8fa; }
+body.light .doc-result .doc-type { color: #8c959f; }
+body.light .doc-result.is-api { color: #cf222e; }
+body.light .doc-result.is-article { color: #953800; }
+body.light .vis-tooltip { background: #ffffff !important; border-color: #d0d7de !important; color: #24292f !important; }
+body.light #isolated-panel { background: #f6f8fa; }
+body.light #isolated-panel h2 { color: #0969da; }
+body.light #iso-search { background: #ffffff; color: #24292f; border-color: #d0d7de; }
+body.light .iso-type-btn { background: #f6f8fa; color: #57606a; border-color: #d0d7de; }
+body.light .iso-type-btn.active { background: #0969da; border-color: #0969da; color: #fff; }
+body.light #iso-table th { color: #57606a; border-bottom-color: #d0d7de; }
+body.light #iso-table th:hover { color: #24292f; }
+body.light #iso-table th.sorted .sort-icon { color: #0969da; }
+body.light #iso-table td { border-bottom-color: #f6f8fa; }
+body.light #iso-table tr:hover td { background: #eaeef2; }
+body.light .iso-title { color: #24292f; }
+body.light .iso-title:hover { color: #0969da; }
+body.light .iso-badge-api { background: #ffebe9; color: #cf222e; }
+body.light .iso-badge-art { background: #fff8c5; color: #7d4e00; }
+body.light .iso-path { color: #8c959f; }
+body.light #resize-handle.collapsed { background: #d0d7de; }
+
+/* ── Isolated docs panel ── */
+#isolated-panel { display: none; position: absolute; inset: 0; background: #0d1117; overflow-y: auto; padding: 16px; }
+#isolated-panel h2 { font-size: 14px; color: #58a6ff; margin-bottom: 10px; }
+#iso-search { padding: 5px 10px; border-radius: 6px; border: 1px solid #30363d; background: #161b22; color: #e6edf3; font-size: 13px; width: 300px; margin-bottom: 10px; }
+#iso-search:focus { outline: none; border-color: #58a6ff; }
+#iso-type-btns { display: inline-flex; gap: 6px; margin-left: 10px; vertical-align: middle; }
+.iso-type-btn { padding: 3px 10px; border-radius: 6px; border: 1px solid #30363d; background: #21262d; color: #8b949e; font-size: 12px; cursor: pointer; }
+.iso-type-btn.active { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+#iso-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+#iso-table th { text-align: left; padding: 6px 8px; color: #8b949e; border-bottom: 1px solid #30363d; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; cursor: pointer; user-select: none; white-space: nowrap; }
+#iso-table th:hover { color: #e6edf3; }
+#iso-table th .sort-icon { margin-left: 4px; opacity: 0.4; }
+#iso-table th.sorted .sort-icon { opacity: 1; color: #58a6ff; }
+#iso-table td { padding: 5px 8px; border-bottom: 1px solid #21262d; vertical-align: top; }
+#iso-table tr:hover td { background: #161b22; }
+.iso-title { color: #e6edf3; cursor: pointer; }
+.iso-title:hover { color: #58a6ff; text-decoration: underline; }
+.iso-badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; margin-right: 4px; }
+.iso-badge-api { background: #4a1515; color: #e76f6f; }
+.iso-badge-art { background: #4a2800; color: #f1a14e; }
+.iso-path { font-size: 10px; color: #484f58; word-break: break-all; }
 </style>
 </head>
 <body>
@@ -356,17 +456,36 @@ label.slider-label { font-size: 12px; color: #8b949e; display: flex; align-items
   </div>
   <button class="mode-btn active" id="btn-concept" onclick="setMode('concept')">Concept Map</button>
   <button class="mode-btn" id="btn-rel" onclick="setMode('relationship')">Relationship Map</button>
+  <button class="mode-btn" id="btn-isolated" onclick="setMode('isolated')">Isolated Docs <span id="iso-badge-count" style="font-size:11px;opacity:0.7"></span></button>
   <div id="cooc-ctrl">
     <label class="slider-label">Min links: <input type="range" id="min-cooc" min="1" max="30" value="3" oninput="onMinCooc(this.value)" /> <span id="min-cooc-val">3</span></label>
   </div>
   <button class="ctrl-btn" onclick="fitGraph()">&#8862; Fit</button>
   <button class="ctrl-btn" id="phys-btn" onclick="togglePhysics()">&#9881; Physics: Off</button>
+  <button class="ctrl-btn" id="theme-btn" onclick="toggleTheme()" style="margin-left:auto">&#9788; Light</button>
 </div>
 
 <div id="main">
   <div id="graph-container">
     <div id="network"></div>
     <div id="spotlight-bar" onclick="clearSpotlight()">&#10005; Clear highlight &mdash; click to restore graph</div>
+    <div id="isolated-panel">
+      <h2>Isolated Documents &mdash; <span id="iso-count"></span></h2>
+      <input id="iso-search" type="text" placeholder="&#128269; Filter by title or path..." oninput="filterIsolated()" />
+      <span id="iso-type-btns">
+        <button class="iso-type-btn active" id="iso-btn-all" onclick="setIsoType('all')">All</button>
+        <button class="iso-type-btn" id="iso-btn-article" onclick="setIsoType('article')">Articles</button>
+        <button class="iso-type-btn" id="iso-btn-api" onclick="setIsoType('api')">API</button>
+      </span>
+      <table id="iso-table">
+        <thead><tr>
+          <th onclick="sortIsolated('title')" data-col="title">Title <span class="sort-icon">&#8597;</span></th>
+          <th onclick="sortIsolated('type')" data-col="type">Type <span class="sort-icon">&#8597;</span></th>
+          <th onclick="sortIsolated('path')" data-col="path">Path <span class="sort-icon">&#8597;</span></th>
+        </tr></thead>
+        <tbody id="iso-tbody"></tbody>
+      </table>
+    </div>
   </div>
   <div id="resize-handle" title="Drag to resize · Double-click to collapse"></div>
   <div id="sidebar">
@@ -446,6 +565,8 @@ const NET_OPTIONS = {
 document.addEventListener('DOMContentLoaded', () => {
   buildFilterUI();
   initConceptMap();
+  const count = (DATA.isolatedDocs || []).length;
+  if (count) document.getElementById('iso-badge-count').textContent = `(${count})`;
 });
 
 function initNetwork(nodes, edges) {
@@ -506,12 +627,13 @@ function expandNeighbourhood(conceptId) {
   const radius = 180 + docs.length * 8;
   const docNodes = docs.map((d, i) => {
     const angle = (2 * Math.PI * i) / docs.length;
+    const nc = _lightTheme ? LIGHT_NODE_COLOURS : NODE_COLOURS;
     return {
       id: d.id,
       label: d.title.length > 35 ? d.title.slice(0, 33) + '…' : d.title,
       title: d.title,
       size: 10,
-      color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+      color: d.isApi ? nc.api : nc.article,
       group: d.isApi ? 'api' : 'article',
       _expanded: true,
       x: centre.x + radius * Math.cos(angle),
@@ -577,12 +699,13 @@ function initRelationshipMap() {
   const nodes = [...docIds].map(id => {
     const d = DATA.docDetails[id] || {};
     const cnt = relCount[id] || 1;
+    const nc = _lightTheme ? LIGHT_NODE_COLOURS : NODE_COLOURS;
     return {
       id,
       label: (d.title || id.split('/').pop()).slice(0, 30),
       title: d.title || id,
       size: Math.max(6, Math.min(40, cnt * 3)),
-      color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
+      color: d.isApi ? nc.api : nc.article,
       group: d.isApi ? 'api' : 'article',
       _data: d,
     };
@@ -602,15 +725,111 @@ function initRelationshipMap() {
   resetDetails();
 }
 
+// ── Mode: Isolated Docs ───────────────────────────────────────────────────
+let _isoTypeFilter = 'all';
+let _isoSortCol = 'title';
+let _isoSortAsc = true;
+
+function initIsolatedMap() {
+  const count = DATA.isolatedDocs.length;
+  document.getElementById('iso-badge-count').textContent = count ? `(${count})` : '';
+  document.getElementById('iso-search').value = '';
+  _isoTypeFilter = 'all';
+  _isoSortCol = 'title';
+  _isoSortAsc = true;
+  ['all','article','api'].forEach(t => {
+    document.getElementById(`iso-btn-${t}`).classList.toggle('active', t === _isoTypeFilter);
+  });
+  // update sort icons
+  document.querySelectorAll('#iso-table th').forEach(th => th.classList.remove('sorted'));
+  const th = document.querySelector(`#iso-table th[data-col="${_isoSortCol}"]`);
+  if (th) th.classList.add('sorted');
+  renderIsolatedTable();
+}
+
+function setIsoType(type) {
+  _isoTypeFilter = type;
+  ['all','article','api'].forEach(t => {
+    document.getElementById(`iso-btn-${t}`).classList.toggle('active', t === type);
+  });
+  renderIsolatedTable();
+}
+
+function filterIsolated() { renderIsolatedTable(); }
+
+function sortIsolated(col) {
+  if (_isoSortCol === col) _isoSortAsc = !_isoSortAsc;
+  else { _isoSortCol = col; _isoSortAsc = true; }
+  document.querySelectorAll('#iso-table th').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.col === col);
+    if (th.dataset.col === col) {
+      th.querySelector('.sort-icon').textContent = _isoSortAsc ? '\u25b2' : '\u25bc';
+    } else {
+      th.querySelector('.sort-icon').textContent = '\u21c5';
+    }
+  });
+  renderIsolatedTable();
+}
+
+function renderIsolatedTable() {
+  const q = (document.getElementById('iso-search').value || '').trim().toLowerCase();
+  const allRows = Array.isArray(DATA.isolatedDocs) ? DATA.isolatedDocs : [];
+  let rows = allRows.filter(d => {
+    const title = String(d.title || '');
+    const path = String(d.path || '');
+    if (_isoTypeFilter === 'article' && d.isApi) return false;
+    if (_isoTypeFilter === 'api' && !d.isApi) return false;
+    if (q && !title.toLowerCase().includes(q) && !path.toLowerCase().includes(q)) return false;
+    return true;
+  });
+
+  rows.sort((a, b) => {
+    let va, vb;
+    if (_isoSortCol === 'type') { va = a.isApi ? 1 : 0; vb = b.isApi ? 1 : 0; }
+    else if (_isoSortCol === 'path') { va = String(a.path || '').toLowerCase(); vb = String(b.path || '').toLowerCase(); }
+    else { va = String(a.title || '').toLowerCase(); vb = String(b.title || '').toLowerCase(); }
+    if (va < vb) return _isoSortAsc ? -1 : 1;
+    if (va > vb) return _isoSortAsc ? 1 : -1;
+    return 0;
+  });
+
+  document.getElementById('iso-count').textContent =
+    `${rows.length} of ${allRows.length} docs`;
+
+  const tbody = document.getElementById('iso-tbody');
+  tbody.innerHTML = rows.map(d => {
+    const badge = d.isApi
+      ? '<span class="iso-badge iso-badge-api">API</span>'
+      : '<span class="iso-badge iso-badge-art">Article</span>';
+    const shortPath = String(d.path || '').replace('data/raw_md/', '');
+    const safeId = String(d.id || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    const safeTitle = String(d.title || d.id || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return `<tr>
+      <td><span class="iso-title" onclick="onIsoRowClick('${safeId}')">${safeTitle || String(d.id || '').split('/').pop()}</span></td>
+      <td>${badge}</td>
+      <td><span class="iso-path">${shortPath}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function onIsoRowClick(docId) {
+  showDocDetails(docId);
+}
+
 // ── Mode switching ────────────────────────────────────────────────────────
 function setMode(mode) {
   currentMode = mode;
   document.getElementById('btn-concept').classList.toggle('active', mode === 'concept');
   document.getElementById('btn-rel').classList.toggle('active', mode === 'relationship');
+  document.getElementById('btn-isolated').classList.toggle('active', mode === 'isolated');
   document.getElementById('cooc-ctrl').style.display = mode === 'concept' ? '' : 'none';
+  document.getElementById('network').style.display = mode === 'isolated' ? 'none' : '';
+  document.getElementById('isolated-panel').style.display = mode === 'isolated' ? 'block' : 'none';
+  document.getElementById('spotlight-bar').style.display = 'none';
   selectedNodeId = null;
   if (mode === 'concept') initConceptMap();
-  else initRelationshipMap();
+  else if (mode === 'relationship') initRelationshipMap();
+  else initIsolatedMap();
   rebuildFilterUI();
 }
 
@@ -745,7 +964,7 @@ function onDocSearch(q) {
   if (!matches.length) { box.innerHTML = '<div class="doc-result" style="color:#484f58">No results</div>'; box.classList.add('open'); return; }
 
   box.innerHTML = matches.map(([id, d]) =>
-    `<div class="doc-result ${d.isApi ? 'is-api' : 'is-article'}" onmousedown="selectDocResult('${CSS.escape(id)}')">
+    `<div class="doc-result ${d.isApi ? 'is-api' : 'is-article'}" onmousedown="selectDocResult('${String(id).replace(/\\/g, '\\\\').replace(/'/g, "\\'")}')">
       ${d.isApi ? '⚙' : '📄'} ${d.title}<span class="doc-type">${d.isApi ? 'API' : 'Article'}</span>
     </div>`
   ).join('');
@@ -816,12 +1035,13 @@ function clearSpotlight(showBar) {
 
   // Restore the spotlit node's original appearance
   const d = DATA.docDetails[prevId] || {};
+  const nc = _lightTheme ? LIGHT_NODE_COLOURS : NODE_COLOURS;
   nodesDS.update([{
     id: prevId,
     size: undefined,
     borderWidth: 2,
-    color: d.isApi ? NODE_COLOURS.api : NODE_COLOURS.article,
-    font: { size: 13, color: '#c9d1d9', bold: false },
+    color: d.isApi ? nc.api : nc.article,
+    font: { size: 13, color: _lightTheme ? '#24292f' : '#c9d1d9', bold: false },
     shadow: false,
     opacity: 1,
   }]);
@@ -846,7 +1066,14 @@ function buildFilterUI() {
 
 function rebuildFilterUI() {
   const container = document.getElementById('filter-list');
+  const panel = document.getElementById('filters-panel');
   container.innerHTML = '';
+
+  if (currentMode === 'isolated') {
+    panel.style.display = 'none';
+    return;
+  }
+  panel.style.display = '';
 
   const types = currentMode === 'concept'
     ? [{ type: 'cooccurrence', label: 'Co-occurrence', colour: '#4e9af1', count: DATA.coocEdges.filter(e => e.weight >= minCooc).length }]
@@ -914,6 +1141,55 @@ function togglePhysics() {
   physicsEnabled = !physicsEnabled;
   network.setOptions({ physics: { enabled: physicsEnabled } });
   document.getElementById('phys-btn').textContent = `⚙ Physics: ${physicsEnabled ? 'On' : 'Off'}`;
+}
+
+// ── Theme ─────────────────────────────────────────────────────────────────
+let _lightTheme = false;
+const LIGHT_NODE_COLOURS = {
+  concept: { background: '#dbeafe', border: '#2563eb', highlight: { background: '#bfdbfe', border: '#1d4ed8' } },
+  article: { background: '#fff7ed', border: '#ea580c', highlight: { background: '#fed7aa', border: '#c2410c' } },
+  api:     { background: '#fef2f2', border: '#dc2626', highlight: { background: '#fecaca', border: '#b91c1c' } },
+};
+const LIGHT_DOMAIN_COLOURS = {
+  ui:           { background: '#e0f2fe', border: '#0284c7', hbg: '#bae6fd', hb: '#0369a1' },
+  data:         { background: '#eff6ff', border: '#2563eb', hbg: '#dbeafe', hb: '#1d4ed8' },
+  security:     { background: '#fdf4ff', border: '#c026d3', hbg: '#f5d0fe', hb: '#a21caf' },
+  architecture: { background: '#f0fdf4', border: '#16a34a', hbg: '#dcfce7', hb: '#15803d' },
+  modules:      { background: '#fffbeb', border: '#d97706', hbg: '#fde68a', hb: '#b45309' },
+  ops:          { background: '#faf5ff', border: '#9333ea', hbg: '#e9d5ff', hb: '#7e22ce' },
+  quality:      { background: '#f0fdfa', border: '#0d9488', hbg: '#ccfbf1', hb: '#0f766e' },
+  tooling:      { background: '#fefce8', border: '#ca8a04', hbg: '#fef08a', hb: '#a16207' },
+  migration:    { background: '#fff1f2', border: '#e11d48', hbg: '#fecdd3', hb: '#be123c' },
+  localization: { background: '#f8fafc', border: '#475569', hbg: '#e2e8f0', hb: '#334155' },
+};
+function lightDomainColour(domain) {
+  const d = LIGHT_DOMAIN_COLOURS[domain];
+  if (!d) return LIGHT_NODE_COLOURS.concept;
+  return { background: d.background, border: d.border, highlight: { background: d.hbg, border: d.hb } };
+}
+function toggleTheme() {
+  _lightTheme = !_lightTheme;
+  document.body.classList.toggle('light', _lightTheme);
+  document.getElementById('theme-btn').textContent = _lightTheme ? '\u263d Dark' : '\u2600 Light';
+  // Recolour network nodes to match theme
+  if (network && nodesDS) {
+    const updates = nodesDS.get().map(n => {
+      if (n.group === 'concept') {
+        const domain = n._data && n._data.domain;
+        return { id: n.id, color: _lightTheme ? lightDomainColour(domain) : domainColour(domain) };
+      } else if (n.group === 'article') {
+        return { id: n.id, color: _lightTheme ? LIGHT_NODE_COLOURS.article : NODE_COLOURS.article };
+      } else if (n.group === 'api') {
+        return { id: n.id, color: _lightTheme ? LIGHT_NODE_COLOURS.api : NODE_COLOURS.api };
+      }
+      return null;
+    }).filter(Boolean);
+    nodesDS.update(updates);
+    // Also update edge/canvas background via vis options
+    network.setOptions({
+      nodes: { font: { color: _lightTheme ? '#24292f' : '#c9d1d9' } },
+    });
+  }
 }
 
 function fitGraph() { network.fit({ animation: true }); }

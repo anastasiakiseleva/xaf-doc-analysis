@@ -1,0 +1,587 @@
+# support_concept_map.yml
+# Maps XAF support ticket features -> taxonomy concept IDs (from config/xaf-taxonomy.json)
+# gap_type values: covered | partial | missing_concept | out_of_scope | meta
+#
+# covered       - feature is well-documented under the mapped concepts
+# partial       - documentation exists but is incomplete or split across platforms
+# missing_concept - ticket volume exists but no taxonomy concept covers it
+# out_of_scope  - deprecated, infrastructure-only, or third-party topic
+# meta          - diagnostic/troubleshooting bucket, not a documentation gap per se
+
+mappings:
+
+  # ── Security ─────────────────────────────────────────────────────────────
+  - support_component: Security Module
+    features:
+      - name: Built-in Permissions Setup/Troubleshooting
+        concept_ids: [Security System, Permission Policies]
+        gap_type: covered
+      - name: Custom Authentication/Logon Parameters Form
+        concept_ids: [Authentication]
+        gap_type: covered
+      - name: OAuth Identity Providers
+        concept_ids: [Authentication]
+        gap_type: covered
+      - name: Security in Non-XAF Apps
+        concept_ids: [Security System]
+        gap_type: partial
+      - name: Custom User & Role Classes
+        concept_ids: [Authentication, Security System]
+        gap_type: covered
+      - name: Filter by Security User
+        concept_ids: [Security System, Criteria]
+        gap_type: covered
+      - name: Custom Permissions Implementation
+        concept_ids: [Permission Policies, Security System]
+        gap_type: covered
+      - name: Custom implementations of default XAF BCL entities
+        concept_ids: [Security System]
+        gap_type: partial
+      - name: Action Permissions
+        concept_ids: [Permission Policies, Actions]
+        gap_type: covered
+      - name: Select Tenants on Login
+        concept_ids: [Tenant, Multi-Tenancy]
+        gap_type: covered
+      - name: Custom User Management
+        concept_ids: [Custom User Management, Security System]
+        gap_type: covered
+      - name: Middle-Tier Application Server
+        concept_ids: [Middle Tier]
+        gap_type: covered
+
+  # ── Audit Trail ───────────────────────────────────────────────────────────
+  - support_component: Audit Trail Module
+    features:
+      - name: Audit History in the UI
+        concept_ids: [Audit Trail]
+        gap_type: covered
+      - name: Audit in Non-XAF Apps
+        concept_ids: [Audit Trail]
+        gap_type: partial
+      - name: Performance, Purge History, Lightweight mode
+        concept_ids: [Audit Trail]
+        gap_type: covered
+
+  # ── UI Editors & Property Editors ────────────────────────────────────────
+  - support_component: UI Editors & Property Editors
+    features:
+      - name: Custom View Items & Editors
+        concept_ids: [Property Editors, Property Editor Customization, View Items]
+        gap_type: covered
+      - name: Built-in View Items & Editors
+        concept_ids: [Property Editors, Standard Property Editors, View Items]
+        gap_type: covered
+      - name: Grid List Editors
+        concept_ids: [List Editors]
+        gap_type: covered
+      - name: Lookups
+        concept_ids: [Lookup Property Editors, Lookup View]
+        gap_type: covered
+      - name: Rich Text Editor
+        concept_ids: [Office Module]
+        gap_type: covered
+      - name: Enum Editors
+        concept_ids: [Property Editor Types]
+        gap_type: covered
+      - name: Image Editors
+        concept_ids: [Property Editor Types]
+        gap_type: covered
+      - name: Spreadsheet
+        concept_ids: [Spreadsheet Control]
+        gap_type: covered
+      - name: Filter Editors
+        concept_ids: [Filtering UI, Criteria]
+        gap_type: covered
+      - name: Criteria Editors
+        concept_ids: [Criteria, Filtering UI]
+        gap_type: covered
+      - name: Inplace Actions in Grid Cells
+        concept_ids: [Actions, List Editors]
+        gap_type: covered
+      - name: Inline Edit (Batch, etc.)
+        concept_ids: [Inline Editing]
+        gap_type: covered
+      - name: Accordion Control
+        concept_ids: [Accordion Control]
+        gap_type: covered
+      - name: Property Editor Value Formatting
+        concept_ids: [Property Editor Features]
+        gap_type: covered
+      - name: Data Binding
+        concept_ids: [Property Editor Features]
+        gap_type: covered
+      - name: "Obsolete: Lookup/Collection Property Filtering"
+        concept_ids: [Lookup Property Editors, Filtering UI]
+        gap_type: covered
+      - name: Control Customization (Widgets, Extensions)
+        concept_ids: [Property Editor Customization]
+        gap_type: covered
+      - name: Controls customization
+        concept_ids: [Property Editor Customization]
+        gap_type: covered
+
+  # ── Views & Layout ────────────────────────────────────────────────────────
+  - support_component: Views & Layout
+    features:
+      - name: Creating & Showing Views
+        concept_ids: [Views, View Types]
+        gap_type: covered
+      - name: Layout Generation & Customization API
+        concept_ids: [Layout, Layout Generation, Layout Runtime Customization]
+        gap_type: covered
+      - name: Layout End-User Customization
+        concept_ids: [Layout Runtime Customization]
+        gap_type: covered
+      - name: ListViewAndDetailView (master detail)
+        concept_ids: [Master-Detail Views]
+        gap_type: covered
+      - name: DashboardViews
+        concept_ids: [Dashboards, Dashboard View]
+        gap_type: covered
+      - name: Popups
+        concept_ids: [Popup Windows, Popup Window Show Action]
+        gap_type: covered
+      - name: Tabbed MDI
+        concept_ids: [Tabbed MDI Interface]
+        gap_type: covered
+      - name: DataAccessMode = Server/IF (regular) & Non-XAF
+        concept_ids: [List View Data Access Modes]
+        gap_type: covered
+      - name: DataAccessMode = ServerView/IFView & Non-XAF
+        concept_ids: [List View Data Access Modes]
+        gap_type: covered
+      - name: DataAccessMode = DataView & Non-XAF XPView
+        concept_ids: [List View Data Access Modes]
+        gap_type: covered
+
+  # ── Controllers & Actions ─────────────────────────────────────────────────
+  - support_component: Controllers & Actions
+    features:
+      - name: Custom logic within View or Controller
+        concept_ids: [Controllers and Actions, Business Logic]
+        gap_type: covered
+      - name: Built-in Action Types
+        concept_ids: [Action Types, Actions]
+        gap_type: covered
+      - name: Built-in Controllers (System)
+        concept_ids: [Built-in Controllers, CRUD Controllers]
+        gap_type: covered
+      - name: Action and Container Controls
+        concept_ids: [Action Containers, Actions]
+        gap_type: covered
+      - name: Active/Enabled State
+        concept_ids: [Action State Management]
+        gap_type: covered
+      - name: Custom Controllers Design
+        concept_ids: [Controllers and Actions]
+        gap_type: covered
+      - name: ShowNavigationItemController customizations
+        concept_ids: [Navigation, Built-in Controllers]
+        gap_type: covered
+      - name: Context Menu
+        concept_ids: [Context Menus]
+        gap_type: covered
+
+  # ── Application Model ─────────────────────────────────────────────────────
+  - support_component: Application Model
+    features:
+      - name: Model Editor for .NET / .NET Core
+        concept_ids: [Model Editor]
+        gap_type: covered
+      - name: Model Editor for .NET Framework
+        concept_ids: [Model Editor, Legacy .NET Framework]
+        gap_type: covered
+      - name: Read, Customize or Extend the Application Model
+        concept_ids: [Application Model, Model Extension, Model Nodes]
+        gap_type: covered
+      - name: Model Difference Storages
+        concept_ids: [Model Differences]
+        gap_type: covered
+      - name: Default merging
+        concept_ids: [Model Differences]
+        gap_type: covered
+      - name: Model Editor configuration
+        concept_ids: [Model Editor]
+        gap_type: covered
+      - name: Model Editor
+        concept_ids: [Model Editor]
+        gap_type: covered
+      - name: Default & Custom Attributes To Customize Model
+        concept_ids: [Property Metadata, Model Extension]
+        gap_type: covered
+      - name: Cache (ModelAssembly, EnableModelCache, etc.)
+        concept_ids: [Model Cache]
+        gap_type: covered
+
+  # ── Data Model & ORM ──────────────────────────────────────────────────────
+  - support_component: Data Model & ORM
+    features:
+      - name: EF Core Specifics
+        concept_ids: [Entity Framework Core]
+        gap_type: covered
+      - name: Aliased, Calculated and Custom Fields/Metadata
+        concept_ids: [Calculated Property, Property Metadata]
+        gap_type: covered
+      - name: Relationships/Associations
+        concept_ids: [Object Relationships, Reference Property]
+        gap_type: covered
+      - name: ORM Data Model Wizard/Designer
+        concept_ids: [Project Wizards]
+        gap_type: partial
+      - name: Custom logic within a data Model
+        concept_ids: [Business Logic, Business Object]
+        gap_type: covered
+      - name: Table & Column Mapping Customizations
+        concept_ids: [Entity Framework Core, XPO]
+        gap_type: partial
+      - name: LINQ to XPO
+        concept_ids: [XPO]
+        gap_type: covered
+      - name: Property Changed Event
+        concept_ids: [Business Object]
+        gap_type: covered
+      - name: Legacy DB Mapping (SQL View, composite key)
+        concept_ids: [XPO]
+        gap_type: partial
+      - name: XPO IList Associations (+ManyToManyAliasAttribute)
+        concept_ids: [XPO, Object Relationships]
+        gap_type: covered
+      - name: ThreadSafeDataLayer
+        concept_ids: [XPO]
+        gap_type: partial
+      - name: ORM Database Schema Migrations
+        concept_ids: [Database Update, Entity Framework Core]
+        gap_type: covered
+      - name: Non-XAF Data Sources
+        concept_ids: [Non-persistent Object, Object Space Provider]
+        gap_type: covered
+      - name: Bind to Custom Data Sources
+        concept_ids: [Non-persistent Object, Object Space Provider]
+        gap_type: covered
+      - name: Obtaining data from external services, other databases
+        concept_ids: [Non-persistent Object, Object Space Provider]
+        gap_type: covered
+      - name: ITreeNode implementation
+        concept_ids: [Tree Node Interface]
+        gap_type: covered
+
+  # ── Non-Persistent Objects ─────────────────────────────────────────────────
+  - support_component: Non-Persistent Objects
+    features:
+      - name: Non-Persistent Objects
+        concept_ids: [Non-persistent Object]
+        gap_type: covered
+
+  # ── Object Space & Database ───────────────────────────────────────────────
+  - support_component: Object Space & Database
+    features:
+      - name: Transactions/Unit of Works
+        concept_ids: [Object Space]
+        gap_type: covered
+      - name: Custom Provider Implementation
+        concept_ids: [Object Space Provider]
+        gap_type: covered
+      - name: Custom Operations & Other Storage Classes
+        concept_ids: [Object Space Provider]
+        gap_type: covered
+      - name: "Error: Object belongs to a different session/space"
+        concept_ids: [Object Space]
+        gap_type: covered
+      - name: Database (creation, share storage, etc.)
+        concept_ids: [Database Connection]
+        gap_type: covered
+      - name: Connect several DB at once
+        concept_ids: [Multiple Databases]
+        gap_type: covered
+      - name: Multiple databases
+        concept_ids: [Multiple Databases]
+        gap_type: covered
+      - name: Connection Troubleshooting
+        concept_ids: [Database Connection]
+        gap_type: covered
+      - name: Direct SQL
+        concept_ids: [Direct SQL]
+        gap_type: covered
+      - name: ModuleUpdater & DBUpdater
+        concept_ids: [Database Update]
+        gap_type: covered
+      - name: XAF data and logic in Non-XAF apps
+        concept_ids: [XAF Application]
+        gap_type: partial
+
+  # ── Validation ────────────────────────────────────────────────────────────
+  - support_component: Validation Module
+    features:
+      - name: Built-in Rules Setup/Troubleshooting
+        concept_ids: [Validation]
+        gap_type: covered
+      - name: Custom Rule Type Implementation
+        concept_ids: [Custom Validation Rules]
+        gap_type: covered
+      - name: RuleSet customizations
+        concept_ids: [Validation]
+        gap_type: covered
+      - name: Validate persistent objects in Non-XAF Apps
+        concept_ids: [Validation]
+        gap_type: partial
+      - name: Custom error highlighting    # correct spelling
+        concept_ids: [Error Styling]
+        gap_type: covered
+      - name: Custom error highligthing    # misspelling in ticket JSON - mapped here so it counts
+        concept_ids: [Error Styling]
+        gap_type: covered
+
+  # ── Reporting & Printing ──────────────────────────────────────────────────
+  - support_component: Reports & Printing
+    features:
+      - name: Show Preview, Print, Export in code
+        concept_ids: [Reports]
+        gap_type: covered
+      - name: Predefined reports
+        concept_ids: [Reports, Reports V2]
+        gap_type: covered
+      - name: Report control customizations
+        concept_ids: [Reports, Report Parameters]
+        gap_type: covered
+      - name: Inplace reports
+        concept_ids: [Reports]
+        gap_type: covered
+      - name: XtraReport parameters
+        concept_ids: [Report Parameters]
+        gap_type: covered
+      - name: XAF Report Object parameters
+        concept_ids: [Report Parameters]
+        gap_type: covered
+      - name: Reports in Non-XAF Apps
+        concept_ids: [Reports]
+        gap_type: partial
+      - name: Grid Print, Export
+        concept_ids: [Reports]
+        gap_type: partial
+
+  # ── Filtering ─────────────────────────────────────────────────────────────
+  - support_component: Filtering & Criteria
+    features:
+      - name: Built-in Criteria Operators
+        concept_ids: [Built-in Criteria Operators, Criteria]
+        gap_type: covered
+      - name: Custom Criteria Functions
+        concept_ids: [Custom Criteria Functions]
+        gap_type: covered
+      - name: Filtering
+        concept_ids: [Filtering UI, Criteria]
+        gap_type: covered
+      - name: Custom Filtering
+        concept_ids: [Filtering UI, Custom Criteria Functions]
+        gap_type: covered
+
+  # ── Localization ──────────────────────────────────────────────────────────
+  - support_component: Localization
+    features:
+      - name: Custom Localization (programmatically, in code)
+        concept_ids: [Programmatic Localization]
+        gap_type: covered
+      - name: Localization Service
+        concept_ids: [Localization Basics]
+        gap_type: covered
+      - name: Template Localization
+        concept_ids: [Localization Basics, Application Templates]
+        gap_type: covered
+      - name: Obtain captions in Non-XAF apps
+        concept_ids: [Localization Basics]
+        gap_type: partial
+
+  # ── Navigation & Templates ────────────────────────────────────────────────
+  - support_component: Navigation & Templates
+    features:
+      - name: Navigation control customizations
+        concept_ids: [Navigation]
+        gap_type: covered
+      - name: Form Templates
+        concept_ids: [Application Templates]
+        gap_type: covered
+      - name: Themes & Customization (Compact, Bootstrap)
+        concept_ids: [Theming]
+        gap_type: covered
+      - name: Light Style
+        concept_ids: [Theming]
+        gap_type: covered
+      - name: Themes
+        concept_ids: [Theming]
+        gap_type: covered
+      - name: SVG
+        concept_ids: [SVG Graphics]
+        gap_type: covered
+      - name: Custom appearance on events
+        concept_ids: [Conditional Appearance]
+        gap_type: covered
+      - name: Splash, Loading Panel
+        concept_ids: [Loading Indicators]
+        gap_type: covered
+      - name: Text Notifications (ShowMessage, Toast)
+        concept_ids: [Notifications]
+        gap_type: covered
+
+  # ── Scheduling & Notifications ────────────────────────────────────────────
+  - support_component: Scheduler & Notifications Module
+    features:
+      - name: Scheduler control customizations
+        concept_ids: [Scheduler]
+        gap_type: covered
+      - name: IEvent and IResource implementation
+        concept_ids: [Scheduler]
+        gap_type: covered
+      - name: Recurring Events
+        concept_ids: [Recurring Events]
+        gap_type: covered
+      - name: ISupportNotifications implementation
+        concept_ids: [Notifications]
+        gap_type: covered
+
+  # ── File Attachments ──────────────────────────────────────────────────────
+  - support_component: File Attachments Module
+    features:
+      - name: File System or custom storages
+        concept_ids: [File Attachments]
+        gap_type: partial
+      - name: FileData in Non-XAF apps (CompressionUtils)
+        concept_ids: [File Attachments]
+        gap_type: partial
+
+  # ── Deployment & Infrastructure ───────────────────────────────────────────
+  - support_component: Deployment & Infrastructure
+    features:
+      - name: Linux (nginx, Apache, Electron, Docker)
+        concept_ids: [Deployment]
+        gap_type: covered
+      - name: Cloud Deployment (Azure, AWS, etc.)
+        concept_ids: [Deployment]
+        gap_type: covered
+      - name: Horizontal/Vertical Scaling to 100, 1000+ users
+        concept_ids: [Scaling Architecture]
+        gap_type: covered
+      - name: Missing assemblies, resources
+        concept_ids: [Assembly References]
+        gap_type: covered
+
+  # ── Performance & Diagnostics ─────────────────────────────────────────────
+  - support_component: Performance & Diagnostics
+    features:
+      - name: Speed
+        concept_ids: [Performance Optimization]
+        gap_type: partial
+      - name: Memory Consumption
+        concept_ids: [Memory Management]
+        gap_type: covered
+      - name: Tracer
+        concept_ids: [Logging, Diagnostic Tools]
+        gap_type: covered
+      - name: Async/Await Method Support
+        concept_ids: [Async Operations]
+        gap_type: covered
+      - name: "CAUSE: Complex project or DB, long debugging, etc."
+        concept_ids: []
+        gap_type: meta
+
+  # ── Multi-Tenancy ─────────────────────────────────────────────────────────
+  - support_component: Multi-Tenancy Module
+    features:
+      - name: Limit Tenant Features (SKU, modules, user count)
+        concept_ids: [Tenant, Multi-Tenancy]
+        gap_type: covered
+      - name: Custom Tenant Resolver (URL, ID, etc)
+        concept_ids: [Tenant, Multi-Tenancy]
+        gap_type: covered
+      - name: Custom Tenant and other classes
+        concept_ids: [Tenant, Multi-Tenancy]
+        gap_type: covered
+
+  # ── Web API ───────────────────────────────────────────────────────────────
+  - support_component: Web API Service
+    features:
+      - name: XPO OData, Web API Services, JSON Serialization
+        concept_ids: [Web API Service]
+        gap_type: covered
+
+  # ── Architecture & Setup ──────────────────────────────────────────────────
+  - support_component: Architecture & Setup
+    features:
+      - name: Dependency Injection (DI) in Controllers, BO, etc
+        concept_ids: [Dependency Injection]
+        gap_type: covered
+      - name: FillServices
+        concept_ids: [ApplicationBuilder]
+        gap_type: covered
+      - name: Application Builder
+        concept_ids: [ApplicationBuilder]
+        gap_type: covered
+      - name: Dynamically loaded modules & types
+        concept_ids: [Modules]
+        gap_type: covered
+      - name: Module Designer
+        concept_ids: [Modules]
+        gap_type: partial
+
+  # ── Tooling & IDE ─────────────────────────────────────────────────────────
+      - name: Migrate Existing Projects
+        concept_ids: [Migration]
+        gap_type: covered
+
+  # ── Tooling & IDE ─────────────────────────────────────────────────────────
+  - support_component: Tooling & IDE
+    features:
+      - name: Nuget
+        concept_ids: [Package Management]
+        gap_type: covered
+      - name: Solution Wizard
+        concept_ids: [Project Wizards]
+        gap_type: covered
+      - name: Template Kit
+        concept_ids: [Template Kit]
+        gap_type: covered
+      - name: Application Designer
+        concept_ids: [Project Wizards]
+        gap_type: partial
+      - name: Sequential/Auto-increment numbers (T567184)
+        concept_ids: [Auto-Increment Fields]
+        gap_type: covered
+
+  # ── Testing ───────────────────────────────────────────────────────────────
+  - support_component: Testing
+    features:
+      - name: EasyTest/Script Recorder Module
+        concept_ids: [Testing]
+        gap_type: covered
+      - name: Unit Testing
+        concept_ids: [Testing]
+        gap_type: covered
+
+  # ── Deprecated / Out of Scope ─────────────────────────────────────────────
+  - support_component: Deprecated & Out of Scope
+    coverage_status: out_of_scope
+    features:
+      - name: (Deprecated) Domain Components - DC
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: .NET Core 3.0
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: "Obsolete: Batch Edit ASPxGridListEditor"
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: "Error: Thread & Reentrancy (T419520 & K18167)"
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: Issues with non-unique key values (T639653)
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: Map control customizations
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: Demos
+        concept_ids: []
+        gap_type: out_of_scope
+      - name: (Deprecated) Entity Framework 6 - EF6
+        concept_ids: []
+        gap_type: out_of_scope

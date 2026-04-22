@@ -21,6 +21,7 @@ from pathlib import Path
 import pandas as pd
 import sys
 from collections import Counter
+from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from utils.taxonomy_loader import load_concepts
@@ -29,6 +30,48 @@ from utils.taxonomy_loader import load_concepts
 def load_concept_definitions():
     """Load concept metadata for matching"""
     return load_concepts().get('concepts', [])
+
+
+def _build_canonical_concept_index(concept_defs):
+    """Build fast lookup for taxonomy concept names (case-insensitive)."""
+    canonical_names = {str(c.get('name')) for c in concept_defs if c.get('name')}
+    lowercase_lookup = {name.lower(): name for name in canonical_names}
+    return canonical_names, lowercase_lookup
+
+
+def _normalize_concept_name(raw_name: str, canonical_names: set[str], lowercase_lookup: dict[str, str]) -> Optional[str]:
+    """Normalize concept labels to taxonomy canonical names or return None if unsupported."""
+    if raw_name is None or (isinstance(raw_name, float) and pd.isna(raw_name)):
+        return None
+
+    name = str(raw_name).strip()
+    if not name:
+        return None
+
+    if name in canonical_names:
+        return name
+
+    # Known historical aliases/legacy labels -> taxonomy canonical names.
+    alias_map = {
+        'Business Objects': 'Business Object',
+        'Controllers': 'Controllers and Actions',
+        'System Module': 'Modules',
+        'Templates': 'Template Kit',
+        'Office Integration': 'Office Module',
+        'Pivot Grid': 'PivotGrid',
+        'Pivot Charts': 'Charts',
+    }
+    if name in alias_map:
+        mapped = alias_map[name]
+        return mapped if mapped in canonical_names else None
+
+    # Terms that are platform/runtime facets, not concepts in taxonomy.
+    non_concept_labels = {'WinForms', 'Blazor UI', 'Utilities'}
+    if name in non_concept_labels:
+        return None
+
+    # Case-insensitive exact fallback.
+    return lowercase_lookup.get(name.lower())
 
 
 def build_namespace_concept_map():
@@ -330,6 +373,10 @@ def main():
     print(f"Loading {args.api_entities}...")
     api_entities_df = pd.read_parquet(args.api_entities)
     print(f"  {len(api_entities_df)} API entities")
+
+    concept_defs = load_concept_definitions()
+    canonical_concepts, lowercase_lookup = _build_canonical_concept_index(concept_defs)
+    print(f"  Loaded {len(canonical_concepts)} canonical concepts from taxonomy")
     
     # Extract co-occurrence relationships
     cooccurrence_rels = extract_api_concept_mappings(doc_concepts_df, api_entities_df)
@@ -346,6 +393,28 @@ def main():
         namespace_rels, 
         related_concepts_rels
     ], ignore_index=True)
+
+    # Enforce taxonomy as source of truth for concept labels.
+    all_relationships['concept_name_raw'] = all_relationships['concept_name']
+    all_relationships['concept_name'] = all_relationships['concept_name'].apply(
+        lambda x: _normalize_concept_name(x, canonical_concepts, lowercase_lookup)
+    )
+    dropped = all_relationships['concept_name'].isna().sum()
+    if dropped:
+        print(f"\nDropped {dropped} API→concept relationships with non-taxonomy concept names")
+        dropped_by_label = (
+            all_relationships[all_relationships['concept_name'].isna()]
+            .groupby('concept_name_raw')
+            .size()
+            .sort_values(ascending=False)
+            .head(10)
+        )
+        print("Top dropped labels:")
+        print(dropped_by_label.to_string())
+
+    all_relationships = all_relationships[all_relationships['concept_name'].notna()].copy()
+    all_relationships = all_relationships.drop(columns=['concept_name_raw'])
+
     api_implements_df = calculate_confidence_scores(all_relationships)
     
     # Save results

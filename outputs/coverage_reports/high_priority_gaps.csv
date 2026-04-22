@@ -1,13 +1,24 @@
 concept_name,concept_type,ticket_count,doc_score,doc_page_count,doc_urls,coverage_class
-CRUD Controllers,ui,276,2.2,3,112559|404105|DevExpress.ExpressApp.XafApplication,critical_gap
-Business Object Lifecycle,data,248,2.6,3,116516|113707|403620,critical_gap
-Deployment,ops,186,1.8,3,112691|404614|403362,critical_gap
-Theming,ui,173,0.6,1,403068,critical_gap
-Legacy .NET Framework,migration,134,2.2,3,405693|405693|405736,critical_gap
-Programmatic Localization,localization,119,0.6,1,402956,critical_gap
-Custom User Management,security,66,0.6,1,113452,critical_gap
-Filtering UI,ui,62,2.4,5,112998|403238|112919|DevExpress.ExpressApp.Win.Editors.WinColumnsListEditor.LookupColumnFilterMode|DevExpress.ExpressApp.Model.IModelListView.Filter,critical_gap
-Logging,ops,61,2.2,4,403394|112576|112575|402149,critical_gap
-Async Operations,patterns,42,0.6,1,DevExpress.ExpressApp.IObjectSpaceAsync,critical_gap
-Scaling Architecture,architecture,39,2.4,4,404436|403277|403362|402148,critical_gap
-[NO CONCEPT] Map control customizations,MISSING,17,0.0,0,,critical_gap
+Standard Property Editors,,765,0.0,0,,critical_gap
+Performance Optimization,,394,0.6,1,402149,critical_gap
+Layout Runtime Customization,,377,1.5,1,112817,critical_gap
+Layout Generation,,329,0.0,0,,critical_gap
+CRUD Controllers,,276,0.0,0,,critical_gap
+Built-in Criteria Operators,,216,1.5,1,113307,critical_gap
+Filtering UI,,194,0.0,0,,critical_gap
+Model Extension,,191,0.0,0,,critical_gap
+Inline Editing,,144,1.5,1,113249,critical_gap
+Popup Windows,,144,2.5,1,404014,critical_gap
+Legacy .NET Framework,,134,1.5,1,405693,critical_gap
+Custom Criteria Functions,,130,1.5,1,113480,critical_gap
+Multiple Databases,,95,0.0,0,,critical_gap
+Dependency Injection,,84,2.0,2,404402|404430,critical_gap
+Memory Management,,73,0.0,0,,critical_gap
+Diagnostic Tools,,61,2.5,2,112576|112575,critical_gap
+Programmatic Localization,,58,0.0,0,,critical_gap
+Async Operations,,42,1.5,1,DevExpress.ExpressApp.IObjectSpaceAsync,critical_gap
+Scaling Architecture,,39,0.0,0,,critical_gap
+Recurring Events,,30,1.5,1,113128,critical_gap
+Error Styling,,26,0.0,0,,critical_gap
+Auto-Increment Fields,,25,1.0,1,403605,critical_gap
+Custom Validation Rules,,24,2.5,2,113010|DevExpress.Persistent.Validation.IRuleSource,critical_gap

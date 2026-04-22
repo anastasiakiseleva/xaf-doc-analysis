@@ -343,9 +343,12 @@ def load_data():
         except Exception as e:
             print(f"  Warning: could not load relationship summary: {e}")
 
+    # Metadata descriptions are only relevant for articles, not API reference docs
+    if "is_api" in dm.columns:
+        dm = dm[dm["is_api"] != True].copy()
     total = len(dm)
     llm_cache = _load_llm_cache()
-    print(f"Building descriptions for {total} docs...")
+    print(f"Building descriptions for {total} article docs (API docs excluded)...")
     llm_hits = heuristic_hits = 0
 
     records = []
@@ -497,6 +500,62 @@ button.nav:hover { background: #45475a; }
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #1e1e2e; }
 ::-webkit-scrollbar-thumb { background: #45475a; border-radius: 3px; }
+
+/* ---- light theme ---- */
+body.light { background: #f6f8fa; color: #24292f; }
+body.light #topbar { background: #ffffff; border-bottom-color: #d0d7de; }
+body.light #topbar h1 { color: #8250df; }
+body.light #prog-approved { color: #1a7f37; }
+body.light #prog-flagged  { color: #cf222e; }
+body.light #prog-skip     { color: #953800; }
+body.light #prog-total    { color: #8c959f; }
+body.light #btn-export { background: #8250df; color: #fff; }
+body.light #btn-clear  { background: #f6f8fa; color: #24292f; border: 1px solid #d0d7de; }
+body.light #list-panel { border-right-color: #d0d7de; }
+body.light #filters { border-bottom-color: #d0d7de; }
+body.light #search-input { background: #ffffff; border-color: #d0d7de; color: #24292f; }
+body.light #search-input::placeholder { color: #8c959f; }
+body.light .filter-row select, body.light .filter-row button.fbtn { background: #f6f8fa; color: #24292f; border-color: #d0d7de; }
+body.light .filter-row button.fbtn.active { border-color: #8250df; color: #8250df; }
+body.light #list-count { color: #8c959f; }
+body.light .doc-item { border-bottom-color: #f6f8fa; }
+body.light .doc-item:hover { background: #eaeef2; }
+body.light .doc-item.selected { background: #ddf4ff; }
+body.light .badge.api  { background: #0969da; color: #fff; }
+body.light .badge.art  { background: #1a7f37; color: #fff; }
+body.light .item-path { color: #8c959f; }
+body.light .dot-none     { background: #d0d7de; border-color: #8c959f; }
+body.light #detail-header { border-bottom-color: #d0d7de; }
+body.light #detail-header .doc-title { color: #0969da; }
+body.light #detail-header .doc-path  { color: #8c959f; }
+body.light #detail-meta { border-bottom-color: #d0d7de; }
+body.light .pill-api  { background: #ddf4ff; color: #0969da; border-color: #0969da55; }
+body.light .pill-art  { background: #dafbe1; color: #1a7f37; border-color: #1a7f3755; }
+body.light .pill-beg  { background: #dafbe1; color: #1a7f37; border-color: #1a7f3755; }
+body.light .pill-adv  { background: #fff8c5; color: #7d4e00; border-color: #7d4e0055; }
+body.light .pill-exp  { background: #ffebe9; color: #cf222e; border-color: #cf222e55; }
+body.light .pill-conn { background: #f6f8fa; color: #57606a; border-color: #d0d7de; }
+body.light #yaml-panel { border-right-color: #d0d7de; }
+body.light #yaml-panel h3 { color: #8c959f; }
+body.light #yaml-editor { background: #ffffff; color: #24292f; }
+body.light #info-panel h3 { color: #8c959f; }
+body.light .info-section label { color: #8c959f; }
+body.light .tag { background: #eaeef2; color: #24292f; }
+body.light .info-section .concepts-text { color: #57606a; }
+body.light .info-section .plat-text { color: #0550ae; }
+body.light #verdict-bar { border-top-color: #d0d7de; background: #ffffff; }
+body.light #verdict-bar label { color: #8c959f; }
+body.light button.verdict { background: #f6f8fa; color: #24292f; border-color: #d0d7de; }
+body.light button.verdict.active-approved { background: #dafbe1; border-color: #1a7f37; color: #1a7f37; }
+body.light button.verdict.active-flagged  { background: #ffebe9; border-color: #cf222e; color: #cf222e; }
+body.light button.verdict.active-skip     { background: #fff8c5; border-color: #7d4e00; color: #7d4e00; }
+body.light #verdict-note { background: #ffffff; border-color: #d0d7de; color: #24292f; }
+body.light #verdict-note::placeholder { color: #8c959f; }
+body.light button.nav { background: #f6f8fa; border-color: #d0d7de; color: #24292f; }
+body.light button.nav:hover { background: #eaeef2; }
+body.light #empty-state { color: #8c959f; }
+body.light ::-webkit-scrollbar-track { background: #f6f8fa; }
+body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
 </style>
 </head>
 <body>
@@ -512,6 +571,7 @@ button.nav:hover { background: #45475a; }
   <div class="sep"></div>
   <button class="action" id="btn-export">Export results ↓</button>
   <button class="action" id="btn-clear">Clear all</button>
+  <button class="action" id="btn-theme" onclick="toggleTheme()" style="background:#313244;color:#cdd6f4;margin-left:4px">☀ Light</button>
 </div>
 
 <div id="main">
@@ -863,6 +923,25 @@ function exportResults() {
   a.href = URL.createObjectURL(blob);
   a.download = 'metadata_review_decisions.csv';
   a.click();
+}
+
+// ============================================================
+// THEME
+// ============================================================
+let _lightTheme = false;
+function toggleTheme() {
+  _lightTheme = !_lightTheme;
+  document.body.classList.toggle('light', _lightTheme);
+  const btn = document.getElementById('btn-theme');
+  if (_lightTheme) {
+    btn.textContent = '\u263d Dark';
+    btn.style.background = '#eaeef2';
+    btn.style.color = '#24292f';
+  } else {
+    btn.textContent = '\u2600 Light';
+    btn.style.background = '#313244';
+    btn.style.color = '#cdd6f4';
+  }
 }
 
 // ============================================================
