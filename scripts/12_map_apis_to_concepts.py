@@ -25,6 +25,7 @@ from typing import Optional
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from utils.taxonomy_loader import load_concepts
+from scripts.config_loader import patterns
 
 
 def load_concept_definitions():
@@ -76,43 +77,15 @@ def _normalize_concept_name(raw_name: str, canonical_names: set[str], lowercase_
 
 def build_namespace_concept_map():
     """
-    Map namespace patterns to concepts.
-    
-    Based on XAF architecture:
-    - DevExpress.ExpressApp.Security → Security System
-    - DevExpress.ExpressApp.Validation → Validation
-    - DevExpress.ExpressApp.ConditionalAppearance → Conditional Appearance
+    Load namespace-to-concept mappings from config/patterns.yml.
+
+    Keys are namespace segments (e.g. "Security", "Reports") that appear as
+    the second-level token in a fully-qualified API name.  Values are canonical
+    concept names as defined in the taxonomy.
+
+    Edit config/patterns.yml (namespace_concept_map) to customise for your product.
     """
-    return {
-        'Security': 'Security System',
-        'Validation': 'Validation',
-        'ConditionalAppearance': 'Conditional Appearance',
-        'Chart': 'Charts',
-        'PivotChart': 'Pivot Charts',
-        'PivotGrid': 'Pivot Grid',
-        'Reports': 'Reports',
-        'AuditTrail': 'Audit Trail',
-        'StateMachine': 'State Machine',
-        'Scheduler': 'Scheduler',
-        'FileAttachments': 'File Attachments',
-        'Notifications': 'Notifications',
-        'ReportsV2': 'Reports',
-        'Xpo': 'XPO',
-        'EFCore': 'Entity Framework Core',
-        'Objects': 'Business Objects',
-        'Editors': 'Property Editors',
-        'Actions': 'Actions',
-        'Controllers': 'Controllers',
-        'SystemModule': 'System Module',
-        'Model': 'Application Model',
-        'ViewItems': 'View Items',
-        'Templates': 'Templates',
-        'Utils': 'Utilities',
-        'Web': 'Web API Service',
-        'Win': 'WinForms',
-        'Blazor': 'Blazor UI',
-        'Office': 'Office Integration'
-    }
+    return patterns.namespace_concept_map()
 
 
 def extract_api_concept_mappings(doc_concepts_df, api_entities_df):

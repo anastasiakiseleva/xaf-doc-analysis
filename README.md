@@ -1,4 +1,4 @@
-# XAF Documentation Analysis Project
+# Documentation Analysis Pipeline
 
 ## Table of Contents
 
@@ -42,15 +42,17 @@
 
 ## Overview
 
-This project analyzes DevExpress XAF (eXpressApp Framework) documentation to:
-1. **Build a unified knowledge graph** of all documentation sections
-2. **Identify documentation gaps** (missing links, isolated content, under-connected concepts)
-3. **Measure documentation quality** with quantifiable metrics
-4. **Track improvements** over time with baseline comparison tools
-5. **Guide documentation improvements** with actionable recommendations
-6. **Generate AI-friendly metadata** for enhanced discoverability
-7. **Map APIs to concepts** for better navigation and understanding
-8. **Bridge support-ticket language** to documentation concepts for discoverability
+A product-agnostic pipeline for analyzing structured documentation sets. Originally built for DevExpress XAF; all product-specific values (taxonomy, support ticket paths, namespace mappings) are now in `config/product.yml` and `config/patterns.yml` — no Python changes needed to adapt for another product.
+
+The pipeline:
+1. **Builds a unified knowledge graph** of all documentation sections
+2. **Identifies documentation gaps** (missing links, isolated content, under-connected concepts)
+3. **Measures documentation quality** with quantifiable metrics
+4. **Tracks improvements** over time with baseline comparison tools
+5. **Guides documentation improvements** with actionable recommendations
+6. **Generates AI-friendly metadata** for enhanced discoverability
+7. **Maps APIs to concepts** for better navigation and understanding
+8. **Bridges support-ticket language** to documentation concepts for discoverability
 
 The project consists of three main pipelines:
 - **Knowledge Graph Pipeline** (Phases 1–5, 11–13): Build semantic understanding and a unified graph
@@ -101,9 +103,21 @@ pip install openai anthropic   # Phase 6: LLM classification
 pip install pyvis               # tools/visualize_graph.py
 ```
 
-### 3. Configure environment variables
+### 3. Configure product settings
 
-Create a `.env` file in the project root:
+Edit `config/product.yml` to point to your taxonomy, support tickets, and support concept map:
+
+```yaml
+product:
+  name: "MyProduct"
+  taxonomy_file: "config/my-taxonomy.json"
+  support_tickets_file: "my_tickets.json"
+  support_concept_map: "support_concept_map.yml"
+```
+
+Edit `config/patterns.yml` to set your namespace→concept mappings and external URL rules.
+
+Create a `.env` file for runtime paths:
 
 ```env
 PROJECT_ROOT=.
@@ -215,14 +229,14 @@ This is the "hallway map" of the documentation.
 
 ### What this step does
 It identifies:
-- XAF concepts (Object Space, Validation, Security System…)
-- Platforms (Blazor, WinForms, Web API)
-- API names (DevExpress.ExpressApp.ObjectSpace, etc.)
+- Product concepts (defined in your taxonomy)
+- Platforms and target environments
+- API names and namespace references
 
-It does this section by section, using the concept definitions in `config/xaf-taxonomy.json`.
+It does this section by section, using the concept definitions in the taxonomy file configured in `config/product.yml` (`product.taxonomy_file`).
 
 ### Why it matters
-AI doesn't automatically know what matters in XAF. You explicitly teach it: "This section is about Object Space and applies to Blazor."
+AI doesn't automatically know what matters for your product. You explicitly teach it: "This section is about Object Space and applies to Blazor."
 
 That prevents:
 - Mixing concepts
@@ -371,7 +385,7 @@ Creates structured API reference:
 ### What this step does
 Creates API → Concept implementation mappings using three strategies:
 1. **Co-occurrence** - APIs and concepts appearing together in documentation
-2. **Namespace rules** - DevExpress.ExpressApp.Security → Security System
+2. **Namespace rules** - loaded from `config/patterns.yml` (`namespace_concept_map`)
 3. **Confidence scoring** - Based on co-occurrence strength
 
 ### Why it matters
@@ -681,7 +695,7 @@ python query_graph.py --mode query --section "article/security-system/authentica
 | `tools/concept_drilldown.py` | Deep-dive on a single concept: API/conceptual split, platform distribution, connectivity stats, top/least connected sections | `outputs/concept_<name>_sections.csv` |
 | `tools/concept_report.py` | Aggregated concept metrics: sections, connections, cross-corpus pairs, mapped APIs per concept | `outputs/concept_report.csv`, `outputs/concept_report.json` |
 | `tools/suggest_isolated_links.py` | Finds isolated sections for a concept and recommends link targets via embedding nearest neighbors | `outputs/isolated_<concept>_link_suggestions.csv/.md` |
-| `tools/coverage_matrix_xaf.py` | XAF-specific coverage matrix with ticket counts, code sample presence, feature-to-concept mapping | `outputs/coverage_reports/` |
+| `tools/coverage_matrix.py` | Coverage matrix with ticket counts, code sample presence, feature-to-concept mapping; paths loaded from `config/product.yml` | `outputs/coverage_reports/` |
 
 ### Section & Keyword Tools
 
@@ -794,13 +808,13 @@ python tools/concept_report.py
 python tools/suggest_isolated_links.py --concept "Deployment"
 
 # Coverage matrix
-python tools/coverage_matrix_xaf.py
+python tools/coverage_matrix.py
 ```
 
 ### 5. Make Improvements
 
 Based on gap analysis, make documentation changes:
-- Update concept definitions in `config/xaf-taxonomy.json`
+- Update concept definitions in your taxonomy file (set in `config/product.yml`)
 - Re-run extraction: `python scripts/03_extract_concepts.py`
 - Rebuild graph: Phases 4-5, then 13
 - Add cross-references to isolated sections
@@ -877,6 +891,7 @@ python scripts/07_postprocess_classifications.py
 ```
 xaf-doc-analysis/
 ├── scripts/                    # Core pipeline scripts
+│   ├── config_loader.py                  # ★ Central config accessor (cfg, patterns) (NEW)
 │   ├── 01_ingest_parse.py                # Phase 1: Parse markdown → structured data
 │   ├── 02_build_explicit_graph.py        # Phase 2: Extract/resolve internal links
 │   ├── 03_extract_concepts.py            # Phase 3: Tag sections with concepts
@@ -898,6 +913,8 @@ xaf-doc-analysis/
 │   └── test_semantic_extraction.py           # Concept extraction tests
 │
 ├── config/
+│   ├── product.yml                     # ★ Product identity & per-product settings (NEW)
+│   ├── patterns.yml                    # ★ URL rules & namespace→concept map (NEW)
 │   ├── xaf-taxonomy.json               # XAF concept definitions (name, type, synonyms, keywords)
 │   ├── xaf-taxonomy.schema.json        # JSON schema for taxonomy validation
 │   ├── xaf-domain-registry.yml         # Domain registry for taxonomy governance
@@ -952,7 +969,7 @@ xaf-doc-analysis/
 │   ├── visualize_graph.py                # Generate docs/knowledge_graph_explorer.html
 │   ├── concept_drilldown.py              # Single-concept deep dive
 │   ├── concept_report.py                 # Concept-level metrics report
-│   ├── coverage_matrix_xaf.py            # XAF coverage matrix
+│   ├── coverage_matrix.py                # Coverage matrix (product paths from config/product.yml)
 │   ├── extractor_sanity_check.py         # Validate extraction
 │   ├── graph-sanity-check.py             # Validate graph
 │   ├── generate_documentation_gaps_backlog.py  # Generate gap analysis backlog
@@ -1009,6 +1026,8 @@ xaf-doc-analysis/
 | `baseline_metrics.json` | Current quality snapshot | Comparison baseline |
 | `concept_quality_metrics.json` | Per-concept quality tracking | Concept refinement |
 | `deployment_api_candidates.csv` | APIs needing tags | Fixing Deployment gap |
+| `config/product.yml` | Product name, taxonomy/ticket/support-map paths, noise concepts, gap concepts | Adapting to a new product |
+| `config/patterns.yml` | External URL rules, namespace→concept mappings | Namespace classification |
 | `config/xaf-taxonomy.json` | XAF concept definitions | Understanding taxonomy |
 | `config/validation_thresholds.yml` | Quality thresholds for all phases | Pipeline validation tuning |
 | `config/ticket_language_map.yml` | Ticket→concept mapping | Ticket discoverability |
@@ -1072,6 +1091,7 @@ python tools/save_baseline_metrics.py
 - **Analysis Tools:** Instant (<1 minute each)
 
 ### Infrastructure
+- **`scripts/config_loader.py`** — Central config accessor; exposes `cfg` (product.yml) and `patterns` (patterns.yml) singletons used by all pipeline scripts
 - **`utils/taxonomy_loader.py`** — Taxonomy loading, concept lookup, and context string generation
 - **`utils/pipeline_validators.py`** — Reusable validation (`ValidationResult` data class) for schema, foreign key, and threshold checks
 - **`tests/test_pipeline_integration.py`** — Integration tests for phase dependencies (`--phase N`)

@@ -15,6 +15,10 @@ import json
 import pandas as pd
 from pathlib import Path
 from datetime import datetime
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
+from config_loader import cfg
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
@@ -35,16 +39,9 @@ def load_data():
 
 def create_gap_analysis_summary(data):
     """Convert gap analysis to JSON format"""
-    
-    # The 6 gap concepts
-    gap_concepts = [
-        "Performance Optimization",
-        "Deployment",
-        "Logging",
-        "Legacy .NET Framework",
-        "Migration",
-        "Multi-Tenancy"
-    ]
+
+    # Gap concepts loaded from config/product.yml (coverage.priority_gap_concepts)
+    gap_concepts = cfg.priority_gap_concepts()
     
     doc_concepts = data['doc_concepts']
     pairs = data['semantic_pairs']

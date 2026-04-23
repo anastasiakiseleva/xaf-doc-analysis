@@ -1,0 +1,48 @@
+# product.yml — Product-specific configuration for the doc-analysis pipeline.
+#
+# Copy this file and edit it for your product before running the pipeline.
+# All scripts load their product-specific settings from here instead of
+# hardcoding values in Python.
+
+product:
+  name: "XAF"
+  # Paths relative to project root
+  taxonomy_file: "config/xaf-taxonomy.json"
+  support_tickets_file: "xaf_support_tickets_by_feature.json"
+  support_concept_map: "support_concept_map.yml"
+
+paths:
+  # Root directory where raw markdown source files are stored.
+  # Used by coverage_matrix.py to build relative doc URLs.
+  raw_docs_root: "data/raw_md"
+
+parsing:
+  # Directory-name segment that identifies API reference docs in doc_id paths.
+  # e.g. "data/raw_md/apidoc/MyNamespace/MyClass" -> marker is "apidoc"
+  api_path_marker: "apidoc"
+
+filtering:
+  # Concepts too generic to produce distinguishable semantic relationships.
+  # Pairs whose ONLY shared concepts come from this list are filtered out
+  # during high-value pair selection (05_5_filter_high_value_pairs.py).
+  noise_concepts:
+    - "Blazor"
+    - "WinForms"
+    - ".NET Runtime"
+    - "Windows"
+    - "Actions"
+    - "Controllers"
+    - "Built-in Controllers"
+    - "Built-in Actions"
+    - "Views"
+
+coverage:
+  # Concepts to highlight in gap analysis reports and MVP deliverables.
+  # These are concepts with known documentation gaps that need attention.
+  priority_gap_concepts:
+    - "Performance Optimization"
+    - "Deployment"
+    - "Logging"
+    - "Legacy .NET Framework"
+    - "Migration"
+    - "Multi-Tenancy"

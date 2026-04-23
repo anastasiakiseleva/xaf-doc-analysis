@@ -10,6 +10,10 @@ Focus on:
 import argparse
 import pandas as pd
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from config_loader import cfg
 
 # Configuration defaults
 OUTPUT_DIR = Path("outputs")
@@ -24,11 +28,8 @@ F_EXPLICIT = OUTPUT_DIR / "explicit_graph.parquet"
 
 # Concepts that are too generic to produce distinguishable relationships.
 # Pairs whose only shared concepts are from this set are filtered out.
-NOISE_CONCEPTS = frozenset([
-    'Blazor', 'WinForms', '.NET Runtime', 'Windows',
-    'Actions', 'Controllers', 'Built-in Controllers', 'Built-in Actions',
-    'Views',
-])
+# Loaded from config/product.yml (filtering.noise_concepts).
+NOISE_CONCEPTS = cfg.noise_concepts()
 
 
 def safe_list(val):

@@ -1,0 +1,93 @@
+# patterns.yml — Product-specific pattern rules for the doc-analysis pipeline.
+#
+# This file contains two sections:
+#   external_url_rules    — used by 02_build_explicit_graph.py to classify and
+#                           optionally resolve external UIDs/links.
+#   namespace_concept_map — used by 12_map_apis_to_concepts.py to map API
+#                           namespace segments to taxonomy concept names.
+#
+# Edit both sections for your product's namespace conventions and API structure.
+
+# ---------------------------------------------------------------------------
+# External URL rules
+# ---------------------------------------------------------------------------
+# Each rule classifies an unresolved UID into a named bucket, and optionally
+# provides a URL template for linking to external API docs.
+#
+# Fields:
+#   match     : "prefix" | "substring" | "regex"
+#   value     : the pattern to test against the UID string
+#   bucket    : a short label grouping similar UIDs (e.g. "xpo", "bcl")
+#   url_fmt   : (optional) URL template with {uid} placeholder
+#
+# Rules are tested in order; first match wins.
+# If no rule matches, the UID is left with bucket "unknown".
+external_url_rules:
+  # .NET Base Class Library — can be linked directly to learn.microsoft.com
+  - match: prefix
+    value: "System."
+    bucket: ".net_bcl"
+    url_fmt: "https://learn.microsoft.com/dotnet/api/{uid}"
+
+  # Purely numeric UIDs (e.g. legacy KB article IDs)
+  - match: regex
+    value: "^\\d+$"
+    bucket: "kb_numeric"
+
+  # XAF / DevExpress-specific namespace buckets
+  - match: prefix
+    value: "DevExpress.XtraReports."
+    bucket: "xtrareports"
+
+  - match: prefix
+    value: "DevExpress.Xpo."
+    bucket: "xpo"
+
+  - match: prefix
+    value: "DevExpress.Data."
+    bucket: "corelibs"
+
+  - match: substring
+    value: "CriteriaOperator"
+    bucket: "corelibs"
+
+# ---------------------------------------------------------------------------
+# Namespace → Concept map
+# ---------------------------------------------------------------------------
+# Maps a namespace segment (the part of a fully-qualified API name that
+# identifies the feature area) to the canonical concept name in the taxonomy.
+#
+# Key   : namespace segment (matched against the second-level namespace token,
+#         e.g. "Security" in "DevExpress.ExpressApp.Security.SomeClass")
+# Value : canonical concept name exactly as it appears in the taxonomy
+#
+# Used by scripts/12_map_apis_to_concepts.py.
+namespace_concept_map:
+  Security: "Security System"
+  Validation: "Validation"
+  ConditionalAppearance: "Conditional Appearance"
+  Chart: "Charts"
+  PivotChart: "Pivot Charts"
+  PivotGrid: "Pivot Grid"
+  Reports: "Reports"
+  AuditTrail: "Audit Trail"
+  StateMachine: "State Machine"
+  Scheduler: "Scheduler"
+  FileAttachments: "File Attachments"
+  Notifications: "Notifications"
+  ReportsV2: "Reports"
+  Xpo: "XPO"
+  EFCore: "Entity Framework Core"
+  Objects: "Business Objects"
+  Editors: "Property Editors"
+  Actions: "Actions"
+  Controllers: "Controllers"
+  SystemModule: "System Module"
+  Model: "Application Model"
+  ViewItems: "View Items"
+  Templates: "Templates"
+  Utils: "Utilities"
+  Web: "Web API Service"
+  Win: "WinForms"
+  Blazor: "Blazor UI"
+  Office: "Office Integration"

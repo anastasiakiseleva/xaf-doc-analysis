@@ -1,5 +1,9 @@
-import json, re
+import json, re, sys
 from collections import defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from config_loader import cfg
 
 sc = {
   'Core': ['General','API','Customization','Extensibility','Compatibility','Breaking Changes','Migration','Upgrade','Deployment','Licensing','Localization','Documentation'],
@@ -25,7 +29,7 @@ for cat, terms in sc.items():
     for term in terms:
         term_to_sc_cat[term.lower()] = cat
 
-with open(r'c:\Documentation\xaf-doc-analysis\config\xaf-taxonomy.json') as f:
+with open(cfg.taxonomy_path(), encoding="utf-8") as f:
     t = json.load(f)
 concepts = t['taxonomy']['concepts']
 

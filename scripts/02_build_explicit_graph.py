@@ -156,15 +156,11 @@ def load_external_url_rules() -> List[UrlRule]:
         return []
 
 
-# Built-in defaults (conservative: only .NET BCL has a URL by default)
+# Built-in defaults — generic rules only; product-specific rules belong in config/patterns.yml
 DEFAULT_URL_RULES: List[UrlRule] = [
     {"match": "prefix", "value": "System.", "bucket": ".net_bcl", "url_fmt": "https://learn.microsoft.com/dotnet/api/{uid}"},
     # Leave these without url_fmt by default—define in config/patterns.yml for your canonical hosts.
     {"match": "regex", "value": r"^\d+$", "bucket": "kb_numeric"},
-    {"match": "prefix", "value": "DevExpress.XtraReports.", "bucket": "xtrareports"},
-    {"match": "prefix", "value": "DevExpress.Xpo.", "bucket": "xpo"},
-    {"match": "prefix", "value": "DevExpress.Data.", "bucket": "corelibs"},
-    {"match": "substring", "value": "CriteriaOperator", "bucket": "corelibs"},
 ]
 
 

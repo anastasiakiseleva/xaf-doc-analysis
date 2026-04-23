@@ -1,5 +1,58 @@
 # What's New
 
+## 2026-04-23 — Product-agnostic configuration layer
+
+### Motivation
+
+All product-specific values (taxonomy filename, support ticket paths, namespace→concept mappings, noise concept lists, DevExpress URL rules) were hardcoded in Python source files. Tech writers from other product teams could not reuse the pipeline without editing Python.
+
+---
+
+### New files
+
+**`config/product.yml`** — single source of truth for product identity and per-product settings:
+- `product.name`, `product.taxonomy_file`, `product.support_tickets_file`, `product.support_concept_map`
+- `paths.raw_docs_root` — root directory for raw markdown source files
+- `parsing.api_path_marker` — directory name segment that identifies API docs in `doc_id` paths
+- `filtering.noise_concepts` — concepts too generic for meaningful semantic relationships
+- `coverage.priority_gap_concepts` — concepts flagged as priority documentation gaps
+
+**`config/patterns.yml`** — product-specific pattern rules:
+- `external_url_rules` — URL classification rules for unresolved external UIDs (moved from `DEFAULT_URL_RULES` in `02_build_explicit_graph.py`); DevExpress namespace buckets (`xtrareports`, `xpo`, `corelibs`) are now entries here
+- `namespace_concept_map` — namespace segment → taxonomy concept name (moved from `build_namespace_concept_map()` in `12_map_apis_to_concepts.py`); all 28 XAF entries are now in YAML
+
+**`scripts/config_loader.py`** — central typed accessor module. Exposes two singletons:
+- `cfg` (`_Cfg`) — accessors for `product.yml`: `taxonomy_path()`, `support_tickets_path()`, `support_concept_map_path()`, `raw_docs_root()`, `api_path_marker()`, `noise_concepts()`, `priority_gap_concepts()`
+- `patterns` (`_Patterns`) — accessors for `patterns.yml`: `external_url_rules()`, `namespace_concept_map()`
+
+Both objects cache their YAML file on first access (`@lru_cache`).
+
+---
+
+### Script changes
+
+| File | Change |
+|---|---|
+| `scripts/02_build_explicit_graph.py` | Removed 4 DevExpress entries from `DEFAULT_URL_RULES`; they now live in `config/patterns.yml` |
+| `scripts/05_5_filter_high_value_pairs.py` | `NOISE_CONCEPTS` frozenset replaced with `cfg.noise_concepts()` |
+| `scripts/12_map_apis_to_concepts.py` | `build_namespace_concept_map()` body replaced with `patterns.namespace_concept_map()` |
+| `scripts/13_build_knowledge_graph.py` | Graph metadata `"project"` key derived from taxonomy filename via config instead of hardcoded string |
+| `scripts/_sc_inspect.py` | Rewritten: uses `cfg.taxonomy_path()`; accepts `--concept NAME` CLI arg (repeatable) instead of hardcoded list; path no longer absolute |
+| `scripts/_sc_validate.py` | Replaced absolute Windows path to taxonomy with `cfg.taxonomy_path()` |
+| `tools/coverage_matrix_xaf.py` → `tools/coverage_matrix.py` | Renamed; `TAXONOMY_JSON`, `SUPPORT_MAP_YML`, `TICKET_JSON` constants replaced with `cfg` accessors; `main()` prints product name from config |
+| `tools/package_mvp_deliverables.py` | Hardcoded gap concepts list replaced with `cfg.priority_gap_concepts()` |
+
+---
+
+### To adapt for a new product
+
+1. Copy `config/product.yml` and `config/patterns.yml`.
+2. Edit `product.yml` — set `product.name`, point the three `*_file` keys at your own taxonomy/tickets/support-map files, update `noise_concepts` and `priority_gap_concepts`.
+3. Edit `patterns.yml` — replace `external_url_rules` and `namespace_concept_map` entries with your product's namespace conventions.
+4. Run the pipeline. No Python changes required.
+
+---
+
 ## 2026-04-20 — Phase 5 xref gate + taxonomy-only tags in Phase 10
 
 ### Motivation

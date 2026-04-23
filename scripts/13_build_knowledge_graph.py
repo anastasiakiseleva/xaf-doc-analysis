@@ -50,6 +50,7 @@ from utils.pipeline_validators import (
     save_validation_report, load_validation_thresholds,
 )
 from utils.taxonomy_loader import load_concepts
+from scripts.config_loader import cfg
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -553,7 +554,7 @@ def main() -> None:
     graph = {
         "metadata": {
             "generated_at": datetime.now().isoformat(),
-            "project": "xaf-doc-analysis",
+            "project": cfg.taxonomy_path().stem,  # e.g. "xaf-taxonomy" — taken from config
             "builder": "scripts/13_build_knowledge_graph.py",
             "sources": {
                 "topics_inventory": str(F_TOPICS.name),
