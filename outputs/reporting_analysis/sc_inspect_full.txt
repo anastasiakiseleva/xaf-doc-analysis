@@ -1,0 +1,56 @@
+﻿=== Application Model [architecture/application-model] ===
+  synonyms: ['Application Model', 'UI Settings', 'UI metadata', 'UI structure', 'UI configuration']
+  keywords: ['Node Generators', 'Model Node Generator Updater', 'XAFML']
+  api_primary: ['IModelApplication', 'IModelNode', 'ModelApplicationBase', 'ModelNodeBase']
+  api_related: ['BOModel', 'ActionDesign', 'ViewItems', 'NavigationItems', 'IModelListView', 'IModelDetailView', 'IModelClass', 'IModelColumn', 'IModelOptions', 'IModelApplication', 'IModelLayoutGroup', 'IModelLayoutItem', 'IModelPropertyEditor', 'IModelView', 'IModelDashboardView', 'ModelNode', 'IModelNode', 'FileModelStore', 'ResourcesModelStore', 'ModelDifferenceAspect', 'ModelDifference', 'UpdateNode', 'AddNode']
+  relations: {'related_to': ['xaf.ui.views.views']}
+
+=== Web API Service [architecture/core] ===
+  synonyms: ['Web API', 'REST API', 'Service', 'Backend', 'application server']
+  keywords: ['Swagger']
+  api_primary: ['AddXafWebApi', 'IXafEndpointRouteBuilder', 'EnableCustomEndpoint', 'CustomEndpointHandlerAsync']
+  api_related: ['OpenAPI', 'OData', 'WebAPI']
+  relations: {}
+
+=== Multi-Tenancy [architecture/multi-tenancy] ===
+  synonyms: ['Multi-tenant Architecture', 'Multi-tenant', 'Limit Tenant Features', 'Custom Tenant Resolver', 'Select Tenants on Login', 'Custom Tenant class']
+  keywords: []
+  api_primary: ['ITenantProvider', 'ITenantResolver', 'TenantByEmailResolver', 'TenantByUserNameResolver', 'ITenantNameHelper', 'AddMultiTenancy', 'WithTenantResolver', 'IConnectionStringProvider', 'ITenantModelDifferenceStore', 'TenantNotFoundException']
+  api_related: ['DevExpress.ExpressApp.MultiTenancy', 'SaaS', 'SKU']
+  relations: {'related_to': ['xaf.data.database.multiple-databases', 'xaf.security.core.security-system']}
+
+=== Business Object Lifecycle [data/business-model] ===
+  synonyms: ['Object Lifecycle Events', 'Business Object Events', 'Object Callbacks', 'Business Object Hooks', 'Custom Business Logic', 'Data Model Logic', 'Entity Business Logic', 'Custom logic within a data Model', 'Custom logic in Business Class']
+  keywords: []
+  api_primary: ['IXafEntityObject', 'OnCreated', 'OnLoaded', 'OnSaving', 'AfterConstruction']
+  api_related: []
+  relations: {'part_of': ['xaf.data.business-model.business-object'], 'related_to': ['xaf.quality.performance.performance-optimization']}
+
+=== State Machine [data/business-model] ===
+  synonyms: ['State Machine Module']
+  keywords: ['Transition']
+  api_primary: ['StateMachineModule', 'StateMachineWindowsFormsModule', 'StateMachineBlazorModule', 'IStateMachine', 'IStateMachineProvider', 'StateMachineBase', 'StateMachineController', 'ChangeStateAction', 'StatePropertyAttribute', 'State']
+  api_related: ['StartState']
+  relations: {'part_of': ['xaf.data.object-space.business-logic'], 'requires': ['xaf.data.business-model.business-object']}
+
+=== Lookup Property Editors [ui/editors] ===
+  synonyms: ['Lookup Editor', 'Reference Editor', 'Foreign Key Editor', 'Object Selector', 'Lookup Control', 'Lookups', 'Dropdown Selection', 'Reference Property Picker', 'Lookup Customization', 'Search in Lookup']
+  keywords: ['Auto']
+  api_primary: ['LookupPropertyEditor', 'LookupEditorMode', 'LookupEditorModeAttribute', 'DefaultLookupEditorMode', 'AllItems', 'Search', 'AllItemsWithSearch', 'AllowClear', 'LookupSmallCollectionItemCount', 'LookupProperty']
+  api_related: ['IModelCommonMemberViewItem.LookupEditorMode', 'IModelClass.DefaultLookupEditorMode', 'ColumnModels', 'SearchEnabled', 'DisplayFormat', 'EditFormat', 'LookupEditPropertyCollectionSource']
+  relations: {'is_a': ['xaf.ui.editors.property-editor-types']}
+
+=== Conditional Appearance [ui/theming] ===
+  synonyms: ['Appearance Rules', 'Conditional Appearance Module', 'Dynamic Styling']
+  keywords: []
+  api_primary: ['ConditionalAppearanceModule', 'AppearanceAttribute', 'AppearanceItemType', 'TargetItems', 'FontColor', 'BackColor', 'FontStyle', 'AppearanceController', 'AppearanceApplied']
+  api_related: ['DevExpress.ExpressApp.ConditionalAppearance', 'CustomApplyAppearance', 'CollectAppearanceRules', 'IAppearanceRuleProperties']
+  relations: {'requires': ['xaf.architecture.application-model.application-model']}
+
+=== Filtering UI [ui/ux] ===
+  synonyms: ['Filter Panel', 'Filter UI', 'Data Filtering', 'Grid Filtering', 'Custom Filtering', 'Filter Custom Logic', 'Programmatic Filtering']
+  keywords: []
+  api_primary: ['IModelListViewFilter']
+  api_related: []
+  relations: {'related_to': ['xaf.data.criteria.criteria']}
+

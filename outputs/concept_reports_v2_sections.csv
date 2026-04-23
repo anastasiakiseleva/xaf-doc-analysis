@@ -1,0 +1,23 @@
+doc_id,section_id,is_api,platforms,connections,concepts
+data/raw_md/articles/validation/validate-report-parameters,validate-report-parameters::2,False,[],15,"['Application Model' 'Model Editor' 'Report Parameters' 'Reports'
+ 'Reports V2']"
+data/raw_md/articles/shape-export-print-data/reports/add-reports-module-to-an-existing-xaf-application,add-reports-module-to-an-existing-xaf-application::1,False,[],41,['Package Management' 'Reports' 'Reports V2' 'XAF Application']
+data/raw_md/articles/shape-export-print-data/reports/data-sources-for-reports-v2,data-sources-for-reports-v2::1,False,[],37,['Reports' 'Reports V2']
+data/raw_md/articles/shape-export-print-data/reports/reports-v2-module-overview,reports-v2-module-overview::1,False,[],28,['Reports' 'Reports V2']
+data/raw_md/articles/shape-export-print-data/reports/reports-v2-module-overview,reports-v2-module-overview::5,False,[],50,['Reports' 'Reports V2']
+data/raw_md/articles/shape-export-print-data/reports/reports-v2-module-overview,reports-v2-module-overview::6,False,[],60,['Reports' 'Reports V2']
+data/raw_md/articles/shape-export-print-data/reports/task-based-help/how-to-access-the-report-preview-control-blazor,how-to-access-the-report-preview-control-blazor::1,False,[],21,['Reports' 'Reports V2']
+data/raw_md/articles/shape-export-print-data/reports/task-based-help/how-to-merge-the-pages-of-two-reports,how-to-merge-the-pages-of-two-reports::1,False,[],12,['Reports V2']
+data/raw_md/articles/getting-started/in-depth-tutorial-blazor/enable-additional-modules/create-a-report-in-visual-studio,create-a-report-in-visual-studio::2,False,[],40,['Package Management' 'Reports' 'Reports V2']
+data/raw_md/articles/getting-started/in-depth-tutorial-blazor/enable-additional-modules/create-a-report-in-visual-studio,create-a-report-in-visual-studio::4,False,[],67,['Reports' 'Reports V2' 'Template Kit' 'XAF Application']
+data/raw_md/apidoc/DevExpress.Persistent.BaseImpl.EF/ReportDataV2/ReportDataV2,ReportDataV2::1,True,[],30,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.Persistent.BaseImpl/ReportDataV2/ReportDataV2,ReportDataV2::1,True,[],26,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2.Win/ReportsWindowsFormsModuleV2/#ctor1137702,#ctor1137702::1,True,[],24,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2.Services/ReportDataSourceHelperBase/RegisterObjectSpaceProviderService,RegisterObjectSpaceProviderService::1,True,[],20,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2.Blazor/ReportsBlazorModuleV2/ReportsBlazorModuleV2,ReportsBlazorModuleV2::1,True,[],9,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/IModelNavigationItemsForReports/IModelNavigationItemsForReports,IModelNavigationItemsForReports::1,True,[],4,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/IReportDataV2/IReportDataV2,IReportDataV2::1,True,[],17,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportsModuleV2/#ctor1137570,#ctor1137570::1,True,[],15,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportsModuleV2/AddGeneratorUpdaters1137582,AddGeneratorUpdaters1137582::1,True,[],3,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportsModuleV2/ReportDataType1137590,ReportDataType1137590::1,True,[],31,['Reports' 'Reports V2']
+data/raw_md/apidoc/DevExpress.ExpressApp.ReportsV2/ReportsModuleV2/ReportsModuleV2,ReportsModuleV2::1,True,[],22,['Reports' 'Reports V2']

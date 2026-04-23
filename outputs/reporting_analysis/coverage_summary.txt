@@ -1,0 +1,86 @@
+========================================================================
+  XAF DOCUMENTATION COVERAGE MATRIX
+  Generated: 2026-04-23 19:02
+========================================================================
+
+Total concepts analyzed: 148
+Critical gaps (≥10 tickets, score <3.0): 23
+Missing concepts: 0
+Unmapped features: 9
+
+========================================================================
+TOP 20 CRITICAL GAPS
+========================================================================
+
+Standard Property Editors
+  Tickets: 765  |  Doc Score: 0.0  |  Pages: 0
+
+Performance Optimization
+  Tickets: 394  |  Doc Score: 0.6  |  Pages: 1
+
+Layout Runtime Customization
+  Tickets: 377  |  Doc Score: 1.5  |  Pages: 1
+
+Layout Generation
+  Tickets: 329  |  Doc Score: 0.0  |  Pages: 0
+
+CRUD Controllers
+  Tickets: 276  |  Doc Score: 0.0  |  Pages: 0
+
+Built-in Criteria Operators
+  Tickets: 216  |  Doc Score: 1.5  |  Pages: 1
+
+Filtering UI
+  Tickets: 194  |  Doc Score: 0.0  |  Pages: 0
+
+Model Extension
+  Tickets: 191  |  Doc Score: 0.0  |  Pages: 0
+
+Inline Editing
+  Tickets: 144  |  Doc Score: 1.5  |  Pages: 1
+
+Popup Windows
+  Tickets: 144  |  Doc Score: 2.5  |  Pages: 1
+
+Legacy .NET Framework
+  Tickets: 134  |  Doc Score: 1.5  |  Pages: 1
+
+Custom Criteria Functions
+  Tickets: 130  |  Doc Score: 1.5  |  Pages: 1
+
+Multiple Databases
+  Tickets: 95  |  Doc Score: 0.0  |  Pages: 0
+
+Dependency Injection
+  Tickets: 84  |  Doc Score: 2.0  |  Pages: 2
+
+Memory Management
+  Tickets: 73  |  Doc Score: 0.0  |  Pages: 0
+
+Diagnostic Tools
+  Tickets: 61  |  Doc Score: 2.5  |  Pages: 2
+
+Programmatic Localization
+  Tickets: 58  |  Doc Score: 0.0  |  Pages: 0
+
+Async Operations
+  Tickets: 42  |  Doc Score: 1.5  |  Pages: 1
+
+Scaling Architecture
+  Tickets: 39  |  Doc Score: 0.0  |  Pages: 0
+
+Recurring Events
+  Tickets: 30  |  Doc Score: 1.5  |  Pages: 1
+
+========================================================================
+UNMAPPED FEATURES (9)
+========================================================================
+  - CAUSE: Complex project or DB, long debugging, etc.
+  - (Deprecated) Domain Components - DC
+  - Error: Thread & Reentrancy (T419520 & K18167)
+  - .NET Core 3.0
+  - Obsolete: Batch Edit ASPxGridListEditor
+  - (Deprecated) Entity Framework 6 - EF6
+  - Demos
+  - Map control customizations
+  - Issues with non-unique key values (T639653)

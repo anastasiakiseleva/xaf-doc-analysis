@@ -1,6 +1,6 @@
 # Documentation Gaps Backlog
 
-Generated: 2026-04-22 10:31
+Generated: 2026-04-23 19:05
 
 ## Input Files
 - config\xaf-taxonomy.json
@@ -14,7 +14,6 @@ Generated: 2026-04-22 10:31
 - outputs\coverage_reports\high_priority_gaps.csv
 - outputs\article_descriptions.parquet
 - outputs\metadata_suggestions.parquet
-- outputs\cross_linking_filtered_actionable.csv
 - outputs\query_graph_gaps.txt
 
 ## Executive Summary
@@ -26,7 +25,7 @@ Generated: 2026-04-22 10:31
 - API mapping coverage: 2380/3243 (73.4%)
 - Semantic fallback rate: 18170/75193 (24.2%)
 - High-priority ticket-driven gaps: 23
-- Cross-linking recommendations available: 553
+- Cross-linking recommendations available: 0
 
 ## P0 - Immediate Priority
 
@@ -168,32 +167,11 @@ No rows.
 ### Item P2.2 - Execute Cross-Link Recommendation Queue
 - What: Process top ticket-weighted actionable cross-link suggestions into explicit internal links.
 - Why: Recommendations identify high-yield links that improve navigation and are weighted by customer pain.
-- Data evidence: 553 recommendation rows available.
+- Data evidence: 0 recommendation rows available.
 - Acceptance criteria:
   - Complete top 50 recommendations and regenerate explicit_graph.parquet.
   - Recomputed underlinked bucket shrinks by at least 25%.
-| uid | title | realistic_score | ticket_weight | ticket_count | num_actual_useful_apis | path |
-| --- | --- | --- | --- | --- | --- | --- |
-| 118451 | How to: Show Various Notifications to Multiple Users | 198.747 | 2.008 | 869 | 14 | data\raw_md\articles\event-planning-and-notifications\how-to-show-various-notifications-for-multiple-users.md |
-| 402155 | Add a Parametrized Action | 190.717 | 2.008 | 869 | 10 | data\raw_md\articles\getting-started\in-depth-tutorial-blazor\add-actions-menu-commands\add-a-parametrized-action.md |
-| 113161 | How to: Access Nested List View or Master Detail View Environment (ASP.NET Core Blazor and Windows Forms) | 188.709 | 2.008 | 869 | 9 | data\raw_md\articles\ui-construction\ways-to-access-ui-elements-and-their-controls\how-to-access-master-detail-view-and-nested-list-view-environment.md |
-| 116516 | Non-Persistent Objects | 184.694 | 2.008 | 869 | 12 | data\raw_md\articles\business-model-design-orm\non-persistent-objects.md |
-| 113653 | How to Add an Unbound Control (Button) to the Form Layout in an XAF View (with a Fully Custom ViewItem) | 178.672 | 2.008 | 869 | 9 | data\raw_md\articles\ui-construction\view-items-and-property-editors\add-a-button-to-a-detail-view-using-custom-view-item.md |
-| 113143 | How to: Enable Database Storage for User-Defined Criteria that Filter a List View | 178.496 | 1.767 | 765 | 11 | data\raw_md\articles\ui-construction\view-items-and-property-editors\property-editors\use-criteria-property-editors.md |
-| 112818 | Determine Why an Action, Controller or Editor is Inactive | 174.657 | 2.008 | 869 | 12 | data\raw_md\articles\ui-construction\controllers-and-actions\determine-why-an-action-controller-or-editor-is-inactive.md |
-| 118760 | How to: Create and Show a Detail View of the Selected Object in a Popup Window (ASP.NET Core Blazor) | 172.649 | 2.008 | 869 | 11 | data\raw_md\articles\ui-construction\views\ways-to-show-a-view\how-to-create-and-show-a-detail-view-of-the-selected-object-in-a-popup-window.md |
-| 113471 | How to: Display a Non-Persistent Object's Detail View | 164.619 | 2.008 | 869 | 12 | data\raw_md\articles\business-model-design-orm\non-persistent-objects\how-to-display-a-non-persistent-objects-detail-view-from-the-navigation.md |
-| 113103 | Define the Scope of Controllers and Actions | 160.604 | 2.008 | 869 | 10 | data\raw_md\articles\ui-construction\controllers-and-actions\define-the-scope-of-controllers-and-actions.md |
-| 403452 | How To: Create a Custom Blazor Application Template | 152.574 | 2.008 | 869 | 11 | data\raw_md\articles\ui-construction\templates\in-blazor\custom-blazor-application-template.md |
-| 113707 | Ways to Access an Object Space (the Database Context for CRUD Operations) | 151.987 | 1.767 | 765 | 16 | data\raw_md\articles\data-manipulation-and-business-logic\object-space.md |
-| 113287 | How to: Customize the Export Action Behavior | 150.219 | 1.767 | 765 | 10 | data\raw_md\articles\shape-export-print-data\printing-exporting-in-list-view\how-to-customize-the-export-action-behavior.md |
-| 112681 | How to: Implement Cascading Filtering for Lookup List Views | 148.558 | 2.008 | 869 | 9 | data\raw_md\articles\filtering\in-list-view\how-to-implement-cascading-filtering-for-lookup-list-views.md |
-| 113452 | Implement a Custom Security System User Based on an Existing Business Class | 148.558 | 2.008 | 869 | 9 | data\raw_md\articles\data-security-and-safety\security-system\security-object-model\implement-custom-security-objects\implement-a-custom-security-system-user-based-on-an-existing-business-class.md |
-| 402956 | Localize an XAF Application (.NET) | 146.685 | 1.767 | 765 | 13 | data\raw_md\articles\localization\localize-an-xaf-application.md |
-| 404256 | Extend the Data Model | 138.521 | 2.008 | 869 | 9 | data\raw_md\articles\getting-started\in-depth-tutorial-blazor\define-data-model-and-set-initial-data\define-data-model-and-set-initial-data-with-ef-core\extend-the-data-model.md |
-| 404559 | How to: Add a Grid Column with an Action (ASP.NET Core Blazor) | 138.521 | 2.008 | 869 | 9 | data\raw_md\articles\ui-construction\controllers-and-actions\actions\how-to-add-a-grid-column-with-an-action.md |
-| 112805 | Dialog Controller | 138.521 | 2.008 | 869 | 9 | data\raw_md\articles\ui-construction\controllers-and-actions\dialog-controller.md |
-| 404204 | Use the Security System | 136.513 | 2.008 | 869 | 8 | data\raw_md\articles\getting-started\in-depth-tutorial-blazor\enable-additional-modules\use-the-security-system.md |
+No recent actionable cross-linking file detected (outputs/cross_linking_filtered_actionable.csv).
 
 ## How To Refresh
 1. `$env:PYTHONUTF8=1; & .venv\Scripts\python.exe tools/coverage_matrix_xaf.py`

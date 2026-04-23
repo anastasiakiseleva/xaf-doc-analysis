@@ -12,13 +12,14 @@ Usage:
 """
 
 import argparse
+import hashlib
 import json
 import functools
 import os
 import sys
 import time
 from pathlib import Path
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, List, Any, Tuple
 import glob
 
 # Ensure project root is on sys.path when invoked as `python scripts/06_...py`
@@ -637,6 +638,14 @@ def _taxonomy_auto_classify(
     return None
 
 
+def _text_hash(text: str) -> str:
+    """Return a short SHA-256 fingerprint of *text*.
+
+    16 hex chars = 64 bits — collision-safe for < 100K sections.
+    """
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:16]
+
+
 class CostTracker:
     """Accumulates token counts and estimated cost across LLM calls."""
 
@@ -686,10 +695,14 @@ def classify_pairs(
     cost_tracker: Optional[CostTracker] = None,
     tier2_config: Optional[Dict[str, Any]] = None,
     tier1_accept_threshold: float = 0.85,
+    previous_results: Optional[Dict[Tuple[str, str, str, str], Dict]] = None,
 ) -> pd.DataFrame:
     """Classify relationships for all pairs with checkpointing.
 
     Optimizations over the original implementation:
+    - Delta carry-forward: when *previous_results* is provided, pairs whose
+      section text hashes match the previous run are carried forward without
+      any LLM call.
     - Taxonomy auto-classify: pairs with a known taxonomy relation and
       similarity >= 0.80 are classified without an LLM call.
     - Adaptive text length: high-similarity pairs (>= 0.85) use a shorter
@@ -704,6 +717,7 @@ def classify_pairs(
     results = []
     skipped_count = 0
     auto_classified_count = 0
+    carried_forward_count = 0
     tier2_count = 0
     # Use process-specific checkpoint to avoid conflicts in parallel processing
     process_id = os.getpid()
@@ -714,6 +728,47 @@ def classify_pairs(
         source_concepts = safe_list(row.get("source_concepts", []))
         target_concepts = safe_list(row.get("target_concepts", []))
 
+        # --- Adaptive text length ---
+        sim = row.get("sim_score", row.get("similarity", 0))
+        effective_max_chars = 1200 if sim >= 0.85 else max_chars
+
+        # Get section text (LRU-cached) — needed for both delta check and prompt
+        source_text = get_section_text(
+            inventory_df, row["source_doc"], row["source_section"], effective_max_chars
+        )
+        target_text = get_section_text(
+            inventory_df, row["target_doc"], row["target_section"], effective_max_chars
+        )
+
+        # Compute text hashes (stored in output for future delta runs)
+        src_hash = _text_hash(source_text) if source_text else ""
+        tgt_hash = _text_hash(target_text) if target_text else ""
+
+        # --- Delta carry-forward (no LLM call) ---
+        if previous_results is not None:
+            pair_key = (row["source_doc"], row["source_section"],
+                        row["target_doc"], row["target_section"])
+            prev = previous_results.get(pair_key)
+            if (
+                prev is not None
+                and prev.get("source_text_hash") == src_hash
+                and prev.get("target_text_hash") == tgt_hash
+                and src_hash  # don't carry forward empty-text pairs
+            ):
+                # Text unchanged — reuse previous classification
+                result_row = {
+                    **row.to_dict(),
+                    "relationship_type": prev["relationship_type"],
+                    "relationship_confidence": prev["relationship_confidence"],
+                    "relationship_bidirectional": prev["relationship_bidirectional"],
+                    "classification_source": prev.get("classification_source", "llm"),
+                    "source_text_hash": src_hash,
+                    "target_text_hash": tgt_hash,
+                }
+                results.append(result_row)
+                carried_forward_count += 1
+                continue
+
         # --- Taxonomy auto-classify (no LLM call) ---
         tax_result = _taxonomy_auto_classify(row, taxonomy_index or {})
         if tax_result is not None:
@@ -723,22 +778,12 @@ def classify_pairs(
                 "relationship_confidence": tax_result["confidence"],
                 "relationship_bidirectional": tax_result.get("bidirectional", False),
                 "classification_source": "taxonomy",
+                "source_text_hash": src_hash,
+                "target_text_hash": tgt_hash,
             }
             results.append(result_row)
             auto_classified_count += 1
             continue
-
-        # --- Adaptive text length ---
-        sim = row.get("sim_score", row.get("similarity", 0))
-        effective_max_chars = 1200 if sim >= 0.85 else max_chars
-        
-        # Get section text (LRU-cached)
-        source_text = get_section_text(
-            inventory_df, row["source_doc"], row["source_section"], effective_max_chars
-        )
-        target_text = get_section_text(
-            inventory_df, row["target_doc"], row["target_section"], effective_max_chars
-        )
         
         # Skip only if BOTH texts are empty (should be rare now with fallback)
         if not source_text or not target_text:
@@ -799,6 +844,8 @@ def classify_pairs(
                     "relationship_confidence": classification.get("confidence"),
                     "relationship_bidirectional": classification.get("bidirectional", False),
                     "classification_source": "llm",
+                    "source_text_hash": src_hash,
+                    "target_text_hash": tgt_hash,
                 }
                 results.append(result_row)
             
@@ -819,10 +866,14 @@ def classify_pairs(
     
     if skipped_count > 10:
         print(f"\nTotal skipped pairs: {skipped_count}")
+    if carried_forward_count > 0:
+        print(f"\nDelta carry-forward: {carried_forward_count:,} pairs (unchanged text, no LLM call)")
     if auto_classified_count > 0:
-        print(f"\nTaxonomy auto-classified: {auto_classified_count:,} pairs (no LLM call)")
+        print(f"Taxonomy auto-classified: {auto_classified_count:,} pairs (no LLM call)")
     if tier2_count > 0:
         print(f"Tier-2 escalated: {tier2_count:,} pairs")
+    llm_count = len(results) - carried_forward_count - auto_classified_count
+    print(f"LLM classified: {llm_count:,} pairs")
     
     return pd.DataFrame(results)
 
@@ -930,6 +981,17 @@ def main():
         type=float,
         default=0.85,
         help="Confidence threshold to accept tier-1 result without tier-2 (default: 0.85)"
+    )
+    parser.add_argument(
+        "--delta",
+        action="store_true",
+        help="Delta mode: carry forward unchanged pairs from previous run, only reclassify new/modified pairs"
+    )
+    parser.add_argument(
+        "--delta-from",
+        type=str,
+        default="outputs/classified_pairs.parquet",
+        help="Path to previous classification output for delta comparison (default: outputs/classified_pairs.parquet)"
     )
     
     args = parser.parse_args()
@@ -1082,6 +1144,38 @@ def main():
     print(f"  Rate limit delay: {args.delay}s")
     if args.track_cost:
         print(f"  Cost tracking: ON")
+    if args.delta:
+        print(f"  Delta mode: ON (from {args.delta_from})")
+
+    # --- Delta mode: load previous results ---
+    previous_results = None
+    if args.delta:
+        delta_path = Path(args.delta_from)
+        if not delta_path.exists():
+            print(f"\nError: --delta requires a previous output file, but '{args.delta_from}' not found.")
+            print(f"  Run Phase 6 once without --delta to create the baseline.")
+            return
+        prev_df = pd.read_parquet(delta_path, engine="pyarrow")
+        if "source_text_hash" not in prev_df.columns or "target_text_hash" not in prev_df.columns:
+            print(f"\nError: Previous output '{args.delta_from}' is missing text hash columns.")
+            print(f"  Re-run Phase 6 once without --delta to generate hashes, then use --delta on subsequent runs.")
+            return
+        # Build lookup keyed on pair tuple
+        previous_results = {}
+        for _, prow in prev_df.iterrows():
+            pk = (prow["source_doc"], prow["source_section"],
+                  prow["target_doc"], prow["target_section"])
+            previous_results[pk] = prow.to_dict()
+        print(f"  Loaded {len(previous_results):,} previous classifications for delta comparison")
+
+        # Report pairs that disappeared (in previous but not in current input)
+        current_keys = set(
+            zip(pairs_df["source_doc"], pairs_df["source_section"],
+                pairs_df["target_doc"], pairs_df["target_section"])
+        )
+        dropped = len(previous_results) - len(current_keys & set(previous_results.keys()))
+        if dropped > 0:
+            print(f"  Dropped: {dropped:,} pairs no longer in input (deleted/restructured sections)")
 
     # Build tier-2 config if requested
     tier2_config = None
@@ -1130,6 +1224,7 @@ def main():
         cost_tracker=cost_tracker,
         tier2_config=tier2_config,
         tier1_accept_threshold=args.tier1_accept,
+        previous_results=previous_results,
     )
     
     elapsed = time.time() - start_time
@@ -1185,6 +1280,16 @@ def main():
     # Cleanup HTTP session if it exists
     if "session" in api_config:
         api_config["session"].close()
+
+    # Cleanup checkpoint files after successful completion
+    cleanup_files = glob.glob("outputs/classified_pairs_checkpoint_pid_*.parquet")
+    for cp_file in cleanup_files:
+        try:
+            Path(cp_file).unlink()
+        except OSError:
+            pass
+    if cleanup_files:
+        print(f"\nCleaned up {len(cleanup_files)} checkpoint file(s)")
 
     # Cost summary
     if cost_tracker:

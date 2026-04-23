@@ -1,0 +1,15 @@
+﻿
+  - outputs\api_implements_concept.parquet
+> - outputs\coverage_reports\high_priority_gaps.csv
+  - outputs\article_descriptions.parquet
+  - outputs\metadata_suggestions.parquet
+  - outputs\query_graph_gaps.txt
+    - Each resolved concept has at least one overview page and one 
+task-oriented page.
+>   - coverage_reports/high_priority_gaps.csv count is lower than the current 
+baseline.
+  | concept_name | ticket_count | doc_score | coverage_class |
+  | --- | --- | --- | --- |
+  | Standard Property Editors | 765 | 0 | critical_gap |
+
+
