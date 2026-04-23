@@ -11,16 +11,16 @@ beautifulsoup4>=4.12
 regex>=2023.10
 scikit-learn>=1.4
 sentence-transformers>=2.6
-spacy>=3.7
 
-# Graph analysis
-networkx>=3.2
+# Config and metadata
+PyYAML>=6.0
 
-# Visualization (optional but useful)
-matplotlib>=3.8
-seaborn>=0.13
-pyvis>=0.3
-
-# CLI / DX
-typer>=0.9
+# CLI / progress
 tqdm>=4.66
+
+# Optional: Phase 6 LLM classification
+# openai>=1.0
+# anthropic>=0.20
+
+# Optional: interactive graph visualization (tools/visualize_graph.py)
+# pyvis>=0.3

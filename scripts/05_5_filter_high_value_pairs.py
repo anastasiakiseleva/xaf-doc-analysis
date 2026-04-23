@@ -7,12 +7,13 @@ Focus on:
 3. Cross-corpus links (conceptual ↔ API reference) boosted
 """
 
+import argparse
 import pandas as pd
 from pathlib import Path
 
-# Configuration
+# Configuration defaults
 OUTPUT_DIR = Path("outputs")
-MIN_SIMILARITY = 0.70  # High-confidence pairs only (bypassed for xref_link pairs)
+MIN_SIMILARITY = 0.75  # Raised from 0.70 — low-sim pairs mostly classify as related_to
 MAX_PAIRS = 25000  # Raised to accommodate xref_link pairs (~19K) plus high-sim pairs
 CROSS_CORPUS_BOOST = 1.5  # Boost score for conceptual <-> API links
 
@@ -42,6 +43,22 @@ def safe_list(val):
 
 
 def main():
+    parser = argparse.ArgumentParser(
+        description="Filter semantic pairs to high-value subset for classification"
+    )
+    parser.add_argument(
+        "--min-sim", type=float, default=MIN_SIMILARITY,
+        help=f"Minimum similarity for non-xref pairs (default: {MIN_SIMILARITY})"
+    )
+    parser.add_argument(
+        "--max-pairs", type=int, default=MAX_PAIRS,
+        help=f"Maximum pairs to keep (default: {MAX_PAIRS})"
+    )
+    cli_args = parser.parse_args()
+
+    min_similarity = cli_args.min_sim
+    max_pairs = cli_args.max_pairs
+
     print("="*70)
     print("High-Value Semantic Pairs Filter")
     print("="*70)
@@ -80,8 +97,8 @@ def main():
     print(f"  Non-xref pairs to filter: {len(non_xref):,}")
 
     # Filter by minimum similarity (non-xref only)
-    print(f"\nApplying similarity filter (>= {MIN_SIMILARITY}) to non-xref pairs...")
-    high_sim = non_xref[non_xref['similarity'] >= MIN_SIMILARITY].copy()
+    print(f"\nApplying similarity filter (>= {min_similarity}) to non-xref pairs...")
+    high_sim = non_xref[non_xref['similarity'] >= min_similarity].copy()
     print(f"  Remaining: {len(high_sim):,} pairs ({len(high_sim)/len(non_xref)*100:.1f}%)")
 
     # Remove self-pairs (same document on both sides).
@@ -203,9 +220,22 @@ def main():
     high_sim = pd.concat([high_sim, xref_new], ignore_index=True)
     print(f"  Combined total: {len(high_sim):,} pairs")
 
-    # Take top N
+    # Section-level mirror dedup: if both (A->B) and (B->A) exist, keep only
+    # the higher-priority direction.  Doc-level dedup above handles non-xref
+    # rows, but section-level mirrors can survive via the xref merge.
+    print("\nSection-level mirror deduplication...")
+    high_sim['_sec_pair_key'] = high_sim.apply(
+        lambda r: frozenset([str(r['source_section']), str(r['target_section'])]),
+        axis=1,
+    )
+    before_sec_dedup = len(high_sim)
     high_sim = high_sim.sort_values('priority_score', ascending=False)
-    filtered = high_sim.head(MAX_PAIRS)
+    high_sim = high_sim.drop_duplicates(subset=['_sec_pair_key']).drop(columns=['_sec_pair_key'])
+    print(f"  {before_sec_dedup:,} -> {len(high_sim):,} pairs "
+          f"({before_sec_dedup - len(high_sim):,} section-level mirrors removed)")
+
+    # Take top N
+    filtered = high_sim.head(max_pairs)
 
     # Print summary statistics
     print("\n" + "="*70)

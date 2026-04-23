@@ -3,6 +3,7 @@
 ## Table of Contents
 
 - [Overview](#overview)
+- [Setup & Installation](#setup--installation)
 - [Pipeline 1: Knowledge Graph Construction](#pipeline-1-knowledge-graph-construction)
   - [Phase 1 — Read the documentation like a human would](#phase-1--read-the-documentation-like-a-human-would)
   - [Phase 2 — Capture how authors intended docs to connect](#phase-2--capture-how-authors-intended-docs-to-connect)
@@ -29,8 +30,6 @@
   - [MVP Deliverables](#mvp-deliverables)
   - [Ticket Discoverability](#ticket-discoverability)
   - [Doc Issue Analysis](#doc-issue-analysis)
-  - [Experimental: Ollama-Based API Classification](#experimental-ollama-based-api-classification)
-- [Quality Metrics](#quality-metrics)
 - [Quick Start Guide](#quick-start-guide)
 - [What This Lets You Measure](#what-this-lets-you-measure)
 - [Project Structure](#project-structure)
@@ -44,7 +43,7 @@
 ## Overview
 
 This project analyzes DevExpress XAF (eXpressApp Framework) documentation to:
-1. **Build a unified knowledge graph** of 11,000+ documentation sections
+1. **Build a unified knowledge graph** of all documentation sections
 2. **Identify documentation gaps** (missing links, isolated content, under-connected concepts)
 3. **Measure documentation quality** with quantifiable metrics
 4. **Track improvements** over time with baseline comparison tools
@@ -57,6 +56,94 @@ The project consists of three main pipelines:
 - **Knowledge Graph Pipeline** (Phases 1–5, 11–13): Build semantic understanding and a unified graph
 - **Enrichment Pipeline** (Phases 5.5–10): Metadata generation, API mapping, and LLM classification
 - **Quality & Analysis Tools**: Baseline metrics, gap analysis, concept reports, ticket discoverability
+
+---
+
+## Setup & Installation
+
+### Requirements
+
+- Python **3.10 or 3.11**
+- Git
+
+### 1. Create a virtual environment
+
+```bash
+python -m venv .venv
+
+# Windows
+.venv\Scripts\Activate.ps1
+
+# macOS / Linux
+source .venv/bin/activate
+```
+
+### 2. Install dependencies
+
+```bash
+pip install --upgrade pip setuptools wheel
+pip install -r docs/requirements.txt
+```
+
+| Package | Used for |
+|---------|---------|
+| `pandas`, `numpy`, `pyarrow` | Data processing and Parquet I/O |
+| `markdown-it-py`, `beautifulsoup4` | Markdown parsing (Phase 1) |
+| `sentence-transformers` | Vector embeddings (Phase 4) |
+| `scikit-learn` | Nearest-neighbor search (Phase 5) |
+| `PyYAML` | Config and metadata export |
+| `tqdm`, `regex` | Progress display and text matching |
+
+**Optional extras:**
+
+```bash
+pip install openai anthropic   # Phase 6: LLM classification
+pip install pyvis               # tools/visualize_graph.py
+```
+
+### 3. Configure environment variables
+
+Create a `.env` file in the project root:
+
+```env
+PROJECT_ROOT=.
+DATA_DIR=data
+OUTPUT_DIR=outputs
+```
+
+For Phase 6, add an API key:
+
+```env
+OPENAI_API_KEY=sk-...
+# or
+ANTHROPIC_API_KEY=...
+```
+
+### 4. Add documentation source files
+
+Copy Markdown files into `data/raw_md/`, preserving folder structure:
+
+```
+data/raw_md/
+├── apidoc/      # API reference namespaces
+└── articles/    # Conceptual articles
+```
+
+### 5. Validate
+
+```bash
+python -c "import pandas, numpy, sklearn; print('Core OK')"
+python -c "from sentence_transformers import SentenceTransformer; SentenceTransformer('all-MiniLM-L6-v2'); print('Embeddings OK')"
+python -c "import yaml; print('YAML OK')"
+```
+
+The embeddings check downloads the model (~80 MB) on first run.
+
+```powershell
+.\tools\env_check.ps1
+```
+
+> Full setup details: [docs/prerequisites.md](docs/prerequisites.md)
 
 ---
 
@@ -132,7 +219,7 @@ It identifies:
 - Platforms (Blazor, WinForms, Web API)
 - API names (DevExpress.ExpressApp.ObjectSpace, etc.)
 
-It does this section by section, using the 148 concept definitions in `config/concepts.yml`.
+It does this section by section, using the concept definitions in `config/xaf-taxonomy.json`.
 
 ### Why it matters
 AI doesn't automatically know what matters in XAF. You explicitly teach it: "This section is about Object Space and applies to Blazor."
@@ -157,9 +244,6 @@ This is where docs stop being text and start being knowledge.
 Before we invest time and compute in embeddings or AI models, this step measures whether the documentation is *structurally and semantically ready* for AI consumption.
 
 Think of this as a **health check** and **calibration step**.
-
-### Script / Artifact
-- Notebook: `notebooks/phase_3_5_metrics_snapshot.ipynb`
 
 ### What this step does
 Using the outputs of Phases 1–3, it computes objective metrics such as:
@@ -255,12 +339,6 @@ This reveals:
 
 This is the "possible connections humans forgot to add."
 
-**Key Statistics:**
-- 58,461 semantic pairs discovered
-- 5.4 average connections per section
-- 12.6% cross-corpus links (API ↔ Conceptual)
-- Quality gates: concept overlap, platform overlap, namespace overlap
-
 ## Phase 11 — Extract API Entities
 
 ### Script
@@ -282,14 +360,8 @@ Creates structured API reference:
 - Power intelligent search
 
 ### Output
-- `outputs/api_entities.parquet` - 6,853 unique API definitions
+- `outputs/api_entities.parquet` - Unique API definitions
 - `outputs/documents_api.parquet` - Section → API relationships
-
-**Key Statistics:**
-- 6,853 API sections identified
-- 5,767 API sections retained (84.2%)
-- Structured namespace hierarchies
-- Type classification (class, method, property, etc.)
 
 ## Phase 12 — Map APIs to Concepts
 
@@ -394,11 +466,6 @@ Classification with LLMs is expensive/slow. This ensures you:
 ### Output
 `outputs/semantic_pairs_high_value.parquet`
 
-**Filtering Results:**
-- Input: 58,461 semantic pairs
-- Output: ~5,000 high-value pairs (configurable)
-- Boost multipliers: 1.5x for cross-corpus, 2.0x for high-ticket concepts
-
 ## Phase 6 — Classify Relationship Types (Experimental)
 
 ### Script
@@ -431,7 +498,7 @@ Enables intelligent features:
 - `outputs/classified_pairs_corrected.parquet` - Post-processed (false positive reduction)
 - Checkpoint files for resume support (`classified_pairs_checkpoint_pid_*.parquet`)
 
-**Status:** ⚠️ Experimental - Requires LLM API configuration (OpenAI, Anthropic, or Ollama)
+**Status:** ⚠️ Expensive - Requires LLM API configuration (OpenAI or Anthropic)
 
 **Usage:**
 ```bash
@@ -578,7 +645,7 @@ Measure documentation quality, identify gaps, track improvements, and provide ac
 
 Captures comprehensive baseline statistics:
 - Overall connectivity metrics
-- Per-concept statistics (all 148 concepts)
+- Per-concept statistics
 - Cross-corpus gap analysis
 - Isolated section identification
 - Under-connected concept detection
@@ -586,12 +653,6 @@ Captures comprehensive baseline statistics:
 **Output:**
 - `outputs/baseline_metrics.json` - Machine-readable metrics
 - `docs/BASELINE_METRICS.md` - Human-readable report
-
-**Key Findings (Current Baseline):**
-- 11,082 sections analyzed
-- 603 isolated sections (5.4%)
-- 6 concepts with zero cross-corpus links
-- 16 under-connected concepts (<6 links/section)
 
 ### Knowledge Graph Queries
 
@@ -670,11 +731,6 @@ Tools for analyzing the language gap between support tickets (problem-based) and
 | `validate_ticket_mapping.py` | Compares baseline vs current ticket-to-concept mappings |
 | `check_confidence_stats.py` | Checks confidence statistics for ticket mappings |
 
-**Current Baseline (Feb 2026):**
-- 14,860 total tickets analyzed
-- 159 feature categories → 74 mapped concepts
-- 7,975 API search tickets (53.7%) — biggest opportunity
-- Top concept: View Items (1,634 tickets, 11.0%)
 
 ### Doc Issue Analysis
 
@@ -682,45 +738,7 @@ Tools for analyzing the language gap between support tickets (problem-based) and
 
 **Output:** `outputs/docissue_analysis/` — Enriched analysis including concept-issue mapping, category breakdowns, and priority assignments.
 
-### Experimental: Ollama-Based API Classification
-
-**Scripts:** `scripts/experimental/`
-
-| Script | Purpose |
-|--------|---------|
-| `12_map_apis_to_concepts_ollama.py` | Enhances Phase 12 with Ollama/Llama 3.1 classification for unmapped APIs |
-| `validate_ollama_accuracy.py` | Validates LLM classification accuracy against ground truth |
-
-⚠️ **Experimental** — See [ollama_decision_log.md](ollama_decision_log.md) for evaluation
-
-**Usage:**
-```bash
-python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-ollama
-python scripts/experimental/validate_ollama_accuracy.py --sample 50
-```
-
 ---
-
-## Quality Metrics
-
-### Current State
-
-| Metric | Current State | Target |
-|--------|--------------|--------|
-| **Total Sections** | 10,819 (11,584 total) | Stable |
-| **Semantic Pairs** | 58,461 | 65,000+ |
-| **Avg Connections/Section** | 5.4 | 7.0+ |
-| **Isolated Sections** | 935 (8.6%) | <5% |
-| **Cross-Corpus Links** | 7,383 (12.6%) | 15%+ |
-| **Concepts with Gaps** | 15 | 0 |
-| **Under-Connected Concepts** | 16 | <8 |
-
-### Quality Gates (Semantic Pairs)
-
-- Concept overlap: 73.1% of pairs
-- Platform overlap: 33.0% of pairs
-- Namespace overlap: 32.2% of pairs
-- Average similarity: 0.759 (min: 0.600)
 
 ---
 
@@ -782,7 +800,7 @@ python tools/coverage_matrix_xaf.py
 ### 5. Make Improvements
 
 Based on gap analysis, make documentation changes:
-- Update concept definitions in `config/concepts.yml`
+- Update concept definitions in `config/xaf-taxonomy.json`
 - Re-run extraction: `python scripts/03_extract_concepts.py`
 - Rebuild graph: Phases 4-5, then 13
 - Add cross-references to isolated sections
@@ -805,8 +823,6 @@ python scripts/06_classify_relationships.py --limit 100
 # Post-process to reduce false positives
 python scripts/07_postprocess_classifications.py
 
-# Ollama-based API mapping
-python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-ollama
 ```
 
 ---
@@ -822,11 +838,6 @@ python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-
 - What's the distribution of concept coverage?
 - Are there navigation dead-ends?
 
-**Actionable Insights:**
-- 263 API documents need Deployment tagging
-- 6 concepts have zero API ↔ Conceptual links
-- 603 sections are completely isolated
-- Template Kit concept needs 63% more connections
 
 ### For Content Strategy
 
@@ -836,10 +847,6 @@ python scripts/experimental/12_map_apis_to_concepts_ollama.py --sample 10 --use-
 - Where should writers focus next?
 - How does platform coverage compare?
 
-**Best Practices Identified:**
-- Audit Trail: 14.1 links/section (excellent)
-- Conditional Appearance: 10.0 links/section (good)
-- Target: All concepts above 7.0 links/section
 
 ### For AI/RAG Systems
 
@@ -881,25 +888,25 @@ xaf-doc-analysis/
 │   ├── 07_postprocess_classifications.py # Phase 6 post-processing (false positive reduction)
 │   ├── 08_export_yaml_metadata.py        # Phase 8: YAML frontmatter export
 │   ├── 09_concept_quality_metrics.py     # Phase 9: Concept quality tracking
+│   ├── 09b_generate_descriptions.py      # Phase 9b: LLM-generated section descriptions
 │   ├── 10_rollup_document_metadata.py    # Phase 10: Document-level metadata
 │   ├── 11_extract_api_entities.py        # Phase 11: API entity extraction
 │   ├── 12_map_apis_to_concepts.py        # Phase 12: API→Concept mapping
 │   ├── 13_build_knowledge_graph.py       # Phase 13: Unified knowledge graph
 │   ├── run_kg_pipeline_with_validation.py    # Full KG pipeline runner
 │   ├── run_pipeline_with_validation.py       # MVP pipeline runner
-│   ├── test_semantic_extraction.py           # Concept extraction tests
-│   └── experimental/
-│       ├── 12_map_apis_to_concepts_ollama.py # Ollama-based API classification
-│       ├── validate_ollama_accuracy.py       # LLM accuracy validation
-│       └── README.md
+│   └── test_semantic_extraction.py           # Concept extraction tests
 │
 ├── config/
-│   ├── concepts.yml                # 148 XAF concept definitions (name, type, synonyms, keywords)
-│   ├── docissues.json              # Support ticket issues database
-│   ├── ticket_language_map.yml     # Ticket category → concept mapping (top 20 categories)
-│   ├── validation_thresholds.yml   # Quality thresholds for all 13 pipeline phases
-│   └── prompts/                    # AI extraction prompts
-│       ├── ai_action_prompts.md
+│   ├── xaf-taxonomy.json               # XAF concept definitions (name, type, synonyms, keywords)
+│   ├── xaf-taxonomy.schema.json        # JSON schema for taxonomy validation
+│   ├── xaf-domain-registry.yml         # Domain registry for taxonomy governance
+│   ├── xaf-taxonomy-contribution-guide.md  # Guide for extending the taxonomy
+│   ├── xaf-taxonomy-schema-contract.md     # Formal schema contract
+│   ├── ticket_language_map.yml         # Ticket category → concept mapping
+│   ├── validation_thresholds.yml       # Quality thresholds for all 13 pipeline phases
+│   └── prompts/                        # AI extraction prompts
+│       ├── metadata_description.md
 │       └── relationship_classification.md
 │
 ├── outputs/                   # All generated data
@@ -921,30 +928,34 @@ xaf-doc-analysis/
 │   ├── baseline_metrics.json                 # Quality baseline
 │   ├── concept_quality_metrics.json          # Phase 9
 │   ├── concept_report.csv / .json            # Concept-level metrics
-│   ├── deployment_api_candidates.csv / .json # Gap analysis
 │   ├── coverage_reports/                     # Coverage matrix outputs
-│   ├── docissue_analysis/                    # Doc issue breakdowns
 │   ├── mvp_deliverables/                     # Packaged MVP outputs
 │   ├── ticket_discoverability/               # Ticket analysis outputs
 │   └── .emb_cache/                           # Embedding cache
 │
 ├── docs/
-│   ├── project-overview.md               # This file
-│   ├── BASELINE_METRICS.md               # Current metrics report
-│   ├── DOC_ANALYSIS_ACTION_PLAN.md       # Improvement roadmap
+│   ├── index.html                        # Project landing page
+│   ├── knowledge_graph_explorer.html     # Interactive knowledge graph viewer
+│   ├── metadata_reviewer.html            # Interactive metadata review tool
+│   ├── project-overview.md               # Project documentation
+│   ├── BASELINE_METRICS.md               # Baseline metrics report (Feb 2026)
+│   ├── BASELINE_METRICS_2026-04-23.md    # Latest metrics snapshot
+│   ├── DOCUMENTATION_GAPS_BACKLOG.md     # Gap analysis backlog
+│   ├── WHATS_NEW.md                      # Changelog
+│   ├── taxonomy_review_2026-04-16.md     # Taxonomy review notes
 │   ├── prerequisites.md                  # Setup requirements
-│   ├── ollama_decision_log.md            # Ollama evaluation log
-│   ├── setup_ollama_classification.md    # Ollama setup guide
-│   ├── XAF_Main_Concepts_for_LLM_Training.md  # LLM training concepts
-│   ├── xaf concepts plan.md             # Concepts planning
+│   ├── requirements.txt                  # Python dependencies
 │   └── xaf-doc-analysis_Architecture.docx # Architecture document
 │
 ├── tools/                     # Analysis & utility tools
+│   ├── build_metadata_reviewer.py        # Generate docs/metadata_reviewer.html
+│   ├── visualize_graph.py                # Generate docs/knowledge_graph_explorer.html
 │   ├── concept_drilldown.py              # Single-concept deep dive
 │   ├── concept_report.py                 # Concept-level metrics report
 │   ├── coverage_matrix_xaf.py            # XAF coverage matrix
 │   ├── extractor_sanity_check.py         # Validate extraction
 │   ├── graph-sanity-check.py             # Validate graph
+│   ├── generate_documentation_gaps_backlog.py  # Generate gap analysis backlog
 │   ├── keyword_section_query.py          # Keyword-based section search
 │   ├── mcp_server_adapter.py             # MCP server integration
 │   ├── package_mvp_deliverables.py       # Package MVP outputs
@@ -953,9 +964,6 @@ xaf-doc-analysis/
 │   ├── suggest_isolated_links.py         # Link suggestions for isolated sections
 │   ├── env_check.ps1                     # Environment validation
 │   ├── archive/                          # Superseded scripts (.bak)
-│   │   ├── find_missing_deployment_apis.py.bak
-│   │   ├── generate_crosslink_report.py.bak
-│   │   ├── list_all_deployment_apis.py.bak
 │   │   └── README.md
 │   └── ticket_discoverability/           # Support ticket analysis
 │       ├── analyze_real_tickets.py
@@ -964,16 +972,16 @@ xaf-doc-analysis/
 │       └── README.md
 │
 ├── utils/                     # Shared utilities
-│   ├── __init__.py
-│   ├── helpers.py                        # Data manipulation, concept checking
+│   ├── taxonomy_loader.py                # Taxonomy loading and concept lookup
 │   └── pipeline_validators.py            # Reusable validation (ValidationResult)
 │
 ├── tests/                     # Test suite
 │   ├── test_pipeline_integration.py      # Pipeline phase dependency tests
-│   └── test_mcp_comparison.py            # MCP adapter vs production comparison
-│
-├── notebooks/
-│   └── phase_3_5_metrics_snapshot.ipynb   # Phase 3.5 metrics notebook
+│   ├── test_mcp_comparison.py            # MCP adapter vs production comparison
+│   ├── test_classify_relationships.py    # Relationship classification tests
+│   ├── test_extract_concepts.py          # Concept extraction tests
+│   ├── test_make_sections_embeddings.py  # Embeddings pipeline tests
+│   └── test_taxonomy_loader.py           # Taxonomy loader tests
 │
 ├── data/
 │   ├── raw_md/                           # Source documentation
@@ -994,40 +1002,18 @@ xaf-doc-analysis/
 |------|---------|---------------|
 | `topics_inventory.parquet` | Full text of all sections | Reading actual content |
 | `doc_concepts.parquet` | Section metadata & concept tags | Filtering by concept/platform |
-| `semantic_pairs.parquet` | 58K relationship pairs | Analyzing connectivity |
+| `semantic_pairs.parquet` | Semantic relationship pairs | Analyzing connectivity |
 | `sections_embeddings_*.parquet` | Vector embeddings | Similarity searches |
 | `knowledge_graph.json` | Unified knowledge graph | Downstream tooling, MCP, dashboards |
 | `classified_pairs_corrected.parquet` | Typed relationships (post-processed) | Learning paths, prerequisites |
 | `baseline_metrics.json` | Current quality snapshot | Comparison baseline |
 | `concept_quality_metrics.json` | Per-concept quality tracking | Concept refinement |
 | `deployment_api_candidates.csv` | APIs needing tags | Fixing Deployment gap |
-| `config/concepts.yml` | 148 concept definitions | Understanding taxonomy |
+| `config/xaf-taxonomy.json` | XAF concept definitions | Understanding taxonomy |
 | `config/validation_thresholds.yml` | Quality thresholds for all phases | Pipeline validation tuning |
 | `config/ticket_language_map.yml` | Ticket→concept mapping | Ticket discoverability |
 
 ---
-
-## Next Steps
-
-### Immediate Actions (Phase 1 Improvements)
-
-**Goal:** Fix the 6 concepts with zero cross-corpus links
-
-**Priority 1: Deployment Concept**
-1. Review [deployment_api_candidates.csv](../outputs/deployment_api_candidates.csv)
-2. Update concept extraction patterns in `config/concepts.yml`
-3. Re-run: `python scripts/03_extract_concepts.py`
-4. Rebuild: Phases 4-5, then 13
-5. Verify: `python query_graph.py --mode gaps`
-
-**Expected Impact:**
-- Deployment: 0 → 50+ cross-corpus links
-- Concepts with gaps: 6 → 5
-- Overall cross-corpus: +200-500 pairs
-
-**Priority 2: Multi-Tenancy Concept**
-- Similar process to Deployment
-- Likely ~20-30 APIs need tagging
 
 ### Strategic Actions
 
@@ -1037,7 +1023,7 @@ xaf-doc-analysis/
 - Run `tools/concept_drilldown.py` to identify specific weak areas
 - Add cross-references to related content
 - Create bridging tutorials for semantic gaps
-- Study well-connected patterns (Audit Trail, Conditional Appearance)
+- Study well-connected patterns 
 
 ### Measurement Cadence
 
@@ -1058,15 +1044,15 @@ python tools/save_baseline_metrics.py
 ## Success Metrics
 
 ### Phase 1 Complete When:
-- [ ] All gap concepts have ≥10 cross-corpus links
-- [ ] Deployment concept has ≥50 cross-corpus links
-- [ ] Overall cross-corpus % ≥15% (currently 12.6%)
+- [ ] All gap concepts have cross-corpus links
+- [ ] Deployment concept is well-connected
+- [ ] Overall cross-corpus % is improving
 
 ### Project Success When:
-- [ ] Isolated sections <5% (currently 8.6%)
-- [ ] Under-connected concepts <8 (currently 16)
-- [ ] Avg connections/section ≥7.0 (currently 5.4)
-- [ ] All concepts above 5.0 links/section threshold
+- [ ] Isolated sections <5%
+- [ ] Under-connected concepts minimized
+- [ ] Avg connections/section meets target
+- [ ] All concepts above minimum links/section threshold
 
 ---
 
@@ -1086,7 +1072,7 @@ python tools/save_baseline_metrics.py
 - **Analysis Tools:** Instant (<1 minute each)
 
 ### Infrastructure
-- **`utils/helpers.py`** — Shared data manipulation, concept checking, metrics helpers
+- **`utils/taxonomy_loader.py`** — Taxonomy loading, concept lookup, and context string generation
 - **`utils/pipeline_validators.py`** — Reusable validation (`ValidationResult` data class) for schema, foreign key, and threshold checks
 - **`tests/test_pipeline_integration.py`** — Integration tests for phase dependencies (`--phase N`)
 - **`tests/test_mcp_comparison.py`** — Compares local MCP adapter against production dxdocs MCP

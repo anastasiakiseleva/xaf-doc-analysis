@@ -13,6 +13,7 @@ Usage:
 
 import argparse
 import json
+import functools
 import os
 import sys
 import time
@@ -183,6 +184,20 @@ def get_section_text(inventory_df: pd.DataFrame, doc_id: str, section_id: str, m
     - Code block comments and identifiers
     - Parent section context
     """
+    return _get_section_text_cached(doc_id, section_id, max_chars)
+
+
+# Global reference set by main() before classification starts.
+_inventory_df_ref: Optional[pd.DataFrame] = None
+
+
+@functools.lru_cache(maxsize=8192)
+def _get_section_text_cached(doc_id: str, section_id: str, max_chars: int = 2000) -> str:
+    """LRU-cached section text lookup.  Avoids re-reading parquet rows when the
+    same section appears in multiple pairs."""
+    inventory_df = _inventory_df_ref
+    if inventory_df is None:
+        return ""
     row = inventory_df[inventory_df["doc_id"] == doc_id]
     if row.empty:
         return ""
@@ -576,6 +591,89 @@ def classify_with_llm(prompt: str, api_config: Dict[str, Any]) -> Optional[Dict]
         raise ValueError(f"Unknown provider: {provider}")
 
 
+def _taxonomy_auto_classify(
+    row: pd.Series,
+    taxonomy_index: Dict[str, Any],
+    min_sim: float = 0.80,
+) -> Optional[Dict]:
+    """Attempt to classify a pair directly from taxonomy relations.
+
+    If the taxonomy declares a specific directed relation between the pair's
+    concepts AND similarity is >= *min_sim*, return a classification dict
+    without calling the LLM.  Returns ``None`` when taxonomy evidence is
+    insufficient.
+    """
+    if not taxonomy_index:
+        return None
+
+    sim = row.get("sim_score", row.get("similarity", 0))
+    if sim < min_sim:
+        return None
+
+    source_concepts = safe_list(row.get("source_concepts", []))
+    target_concepts = safe_list(row.get("target_concepts", []))
+
+    # Map taxonomy relation keys to our relationship types
+    tax_to_rel = {
+        "requires": "requires",
+        "part_of": "requires",      # A is part of B -> A requires B
+        "is_a": "extends",          # A is a kind of B -> A extends B
+        "has_part": "explains",     # A has part B -> A explains B
+        "has_kind": "explains",     # A has kind B -> A explains B
+        "replaces": "contrasts_with",
+    }
+
+    for src in source_concepts:
+        entry = taxonomy_index.get(src, {})
+        for tax_key, rel_type in tax_to_rel.items():
+            targets_in_tax = entry.get(tax_key) or []
+            for tgt in target_concepts:
+                if tgt in targets_in_tax:
+                    return {
+                        "relationship": rel_type,
+                        "confidence": 0.75,
+                        "bidirectional": rel_type == "contrasts_with",
+                    }
+    return None
+
+
+class CostTracker:
+    """Accumulates token counts and estimated cost across LLM calls."""
+
+    # Per-million-token pricing (input, output) — approximate as of early 2026
+    PRICING = {
+        "gpt-4o-mini":                    (0.15,  0.60),
+        "claude-3-haiku-20240307":        (0.25,  1.25),
+        "claude-sonnet-4-20250514":       (3.00, 15.00),
+        "claude-3-5-haiku-20241022":      (0.80,  4.00),
+    }
+
+    def __init__(self, model: Optional[str] = None):
+        self.input_tokens = 0
+        self.output_tokens = 0
+        self.calls = 0
+        self.model = model
+
+    def record(self, input_chars: int, output_chars: int):
+        # Rough char -> token ratio (~4 chars/token for English)
+        self.input_tokens += input_chars // 4
+        self.output_tokens += output_chars // 4
+        self.calls += 1
+
+    @property
+    def estimated_cost(self) -> float:
+        inp_price, out_price = self.PRICING.get(self.model or "", (1.0, 3.0))
+        return (self.input_tokens * inp_price + self.output_tokens * out_price) / 1_000_000
+
+    def summary(self) -> str:
+        return (
+            f"API calls: {self.calls:,}\n"
+            f"Input tokens (est.): {self.input_tokens:,}\n"
+            f"Output tokens (est.): {self.output_tokens:,}\n"
+            f"Estimated cost: ${self.estimated_cost:.2f}"
+        )
+
+
 def classify_pairs(
     pairs_df: pd.DataFrame,
     inventory_df: pd.DataFrame,
@@ -584,12 +682,29 @@ def classify_pairs(
     api_config: Dict[str, Any],
     taxonomy_index: Optional[Dict[str, Any]] = None,
     max_chars: int = 2000,
-    checkpoint_every: int = 100
+    checkpoint_every: int = 100,
+    cost_tracker: Optional[CostTracker] = None,
+    tier2_config: Optional[Dict[str, Any]] = None,
+    tier1_accept_threshold: float = 0.85,
 ) -> pd.DataFrame:
-    """Classify relationships for all pairs with checkpointing."""
+    """Classify relationships for all pairs with checkpointing.
+
+    Optimizations over the original implementation:
+    - Taxonomy auto-classify: pairs with a known taxonomy relation and
+      similarity >= 0.80 are classified without an LLM call.
+    - Adaptive text length: high-similarity pairs (>= 0.85) use a shorter
+      max_chars (1200) since headings + concepts carry enough signal.
+    - Two-tier model: when *tier2_config* is provided, tier-1 results with
+      confidence < *tier1_accept_threshold* or type ``related_to`` are
+      re-classified with the (more expensive) tier-2 model.
+    - Cost tracking: when *cost_tracker* is provided, estimated token counts
+      and cost are accumulated.
+    """
     
     results = []
     skipped_count = 0
+    auto_classified_count = 0
+    tier2_count = 0
     # Use process-specific checkpoint to avoid conflicts in parallel processing
     process_id = os.getpid()
     checkpoint_path = Path(f"outputs/classified_pairs_checkpoint_pid_{process_id}.parquet")
@@ -598,13 +713,31 @@ def classify_pairs(
         # Get section metadata
         source_concepts = safe_list(row.get("source_concepts", []))
         target_concepts = safe_list(row.get("target_concepts", []))
+
+        # --- Taxonomy auto-classify (no LLM call) ---
+        tax_result = _taxonomy_auto_classify(row, taxonomy_index or {})
+        if tax_result is not None:
+            result_row = {
+                **row.to_dict(),
+                "relationship_type": tax_result["relationship"],
+                "relationship_confidence": tax_result["confidence"],
+                "relationship_bidirectional": tax_result.get("bidirectional", False),
+                "classification_source": "taxonomy",
+            }
+            results.append(result_row)
+            auto_classified_count += 1
+            continue
+
+        # --- Adaptive text length ---
+        sim = row.get("sim_score", row.get("similarity", 0))
+        effective_max_chars = 1200 if sim >= 0.85 else max_chars
         
-        # Get section text (now with enhanced fallback)
+        # Get section text (LRU-cached)
         source_text = get_section_text(
-            inventory_df, row["source_doc"], row["source_section"], max_chars
+            inventory_df, row["source_doc"], row["source_section"], effective_max_chars
         )
         target_text = get_section_text(
-            inventory_df, row["target_doc"], row["target_section"], max_chars
+            inventory_df, row["target_doc"], row["target_section"], effective_max_chars
         )
         
         # Skip only if BOTH texts are empty (should be rare now with fallback)
@@ -639,13 +772,33 @@ def classify_pairs(
         # Classify
         try:
             classification = classify_with_llm(prompt, api_config)
+            if cost_tracker:
+                resp_len = len(json.dumps(classification)) if classification else 0
+                cost_tracker.record(len(prompt), resp_len)
+
+            # --- Two-tier escalation ---
+            if (
+                classification
+                and tier2_config
+                and (
+                    classification.get("confidence", 0) < tier1_accept_threshold
+                    or classification.get("relationship") == "related_to"
+                )
+            ):
+                tier2_result = classify_with_llm(prompt, tier2_config)
+                if tier2_result:
+                    classification = tier2_result
+                    tier2_count += 1
+                    if cost_tracker:
+                        cost_tracker.record(len(prompt), len(json.dumps(tier2_result)))
             
             if classification:
                 result_row = {
                     **row.to_dict(),
                     "relationship_type": classification.get("relationship"),
                     "relationship_confidence": classification.get("confidence"),
-                    "relationship_bidirectional": classification.get("bidirectional", False)
+                    "relationship_bidirectional": classification.get("bidirectional", False),
+                    "classification_source": "llm",
                 }
                 results.append(result_row)
             
@@ -660,10 +813,16 @@ def classify_pairs(
         if len(results) > 0 and len(results) % checkpoint_every == 0:
             temp_df = pd.DataFrame(results)
             temp_df.to_parquet(checkpoint_path, engine="pyarrow", index=False)
-            print(f"\nCheckpoint saved: {len(results)} pairs classified, {skipped_count} skipped")
+            print(f"\nCheckpoint saved: {len(results)} pairs classified "
+                  f"({auto_classified_count} auto-taxonomy, {tier2_count} tier-2 escalated, "
+                  f"{skipped_count} skipped)")
     
     if skipped_count > 10:
         print(f"\nTotal skipped pairs: {skipped_count}")
+    if auto_classified_count > 0:
+        print(f"\nTaxonomy auto-classified: {auto_classified_count:,} pairs (no LLM call)")
+    if tier2_count > 0:
+        print(f"Tier-2 escalated: {tier2_count:,} pairs")
     
     return pd.DataFrame(results)
 
@@ -741,6 +900,36 @@ def main():
         type=str,
         default="outputs/classified_pairs.parquet",
         help="Output file path"
+    )
+    parser.add_argument(
+        "--track-cost",
+        action="store_true",
+        help="Track and report estimated token usage and cost"
+    )
+    parser.add_argument(
+        "--tier2-provider",
+        type=str,
+        default=None,
+        choices=["openai", "anthropic"],
+        help="Tier-2 LLM provider for low-confidence re-classification"
+    )
+    parser.add_argument(
+        "--tier2-model",
+        type=str,
+        default=None,
+        help="Tier-2 model name (e.g., claude-sonnet-4-20250514)"
+    )
+    parser.add_argument(
+        "--tier2-api-key",
+        type=str,
+        default=None,
+        help="API key for tier-2 provider (or set env var)"
+    )
+    parser.add_argument(
+        "--tier1-accept",
+        type=float,
+        default=0.85,
+        help="Confidence threshold to accept tier-1 result without tier-2 (default: 0.85)"
     )
     
     args = parser.parse_args()
@@ -854,6 +1043,10 @@ def main():
     print(f"  Topics inventory: {len(inventory_df):,} documents")
     print(f"  Concepts: {len(concepts_df):,} sections")
 
+    # Set global reference for LRU-cached section text lookup
+    global _inventory_df_ref
+    _inventory_df_ref = inventory_df
+
     # D1: Load taxonomy index once at startup
     print("\nLoading taxonomy index...")
     taxonomy_index = load_taxonomy_index()
@@ -884,9 +1077,30 @@ def main():
     
     print(f"\nClassification settings:")
     print(f"  Provider: {args.provider}")
-    print(f"  Model: {args.model or 'default'}")
+    print(f"  Model: {api_config['model'] or 'default'}")
     print(f"  Max text length: {args.max_chars:,} chars")
     print(f"  Rate limit delay: {args.delay}s")
+    if args.track_cost:
+        print(f"  Cost tracking: ON")
+
+    # Build tier-2 config if requested
+    tier2_config = None
+    if args.tier2_provider:
+        tier2_key = args.tier2_api_key or os.getenv(f"{args.tier2_provider.upper()}_API_KEY")
+        if not tier2_key:
+            print(f"\nError: Tier-2 API key required for '{args.tier2_provider}'")
+            return
+        tier2_config = {
+            "provider": args.tier2_provider,
+            "api_key": tier2_key,
+            "model": args.tier2_model or api_config["model"],
+            "delay": args.delay,
+        }
+        print(f"  Tier-2 model: {tier2_config['provider']}/{tier2_config['model']}")
+        print(f"  Tier-1 accept threshold: {args.tier1_accept}")
+
+    # Cost tracker
+    cost_tracker = CostTracker(api_config["model"]) if args.track_cost else None
     
     # Classify relationships
     print(f"\nClassifying {len(pairs_df):,} relationships...")
@@ -912,7 +1126,10 @@ def main():
         base_prompt,
         api_config,
         taxonomy_index=taxonomy_index,
-        max_chars=args.max_chars
+        max_chars=args.max_chars,
+        cost_tracker=cost_tracker,
+        tier2_config=tier2_config,
+        tier1_accept_threshold=args.tier1_accept,
     )
     
     elapsed = time.time() - start_time
@@ -968,6 +1185,16 @@ def main():
     # Cleanup HTTP session if it exists
     if "session" in api_config:
         api_config["session"].close()
+
+    # Cost summary
+    if cost_tracker:
+        print(f"\n--- Cost Report ---")
+        print(cost_tracker.summary())
+
+    # LRU cache stats
+    cache_info = _get_section_text_cached.cache_info()
+    print(f"\nSection text cache: {cache_info.hits:,} hits, {cache_info.misses:,} misses "
+          f"({100*cache_info.hits/(cache_info.hits+cache_info.misses+1):.0f}% hit rate)")
     
     print(f"\nOutput saved to: {args.output}")
 
