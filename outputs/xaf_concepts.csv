@@ -1,0 +1,149 @@
+id,name
+xaf.architecture.application-model.application-model,Application Model
+xaf.architecture.application-model.model-cache,Model Cache
+xaf.architecture.application-model.model-differences,Model Differences
+xaf.architecture.application-model.model-extension,Model Extension
+xaf.architecture.application-model.model-nodes,Model Nodes
+xaf.architecture.core.applicationbuilder,ApplicationBuilder
+xaf.architecture.core.web-api-service,Web API Service
+xaf.architecture.core.xaf-application,XAF Application
+xaf.architecture.dependency-injection.dependency-injection,Dependency Injection
+xaf.architecture.modules.modules,Modules
+xaf.architecture.multi-tenancy.multi-tenancy,Multi-Tenancy
+xaf.architecture.multi-tenancy.tenant,Tenant
+xaf.data.business-model.business-object,Business Object
+xaf.data.business-model.business-object-lifecycle,Business Object Lifecycle
+xaf.data.business-model.clone-object,Clone Object
+xaf.data.business-model.custom-validation-rules,Custom Validation Rules
+xaf.data.business-model.non-persistent-object,Non-persistent Object
+xaf.data.business-model.state-machine,State Machine
+xaf.data.business-model.tree-node-interface,Tree Node Interface
+xaf.data.business-model.validation,Validation
+xaf.data.concurrency.optimistic-locking,Optimistic Locking
+xaf.data.criteria.built-in-criteria-operators,Built-in Criteria Operators
+xaf.data.criteria.criteria,Criteria
+xaf.data.criteria.custom-criteria-functions,Custom Criteria Functions
+xaf.data.database.database-connection,Database Connection
+xaf.data.database.direct-sql,Direct SQL
+xaf.data.database.multiple-databases,Multiple Databases
+xaf.data.object-space.async-operations,Async Operations
+xaf.data.object-space.business-logic,Business Logic
+xaf.data.object-space.object-space,Object Space
+xaf.data.object-space.object-space-provider,Object Space Provider
+xaf.data.orm.entity-framework-core,Entity Framework Core
+xaf.data.orm.xpo,XPO
+xaf.data.properties.auto-increment-fields,Auto-Increment Fields
+xaf.data.properties.calculated-property,Calculated Property
+xaf.data.properties.collection-property,Collection Property
+xaf.data.properties.file-attachments,File Attachments
+xaf.data.properties.property-metadata,Property Metadata
+xaf.data.properties.reference-property,Reference Property
+xaf.data.relationships.object-relationships,Object Relationships
+xaf.data.updates.database-update,Database Update
+xaf.localization.localization.culture-specific-formatting,Culture-Specific Formatting
+xaf.localization.localization.localization-basics,Localization Basics
+xaf.localization.localization.localization-tool,Localization Tool
+xaf.localization.localization.programmatic-localization,Programmatic Localization
+xaf.localization.localization.runtime-language-switcher,Runtime Language Switcher
+xaf.localization.localization.satellite-assemblies,Satellite Assemblies
+xaf.migration.legacy.legacy-net-framework,Legacy .NET Framework
+xaf.migration.migration.migration,Migration
+xaf.ops.deployment.deployment,Deployment
+xaf.ops.deployment.scaling-architecture,Scaling Architecture
+xaf.ops.diagnostics.diagnostic-tools,Diagnostic Tools
+xaf.ops.logging.logging,Logging
+xaf.quality.performance.memory-management,Memory Management
+xaf.quality.performance.performance-optimization,Performance Optimization
+xaf.quality.testing.testing,Testing
+xaf.security.auditing.audit-trail,Audit Trail
+xaf.security.authentication.authentication,Authentication
+xaf.security.authorization.authorization,Authorization
+xaf.security.authorization.permission-policies,Permission Policies
+xaf.security.core.middle-tier,Middle Tier
+xaf.security.core.security-system,Security System
+xaf.security.users.custom-user-management,Custom User Management
+xaf.tooling.model-editor.model-editor,Model Editor
+xaf.tooling.project-creation.assembly-references,Assembly References
+xaf.tooling.project-creation.package-management,Package Management
+xaf.tooling.project-creation.project-wizards,Project Wizards
+xaf.tooling.project-creation.template-kit,Template Kit
+xaf.ui.actions.action-container-view-items,Action Container View Items
+xaf.ui.actions.action-containers,Action Containers
+xaf.ui.actions.action-customization,Action Customization
+xaf.ui.actions.action-state-management,Action State Management
+xaf.ui.actions.action-types,Action Types
+xaf.ui.actions.actions,Actions
+xaf.ui.actions.built-in-actions,Built-in Actions
+xaf.ui.actions.parametrized-action,Parametrized Action
+xaf.ui.actions.popup-window-show-action,Popup Window Show Action
+xaf.ui.actions.simple-action,Simple Action
+xaf.ui.actions.single-choice-action,Single Choice Action
+xaf.ui.controllers.built-in-controllers,Built-in Controllers
+xaf.ui.controllers.crud-controllers,CRUD Controllers
+xaf.ui.controllers.controller-activation,Controller Activation
+xaf.ui.controllers.controller-customization,Controller Customization
+xaf.ui.controllers.controller-lifecycle,Controller Lifecycle
+xaf.ui.controllers.controller-types,Controller Types
+xaf.ui.controllers.controllers-and-actions,Controllers and Actions
+xaf.ui.controllers.dialog-controller,Dialog Controller
+xaf.ui.controllers.generic-view-controllers,Generic View Controllers
+xaf.ui.controllers.list-view-controllers,List View Controllers
+xaf.ui.controllers.object-view-controllers,Object View Controllers
+xaf.ui.controllers.target-properties,Target Properties
+xaf.ui.controllers.view-controller,View Controller
+xaf.ui.controllers.window-controller,Window Controller
+xaf.ui.editors.collection-property-editors,Collection Property Editors
+xaf.ui.editors.lookup-property-editors,Lookup Property Editors
+xaf.ui.editors.mail-merge,Mail Merge
+xaf.ui.editors.office-module,Office Module
+xaf.ui.editors.property-editor-customization,Property Editor Customization
+xaf.ui.editors.property-editor-features,Property Editor Features
+xaf.ui.editors.property-editor-types,Property Editor Types
+xaf.ui.editors.property-editors,Property Editors
+xaf.ui.editors.specialized-property-editors,Specialized Property Editors
+xaf.ui.editors.spreadsheet-control,Spreadsheet Control
+xaf.ui.editors.standard-property-editors,Standard Property Editors
+xaf.ui.layout.accordion-control,Accordion Control
+xaf.ui.layout.layout,Layout
+xaf.ui.layout.layout-generation,Layout Generation
+xaf.ui.layout.layout-runtime-customization,Layout Runtime Customization
+xaf.ui.list-editors.list-editors,List Editors
+xaf.ui.list-editors.tree-list,Tree List
+xaf.ui.navigation.navigation,Navigation
+xaf.ui.navigation.tabbed-mdi-interface,Tabbed MDI Interface
+xaf.ui.templates.application-templates,Application Templates
+xaf.ui.theming.conditional-appearance,Conditional Appearance
+xaf.ui.theming.svg-graphics,SVG Graphics
+xaf.ui.theming.theming,Theming
+xaf.ui.ux.context-menus,Context Menus
+xaf.ui.ux.error-styling,Error Styling
+xaf.ui.ux.filtering-ui,Filtering UI
+xaf.ui.ux.inline-editing,Inline Editing
+xaf.ui.ux.loading-indicators,Loading Indicators
+xaf.ui.ux.notifications,Notifications
+xaf.ui.views.charts,Charts
+xaf.ui.views.dashboard-view,Dashboard View
+xaf.ui.views.dashboard-view-items,Dashboard View Items
+xaf.ui.views.dashboards,Dashboards
+xaf.ui.views.detail-view,Detail View
+xaf.ui.views.list-view,List View
+xaf.ui.views.list-view-data-access-modes,List View Data Access Modes
+xaf.ui.views.lookup-view,Lookup View
+xaf.ui.views.master-detail-views,Master-Detail Views
+xaf.ui.views.nested-views,Nested Views
+xaf.ui.views.pivotgrid,PivotGrid
+xaf.ui.views.recurring-events,Recurring Events
+xaf.ui.views.report-parameters,Report Parameters
+xaf.ui.views.reports,Reports
+xaf.ui.views.reports-v2,Reports V2
+xaf.ui.views.scheduler,Scheduler
+xaf.ui.views.static-view-items,Static View Items
+xaf.ui.views.view-customization,View Customization
+xaf.ui.views.view-items,View Items
+xaf.ui.views.view-lifecycle,View Lifecycle
+xaf.ui.views.view-types,View Types
+xaf.ui.views.view-variants,View Variants
+xaf.ui.views.views,Views
+xaf.ui.windows-frames.frames,Frames
+xaf.ui.windows-frames.popup-windows,Popup Windows
+xaf.ui.windows-frames.windows,Windows

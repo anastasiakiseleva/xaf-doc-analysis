@@ -123,6 +123,8 @@ taxonomy_domains:
         name: Project Creation
       - id: model-editor
         name: Model Editor
+      - id: code-analysis
+        name: Code Analysis
 
   - id: migration
     name: Migration & Legacy

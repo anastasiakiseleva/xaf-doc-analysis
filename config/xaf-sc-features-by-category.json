@@ -1,0 +1,294 @@
+{
+  "AI": [
+    "AI"
+  ],
+  "Application Model": [
+    "Application Model",
+    "Cache (ModelAssembly, EnableModelCache)",
+    "Default and Custom Attributes to Customize Model",
+    "Model Difference Storages",
+    "Model Editor",
+    "Read, Customize, or Extend the Application Model"
+  ],
+  "Audit Trail Module": [
+    "Audit Trail Module",
+    "Audit History in the UI",
+    "Audit in Non-XAF Apps",
+    "Custom Operations and Other Storage Classes",
+    "Performance, Purge History, Lightweight Mode"
+  ],
+  "Business/Data Model Design": [
+    "Business Model Design",
+    "Aliased, Calculated, and Custom Fields/Metadata",
+    "Custom Implementations of Default XAF BCL Entities",
+    "DateTime Properties (UTC, conversion)",
+    "Issues with Non-Unique Key Values",
+    "Legacy DB Mapping (SQL View, Composite Key)",
+    "Non-Persistent Objects",
+    "ORM Data Model Wizard/Designer",
+    "ORM Database Schema Migrations",
+    "Property Changed Event",
+    "Relationships (Associations)",
+    "Sequential Numbers (Auto-Increment)",
+    "XPO IList Associations (ManyToManyAliasAttribute)"
+  ],
+  "Chart Module": [
+    "Chart Module",
+    "Chart Customization in Code",
+    "Chart Customization in Wizard"
+  ],
+  "Clone Object Module": [
+    "Clone Object Module",
+    "Cloner Customization"
+  ],
+  "Code Analysis (Roslyn Analyzers)": [
+    "Code Analysis (Roslyn Analyzers)",
+    "False-Positive Diagnostics"
+  ],
+  "Conditional Appearance Module": [
+    "Conditional Appearance Module",
+    "Custom Appearance on Events",
+    "Custom UI Elements",
+    "Skin-Aware Colors"
+  ],
+  "Controllers, Actions, Frame Templates (Form Templates)": [
+    "Action and Container Controls",
+    "Active/Enabled State",
+    "Built-in Action Types",
+    "Built-in Controllers",
+    "Custom Controllers Design",
+    "Form Templates",
+    "InPlace Actions in Grid Cells",
+    "Keyboard Shortcuts",
+    "LinkNewObjectToParentImmediately"
+  ],
+  "Dashboards Module": [
+    "Dashboards Module",
+    "Dashboards Control Customization (Widgets, Extensions)",
+    "FillServices",
+    "Dashboard Filtering",
+    "Non-XAF Data Sources"
+  ],
+  "Data Locking (Concurrency Control)": [
+    "Data Locking (Concurrency Control)",
+    "Default Merging",
+    "Track Changes"
+  ],
+  "Data Manipulation and Business Logic": [
+    "Data Manipulation and Business Logic",
+    "ASync/Await Method Support",
+    "Custom Logic Within a Data Model",
+    "Custom Logic Withing View or Controller",
+    "Deep Insert",
+    "Dependency Injection in Controllers, Business Objects",
+    "Error: Object belongs to a different Session/Space",
+    "Error: Object was changed by another user",
+    "Error: using CreateObjectSpace()",
+    "Transaction/Unit of Work",
+    "XAF Data and Logic in Non-XAF Apps"
+  ],
+  "Data Representation, Sources, and Modes": [
+    "Data Representation, Sources, and Modes",
+    "DataAccessMode = DataView and Non-XAF XPView",
+    "DataAccessMode = Server/IF (regular) and Non-XAF",
+    "DataAccessMode = ServerView/IFView and Non-XAF",
+    "DataAccessMode = Queryable",
+    "XPBindingSource",
+    "XPObjectSource for Reports and Dashboards"
+  ],
+  "Data Store Configuration": [
+    "Data Store Configuration",
+    "Connect Several Databases Simultaneously",
+    "Obtain Data From External Services, Other Databases",
+    "ThreadSafeDataLayer",
+    "XPO OData, Web API Services, JSON Serialization",
+    "XPO Web API Data Store"
+  ],
+  "Debugging, Testing, and Error Handling": [
+    "Debugging, Testing, and Error Handling",
+    "EasyTest/Script Recorder Module",
+    "LinqPad Driver",
+    "Tracer",
+    "Unit Testing",
+    "XPO Profiler"
+  ],
+  "Deployment": [
+    "Deployment",
+    "ClickOnce",
+    "Cloud Deployment (Azurem AWS, etc.)",
+    "Linux (nginx, Apache, Electron, Docker)",
+    "Missing Assemblies and Resources",
+    "ModuleUpdater and DBUpdater",
+    "XAF Application Updater"
+  ],
+  "Features For Enterprise Development": [
+    "Features For Enterprise Development"
+  ],
+  "File Attachments Module": [
+    "File Attachments Module",
+    "File Attachments Controls Customization",
+    "File System or Custom Storages",
+    "FileData in Non-XAF Apps (CompressionUtils)"
+  ],
+  "Filtering and Querying Data": [
+    "Filtering and Querying Data",
+    "Built-In Criteria Operators",
+    "Custom Criteria Functions",
+    "Direct SQL",
+    "Filter by Security User",
+    "LINQ to XPO",
+    "XAF Current Object Parameter for XPO"
+  ],
+  "Images": [
+    "Images",
+    "Custom Image Source",
+    "ImageLoader Customizations",
+    "Missing Images (ShowXXX options and issues)"
+  ],
+  "Localization/Accessibility": [
+    "Localization/Accessibility",
+    "Accessibility (WPAT, Section 508",
+    "Custom Localization (in code)",
+    "Localization Service",
+    "Localization in Model Editor",
+    "Obtain Captions in Non-XAF Apps",
+    "Right-to-Left (RTL)",
+    "Template Localization"
+  ],
+  "Multi-Tenancy (SaaS-ready/multiple tenants)": [
+    "Multi-Tenancy (SaaS-ready/multiple tenants)",
+    "Custom Tenant and Other Classes",
+    "Custom Tenant Resolver (URL, ID)",
+    "Multi-Tenancy Database (creation, share storage)",
+    "Licensing (CAL, Compliance, Limitations",
+    "Limit Tenant Features (SKU, Modules, User Count)",
+    "Select Tenants on Login",
+    "Switch Tenants Inside App (After Login)"
+  ],
+  "Navigation System": [
+    "Navigation System",
+    "Accordion Control",
+    "Configure Navigation in Model Editor",
+    "Navigation Control Customization",
+    "ShowNavigationItemController Customization"
+  ],
+  "Notifications Module": [
+    "Notifications Module",
+    "Custom Filtering in Notifications Module",
+    "ISupportNotifications Implementation"
+  ],
+  "Office Module (Rich Text, Spreadsheets, PDF": [
+    "Office Module (Rich Text, Spreadsheets, PDF",
+    "PDF Viewer",
+    "Rich Text Editor",
+    "Spreadsheet"
+  ],
+  "Performance": [
+    "Performance",
+    "Memory Consumption",
+    "Speed"
+  ],
+  "Pivot Grid Module": [
+    "Pivot Grid Module",
+    "Pivot Grid Customization in Code",
+    "Pivot Grid Customization in Wizard"
+  ],
+  "Reports Module": [
+    "Reports Module",
+    "Bind To Custom Data Sources",
+    "InPlace Reports",
+    "Predefined Reports",
+    "Report Control Customization",
+    "Show Preview, Print, Export in Code",
+    "XAF Report Object Parameters",
+    "XtraReport Parameters"
+  ],
+  "Scheduler Module": [
+    "Scheduler Module",
+    "Custom Filtering in Scheduler",
+    "IEvent and IResource Implementation",
+    "Recurring Events",
+    "Scheduler Control Customization",
+    "Timeout"
+  ],
+  "Security Module": [
+    "Security Module",
+    "Action Permissions",
+    "Administrative UI",
+    "Built-In Permissions Setup/Troubleshooting",
+    "Custom Authentication/Logon Parameters Form",
+    "Custom Permissions Implementation",
+    "Custom User and Role Classes",
+    "Middle-Tier Application Server",
+    "Security inMultiple Databases",
+    "OAuth Identity Providers",
+    "Security in Non-XAF Apps"
+  ],
+  "Solution Structure and Module Design": [
+    "Solution Structure and Module Design",
+    "CLI Templates",
+    "Dynamically Loaded Modules and Types",
+    "Nuget",
+    "Template Kit",
+    "ValueManager",
+    "Version Control System",
+    "Xafari (Galaktika)"
+  ],
+  "UI Customization": [
+    "UI Customization",
+    "Custom Property Editors",
+    "Custom List Editors",
+    "Custom Detail View Layouts",
+    "Custom List View Layouts",
+    "Custom Model Editors",
+    "Custom Model Editor Controllers",
+    "Custom Views (Dashboard, Report, etc.)"
+  ],
+  "State Machine Module": [
+    "State Machine Module",
+    "Custom Enable/Hide States"
+  ],
+  "TreeList Editors Module": [
+    "TreeList Editors Module",
+    "Custom Filtering in TreeList Editor",
+    "InPlace Editing in TreeList Editor",
+    "ITreeNode Implementation"
+  ],
+  "Validation Module": [
+    "Validation Module",
+    "Built-In Rules Setup/Troubleshooting",
+    "Custom Error Highlighting",
+    "Custom Rule Type Implementation",
+    "RuleSet Customization",
+    "Validate Persistent Objects in Non-XAF Apps"
+  ],
+  "View Variants Module": [
+    "View Variants Module",
+    "Custom Storages in View Variants"
+  ],
+  "Views and View Items and Property Editors": [
+    "Views and View Items and Property Editors",
+    "Built-In View Items and Editors",
+    "Collapsible Groups (IsGroupCollapsed)",
+    "Creating and Showing Views",
+    "Criteria Editors",
+    "Custom View Items and Editors",
+    "DashboardViews",
+    "Enum Editors",
+    "Filter Editors",
+    "Grid List Editors",
+    "Grid Pring, Export",
+    "Image Editors",
+    "ImmediatePostData",
+    "Inline Edit (Batch)",
+    "Layout End-User Customization",
+    "Layout Generation and Customization API",
+    "Lazy Loading (DelayedViewItemsInitialization)",
+    "ListViewAndDetailView (Master-Detail",
+    "Lookup Property Editors",
+    "Pop-Up Property Editors",
+    "Property Editor Value Formatting",
+    "Tag Box Editors",
+    "Text Notifications (ShowMessage, Toast)"
+  ]
+}
