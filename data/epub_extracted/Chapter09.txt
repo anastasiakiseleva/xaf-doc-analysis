@@ -1,0 +1,435 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 9
+
+Taxonomy Displays
+
+So many taxonomies, so little time.
+
+—Seth Earley
+
+A taxonomy has different kinds of users, and hence the same taxonomy may be implemented with different user interfaces or displays. Taxonomy users may include
+
+
+       1.  taxonomists, searching and browsing the taxonomy in order to update and maintain it
+
+       2.  human indexers or taggers, using the taxonomy to index or tag content
+
+       3.  subject area researchers, using the taxonomy to better understand a subject area, without seeking linked content
+
+       4.  end-user searchers, using the taxonomy to find specific content or discover information
+
+
+
+All taxonomies are used at least by a taxonomist and by end users, but not all taxonomies display fully to the end users. Additionally, human indexers and possibly also subject area researchers use some taxonomies. These taxonomies are fully displayed, possibly with more than one format option. Taxonomies that are made available to third-party subject area researchers (which may include other taxonomists) are usually also used by human indexers, but not all taxonomies used by human indexers are provided in a displayable format to other parties.
+
+The first section of this chapter discusses various standard displays of the type of taxonomy called a thesaurus, as used by taxonomists, human indexers, subject area researchers, and occasionally end-user searchers. The following sections look specifically at end-user displays of different kinds of taxonomies, not just thesauri. Options for taxonomy end-user displays are largely determined by the taxonomy organization and structure, which could be any of the following:
+
+
+       •  A thesaurus of terms, with no dominating hierarchies
+
+       •  A hierarchical taxonomy or taxonomies
+
+       •  A set of facets or categories
+
+
+
+Unlike the taxonomy itself, the design of the end-user display is often a decision involving more people than just the taxonomist. Nevertheless, the taxonomist usually contributes to the design of the end-user display at least to some degree.
+
+Thesaurus Displays and Outputs
+
+A thesaurus, in contrast to a simple hierarchical taxonomy, is often the most suitable kind of knowledge organization system when there is a relatively large controlled vocabulary and human indexers are involved. A thesaurus differs from a hierarchical taxonomy not only in its focus on the individual term and its relationships, both hierarchical and associative, but also in its flexibility with regard to different displays. Although you could sort a hierarchical taxonomy into a single alphabetical list of terms, if the taxonomy lacks nonpreferred terms, then an alphabetical list is not very useful. It would be like a book index without See references or double posts. A single thesaurus, by contrast, can display its terms hierarchically or alphabetically, as we have already seen in the user interface display options of thesaurus management software described in Chapter 5.
+
+Not only are there different display options in the interface used by the taxonomist, but the indexers, thesaurus researchers (not searching for content), and possibly even end-user searchers may also have the ability to choose different display or access options. Published thesauri typically have at least two formats, one for an alphabetical presentation of the thesaurus and one for the same thesaurus in a hierarchical presentation.
+
+In addition to the different user interface display options, full-featured thesaurus management software offers various output or report options, which can be displayed to the screen or printed. These different output displays are useful for reviewing, sharing, or publishing the thesaurus. In addition to the general choice between hierarchical and alphabetical, there may be further variations on each of these formats. Types of thesaurus output displays include:
+
+
+       •  Alphabetical simple list: Terms listed alphabetically without any details displayed
+
+       •  Alphabetical flat format: Terms with all their immediate relationships (UF, BT, NT, RT) and notes if any (also known as a term record), and often the default alphabetical display for a thesaurus
+
+       •  Full-term hierarchy: Terms with multiple relationship levels displayed (such as BT1, BT2, etc.; NT1, NT2, etc.)
+
+       •  Top term hierarchy: A listing of only the broadest terms, each one including a display of its hierarchy of narrower terms underneath
+
+       •  Permuted/rotated index: Terms listed by their component words (i.e., an alphabetic list of words within terms), and variations known as KWIC (keyword in context) and KWOC (keyword out of context)
+
+
+
+Alphabetical Simple List
+
+An alphabetical display of a thesaurus allows users to browse any section of the thesaurus for a term they have in mind. Users have an idea of what concept they want but are not sure of the exact phrasing of the term, so they look up the start of the first word. What makes an alphabetical display especially useful is that often nonpreferred terms are interspersed, usually in a different typeface. Users may have an option to show or hide nonpreferred terms in any of the alphabetical display formats. An example of a simple list alphabetical display is shown in Figure 9.1.
+
+
+
+Figure 9.1 Simple list alphabetical display from the National Agriculture Library Thesaurus: “Browse A–Z view,” with additional screenshot of selected nonpreferred term and selected preferred term details overlaid (Source: agclass.nal.usda.gov)
+
+The simple list type of alphabetical display permits the quickest browsing. This option is usually made available to taxonomists or human indexers who are already somewhat familiar with the thesaurus and do not need to read all the details of a term to know which term they want. Hiding nonpreferred terms supports even more efficient browsing, but only if the user has a pretty good idea of the wording of the desired term. Simple lists are less common in end-user searcher displays. In any case, if an alphabetical list is available, in an online environment it is typical to have terms in a simple list hyperlinked to their full-detail display, such as in the example shown in Figure 9.1.
+
+Alphabetical Flat Format
+
+The flat format is an alphabetical list of terms (usually both preferred and nonpreferred) with each preferred term having all of its nonpreferred terms, broader terms, narrower terms, related terms, and any scope note listed under it. This is often the default “alphabetical” output of thesaurus management software, and it is the commonly expected display of a thesaurus kind of controlled vocabulary. A subject area researcher interested in term details rather than linked content would also most likely seek out this display. An example excerpt of a flat-format alphabetical list of terms from the ASIS&T Thesaurus of Information Science, Technology, and Librarianship is shown in Figure 9.2.1
+
+
+
+Figure 9.2 Flat-format alphabetical arrangement of terms from the ASIS&T Thesaurus of Information Science, Technology, and Librarianship
+
+The alphabetic flat format is common in printed thesauri, because all the term details are present, but there is no repetitive inclusion of terms, as is the case with full-term hierarchy display (which would take up more space). In the online medium, it has become less common to see a complete alphabetical listing with the flat-format display of terms. Instead, there might be a simple list, with the flat-format term details appearing in a separate window, as is the example in the second window in Figure 9.1.
+
+The information provided for each term in flat-format display typically includes the following: nonpreferred terms (UF), broader term(s) (BT), narrower terms (NT), related terms (RT), and scope note. The broader terms and narrower terms displayed are those that are in immediate relationships, just one level up or one level down. In a bilingual thesaurus, a term’s foreign language translation is also included. Less common but sometimes included is the term’s ultimate broadest term, or top term, abbreviated as TT. For example, the multiterm hierarchy products > software > business software > spreadsheet software would be listed with the broader term and broadest term indicated as follows:
+
+
+               spreadsheet software
+
+BT business software
+
+TT products
+
+
+
+Online thesaurus term details now may also have a persistent URL and a link to the RDF/XML format of the term details (nonpreferred terms, broader term, narrower terms, related terms, scope note, etc.)
+
+Hierarchical Term Outputs
+
+Hierarchical reports or outputs from a thesaurus are also alphabetical. Each preferred term is listed in alphabetical order along with the term’s hierarchical relationships. A hierarchical output of a thesaurus differs from the alphabetical output in three ways: (1) typically only the hierarchical relationships are displayed (no scope notes, nonpreferred terms, or associative relationships), (2) the full hierarchy is displayed, instead of just the immediate broader and narrower terms, and (3) the alphabetical listing is of preferred terms only (nonpreferred terms are not listed). For a thesaurus that is not very hierarchical, that is, it is not organized under just a few broader terms, a “hierarchical” output may appear to be more alphabetical, and this can be confusing. A hierarchical report from a thesaurus does not necessarily look like a hierarchical taxonomy.
+
+There are variations for hierarchical outputs, depending on whether only the narrower term hierarchy is displayed for a given term or both the narrower and broader hierarchy are displayed, and depending on whether the alphabetical listing is of all preferred terms or just top terms. Finally, some published thesauri, such as the NASA thesaurus, include additional term information, such as related term and used-from relationships and definitions in its “hierarchical” display.
+
+Full-Term Hierarchy
+
+In a full-term hierarchy, not only are the immediate broader and narrower terms displayed at each term but also further broader and narrower terms of those terms, all the way out to the ends of the hierarchy. The number of hierarchical levels may vary among terms within the same taxonomy.
+
+There are two kinds of full-term hierarchy displays: multilevel and two-way hierarchy. A multilevel display lists the relationships under the preferred term, with successive levels of hierarchy typically indicated by numerals following or by greater-than/less-than signs (angle brackets) preceding BT or NT, such as BT1, BT2 or >BT, >>BT. Additional relationships (UF, RT, Scope Note) may or may not be included. A two-way hierarchy is a more graphical representation of a term’s placement in a hierarchy, displaying its broader terms above it and its narrower terms below it and making use of indentations, carats, periods, colons, or other punctuation. A typical display might use successive periods (ellipses) preceding each narrower term and colons preceding each broader term. Figure 9.3 contrasts a multilevel hierarchy and a two-way hierarchy for the same term.
+
+
+
+Figure 9.3 Full-term hierarchy displays, both multilevel and two-way
+
+If using greater-than/less-than signs, then the full-term hierarchy for recreation facilities would include the following terms and notation:
+
+
+<< Facilities & infrastructure
+
+< Public buildings & facilities
+
+Recreation facilities
+
+> Amusement parks
+
+>> Athletic facilities
+
+
+
+Top Term Hierarchy
+
+A top term output from a thesaurus is the same as the hierarchical display of a thesaurus in the user interface and is the same as the full hierarchical display of a hierarchical taxonomy. It is an alphabetical list of preferred terms that have no broader terms, and under each is the full hierarchy of narrower terms for each, usually arranged with indents or series of periods. Unlike the full-term hierarchy display, the top term display does not involve any repeated inclusion of terms, except in the case of polyhierarchies. Nonpreferred terms, related terms, and notes are not included in this display. Relatively flat taxonomies will have a high number of top terms, whereas more structured hierarchical taxonomies will have a limited number of top terms. Figure 9.4 presents two different thesaurus top term display excerpts, one more hierarchical than the other.
+
+A top term report is a useful way for a taxonomist to check the hierarchical balance of a thesaurus. For end users, a top term display is desirable for a more hierarchically structured taxonomy or thesaurus. For a taxonomy that has little hierarchy (is relatively “flat”), though, this display has less value for end users.
+
+
+
+Figure 9.4 Top term hierarchy display excerpts: one more hierarchical and one less hierarchical
+
+Permuted Index
+
+A permuted index, also called a rotated index, takes each word within a term (most of which are multiword phrases anyway), sorts these words alphabetically, and displays all the terms with the given word (keyword) in it, grouped together by the keyword. Each taxonomy phrase-term thus appears more than once in the display, under each of its constituent keywords. This display is called an index because it is indeed an alphabetical index of words within terms. There are two variations on the display, KWIC and KWOC.
+
+An alphabetical display of a KWIC or KWOC index can provide a useful way to search for terms in a printed list. In the online environment, however, such an alphabetical display is unnecessary, so the permuted index, especially the KWIC format, is rarely seen anymore. Instead, a user interface, whether for indexers or end-user searchers, may offer the option of searching for words within terms and then return a list of matching taxonomy terms. This type of search essentially achieves the same objective as a permuted display.
+
+Thesaurus Displays for End-User Searchers
+
+The various thesaurus displays described in the preceding section are typically an option reserved for the taxonomist and human indexers and sometimes for subject area researchers if the thesaurus is publicly available. However, end-user searchers do not usually have the option to select from such varied thesaurus displays for several reasons:
+
+
+       •  Search product designers have enough other features to worry about, as they need to support search, discovery, alerts, reports, saving and sharing search results, and the like.
+
+       •  Having different ways to view a thesaurus may provide more information than is needed by the untrained searcher.
+
+       •  End-user searchers generally do not have as great an understanding of thesaurus principles, so they would not readily know what is meant by the relationship codes (BT, NT, RT, UF, TT) or the display type designations (flat, multilevel, two-way hierarchy, or permuted).
+
+       •  The thesaurus in electronic format can be searched anyway, so numerous types of browsable displays may not be needed. A single hierarchical browse display may be offered as an option in addition to the search box, but additional, alphabetical displays may be deemed unnecessary if there is also a search option. While a subject researcher may on occasion still browse a printed or PDF thesaurus or taxonomy, end-user searchers today view and use taxonomies in electronic format only, usually via the web.
+
+
+
+If an alphabetical browse interface is available, then it may be divided into sections for each letter of the alphabet, as shown in Figure 9.5 for ERIC Thesaurus.
+
+
+
+Figure 9.5 ERIC Thesaurus’s A–Z browse display (Source: eric.ed.gov)
+
+
+
+Figure 9.6 USDA Thesaurus’s search options for terms beginning with or containing text (Source: agclass.nal.usda.gov)
+
+If the thesaurus is extremely large, then such alphabetical browsing may not be practical. In this case, users might have just two ways to access terms in the thesaurus, via a hierarchical view or a search box. The search feature, though, should ideally permit the option of searching for both the following:
+
+
+       •  Terms beginning with a word or string
+
+       •  Terms containing a word or string
+
+
+
+The user then retrieves a limited alphabetical list of thesaurus terms. Figure 9.6 shows an example of a search box that presents both search options.
+
+Hierarchical Taxonomy Displays
+
+A typical hierarchical display has narrower terms indented under their broader terms, but large hierarchies can go on for dozens of pages. While a lengthy hierarchy could be browsed across many printed pages, this would be quite impractical on screen. The online medium, however, presents alternatives. While there are various kinds of end-user displays of online hierarchical taxonomies, they all have in common some sort of interactive display that permits the user to navigate down from the top terms to terms that are more specific.
+
+Although the presentation of a hierarchical taxonomy is similar to a top term hierarchical display of a thesaurus, there are stylistic differences. A hierarchical taxonomy does not necessarily use the designation NT or series of periods preceding narrower terms but usually relies simply on indentation and perhaps a different typeface. Sometimes there are also graphical representations for the hierarchy. Additionally, to reflect their heading/category nature, terms usually have initial capitalization, unlike terms in a thesaurus. Finally, terms in a hierarchical taxonomy are often called categories or subjects, rather than terms, to reflect the categorical nature of the hierarchy.
+
+Hierarchical Display Types
+
+There are several common online formats for displaying hierarchical taxonomies to the end user:
+
+
+       •  One level per page or screen view, with terms hyperlinked to the next level of their narrower terms
+
+       •  Expandable trees of terms, in which clicking on a term reveals its narrower terms beneath
+
+       •  Fly-out subcategory lists, displaying like submenus
+
+
+
+One Level per Page
+
+Using a separate webpage to display each level of a taxonomy has been the traditional method for displaying web-based hierarchical taxonomies, as it requires less time and bandwidth to load subsequent level pages. Each term is hyperlinked to a new page that displays all its narrower terms. This was the format of the Yahoo Directory of the web, which existed from 1994 to 2014, and the same format and style is followed by the Open Directory Project (www.dmoz.org). It is more common to have a variation of this format, whereby two levels are presented on the first page and then one level per page follows at deeper levels. An example, Figure 9.7, shows the Superpages site, where the first level and selected terms of the second levels are displayed on the first page, but then new pages are displayed for deeper levels (in this case, geographic rather than topical).
+
+
+
+Figure 9.7 Three successive screenshots from the Dex Media Superpages yellow pages directory hierarchy, in which each lower level of narrower terms is on its own new webpage (Source: www.superpages.com/yellowpages)
+
+This method of separate levels on each page has several advantages:
+
+
+       •  There can be a large number of terms at any given level, so it works with a relatively large taxonomy.
+
+       •  It works well with polyhierarchies.
+
+       •  It is technically easy to implement.
+
+
+
+Disadvantages to this method are as follows:
+
+
+       •  The display often takes up the entire screen and does not permit space for search results or other content.
+
+       •  Users can only see one level in one hierarchy at a time.
+
+       •  It is less suitable when the taxonomy has varied levels or a narrower level consisting of just one or a few terms.
+
+       •  There is often no prior indication whether the next level will have additional narrower terms or will finally link to the content.
+
+
+
+In this type of user interface, the navigation path hierarchy typically displays near the top of the window, so even when at a deeper level, the user still can keep track of the higher levels/broader terms, such as the following example from eBay (www.ebay.com/chp/Alarm-/13856):
+
+
+Home > All Categories > Collectibles & Art > Collectibles > Clocks > Vintage (1930-69) > Alarm
+
+
+
+The terms in the path are hyperlinked to the page where they are the broader term so that the user can easily go back to any previous broader level. This is sometimes referred to as a breadcrumb trail because it shows where you have come from and how to get back, a metaphor based on the story of Hansel and Gretel, who dropped breadcrumbs as they walked through the woods in order to find their way back home.
+
+Expandable Tree Hierarchy
+
+Another method for displaying a hierarchical taxonomy, an expandable tree hierarchy, is more graphical and interactive. It permits the user to click on a term or a plus sign next to it to display its narrower terms, usually indented underneath it or possibly in a new column to its right. Unlike the display with one level per screen, in an expandable tree, all of the higher levels of terms continue to display, even as each narrower level is displayed. Figure 9.8 presents an example from the USA Today newspaper’s categories of new stories.
+
+The expandable tree method has the following advantages:
+
+
+       •  The hierarchical nature is made obvious to the user, and the format is familiar to users of Windows Explorer (analogous to folders on the desktop).
+
+       •  It allows the user to visualize the taxonomy and supports a more interactive exploration of the hierarchy.
+
+       •  The presence or absence of a plus sign next to a term makes it clear whether there is a lower level under the term.
+
+       •  Inconsistent numbers of levels and terms per level are easily accommodated.
+
+       •  The display takes up only part of the screen width, allowing for the display of other content in the remainder of the window, such as content tagged with the term.
+
+
+
+Disadvantages to this method include the following:
+
+
+       •  It is not suitable for displaying a large taxonomy or a large number of narrower terms at a given level, because when terms are expanded, the higher levels get pushed out of view. (Scrolling to see all the terms causes their broader term to scroll out of view.)
+
+       •  It cannot accommodate polyhierarchies very well, due to the limited space of the display window, and they may even be confusing to the user if polyhierarchies are included.
+
+       •  It may tend to take longer to load and display, due to the graphic features.
+
+       •  Implementing the display requires greater expertise and resources in web-page development.
+
+
+
+
+
+Figure 9.8 Expandable tree hierarchy of the USA Today Content Tree (Source: content.usatoday.com/community/tags/topic-index.aspx)
+
+Because of the resources required, both human and bandwidth, expandable tree hierarchies are generally not deployed on public websites, but rather are used within software applications or on intranets within an organization.
+
+Fly-Out Subcategory Lists
+
+The fly-out subcategory design is a more recent display type, and it seems to be growing in popularity for public website-displayed hierarchical taxonomies. When a user selects a category, a list of subcategories then appears (flies out”) typically to the right of the list of top categories. This design style is similar to fly-out submenus found in website navigation. The only difference is that this is not website navigation but rather a hierarchy of taxonomy terms, which are each linked to multiple items, not single webpages.
+
+This method is used as the transition from the top level to the second level in the major retail websites of Best Buy, Target, Walmart, and in a modified form (displaying below rather than out to the right) on the Sears website. It is also used at the lower level of the hierarchical taxonomy on eBay. An example of fly-out categories is in Figure 9.9, from the video course vendor Lynda.com, in which the top-level term Video is selected.
+
+Choice of Display Type
+
+A large taxonomy is best suited for display on one level per screen, whereas small taxonomies can be accommodated with the expandable graphical tree display. Broad hierarchies, with many terms per level, are better displayed with one level per screen, whereas deep hierarchies work better in expandable trees. The expandable tree has become more popular with web designers regardless of taxonomy size and structure, however, because it is more attractive and interactive. Meanwhile, the demands in technology and bandwidth necessary for the interactive graphical displays have become less of an issue. In practice, the design of an attractive display often takes precedence over suitability for a given taxonomy. Thus you, as the taxonomist, might simply be instructed to create a taxonomy for an expandable tree rather than being asked for your input on interface design.
+
+
+
+Figure 9.9 Fly-out subcategories on the site Lynda.com (www.Lynda.com)
+
+With either kind of display, it can be difficult to navigate too many levels, just as with term hierarchies in a thesaurus. If the interface displays one level per screen, then a maximum of three levels is generally considered user-friendly. With an expandable tree, perhaps up to four levels is acceptable. Studies show that users of a public website typically do not have patience for more, especially if they are visiting the site for the first time. They are eager to find information quickly, and they will move on to a different website if they do not find it soon enough. Taxonomies for content for a more restricted audience (such as on an intranet for employees, a specialized subject area, or some kind of reference information source) may have more levels, and indeed their users will expect more levels. Each taxonomy is unique, though, so you should not try to adhere to any strict rules on numbers of levels.
+
+Sort Order Options
+
+With hierarchical displays, the user may have various options for sorting terms within the same hierarchical level (sharing the same broader term). The default sorting in any system is alphabetical, and while this is usually fine, sometimes a different order is more suitable. Any set of terms having to do with time, events, sequence, or procedures could be arranged chronologically or sequentially instead. Other orderings of concepts might be based on well-known categorizations, such as industries arranged in the order of SIC codes (first agriculture, then mining, manufacturing, wholesale, retail, and lastly services). Variations in sort order can be applied to any level, including the top-level terms. If you have usage studies on what the most popular terms are, then popularity could even be used as a basis for sort order. An example of somewhat sequential ordering of six narrower terms is the following:
+
+
+Personnel management
+
+Recruiting
+
+Hiring
+
+Training
+
+Promotions
+
+Letting go of employees
+
+
+
+In general, the shorter the list, the less important alphabetical sorting is. If you have 20 to 30 terms or more at the same level displayed together, alphabetical is probably best, but with fewer than 10 terms, you should consider other, more “logical” sort orders. In addition, for predictability the sort order method should be consistent throughout the taxonomy. If you choose alphabetic, then use it throughout. If you choose nonalphabetical “logical,” then use that throughout, although you can vary the actual logical basis by grouping.
+
+Another issue in sort order, regardless of number of terms at a level, is that whenever there is any general or other/miscellaneous category, it should not sort alphabetically. General should appear first in the list, not under G, and other/miscellaneous should be at the end, not under O or M.
+
+Term Display Names in Context
+
+For hierarchically displayed taxonomies, the taxonomist has the option of creating short, simple term names whose meanings will be understood within the context of the broader term. General and other are examples, but you could use simple contextual term names for any concept. The following pairs of examples illustrate the difference between short, simple term names, whose meaning is known in context, and their corresponding, unambiguous, longer term names:
+
+
+
+
+
+
+
+Simple terms,
+
+Full, unambiguous terms:
+
+
+
+
+(understood in context):
+
+ 
+
+
+
+
+Human resource management
+
+Human resource management
+
+
+
+
+-- Recruiting
+
+-- Recruiting employees
+
+
+
+
+-- Training
+
+-- Training employees
+
+
+
+
+The display with term names that are understood in context is thus similar in a way to subdivisions of main entries in a back-of-the-book index, in which the subdivision names might be of a rather general nature. The function in hierarchies is to label narrower terms, however, not precoordinated main entry/subentry combinations. Thus, if the same narrower term names are applicable with different broader terms in different hierarchies, then they should be treated as different terms, with different administrative identifiers and different names displayed to a human indexer. Display name can then be one of the equivalent variants of a term.
+
+Node Label Usage
+
+In a hierarchical presentation, sometimes all broader terms function as node labels, with only the narrowest terms (“leaf” nodes) linked to content. This structure contrasts with a thesaurus, in which all terms at all levels are expected to be linked to content, unless they are specifically designated as a node label, which is relatively rare. The use of node label broader terms is especially common in hierarchical taxonomies displaying one level of terms per page. After selecting a term, the next page would display either a list of content results for that term or a list of narrower terms for that term, but not a combination of both narrower terms and content results. This is the case with the Superpages taxonomy in Figure 9.7.
+
+In other hierarchical taxonomies with one level of hierarchy per page, the terms at only the top/first levels are node labels, whereas terms at lower levels are linked to content while still having narrower terms beneath them. This structure requires a little more creativity in the display in order to show both content results and narrower terms. As an example, in the Amazon.com website, shown in Figure 9.10, the top two levels, Books & Audible and then Books, are node labels. After that, all subcategories link to content, while also having subcategories.
+
+
+
+Figure 9.10 Example of the hierarchy of book categories on Amazon.com, which shows node labels for the first two levels on the first screenshot and then recursive retrieval categories on successive levels (www.amazon.com/gp/site-directory)
+
+In an expandable tree display, broader terms also may or may not be node labels, although they are less frequently node labels than in the one-level-per-page display, because there is usually space on the screen adjacent to the tree to display retrieval results.
+
+Recursive Retrieval
+
+In a hierarchical taxonomy, even if linked content is available for a selected broader term, that content might not actually be indexed to that term for its “general” usage. Instead, that linked content could be exclusively the result of recursive retrieval. Recursive or “rolled up” retrieval returns inclusive results for all of a broader term’s narrower terms. Typically, when there is space in the window to the right of the hierarchy (as in an expandable tree display), search results are displayed for terms at any level in the hierarchy, except perhaps for the top terms. The default all is more common, however, than general in a hierarchical taxonomy display result, especially if less sophisticated automatic indexing is involved. Thus, the broader term that provides only recursive retrieval serves as a node label on the indexing side but operates as an all index term on the retrieval/end-user display side.
+
+Some end-user displays provide the total count of matched records per term, as is the case with the Amazon.com results in Figure 9.10, which are the numbers in parentheses following the term. If the number next to a broader term is very high, equal to or greater than the sum of the numbers next to all of its narrower terms, that indicates that the broader term is providing recursive results.
+
+Fielded Search and Faceted Displays
+
+The third main kind of access to a taxonomy and end-user display is fielded search. A fielded search display presents a means for the user to select or enter a vocabulary term for each of several search values or fields. These fields can be facets or merely vocabulary files or categories, as described in Chapter 8. The user may enter terms in search boxes that clearly depict fields, or each “field” may merely be a display of a short hierarchical list, from which the user selects a term. The end users may or may not be able to actually see and browse the taxonomy in a fielded search interface, but preferably they can, if it is not too large.
+
+Faceted Search Displays
+
+A powerful application of fielded search is its use with facets, even if blank “fields” are not always used in faceted search, also called faceted navigation. A fielded search display of a faceted taxonomy presents the user with all the facets and the option to choose a term (often just one) from each facet and execute a search on them in combination, either after making all selections or in a step-by-step fashion. If it is a step-by-step method, then search results are displayed on a selection from the first facet and then are narrowed on selections of terms from subsequent facets, with the search set becoming smaller at each step. The order in which the user makes selections from the facets ought not to matter. Allowing the user to refine the search step by step has the advantage that if a step returns zero results, it is clear which condition (which facet) could not be met. A breadcrumb trail may also be used in faceted search results, even though the path is not always in the same sequence, as the user may select from facets in any order.
+
+Figure 9.11, from the product review site Buzzillions (www.buzzillions.com), presents an example of a faceted display that involves step-by-step narrowing in a series of three screenshots. Although “fields” are not apparent, each column/category represents a facet for selection. After using a traditional hierarchical taxonomy to arrive at the category for LCD Monitors, the user sees the facet options at the top of the screen. The user may select from any facet in any order. In this example, the user first chose a brand, which limited the result from 1543 to 80 items, then made a selection from “by Greenness,” which limited the results further to 18 items. The selected values are listed as “You selected,” with an X-box option to deselect and back out, perhaps in a different order than the facet options were first selected.
+
+
+
+Figure 9.11 Facets for limiting search results for LCD Monitor reviews on the Buzzillions website (Source: www.buzzillions.com)
+
+There are various options for displaying the terms within a facet. Unlike thesauri or hierarchical taxonomies, faceted taxonomies tend to be relatively small, so it may be possible to display all the terms within a facet in a single view. If there are numerous facets, then it might not be practical initially to display all terms under all facets. A scrollbox, pull-down menu, or pop-up list may be implemented to display the terms within each facet. Another option is to display the first few terms within the facet and have the hypertext “Show more…” linking to the full list. Finally, the facets could be expanded and collapsed to show the terms within some of them at a time. Figure 9.12 from the North Carolina State University Libraries is an example of expanded and collapsed facets and the use of the “Show more” link to display only the start of the list of terms within each facet.
+
+
+
+Figure 9.12 Facets for narrowing search results for library materials at the North Carolina State University Libraries (www.lib.ncsu.edu/catalog, Under Browse New Titles)
+
+A small taxonomy also allows for more flexibility with the sort order of terms. The nature of facets, which tend to describe attributes, also makes them suitable for logical orderings rather than alphabetic. For example, facets for date, price, size, age, or other numeric ranges are common, and you should order these numerically from lowest to highest. Sometimes terms within facets are by default listed in the order of the number of records to which they link. Figure 9.12 from the North Carolina State University Libraries lists the facets by order of importance, rather than alphabetical, starting with Subject, and terms within the facets are ordered by the number of records.
+
+While traditionally the user may select only one facet at a time, the user interface could be designed to support multiple selections. This is done by providing check (tick) boxes next to each term. The user can select any number at once. In the example (Figure 9.12), from the North Carolina State University Libraries, the first limiting option has check boxes for Currently available, Available online, and/or New titles.
+
+Just because a taxonomy is organized into facets, there is no guarantee that the user interface will implement them for actual faceted searching. A simple user interface might offer the user the choice of browsing or searching by one type of metadata value or another, but not support a search on multiple facets in combination. In Boolean search terms, faceted search is based on the AND combination, rather than OR. Thus, if you develop a faceted taxonomy, you will want to make sure that it is properly supported in the search user interface.
+
+Fielded Search Without Facets
+
+Not all cases of fielded search involve facets. As discussed in Chapter 8, a taxonomy project may comprise multiple controlled vocabularies or taxonomies, and users could search each of these vocabularies individually through its own field in a fielded search interface. For example, in a set of controlled vocabularies for indexing a database of articles, personal names and company names (as appearing in article text content) are often maintained in separate vocabularies, and they may appear to the user as separate fields to search as well. This helps avoid ambiguity among term names. These fields are not really facets, though, because they are not attributes or dimensions of a periodical article; they are just a different kind of vocabulary.
+
+A user interface that presents fielded search is often called advanced search. In a graphical display, this is somewhat of a misnomer, since it is very simple to use, and one does not need to be an “advanced” searcher. Often each field type has its own search box. In many cases the listed fields are all predefined.
+
+In addition to controlled vocabulary fields, fielded search may include fields for nonvocabulary data, such as accession number, free-text fields for title or abstract, and date. While such fields represent useful metadata, they, likewise, are not taxonomy facets. Figure 9.13 shows an example of a fielded search user interface (from advanced search) for clinical trials at ClinicalTrials.gov, a service of the US National Institutes of Health. Fields with controlled vocabularies are those with a filled-in value and a down arrow, to select from a drop-down list of options. Other fields support keyword searching, and other fields are for other metadata, such as gender, age, phase, date, etc., which are grouped under Additional Criteria.
+
+In other cases of advanced/fielded search, there is more flexibility, the user chooses the designation of the field from a drop-down list, and multiple, definable search boxes are provided to combine in Boolean searching. A choice of different Boolean operators (AND, OR, and NOT) may also be available in drop-down lists. This is the case in Figure 9.14, the advanced search for the Gale Business Collection online subscription database. For the search field, the user selects from a drop-down the fields to be searched. Although three blank search fields are provided, the user may use any number in combination. An advantage of this method is that the user can repeat the same field designation for more than one search box and thus search on multiple terms from within the same field. The disadvantage with this method of using generic fields is that the user does not have the option of looking up controlled vocabulary terms from a drop-down list, which would only be possible for a predetermined field.
+
+
+
+Figure 9.13 Fielded search options for searching clinical trials at ClinicalTrials.gov (www.clinicaltrials.gov/ct2/search/advanced). The drop-down list of options in the screenshot is selected for the field of Study Type
+
+The subject descriptors used for fielded search in a set of taxonomies may be developed and maintained according to thesaurus standards or just as a simple hierarchy. You should not consider the user interface implementation of fielded search to be in any way a restriction on how you choose to develop the taxonomy.
+
+
+
+Figure 9.14 Advanced Search of Gale Business Collection subscription database, with the drop-down list of field options opened2
+
+Endnotes
+
+  1.  Alice Redmond-Neal and Marjorie M.K. Hlava eds. ASIS&T Thesaurus of Information Science, Technology, and Librianship, 3rd ed. (Medford, NJ: Information Today, Inc., and the American Society for Information Science and Technology, 2005), 77.
+
+  2.  Access to the Gale databases (www.gale.com) in not through a public website, but by subscription, and available to patrons of subscribing public or academic libraries.
+
+

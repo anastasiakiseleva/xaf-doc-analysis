@@ -1,0 +1,346 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 6
+
+Taxonomies for Human Indexing
+
+Taxonomies: Find what you really want.
+
+—Mike Gardner
+
+As explained in Chapter 1, support of indexing is one of the main purposes or applications of a taxonomy, with the other purposes being retrieval support and organization/navigation support. There are different methods of indexing, and you need to consider these differences when developing a taxonomy. The two fundamental kinds of indexing are human (or manual) and automated. This chapter will discuss issues pertaining to creating taxonomies for use by human indexers, and Chapter 7 will deal with particularities of taxonomies for automated indexing. Sometimes the same taxonomy will be used for both human and automated indexing, a situation that requires attention to many issues and possibly a few trade-offs.
+
+What Is Human Indexing?
+
+Before considering the issues involved in developing a taxonomy for human indexers, we need to have an understanding of who indexers are and what they do.
+
+Tagging, Cataloging, Classifying, or Indexing
+
+When we speak of human indexing with a taxonomy, we are referring to analyzing content and assigning appropriate descriptive terms selected from a taxonomy. Within a given organization, this process might not be called indexing but could be referred to as tagging, keywording, classifying, or cataloging. There are subtle differences in these designations.
+
+Tagging, sometimes called keywording, by definition does not necessarily imply using a taxonomy (controlled vocabulary) but rather could involve creating new terms as desired with little or no authority control. However, since the designations of tagging and keywording are more familiar outside the library science profession and the term indexing has its own ambiguities, there are organizations that choose to call the process of assigning controlled vocabulary terms as tagging or keywording. What the process is called may also depend on who does it. While there are people with the job title “indexer,” there are no “taggers” or “keyworders.” Tagging or keywording, when described as such, is often done by people whose main job function is not indexing but rather something else, such as content creation or editing. The designations “tagging” and “keywording” imply a degree of simplicity, a task that can be done by someone without formal training in indexing. How simple it actually is depends on the content, the taxonomy, and the indexing policies. Tagging may also differ from indexing by including tags for additional metadata, such as date or source, and not just descriptive terms.1
+
+Cataloging has a more specialized meaning and is generally restricted to the organization and description of library materials (both physical and digital), archive documents, and museum collections. Cataloging often involves assigning descriptive subject terms from a taxonomy (subject cataloging), but it also includes recording other metadata that may be bibliographic, may refer to source type and history, or may include a physical description (descriptive cataloging). Additionally, when cataloging physical materials, an important part of the task is classification, the assigning of a unique locator, such as a call number, to the material, because the material can have only one physical location (a shelf, file box, display case, room, etc.). Essentially there is overlap between cataloging and indexing. Cataloging often, but not always, includes subject indexing, but it also involves more. In any case, subject catalogers do utilize taxonomies, usually called authority files or thesauri.
+
+Classification, which is not limited to physical library materials, means assigning an item to a class. Assigning organisms’ names in a biological taxonomy or naming scientific or technical concepts and grouping them is also called classification. Classification is actually different from indexing or tagging in that an item can only go into one class. In classifying, you ask, “Where does this item go?” whereas in indexing, tagging, or subject cataloging, you ask, “What terms describe this item?”
+
+Indexing really means to create an index, a list of terms, each of which indicates or points to (the original meaning of index) where to find information/content on a desired subject. Traditionally an index appears as a browsable, alphabetical list that you can run your index finger through. Of course, in the online environment, the browsable index may not always be displayed to the end user, but the process of indexing—that is, assigning index terms to content—may be the same.
+
+Indexing With a Taxonomy
+
+Indexing content that is diverse, often from multiple sources, and also spread out over time requires the use of a taxonomy (in the broad sense of a controlled vocabulary) in order to maintain consistency. Indexers may not remember exactly which index terms they chose for similar topics in the past, but a taxonomy ensures that their choices will be consistent. The use of a taxonomy also enables consistent indexing by multiple indexers who are needed when there is a large quantity of content or time-sensitive content. Consistent indexing is necessary to enable comprehensive retrieval on a given search term.
+
+For indexing with a taxonomy, the taxonomist completes the taxonomy (although it will of course be subject to revision) prior to any indexing other than test indexing. Then the indexer (or indexers) uses the taxonomy by linking its predefined terms to the content. The indexing is usually performed using a software system that allows access to the taxonomy, through browsing or searching, validating the indexer’s choice of terms while also connecting to the repository of content being indexed or at least to references (URLs, URIs, file paths, etc.) to the content items. The indexing software may or may not connect with the taxonomy management software. This kind of indexing is sometimes called database indexing because some form of database management system is used to correlate index terms with documents. Each indexable document or media file is treated as a distinct database record, which has index terms and other metadata in its various database record fields, and users query the database to obtain their search results.
+
+This type of indexing typically deals with numerous documents, articles, files, or webpages, and each is usually indexed as a unit. Thus, index terms may be assigned to reflect the most important concepts or names in the document or file as a whole, rather than at a more granular paragraph or sentence level. A large document may be broken into defined sections. The indexer may be expected to index a certain number of documents or document-section records per hour.
+
+The indexing of multiple documents with taxonomy terms results in a dynamically growing list of documents for each term. Typically, the end user is offered options for sorting the list of retrieved results, such as by date or relevancy. The option for relevancy opens the possibility that the indexer could “weight” the assigned index terms. When choosing a term from the taxonomy, the indexer may also be able to designate the term as primary or secondary (or major or minor) by means of a scroll menu or check box. Then, when an end user searches on a term from the taxonomy, the retrieved documents that were indexed with the term as primary will sort to the top of a relevancy-ranked list, above documents that were indexed with the term as secondary.
+
+Database indexing, sometimes known as open indexing, differs in several ways from back-of-the-book indexing, which can be called closed indexing.2 Book indexing is “closed” because the indexing comes to a close once all the pages have been analyzed and indexed. The index itself can be finalized and thus usually goes into print as part of the book. Closed indexing usually does not involve using a taxonomy/controlled vocabulary, and the indexer will try to come up with terms that reflect the language of the work. Open indexing, on the other hand, usually involves a taxonomy, and the indexer is challenged to translate from the author’s choice of words to the preferred terms in the taxonomy. Book indexing also tends to be more granular, to the level of detail of paragraphs or even sentences, compared with open indexing, which takes place predominantly at the document level.
+
+Who Are Indexers?
+
+Indexers of open/database indexes, who are making use of taxonomies, vary in terms of their backgrounds, degree of training, and subject specialization. They could be taxonomists, information specialists, librarians (especially corporate librarians), or subject area specialists with an advanced degree in a specific field. Some organizations have taxonomist-indexers who take on a combination of taxonomy management and indexing tasks, while other organizations clearly split the roles. A large volume of indexing usually requires a number of dedicated indexers, however, and the largest commercial periodical database indexes have at times employed dozens of indexers. Since employers of full-time database indexers are few, they cannot expect their new-hire indexers to have previous indexing experience. Thus, these employers usually provide thorough on-the-job training for such indexers. Indexers might have a degree in the subject matter of the content being indexed or a general humanities or social sciences degree if they are indexing nonspecialized content. They may work in-house, or they may work remotely if the indexing system and taxonomy database support remote access.
+
+If remote access is supported, then independent contractors may also be used. However, unlike closed indexing, which can involve a different indexer for each book, it is only practical to have open indexing done by freelancers if they are long-term, steady contractors. Indexing is less costly to the organization and more profitable to the indexer if speed and efficiency can be attained, which takes time and experience. There is a long learning curve, not only to become proficient in using an organization’s unique indexing system but, more important, to become familiar with the terms in the taxonomy. An indexer who knows the most commonly used terms in a taxonomy spends less time navigating to desired terms and will also index more correctly. This can be an obstacle to new freelance indexers. Freelance indexing is profitable to the indexer who can work quickly, because contract indexing rates tend to pay per record (document/file) indexed rather than hourly. The rate for database indexing is comparable to the book indexing rate.3 A document may comprise multiple pages, but unless the article is unusually long or scholarly, the depth of indexing and number of index terms assigned to a periodical-type article are similar to those assigned to a single page in a book.
+
+For long-term, large-volume database indexing, some publishers have found it cost-effective to outsource to editorial service firms overseas, such as in India or the Philippines, which have staff with sufficient English language skills for the task. Detailed documentation and training need to be provided in these cases, where the publisher lacks direct contact with the indexer. Instead, the publisher needs to maintain close contact with the overseas indexing supervisor.
+
+Finally, indexing is sometimes performed by people whose primary task is not indexing but rather some other content-related duty, such as writing, editing, or content management, especially if the quantity of indexing is not great enough to constitute a full-time job. Nevertheless, these people should be trained in the use of the organization’s taxonomy, indexing techniques, and policies, with emphasis on the policies. Lack of training, which often happens with a supplemental task, will likely result in poor indexing.
+
+When to Use Human Indexers
+
+Automated indexing, described in Chapter 7, is becoming increasingly popular for large indexing projects. For most other situations, the greater accuracy provided by trained human indexers is more important than speed and volume. Humans can identify concepts, not just words or strings of words, and they can discern whether a concept is significant and worthy of being indexed. Obviously, they cannot index as quickly as automated systems, but if the volume of content is not overwhelming and indexing quality is of great importance, then human indexers are preferred. The following factors favor human indexers:
+
+
+       •  A high emphasis on quality and accuracy in indexing and retrieval
+
+       •  A manageable volume of documents
+
+       •  The presence of nontext files for indexing (images, video, audio)
+
+       •  Content that is varied in document types/formats and varied in subject areas (making it more difficult to “train” automated systems)
+
+       •  A corporate culture that is more comfortable with hiring, training, and managing employees or contractors and/or developing its own human indexing software than with making a large financial investment in externally purchased technology
+
+
+
+Scholarly, academic, scientific, medical, and sometimes legal documents are more likely to be indexed by human indexers as these are areas in which indexing accuracy takes precedence. Publishers, which are the creators of content, also tend to favor human indexing, since humans can easily index at the same time as they are editing or publishing a document. If the volume of content is relatively small, then human indexing is cost-effective for any subject area or industry. For indexing any nontext media, humans are needed to assign index terms, tags, or other metadata because automated indexing relies on text-based algorithms and analysis. Automatic image-recognition technologies have recently emerged, but they are quite rudimentary and can only suggest possible people, places, or topics, which still requires human review to be accurate and comprehensive. As multimedia is an increasingly significant form of content, the role of human indexers will remain significant.
+
+Terms, Relationships, and Notes for Indexers
+
+When creating a taxonomy for use by human indexers, you need to pay attention to certain issues with respect to terms, relationships between terms, and notes for terms.
+
+Preferred and Nonpreferred Terms for Indexers
+
+Although you should create preferred terms that are appropriate for end users, nonpreferred terms can take into consideration the indexers as well. In the rare cases of a taxonomy that will be viewed by the indexers only and not by end users (because they are accessing it only by a search box), you can consider the indexers’ expectations for preferred terms, too. In such cases, factors to consider include whether indexers are subject matter experts, who expect certain concepts and preferred term names for them, or whether the indexers are generalists.
+
+As for nonpreferred terms, certain kinds of terms are particularly helpful for human indexers. If the indexer will access an alphabetical list of terms that combines both nonpreferred and preferred terms (even if simply by means of truncated start-of-word searching), nonpreferred terms should begin with a word likely to be looked up alphabetically (i.e., a keyword). Consequently, inverted terms can be useful as nonpreferred terms, as in the following example:
+
+
+libraries, public USE public libraries
+
+
+
+If the indexer reads a document about public libraries, the first word that comes to the indexer’s mind would likely be libraries. Therefore, the indexer types in libraries. Depending on the design of the indexing software, the indexer could retrieve the exact broader term of libraries, which could be expanded to reveal its narrower terms, a list of all terms with the word libraries within them, or a short list of terms that start with the word libraries. (The indexer may even have the option to choose the display type.) In the case where the more specific nonpreferred term libraries, public appears and the indexer selects it, the corresponding preferred term is applied to the document. Accessing the preferred term via the nonpreferred term can be more efficient, as a single-step action, than first selecting the broader term libraries and then calling up its term details screen to see what its narrower terms are.
+
+If the end user can see the nonpreferred terms (which is less often the case in the hypertext environment), then there may be nonpreferred terms that you want the indexer but not the end users to see. Examples include inverted terms or older names of terms (names that are no longer used but are still familiar to indexers). In any case, a different kind of equivalence relationship would be appropriate, such as USE-I and UF-I, as discussed in Chapter 4. Another type of nonpreferred term that is useful specifically for indexers is what we might call a shortcut. It is an acronym, abbreviation, or code for a commonly used term that indexers understand within a term type, category, or facet but that is not suitable for end users or in automated indexing due to its potential ambiguity.
+
+A good example of this would be a two-letter state or country abbreviation limited to geographic terms; for outside the geographic context, two letters, such as ma, would be ambiguous. A shortcut could also be an internal custom abbreviation for industry types, if there is a short list of industries, or action types, or any term limited to a vocabulary type. The purpose of these shortcut types of nonpreferred terms is to save the indexer keystrokes and make the indexing go faster. For example, there could be a facet for business actions, limited to around 50 to 60 terms, and each could have a three-letter shortcut code, such as ACQ for acquisitions, divestitures & mergers, FRE for financial results & earnings, NPS for new products/services, and ORD for orders & contracts. The idea is that the shortcuts should be easy to memorize by virtue of being logical and limited in number.
+
+Term Relationship for Indexers
+
+Relationships between terms, even if not as efficient as nonpreferred terms in directing the indexer to the best preferred term, are also very helpful for navigating a taxonomy. In addition to guiding indexers to the desired term, the set of relationships for a given term also provides the indexer with a better understanding of the intended meaning and scope of the term.
+
+It is often the policy in indexing to use the most specific terms appropriate, and hierarchical relationships can guide the indexer to the most specific term. Only by means of hierarchical relationships or a hierarchical display can an indexer be certain which is the most specific term available. Additional broader terms may or may not be suitable for indexing the given content, but if they are, the indexer can also benefit from seeing these relationships.
+
+Associative relationships are also highly useful to indexers, who otherwise might overlook the existence of an additional appropriate term—or perhaps what turns out to be a more appropriate term than the one first selected. This could be the case with related terms, such as a process and an agent, an action and a product, or a discipline and an object. For example, for a document about programming software, the indexer initially selects the product-type term software but then sees the related action term programming and realizes that indeed programming is the focus of the article so decides to select that term instead. Similarly, for an article about weather predictions, the indexer initially selects the object term weather but then sees the related discipline term of meteorology and recognizes it as the more appropriate term. For the benefit of indexers, associative relationships should be as comprehensive as practical. Chapter 4 discusses how many associative relationships to make.
+
+Term Notes
+
+As mentioned in Chapter 3, taxonomy terms may have short descriptive notes attached to them. Whether they are scope notes aimed at both end-use searchers and indexers or indexer notes visible only to the indexers, these notes are very useful to the indexers. Even if end users do not bother to look at scope notes, indexers who work daily with the taxonomy know where and how to view a term’s notes. Thus, even though scope notes may be for dual audiences, the primary readers of scope notes tend to be the indexers.
+
+Indexer notes, which are aimed only at indexers and thus displayed only to indexers, may be similar to scope notes in their content and style, or they may explain more. Often indexer notes focus on usage, with instructions from the taxonomist to the indexer on when or how to use the term in indexing. A typical usage note for indexers might be “Use a more specific term if possible” for a relatively broad term. Here is a specific example of an indexer note in a thesaurus that also uses scope notes, from the Gale/Cengage Learning controlled vocabulary:
+
+
+African American churches
+
+               Indexer Notes: Use this term primarily for articles related to the church as an organization. For African American church buildings, please use this term and Church buildings.4
+
+
+
+Although this explanation could certainly serve as a scope note, it may have been decided that such instructions were unnecessarily complex for the end-user searchers of this particular resource.
+
+Indexer notes can also give brief explanatory information for a specific term that is not about scope or usage. This is particularly the case for a name of an organization or a technical or scholarly concept that is not widely known and therefore not likely familiar to an indexer but that would be the term chosen by the searcher who wanted to look up this topic. This information is certainly helpful, if not necessary, for the indexer, who cannot be expected to be thoroughly knowledgeable on all the topics to index, especially if the content is broad in scope.
+
+In conclusion, when creating taxonomy terms for human indexers, it is best to have (1) supportive nonpreferred terms, including phrase inversions and shortcuts; (2) extensive relationships between terms; and (3) indexer-focused term notes for clarification.
+
+Taxonomy Structure and Indexing Interface
+
+If human indexers will use a taxonomy, then the broader taxonomy structure and display may include features of which human indexers can take advantage. Maintaining distinct vocabulary or authority files can make access to and usage of the vocabularies more logical to the indexers. Although not common, secondary-level subdivision terms, which allow more precise precoordination of concepts, could be supported. Additionally, how the taxonomy is displayed and how the indexer accesses it are matters of concern.
+
+Distinct Vocabularies and Authority Files
+
+The organization of terms into distinct subvocabularies, facets, or authority files can be helpful for indexers, especially in ensuring thoroughness of indexing. If the end-user interface breaks the taxonomy out into more than one vocabulary or facet (such as topics, organization names, industries, locations, and actions), then the indexer’s view of the taxonomy should similarly be broken out into the same vocabularies or facets for a consistent perspective with that of end users. Even if the end user sees only a simple search box, there still should be term-type distinctions for the indexer. The segmentation of multiple different vocabularies makes it easier for the indexer to look up terms, especially in alphabetical browse lists and when named entities are involved.
+
+Distinct vocabularies also aid in enforcing indexing policy to support consistent indexing. For example, an editorial policy might call for indexing individual names of people, places, companies, and organizations, but with a limit of four each per document, and might also require at least two topic terms, but no more than five, per document. Maintaining separate vocabulary files for each of these types makes it easier to meet the indexing criteria. Furthermore, customization of the indexing software could enforce the editorial policy.
+
+Finally, by maintaining distinct vocabularies or authority files, you can also support distinct policies for maintaining each vocabulary and manage indexer involvement in that maintenance. For topical terms, for example, indexers may be required to use only the terms provided, but for named entities they might be permitted to enter new candidate terms and use them immediately for indexing prior to taxonomist approval. Some files in your taxonomy might permit this kind of overriding, while others would not. If you have human indexers and separate facets or vocabularies, you could conceivably support having more than one term with the same name, each in a distinct facet or vocabulary type. Examples are the term French in a language facet and French in a people or nationality facet, churches in a places or structures facet and churches in an organizations facet, or mergers in a topics facet and mergers in an events/business activities facet. Automated indexing would not necessarily make the correct distinction, but human indexers can.
+
+Structured Indexing and Subdivisions
+
+Some commercial periodical index databases, such as Gale InfoTrac and the Readers’ Guide to Periodical Literature, support what is called structured indexing or second-level indexing, which is a form of precoordination. Structured indexing makes use of a secondary controlled vocabulary set of what are called subdivisions, which serve to narrow or qualify the main term for more refined retrieval results. Although sometimes called “subheadings,” they should not be confused with narrower terms. At Gale, a part of Cengage Learning, they are known as “topical scope designators.” In the Reader’s Guide to Periodical Literature, they have been called “centered headings,” because in the print version of the index, they display centered within the page. Structured indexing is also used in Library of Congress Subject Headings, so it is commonly seen in library online public access catalogs. An example is as follows:
+
+
+Alzheimer’s Disease—Diagnosis
+
+
+
+The first term in the sequence, in this case Alzheimer’s Disease, is called the heading, and the next term, Diagnosis, is the subdivision, because the content indexed with the heading is further “subdivided” based on various subdivision terms, which may include treatment, demographics, genetic aspects, case studies, and others. This is not the same as a broader term and a narrower term; diagnosis is not a narrower term for Alzheimer’s Disease. Rather, a subdivision acts as a kind of modifier. Indexing policy may require that the indexer always use subdivisions for certain headings, unless the content is a general discussion of the topic so that main headings will display multiple subdivisions in the index. Subdivisions function in a similar manner to subentries in a back-of-the-book index, allowing the user to narrow a search result with prescribed taxonomy terms. Some systems support the use of third- and even fourth-level subdivisions, assuming there is sufficient material indexed at the second level. An example is as follows:
+
+
+Massachusetts—History—Local
+
+
+
+Subdivision terms, which in the two preceding examples are Diagnosis, History, and Local, are typically controlled vocabulary terms themselves, maintained in their own vocabulary lists. Thus, as a taxonomist, you might maintain a controlled vocabulary file of standard subdivisions. Typically, subdivisions are classified, and certain headings use certain subdivisions. For example, the subdivision Diagnosis is used only with headings that are types of diseases, but History could be used with places or any topics (including diseases).
+
+Structured indexing can yield more precise retrieval results, but to be accurate, structured indexing requires human indexers. Thus, if you are making use of human indexers, you might consider implementing structured indexing. However, the indexing software and the end-user search interface need to be designed and developed to support structured indexing. A generic database management system with simple index-term fields would not be adequate for structured indexing.
+
+Taxonomy Display and Access
+
+How a taxonomy is displayed and how it can be searched are also important considerations for indexers, enabling them to find the terms they need quickly. Since the indexing interface may be designed even before there are any indexers, the taxonomist may be the one to provide input into the indexing interface design. Desired display features would include the following:
+
+
+       •  A searchable alphabetical list of terms, displaying the section of the alphabet starting with a truncated search—it may have a toggle option to display both nonpreferred and preferred terms or to display preferred terms only
+
+       •  The option to browse the hierarchical display of the taxonomy
+
+       •  Hyperlinks leading from nonpreferred terms to their corresponding preferred terms
+
+       •  Details of a selected preferred term (also called the term record), including all its relationships (BT, NT, RT) and notes, to display in a new window or pane
+
+
+
+Indexers benefit from being able to browse terms alphabetically. A hierarchical display alone, which can guide a user to a more specific term of interest, may be less appropriate for indexers than it is for end-use searchers. End users might need guidance in coming up with concepts, whereas skilled indexers usually can identify the concepts to describe the content that they are indexing but often need references to the appropriate preferred terms. If the taxonomy is very small, however, and the entire hierarchy can fit on one browsable page/screen, then there is no need to have an alphabetical display in addition to the hierarchical display.
+
+Efficient methods of searching for terms in the taxonomy should be made available to the indexer, including options for truncated or start-of-word searching and word-within-a-term-phrase searching. The indexing software interface should also be optimized for ease, speed, and accuracy in indexing. For example, common operations should have keyboard shortcuts and not always require the use of a mouse. If indexers have memorized certain index terms, they should be able to enter these into the index fields with validation, rather than being required to browse the taxonomy every time to pick a term. Of course, what methods are “efficient” varies with the individual. Different indexers may prefer different approaches, depending on their experience or cognitive style.
+
+The term record, or the standard thesaurus display for details of a term, and the relationship abbreviations in particular may not make much sense for an end user, but for an indexer they provide clear and useful information. The display to the indexer may be quite similar to that displayed to the taxonomist. Following is an example of a term with its “details” that are useful for an indexer:
+
+
+               Water supply
+
+                  SN The supply of public potable water
+
+                  UF Water utilities
+
+                  UF Water works
+
+                  BT Utilities
+
+                  NT Reservoirs
+
+                  NT Water mains
+
+                  NT Water towers
+
+
+
+When indexers are certain they have found the correct term, they add it to the record without further consideration, but if they are unsure of a term’s appropriateness, they will check the term details to see any nonpreferred, broader, narrower, and related terms, and they will also check for any scope notes or indexer notes.
+
+Taxonomy Updates and Quality Control
+
+A taxonomy used by human indexers presents particular concerns with respect to two interrelated issues: updating the taxonomy and maintaining indexing consistency and quality.
+
+Communication and Updates
+
+Maintaining and updating a taxonomy used by human indexers requires communication in both directions: from the taxonomist(s) to the indexers and from the indexers to the taxonomist(s). As the taxonomist who is continually updating the taxonomy, you need to inform the indexers of newly added terms, term changes, merging of terms, or splitting of terms. Meanwhile, the indexers need a method of informing you, the taxonomist, that there is a need for a new term, based on a new concept appearing in the content, or a need for additional nonpreferred terms or term relationships, because an existing term is difficult to find.
+
+The taxonomist does not necessarily have to inform the indexer of every new term, especially not every new named entity term (person names, company names, etc.). New topical subjects, along with changes in such terms, however, are more significant, and the taxonomist should mention their availability. In addition to new and changed terms, other information regularly communicated to indexers might be suggested combinations or sets of terms for indexing certain new or recurring subjects or issues, whether current events or new topics from a newly acquired set of content. This communication can be in any form that is practical for the organization, such as an email distribution list, bulletins posted in an intranet, or collaboration workspace.
+
+Communication in the other direction, from the indexers to the taxonomist(s), is also necessary. Indexers are often the first to notice new concepts appearing in the content, so they should have a method to suggest new terms. While this could be by email or through an intranet/collaboration bulletin, even more effective for gaining indexer input is to have a method for suggesting or nominating terms right within the indexing software interface. Sometimes, rather than suggesting a new concept/term, an indexer may want to suggest a new term name for an existing concept, to be considered either as a change or merely as a nonpreferred term. Although less likely, indexers might even suggest additional term relationships, based on their understanding of term usage from the texts being indexed. These more complex suggestions from indexers could be communicated either through a notes/messaging field in the indexing software or through email or collaboration bulletins.
+
+Maintaining Indexing Quality
+
+Human indexers need comprehensive indexing policy guidelines and training in order to perform consistent, accurate indexing.
+
+Editorial Policy for Indexers
+
+Usually the taxonomists who create the taxonomy are also those who write the policy on how to use it. At the very least, in writing indexing policy, taxonomists work closely with technical writers who document how to use the indexing software. Indexing policy would include the following:
+
+
+       •  Criteria for determining whether a subject or name is sufficiently relevant for indexing
+
+       •  The level of detail for indexing: how much information needs to be present on a given topic to make it worthy of being indexed
+
+       •  The number of terms to assign to any given document and whether terms of certain types or facets must always be assigned
+
+       •  The permissibility of combinations of certain terms
+
+       •  The permissibility or requirement of using both a term and its broader term
+
+       •  A threshold number of sibling narrower terms, at which point the broader term should be used instead (e.g., apples, oranges, bananas, grapes, or use instead the broader term fruit)
+
+       •  Editorial style conventions (forms of entry) for taxonomy terms, to aid the indexer in looking up terms and in creating candidate terms
+
+       •  If a weighting system is used for assigned index terms, the criteria for choosing primary versus secondary weights and whether the majority of assigned terms are expected to be at the primary or secondary level
+
+
+
+The editorial policy for indexers should be comprehensive enough, so it is clear what constitutes correct versus incorrect indexing. Indexing is somewhat subjective, and two well-trained indexers will not index everything identically, but they should be close. A clear indexing policy is necessary, both to identify indexing errors and to prevent them from recurring.
+
+Training for Indexers
+
+An indexing supervisor or senior indexers typically train new indexers, but the trainer could be a taxonomist. If the indexing operation is completely new or there is just one indexer, then the responsibility for indexer training is most likely to fall on the taxonomist. An important part of training is instruction in the indexing policy, but if the new indexers are inexperienced, then training will also involve basic instruction in indexing principles, such as the goal to capture the “aboutness” of a document rather than matching words in the text to taxonomy terms. Another important part of training is reviewing sample indexing and providing feedback. Initial indexing can be on sample documents (which must be carefully chosen for their representative nature) and then, when performance is satisfactory, on live documents. Even live indexing requires monitoring and checking for a period of time, as the diversity of documents that require indexing might bring up questions not covered in the sample indexing.
+
+Taxonomy Improvements
+
+If policy and training are sufficient, continued inaccuracies in indexing can indicate a need for improvements in the taxonomy. The work of all indexers, even experienced indexers, should be periodically reviewed, not so much for the purpose of providing individual feedback but for overall quality control. Indexing results can be spot-checked, but statistics on term usage in indexing would also be useful. Incomplete or inconsistent indexing could point to the need for improvements in the taxonomy:
+
+
+       •  If certain index terms are not used as much as they ought to be, this indicates the need for additional nonpreferred terms and perhaps also additional relationships to other terms.
+
+       •  In a small taxonomy with no nonpreferred terms, the overlooking of a particular term might indicate that it needs rewording or even relocation to somewhere else in the taxonomy.
+
+       •  If a term is overused, than perhaps the concept should be divided into two or more new terms.
+
+       •  If two terms are frequently used in combination, this may indicate a concept in need of a single, precoordinated term.
+
+       •  If a certain index term is misused, then perhaps you should reword the preferred term, create more nonpreferred terms, and/or add a scope note.
+
+
+
+Levels of Vocabulary Management
+
+Human indexers obviously can make good use of taxonomies, but they can also be permitted to use terms that are not in a taxonomy, that is, to create their own terms, either as candidate terms for the taxonomy or simply as keywords. Whether they do so, and to what extent, depends on an organization’s editorial policy and the capabilities of the indexing software. Permitting indexers to propose new terms has its benefits, since they are the first to see new concepts and names in incoming documents. There are a number of possibilities for managing term suggestions from indexers, listed here from the most controlled to the least controlled:
+
+
+       1.  The indexer uses terms only from the taxonomy. The indexer may suggest terms (candidate terms), but such terms must be reviewed and approved by the taxonomist first and thus cannot be used immediately for indexing the document at hand (unless the document is put on hold).
+
+       2.  The indexer primarily uses terms from the taxonomy but is also permitted to suggest and immediately use additional candidate terms as “unapproved” terms, which the taxonomist will review later. (If the taxonomist subsequently changes an unapproved term name, the system still keeps track of the term the indexer entered so that the taxonomist can add it as a nonpreferred term to enable retrieval of the previously indexed document.)
+
+          a)  Unapproved terms are restricted to named entities, and the indexer cannot create subject terms.
+
+          b)  Unapproved terms may be created for any kind of term, whether named entities or subjects.
+
+       3.  The indexer uses a combination of terms from the taxonomy and indexer-created terms (keywords) of all types. The indexer-created keywords, like author keywords, are not formally suggested to the taxonomy as candidate terms, and they may or may not be reviewed by a taxonomist.
+
+          a)  Taxonomy terms are in the majority, and keywords are supplemental.
+
+          b)  Taxonomy terms are used only for a few basic categories, and more of the indexing/tagging is done with keywords.
+
+
+
+Each of these options involves some trade-offs affecting the simplicity of the indexing system, the ability to index new concepts not yet in the taxonomy, and the consistency of indexing. Option 1, requiring taxonomist approval of new terms, is relatively simple to implement with respect to technology, but since it cannot support new names and emerging concepts, it works well only for content that does not deal with current events or does not otherwise require a quick turnaround. Option 2, allowing unapproved or candidate terms in indexing but with the option for the taxonomist to “fix” them, is a good compromise that allows indexers to capture new concepts as needed while also ensuring vocabulary control. However, it is more complex to implement, so it is preferable for a relatively large indexing operation with multiple trained indexers. Option 3, permitting a dual system of a taxonomy and uncontrolled keywords, is relatively simple to implement but would present a more complicated set of three options to the end user: taxonomy terms, indexed keyword terms, and free text search strings.
+
+Managing Folksonomies
+
+Following the continuum of decreasing levels of control over a taxonomy described in the previous section, one might expect a fourth option whereby the indexer creates keywords, and these keywords immediately become available for repeated future use by this and other indexers, without a taxonomist’s reviewing and approving them. This scenario actually takes place in what we call a folksonomy, except that the creation and use of a folksonomy typically does not involve people who work as indexers. It is the authors and/or the users of the content—in other words, common “folk”—who create folksonomy terms or tags. The folksonomy approach has become easy to implement with the rise of commercial software for that purpose. Let us first consider the background of folksonomies.
+
+While the uncontrolled terms in folksonomies might seem beyond the scope of a taxonomist’s responsibilities, such uncontrolled terms can in fact reflect emerging concepts and are actually prime candidates for future taxonomy terms. Therefore, if relevant folksonomies are available, the taxonomist should pay close attention to them. At some point, a taxonomist may review and edit the folksonomy and convert some or all of it into a taxonomy.
+
+Social Tagging and Folksonomy
+
+New technologies that enable interactive use of the web, commonly referred to as the semantic web or Web 3.0, allow users to assign keyword tags of their choice to all kinds of web content. These tags can be used by the individual tagger for later retrieval, but other people may also view and use these tags. This type of uncontrolled indexing or tagging is called social tagging because anyone in an online community or society can tag any content, see the tags of others, and search on the accumulated tags. Furthermore, new social communities can be built around shared sets of popular content or popular tags. This phenomenon, which began around 2004, is also known as social bookmarking, collaborative tagging, social classification, social indexing, or ethnoclassification.
+
+Social tagging can be done by the content creators (authors, photographers, etc.), the content viewers (readers or consumers), or both. The same content can be tagged repeatedly over time, rather than having a page or document indexed and then closed to future indexing, so social tagging is very dynamic. Even if the content remains static, the tagging can change over time, but usually the content is changing or growing as well.
+
+The term folksonomy was coined by Thomas Vander Wal in July 2004 on the discussion group of the Information Architecture Institute (then called the Asilomar Institute for Information Architecture) in response to a question about what to call the new, informal social classification comprising user-defined tags on information-sharing websites. Following up on Eric Scheid’s suggestion of a “folk classification,” Vander Wal responded as follows: “So the user-created bottom-up categorical structure development with an emergent thesaurus would become a Folksonomy?”5 A folksonomy should not be confused with a folk taxonomy. The latter is a concept that has been around much longer, a term in anthropology that refers to the unscientific naming and classifying of things by lay people within a given culture.
+
+Websites or services that make use of social tagging include social-bookmarking management sites Delicious (delicious.com), Pinterest (www.pinterest.com), and Diigo (www.diigo.com), and the site for uploading and tagging images, Flickr (www.flickr.com).
+
+Social tagging has its strengths and weaknesses. Its advantages over taxonomies include the following:
+
+
+       •  It reflects trends, is up to date, and can monitor change and popularity.
+
+       •  It is cheaper and quicker than building and maintaining a taxonomy.
+
+       •  It is responsive to user needs.
+
+       •  It facilitates democracy (as in votes for popular content and popular tags), the distribution of tasks, and the building of virtual communities of shared interest and knowledge.
+
+
+
+There are also drawbacks to social tagging, which include the following:
+
+
+       •  The tagging is inherently inconsistent, so there are serious deficiencies in precision and recall for content retrieval.
+
+       •  The tagging is inevitably biased. Users may disagree with prior tagging.
+
+       •  Social tagging does not scale well to a large volume of content when the number of users is held constant.
+
+       •  For social tagging to be effective, it requires a critical mass of user involvement, which is not always possible.
+
+
+
+A folksonomy differs from a taxonomy, not merely in terms of who creates it and the lack of authority control but also in the approach to its creation. A folksonomy represents a bottom-up creation of a vocabulary, as opposed to the top-down nature of a taxonomy. Actually, a folksonomy generally has no hierarchical structure, so it is probably incorrect to speak of bottom-up when there is no “up.” Relationships between terms can be explicit, if the tagging software permits users to create such relationships, or implicit, by displaying tags that commonly co-occur. Users create relationships between terms based on their personal perceptions and biases, and they usually make no distinctions between hierarchical and associative relationships.
+
+Folksonomies in the Enterprise
+
+Within a few years, the phenomenon of social tagging spread from public websites to inside enterprises. The success of social tagging within an organization, however, depends on the number of people involved. An organization may not have a critical mass of employees, and even if there is a potentially large number, the level of participation may not be sufficient. People tend to engage in social tagging because they enjoy it, not because it is part of their job.
+
+If a folksonomy is used within an organization, there is an opportunity to manage it or leverage it. Vocabulary for social tagging, although user created, can be semicontrolled. A taxonomist may periodically intervene to “clean up” tags by merging multiple synonymous terms, choosing a preferred term, and designating the others as nonpreferred terms. Taggers would then no longer use terms designated as nonpreferred, but they could still create new equivalent terms for the same concept. Even when a folksonomy comes under greater control, inconsistent and biased tagging will still occur as long as taggers can invent their own terms and need not follow an editorial policy. Commercial enterprise social-bookmarking software may not support folksonomy editing, so internal development may be necessary.
+
+Social tagging is most suitable for collaboration and for following trends in a rapidly growing and changing content. Therefore, for organizations that want to support creativity and innovation, social tagging might be a good idea. It is not so appropriate for critical research, which requires retrieval of all the relevant documents on a topic. Marketing and customer relations departments may also implement social tagging, encouraging customers and potential customers to engage in tagging for the purposes of stimulating and gauging market interest. Thus, for differing purposes, an enterprise can have both a controlled vocabulary and a social tagging area. In addition to periodically cleaning up folksonomy terms, a taxonomist might evaluate, edit, and promote popular folksonomy terms into a taxonomy that is used for other search purposes. A folksonomy, thus, is not an alternative to a taxonomy but rather is supplemental. Each has its own place and purpose.
+
+Endnotes
+
+  1.  For an elaboration on the differences between tagging and indexing, see the author’s blog post “Tagging vs. Indexing,” The Accidental Taxonomist blog, February 28, 2014, accessed December 20, 2015, accidental-taxonomist.blogspot.com/2014/02/tagging-vs-indexing.html
+
+  2.  Susan Klement, “Open-System versus Closed-System Indexing: A Vital Distinction,” The Indexer 23, no.1 (April 2002): 23–31.
+
+  3.  American Society for Indexing, American Society for Indexing 2009 Professional Activities and Salary Survey (Wheat Ridge, CO: American Society of Indexers, 2010), 12. The average range reported was $2 to $4/page, 70 cents/entry, or $31 to $35/hour.
+
+  4.  From the subject authority file of Cengage Learning, Inc., accessed via its internal vocabulary management system, August 16, 2015.
+
+  5.  Thomas Vander Wal, “Folksonomy Coinage and Definition” (February 2, 2007), accessed December 20, 2015, www.vanderwal.net/folksonomy.html
+
+

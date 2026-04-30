@@ -1,0 +1,1522 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Appendix A
+
+Survey of Taxonomists
+
+Participant responses were gathered during the month of May 2015. A total of 150 people participated, although not all responded to all questions, with the number of respondents to each question varying from 132 to 150.
+
+Participants in this survey were self-described taxonomists, who responded to a notice posted on various discussion groups and social media, including the following:
+
+
+       •  Taxonomy Community of Practice (TaxoCoP) Yahoo group (finance.groups.yahoo.com/group)
+
+       •  Taxonomies SIG Yahoo group (Taxonomies and Controlled Vocabularies Special Interest Group of the American Society for Indexing)
+
+       •  SLA Taxonomy Division member mailing list
+
+
+
+And the following LinkedIn groups were also posted:
+
+
+       •  AIIM
+
+       •  ASIS&T
+
+       •  Content Management Professionals
+
+       •  Content Strategy
+
+       •  Controlled Vocabularies
+
+       •  Information Architecture Institute
+
+       •  KMWorld
+
+       •  Knowledge Management Experts
+
+       •  Metadata Management
+
+       •  NFAIS
+
+       •  Taxonomy Community of Practice (TaxoCoP)
+
+       •  Thesaurus professionals
+
+
+
+In addition, the notice was posted on The Accidental Taxonomy blog, the author’s website, and the author’s Twitter feed.
+
+Attendees of the Content Strategy Seattle meetup of April 28, 2015, were also informed of the survey. To avoid bias, the author did not contact individuals directly. No effort was made, though, to track the media by which the respondents learned of the survey.
+
+1. To what extent do you create and/or maintain taxonomies or other controlled vocabularies?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+My primary job responsibility
+
+37.3%
+
+56
+
+
+
+
+One of my job responsibilities, but secondary
+
+26.0%
+
+39
+
+
+
+
+Manage taxonomists or taxonomy projects, while also doing at least some taxonomy review work
+
+14.0%
+
+21
+
+
+
+
+A special project, not in my job description or an originally expected responsibility
+
+6.7%
+
+10
+
+
+
+
+Work done as contract/freelance often
+
+8.0%
+
+12
+
+
+
+
+Work done as contract/freelance only occasionally
+
+8.0%
+
+12
+
+
+
+
+2. How long have you been doing work on taxonomies or other controlled vocabularies?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Less than 1 year
+
+3.4%
+
+5
+
+
+
+
+1-2 years
+
+8.8%
+
+13
+
+
+
+
+2-4 years
+
+13.5%
+
+20
+
+
+
+
+4-6 years
+
+15.5%
+
+23
+
+
+
+
+6-8 years
+
+9.5%
+
+14
+
+
+
+
+8-10 years
+
+12.8%
+
+19
+
+
+
+
+10-15 years
+
+18.9%
+
+28
+
+
+
+
+15-20 years
+
+5.4%
+
+8
+
+
+
+
+Over 20 years
+
+12.2%
+
+18
+
+
+
+
+3. How long have you been doing work specifically called “taxonomy”?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Less than 1 year
+
+9.5%
+
+14
+
+
+
+
+1-2 years
+
+14.2%
+
+21
+
+
+
+
+2-4 years
+
+18.2%
+
+27
+
+
+
+
+4-6 years
+
+10.8%
+
+16
+
+
+
+
+6-8 years
+
+11.5%
+
+17
+
+
+
+
+8-10 years
+
+13.5%
+
+20
+
+
+
+
+10-15 years
+
+14.9%
+
+22
+
+
+
+
+15-20 years
+
+6.1%
+
+9
+
+
+
+
+Over 20 years
+
+1.4%
+
+2
+
+
+
+
+4. What is your current employment situation?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Employee of an organization that uses taxonomies primarily internally, for its website, or in ecommerce
+
+43.6%
+
+65
+
+
+
+
+Employee of an organization that incorporates taxonomies into an information product or information service, which it sells/offers
+
+19.5%
+
+29
+
+
+
+
+Employee of a company or agency that provides taxonomy services or custom taxonomies to clients
+
+12.1%
+
+18
+
+
+
+
+Independent contractor or freelancer (obtaining work primarily through subcontracting, agencies, other third parties, or as a temp employee)
+
+6.7%
+
+10
+
+
+
+
+Consultant or business owner/partner (obtaining work primarily from direct clients)
+
+18.1%
+
+27
+
+
+
+
+5. If you selected either the first or second response in question #4 (if you are an employee but not in consulting), where do you fit into your organization?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Content management/content strategy
+
+18.7%
+
+17
+
+
+
+
+Documentation/technical writing
+
+2.2%
+
+2
+
+
+
+
+Editorial
+
+2.2%
+
+2
+
+
+
+
+IT
+
+19.8%
+
+18
+
+
+
+
+Knowledge management
+
+12.1%
+
+11
+
+
+
+
+Library
+
+9.9%
+
+9
+
+
+
+
+Marketing
+
+3.3%
+
+3
+
+
+
+
+Operations
+
+12.1%
+
+11
+
+
+
+
+Product development/product management
+
+6.6%
+
+6
+
+
+
+
+Search
+
+8.8%
+
+8
+
+
+
+
+User experience
+
+4.4%
+
+4
+
+
+
+
+Other:
+
+Professor at University
+
+On a taxonomy team that supports our entire org.
+
+Institutional engagement
+
+Business Analysis
+
+Data Governance
+
+Data & Intelligence (within larger group Technology)
+
+Sales and Merchandising
+
+Engineering
+
+Entertainment
+
+Founder/Owner
+
+Technical Architecture team, which works with SOA architecture, metadata standards, and technical strategy
+
+Data Governance
+
+Browse Development
+
+6. What is your job title?
+
+Analytical Linguist
+
+Associate Director Content Management
+
+Associate Program Manager
+
+Browse Developer & Taxonomist
+
+Business Information Manager
+
+CEO
+
+Chief Taxonomy and Experience Officer
+
+Clinical Data Analyst
+
+Consultant (3)
+
+Consultant/Sr. Analyst
+
+Consultancy Director
+
+Content Librarian
+
+Content Manager XML Expert
+
+Content Strategist (2)
+
+Copy Editor
+
+Corporate Archivist
+
+Corporate Taxonomist
+
+Creative Services Manager
+
+DAM System Manager
+
+Data Librarian
+
+Developer/Documental Technology Director
+
+Digital Asset Management Associate
+
+Director (2)
+
+Director of Product Development
+
+Director of Taxonomy and Metadata
+
+Director, Content Strategy
+
+Director, Research & Knowledge Services
+
+Document Management Specialist
+
+Enterprise Information Architect
+
+Enterprise Taxonomist (2)
+
+Experience Architect
+
+Founder
+
+Founding Partner
+
+Indexed Content Manager
+
+Indexer and Taxonomist
+
+Indexer/Lexicographer
+
+Information Architect (5)
+
+Information Architect/UX specialist
+
+Information Life-Cycle and Context Manager
+
+Information Management Consultant
+
+Information Risk Management Consultant
+
+Knowledge Architect
+
+Knowledge Management Analyst
+
+Knowledge Manager
+
+Knowledge Sharing Business Analyst
+
+Knowledge Sharing Strategy Specialist
+
+Lead Consultant
+
+Library Director & Taxonomist
+
+Library Manager
+
+Lifecycle Specialist
+
+Linked Data Manager
+
+Manager (2)
+
+Manager, Content and Collaboration Services
+
+Manager, Taxonomy and Metadata Services Group
+
+Online Content Analyst
+
+Ontologist (3)
+
+Ontology Engineer
+
+Owner and Principal Consultant
+
+Partner, Metadata Management Associates
+
+President
+
+Principal
+
+Principal Consultant (4)
+
+Principal Program Manager
+
+Product Manager
+
+Product Ontology Linguist
+
+Product Strategist
+
+Professor (Information Science)
+
+Program Manager
+
+Project Manager
+
+Records Management Analyst
+
+Search Editor
+
+Search Metadata Technical Specialist
+
+Search Vocabulary Specialist
+
+Semantic Analyst
+
+Senior Consultant
+
+Senior Experience Analyst
+
+Senior Information Architect
+
+Senior Knowledge Management Consultant
+
+Senior Manager, Metadata Services
+
+Senior Metadata Librarian
+
+Senior Producer
+
+Senior Solution Consultant
+
+Senior Taxonomist (3)
+
+Senior Taxonomy Analyst
+
+Senior Taxonomy Specialist
+
+Senior Usability Officer
+
+Systems Librarian
+
+Taxonomist (9)
+
+Taxonomist/Browse Developer
+
+Taxonomist/Human Factors Engineer
+
+Taxonomist/Librarian
+
+Taxonomy and Metadata Analyst
+
+Taxonomy Development Manager
+
+Taxonomy Manager (2)
+
+Taxonomy Specialist (2)
+
+Team Leader, Information Services
+
+Technical Writing Supervisor
+
+Terminologist, Linguistic
+
+UX Consultant
+
+UX Researcher
+
+Vertical Domain Engineer
+
+Web Architect for Technical Documentation
+
+7. What degree(s) do you hold? (multiple responses permitted)
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Less than a BA/BS
+
+4.7%
+
+7
+
+
+
+
+BA only (4 year college)
+
+20.1%
+
+30
+
+
+
+
+BS only (4 year college)
+
+8.7%
+
+13
+
+
+
+
+MA
+
+15.4%
+
+23
+
+
+
+
+MS/M Eng.
+
+8.7%
+
+13
+
+
+
+
+MLS/MLIS
+
+54.4%
+
+81
+
+
+
+
+MBA
+
+4.7%
+
+7
+
+
+
+
+PhD/doctorate
+
+2.7%
+
+4
+
+
+
+
+Other advanced degree
+
+5.4%
+
+8
+
+
+
+
+8. What is your study or training specifically in the field of taxonomy or classification? (multiple responses permitted)
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Concentration/specialty within a degree program
+
+14.8%
+
+22
+
+
+
+
+Two or three college/university credit courses (but not a specialization)
+
+16.1%
+
+24
+
+
+
+
+One college/university credit course
+
+5.4%
+
+8
+
+
+
+
+Continuing education course or workshop
+
+20.1%
+
+30
+
+
+
+
+Conference or professional seminar workshop
+
+32.2%
+
+48
+
+
+
+
+On the job formal training
+
+28.9%
+
+43
+
+
+
+
+On the job informal learning and experience
+
+71.1%
+
+106
+
+
+
+
+Self-taught through reading
+
+57.7%
+
+86
+
+
+
+
+9. Prior to your work in taxonomies, which best describes your professional background? (Multiple responses were not permitted, but additional responses could be added in an Other/comment field. If they corresponded to an existing option, they have since been added to the results.)
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Librarian
+
+28.3%
+
+41
+
+
+
+
+Knowledge management
+
+11%
+
+16
+
+
+
+
+Content management/Web content/Content strategy
+
+11.7%
+
+17
+
+
+
+
+Document management
+
+2.6%
+
+4
+
+
+
+
+Records management
+
+4.1%
+
+6
+
+
+
+
+Project management
+
+4.8%
+
+7
+
+
+
+
+User experience/Information architecture
+
+6.9%
+
+10
+
+
+
+
+Software/IT
+
+8.3%
+
+12
+
+
+
+
+Database design, development, or administration
+
+1.4%
+
+2
+
+
+
+
+Indexing
+
+6.2%
+
+9
+
+
+
+
+Writing, editing, or publishing
+
+4.8%
+
+7
+
+
+
+
+Marketing/Sales
+
+0.7%
+
+1
+
+
+
+
+None/Student
+
+9%
+
+13
+
+
+
+
+Other (please specify):
+
+Acting
+
+Archivist
+
+Content architecture
+
+Digital asset management (3)
+
+Engineering (2)
+
+Film archive
+
+Informal Education /Non-Profits
+
+Linguist
+
+Product management
+
+Program/Product Manager
+
+Research in natural environment
+
+Scientist
+
+Systems Librarian
+
+Teacher (2)
+
+Text analytics and mining/computational linguistics
+
+10. In your current position, what are your primary taxonomy-related activities? (multiple responses permitted)
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Design/model new taxonomies or other vocabularies, determining structure type and policies
+
+72.8%
+
+99
+
+
+
+
+Based on an established model, develop and build out new taxonomies or other vocabularies
+
+36.0%
+
+49
+
+
+
+
+Edit, update, or maintain taxonomies or other vocabularies
+
+60.3%
+
+82
+
+
+
+
+Map (such as crosswalks), merge, integrate, or restructure existing taxonomies or other vocabularies
+
+47.8%
+
+65
+
+
+
+
+Write auto-categorization rules for taxonomies or other vocabularies
+
+22.8%
+
+31
+
+
+
+
+Comments:
+
+Just got an auto-classification/taxonomy management tool so will now be managing its governance and auto-categorization rules
+
+Software developer
+
+Build & do outreach for a taxonomy creation, management and publication system
+
+Use of taxonomies for metadata management
+
+Manage the Open Metadata Registry with OMR developer
+
+Design terminology servers
+
+Building a graph-based ontology, with mappings to external linked data sources, and harvesting data from those sources
+
+Software to perform these tasks
+
+Manage the APIs & services, and serve as a product owner and evangelist for the taxonomy.
+
+Advise clients on doing this work themselves; teach principles
+
+Also product manager for search with filters/face ting based on taxonomy
+
+Product dev is missing here. Integrating taxonomies into products etc.
+
+11. What software do you primarily use to work on taxonomies or other controlled vocabularies?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Commercial, dedicated thesaurus/taxonomy/ontology management software
+
+22.7%
+
+32
+
+
+
+
+Open-source, dedicated thesaurus/taxonomy/ontology management software
+
+9.2%
+
+13
+
+
+
+
+Commercial software, of which taxonomy management is a feature, module, or component
+
+12.1%
+
+17
+
+
+
+
+An internally developed thesaurus/taxonomy management system
+
+25.5%
+
+36
+
+
+
+
+Other commercial software not intended for taxonomies (such as a word processor, spreadsheet, or database management software)
+
+30.5%
+
+43
+
+
+
+
+12. Which of the following describes the implementation and use of taxonomies or vocabularies you work on?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+For content organization, search/findability, and retrieval by internal users (employees)
+
+20.4%
+
+29
+
+
+
+
+For content search/findability and retrieval by external users (customers, subscribers, members, partners, prospects, patrons, the public)
+
+22.5%
+
+32
+
+
+
+
+For both internal users and external users
+
+57.0%
+
+81
+
+
+
+
+13. What is the size of the controlled vocabularies you typically work on? (multiple responses permitted)
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Under 50 terms per vocabulary
+
+5.8%
+
+8
+
+
+
+
+50-100 terms
+
+9.4%
+
+13
+
+
+
+
+100-500 terms
+
+17.4%
+
+24
+
+
+
+
+500-1500 terms
+
+24.6%
+
+34
+
+
+
+
+1500-5000 terms
+
+22.5%
+
+31
+
+
+
+
+5000-10,000 terms
+
+13.8%
+
+19
+
+
+
+
+Over 10,000 terms
+
+27.5%
+
+38
+
+
+
+
+Comments:
+
+Depends on the size of the client
+
+Controlled vocabularies vary in size from 4-5 to over 100
+
+I have worked on taxonomies of 100,000 terms
+
+We work on projects of all sizes, size, does not necessarily reflect the complexity of the project.
+
+Projects range from 14 to 57,000 terms
+
+Truly varies depending on intended use.
+
+Over 600,000 terms
+
+190,000 total and counting
+
+14. How are your current taxonomies/vocabularies linked to content?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+By manual tagging or indexing
+
+38.7%
+
+55
+
+
+
+
+By auto-categorization/auto-indexing
+
+11.3%
+
+16
+
+
+
+
+Some of each
+
+47.2%
+
+67
+
+
+
+
+Don’t know
+
+2.8%
+
+4
+
+
+
+
+Comments:
+
+And synonyms via search solution
+
+I primary use DRUPAL and we define custom content models
+
+I also use CVs for search query enhancement, search type-aheads, and other application areas.
+
+15. Are you familiar with and generally try to follow any of the following national or international standards: ANSI/NISO Z39.19 (2005) Guidelines for Construction, Format, and Management of Monolingual Controlled Vocabularies and ISO 25964 Information and documentation—Thesauri and interoperability with other vocabularies?
+
+
+
+
+
+
+
+
+Answer Options
+
+Percent
+
+Count
+
+
+
+
+Don’t know these standards and thus don’t follow them.
+
+19.0%
+
+27
+
+
+
+
+Have read at least some of these standards, but don’t follow them.
+
+23.2%
+
+33
+
+
+
+
+Generally keep these standards in mind and apply what is relevant, but not strictly.
+
+45.1%
+
+64
+
+
+
+
+Attempt to follow these standards closely and refer to them as needed.
+
+12.7%
+
+18
+
+
+
+
+16. What do you enjoy about taxonomy work?
+
+The complete list of 90 responses is available on the book’s website, www.accidental-taxonomist.com.
+
+17. What are pain points or challenges in your taxonomy work?
+
+The complete list of 89 responses is available on the book’s website, www.accidental-taxonomist.com.
+
+18. How did you first get started doing taxonomy work?
+
+The complete list of 93 responses is available on the book’s website, www.accidental-taxonomist.com.
+
+

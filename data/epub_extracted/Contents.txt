@@ -1,0 +1,164 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Contents
+
+Figures and Tables
+
+Foreword, by Joseph Busch
+
+Acknowledgments
+
+About the Website
+
+Preface to the Second Edition
+
+Introduction
+
+Chapter 1: What Are Taxonomies?
+
+   Definitions and Types of Taxonomies
+
+   Taxonomies and Metadata
+
+   Applications and Purposes of Taxonomies
+
+   Taxonomies for License
+
+   History of Taxonomies
+
+Chapter 2: Who Are Taxonomists?
+
+   Backgrounds of Taxonomists
+
+   Taxonomist Skills
+
+   Related Duties
+
+   Employment of Taxonomists
+
+Chapter 3: Creating Terms
+
+   Concepts and Terms
+
+   Identifying Concepts
+
+   Choosing the Preferred Term
+
+   Term Format
+
+   Precoordinated Terms
+
+   Notes and Attributes
+
+Chapter 4: Creating Relationships
+
+   Equivalence Relationships and Nonpreferred Terms
+
+   Hierarchical Relationships
+
+   Associative Relationships
+
+   Hierarchical/Associative Ambiguities
+
+   Semantic Variations for Relationships
+
+Chapter 5: Software for Taxonomy Creation and Management
+
+   Software Not Designed for Creating Taxonomies
+
+   Dedicated Taxonomy Management Software
+
+   Single-User Desktop Thesaurus Software
+
+   Multiuser Taxonomy Management Software
+
+   Free and Open Source Software
+
+   Other Software with Taxonomy Management Components
+
+Chapter 6: Taxonomies for Human Indexing
+
+   What Is Human Indexing?
+
+   Terms, Relationships, and Notes for Indexers
+
+   Taxonomy Structure and Indexing Interface
+
+   Taxonomy Updates and Quality Control
+
+   Managing Folksonomies
+
+Chapter 7: Taxonomies for Automated Indexing
+
+   Automated Indexing, Search, and Taxonomies
+
+   Automated Indexing Technologies
+
+   Software for Auto-Categorization
+
+   Creating Taxonomies for Automated Indexing
+
+Chapter 8: Taxonomy Structures
+
+   Hierarchies
+
+   Facets
+
+   Multiple Vocabularies and Categories
+
+Chapter 9: Taxonomy Displays
+
+   Thesaurus Displays and Outputs
+
+   Hierarchical Taxonomy Displays
+
+   Fielded Search and Faceted Displays
+
+Chapter 10: Taxonomy Planning, Design, and Creation
+
+   Planning for a Taxonomy
+
+   Enterprise Taxonomies
+
+   Taxonomy Creation Process
+
+   Taxonomy Governance
+
+Chapter 11: Taxonomy Implementation and Evolution
+
+   Taxonomy Exchange and Interoperability
+
+   Taxonomy Updating
+
+   Combining Taxonomies
+
+   Multilingual Taxonomies
+
+Chapter 12: Taxonomy Work and the Profession
+
+   The Nature of Taxonomy Work
+
+   Taxonomists as Contractors
+
+   Education and Training
+
+   Organizations, Networking, and Resources
+
+Appendix A: Survey of Taxonomists
+
+Appendix B: Glossary
+
+Appendix C: Recommended Reading
+
+Appendix D: Websites
+
+About the Author
+
+Index
+
+

@@ -1,0 +1,719 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 2
+
+Who Are Taxonomists?
+
+Taxonomists: Classy people.
+
+—Harry A. Pape
+
+Taxonomists, as we define them, are people who work on taxonomies. Just as there are various kinds of taxonomies, there are various kinds of taxonomists. Among those who identify themselves as taxonomists, taxonomy work is as likely to be their secondary job responsibility as it is a primary one. Although most people who work on taxonomies are employed full time, there are also a significant number who are independent contractors and consultants. As for when taxonomists entered this field of work, the times are roughly evenly distributed over the past 15 years or so, with 4–6 years of work in taxonomies being the most common two-year range of experience by a small margin.
+
+These characteristics of taxonomists—and the others described in this chapter—come from our own online survey conducted in May 2015, comprising 14 multiple-choice and four open-response questions. All quotes in this chapter are taken from that survey unless noted otherwise (in an endnote). Self-described taxonomists were solicited as survey participants from among members of several taxonomy-related LinkedIn and Yahoo groups, and a total of 150 people responded. The complete survey and multiple-choice results, along with the names of the online groups contacted, is in Appendix A. A slightly larger survey of 184 self-described taxonomists conducted by Patrick Lambe in mid-2009, which is also cited in this chapter, shows similar responses to the same kinds of questions.1
+
+Backgrounds of Taxonomists
+
+Taxonomists have varied backgrounds. The largest number have training or experience in library science, about half of today’s taxonomists. In our survey, 54.4 percent (81 out of 149) of the self-described taxonomists have an MLS or MLIS degree, and 30.3 percent chose “librarian” out of a list of 13 options to describe their prior professional background. (This question did not allow multiple answers, so more taxonomists likely had some library experience but did not consider it their primary background.) The primary professional backgrounds of the others included the following: 11.4 percent each for “Knowledge management” and “Content management/Web content/Content strategy,” 9.1 percent for “Software/IT,” 6.1 percent for Indexing, 5.3 percent for “User experience/Information architecture,” and an equal number at 4.5 percent for each of “Records management,” “Project management,” and “Writing, editing, or publishing.” Additionally, five respondents came to taxonomy work directly from being students. (Most taxonomist positions, though, are not entry level.) These statistics correlate with Lambe’s survey finding that 46 percent of taxonomists hold an MLIS, master of information management, or master of knowledge management. Another informal survey of taxonomists, by a simple show of hands at a general session at the Taxonomy Boot Camp conference attended by this author in 2007, indicated that approximately half of the attendees had a background in library and information science. Most others had business or technology backgrounds.
+
+Library Science and Cataloging
+
+Although there is no certificate or degree in taxonomy creation, the degree programs that provide the best preparation for this kind of work are the MLS or MLIS. These programs typically have courses on knowledge organization and classification in general; some also offer a course more focused on thesauri, controlled vocabularies, and taxonomies. Nevertheless, although 54.4 percent survey respondents said they had an MLS or MLIS degree, fewer reported having taken courses on taxonomies. Only 14.8 percent (22 out of 149 respondents) of taxonomists had been in some kind of concentration or specialty program that was specifically taxonomy-related, 16.1 percent had taken two or more college/university courses on taxonomy-related subjects, and 5.4 percent reported taking only one such course. Indeed, a number of the taxonomists with an MLS or MLIS degree reported that their only specific training in taxonomy or classification was on the job. Those who reported taking college courses on taxonomy/thesaurus creation, which was their initial source of interest in the subject, often sought out taxonomy work later. These nonaccidental taxonomists are still in the minority, though.
+
+While some MLS/MLIS graduates had already taken an interest in taxonomies and thesauri as students, others came to the field through other work. Cataloging and metadata design are common prior career paths to taxonomy work. In our survey of taxonomists, we asked them how they first got started doing taxonomy work. Several of their responses refer to cataloging:
+
+
+       •  “I was working as a cataloger when a taxonomy job opened up at my company and I applied. … I learned on the job.”
+
+       •  “I have been a cataloger and indexer for decades, but my first taxonomy work was a request for a group of librarians to develop a topical taxonomy for website content.”
+
+       •  “I was asked to provide a metadata structure for a library of compliance training materials.”
+
+       •  “I had worked with controlled vocabularies in other contexts (esp. museum cataloging).”
+
+       •  “Through designing a cataloging system.”
+
+
+
+The activity of cataloging is actually more similar to indexing than it is to taxonomy design and creation, although catalog design is similar to taxonomy design.
+
+Knowledge Management and Content Management
+
+Taxonomy development and implementation for internal enterprise purposes (as opposed to external-facing information or retrieval services) come under the broader field of knowledge management (KM). So knowledge management is another logical background for individuals who move on into the specialty of taxonomies, and 15 of 132 survey respondents (11.4 percent) said that knowledge management was their primary background. An often quoted definition for knowledge management comes from the Gartner Group in 1998:
+
+
+               Knowledge management is a discipline that promotes an integrated approach to identifying, capturing, evaluating, retrieving, and sharing all of an enterprise’s information assets. These assets may include databases, documents, policies, procedures, and previously un-captured expertise and experience in individual workers.2
+
+
+
+Taxonomies often play a role in identifying and retrieving information assets, although they are insufficient for uncaptured expertise or knowledge. Survey respondents with a background in knowledge management explained how they got involved in taxonomies:
+
+
+       •  “It was part of my first knowledge management portal project.”
+
+       •  “I was invited by an ex-colleague to help on a project at his new employer, based on my knowledge of the industry and my work on knowledge management.”
+
+       •  “In an interview for a KM job my future boss asked if I was comfortable handling the company’s taxonomies. I said yes, sure. Of course. As soon as I walked out, I quickly Googled ‘define: taxonomy’.”
+
+       •  “I was working in knowledge management and found a major gap in the taxonomy awareness and competencies portion of KM implementations. I revisited my initial library science training and built a body of work that eventually resulted in my book Organising Knowledge.” —Patrick Lambe
+
+
+
+Unlike library/information science, however, degree programs in knowledge management are extremely rare, although there are occasional single courses offered on the subject, especially in library/information science schools and in business schools.
+
+Content management, in contrast to the broader field of knowledge management, is specifically focused on managing the life cycle of content items, typically digital files, and this is usually done within a content management system (CMS). Thus in one sense, the scope of information handled in content management is limited. In another sense, though, content management goes beyond knowledge management, which focuses on internal information. Content management may deal with third-party content and may deal with content that is published for external users. Taxonomies are very suitable for facilitating content management, and many content management systems now support the integration of taxonomies, in addition to basic metadata. Survey respondents who had a prior background in content management, whether internal (enterprise content management) or external publication (web content management), explained how they got involved in taxonomies:
+
+
+       •  “I was an archivist that got an out-of-school internship in content management.”
+
+       •  “To help our clients implement useful document and content management solutions.”
+
+       •  “Organizing content in the Drupal content management system.”
+
+       •  “Starting as a web content manager, as my need to better control the content and improve users e-commerce experience I found myself needing to develop taxonomies for improved navigation as well as dynamically serving up the right related content.”
+
+
+
+Digital asset management (DAM) is essentially a subspecialization within content management that deals with rich-media content assets, such as images, video, audio, and other multimedia content. Specific to these kinds of assets is the additional process of managing digital rights and permissions. DAM was not listed as option in the survey, but three respondents entered it in the comments field as their background. Explanations of DAM backgrounds of survey respondents included the following:
+
+
+       •  “Working on digital asset management for photo assets in a creative environment.”
+
+       •  “Photographer and Digital Asset Manager.”
+
+       •  “I worked for an online photo company and as part of that work I developed and maintained the controlled vocabulary.”
+
+       •  “Assistant in a film archive.”
+
+
+
+Information Technology
+
+Professionals with a more technical background in software, information technology, or database development may also end up working on taxonomies. Those with an information technology background tend to have prior experience in one or more of the following: information management, software development, search engine software, information/database management software, or text analytics. Survey respondents explained a background in search as follows:
+
+
+       •  “[Got started in taxonomies] as part of maintaining a government website’s search engine.”
+
+       •  “I was researching new search terminology for the company I am currently working for then I was later transferred to the taxonomy department to better relate our multiple search structures with our product taxonomy.”
+
+
+
+A background in information/database management software was reflected in the following survey responses:
+
+
+       •  “I started in the mid- to late ’90s developing a customized Filemaker Pro template to allow picking from a hierarchical value list to create a list of keywords that were then inserted into the File Info of Photoshop files (using the International Press Telecommunications Council metadata standard).”
+
+       •  “I’m the developer of open source tool to manage taxonomies and other formal representations of the knowledge.”
+
+       •  “I have developed an information system for the Austrian Integrated Monitoring, handling soil-, species- and other taxonomies.”
+
+
+
+Consultant Jim Wessely is an example of a taxonomist with a background in text analytics. Wessely described his early work as “computational research in text analytics and auto-classification in a very large research facility.” He said, “In ’98 I realized that I needed to create taxonomies so that I had organized structures to which I could auto-categorize content.”
+
+Some taxonomists have both a software/IT and a library/information science background. This combination of skills makes them especially suited for taxonomy work and its technical implementations. Jean Graef of the Montague Institute, which provides taxonomy and knowledge management training, explained her role as follows:
+
+
+               I’m in the business of covering gaps between corporate information cultures and technologies. … I got interested in it when I realized that there was an opportunity for a boundary-spanner like me to help bridge the gap between the way IT staff viewed taxonomy (a browsable hierarchy on a website), the way librarians viewed it (a subject index to a collection of books), and the way editors viewed it (a topical hierarchy at the beginning of a book and a topic index at the back). … The technologists didn’t understand how to create semantic relationships, and librarians and indexers didn’t understand how to translate their semantic structures and skills into internet-based technologies.3
+
+
+
+Taxonomy consultant Marcia Morante also had a combined background of library science training and work experience with software companies. She wrote as follows:
+
+
+               Although I have an MS in library and information science, I never worked in a library. All of my jobs out of graduate school were with search engine companies. Two of them are no longer in business or were bought out—Infodata and Information Dimensions. Several are still around: Fulcrum (taken over by a company that was taken over by OpenText), Verity, and Autonomy. In those days, the focus was on text searching (Boolean and/or “natural language”) and very little on metadata. However, given my educational background, controlled vocabularies were never far from my mind.4
+
+
+
+Ontologies, because of their data modeling aspect, tend to be designed by people with a more technical background. Ontologies also appeal to those who are interested in the web development aspect of the semantic web. Math or logic (philosophy) backgrounds are also suitable for ontology work, as relations in ontologies are sometimes based on set theory.5
+
+Indexing
+
+Indexing is another common background for taxonomists. While cataloging is done on the material or document level and follows prescribed rules, indexing is done on an article, page, or even paragraph level and thus involves greater subject analysis and gives greater decision-making power to the individual indexer. Periodical article indexing or other “database” indexing typically requires the indexer to look up terms in a controlled vocabulary and assign each document one or more such terms that best describe the document’s content. These controlled vocabularies need to be maintained and updated. It is natural that those who have used controlled vocabularies for indexing might transition into the role of managing the controlled vocabularies.
+
+Another kind of indexing is involved in creating indexes at the back of books. Although indexers of books generally do not use controlled vocabularies, some of the skills used in creating indexes and taxonomies are similar, so book indexers, too, may be attracted to taxonomy work. Relevant skills include the following:
+
+
+       •  Deciding what is important and likely to be looked up
+
+       •  Deciding how best to word a concept
+
+       •  Structuring hierarchical relations among terms, as main entries and subentries in a book index, or as broader and narrower terms in a taxonomy
+
+       •  Determining variant terms, as double-posts or See references in a book index or as nonpreferred terms (used for) in a taxonomy
+
+       •  Creating related term relationships, as See also relationships in a book index or associative relationships in a taxonomy
+
+
+
+The majority of book indexers work as freelancers, and a considerable amount of taxonomy work can also be done on a freelance/contract basis. Taxonomists who previously worked as indexers recounted the transition as follows:
+
+
+       •  “I started by doing indexing; I indexed three books. Then, I was able to get corporate library work that included some taxonomy assignments.”
+
+       •  “Got a job as an indexer and after a few years took over the controlled vocabulary creation and maintenance.”
+
+       •  “Got hired into a Fortune 500 company on the basis of my indexing background, as they knew they needed a taxonomist for their data governance organization.”
+
+
+
+When people with a background in indexing move into taxonomy work, they usually start out working on taxonomies that support human indexing, as just described. They then may move on to work on other kinds of taxonomies.
+
+Information Architecture/User Experience
+
+Skill in taxonomy is increasingly being required of information architects, the professionals who design the structure and navigation for websites or intranets, especially large and complicated ones, and the user interfaces of online information retrieval systems. Information architecture focuses on the structure and organization of content, leaving graphic design to the artistically talented. Information architect–taxonomists generally work on organization/navigation types of taxonomies rather than those supporting indexing or search retrieval, but a few have branched out to work on retrieval support taxonomies especially when a search engine is integrated into a website.
+
+The first information architects, in fact, had backgrounds in library and information science, and some graduate programs of library and information science now offer courses in information architecture. In more recent years, however, there has been a slight shift in the profession toward an emphasis on user-experience and user-centered design, reflecting an overall increase in interest in user-experience design.6 Thus the most qualified information architects now combine expertise in information organization/design with a focus on serving user needs.
+
+Several taxonomists with a user-experience or information architecture background explained how they got into taxonomies:
+
+
+       •  “As I started in web design, it became a natural step in my process to make information more findable.”
+
+       •  “By accident, designing portals.”
+
+       •  “Trying to improve the user experience; they are using shared drives and folders.”
+
+       •  “When I moved from ‘Business Analysis’ to Information Architecture, I learned about content modeling and hence taxonomies. I started it with a simple blog, and gradually planned ecommerce…”
+
+
+
+Today the word taxonomies often appears in job descriptions for positions in information architecture or user-experience design, although this would typically refer to small navigation taxonomies, and the role of taxonomy could still be relatively small in these roles.
+
+Subject Matter Experts
+
+Another possible route to taxonomy work—less common now than it used to be—is for a taxonomist to start out as a subject area specialist, such as a scientist or healthcare industry professional. Knowing a subject area very well is an important qualification for building a technical-subject taxonomy. Those with subject matter expertise background explained how they got into taxonomy work:
+
+
+       •  “Years ago, working with an internal proprietary research which was comprehensively indexed by subject.”
+
+       •  “I was a subject matter expert for a search engine creating web content and taxonomy categories and a position opened internally for a taxonomy manager, I applied and got the job.”
+
+       •  “I worked for a contractor for the National Institute of Diabetes, Digestive Diseases, and Kidney/Urologic Diseases (NIDDK)—they had three separate vocabularies/authority lists (one for each of the three disease areas) and I offered to merge them, to help searchers find what they needed more easily.”
+
+
+
+An interesting story is that of Marti Heyman, currently a knowledge manager at Deloitte. She explained how she got into indexing/taxonomy work with a scientific background (a BS in chemistry), accidentally moved into a different subject area, and then realized that she enjoyed the taxonomy work in general, regardless of the subject area:
+
+
+               I started using and developing controlled vocabularies in corporate settings in 1991 when I joined DuPont’s Indexing and Abstracting Group. … As a former polymer chemistry researcher at DuPont, I was one of a few indexers responsible for the indexing and abstracting of said polymer chemistry research reports.
+
+
+
+               However, I made the mistake of many junior staff, and I actually took vacation, thus missing a critical meeting. Of course, during that meeting the senior staff resolved how they would reduce the significant backlog of research materials about electronic materials. Their solution was simple: assign the work to the junior staff member not present at the meeting! … Well, it was obvious I was closer to being technically qualified to index these reports than any of the agricultural science or life science folks, so I went off to do my best. What I quickly discovered was that given a basic understanding of physics and mathematics, one really could do a pretty decent job indexing and abstracting these technical reports by using the technical thesaurus as the knowledge map to the company’s view and understanding of the domain. I was floored and I was hooked; truly an accidental taxonomist.
+
+Actually, a BS degree may not be sufficient to pursue a high-level career in taxonomy management. Heyman went on to earn both an MLIS and an MBA later in her career.
+
+Taxonomists with expertise in a particular subject area more often work on the larger taxonomies for indexing or retrieval support and especially on more complex thesauri. Ontologists are also typically subject matter experts, with perhaps some additional background in linguistics.
+
+Accidental Taxonomists
+
+Many taxonomists have come to their work not by applying for a taxonomy job but because a need arose within an organization where they were working in another capacity. Responsibilities were redefined, or what started out as a single project eventually became a job. Occasionally a taxonomy job is created because an individual sees a need and pursues an initiative. Some of these accidental taxonomists explained in our survey how they got into the profession:
+
+
+       •  “I began in technical customer support, moved into crisis/outage management and as part of that knowledge management and program management, which eventually lead into information architecture and web architecture. It’s been a very organic process.” —Allan Grohe
+
+       •  “Learned myself some HTML in the ’90s that translated to volunteering to build the first web portal for performing arts resources at NYPL for the Performing Arts.” —Barbara McGlamery
+
+       •  “I was hired to write copy, was quickly promoted to an editor position and then was later assigned to taxonomy projects, something I had never really heard of before being assigned to the initial project.”
+
+       •  “I applied for a job in Context Management and it turned out that my main work will be taxonomy consulting and taxonomy maintenance.”
+
+       •  “I fell into the specialty. Starting as a web content manager, as my need to better control the content and improve users e-commerce experience I found myself needing to develop taxonomies for improved navigation as well as dynamically serving up the right related content. I discovered that taxonomies are just a natural way of thinking for me.”
+
+       •  “The library inherited a SharePoint site which tried to organize content in a hierarchical page format. Since then, it has evolved to a searchable database. During the course of that evolution, the role and power of tagging and taxonomy became very clear.”
+
+       •  “Was put in charge of a content team that manages millions of pieces of UGC [user-generated content], we needed a way to organize our content so we just started creating taxonomies.”
+
+
+
+Taxonomy work, especially when it involves building a new taxonomy rather than ongoing maintenance, is very often project-oriented work. Thus, the project might pull in additional people for a temporary period. Some of these people then return to their previous duties, others may end up staying on with taxonomy maintenance duties added to their job description, while still others truly enjoy the experience and their new skills and seek out such jobs and projects in the future.
+
+Taxonomist Skills
+
+The main task of a taxonomist is to create taxonomies, namely, the terms and their structured relationships or categories. Although the next chapters will address this in detail, let us first consider the basic skills required of a taxonomist. The skills discussed here are based on this author’s own experience rather than on any job descriptions.
+
+Familiarity with the principles of knowledge organization structures. The core skill of a taxonomist is to have a solid understanding of the relationships between terms—broader/narrower, related, and equivalent—and to implement these relationships accurately and consistently according to standards and best practices.
+
+Analytical skills. Survey results and feedback from users or potential users must be analyzed to determine user needs and how they should be met. Content must be analyzed to determine what concepts should make up the taxonomy. Concepts themselves need to be analyzed in terms of meanings and usage to determine whether a given concept is better left as one or broken into two. Writing rules for taxonomy terms in an auto-categorization system also requires analytical skills.
+
+Organization/categorization skills. The taxonomist needs to determine how concepts, subjects, or entities are to be classified or categorized for creating hierarchical relationships. It is worth noting that organizing concepts is not necessarily the same as organizing things or one’s environment—even a person with a messy desk can work as a taxonomist.
+
+Language skills. Taxonomies deal with words and phrases. A solid understanding of grammar is important to ensure that terms are created in a consistent style and relationships between terms are correctly constructed. Strong language skills also aid the taxonomist in compiling comprehensive lists of synonyms as nonpreferred terms. Thus, there is a creative language component to taxonomy work.
+
+Research skills. Taxonomists often need to research the meanings and usage of terms to make the proper term choices, determine their scopes, and relate them correctly to other terms.
+
+Search skills. Taxonomies usually support searching, so it is imperative that the taxonomist be a capable online searcher in order to understand the taxonomy’s implementation and use. The taxonomist should be familiar with both the basic and the advanced features common in online search systems and search engines, including complex Boolean searching, wildcards, and truncation. It may also be important for a taxonomist to know how to manipulate search results. Although searchers of all levels use taxonomies, the taxonomist needs to fulfill the expectations of the advanced searcher. Taxonomists also need search skills to conduct research on potential terms, as previously mentioned.
+
+Technical skills. While taxonomists do not need to be software developers, they must have competence in using different kinds of software. Basic skills in using a spreadsheet program are fundamental as it is common to create simple taxonomies this way. Taxonomists should also have experience using various database management systems as taxonomies, metadata, and content are organized and stored in some form of a database structure. Taxonomists should have experience with (or be able to learn quickly and independently) at least one taxonomy/thesaurus management software program. Basic familiarity with XML, and possibly also RDF and OWL tagging formats, is highly desirable. Experience with specific content management systems, document management systems, and/or enterprise search systems is desirable and sometimes requested but not always necessary.
+
+Subject matter expertise. Depending on the position, specific subject matter knowledge may or may not be required. For publicly accessed taxonomies, it is usually not necessary. For internally used taxonomies, however, especially in the fields of pharmaceuticals, healthcare, financial services, legal services, science, and engineering, subject matter knowledge is important.
+
+Attention to detail. Taxonomy work requires accuracy and consistency in creating terms. For example, capitalization and abbreviations should be consistent. Some taxonomy tools do not even have a spell-checker, so careful checking on the part of the taxonomist is required.
+
+Attention to user needs. While a taxonomist need not be a professional in the area of user experience, an understanding of user needs, expectations, and behaviors in the online environment is very valuable, so some exposure to the field of user-centered design is helpful. The taxonomist might have input into the design of the search/browse user interface.
+
+Ability to work independently. In many cases an organization has only one taxonomist, and a taxonomist may report to someone who does not know taxonomies very well. Thus, the taxonomist needs to be able to make decisions independently, set priorities, determine requirements, and plan timetables.
+
+Ability to work with diverse people. The taxonomist will likely need to work with those in other specialties: software developers, interface designers, and product or project managers. If the taxonomy will be used for an external product or service, then the taxonomist may also need to work with people in marketing, sales, or customer support.
+
+Adaptability and flexibility. Taxonomy projects are often somewhat unpredictable, and they vary greatly. The taxonomist may have to work on the draft taxonomies received in various formats and may have to submit taxonomy deliverables in different formats for different stakeholders or customers. This is especially the case when serving external clients.
+
+Communication skills. Taxonomists need to write down the policies and procedures involved in creating the taxonomy and the instructions for its use. Additionally, taxonomists may contribute to user documentation. Taxonomists also need to be able to communicate well orally with different groups in order to convey the purpose, function, and best use of the taxonomy. It may be necessary to explain the purpose and function of a taxonomy to a large group, so presentation skills are also needed. As taxonomies are generally not widely understood, good communication skills are important.
+
+Related Duties
+
+Although the primary task of a taxonomist is creating terms and their relationships, there are numerous additional related responsibilities. The extent to which the taxonomist is involved in the following tasks depends on the type of taxonomy, its implementation, and the project management:
+
+
+       •  Project planning
+
+       •  Researching concepts and names
+
+       •  Developing and documenting policies
+
+       •  Taxonomy use/search testing
+
+       •  Indexing support or supervision
+
+       •  Interface design
+
+       •  Metadata design
+
+
+
+If available at the time, taxonomists are often included in the planning process, even if others make project and market decisions. All kinds of taxonomies require some degree of user studies or research in order to guide the design of the taxonomy, and taxonomists are often involved at this stage. The main reason for not including a taxonomist in designing and implementing user studies would be simply because that person may not have been hired or assigned to the project yet.
+
+Creating taxonomy terms involves some research to scope and define the terms and their relationships. Certain terms, especially named entity terms, may have additional attributes that require further research—for example, latitude and longitude coordinates for place names, headquarters location for company names, birth dates for person names, and various specifications for products.
+
+As the taxonomy is developed, those involved in the project will be called on to make decisions and refine policies. As a result, the taxonomist must document the taxonomy creation policies in order to guide future development and use of the taxonomy. The taxonomist will also likely need to develop and document policies for the continued maintenance of the taxonomy. In addition to policies, if the project relies on an internally developed or customized taxonomy management system, the taxonomist may need to document the basic procedures for creating terms and relationships. The taxonomist might even be asked to perform user testing of taxonomy management software.
+
+After a taxonomy is created, it needs to be tested. Taxonomists typically perform at least some of the testing themselves, especially if it involves sample searches rather than site navigation. A navigational taxonomy, however, should also be tested by sample user groups. Evaluating the user test results, and possibly setting up the user tests in the first place, is the role of the taxonomist.
+
+The taxonomist will undoubtedly also get involved, to an extent, in any indexing that uses the taxonomy. If there is human indexing, then the taxonomist may perform some sample test indexing and will probably be responsible for writing the indexing guidelines. The taxonomist may train and monitor indexers and will need to check indexers’ work, adjusting the taxonomy to improve accurate use. Even if the indexers have a supervisor to train them and check their work, the taxonomist needs to inform indexers of new and changed terms and to solicit their suggestions for new terms. If the taxonomy is used in a form of automated indexing or auto-categorization, the taxonomist is involved, but in a different way. Tasks may include writing rules for rules-based auto-categorization or selecting sample training documents for fine-tuning an algorithm-based auto-categorization system. Chapters 6 and 7 cover these related indexing tasks in detail.
+
+A taxonomy is usually a part of something larger, and whatever that something is, the taxonomist may work on it as well. In many cases, the taxonomy is integrated into a web interface. In such implementations, the taxonomist needs to evaluate the interface and provide input into its design.
+
+In content management, document management, or records management systems, taxonomies provide input into certain metadata fields, so the taxonomist may also be involved in defining the overall metadata architecture. Patrick Lambe analyzed how members of the largest online taxonomy community described themselves in their introductions (367 self-reports in introductions from April 2005 to September 2009 on the Taxonomy Community of Practice Yahoo! group) and found that “metadata work” was the biggest area of application for taxonomy, with “findability/discovery/search” coming in second.7 In other words, metadata work is not merely related to taxonomy work; the two are often inseparable. There are a number of books on the topic of metadata, significantly more than on taxonomies, so there is no need to discuss metadata design at any length in this book.
+
+Employment of Taxonomists
+
+According to our survey, a bigger section of taxonomists (44 percent, or 65 out of 149 respondents) are employees in organizations that use taxonomies primarily internally, for their website, or in ecommerce. Another 20 percent are employees of organizations that incorporate taxonomies into a marketed information product or information service (information providers, software vendors, etc.), and 12 percent are employees of companies or agencies that provide taxonomy services or custom taxonomies to clients. The rest, about 25 percent, are self-employed as business owners, independent consultants, or freelancers.
+
+There has been no significant change in this distribution of taxonomist employment in recent years, as similar results came from the same survey we conducted seven years prior. In Lambe’s survey of 184 taxonomists, aside from the taxonomists who are independent contractors, consultants, or involved in the professional services industry (26 percent), leading sectors employing taxonomists are publishing news and media (13 percent), information and communications technology (13 percent), government (9 percent), education (7 percent), and finance/banking (5 percent).8 We will look at where taxonomists are employed in this section and address the nature of freelance and consulting work in Chapter 12.
+
+Where Taxonomists Work
+
+Full-time and temporary taxonomists are employed by the following kinds of organizations, with the sectors that employ more taxonomists listed toward the top:
+
+
+       •  Large corporations in any industry
+
+       •  Government agencies
+
+       •  Publishers and the media industry
+
+       •  Information providers and database vendors
+
+       •  Online marketing and advertising services
+
+       •  Retailers in ecommerce
+
+       •  Agencies and consultancies
+
+       •  Taxonomy software vendors and taxonomy vendors
+
+       •  Nongovernmental organizations and membership associations
+
+
+
+In addition, people who would not consider themselves taxonomists but who occasionally work on taxonomies as a secondary activity work in
+
+
+       •  libraries
+
+       •  museums and
+
+       •  academic institutions
+
+
+
+Let’s examine each of these sectors more closely. Specific companies that are mentioned in the following paragraphs are primarily based on a review of LinkedIn member profiles: current employers of individuals who have taxonomist or taxonomy in their job title with that employer. Additional employers come from job postings for taxonomist jobs.
+
+Large Corporations
+
+Taxonomists may work in any industry as long as the company is large enough to have significant information management needs. In many such companies, though, there is likely only a single taxonomist on staff. The taxonomies in these industries, which are often enterprise taxonomies, contribute to content management or document management systems and are primarily for internal use. If the company has a knowledge management team, this is where the taxonomist might belong, but a taxonomist might also be a part of other departments, such as research/corporate library, information technology (IT), or even documentation.
+
+Large companies that have taxonomists on staff include financial services, such as Fidelity Investments, Franklin Templeton, Goldman Sachs, JP Morgan Chase, and Morgan Stanley; insurance companies, such as Allstate, AIG, and GEICO; technology companies, such as Apple, Cisco Systems, Dell, Google, Hewlett-Packard, IBM, Intel, Microsoft, and Oracle; biotechnology and pharmaceutical companies, such as AstraZeneca and PerkinElmer; consulting companies, such as Deloitte, and Ernst & Young; and other manufacturing and industrial companies, such as Caterpillar, the Clorox Company, ConocoPhillips, and Lockheed Martin.
+
+Government Agencies
+
+Government agencies and legislative offices manage massive amounts of information, and many state and federal agencies employ someone in a taxonomist role. The taxonomies in these agencies organize information both for internal access and for public access via the web. Examples of US agencies that employ taxonomists are the Department of State, the Federal Aviation Administration, the General Services Administration, and the National Air and Space Administration (NASA). The US federal government also outsources some taxonomy and related services, so a number of taxonomists work for government contractors. For some federal government jobs, a security clearance is a requirement, even for a contractor. Large international agencies, such as the United Nations and the World Bank, also employ taxonomists.
+
+Publishers and the Media Industry
+
+Companies in the broadly defined publishing and media industries, which have vast amounts of content that need to be managed, are also common employers of taxonomists. Publishers of some newspapers and periodicals, such as the New York Times, have long employed taxonomists to create and maintain their own thesauri, used by their own indexers to support retrieval of their articles or other content. Examples of other publishers that have taxonomists on staff include the children’s book publisher Scholastic; textbook publishers Cengage Learning, McGraw-Hill, and Pearson; and the magazine publisher the National Geographic Society.
+
+As other forms of content, such as images, sound recordings, and video, are digitized, media companies involved in television, film, and image publishing have also begun to employ taxonomists. These include the companies A&E Networks (including History.com), Disney ABC Television Group, Gannett, HBO, Netflix, and Martha Stewart Living Omnimedia. Additionally, vendors of stock photos and images, such as Getty Images and Corbis, make use of taxonomists.
+
+Information Providers and Database Vendors
+
+A separate class of publishers is the online information vendors that index published content, usually from multiple sources, for databases sold primarily to libraries and researchers and sometimes to consumers over the web. In this type of publishing, taxonomies are part of the information product/service being marketed. Since information retrieval is their core business, these companies may have not just one taxonomist (more likely called a thesaurus editor or controlled vocabulary editor) but a staff of several. Traditional information vendors that have employed taxonomists for decades include EBSCO, Gale (a part of Cengage Learning), and ProQuest. In addition to these companies, vendors of more specialized subjects that also have staff taxonomists include Bloomberg BNA, LexisNexis, McGraw-Hill Financial, and Thomson Reuters.
+
+Some professional associations and nonprofit organizations publish specialized, academic, or technical information databases, such as the American Psychological Association (PsycINFO) and the American Chemical Society (Chemical Abstracts). Their taxonomists need to be subject matter experts as well.
+
+Newer information websites, which are advertising-supported, that have enough rich content to benefit from hiring taxonomists include recipe websites, such as Allrecipes.com, various consumer health information websites, and the student note-sharing website StudyMode.
+
+Online Marketing and Advertising Services
+
+A new kind of online service that has been recruiting taxonomists is the dot-com startup specializing in niche information—often in business-to-business marketing and web advertising services. Those that have hired taxonomists include Adchemy, Dex Media, Groupon, OwnerIQ, and YP.
+
+Retailers and Ecommerce
+
+Both traditional retailers and online-only retailers use taxonomies to categorize the products on their websites to help customers find what they want to purchase. The internal organization of products is also useful to the employees, especially of the large retailers. Retail companies with taxonomists on staff include Best Buy, Guitar Center, Home Depot, JCPenney, Lowes, Office Depot, Sears, Staples, and Target. Online-only vendors that employ taxonomists include Amazon.com and Zappos.com. Nontraditional online marketplace providers where taxonomists work include eBay, Etsy, and Tradesy. Some companies, such as Sears and Amazon, employ multiple taxonomists.
+
+Agencies and Consultancies
+
+There is a continuum of different kinds of agencies and consultancies dedicated to helping clients organize and present information. Some are medium to large management consultancies that include knowledge management consulting and taxonomy consulting within knowledge management. Smaller consultancies might specialize in knowledge management or even taxonomies. While some web design and user-experience firms have little interest in taxonomies, other information architecture and design agencies that serve clients with especially large website projects employ information architects specializing in taxonomies. Some consultancies also hire taxonomists as contractors on a project basis.
+
+Taxonomy Software and Taxonomy Vendors
+
+Some automatic-indexing software includes integrated taxonomies, so software companies may employ or contract taxonomists to build generic and possibly customized taxonomies. Some taxonomists also work for companies that develop vertical-market search software. Vendors of taxonomy or thesaurus software, such as Access Innovations (Data Harmony), SmartLogic, and Synaptica, also have taxonomists on staff to provide taxonomy development/consulting services for their software clients.
+
+Although taxonomy vendors are a natural employer for taxonomists, there are very few such enterprises. They comprise the companies, organizations, and government agencies mentioned among the sources of licensed taxonomies in Chapter 1, such as the Library of Congress, National Library of Medicine, Getty Research Institute, and WAND. Depending on whether they are creating new taxonomies or merely maintaining existing ones, these organizations may have one to several taxonomists on staff.
+
+Organizations and Associations
+
+Nongovernmental or nonprofit organizations and membership associations with a lot of information to manage may also employ taxonomists. The information being organized may be for internal use or for public use, but most typically it involves resources for the association’s members, such as subscription periodical articles, newsletter articles, conference presentations and proceedings, and industry guidelines and policies. Examples of associations that currently employ taxonomists include Financial Accounting Standards Board, IEEE, the National Fire Protection Association, the Project Management Institute, and SAE International.
+
+Libraries, Museums, and Academic Institutions
+
+While repositories of knowledge might seem like the most natural kind of employer for taxonomists, this is not necessarily the case, simply because taxonomies in some form have already existed for decades and creating new ones is not necessary. Libraries have the Library of Congress Subject Headings (LCSH) and the Sears List of Subject Headings. Museums often use the Revised Nomenclature for Museum Cataloging by James R. Blackaby.
+
+The trend we are seeing, however, is that libraries and museums are digitizing their collections (especially smaller, special collections), putting them into databases, and making them accessible in various electronic formats, including the web. Smaller, more specialized collections both require and permit taxonomies different from the traditional cataloging vocabularies, and web access similarly changes the parameters for retrieval. Academic libraries in particular have numerous small, special collections, each of which would benefit from its own taxonomy rather than fitting into a general vocabulary, such as LCSH. Thus, librarians and museum archivists find themselves (accidentally perhaps) taking on taxonomy projects. For libraries, this work typically falls under the responsibility of “technical services.”
+
+In addition, some of the larger academic libraries employ taxonomists, particularly if the institution has its own publications or has created its own online information service to serve students, faculty, and researchers. An example is Harvard Business School’s Baker Library, which has engaged in taxonomy projects.
+
+Job Titles
+
+Employed taxonomists work under various job titles. The simple, one-word title taxonomist is common, although more common are two-word titles with the word taxonomist in them. There are also many titles containing the word taxonomy, but there are many people involved in taxonomy work whose job titles do not refer to taxonomy.
+
+From our 2015 survey of such people, only a quarter of the 130 respondents reported a job title that included taxonomy or taxonomist, a smaller percentage than the 37.3 percent who reported that taxonomy work was their primary job responsibility. For a further breakdown of terms in the survey respondents’ titles, 21 had taxonomist (9 were just taxonomist, and 12 taxonomist with another word or two), 11 had taxonomy, 11 had information architect or user experience, 9 had content, 7 had knowledge, 6 had metadata, 5 had information other than information architect, 4 had ontologist or ontology, and 3 had search. Another common term was consultant, which appeared in 13 job titles.
+
+The following job titles have appeared in LinkedIn member profiles9 and responses to our survey question “What is your job title?,” (survey responses marked by an asterisk):
+
+
+       •  Advanced Taxonomist
+
+       •  Assistant Taxonomist
+
+       •  Associate Data Taxonomist
+
+       •  Associate Taxonomist
+
+       •  Business Taxonomist
+
+       •  Chief Taxonomist
+
+       •  Consulting Taxonomist
+
+       •  Content Taxonomist
+
+       •  Corporate Taxonomist*
+
+       •  Enterprise Taxonomist*
+
+       •  Information Taxonomist
+
+       •  Junior Taxonomist
+
+       •  Knowledge Sharing Taxonomist
+
+       •  Legal Taxonomist
+
+       •  Nomenclature Taxonomist
+
+       •  Product Taxonomist
+
+       •  Senior Data Cloud Taxonomist
+
+       •  Senior Lead Taxonomist
+
+       •  Senior Taxonomist*
+
+       •  Site Taxonomist—eCommerce
+
+       •  Taxonomist Consultant
+
+       •  Web Taxonomist
+
+
+
+There are also many titles that combine the word taxonomist with another title. These may include the word “and,” an ampersand, or a slash, with taxonomist coming either first or second. Following is a list of titles that have been combined with that of taxonomist:
+
+
+       •  Browse Developer (Browse Developer & Taxonomist*)
+
+       •  Business Analyst
+
+       •  Business Semantics Lead
+
+       •  Cataloger
+
+       •  Classification Specialist
+
+       •  Content Architect
+
+       •  Content Editor
+
+       •  Content Information Manager
+
+       •  Content Manager
+
+       •  Content Specialist
+
+       •  Content Taxonomist & Curator
+
+       •  Data Analyst
+
+       •  Data Curator
+
+       •  Human Factors Engineer (Taxonomist/Human Factors Engineer*)
+
+       •  Indexer (Indexer and Taxonomist*)
+
+       •  Information Analyst
+
+       •  Information Architect
+
+       •  Knowledge Editor
+
+       •  Librarian (Taxonomist/Librarian*)
+
+       •  Library Director
+
+       •  Metadata Manager
+
+       •  Product Manager
+
+       •  Program Manager
+
+       •  Project Manager
+
+       •  Search & Portal Team Lead
+
+       •  Search Analyst
+
+       •  Search Specialist
+
+       •  Senior Digital Asset Manager
+
+       •  Senior Information Manager
+
+       •  Technical Librarian
+
+       •  User Experience Architect
+
+
+
+Titles with the word taxonomy in them are about twice as common as those with the word taxonomist. They include the following:
+
+
+       •  Analyst, Product Taxonomy
+
+       •  Archivist/Taxonomy Librarian
+
+       •  Chief Taxonomy and Experience Officer*
+
+       •  Library and Taxonomy Manager
+
+       •  Managing Editor, Science & Taxonomy
+
+       •  Metadata & Taxonomy Analyst
+
+       •  Product Taxonomy Specialist
+
+       •  Search & Taxonomy Analyst
+
+       •  Search & Taxonomy Specialist
+
+       •  Search/Taxonomy Manager
+
+       •  Senior Business Analyst—Taxonomy & Classification
+
+       •  Senior Search & Taxonomy Analyst
+
+       •  Senior Taxonomy & Search Consultant
+
+       •  Senior Taxonomy Analyst*
+
+       •  Senior Taxonomy Specialist*
+
+       •  Structured Data/Taxonomy Specialist
+
+       •  Taxonomy & Indexing Manager
+
+       •  Taxonomy & Knowledge Manager
+
+       •  Taxonomy & Publishing Manager
+
+       •  Taxonomy Analyst
+
+       •  Taxonomy and Metadata Analyst*
+
+       •  Taxonomy and Metadata Specialist
+
+       •  Taxonomy and Search Analyst
+
+       •  Taxonomy Architect
+
+       •  Taxonomy Associate
+
+       •  Taxonomy Consultant
+
+       •  Taxonomy Data Specialist
+
+       •  Taxonomy Developer
+
+       •  Taxonomy Development Manager*
+
+       •  Taxonomy Editor
+
+       •  Taxonomy Manager*
+
+       •  Taxonomy Program Manager
+
+       •  Taxonomy Specialist*
+
+       •  Taxonomy Supervisor
+
+
+
+As taxonomy has become the responsibility of a department and not just an individual in an organization, it is increasingly common to find titles of managers and directors with the word taxonomy in them. These include the following:
+
+
+       •  Assistant Director, Content and Taxonomy
+
+       •  Director of Records and Information Systems
+
+       •  Director of Taxonomy
+
+       •  Director of Taxonomy and Metadata*
+
+       •  Director, Content Taxonomy
+
+       •  Director, Taxonomy & Search
+
+       •  Manager, Search and Taxonomy
+
+       •  Manager, Search, Taxonomy & Data Governance
+
+       •  Manager, Taxonomy & Hierarchy
+
+       •  Manager, Taxonomy & Systems
+
+       •  Manager, Taxonomy and Metadata Services Group*
+
+       •  Manager, Taxonomy and Metadata Solutions
+
+       •  Manager, Taxonomy Production
+
+       •  Senior Manager, Taxonomy and Search
+
+
+
+There are also many jobs in which taxonomy development and management is a significant responsibility, but whose titles do not contain the word taxonomist or taxonomy. These include the following:
+
+
+       •  Category Analyst
+
+       •  Content Librarian*
+
+       •  Content Manager*
+
+       •  Content Strategist*
+
+       •  Data Architect
+
+       •  Director, Research & Knowledge Services*
+
+       •  Enterprise Information Architect*
+
+       •  Experience Architect*
+
+       •  Indexed Content Manager*
+
+       •  Information Architect*
+
+       •  Knowledge Architect*
+
+       •  Knowledge Management Analyst*
+
+       •  Knowledge Manager*
+
+       •  Knowledge Sharing Business Analyst*
+
+       •  Knowledge Sharing Strategy Specialist*
+
+       •  Manager, Content and Collaboration Services*
+
+       •  Online Content Analyst*
+
+       •  Ontologist*
+
+       •  Ontology Engineer*
+
+       •  Principal Program Manager, Information Standards, User Engagement
+
+       •  Product Ontology Linguist*
+
+       •  Search Editor*
+
+       •  Search Metadata Technical Specialist*
+
+       •  Search Vocabulary Specialist*
+
+       •  Senior Knowledge Management Consultant*
+
+       •  Senior Manager, Metadata Services*
+
+       •  Senior Metadata Librarian*
+
+       •  Technical Information Specialist
+
+       •  UX Consultant*
+
+       •  UX Researcher*
+
+       •  Vocabulary Editor
+
+
+
+Even though the word taxonomy occurs more frequently than the word taxonomist in job titles, we will continue to refer in this book to taxonomists because it is the simplest one-word designation.
+
+Endnotes
+
+  1.  Patrick Lambe, “Taxonomists: Evolving or Extinct? The Future of Taxonomy Work,” presentation delivered at the Taxonomy Boot Camp conference, San Jose, CA, November 19, 2009.
+
+  2.  Bryan Duhon, “It’s All in Our Heads,” Inform 12, no. 8 (September): 10.
+
+  3.  Jean Graef, email to author, November 21, 2008.
+
+  4.  Marcia Morante, email to author, November 21, 2008.
+
+  5.  Irene Pappas, email to author, July 29, 2009.
+
+  6.  The relative growth in interest in “user-experience design” compared with decline in “information architecture” over the period of 2005–2015 is evidenced by Google Trends topic and search-term comparisons and by Gale’s periodical database keyword search result count comparisons.
+
+  7.  Patrick Lambe, “Taxonomists: Evolving or Extinct? The Future of Taxonomy Work,” presentation delivered at the Taxonomy Boot Camp conference, San Jose, CA, November 19, 2009.
+
+  8.  Ibid.
+
+  9.  Job titles are based primarily on the current Title field (not in the self-described professional headlines) of several hundred LinkedIn member profiles identified with “taxonomy” or “taxonomist” in keyword searches conducted in July and August 2015.
+
+

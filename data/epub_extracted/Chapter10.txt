@@ -1,0 +1,657 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 10
+
+Taxonomy Planning, Design, and Creation
+
+Taxonomies: turning data into knowledge.
+
+—Nick Berry
+
+Creating, or even revising, a taxonomy is a significant project that eventually becomes a knowledge base that requires continual maintenance. Other books and articles go into the subject of taxonomy planning and project management at greater length than there is space for in this chapter. In one such book, Organising Knowledge, the author Patrick Lambe suggests the following six steps for preparing a taxonomy project and discusses each in detail:1
+
+
+       1.  Meet with the project sponsor (to map key stakeholders and activities, learn the purpose and intent of the project, determine the technology available, and assess the knowledge and information management context).
+
+       2.  Engage the stakeholders.
+
+       3.  Refine the project purpose, and get the sponsor’s agreement.
+
+       4.  Design the approach.
+
+       5.  Build a communication plan.
+
+       6.  Start the process for taxonomy governance.
+
+
+
+Another suggested approach to taxonomy projects comes from Darin Stewart in his book Building Enterprise Taxonomies. He describes the taxonomy development cycle as comprising five phases:2
+
+
+       1.  Research (including stakeholder interviews and a content audit)
+
+       2.  Strategy (developing the taxonomy plan and governance document)
+
+       3.  Design
+
+       4.  Implementation (actually building the taxonomy)
+
+       5.  Administration (maintenance of the taxonomy)
+
+
+
+Since accidental taxonomists are not always taxonomy project managers, we will not present detailed project management instructions here. Rather, this chapter looks at key issues pertaining to taxonomies as projects, including their planning, unique issues of enterprise taxonomies, taxonomy creation processes, taxonomy implementation and interoperability, and taxonomy governance.
+
+Planning for a Taxonomy
+
+Because a taxonomy is something created for future, long-term use, planning is very important. Planning involves asking questions, conducting research, and preparing a written taxonomy plan, which can also serve as a governance document throughout the taxonomy creation process and for ongoing maintenance of the taxonomy. By now, you should know the details of how to create or edit a taxonomy, but if someone says to you, “We need a taxonomy, and we hear you know how to create taxonomies. What do you need to know to get started?” would you know how to answer and how to proceed? Even people with some taxonomy experience may be unsure how to respond initially to a new and different project. Planning involves asking the right people the right questions, conducting additional research, and developing a taxonomy design and strategy.
+
+Project Questions
+
+The first step in a taxonomy project is to meet with the key person or people connected to the project to get answers to fundamental questions about the intended taxonomy. If a single knowledgeable taxonomy manager is already in place and you come into the project simply to build the taxonomy, then you need only ask the taxonomy project manager the questions listed in this section. If, however, the taxonomy project manager does not yet have all the answers and is hoping that you will help come up with them or if you are the taxonomy project manager, then you need to speak with all of the stakeholders in the project.
+
+A definition of a stakeholder is “anyone who has a vested interest in the project, can be affected by the change initiative that the project represents or has the power to influence the project” (Declan Chellar).3 Who exactly the stakeholders are will vary depending on the type of organization and purpose of the taxonomy. If, for example, the taxonomy is for a web-based subscription information service, then the stakeholders include the project manager, someone responsible for overseeing content creation or aggregation, any key content vendor(s), someone responsible for indexing, someone responsible for web user interface design (such as an information architect), and someone responsible for marketing and getting user feedback.
+
+Whether you are meeting with the taxonomy owner/manager or you as a taxonomy manager are meeting with a number of stakeholders, you should be asking the same fundamental questions before beginning work on the taxonomy:
+
+
+       1.  Purpose: What will the taxonomy be used for?
+
+       2.  Users: Who are all the users of the taxonomy, and who are the end users in particular?
+
+       3.  Content: What content will be covered by the taxonomy?
+
+       4.  Scope: What are the topic area, scope, and limits?
+
+       5.  Resources: What are the project’s resources and constraints?
+
+
+
+If the project owner cannot sufficiently answer all these questions, find out whom else you should ask. Answers may come from more than one person.
+
+Purpose
+
+Although a single taxonomy often serves multiple purposes, typically there is a primary purpose in mind. Recall from Chapter 1 that there are three main applications of taxonomies:
+
+
+       •  Indexing support (manual or automated)
+
+       •  Retrieval support (including both search and discovery)
+
+       •  Organization and navigation support
+
+
+
+If a taxonomy’s primary purpose is to ensure comprehensive, accurate, and consistent manual indexing/tagging, then you will probably want more of a thesaurus-type of taxonomy. Nonpreferred terms and relationships should facilitate indexers in finding the preferred terms, and indexing policies must be established. If a taxonomy’s purpose is to support automated indexing, then a synonym ring-type taxonomy may be all that is needed. If a taxonomy’s primary purpose is to serve retrieval, then a taxonomy structure that best serves end-user needs, such as a balanced hierarchical or faceted structure, is best. Finally, if a taxonomy’s objective is to serve website organization and navigation, then it should be hierarchical and relatively small, should have term names that fit well as menu labels, and may not need additional term relationships.
+
+Users
+
+The purpose of a taxonomy will determine to a certain degree who the taxonomy users are (e.g., whether the users include indexers), but there are other variables to consider among users as well. If indexers are involved, it makes a difference whether they are dedicated indexers, content creators/authors, or editors and whether they are experts in the subject matter. Dedicated, trained indexers can deal with a large, generalized taxonomy, but expect consistency in depth, breadth, and term style. Authors, on the other hand, seek terms that match the language of their writing and need a simple taxonomy without extensive indexing policies.
+
+End users could be internal organization members, students, subject area specialists, the public, or various subsections of the public. Not only would different audiences look for different preferred terms, but different kinds of users may also have different expectations regarding the display of the term details, including/excluding nonpreferred terms and other relationships. Internal users may expect internal jargon and a structure that reflects the organization. A taxonomy used by students will likely need additional educational features, such as scientifically correct hierarchies and generous use of scope notes. Subject matter experts tend to expect deep taxonomies. A taxonomy for the public ideally is no more than three levels deep if hierarchical, or it could be faceted if the content is appropriate for a faceted taxonomy. In either case, the display should be very intuitive to use.
+
+It can be tricky if the same taxonomy will be used by multiple types of users, which is most often the case with the taxonomies of large information vendors. Margot Diltz, retired senior manager of editor policy at Cengage Learning, explained as follows:
+
+
+               It is a challenge to create a single taxonomic system that satisfies the needs of a range of audiences, that is, the expert and the generalist or the child and the adult. When the taxonomy is meant to meet the needs of all possible users, the results are likely to mean compromises that leave the taxonomist less than satisfied.4
+
+
+
+Content
+
+The range of content covered by a taxonomy can be a moving target. Once a taxonomy project is proposed, stakeholders may suggest additional content types not originally envisioned in the inclusion. This problem applies to both taxonomies used by information vendors and those used just internally. Thus, when planning a taxonomy, it is important to take a broad view and consider all the types of content likely to be included, even if some will not be incorporated until later.
+
+In addition to the subject area of the content, the type of content affects the taxonomy design. The content could be text only or could consist of other media, such as image files, audio files, or video files, or it could be a combination. Image-only content tends not to make use of broad or abstract taxonomy concepts (such as diseases, mergers & acquisitions, and human resources), as text content might. Furthermore, if the type of content is relatively uniform, then a faceted taxonomy might be most suitable. The nature of the content, volume, and rate at which it changes or grows all factor into deciding whether indexing will be manual or automatic, and the type of indexing also affects the taxonomy design.
+
+Scope
+
+While the content to be indexed is the determining factor in the subject scope of the taxonomy, any body of content will include off-topic documents. Thus, a policy is needed from the beginning to determine what types of subjects can be included in the taxonomy. There is also the question of what kinds of named entities should be included for people, organizations, products, places, document titles or names of works, laws, events, and so on. If the taxonomy is faceted, you only need to include facets that are relevant to the search process. If not everything is covered, that’s still OK. It can be easy to lose sight of a taxonomy’s scope, especially if term relationships lead to creating more terms of only marginal relevance to the project.
+
+Resources
+
+Project resources or constraints include the following:
+
+
+       •  Skills and expertise: Of project managers, indexers, and other taxonomy editors
+
+       •  Funding: For staff and for software, hardware, and networking services
+
+       •  Timing: When a completed taxonomy needs to be implemented
+
+       •  Stakeholder role: Of the project owner, managers, partners, content vendors, and/or key clients, and so on, who may have certain expectations for the taxonomy and who may or may not be actively involved
+
+       •  Technology: Capabilities of the software used for indexing (human or automated), the software used for search/retrieval, the information architecture and user interface design, and how the data is stored—for example, the taxonomy may be implemented in a document management system that does not support polyhierarchies
+
+       •  Technical support: For software, hardware, and networking/telecommunications requirements and the hosting of the data
+
+
+
+Limited resources can obviously affect the size and complexity of the taxonomy.
+
+Additional Considerations
+
+Sometimes the taxonomist reports to a project manager, and sometimes the taxonomist is the project manager. In the latter case, such as in the role of a taxonomy manager or taxonomy consultant, there are many other issues to consider. These include typical project management concerns that are covered in other books. Some questions pertaining specifically to taxonomy project management include the following:
+
+
+       •  Which people will be involved in the taxonomy creation, management, support, and approval? This typically involves people from different departments.
+
+       •  Who is required to give approval, and at what level of decision making in creating the taxonomy is approval needed? Someone other than the taxonomist might decide the taxonomy format, specific top terms, and an approximate number of hierarchical levels.
+
+       •  Who will be responsible for setting taxonomy usage policy? Most likely, it will be you, the taxonomist, but the policy will still need approval.
+
+       •  Who will document taxonomy usage and policies? It might be a taxonomist-consultant, or it might be the taxonomy owner.
+
+       •  How will the taxonomy fit in with other document-level metadata, and who is responsible for this? It’s a gray line between taxonomy and other metadata, such as document type, content type, discipline, or audience, and if a metadata librarian is involved in that area, you need to work together.
+
+       •  How will ongoing support and maintenance be handled? Who will be responsible, and how much time will be devoted to such tasks?
+
+
+
+If you are not in a project manager role and someone else is taking care of all of the preceding issues, you as the taxonomist or taxonomy editor still need to address some key questions before you plunge in and start creating terms and relationships:
+
+
+       •  Will the structure of the taxonomy be a relatively flat controlled vocabulary, a hierarchical taxonomy, or a taxonomy organized into facets?
+
+       •  Will the technology fully support faceted search?
+
+       •  If hierarchical, will polyhierarchies be permitted?
+
+       •  If hierarchical, approximately how many top terms should there be, and how many levels deep should the taxonomy go?
+
+       •  Will associative relationships be included and supported?
+
+       •  Will the nonpreferred terms be displayed to the end users?
+
+       •  What kinds of additional information should each term have (such as scope notes or other attributes)?
+
+       •  Will the taxonomy (or taxonomies) be segmented or classified in such a way that separate files or category designations would be applicable?
+
+
+
+In some cases, answers will not be immediately available to these questions. You may need to conduct further research and perhaps even perform some test development of the taxonomy before the answers become apparent. This is one of the differences between serving as a taxonomy editor versus serving as a taxonomy manager or consultant. If you are a taxonomy editor, someone else should answer these questions for you. As a taxonomy manager or consultant, though, you will need to do research to determine the answers yourself.
+
+Research for a Taxonomy
+
+To a large extent, conducting research for a taxonomy project involves gathering sources for terms (discussed in Chapter 3), but research is also needed to support decisions regarding the taxonomy’s size, scope, structure, display, and other features. In some cases, the same research can yield both terms and answers to these other taxonomy design questions.
+
+Possible research tasks include the following:
+
+
+       •  In-depth interviews of primary stakeholders, interviews of additional stakeholders, and perhaps interviews with some of the potential taxonomy users
+
+       •  A content audit or content inventory (see Chapter 3 for details and an example)
+
+       •  Analysis of word or phrase lists generated by simple text analytics tools from sample content
+
+       •  Analysis of search logs (when a search engine is already in use) and click-trail reports of such reporting tools, if available
+
+       •  Research into the functions of any existing search/retrieval systems the organization may have and/or methods used for search/retrieval for similar content in similar organizations
+
+
+
+Stakeholder Interviews
+
+Interviewing stakeholders means scheduling individual meetings, either face-to-face or by phone, with the taxonomy project sponsors, leaders, managers, and team members and with key people in other departments who will be involved in or have some stake in the taxonomy. In preparation, you need to identify the stakeholders for interviews and draw up interview questions. Plan for each interview to last perhaps 30 to 60 minutes. The interview questions should seek to understand
+
+
+       •  the goals and objectives of the taxonomy, especially from a business sense
+
+       •  weaknesses or failings of the current search/findability
+
+       •  needs or desires for the functionality of a new or improved search/browse system
+
+       •  the basic kinds of content
+
+       •  the information systems currently used and those that are expected to be added or retired
+
+       •  the challenges foreseen
+
+       •  the nature of content creation, by whom, according to what policies, and the like
+
+
+
+Questions can deal with both the big picture and with details. It may be necessary to have two slightly different sets of questions depending on the type of stakeholder, such as one set for those who would be indexing or tagging documents and one set for those who would be primarily looking for documents. Some questions would be the same for everyone, but some would be different. Examples of questions for stakeholders who add content and would tag or index with a future taxonomy could include:
+
+
+       1.  What kind of documents do you and/or your group members upload/add to the system?
+
+       2.  What is the process of uploading/adding content and categorizing content?
+
+       3.  Is content tagged or supposed to be tagged when uploaded?
+
+       4.  If so, are there other issues with the tags?
+
+
+
+Examples of questions for stakeholders who need to find content and who would browse a future taxonomy could include:
+
+
+       1.  Are you looking just for specific documents, or do you also look for information/answers to questions from any content sources?
+
+       2.  How do you look for documents?
+
+       3.  What are the keywords you use or would like to use?
+
+       4.  What difficulties do you encounter (specific examples) in finding documents?
+
+
+
+You may wish to use a table or spreadsheet to record the results of the interview questions, with a row for each stakeholder and a column for each question. You can then glance at all the results to discern any patterns.
+
+Search Logs and Click-Trail Reports
+
+Search query logs record search behavior, and click-trail reports record browse/navigation behavior. Both are useful for developing taxonomy terms in different ways.
+
+Search query logs provide ideas for preferred and nonpreferred terms. They are simple to interpret because they list keywords/search strings that users have entered, presenting them in usage order. Query logs are often a standard administrative feature of search software.
+
+Click-trail reports, on the other hand, can provide ideas for structuring a hierarchy of terms. These reports usually show the series of web-page titles that a user clicked through to navigate to the desired information, with a list of trails for each final destination page. Thus, you can discover the most prevalent paths users take to a destination page. These paths provide insight into what most users consider the logical hierarchy or category for the information on the destination page. Web analytics software packages that offer click-trail reports include ClickTale (www.clicktale.com), Clicky (www.getclicky.com), and iWebTrack (www.iwebtrack.com).
+
+Taxonomy Design Plan
+
+The answers to all the aforementioned questions form the basis for a taxonomy design plan. The extent and details of such a plan will depend to a certain degree on the organization’s documentation requirements. Formal approval of a plan may or may not be required prior to starting work on building the taxonomy. The plan should address at least the following issues:
+
+
+       •  Purpose and users of the taxonomy
+
+       •  Scope of the taxonomy and of the indexed content
+
+       •  Tools used for creating and managing the taxonomy
+
+       •  Sources for the taxonomy terms
+
+       •  Systems used for implementation and end use of the taxonomy
+
+       •  Expected user interface features
+
+       •  Indexing method(s)
+
+       •  Structure/type of taxonomy, relationship types
+
+       •  Project timetable with milestones and prerequisites
+
+
+
+This taxonomy design document—which you may call a project plan, requirements document, or another name that fits into your organization’s documentation policy—can be considered the first major “deliverable” of a taxonomy project. The taxonomy design plan can then be the basis for future documentation of the taxonomy, which you will develop as you create the taxonomy. While the general taxonomy design issues should be decided in advance, certain details tend to get resolved later, once you actually begin creating the taxonomy. Such details could include term format (such as whether to use parenthetical qualifiers), the use of certain term note/description fields, and procedures for updating the taxonomy. Furthermore, technical requirements can change, especially if the user interface is still under development or the content management system/search software is subject to change. (Taxonomy projects are often launched at the same time that new software systems are introduced.) You will update the documentation throughout the taxonomy creation process, and it will be complete only when the taxonomy is complete. Then it is no longer a “plan” but becomes the “governance” document, a policy document to “govern” the taxonomy.
+
+Taxonomy Structural Design
+
+It is at this stage that you will make all structural decisions about the taxonomy, if they have not already been made for you. Structural issues include deciding whether the taxonomy will
+
+
+       •  have any portions licensed from external sources (see Chapter 1)
+
+       •  be predominantly hierarchical, faceted, or organized as a thesaurus
+
+       •  have associative relationships
+
+       •  be maintained as a single file/thesaurus or as multiple taxonomies/vocabularies/files
+
+       •  include additional term types or categories that might be applied to organize the taxonomy
+
+
+
+As mentioned in Chapter 5 with respect to taxonomy management software features, assigning categories to terms enables support for certain end-use search interface characteristics and other administrative capabilities. You could also use categories to distinguish
+
+
+       •  generic terms from named entities
+
+       •  terms that the you decide may be permitted to have certain semantic relationships
+
+       •  terms that belong within a facet for a faceted taxonomy
+
+
+
+There could be a master taxonomy, for example, and subsections categorized for certain audiences or services.
+
+Number of Taxonomists
+
+In planning the timetable for completing the taxonomy, you need to consider how many people will be directly working on it. Whether a single taxonomist will suffice or whether there should be a team of people working on the taxonomy depends, obviously, on the taxonomy size, the project deadline, and the budget. One taxonomist can create an entire taxonomy for a project if there is sufficient time, perhaps a period of several months. Even if one taxonomist working full time could undertake the entire project, it may be desirable to have multiple taxonomy editors, who would be working only part-time on the project (whether they are on staff or contracted freelancers). As we have seen, there are many subjective decisions that the taxonomist must make, so it is good to have other taxonomists to consult for opinions. If there are multiple taxonomists, the work could be divided among them in different ways:
+
+
+       •  By taxonomy hierarchy, facet, authority file, or subject area
+
+       •  By task/function: interviewing stakeholders, performing a content audit, constructing the initial taxonomy structure, researching terms and relationships, conducting card sorting or other user testing, editing, and so on. (Some of these tasks must be performed sequentially.)
+
+
+
+In contrast with the work of indexers, there are no reliable average rates for estimating how many terms a taxonomist can create per hour. There are too many variables, and individual terms may or may not require research. Fortunately, a considerable amount of taxonomy work can be done off-site. Therefore, employing remote freelance taxonomists, which is more appropriate for part-time, short-term work anyway, may work quite well for a taxonomy project.
+
+Enterprise Taxonomies
+
+Enterprise taxonomies have recently been receiving a great deal of attention. Enterprise is not limited to a company or business but could refer to any large organization, including nonprofits and government agencies. It sometimes seems as if all taxonomies these days are enterprise taxonomies, because (1) it is true that most new taxonomies are indeed enterprise taxonomies, and (2) taxonomies that are not created for an enterprise are less likely to be called taxonomies but rather thesauri or controlled vocabularies. A greater number of new and planned taxonomy projects are for enterprises, simply because that is where the greatest market is. Most information vendors who use taxonomies to provide content for customers or the public, rather than for an internal enterprise, already have taxonomies in place. The number of new information vendors is relatively small, whereas the number of enterprises of various kinds that can benefit from a taxonomy to make their documents and other content easier to manage and find is vast.
+
+Enterprise Taxonomy Characteristics
+
+The significant features of an enterprise taxonomy are the following:
+
+
+       1.  Its primary users are members of the enterprise (employees and perhaps also contractors).
+
+       2.  The content to be indexed with the taxonomy is largely created/authored by members of the enterprise.
+
+       3.  The taxonomy unifies concepts/vocabularies from various departments to universally serve the entire enterprise (but does not necessarily include all content in an enterprise).
+
+
+
+There may be some differences of opinion as to whether an enterprise taxonomy ought to cover all shared content of an enterprise. In practice, this is rarely achieved. What makes a taxonomy an enterprise taxonomy, though, is that it covers content in multiple departments for multiple purposes and has users from multiple departments of the organization.
+
+An enterprise taxonomy is often implemented within an enterprise content management system, a document management system, SharePoint, or an intranet or extranet (like an intranet, but with additional access to partners, vendors, clients, and so on, but not the general public). Access through a public website is also possible but would likely be of secondary importance and may include only parts of the taxonomy.
+
+An enterprise taxonomy is often a faceted taxonomy with a hierarchy of terms within the larger facets. Typical facets would be document type or content type, line of business and then product or service type, functional area or department, location or region, and possibly the catch-all facet of topic. There may be a facet for phase, stage, or lifecycle of a product or service. Market segment, customer type, or audience could also be a facet. For companies in highly regulated industries, there may even be a facet for laws and regulations. The types of documents within an organization can be quite numerous and of highly specific types, such as “Securities loan agreement registration.” This may result in a relatively large, hierarchical taxonomy within a facet for document type. At some point, the distinction between document type and topic can get blurred, so taxonomy policies need to be developed and followed.
+
+Developing an enterprise taxonomy has its own particular requirements. Because it involves various departments and people within an organization, a significant number of people have to be consulted in the taxonomy development process, including stakeholders and representative users. Enterprise taxonomy stakeholders include
+
+
+       •  the project sponsor/owner
+
+       •  the manager (upper management)
+
+       •  members of a taxonomy project team
+
+       •  managers of departments whose existing vocabularies (which may or may not currently be controlled) will be utilized
+
+       •  content creators, who want the documents they write to be found through the taxonomy
+
+       •  information technology engineers who will be responsible for implementation and technical support
+
+       •  the intranet/extranet webmaster(s)
+
+       •  key “power” users
+
+
+
+Users of an enterprise taxonomy include potentially all employees of an organization. Thus, unlike externally facing taxonomies, test users are easily accessible, although they may be at various remote locations.
+
+The subject matter scope of an enterprise taxonomy can be quite varied and needs to be carefully considered, as there are different options for how inclusive it may be. The scope could include any or all of the following:
+
+
+       •  Products and services (names, descriptions, features, user issues)
+
+       •  Technology and technical terminology (science, research and development oriented)
+
+       •  People and their areas of expertise
+
+       •  Human resources and management subjects (policies, procedures, programs)
+
+
+
+In addition, you need to recognize the existence of proprietary/nonpublic terminology that would never be known to anyone outside of the enterprise. All enterprises have, to some degree, their own jargon, acronyms, project code names, and so on, which are totally unique and not defined anywhere outside that domain. You need to look for that language and be sure to include it.
+
+Enterprise Taxonomy Project Tasks
+
+The steps for creating an enterprise taxonomy are not too different from those involved in creating any taxonomy, but greater attention is required in certain areas, especially with respect to the research and information-gathering phase. A workshop with stakeholders is one possible method to brainstorm facets and terms for an enterprise taxonomy. In addition to interviewing stakeholders, it is both possible and beneficial to interview select users, since the users are people within the enterprise rather than external customers, so the users are more accessible. Web search logs are typically available to analyze for search terms that have been entered, and these should not be overlooked. A content audit is usually relatively involved and complicated in an enterprise, due to the diversity of content.
+
+For top terms of an enterprise taxonomy, you need to look harder to identify organizing principles, problems, and tasks. This is not as simple as for a retail product taxonomy.
+
+The documented design plan of an enterprise taxonomy also carries more weight, because actually developing the taxonomy may be contingent on acceptance of the plan, which is not necessarily assured. Some managers may be skeptical of the cost-benefits of a taxonomy.
+
+Stakeholder Workshop
+
+Conducting a full-day or two-day taxonomy workshop with most of the key stakeholders (10–15 perhaps) participating in the same room is a common technique among taxonomy consultants. The taxonomy consultant may start out by explaining what an enterprise taxonomy is and how it can help the organization, and what facets are and how they work. Then the consultant asks individuals around the table in turn to suggest types of content and topics of search. These are written down on a board and then reviewed, eliminating some and combining near duplicates, and grouped into categories or facets. This method not only quickly generates a set of candidate taxonomy terms and facets upon which most key stakeholders already agree but also engages the stakeholders more and gets their buy-on on the whole idea of the taxonomy and the process to create it.
+
+Stakeholder and User Interviews
+
+The stakeholders in an enterprise taxonomy project tend to be a larger and more diverse group than stakeholders in a taxonomy for customer-only information services. In addition to the taxonomy project leader, manager, and/or sponsor, you should include a manager from each department whose content will be included and from each department that will use the taxonomy, which essentially includes all departments of an enterprise. If a taxonomy workshop was held, the stakeholders who are interviewed may include most of the workshop participants plus some additional people.
+
+User interviews, which should come after the stakeholder interviews, ought to include at least two representatives from different functional areas, such as human resources, marketing, sales, customer service, finance, research, and product development. User interviews are typically not as long as the stakeholder interviews. Interview questions should center on what kinds of information are needed within a given function area, how the current system falls short, how a desired search system should work, and any other “wish list” items. At this stage, these are still planning questions. Later, when there is a draft or test taxonomy to review, you will consult with the users and stakeholders again.
+
+Enterprise Content Audits
+
+As discussed in Chapter 3, a content audit or content inventory is an important step in gathering sources for terms for any taxonomy. In an enterprise, there is an even greater variety of content that the taxonomy may cover, all of which should be included in a content audit. The taxonomy may cover the following types of content:
+
+
+       •  Employee handbooks
+
+       •  Manuals and guidelines
+
+       •  Transaction records
+
+       •  Policies and procedures
+
+       •  Reports and white papers
+
+       •  Standards
+
+       •  Marketing literature
+
+       •  Product data
+
+       •  Internal employee newsletters
+
+       •  R&D development documents
+
+       •  Training materials
+
+       •  External publications
+
+       •  Schematics and drawings
+
+       •  Customer support documents
+
+       •  Project documents
+
+
+
+Furthermore, there may be a variety of different document types or file formats to consider, including the following:
+
+
+       •  Web-page files (HTML)
+
+       •  PDF documents
+
+       •  Word-processed documents
+
+       •  Documents in other publishing formats
+
+       •  Presentations
+
+       •  Spreadsheets
+
+       •  Online help files
+
+       •  Image files
+
+       •  Videos
+
+       •  Database records
+
+       •  XML files
+
+       •  Paper (such as from archives or external sources)
+
+
+
+Electronic documents could be web/intranet pages or shared files on servers or could be located in document management systems or on individual hard drives.
+
+Although an enterprise taxonomy will be used across the entire enterprise and should include vocabulary for the entire enterprise, this does not necessarily mean that every single piece of content must be included. You would exclude emails, confidential employee records, receipts attached to expense reports, forms, vendor- or partner-produced literature, and so on. You might also determine that some content will stay in separate repositories; for example, logs of customer calls will stay in the customer contact system, and forms filled out by individual employees will be kept only in the human resources files.
+
+The content audit needs to be more detailed for an enterprise taxonomy than for other kinds of taxonomies. In addition to writing down the term/concept and its source, other information to record for each concept includes audience, document type, and possibly the content management system in which the document is stored. In Building Enterprise Taxonomies, Darin Stewart suggests that data from an audit include the following:5
+
+
+       •  Content (or document)
+
+       •  Category (or document type)
+
+       •  Source (application, database, or external provider)
+
+       •  Location (URL, file system path, or hard copy location)
+
+       •  Stakeholder (author, producer, consumer, or executive)
+
+       •  Organization (stakeholder affiliation)
+
+       •  Term
+
+
+
+Content determined to be redundant, obsolete, or trivial (ROT) may also be marked as such.
+
+A complete content inventory is usually not possible nor necessary for an enterprise taxonomy. Locating and recording all content in an enterprise would be nearly impossible due to its sheer volume, and much of it may be of little relevance anyway. Rather, you need to identify the most critical content for the audit. Stewart refers to “critical core content” in identifying what should be surveyed during an enterprise taxonomy content audit.6
+
+Taxonomy Creation Process
+
+Actually creating a taxonomy involves entering the concepts and terms identified in the planning and research stage into some taxonomy management tool, adding the appropriate term relationships and possible additional information, getting intermittent feedback from stakeholders and test users, and making further revisions as needed. This is the core of the work of taxonomists and what defines their work. And for most taxonomists, especially those who are not also involved in project management, this is the bulk of their job.
+
+Steps for Building a Taxonomy
+
+Planning for a taxonomy, as described in the first section of this chapter, involves answering basic questions regardless of the kind of taxonomy. But when it comes to actually building the taxonomy, there are different methods. Broadly speaking, the approach to building the taxonomy can be either top-down, bottom-up, or some of each, depending on the type of taxonomy. Hierarchical and faceted taxonomies tend to involve more of a top-down approach. The approach will also depend on the primary source for terms. If a significant number of terms are suggested by the taxonomists, subject matter experts, information architects, or a product manager, then more of a top-down design would result. If most of the terms originate in sample content, a bottom-up approach makes more sense.
+
+Steps for Building a Hierarchical or Faceted Taxonomy
+
+The basic steps for creating hierarchical taxonomies are the following:
+
+
+       1.  Gather term concepts from a content audit, stakeholder interviews, and other sources.
+
+       2.  Identify the top categories or facets based on analysis of patterns and scope of concepts, and list these (ideally in a spreadsheet).
+
+       3.  Come up with example second-level terms for each category (but not necessarily all second-level terms) and possibly even a few third-level terms.
+
+       4.  Present this top-level “straw-man” taxonomy to the taxonomy owner(s) or stakeholders for initial review and feedback and make revisions as requested. (“Straw-man” in this context means that, like straw, it can easily be torn down and rebuilt.)
+
+       5.  Making full use of all the concepts gathered, fully build the taxonomy out to lower levels, possibly still in spreadsheet software if it is a small taxonomy or else in a taxonomy/thesaurus management tool.
+
+       6.  Implement, conduct user testing, and revise as needed.
+
+
+
+Since a hierarchical taxonomy is simpler than a thesaurus, at least once the basic hierarchies have been defined, the taxonomist’s role could diminish after Step 4. At that point, internal subject matter experts, more intimately familiar with the content, could build out the taxonomy to further depths, as long as the taxonomist provides the guidelines and some review.
+
+Although the top terms are defined first, with sample second-level terms next, often the procedure involves identifying the narrowest terms next, after the top terms, and then grouping the narrowest terms to come up with possible intermediate-level terms. Thus, even for a supposedly top-down hierarchy, you may actually perform some bottom-up taxonomy building, while still presenting a straw-man taxonomy consisting of only the top two levels. It is not unusual to start out creating the taxonomy from both the top and the bottom and to leave the middle for last.
+
+Steps in Building a Thesaurus
+
+The steps for creating literature/digital asset retrieval thesauri are similar to those for creating hierarchical taxonomies but not identical. Top categories may or may not need identifying, and unlike a hierarchical taxonomy, there is no point at which the taxonomist can “pass off” the taxonomy building to subject matter experts.
+
+The taxonomist must do all the development of a thesaurus, except perhaps for named entities:
+
+
+       1.  Gather term concepts from samples of the content being indexed.
+
+       2.  Analyze the collected terms and organize them into lists within the same subject area at the same level “offline,” whether in a spreadsheet (preferable) or in a text document.
+
+       3.  Obtain feedback on some of the more significant term lists as deemed necessary, and then import them into thesaurus management software.
+
+       4.  Making full use of all the gathered concepts, fully build out the thesaurus of terms and relationships in a thesaurus management tool, consulting reference sources (dictionaries, glossaries, other thesauri) and subject matter experts as needed.
+
+       5.  Implement the thesaurus, test it with sample indexing, and revise it, filling in apparently “missing” terms and relationships.
+
+
+
+When it comes to the most involved phase, actually building out the thesaurus of terms and relationships (Step 4 in the preceding list), there are basically three different possible approaches:
+
+
+       1.  Complete each term’s set of nonpreferred terms, full relationships, notes, and all attributes, then slowly add more terms. This approach works best for named entities, where interterm relationships are minimal or at least rather simple, but term details might be quite extensive.
+
+       2.  Add a number of terms quickly, and then go back later to add the terms’ details and relationships. Adding multiple terms could be done offline and then imported, but if the thesaurus software does not have an easy importing feature, it may be quicker to add terms of less than a dozen or so manually. This approach is more appropriate when there are a significant number of terms at the same level or when you have a list of technical terms that require research and you want to do all of the research later.
+
+       3.  Adopt a hybrid approach, in which you add terms, create their nonpreferred terms and any scope notes or other term details, then go back and create relationships later; or create hierarchical relationships at the time of term creation, and add only the associative relationships later. This approach can work for various kinds of terms, and the specific procedure is more a matter of how the taxonomist may think: fully defined terms first, relationships second.
+
+
+
+If you do postpone any relationship creation after creating a number of terms, obviously you should keep good records of which terms still require relationships.
+
+In either case, whether you are building a hierarchical taxonomy or a thesaurus, you will likely develop a considerable number of terms offline, such as in a spreadsheet. You can then import or load the terms in batches into a thesaurus management tool, where you can create relationships and add other data. When you add terms later, though, during the taxonomy maintenance phase, you will need to create each one individually. Therefore, you will likely do all maintenance taxonomy work in the thesaurus management software.
+
+Card-Sorting Exercises
+
+The taxonomy-creation process involves periodic input from stakeholders and/or test-users. This input is not limited to approving lists of terms but could also involve input into the structure in the case of a hierarchical taxonomy. You can gather this input through a procedure called card sorting. As the name implies, card sorting involves having test-users sort into categories small cards or pieces of paper on which you have written the names of candidate taxonomy terms. From the sorting results, you can get an idea of how users believe hierarchies should be arranged. Card sorting is usually used for only two levels of a hierarchy at a time, typically the top level and a second level. Card sorting reveals the way searchers think about the concepts and has been a technique utilized by information architects for web navigational taxonomies for some time. While often associated with navigational taxonomies, this method can be used for the top two levels of any hierarchical taxonomy.
+
+The number of cards/terms should be limited so that the card-sorting participants can easily scan the groups and work with them. Ideally, there should be about four to eight top-level categories, and within each of these categories a similar or slightly higher number of terms. Thus, the total number of second-level terms involved might range from 20 to 60. With more than that, the technique becomes unwieldy.
+
+There are two kinds of card-sorting exercises: open card sort and closed card sort. An open card sort does not predefine the broader categories. The participants themselves must categorize the cards as they deem appropriate, determining both the names of the categories and how many categories there should be. A closed card sort is simpler for the participants. You provide them with the top-level categories, and they merely sort the second-level concepts into those predefined categories. You can choose either method or use both in sequence. An open card sort would be useful earlier on in the taxonomy development process, when you have not yet determined the top-level terms, and a closed card sort would come later.
+
+Card sorting no longer requires having participants sort index cards on a conference room table in your presence, although there are benefits to doing it live if you can. Card-sorting software allows you to conduct card-sorting exercises with remote participants.
+
+Web-based, SaaS card-sorting tools that offer subscription uses include OptimalSort (www.optimalworkshop.com/optimalsort) and User Zoom Card Sorting (www.userzoom.com/card-sorting). A list of web-based and stand-alone card-sorting software is available at the website of the book Measuring the User Experience (www.measuringux.com/CardSorting). These tools, which allow the users to move “cards” by a drag-and-drop feature, offer both open and closed card-sorting exercises. Figure 10.1 is a screenshot of an open card sort via OptimalSort.
+
+
+
+Figure 10.1 OptimalSort card-sorting software for an open card sort, dragging and dropping an item into a yet-unnamed category
+
+Although conducting a card-sorting exercise is relatively simple, you should design it carefully to get the most out of it. If you have no prior experience with running a card-sorting exercise or merely want to learn more, Donna Spencer’s book Card Sorting: Designing Usable Categories (Rosenfeld Media, 2009) covers the field in great detail.
+
+As mentioned previously, card sorting may be used when trying to determine the top two levels of a hierarchical taxonomy. It is not practical for more than two levels at once, and it does not work for faceted taxonomies (unless testing only a single facet), since the nature of facets is to allow multiple methods of classification. For these reasons, many taxonomy projects are not suitable for card sorting.
+
+Taxonomy Testing
+
+After a taxonomy is created but before it is available for use, it is good practice to test the taxonomy. This procedure is also called taxonomy validation, implying that the taxonomy is indeed well designed and some testing is needed merely to validate it. Since a taxonomy is used both for indexing and retrieval, ideally two sets of tests take place. Testing for indexing can be done before the taxonomy is implemented, utilizing an offline version of the taxonomy. Testing for retrieval, however, requires some degree of system implementation, such as in a test environment of the system.
+
+Testing a Taxonomy for Indexing Content
+
+Several users who would likely index the content (or manage the automated indexing of content) should each be asked to provide several sample content items that they would add to the system and index. Both the taxonomist and the users then go through a simulated process of indexing, looking at the content item and at the taxonomy, and noting which terms from the taxonomy they would choose and whether they have difficulty finding terms, or perhaps do not find an expected term. The taxonomist may follow up with conversations with the test-indexing users or may simply utilize the test participants’ notes. The taxonomist then identifies the terms that need to be added to the taxonomy, the terms that need clarification, and the terms that would be added merely as nonpreferred terms to existing terms.
+
+Texting a Taxonomy for Finding Content
+
+Testing the taxonomy for its effectiveness in content retrieval involves working with varied stakeholders in developing sample queries to see if the appropriate content is retrieved. Queries should be created only for content that is known to exist in the repository. The taxonomist may execute sample searches, but it is also a good idea to have representative users, if available, do the testing. They can search or browse the taxonomy for terms they expect to be linked to the desired content.
+
+Testing should evaluate both recall and precision. Poor recall means that users could not find the content or could not find it easily enough. This would suggest that the taxonomy is not specific enough in some places, that terms were hard to find due to a lack of nonpreferred terms, or that indexing was insufficient. Poor precision means that users retrieve the wrong content in addition to the correct content. This suggests that certain terms are ambiguous (not precise enough) or that the content is over-indexed, with terms tagged to content that is not sufficiently relevant.
+
+Taxonomy Governance
+
+Even after a taxonomy is created and implemented, it is never entirely finished. All taxonomies require some updating over time, some more often than others. Keeping a taxonomy up to date requires having policies, methods, and procedures for maintenance and requires a documented understanding of who is responsible for the taxonomy over time. These documented policies constitute what is called taxonomy governance.
+
+Governance, a term that in the past decade has been used in project management and especially in the information technology sector, refers to all the processes for managing a project, with particular emphasis on accountability. Governance deals with policies and procedures, including roles and accountabilities, standards, process methodologies, and communication methods. For taxonomies, governance is important not only for the design and building phases but also for the continued maintenance of the taxonomy. As mentioned previously, the initial taxonomy design plan document should become the basis of the governance document. This document is both followed and enhanced as the taxonomy is built, implemented, and maintained.
+
+In considering the scope of taxonomy governance, you need to determine the following:
+
+
+       •  The kinds of rules that should be followed for adding, changing, moving, or deleting terms or relationships
+
+       •  The group that should maintain the taxonomy
+
+       •  The various kinds of changes that may be expected to occur and possibly even their costs
+
+       •  The kinds of information needed to determine appropriate changes (such as statistics for terms’ indexing usage)
+
+       •  The processes for changes
+
+       •  Specific methods for handling comments, appeals, issue logs, announcements, update schedules, and so on
+
+
+
+Possible methods for communicating with indexers have already been discussed in Chapter 6, but other individuals and groups will also want to propose changes to the taxonomy, so they, too, need to be covered in the governance document. Governance methods vary significantly among organizations and can involve primarily a single person, a couple of people, or a large cross-functional team.
+
+The taxonomist or taxonomists who initially created the taxonomy are not necessarily the persons responsible for carrying out needed updates over time. Creating the taxonomy may involve an outside consultant or contractor or someone temporarily assigned to the project for the time-consuming design and building phase, while the less intensive work of maintenance later becomes someone else’s task. The taxonomy could live on for decades after the employee(s) who created it left the organization. Alternatively, the taxonomy may have been inherited through an acquisition or partnership or adopted from another department. No matter what the circumstances, whether you are an employee or contractor, whenever you create a taxonomy, you should expect that the taxonomy will need to be maintained at some time or in some place without your own continued direct involvement. Therefore, documented policies are very important. On the other hand, if you come in to manage or update an existing taxonomy, be sure to ask for all documentation pertaining to the taxonomy.
+
+There might not be a single taxonomy governance document but rather several relevant documents. Taxonomy governance deals with the taxonomy and all associated materials/documents, including
+
+
+       •  an editorial style guide (which may be written for the taxonomy specifically or included within a larger guide for content creation in general)
+
+       •  an end-user (searcher) guide
+
+       •  indexing guidelines for indexers or for people using automated indexing systems
+
+       •  any metadata standard of which controlled vocabularies are a part
+
+       •  a broader product requirements document of which the taxonomy is a part
+
+       •  team rules and procedures
+
+
+
+An editorial style guide addresses issues involved in creating taxonomy terms and relationships, including capitalization, abbreviations, use of special characters, plurals, length limits, foreign words, inverted forms, punctuation within terms, and formats for certain kinds of named entities. Issues concerning term relationships include the number of relationships per term, polyhierarchies, use of associative relationships or additional customized relationships, and so on. There may be some overlap between the taxonomy editorial style guide and an indexing guide, especially regarding permission for indexers to create unapproved terms.
+
+Because governance is so closely tied to maintenance, one might assume that taxonomy governance is the same as maintenance, but it is not. As we have seen, governance issues start with the taxonomy design plan. It is important to keep governance issues in mind from the start of a taxonomy project. Chapter 11 discusses taxonomy maintenance.
+
+Endnotes
+
+  1.  Patrick Lambe, “Preparing for a Taxonomy Project,” Chapter 7 in Organising Knowledge: Taxonomies, Knowledge, and Organisational Effectiveness, 153–83 (Oxford: Chandos Publishing, 2007).
+
+  2.  Darin L. Stewart, Building Enterprise Taxonomies (Portland, OR: Mokita Press, 2008), 70.
+
+  3.  Declan Chellar, “Who Are Your Stakeholders?,” The Project Management Hut (June 25, 2009), accessed December 20, 2015, www.pmhut.com/who-are-your-stakeholders
+
+  4.  Margot Diltz, “Taxonomy Work Impressions Survey” survey response, September 22, 2009.
+
+  5.  Stewart, Building Enterprise Taxonomies, 78.
+
+  6.  Ibid., 77.
+
+

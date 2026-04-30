@@ -1,0 +1,240 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Appendix B
+
+Glossary
+
+ANSI. American National Standards Institute. A private nonprofit organization that coordinates and oversees the creation and promoting of standards in various industries.
+
+associative relationship. A relationship between two preferred terms, indicating that the terms are related to each other in some way that is not hierarchical. The generic associative relationship is usually called related term with the label RT and is a bidirectional symmetrical relationship.
+
+asymmetrical relationship. A relationship between a pair of terms that is not the same in both directions. Asymmetrical relationships include hierarchical relationships (which point to a broader term in one direction and a narrower term in the opposite direction), equivalence relationships (which point to a preferred term in one direction and a nonpreferred term in the other direction), and sometimes associative relationships if they are customized/semantic.
+
+authority file. Another name for a controlled vocabulary, especially if used just for named entities and restricted to a certain kind of entity (person names, company names, place names, etc.). As such, an authority file lacks the interterm relationships of a thesaurus but may have multiple nonpreferred terms for each preferred term. Also called an authority list.
+
+authorized term. Another name for a preferred term, if nonpreferred terms are called unauthorized terms.
+
+auto-categorization. A form of automated indexing that associates appropriate taxonomy terms with a document, based on one or more different technologies (such as rules or machine-learning) that automatically analyze the text and compare it with data stored with a given taxonomy term and possibly other data. Seeks to automatically discern what a document is about. Also called auto-classification or auto-tagging,
+
+automated indexing. Any indexing done by software and not humans, which could include the indexing done by search engines and which may or may not involve taxonomies. It includes but is not limited to auto-categorization.
+
+broader term. A preferred term that, in a hierarchical relationship to another term, is broader in meaning, more generic, or a larger whole with respect to its parts. Also called a parent term.
+
+candidate term. A temporary term in a taxonomy, which cannot be used yet for indexing. Taxonomy or thesaurus software typically supports the creation of candidate terms that require an additional approval step before becoming approved terms. Also called a provisional term.
+
+card sorting. A user-testing method for designing hierarchical taxonomies, whereby participants arrange cards of taxonomy terms into categories of their choice, using either physical cards or software to perform the task. There are two kinds: In a closed card sort, the categories are predefined, but in an open card sort, the participants must come up with and name their own categories.
+
+cataloging. The process of both describing an item in a collection by various kinds of metadata and assigning it to an established classification system. Assigning subject terms is also often part of cataloging. Cataloging typically refers to physical items (books, periodicals, photos, music media, museum objects, etc.) but may apply to digitized collections of libraries and museums.
+
+category. (1) Specifically in thesaurus management, any designated classification of terms that is distinct and that can be independent of the hierarchical relationships of the terms. (2) A relatively broad term used for classification of documents (on the whole, document level), rather than more granular indexing, and in particular for terms used in auto-categorization.
+
+child term. Another name for a narrower term, a designation used more in hierarchical taxonomies than in thesauri. A broader term is then called a parent term.
+
+classification. Assigning a class or a classification system code to an object (such as call numbers to a book) so that the object can be located by those who are familiar with the classification system. Classification is used for physical objects, and each can receive only a single classification.
+
+closed indexing. Creating an index for back-of-the-book or a limited set of documents, for which the index project comes to a close once all the pages have been indexed, and publishing the index as part of the work. Closed indexing usually does not use a taxonomy. Contrasts with open indexing.
+
+concept. A thing, idea, or shared understanding of something. It is what is meant by a set of synonymous terms. It is, therefore, the combination of both a preferred term and its various nonpreferred terms or of all the linked synonyms within a synonym ring. A concept is more than just a term.
+
+content audit. A comprehensive survey of all representative content (not necessarily every piece of content) that will be indexed with an intended taxonomy, performed to both define the scope of the taxonomy and gather candidate terms.
+
+content management system. Software used typically by an enterprise to manage the internal workflow of digital content through various phases of collaborative writing, commenting and revising, indexing, publishing (to an intranet or externally), search and retrieval, possibly translating, and archiving.
+
+controlled vocabulary. A restricted list of words or terms for some specialized purpose, usually for indexing but sometimes also for writing. It may refer to any knowledge organization system (synonym ring, taxonomy, or thesaurus) but usually does not include the most complex systems of ontologies or topic maps.
+
+cross-reference. An indication of the direction of a relationship from one term to another, such as Use, See, or See also. Cross-references exist in both taxonomies and indexes, but the term cross-reference is more often used in indexes.
+
+CSV. Comma-separated values. A file format, used for storing structured data, whereby associated items are in the same line and separated by a comma, to correspond with rows and columns in a table. It is a multiplatform format useful for exporting data from one system and importing to another and thus serves interoperability.
+
+descriptor. Another name for a preferred term, especially when nonpreferred terms are called nondescriptors.
+
+enterprise taxonomy. A custom-developed taxonomy used within a large organization (an enterprise) as a common knowledge organization system for the entire organization, often implemented in an intranet or an enterprise content management system.
+
+entity. Another name for a concept, which may have multiple equivalent terms, preferred and nonpreferred, to describe it.
+
+entity extraction. A form of automated indexing that uses information extraction technologies to identify and index named entities (proper nouns) in documents.
+
+entry term. Another name for a nonpreferred term.
+
+equivalence relationship. A relationship between two terms that, for the sake of the taxonomy, have a close enough meaning to be treated as equal, with one being used for the other. The term that is used and displayed is the preferred term, and the term that points to the preferred term is called the nonpreferred term.
+
+facet. A categorical grouping of terms in a taxonomy that cover a single dimension of a complex query for an item being searched. Multiple terms, one from each facet, are searched in combination to retrieve the most specific data records. A facet is typically its own hierarchy, but not all separate hierarchies are facets.
+
+facet indicator. A term within a taxonomy that is not used itself for indexing or retrieval (thus a node label) but is rather used specifically to organize a significant number of narrower terms by type, or facet, of the narrower terms. Sometimes the word “by” is used preceding the facet indicator.
+
+faceted search. A taxonomy structured and a user interface designed to permit the user to select multiple terms, one from each facet, to be searched in combination in order to retrieve the most specific data records that meet all the criteria. Faceted search works best with relatively uniform content records.
+
+federated search. The simultaneous automated search of multiple online databases or web resources, each of which also has its own structure and search system/method and whose content would not otherwise be externally searchable. This may involve a metasearch engine, which is a search engine that sends user search requests to several other search engines and/or databases and aggregates the results. Taxonomies may or may not be involved in federated search.
+
+fielded search. A type of end-user display that gives the searcher access to the taxonomy through multiple, labeled search box fields, which each might be distinct facets, various vocabulary categories, or other kinds of metadata. The user might be able to browse the taxonomy through drop-down scroll lists for each field, or there may be no browsable view of the taxonomy.
+
+flat-format display. A common thesaurus display format, in which each term in the thesaurus is listed alphabetically and next to each term appear its details of immediate relationships to other terms and a scope note if any.
+
+folksonomy. A collection of keyword terms or tags that have been assigned to content by multiple users (the creators of content and/or the readers of content). These terms do not belong to any controlled vocabulary but are rather words of the users’ own choosing.
+
+governance. Policies and procedures to successfully manage a project and, for a taxonomy, its continual maintenance. These policies and procedures include roles and accountabilities, standards, process methodologies, and communication methods. Governance in project management also includes tasks of defining outcomes, controlling the project and its scope, monitoring the project, and measuring outputs.
+
+granularity. Specificity in indexing and retrieval, both with respect to the specificity of the narrowest terms in a taxonomy and with respect to the unit of content being indexed, which could be as specific as a paragraph or sentence.
+
+hierarchical relationship. A relationship between two preferred terms, in which one is broader, or superordinate, and one is narrower, or subordinate.
+
+hierarchical taxonomy. A kind of controlled vocabulary in which each term has a designated broader term (unless it is the top-level term) and one or more narrower terms (unless it is a bottom-level term), and all the terms are connected together into a single large hierarchical structure.
+
+hierarchy. Any collection of terms that are linked to each other by hierarchical relationships. Most controlled vocabularies of subjects contain multiple hierarchies that may be of various sizes.
+
+homographs. Terms with the same name (same spelling) but different meanings. Homographs are typically distinguished from each other in a taxonomy by parenthetical qualifiers. (Homonyms are homographs, but homonyms must also be pronounced identically, whereas for homographs, identical pronunciation is not a requirement.)
+
+index. The structured compilation of index terms associated with a body of content, whereby each index term points to a specific location in the content (document, page, paragraph, or embedded index notation), based on significant mention of that term’s concept at that location. An index helps users find content corresponding to a chosen term. An index may be displayed to the user, typically alphabetically, for browsing, or it may be nondisplayed and merely searchable via a search box. The index terms may be restricted to taxonomy terms, or they could be any keywords. The index could be created by a human indexer, or it could be automatically generated.
+
+indexing. The assignment of index terms (which may or may not come from a taxonomy) to content while simultaneously creating an index of terms, which users may then either browse or search to help locate identifiable content. Indexing can be a closed project for a single book or open and ongoing for accumulating content, and it can be manual or automated.
+
+individual. A concept or object in an ontology.
+
+information extraction. A method of automated indexing that uses natural language processing (based on computational linguistics and pattern recognition) to extract useful information, such as subject terms, from varied “unstructured” content. A common form of information extraction is entity extraction for names. Information extraction is also called data extraction.
+
+instance. (1) Another name for an individual in an ontology. (2) A named entity as it relates to the topical term of which it is a narrower term, in an instance-type of broader/narrower relationship. (3) The most specific concept at the narrowest, bottom level of a taxonomy.
+
+interoperability. The ability to use data, in different applications (implementations, software systems, such as a proprietary indexing system, or various proprietary search systems), in a commercial content management system, and on the web. Interoperability involves storing the data in a standard format.
+
+intranet. A private network within an organization built on internet technology and protocols, with web-based content, organized as a large internal website with restricted access.
+
+keyword. A word or phrase that is deemed significant to describe content for retrieval but is not usually part of a taxonomy. It can be assigned to content by an indexer or someone doing social tagging. Keyword may also refer to a word or phrases that an auto-categorization tool identifies within a text as significant. And keyword may also refer to a word that a searcher chooses to enter in a search.
+
+KWIC. Keyword in Context. (1) A kind of permuted or rotated index display of a thesaurus whereby all the terms are sorted alphabetically not merely by their first word but by each of their constituent words (keywords, not prepositions or articles). The terms are indented to varying degrees so that the keyword of each term lines up with the others vertically, and each term is repeatedly mentioned on the occurrence of each of its keywords. The keywords are “in context” because they appear only within their full term phrases. (2) A search retrieval display in which an excerpted line of text is displayed for each returned record, showing where the keyword search term appears in context.
+
+KWOC. Keyword Out of Context. A kind of permuted or rotated index display of a thesaurus whereby all the terms are sorted alphabetically not merely by their first word but by each of their constituent words (keywords, not prepositions or articles). The keywords from the terms appear as the alphabetized headwords in the display, and the terms appear under each of their constituent keywords. Thus, each term is repeatedly mentioned under the heading of each of its keywords. It is simply an index of words within terms. The keywords are “out of context” because they are listed alphabetically rather than in the context of how they appear in the terms.
+
+linked data. A set of W3C specifications for web publishing that makes the data or content part of the Semantic Web, comprising URIs as names of things and HTTP URIs for looking up, using W3C standards (RDF and SPARQL) to describe the content, and links out to other content URIs.
+
+localization. Translation into another language of software or online information plus other changes needed to adapt the displayed information to the target audience. This includes translating of content, menus, pop-ups, online help, and so on and supporting documentation. Additional adaptations include country-specific sorting and alphabetizing schemes, use of commas or decimals in numbers, date and time formats, and currency and other symbols.
+
+machine learning. A method of auto-categorization whereby sample pre-indexed documents are submitted to the system, which then uses algorithms and performs statistical analysis to “learn” patterns of text content to determine what kind of text typically gets indexed with which taxonomy terms. This method is also known as catalog by example.
+
+mapping. Combining two taxonomies (or one taxonomy and a set of keywords) on the same subject, so as to enable one taxonomy to be used for another while still retaining them both as continued distinct taxonomies. It involves individually matching terms from each taxonomy for equivalences.
+
+merging. Combining two terms or two taxonomies deemed to be sufficiently equivalent, by using one of them in place for both, and the legacy terms not chosen to be used are then converted to nonpreferred terms as appropriate.
+
+metadata. Standardized data for a collection of resources/assets/documents/files; sometimes referred to as “data about data,” with defined fields, such as title, creator, date, location, audience, and subject. Values for some of the metadata fields, such as subject, can be managed with a controlled vocabulary.
+
+named entities. Indexing terms for specific named people, places, organizations, events, creative works, products, laws, and so on, which generally correspond with proper nouns (with the possible addition of years or dates). Named entities in taxonomies are typically managed in distinct vocabulary files, categories, or facets.
+
+narrower term. A preferred term that, in a hierarchical relationship to another term, is narrower in meaning, more specific, or a part with respect to a systematic whole. Also called a child term.
+
+natural language processing. Technologies to automatically discern the meaning of text based on both linguistics and computer science, typically involving the parsing of text so that the grammar is also taken into consideration. Natural language processing technologies are often used in automated indexing.
+
+NISO. National Information Standards Organization. A nonprofit association accredited by the American National Standards Institute that identifies, develops, maintains, and publishes technical standards pertaining to information management.
+
+node. A concept within a hierarchical taxonomy. If a hierarchy is like a tree, then the nodes are the points where branches or leaves come out. A node may refer to the preferred term alone, especially if there are no nonpreferred terms, or to the preferred term plus its nonpreferred variants. But unlike the word term, a node is never used to refer to nonpreferred terms.
+
+node label. A dummy term in a displayed hierarchical taxonomy; it holds the place to organize and label a category of narrower terms but is not used in indexing and retrieval itself. Node labels are often distinguished from indexing terms in a display by use of brackets or a different font style.
+
+node name. Another name for a preferred term when the designation node is used for concepts. This is more often an internal, rather than an end-user, designation.
+
+nondescriptor. Another name for a nonpreferred term, especially when preferred terms are called descriptors.
+
+nonpreferred term. A variant term for a concept, for which a different term is preferred. A nonpreferred term points to a preferred term with a Use reference and is linked to a preferred term with an equivalence type of relationship. Nonpreferred terms are also sometimes called nondescriptors, nonpostable terms, alternate terms, or synonyms. A nonpreferred term serves as a synonym in a taxonomy but is not necessarily a linguistic synonym.
+
+object. Another name for a concept, especially in an object-oriented database structure. An object also comprises any nonpreferred terms and their definition, notes, and any other attributes. The information on relationships to other terms/objects may also be considered part of an object.
+
+ontology. A complex knowledge organization system that aims to describe a domain of knowledge. Relationships between concepts (also called individuals) in an ontology have various meanings and thus are called semantic relationships.
+
+open indexing. Indexing of periodical or other accumulating content, whereby the index continually grows as content is added or revised. Open indexing usually relies on a taxonomy to maintain consistent use of index terms. Contrasts with closed or back-of-the-book indexing.
+
+orphan term. A preferred term that has no broader terms and no narrower terms. Orphan terms should not exist in a hierarchical taxonomy, but they could be present in a thesaurus, although they are rare.
+
+OWL. Web Ontology Language. Semantic markup language, built on the Resource Description Framework (RDF) for publishing and sharing ontologies on the web; supports Semantic Web applications. OWL is a set of guidelines supported by the World Wide Web Consortium.
+
+parent term. Another name for a broader term, a designation used more in hierarchical taxonomies than in thesauri. A narrower term is then called a child term.
+
+permuted index. A kind of alphabetical thesaurus display, more common in printed formats, whereby all the terms are sorted alphabetically, not by their first word but by each of their constituent words (keywords, not prepositions or articles) and thus repeated in the alphabetical list for each word. It is thus an index of words within terms. There are two variations, keyword in context (KWIC) and keyword out of context (KWOC). It is also called a rotated index.
+
+polyhierarchy. A hierarchical structure in which a term has two or more broader terms; also called multiple broader terms (MBT).
+
+postcoordination. The design or tendency of a taxonomy, its indexing, and its retrieval in which terms are kept simple, and usually a specific combination of terms is needed to describe a complex concept. Faceted search makes use of postcoordination, although postcoordination is not limited to faceted search. In any case, concepts are combined after indexing. The opposite taxonomy design approach is precoordinated terms.
+
+precoordination. The design or tendency of a taxonomy to have complex specific terms, typically a noun phrase with multiple adjectives, which describe something that might otherwise be described by two separate terms. Another type of precoordination involves combining two terms, a main entry and subentry, both in indexing and at retrieval. In either case, concepts are combined prior to indexing and retrieval. The opposite taxonomy design is postcoordination.
+
+preferred term. The displayed word or phrase for a concept, which a taxonomist has chosen as the best wording of the concept. Nonpreferred terms are the various synonyms, variants, or other sufficiently equivalent words or phrases used as cross-references pointing to the preferred term. Other names for a preferred term include descriptor, authorized term, and node name.
+
+RDF. Resource Description Framework. A standard supported by the World Wide Web Consortium based on XML syntax for representing information about resources on the World Wide Web.
+
+reciprocal relationships. All relationships between terms in a taxonomy are reciprocal because they function in both directions between a pair of terms, even if the relationship is not identical in both directions.
+
+recursive retrieval. When a user selects a taxonomy term that has narrower terms, content will be retrieved not only for what was indexed with the selected term but also for what was indexed with each of its narrower terms. As a result, broader terms retrieve a greater number of results than narrower terms do.
+
+regular expressions. Special text strings, in a prescribed syntax and scheme, for describing complex search pattern instructions, called regex for short. Regular expressions may be used to contribute to rules-based auto-categorization, among many other uses.
+
+related term. A preferred term in an associative relationship with another term, which is also called a related term, since the relationship is symmetrical.
+
+rotated index. Another name for a permuted index, a kind of alphabetical thesaurus display.
+
+schema. A description of an XML document or set of documents that defines the tags and elements in the document. A schema is needed because XML tags are user-defined. The schema is a separate document, which can be considered as a model, template, or set of instructions.
+
+scope note. A note attached to a preferred term in a thesaurus to clarify usage, such as by restricting the scope of the term. It is similar to but not the same as a definition of a term. Scope notes are used only as needed, not for all terms.
+
+semantic relationships. Relationships between pairs of terms that have a more specific meaning than the generic relationships of broader term, narrower term, related term, and equivalent term. They are customized relationships defined and created by the taxonomist. Semantic relationships can describe any kind of relationship between a pair of concepts that are common among a number of concepts in the taxonomy, while still being based on either a hierarchical, associative, or equivalent relationship type.
+
+sibling term. One of two or more terms that share the same immediate broader term (or parent).
+
+SKOS. Simple Knowledge Organization System. A standard for XML representation specifically for knowledge organization systems, such as thesauri and taxonomies, built on the RDF to support interoperability for taxonomies.
+
+social tagging. The assignment of tags or keywords by users to content in an unstructured manner without using a taxonomy, whereby anyone in an online community can both create tags and read others’ tags, and the popularity of tags also takes on importance. The collection of such tags is called a folksonomy.
+
+SPARQL. Stands for Simple Protocol and RDF Query Language, a standard query language and data access protocol for use with data in the Resource Description Framework (RDF), specified by the World Wide Web Consortium.
+
+stakeholders. People who have a stake in a project, either an interest in it, a responsibility for it, or an influence over it, or who will be affected by it. Typically stakeholders include the taxonomy project manager, indexers, executives who control the taxonomy’s funding, and key users or clients.
+
+stemming. The stripping of grammatical endings to a word to obtain the root or stem word. The technique is often used in automated search-and-retrieval systems so that words that differ only in their grammatical endings (e.g., contractors, contracting, contracts) are treated as equivalent matches.
+
+straw-man taxonomy. A first draft of a hierarchical taxonomy, with terms only in the higher levels but not necessarily all levels yet, which could be changed based on feedback. It is called straw-man because, like something built of straw, it can easily be torn down and reconstructed if feedback is critical.
+
+structured indexing. A form of precoordination whereby an indexer assigns a main heading term and then a subdivision term to further narrow or qualify the heading term. For users’ benefit, the results should be either a printed browsable alphabetical index or an online interface that permits the user to narrow main term search results by a choice of subdivisions. Structured indexing is standard in book indexing and sometimes used in open/database indexing.
+
+subdivision. A term used in structured indexing to further qualify, narrow, or restrict the application of a main heading term. It may also be called a subheading. Use of subdivisions is a form of precoordination in indexing. Subdivisions may or may not be used in a controlled vocabulary. Subdivisions are similar to but not the same as subentries in book indexes.
+
+subject heading. A preferred term or descriptor, especially in a controlled vocabulary used for human indexing; permits precoordinated or structured indexing by combining a subject heading with a subheading type of term.
+
+symmetrical relationship. A relationship between a pair of terms that is the same in both directions. The only symmetrical relationships are generic associative relationships (related term) and equivalence relationships within a synonym ring.
+
+synonym ring. A simple controlled vocabulary in which all equivalent terms (synonyms) of a concept have equal standing and no single term is designated as preferred. Another name is a synset. A synonym ring is thus not displayed to the end user, and usually there are no other relationships (hierarchical or associative) between concepts.
+
+tagging. The assigning of terms to a content item, such as a file or a document, of either taxonomy terms or any keywords that the person doing the tagging thinks up.
+
+taxonomy. (1) A hierarchically structured system of organizing names of concepts. (2) Any knowledge organization system, whether hierarchical or not, involving controlled names of concepts.
+
+term. A label (word or phrase) for a concept. It is the most common, generic designation, which can be in any controlled vocabulary. It may be used to mean any kind of term, including both preferred terms and nonpreferred terms, but is sometimes used to refer to just the preferred term.
+
+term record. The complete information regarding a term, especially as stored and displayed in taxonomy management or indexing software. It includes all of a term’s relationships, notes, categories, and any additional attributes, along with administrative information, such as approval status, and creation and modification dates; in other words, the metadata for a single term. Not all these details need to be included, though, for it to be called a term record.
+
+text mining. Automated methods of deriving high-quality or useful information from text. It could be based on various technologies, including, statistics, machine learning, computational linguistics, and/or pattern recognition. Text mining may be used to support automated indexing/auto-categorization, but it is not limited to such applications.
+
+thesaurus. A structured type of controlled vocabulary that provides information about each term and its relationships to other terms within the same thesaurus. Typical relationships are equivalent, hierarchical, and associative, and term notes are a common feature. Published standards provide guidance on creating knowledge organization thesauri.
+
+thesaurus software. Full-featured software for the design, creation, and management of thesauri or hierarchical taxonomies. Terms and their reciprocal relationships are maintained, and different displays or outputs are supported. Ideally such software supports creating terms and their relationships in accordance with standards, such as ANSI/NISO Z39.19.
+
+top term. In a thesaurus or hierarchical taxonomy, a term that has no broader terms, only narrower terms. It is the top/highest term of its own hierarchy. A top term hierarchy is a display option, not only for hierarchical taxonomies but also for thesauri, in which case all the top terms are arranged alphabetically with their hierarchies of narrower terms displayed under each.
+
+topic. Another name for a preferred term, specifically when it is a subject or common noun, not a named entity (proper noun).
+
+topic map. A standard format for representing complex knowledge organization systems comprising topics (concepts), associations (relationships), and occurrences (either attributes or linked content). A topic map can be considered a kind of ontology or a representation of an ontology. It is a standard of the International Standards Organization: ISO 13250.
+
+tuning. Human intervention adjustments to improve the automatic indexing results of machine-learning-based auto-categorization. It involves making changes to the types and numbers of training documents supplied to the auto-categorization system.
+
+unauthorized term. Another name for a nonpreferred term, if preferred terms are called authorized terms.
+
+upward posting. Treating narrower terms as equivalent, nonpreferred terms. A narrower term may be used as a nonpreferred term if users expect it but there is insufficient content. Upward posting is also done when editing a taxonomy to remove low-use terms or when mapping two taxonomies so that one is used for the other and the other taxonomy has a greater number of narrower terms.
+
+weighting. In indexing, the assignment of degrees of strength of linkage between a document and a given index term. If implemented, there are typically only two or three levels of weight from which the indexer may choose. In automated indexing, weighting is usually called relevancy, and there can be various percentages of relevancies. In taxonomy design, there could also be the option of weights between relationships, but this is a level of complexity that is relatively rare.
+
+World Wide Web Consortium. Abbreviated as W3C, the international standards organization for the World Wide Web, which has offices in various countries. It ensures compatibility for HTML, XML, RDF, OWL, and other coding schemes and their variations used for the web.
+
+XML (eXtensible Markup Language). A general-purpose markup language for structuring, storing, and transporting data, which allows the user to define and label all of the tags, following only standard syntax conventions.
+
+Zthes. A standard schema designed specifically for ANSI/NISO Z39.19-based thesauri, using XML syntax, to support interoperability of such thesauri.
+
+

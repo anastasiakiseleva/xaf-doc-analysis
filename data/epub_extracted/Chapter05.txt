@@ -1,0 +1,552 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 5
+
+Software for Taxonomy Creation and Management
+
+Taxonomy, thesauri, ontology, oh my!
+
+—Julie Martin
+
+A simple controlled vocabulary, such as a synonym ring, or a small, unified hierarchical taxonomy that lacks nonpreferred terms, could be created on paper (or in Word or Excel). Creating and maintaining a more typical larger taxonomy or a more complex thesaurus, however, with equivalence, hierarchical, and associative relationships, and perhaps also scope notes and term attributes, requires a specialized kind of database software. In fact, the indexing thesaurus as we know it did not exist prior to the computer age of the late 1950s. Database software designed specifically for the creation and maintenance of thesauri originally existed primarily in the form of in-house custom-developed software used on mainframe or minicomputers. Commercial thesaurus development software for mainframes and minicomputers first appeared in the early 1980s, embedded in such products as BiblioTech (VAX/VMS), TechLib (IBM and VAX/VMS), and Cuadra STAR (AlphaMicro), which were the forerunners of current content management systems. These modules also provided early navigation frameworks for browsing content by exposing the thesaurus to users.1 Later in the 1980s, a few single-user desktop thesaurus software packages were introduced. These were followed in the 1990s by client–server-based distributed thesaurus software systems and then web-based systems. Most recently, taxonomy management components have been incorporated into some content management and enterprise search software. Today all of the following software options exist:
+
+
+       1.  “Homegrown” programs developed in-house, especially within large organizations
+
+       2.  Software not designed for creating taxonomies
+
+       3.  Single-user desktop thesaurus software
+
+       4.  Larger-scale, multiuser client–server- or web-based thesaurus systems
+
+       5.  Taxonomy creation and editing components of larger systems that focus on capabilities for searching, indexing, content management, or document management
+
+       6.  Industry-specific (vertical market) software for creating classification structures
+
+
+
+Our survey of taxonomists conducted in May 2015 asked broadly what kind of software they used for taxonomy work: “What software do you primarily use to work on taxonomies or other controlled vocabularies?” The largest number, although less than half, used commercial software that is not intended for taxonomy creation, such as generic database or spreadsheet software. About a quarter of those responding used internally developed software, and just under a quarter used commercial dedicated thesaurus/taxonomy/ontology management software. This is somewhat surprising, because in a similar survey in late 2008, users of commercial dedicated thesaurus/taxonomy/ontology management software were the largest group (37.5 percent), and use of other commercial software that is not intended for taxonomy creation came in third (18.8 percent), after use of internally developed thesaurus/taxonomy management systems (23.4 percent). A lesser but significant number of respondents used software in which taxonomy management is a component or module. The detailed breakdown from 141 respondents appears in Table 5.1.
+
+Table 5.1 Survey responses for types of software used for working on taxonomies or other controlled vocabularies
+
+
+
+
+
+
+
+
+Type of Software Used
+
+Number
+
+Percent
+
+
+
+
+Commercial software that is not intended for taxonomy creation (such as a word processor, spreadsheet, or database management software)
+
+43
+
+30.5%
+
+
+
+
+An internally developed thesaurus/taxonomy management system
+
+36
+
+25.5%
+
+
+
+
+Commercial dedicated thesaurus/taxonomy/ontology management software
+
+32
+
+22.7%
+
+
+
+
+Commercial software, of which taxonomy management is a feature, module, or component
+
+17
+
+12.1%
+
+
+
+
+Open-source dedicated thesaurus/taxonomy/ontology management software
+
+13
+
+9.2%
+
+
+
+
+Software Not Designed for Creating Taxonomies
+
+The fact that the highest response category of surveyed taxonomists used software not designed to create taxonomies is significant, especially since the survey allowed for only a single answer. We might assume that software not intended for taxonomies is the primary software used by taxonomists working on small taxonomies. This is not necessarily the case, however, since in another survey question on taxonomy size, a majority of respondents indicated that they typically work on taxonomies of over 1,500 terms. Additionally, there are many taxonomists who create the first steps of a taxonomy in software not designed for a taxonomy and then expand and manage the taxonomy further in dedicated taxonomy management software.
+
+Two types of software commonly used by taxonomists in the early stages of taxonomy development are (1) spreadsheet software, to record lists of terms within categories or facets, and (2) mind mapping, concept modeling, or ontology software, to develop a structure for a taxonomy. You may use one or both of these tools, depending on the nature of the taxonomy and the way you approach the project. Some people also use ontology software for designing taxonomies.
+
+Spreadsheet Software
+
+Although the assertion by one writer on taxonomies that “the vast majority of taxonomies are still created and maintained in Microsoft Excel”2 is most likely an exaggeration (especially with respect to the maintenance of the taxonomies), the prevalence of this tool in taxonomy creation should not be underestimated. The accidental taxonomist is especially likely to use Excel, due to lack of experience with taxonomy software or perhaps due to lack of time, skills, or budget to evaluate different software alternatives. Even organizations intending to purchase taxonomy software or already owning such software often start building their taxonomies in Excel because it provides an easy way for various contributors, both in-house and external, including subject matter experts who might not be taxonomists, to quickly build up lists of terms and perhaps some simple hierarchy. When the taxonomy gets too complex or too big, such as when it contains several hundred terms, it is time to move it into taxonomy software.
+
+If you are creating a small taxonomy, such as facets for browsing, or merely the start of what will eventually become a larger taxonomy, it is possible to represent each of various hierarchical levels or facets of the taxonomy through individual columns on a spreadsheet worksheet. The first column contains terms at the top level, the second column contains terms at the second level, and so on. For each term, its broader term (if any) is in the column to its left, and its narrower terms are in the column to its right. Each row is unique by its narrowest term (column filled in to the right). You may use a column to the far right for nonpreferred terms. Multiple nonpreferred terms should be kept in the same column and cell and may be separated by a delimiter, such as a semicolon. Another column can be used for notes.
+
+
+
+Figure 5.1 Using Excel to create a five-level taxonomy
+
+Figure 5.1 illustrates how you might use Excel to indicate three levels of a taxonomy with columns compacted so that terms overlap, and narrower terms appear indented under their broader terms. This visual format is often desirable for sharing the draft taxonomy with stakeholders or subject matter experts for their review and input.
+
+If there are multiple categories, hierarchies, or facets, you could create a separate Excel worksheet for each hierarchy or facet. Each worksheet can be saved as a CSV (comma-separated values) file, a format that can easily be imported into another system with relationships across rows preserved. As an import file, however, you might have to follow certain column-naming conventions, and typically all broader terms must be repeatedly filled in. There can be no blank cells to the left of a filled-in cell. Figure 5.2 illustrates the same taxonomy excerpt as in Figure 5.1 but with the broader terms repeated, as may be required for importing. (The equivalent terms are still included but do not fit in this screenshot.)
+
+
+
+Figure 5.2 Using Excel to create a taxonomy for import
+
+There are a number of drawbacks to using a spreadsheet to create a taxonomy. There is the problem of scalability. If each top-level term has multiple narrower terms and each of these second-level terms has multiple narrower terms, then rather quickly it becomes difficult to visualize the complete hierarchy as higher-level terms become increasingly spaced apart. It may also become unwieldy to represent polyhierarchy, if large branches of the taxonomy need to be repeated. The spreadsheet format is also not adequate for nonpreferred terms. Even though multiple nonpreferred terms can be included if separated by a delimiter, such as a semicolon or pipe, the fact that they must be confined to one cell for each preferred term results in the tendency for the taxonomist to be less than comprehensive in creating them. Finally, and perhaps most significantly, there is no enforcement of rules, such as term uniqueness, consistency, and relationship reciprocity. You could accidentally enter the same term twice (not intending a polyhierarchy), you could enter two variants of the same concept, you could enter a term as both preferred and nonpreferred, you could enter a term as nonpreferred for two different preferred terms, and, if you tried to add associative relationships, you might also name the related terms incorrectly. For these reasons, it’s best to keep taxonomies in Excel small, so you can see what you have and not make incorrect duplications.
+
+Mind Mapping, Concept Modeling, and Ontology Software
+
+To capture more than just hierarchical relationships and include other relationships, categories, attributes, and so on, some taxonomists are now using mind mapping and other concept modeling software. A mind map is a diagram, used for brainstorming, visual thinking, or problem solving, that illustrates ideas, concepts, actions, and/or tasks and how they interrelate. Similar to mind maps and mind mapping software are concept maps and concept mapping software. There is not much distinction between the two, except that concepts maps are not necessarily as complex as mind maps. Concept maps are not as simple as flowcharts, however.
+
+While hand-drawn mind maps have been in use for a long time, only recently have advanced graphics technologies enabled the development of mind mapping software. Now there are more than two dozen commercial and free and open source mind mapping software tools for Windows and Macintosh and a few for Linux.3 Mind mapping software that taxonomists have used includes free tools, such as XMind (www.xmind.net), FreeMind from SourceForge (freemind.sourceforge.net/wiki), and Cmap from the Florida Institute for Human & Machine Cognition (cmap.ihmc.us), and commercial software, such as TheBrain from TheBrain Technologies LP (www.thebrain.com), MindManager from Mindjet (www.mindjet.com), and VisiMap from Coco Systems Ltd. (www.visimap.com).4 Depending on the tool, you can create polyhierarchical diagrams or different relationship types in mind maps, and usually you can easily move concepts and branches. It may or may not be possible to export the output. Figure 5.3 is a screenshot of a mind map in FreeMind.
+
+
+
+Figure 5.3 Mind map display in FreeMind (Source: en.wikipedia.org/wiki/File:Freemind-0.9x_Screenshoot.png)
+
+Using mind mapping or other concept modeling software is not an efficient or practical way to develop or manage a large taxonomy. Mind maps can become unwieldy and get too large to print. Nevertheless, visually minded taxonomists might find them a desirable way to put down and organize their initial ideas for a taxonomy. Other practical applications of mind mapping software are brainstorming taxonomy structures in a group or team setting and presenting a proposed taxonomy to an audience, especially at the early point in its creation, to sell the idea of the taxonomy to stakeholders.
+
+Ontology-editing software, on the other hand, often both supports graphic representations of concept interrelationships and provides a means of managing a large number of concepts, along with their categories or attributes. Software for designing ontologies includes TopBraid Composer from TopQuadrant (www.topquadrant.com/tools/modeling-topbraid-composer-standard-edition) and the freeware Protégé (protege.stanford.edu). Compared with mind mapping software, dedicated ontology-editing software has a steeper learning curve, as it can have rather complex capabilities. Also, you may not as easily be able to generate graphic representations of hierarchical taxonomies in ontology editors. If the goal is to quickly get an initial graphic sketch of a budding taxonomy or to have a nice graphic representation of the start of a taxonomy for a presentation, then mind mapping software is more practical than ontology editors. Ontology editors, on the other hand, are compliant with standards for the semantic web, so they are a good option for generating web-based ontologies.
+
+Dedicated Taxonomy Management Software
+
+When it comes to building and managing a taxonomy, dedicated taxonomy/thesaurus management software should be the preferred choice. Whether what you are creating is called a taxonomy, a thesaurus, or a controlled vocabulary and whether the emphasis is on design and creation or management, the same kind of software is generally used. We will refer to all such full-featured software simply as taxonomy management software, even though all such software supports all standard thesaurus relationships. If a taxonomy is purely hierarchical and does not utilize related term relationships, then the related term feature of the software is simply not used.
+
+Software Compliance with Standards
+
+One important characteristic to consider when choosing software for building classification systems is whether it supports established standards. Taxonomists should be most interested in software that supports thesaurus standards, namely ANSI/NISO Z39.19 or ISO 25964, but there are other standards to be aware of.
+
+SKOS has become more common as a standard governing taxonomy management software since it was officially released by the World Wide Web Consortium in 2009. It comprises specifications and working standards “to support the use of knowledge organization systems (KOS) such as thesauri, classification schemes, subject heading systems and taxonomies within the framework of the Semantic Web.”5 It is important to understand the distinction between the thesaurus design and construction guidelines contained in ANSI/NISO Z39.19 or ISO 25964, which describe, among other things, the characteristics of the relationships between terms; and the specifications or standards for the architecture, framework, and computer-readable structure of the controlled vocabulary, which is the focus of SKOS. The two different sets of standards thus complement each other, rather than being alternatives to each other.
+
+ANSI/NISO Z39.19 or ISO 25964-1 are guidelines specifically for thesauri, whereas SKOS is a model for “knowledge organization systems” that are slightly more broadly defined than thesauri, to include taxonomies, vocabularies, ontologies, and so on, which do not necessarily have to conform to the stricter thesaurus rules. SKOS-based software thus may deliberately permit relationships or duplicate terms that are prohibited by ANSI/NISO Z39.19 or ISO 25964, in order to allow more flexible usage of the software. Ideally then, the SKOS-based software has administrative controls to let the user select which rules to enforce. For some people SKOS-compliance is most important, and for other people the support of thesaurus standards is most important.
+
+In other areas, records management software, which also supports taxonomy creation, will likely follow records management standards, which include business activity classifications. This is specified in a different ISO standard, ISO 15489.
+
+While you could build a simple hierarchical taxonomy in almost any “classification” tool, software for thesaurus management that meets the criteria listed in the following section is a wiser choice for many reasons. In addition to the various features that thesaurus software offers, the taxonomies created will be more adaptable and scalable for future enhancements, different implementations, export options, and merging with other vocabularies. The standards, ANSI/NISO Z39.19 (section 11.4) and ISO 25964-1 (section 14), also provide detailed thesaurus software requirements, so anyone developing software for thesaurus management should consult the relevant sections of either of those standards.
+
+Taxonomy/Thesaurus Software Characteristics
+
+The basic requirement of thesaurus software is to maintain terms, their associated relationships, and other attributes. As we have seen, the relationships are reciprocal between pairs of terms. By using thesaurus software, you create or edit the relationship in only one place. If you decide to rename or delete a term, the change will be reflected in all of the relationships of the term. Features for adding optional scope notes and user-defined classification categories are also standard in thesaurus software. In addition to meeting these requirements, most thesaurus software includes the following features: merging and subsuming terms, designating candidate and approved terms, indicating term creation date and modification date, permitting multiple hierarchies (polyhierarchies), disallowing illegal relationships (e.g., circular relationships), generating reports in different displays, and exporting taxonomies in platform-neutral file formats for use in other systems. When one is building a taxonomy, speed and ease are important. Therefore, most software permit adding successive relationships of the same type (nonpreferred terms, narrower terms, or broader terms) simply by hitting the enter key. You should consider the following characteristics when comparing various thesaurus software packages.
+
+Taxonomy Display
+
+Just as there are various formats to display a taxonomy or thesaurus to end users (described in Chapter 9) or to indexers, there are different display options in the user interface for the taxonomist who is editing the taxonomy. Typically thesaurus software provides the option of both alphabetical and hierarchical display views that the taxonomist may switch between, such as by using tabs. The alphabetical display may also have the option to include or exclude nonpreferred terms.
+
+Related to how the software displays the taxonomy is how the software organizes a complex taxonomy. Additional types of displays may be available in a reporting feature. Thesaurus software products also differ in whether they create single isolated thesaurus files or multiple named hierarchies that can be linked to each other.
+
+Term Display and Editing
+
+Each taxonomy term has relationships and other details that can be individually displayed and edited. The various thesaurus software products differ in how term details are displayed, how the editing is done, and what additional term attributes are present. The process of creating terms and their relationships may be performed through various means: main menu selections, context menu selections, shortcut key combinations, other keyboard commands, toolbar buttons, and mouse drag and drop. Features that may or may not be present include single-step merging/subsuming terms, single-step moving of a branch (a term and all its narrower terms), and drag-and-drop adding of relationships.
+
+Rules Enforcement
+
+A thesaurus should follow the guidelines spelled out in Chapter 4 on term relationships. While it takes human thought to create relationships correctly, certain rules in the software can help, for example, by not permitting the following:
+
+
+       •  Terms that are related to themselves
+
+       •  Pairs of terms that have more than one kind of relationship between them (both associative and hierarchical, both equivalence and hierarchical, or both equivalence and associative)
+
+       •  Terms that have a broader term that is narrower to a narrower term of the first term (circular references)
+
+       •  Term names that duplicate within the same taxonomy but are not the same concept (not having the same term ID and functioning as a single term for indexing), unlike polyhierarchy
+
+
+
+Software that is described as “thesaurus management software” or ANSI/NISO Z39.19 or ISO 25964 compliant can be expected to enforce these thesaurus rules. Software described as “vocabulary management,” “taxonomy management,” andmerely “SKOS-compliant” does not necessarily enforce these rules, or at least not by default. Even so, it may be possible, often through administrative settings in the software, to set these rules, especially in software that claims to serve multiple purposes of managing taxonomies, thesauri, and other vocabularies.
+
+Even if they are not actually “rules,” the software should offer various quality checks or controls. For example, it should also be possible to identify for further scrutiny terms that lack any hierarchy (and may also associative relationships) with other terms, sometimes called “orphan terms.” Actually permitting orphan terms is up to the policy of the specific taxonomy. Software controls may also be desired for permitting multiple use references or to control the use of polyhierarchy (none, only up to two broader terms, only within the same hierarchy, etc.).
+
+Taxonomy Searching
+
+Taxonomy search and navigation are important, not only for the end user of the implemented taxonomy but also for the creator of the taxonomy, who needs to know, for example, whether a given term already exists. You need the capability to search for terms in order to find appropriate terms with which to make relationships, to avoid inadvertently duplicating concepts, to make global changes on terms if a style policy changes, and so on. Different software tools vary in their list of options for searching.
+
+Customization of Relationships and Attributes
+
+The ability to define and customize relationships, types of notes, and categories of terms is important in making a thesaurus software product versatile and extensible. Although standard thesaurus relationships are limited to broader/narrower term, related term, and use/used for, you might also wish to create specific user-defined relationships, as described in the final section of Chapter 4. Thesaurus software varies in the degree to which it supports customizing relationships based on the three basic relationships (hierarchical, associative, and equivalent).
+
+One of the benefits of thesaurus software, which is based on database management software, is that additional information can be assigned and stored with each term as a database record. A scope note is the most typical kind of such additional information, but there could be other kinds of notes as well, such as standardized industry codes for industry terms or birth/death dates for person name terms. Categories are often used in taxonomies to classify terms for end use, by source, or for any other purpose that you may have. Categorizing terms makes it easier to batch edit them and to designate terms for certain end-use search interface characteristics. Categories are explained in greater detail in Chapter 8.
+
+Importing, Exporting, and Reports
+
+In addition to building a taxonomy from scratch (i.e., manually typing in each term), you may want to take advantage of external lists of terms to import and incorporate into the taxonomy. Most often, these might be lists of names, organizations, or places, but they could also be legacy taxonomies, along with their relationships, for incorporation into a new system. Thus, the ability to import or batch load data is an important feature of a thesaurus software package.
+
+Exporting the taxonomy into formats that can then be imported into other systems is crucial for thesaurus software. A taxonomy is not just something to look at but is to be used in the indexing/tagging of files, documents, or webpages and then by a final end user for search and retrieval of those documents and pages, often through one or more other software systems. Generic export formats for use in other systems include comma-separate values (CSV) and standard formats of XML (eXtensible Markup Language), such as the format followed by SKOS.
+
+You will want software that can generate interim reports of various kinds to aid in the task of building the taxonomy. These could include lists of candidate terms, deleted terms, or orphan terms, in addition to taxonomy reports that include only certain specific data or relationships for each term. Occasionally a taxonomy is published for third-party use, in which case various outputs, including a printed document, might be desirable. These outputs are usually based on options in the report feature. Chapter 9 describes in detail the various kinds of taxonomy output displays.
+
+Checklist for Comparing Features
+
+The thesaurus software products mentioned in this chapter all have the characteristics just described, but they differ in some areas. Following is a list of variable features you may want to consider when comparing products:
+
+
+       •  Interface design and ease of use
+
+       •  Thesaurus relationship rules enforcement (by default or by settings)
+
+       •  Speed (limited mouse clicks) in adding repeated terms and relationships
+
+       •  Single-step creation of new terms and relationships
+
+       •  Single-step branch (term and narrower terms) moving
+
+       •  Drag-and-drop relationship adding
+
+       •  User-defined relationships of all three types
+
+       •  Multiple taxonomy display options in the user interface
+
+       •  User-defined term notes
+
+       •  User-defined term attributes
+
+       •  Spell-checking
+
+       •  Import and export formats
+
+       •  Support for bilingual or multilingual taxonomies (equivalent preferred terms in more than one language; different character set displays)
+
+
+
+Your specific user preferences and the nature of the taxonomy project will ultimately determine which software product you should choose.
+
+Taxonomy/Thesaurus Software Resources
+
+No complete or authoritative list of thesaurus software products exists, for various reasons, including the blurred definitions of taxonomy and thesaurus, the integration of thesaurus management capabilities into software with wider applications, the presence of both general and vertical market software, and the regionalism of vendors in Europe and other parts of the world. Most significantly, since the thesaurus software alone does not provide a solution to any information management and retrieval problem because taxonomy creation skills and expertise are also required, the market for such specialized software remains relatively limited. Thus, industry analysts do not see the need to follow the thesaurus software industry specifically as compared with more automated solutions, such as enterprise search and auto-categorization.
+
+To complicate matters further, taxonomy software is a vague notion. Some auto-categorization or auto-classification software systems have gone further to develop technology for the automatic generation of simple taxonomies. Thus, taxonomy software today can include these automatic taxonomy creation systems and not just software to aid the human creation and editing of taxonomies. In fact, auto-categorization or auto-classification tools, whether they can actually generate taxonomies or merely make use of them, are now also included within the broader category of taxonomy software. The realm of taxonomy software may also extend to vendors of software that utilize text analytics or entity extraction to suggest terms. To further complicate matters, thesaurus software is not always called that. Some vendors prefer other names, such as business semantics management software.6 If the software supports customized relationships, then it might be called ontology software.
+
+The two most comprehensive lists of thesaurus management software (beyond this book and its website) are maintained on taxonomy resource websites that are owned, ironically, by software vendors. The vendors, Synaptica and Access Innovations, have both determined that the benefits of driving traffic to their product websites through a linked site on general taxonomy resources outweigh the risks of listing their competitors’ names. Synaptica lists software products in the “Marketplace” category of the Taxonomy Warehouse site (www.taxonomywarehouse.com). Taxonomy Warehouse started out as a directory of taxonomies for license from third parties but has since grown to include additional taxonomy-related resources. Access Innovations has a very long list of products (and a few services) on the Thesaurus Software page of its TaxoBank resource website (http://www.taxobank.org/content/resources). The core of this directory was migrated over in 2013 from the Willpower Thesaurus software directory, which was created and managed by the independent consultant Leonard D. Will, starting in the mid-1990s.7 Will’s original list of 38 thesaurus management tools has grown to about 100 with the inclusion of related products and services, such as tools for text analytics and search.
+
+Taxonomy Software Trends
+
+Noticeable trends in taxonomy/thesaurus management software include a move toward web-based and especially cloud-based software-as-a-service (SaaS), more combinations of ontology and thesaurus management, more SKOS/RDF/Semantic Web framework software, and more plug-ins to SharePoint, content management systems, and search engines.
+
+Synaptica pioneered web-based thesaurus management software when it introduced its product in 1995, when the web was still young, but now other vendors also offer web-based subscription software. Data Harmony Thesaurus Master from Access Innovations was originally only available in a Java-based, multiplatform client–server installation; later a web SaaS version was added. Access Innovations’s president Marjorie Hlava has made the observation that “Increasingly our customers use the cloud version of the software.”8 Similarly, Semaphore and Wordmap started out as client–server only software and now have web or SaaS options. MultiTes, available as a single-user Windows desktop program since 1983, introduced a multiuser cloud version in 2013. Newer thesaurus management software products have been introduced that are solely web-based. These include PoolParty, introduced in 2009, TopBraid Enterprise Vocabulary Net (EVN), released in 2010, Coreon, released in 2014, and the free and open source software TemaTres and VocBench, which became available in the late 2000s. Web-based platforms have also led the trend in taxonomy read-only applications, which allow reviewers to browse, search, and possibly even comment on the taxonomy.
+
+Taxonomy/thesaurus management software and ontology software used to be completely different products, typically available from different vendors for different purposes, but the trend recently has been for vendors to combine taxonomy and ontology management in a single software package, or to provide ontology management capabilities by means of extensions or add-on modules. Some ontologists might consider such software to be a “light” version, as compared with dedicated ontology management software.9 The combination of features has its benefits, though. For example, an organization may have simple taxonomy requirements at first that later evolve to require a more complex ontology, especially as the users become more familiar with the ontology capabilities.
+
+Supporting linked data and interoperability with Semantic Web content has become more important. Therefore, World Wide Web consortium (W3C) recommendations of RDF specifications, OWL, and the SKOS framework are being adopted more widely. The newer products PoolParty and TopBraid EVN are both built around SKOS models. Synaptica and Data Harmony Thesaurus Master have long been able to export to a SKOS and OWL schema, but it was only in 2013 that Data Harmony added user-defined fields to the SKOS export to include all fields in a term record. Additionally, in 2011 Synaptica introduced an Ontology Publishing Suite, to publish an ontology or part of an ontology to the web. SKOS is not necessarily an alternative standard to ANSI/NISO Z39.19, but rather a framework that can be followed in addition to ANSI/NISO Z39.19. While a software product typically follows one or the other, ideally it complies fully with both, and some products now do.
+
+Plug-ins and connectors for search and content management are becoming more common. The most widespread tool for internal content management (even though it is not really a content management system) is SharePoint. Now almost all enterprise-level thesaurus management software products have methods to connect to SharePoint, whether through APIs, plug-ins, or dedicated “connector” modules. There are also increasing numbers of content management systems and search software products being supported by thesaurus management connections and APIs, with RESTful APIs in particular.
+
+Single-User Desktop Thesaurus Software
+
+Offerings in commercial, single-user desktop thesaurus software are extremely limited. There were a few more low-end products in the market in the past, as listed in the Willpower/TaxoBank thesaurus software directory, but because taxonomies are created for the needs of organizations, not individuals, the relatively small market of individual users could not support these inexpensive products. So now almost all commercial thesaurus software products are multiuser, either web hosted or client–server based, and marketed to organizations. This is not necessarily a problem for independent-contractor taxonomists, who are not expected to use their own software but rather have access to the software licensed by their clients.
+
+The only native Mac OS taxonomy tool, Cognatrix from LGOSystems Pty. Ltd. (Australia), was pulled from the market in early 2014, due to installation issues with later versions of Mac OS. It is the intention of the vendor to revamp Cognatrix and release it again as an Apple App upon the release of a newer version of the Apple user interface.10
+
+MultiTes
+
+MultiTes Pro (www.multites.com), the flagship product of Multisystems, based in Miami, Florida, is the only lasting, commercially licensed, single-user, affordable desktop thesaurus management software. It has been on the market since 1983 and continues to be supported with periodic updates. Its price for a single user has not changed in a decade—in 2015 it remained at $295. Multiple-user packages are also available. In 2013 Multisystems introduced a multiuser subscription cloud-based version of the software called MultiTes Online.
+
+MultiTes meets expected requirements described in the earlier section. Its major drawback is probably its user interface, which lacks a hierarchical display option, although hierarchical reports can be generated. The product was developed as thesaurus software, not taxonomy software, so a hierarchical view was not considered necessary. Taxonomists trained and experienced in thesaurus construction principles should not have difficulties using MultiTes, but novice taxonomists or subject matter experts who edit a taxonomy might consider the interface nonintuitive. In MultiTes, the alphabetical thesaurus list takes up the entire window width, so viewing or editing term details involves clicking on the desired term and opening a pop-up window rather than using a screen pane/area (see Figure 5.4).
+
+
+
+Figure 5.4 MultiTes taxonomy display with selected term details
+
+MultiTes’s primary strengths include its full support for user-defined relationships, term notes, and term categories. It also supports multilingual thesauri. However, in addition to the need to generate a report in order to see the hierarchy, other drawbacks include the inability to subsume or merge terms in a single step, the inability to create relationships across multiple thesauri, and the lack of a spell-checker.
+
+MultiTes accepts imported data as text only, either in a text file or pasted to a clipboard. The data must follow a specific format and cannot use tags. Export formats are text, HTML, XML, SKOS/RDF, RTF, and three different CSV layout options. Two add-on products for MultiTes facilitate web and enterprise deployment. MultiTes WDK (Web Deployment Kit) enables publication of a live MultiTes taxonomy on the internet/intranet. MultiTes EDK (Enterprise Deployment Kit) consists of a set of tools for transferring and publishing thesaurus data onto corporate servers.
+
+Multiuser Taxonomy Management Software
+
+Commercially available enterprise-level taxonomy or thesaurus management systems have been around only since the late 1990s. These are either client–server systems or web-based systems, which allow simultaneous work by multiple users, any number of whom can be remote. Thus, even if you do not purchase such software yourself, if you work as a taxonomy contractor or consultant, you could end up using such software, most likely remotely. There are also various levels of access privilege, ranging from full administrator to taxonomy-level administrator to taxonomy editor to read-only access. Certain configuration functions, such as customizing relationships, can be performed only in the administrative area or module. Companion software modules, add-ons, and custom integration allow these thesaurus management systems to be integrated with indexing systems and end-user search systems. These software systems may be supported with on-site custom integration and training services.
+
+Free trials for these commercial systems may require a prospective customer request rather than a simple download from the website. Pricing varies but can be in the thousands or tens of thousands of dollars, and is based on the number of servers or the number of users or seats, the degree of support, installation and configuration services, and so on. Therefore, before making a purchase, you must carefully evaluate how a particular software system and any additional modules might best suit your organization’s needs.
+
+Dedicated, large-scale, general-use (not vertical market) thesaurus management systems include, but are limited to, the following (alphabetically): Coreon, Data Harmony Thesaurus Master, Mondeca Intelligent Topic Manager, PoolParty, Smartlogic Semaphore Ontology Editor, SoutronTHESAURUS, STAR/Thesaurus, Synaptica, TopBraid EVN, and Wordmap. Each of these products includes all the capabilities described in the earlier section Taxonomy Thesaurus Software Characteristics, unless noted otherwise. The short descriptions that follow are not meant to be complete lists of features. Individual software tools may also share features that are highlighted in the description of other tools. Software in which thesaurus management is integrated within a product that has other nonthesaurus capabilities is addressed in a later section.
+
+Coreon
+
+Coreon (www.coreon.com) is the newest entrant to the taxonomy software market, released in 2014 by the German-based company Coreon GmBH. Coreon stands for Content Repository Online. The company was founded in 2012 as a spin-off from ESTeam AB, a language technology software and services company based in Sweden. Coreon uniquely supports the combination of taxonomy management and terminology management. For example, the user can enter terms into a multilingual vocabulary in any language to obtain translations in either direction, and the software also complies with terminology standards. Coreon is currently the only commercial taxonomy management software that also supports ISO 30042:2008, also known as TermBase eXchange (TBX), for interchange of terminological data. Coreon is fully SKOS-compliant but at this time may not fully support thesaurus standards ANSI/NISO Z.39.19 or ISO 25964. Coreon’s user interface is in English, with other language interfaces planned. It is available solely as SaaS.
+
+Coreon displays term hierarchies by default, not in the traditional complete top-down expandable/collapsible tree structure, but rather by displaying the immediate broader and narrower terms, and from there the user can click on terms in either hierarchical direction, which makes more sense for the polyhierarchies that the software supports. The software also offers an interactive, animated representation of the taxonomy branches within the default term details window. Users have the option of creating semantic customized relationships for ontologies, and can also designate different kinds of nonpreferred terms. Coreon manages multilingual vocabularies with translations in all languages of the European Union plus Ukrainian and Russian, and plans to add Asian languages.11 The software is a linguistically tuned variant of the Solr, search engine, which enables sophisticated search on the terms, such as grammatical stemming and word order changes. Coreon offers various levels of user access, including read-only to share a taxonomy with reviewers. Sample read-only taxonomies in Coreon are available for viewing on the company’s website. Import and export formats are XML, ISO TBX, and SKOS.
+
+Data Harmony Thesaurus Master
+
+Data Harmony Thesaurus Master (www.dataharmony.com) has been commercially available from Access Innovations (Albuquerque, New Mexico) since 1998. Prior to that, the software had been developed and used only in-house for the indexing and taxonomy services that the company has been providing since 1978, especially for the scholarly publishing market. The software is available both in a multiplatform Java-based version (used on Windows, Mac, Solaris, and Linux) and as cloud service over the web. Client software allows remote access, but a single-user desktop version is also available. Another Data Harmony product is M.A.I. (Machine Aided Indexer), a partner tool for categorization described in Chapter 7. Thesaurus Master and M.A.I. are available as an integrated product called MAIstro, and additional software extensions are also available.
+
+Thesaurus Master (screenshot in Figure 5.5) fully complies with thesaurus standards of ANSI/NISO Z.39.19 and ISO 25964 (Parts 1 and 2). Some of Thesaurus Master’s additional features include a dynamic, expandable tree view, a drag-and-drop ability to move the location of a term, support for all standard thesaurus display types, support for “facet indicators” (node labels), user-defined notes fields, the option to make all sibling terms automatically related terms to each other, full multilingual display, and a collaboration feature for adding comments to terms. The administrative module provides for password-governed security and nine levels of user access. Import formats include text, Word documents, XML, CSV, and MS Excel as tab delimited. Export formats include XML, HTML, OWL, OWL2, SKOS, Zthes, MARC (concise or expanded), and tab delimited. Export options also allow for various display types, such as hierarchical, permuted, and alphabetical flat format. There are also connectors for exporting to SharePoint and various content management systems.
+
+
+
+Figure 5.5 Data Harmony Thesaurus Master’s split-screen display, with the browsable taxonomy in the left pane and selected, editable term details (term record) in the right pane
+
+Rather than add ontology-like capabilities to their thesaurus management tool, in 2016 Data Harmony released a separate stand-alone product, Ontology Master. Thus, while Thesaurus Master only permits customization of some relationships (based on the equivalence and associative types, but not the hierarchical type), Ontology Master, supports fully customized relationships, along with customized classes. Ontology Master also supports the guidelines of OWL, SKOS, and RDF Triples.
+
+Data Harmony’s parent company, Access Innovations, also offers off-the-shelf taxonomies, custom taxonomy creation, consulting, and search implementation. A machine-aided indexing product that integrates with Thesaurus Master or Ontology Master is described in Chapter 7.
+
+Mondeca’s Intelligent Topic Manager
+
+Mondeca’s Intelligent Topic Manager (ITM) was introduced in 2008 by Mondeca S.A., (www.mondeca.com), founded in 2000 and located in Paris, France. The company also sells automated indexing software, called Content Annotation Manager, and search software, called Semantic Search, which can be purchased together or separately. Mondeca products were developed as web-based software from the beginning and are available either installed locally on a web server or as SaaS, hosted either by Mondeca or by a cloud service such as Amazon Web Services. The user interface is available in both French and English versions.
+
+ITM conforms to both SKOS vocabularies and OWL-standard ontologies, so in addition to supporting the creation of taxonomies, the same software enables the creation of ontologies. Accordingly, its features include support for both standard thesaurus relationships and customized relationships based on customized classes. Other term-editing features include drag and drop to move a term/change its relationships, a wizard to add multiple new terms at once, a graph visualization of relationships, and a search and read-only interface for nontaxonomist users to review the taxonomy. ITM supports multiple languages, with translations between terms, and allows for the use of Latin, Cyrillic, Arabic, and Chinese scripts. There is also the option for users to customize thesaurus management rules, such as whether to permit or prohibit polyhierarchies or terms having parents within the same or different hierarchies. So, while thesaurus creation in ITM does not have to be compliant with ISO 25964 thesaurus standards, it can be if the rules are set up to make it so.
+
+ITM can import and export thesauri in formats of XLS, XML, RDF, SKOS, and Topic Maps. The software has connectors for SharePoint, search engines Solr and Elastic Search, and selected content management systems, such as Alfresco. Additionally, REST Web APIs support the integration of ITM with many other content management and search systems. The company also offers consulting services, including custom taxonomy development.
+
+PoolParty
+
+PoolParty (www.poolparty.biz) is a relatively new entrant to the taxonomy management software market, introduced by the Semantic Web Company in 2009. The software company, based in Vienna, Austria, was founded in 2004 as a spin-off from the services company punkt .netServices, which started in 1998. The user interface is available in English, German, French, Italian, or Slovak.
+
+The core component of the PoolParty suite is the thesaurus management tool called PoolParty Thesaurus Server. PoolParty is available either as a web-based cloud service, for an annual subscription fee, or installed on premises on a Linux or Windows Server for a one-time license purchase. Under both license options, PoolParty is available in four tiers of features and modules: PoolParty Basic Server, PoolParty Advanced Server, PoolParty Enterprise Server, and PoolParty Semantic Integrator. Selected modules of a higher tier can also be purchased as add-ons to a lower tier. Figure 5.6 is a screenshot from PoolParty Thesaurus Server.
+
+Basic features of all PoolParty products are multilingual support, support for multiple projects, term history (changes) information, a Visual Mapper for pie-chart visualization of terms and their relationships, an API for web access, and a Taxonomy Creator Web Part for SharePoint. PoolParty can import from and export to Excel and to various RDF formats, including OWL, and can also generate synonym reports suitable for import to SharePoint search and Google’s Customized Search Engine (CSE). Alphabetical, detailed, and hierarchical thesaurus reports can also be generated. PoolParty supports standard thesaurus relationships, but in order to create customized relationships, along with classes, at least the PoolParty Advanced Server tier or the Ontology Manager add-on module for the Basic Server is required. Other Advanced Server or add-on module features include a taxonomy browser wiki front end, taxonomy mapping, SPARQL (database query) end points, and a linked data publishing front end.
+
+
+
+Figure 5.6 PoolParty Thesaurus Server’s split-screen display, with the browsable taxonomy in the left pane and selected, editable term (concept) details in the right pane
+
+According to the Semantic Web Company, what distinguishes PoolParty from other thesaurus management software is the ability to create linked-concept taxonomies/thesauri based on Semantic Web standards for both enterprises and organizations that want to publish open data. Its thesauri are fully compatible with the SKOS format, and the software utilizes Linked Open Data (LOD).
+
+PoolParty Thesaurus Server is designed with considerations of ISO 25964 standards but does not enforce all rules by default. For example, the default settings prohibit circular relationships but merely flag duplicate terms or the use of two types of relationships (such as BT/NT and RT) between the same pair of terms, and this flagging occurs only after running a quality report, not when the term or relationship is first created. Users can change the default quality settings, to prohibit such relationships. There are eight different scenarios that can be set by the user to “ignore,” “report,” or “enforce.” Thus before starting to use PoolParty, the settings should be adjusted from the defaults by a taxonomist who fully understands the relationships and desired rules.
+
+Additional available modules include PowerTagging (for semiautomated indexing), Linked Data Management, Text Mining and Entity Extraction, and Semantic Search.
+
+SAS Ontology Management
+
+SAS Institute (www.sas.com), a major developer of business analytics software based in Cary, North Carolina, is better known for its text analytics products, especially Enterprise Content Categorization, which is described in Chapter 7, than for taxonomy management. Included in the text analytics suite is SAS Ontology Management, which is available as both a stand-alone product and integrated with SAS Enterprise Content Categorization. As with other SAS software, SAS Ontology Management is client–server software, which runs on Linux, other Unix, or Windows servers and Linux or Windows clients. An SQL database is also required. SAS Ontology Management is generally used by companies already using other SAS software.
+
+SAS Ontology Management was designed specifically for ontologies, so it uses ontology terminology (such as classes, slots, instances) that may be unfamiliar to the taxonomist. Although focused on ontologies, the software also manages and displays term hierarchies sufficiently and clearly manages nonpreferred terms (alternate terms), so it can also be used for simpler taxonomies and thesauri. For ontology management, though, it has a sophisticated support for classes, even including hierarchies of subclasses and attributes of classes. Features include full customization of classes, relationships, and attributes, an advanced search feature, multiple-user permission-level types for different projects, and batch find-and-replace. SAS Ontology Management import formats are XML and RDF/OWL, and XML is the only export format. The ontology management software can be integrated with the SAS auto-classification software, and there are APIs for connecting to content and search systems, including SharePoint, Oracle Endeca, and Documentum. Nevertheless, SAS Ontology Management does not appear to be widely used or marketed beyond existing SAS software customers.
+
+Semaphore Ontology Editor
+
+Semaphore is a suite of products offered by the London-based company Smartlogic Semaphore Ltd. (www.smartlogic.com) since 2006. The company also has a US subsidiary, Smartlogic Semaphore Inc., based in San Jose, California. The core product, Ontology Editor (previously called Ontology Manager), can be licensed and used separately or integrated with the rest of the suite. Semaphore products are web-based and are available either in an internally installed version or vendor hosted in a SaaS arrangement.
+
+The Ontology Editor (Figure 5.7), despite its name, is also full-featured thesaurus software. In addition to supporting ontology standards (RDF/OWL), it also supports the ISO 25964 thesaurus standard and ANSI/NISO Z39.19, so it is completely appropriate for any taxonomy or thesaurus, in addition to ontologies. Features include drag-and-drop capability to move terms and relationships; the ability to protect imported vocabulary terms from changes, while supporting the extension of such vocabularies with the addition of narrower terms; a task feature to manage workflow of such things as pending and approved terms; and the support of URIs for individual terms.
+
+
+
+Figure 5.7 Semaphore Ontology Editor’s split-screen display, with the browsable taxonomy in the left pane and selected, editable term details in the right pane
+
+Optional additional modules include an ontology/taxonomy mapping tool and an Ontology Review Tool that allows collaborators view and search the ontology/taxonomy and to also submit comments, without editing the terms, and a text mining tool for text/fact extraction. A related auto-classification product, Classification Server, is described in Chapter 7.
+
+Ontology Editor’s import and export formats include Excel/CSV and the various Semantic Web RDF XML standards, including SKOS, Turtle (Terse RDF Triple Language), and N Triple (a subset of Turtle). There are also connectors available for SharePoint, Google Search Appliance, Apache Solr, OpenText, MarkLogic, and IBM Watson, in addition to a connector for the Content Management Interoperability Services (CMIS) open standard, which enables connection to any CMIS-compatible content management system.
+
+STAR/Thesaurus
+
+The thesaurus management software STAR/Thesaurus, offered by Vancouver-based Lucidea Corp. (lucidea.com), has been on the market since the late 1990s. It is one of a suite of Cuadra STAR brand software products for archives management, collections management, knowledge management, digital asset management, and records management. In 2008 Los Angeles-based Cuadra Associates was acquired by the Canadian company Sydney PLUS, and in 2013 Sydney Plus changed its name to Lucidea. Cuadra’s market emphasis has been libraries, museums, archives, associations and societies, government agencies, and database publishers, but STAR/Thesaurus could certainly be used in any enterprise or application. STAR/Thesaurus can be purchased and used by itself or integrated into any of these other STAR software systems to provide vocabulary control for indexing and cataloging.
+
+STAR/Thesaurus is multiuser client–server software that runs on Linux, Solaris, or Windows for the server and on Windows for the desktop client. Additionally, the product offers a web-based user interface for just displaying, browsing, and searching a thesaurus without editing it. While the product is priced per data-entry user, there is no charge for any number of browse users.
+
+The software meets the ANSI/NISO Z39.19 guidelines for thesaurus management through its support of standard relationships and enforcement of various rules, such as no circular relationships. It supports customizable notes and term attribute fields. As for customizable relationship types, those can be created only on the administrator, server-side of the software. Import/export format options are tagged ASCII text and CSV. While an XML output is not a standard option, skilled administrators could convert a tagged text file to XML. The vendor Lucidea also offers services of custom importing from other formats.
+
+Synaptica Knowledge Management System (KMS)
+
+Synaptica (www.synaptica.com) is a web-services-enabled application accessible via a web browser from Synaptica, LLC, based in Denver, Colorado. It was the first web-based taxonomy management software when the product was commercially introduced in 1995. Licenses are available in annual or perpetual forms based on the number of users. Training services are also available. A separate indexing module, IMS (Indexing Management System), is also available. Despite being a relatively small company, Synaptica has a global reach with an office in the United Kingdom, additional sales affiliates in Europe, and partnerships in Singapore, Malaysia, and Australia.
+
+The user interface of Synaptica offers alphabetical or hierarchical browsing, along with sophisticated term-searching options, and utilizes pop-up windows for selected term details, as shown in Figure 5.8.
+
+Synaptica and the thesauri it helps create comply with ISO 25964 and ANSI/NISO Z39.19. Software features include a global term and relationships editor that can create a list of terms to edit, a side-by-side editing view, a drag-and-drop capability, a term subsume function, the ability to map between taxonomies, the ability to assign relationship weights (an added level of complexity more suited for ontologies than most taxonomies), custom category assignment, thesaurus replication/versioning, an independent search and browse utility for non-taxonomy editors, user-defined relationships, an interactive visualization tool with term nodes branching out, a dashboard with metrics and graphs to display thesaurus details, UTF-8 encoding for outputs on reports, and up to 12 gradations of permission levels. Import formats are CSV, text, Excel, and XML (including schemas of Zthes, SKOS, and OWL). Export formats are CSV, HTML, Word, Excel, and XML (including schemas of Zthes, SKOS, SKOS-XL, and OWL). Synaptica also offers a SharePoint connector for direct importation of taxonomies into the SharePoint Term Store and also offers APIs for integration with other software systems. Additional products and services include automated indexing, faceted search based on Apache Solr, and knowledge audit and taxonomy development services.
+
+
+
+Figure 5.8 Synaptica’s hierarchical taxonomy display and selected term details
+
+TopBraid Enterprise Vocabulary Net
+
+While some taxonomy/thesaurus management software vendors have added ontology support or modules to their products, TopQuadrant (www.topquadrant.com), founded in 2002 and based in Raleigh, North Carolina, has gone somewhat the other way. The company started with a complex, single-user ontology modeling software, TopBraid Composer, introduced in 2006, and then in 2010 it released a simpler and easier-to-use thesaurus management product, TopBraid EVN, to satisfy a wider market, which has now become the company’s leading product. Not long after EVN was introduced, ontology creation capabilities (although not as complex as in TopBraid Composer) were added to EVN.
+
+EVN is a multiuser software that runs on a Linux or Windows server, and users log in remotely from any operating system with any browser. So, while it is web-based for the users, EVN is not over-the-web SaaS. TopBraid EVN supports SKOS, including SKOS-XL standards, rather than ANSI/NISO Z39.19 or ISO 25964. Standard thesaurus rules, such as no circular relationships, are enforced, but the user can additionally define customized rules about data and metadata by means of a form.
+
+In addition to supporting standard and customized relationships, classes, and term attributes or properties, EVN supports mapping/crosswalks between vocabularies, query-building tools for customized reports (in addition to standard reports), and a multifield search feature. One of the distinguishing features of EVN is taxonomy-editing workflow management, which involves the ability to keep sets of proposed changes in “working copies” that can be reviewed and reported on with no effect on the production copy until a user with the appropriate permissions puts it into production. The EVN user interface has the standard hierarchical taxonomy display in the left pane and then the details of a selected term in the right pane, but additionally a third pane further to the right displays the search functions, as shown in Figure 5.9.
+
+Import and export formats include Excel/CSV (including exporting to the format of CSV for the SharePoint Term Store), XML (including importing from MultiTes’s XML format), and RDF/OWL. TopQuadrant can also provide other customized formats. Integration with third-party applications can also be done with APIs, ideally documented RESTful APIs.
+
+
+
+Figure 5.9 TopBraid Enterprise Vocabulary Net user interface with taxonomy hierarchy, term details, and search functions (Image credit: TopQuadrant, Inc.)
+
+Related add-on modules available are TopBraid Vocabulary Explorer, a read-only version of EVN that allows stakeholders and subject manager experts to search and navigation of the taxonomy and add reviewer comments; TopBraid EVN Tagger, which supports indexing of content through a user interface that displays the context for both the content and vocabulary and AutoClassifier, and add-on auto-categorization tool to EVN Tagger. TopBraid also offers what it calls a JumpStart package, which is a development (nonproduction) copy for building a networked vocabulary management system for a proof-of-concept project at a significantly reduced price. Additional data management products from TopQuadrant are TopBraid Reference Data Manager, TopBraid Insight (for data warehousing), and TopBraid Live (a business applications server).
+
+Wordmap
+
+Wordmap (www.wordmap.com) was launched in 1998 by the UK company of the same name, and in 2007 the taxonomy consultancy Earley Information Science, Inc. (based outside of Boston, Massachusetts) acquired Wordmap Inc. as a wholly owned subsidiary. There are three versions of Wordmap: Wordmap Enterprise, Wordmap Express, and Wordmap skuDB. Wordmap Enterprise is an Oracle database client–server application, which runs on a Windows, Linux, or Solaris server, and is accessed by users through Windows or with a Java-based browser user interface. Since Wordmap Enterprise uses an Oracle database for its repository, a separate Oracle license is required. Wordmap Express, introduced in 2010, has all the features of Wordmap Enterprise but is additionally available as SaaS (cloud hosted), and it comes packaged with an Oracle Express repository that requires no extra license fee. Wordmap skuDB, introduced in 2014, is designed specifically for product taxonomies, enabling management of complex attributes for terms/product categories and integration with product information management (PIM) systems. Wordmap skuDB is available only as SaaS, and can additionally export taxonomies to HTML.
+
+Wordmap’s features include the ability to display two taxonomies side by side with drag and drop, support for creating customized attributes and relationships (and the ability to turn on or off the relationship name display), support for multilingual taxonomies with translation designations, the generation of many kinds of reports, and the ability to set user access/privileges at various levels, including the individual node level. Wordmap also has a feature for mapping different taxonomies to each other, which could be used, for example, in creating a unified enterprise taxonomy. One of the unusual aspects of Wordmap Enterprise or Express is its nomenclature (which is different in Wordmap skuDB), including the following:
+
+
+               Wordset = concept, node, object
+
+               Lead word = preferred term
+
+               Members = nonpreferred terms
+
+               Physical relationships = hierarchical (BT/NT) relationships
+
+               Nonphysical relationships = associative (RT) relationships
+
+
+
+Import formats include text, CSV, Excel, and XML, and the export formats are CSV and XML. In addition, Wordmap offers connectors to export to Oracle Endeca and SharePoint and also import from SharePoint. Finally, custom direct application access to Wordmap taxonomies is available through a Java API. Wordmap also sells a separate auto-classification software module, Intelligent Text Classifier.
+
+Free and Open Source Software
+
+There are several free and open source offerings of thesaurus software. They tend to have their origins in academic projects in computer science, information science, or library science. In addition to being free, these applications tend to have the advantage of being able to run on multiple platforms and yet can be installed and used by a single user. The editing features may be a little less standard and thus less intuitive. Additionally, documentation tends to be less, and support may be lacking compared with commercial software. Some free offerings of the previous decade are no longer available. While these products do not have as many features as commercial software, they are worth considering for long-term experimentation (unlike commercial demo software, they have no time limit), for use in nonprofit or low-budget projects, or by anyone with a strong interest in working with open source software.
+
+TemaTres
+
+A popular open source freeware for creating taxonomies and thesauri is TemaTres (www.vocabularyserver.com), which has its origins in the Library and Information Science program of the University of Buenos Aires, Argentina. It has been used by various nonprofit organizations and government agencies, and many example thesauri are available on the TemaTres website. The software, which has been available since the mid-2000s, is being maintained and updated by its lead developer, Diego Ferreyra, with the latest version, TemaTres 2.1, released in early 2016. It is web-based, which means it requires a PHP, MySQL, and HTTP web server, so it may not be the configuration that any independent taxonomist would set up and install at home. A demo server is available to try out, though.
+
+Features include support for all thesaurus relationships and customized relationships based on the standard types, nonpreferred terms and hidden labels (a subtype of nonpreferred), user-defined notes, categories for terms, various search capabilities, various report options including quality reports such as for orphan terms, multilingual thesaurus support, mapping of relations between vocabularies, batch deleting of terms, support for polyhierarchy, and support for SPARQL end points. The user interface is available in Brazilian, Portuguese, Catalan, Chinese (Simplified), Dutch, English, French, Italian, and Spanish. Unlike many commercial taxonomy management software applications, there is no split screen or pop-up window feature, so it is not possible to view the expandable/collapsible taxonomy hierarchy and selected term details at the same time. Rather, term details display in a new webpage, and then you click the back button to view the hierarchy again.
+
+TemaTres uses the SKOS model, and since version 1.5, released in 2012, it has been compatible with ISO 25964. An issue is that duplicate terms can be created, but are detected only when running a quality report, and thus it appears as if thesaurus rules are not enforced. Rules are indeed enforced if the terms are not duplicates, but in version 2.0 duplicates can still be created too easily.
+
+Import formats include plain tagged text, tab-indented text, and SKOS XML. Export formats are text (hierarchical or alphabetical lists) and various XML formats, including SKOS-Core, Zthes, Topic Maps, WordPress XML, Metadata Authority MADS, Dublin Core, VDEX, BS 8723, SiteMap, and SQL. Related tools include TemaTresView to integrate vocabularies with any web form; TemaTres Keywords Distiller, a simple keyword extraction tool; TemaTres Visual Vocabulary, a graphical visualization of terms and their relationships; TemaTres Web Publisher; and Skoser, a search and navigation tool for SKOS RDF format files.
+
+VocBench
+
+VocBench (vocbench.uniroma2.it) is, according to its website, “a web-based, multilingual, editing and workflow tool that manages thesauri, authority lists and glossaries.” It was developed originally for the management of the AGROVOC thesaurus of the Food and Agriculture Organization (FAO) of the United Nations as a joint project of FAO, which is based in Rome, Italy, and the Artificial Intelligence Research group at the University of Rome Tor Vergata. AGROVOC, which has over 32,000 concepts in 21 languages, had been in a relational database, but with VocBench, the thesaurus was converted to the SKOS-XL format for use with linked data and alignment with other public vocabularies. The Artificial Intelligence Research group also developed a semantic extension for the Mozilla Firefox browser called Semantic Turkey, which is the back end for VocBench. Like TemaTres, users of VocBench tend to be nonprofit organizations, including international organizations, government agencies, and research institutes.
+
+Although “ontologies” is not in the official description, VocBench is definitely an ontology development tool, not just for taxonomies and thesauri, yet it is also suited for hierarchical taxonomies. Its user interface features the familiar expandable hierarchical tree in the left pane and selected term details in the right pane. Different types of term details are accessed on different tabs, so you don’t see all of the term details together. For example, there is a separate tab for definition, for associated relationships (related terms and semantic relationships), for hierarchical relationships, for notes, and so on. There is even a tab for linked data “Alignments,” which show the equivalent term in the vocabularies of other organizations, via live URLs linking to those organizations’ thesaurus websites. Term links to Wikipedia pages is another implementation of linked data. Other features include a tracking of history of changes made; a SPARQL editing tool; and workflow states with multiple term statuses, including proposed, validated, published, and deprecated. Vocabularies can be imported as RDF, and the export format is SKOS-XL.
+
+VocBench is web based, with web server requirements of Apache Tomcat, MySQL, and OWLIM installed on a Sesame2 server, but if you don’t have your own web server, you can still try out VocBench with a sandbox account on an available, hosted cloud version. As open source software, the source code is also available for download. The software has been successfully tested for use in Safari, Chrome, Firefox, and Internet Explorer browsers. The user interface is available in numerous languages. The software is being actively maintained with updates made about twice a year. (Version 2.3 is the latest to date as of this writing.) A 100-page PDF user manual in English with numerous screenshots is available, and there is also a VocBench user discussion group as a Google group.
+
+ThManager
+
+ThManager (thmanager.sourceforge.net) was developed by the Advanced Information Systems Laboratory of the Computer Science and Systems Engineering Department of the University of Zaragoza and GeoSpatiumLab S.L., both in Zaragoza, Spain. The software is multiplatform, running on a Java Runtime Environment. The user interface is available in English or Spanish. The thesauri are fully SKOS compatible, but import and export formats are limited to only SKOS XML. Following the SKOS standard, ThManager supports multilingual thesauri, including different language scripts, such as Cyrillic and Greek.
+
+The thesaurus viewer has the typically intuitive display of an expandable hierarchy tree in the left pane and details of a selected term in the right pane, but the user interface of the thesaurus editor has some weaknesses. Instead of leaving the SKOS model in the background, the user interface follows the SKOS model too closely, displaying broader, narrower, and related concept links to term IDs rather than to term names/labels. The user can click on a term ID to call up a new navigation window to see the term names, but this is an added step.
+
+As is the case sometimes for freeware, ThManager is not updated frequently. It was last significantly updated in 2006. Even for Windows 7 the installation requires a “portable” version due to an installation bug, since TheManager was not tested for Windows 7, and funds for further development at the time of this writing were lacking.12 There is adequate documentation in English, though, and technical support questions receive responses.
+
+Protégé Ontology Editor
+
+Protégé (protege.stanford.edu) is actually an open source ontology editor, not a thesaurus management program, and unlike some commercial thesaurus/ontology software, Protégé is designed specifically for ontology modeling and not for creating thesauri or taxonomies. Nevertheless, it is sometimes used by taxonomists and is reasonably well known in the broader field of vocabularies and knowledge organizations systems. There are workshops, conferences, training, and several discussion groups supporting the Protégé user community. Protégé was developed by the Stanford Center for Biomedical Informatics Research at the Stanford University School of Medicine in the early 1990s and is most often used by scholars to create scientific ontologies. It is available for Windows, Mac OSX, and Linux and can run on other platforms with a Java Runtime Environment.
+
+As Protégé is an ontology editor (not a thesaurus editor), one of the main drawbacks is that it does not have a standard feature for the equivalence relationship. Some taxonomists have developed work-arounds, though, and thus have successfully implemented nonpreferred terms in Protégé-developed thesauri, but it takes extra effort to learn and implement such methods. Taxonomists have claimed Protégé to be powerful, but it is not necessarily user-friendly or intuitive.13 An SKOS editor plug-in for Protégé (code.google.com/p/skoseditor) facilitates the creation of standard thesauri, but the SKOS editor currently available may not be for the latest version of Protégé.
+
+Other Software with Taxonomy Management Components
+
+Since taxonomies are used in combination with certain other functions—indexing, document management, or search—software systems designed for these other purposes may also include a taxonomy management component or module. Taxonomy management is sometimes, but not always, a feature of the following:
+
+
+       •  Metadata or cataloging software, especially for archives and libraries
+
+       •  Content management and document management systems
+
+       •  Records management software
+
+       •  Automatic indexing and enterprise search and discovery software
+
+
+
+The taxonomy management features of such integrated systems, however, may not comply with the standards. So, the eventual usefulness of the taxonomy in a final application may be limited.
+
+Library and Archive Management Software
+
+Library or archive management software may include thesaurus management components, although this is not always the case since libraries and archives typically utilize existing controlled vocabularies or taxonomies (such as Library of Congress Subject Headings, Library of Congress Thesaurus for Graphic Materials, or the Getty Thesauri).
+
+Corporate library-management software vendor Soutron Global (www.soutronglobal.com) headquartered in Encinitas, California, and its affiliate Soutron Ltd. (www.soutron.com) in the United Kingdom offer a thesaurus software product, SoutronTHESAURUS. SoutronTHESAURUS is web based, supporting an unlimited number of remote users, and is available either internally installed or in a vendor-hosted option in a SaaS arrangement. The software supports user-defined relationships (in addition to the standard relationship types), multilingual thesauri (including non-Western character sets), and the ability to merge terms. Multiple related taxonomies can be maintained within a single domain. Thesauri can be imported from XML and exported to XML or CSV. Although SoutronTHESAURUS can be purchased as a stand-alone product in addition to being integrated with the Soutron Library Management System, the company makes no effort to market the thesaurus management software separately, and there is almost no information about it on its websites.
+
+Library and archive software Adlib (www.adlibsoft.com) is distinguished for its thesaurus management capability. Adlib is sold by the Axiell Group, a leading European software company for archives, libraries, and museums, with headquarters in Sweden, which acquired the British company Adlib Information Systems in 2013. Each of the products, Adlib Archive, Adlib Library, and Adlib Museums, has the added feature for creating and editing thesauri, which the software can then use for cataloging archive documents, library materials, or museum objects. The thesaurus management feature of Adlib supports hierarchical, associative, and equivalence relationships; scope notes; and multiple-language term translations. Adlib software is available in Dutch, French, and German user interfaces, in addition to English.
+
+Content Management Systems
+
+Content management systems (CMSs), a category that includes enterprise content management, web content management, and document management software, are a logical place for integrating taxonomies. Indeed, some CMS products do claim to have “taxonomy” features, but they may be rather rudimentary tagging systems. According to content management and taxonomy consultant Lynda Moulton, “It is not common for any content management systems to be tightly integrated with advanced thesaurus management capabilities.”14
+
+As with library systems, though, it is more common to import taxonomies into a CMS than to create them within such systems. In general, a CMS should be thought of not as a system for building and managing taxonomies, but rather as an application in which a taxonomy can, and perhaps should, be implemented. Vendors of taxonomy management systems often provide connectors, APIs, or custom integration services to implement taxonomies in various CMSs. If, however, an organization has acquired a taxonomy from a third party (including a custom-developed taxonomy from a consultancy) and does not own taxonomy management software, the ability to make minor updates to the taxonomy within the CMS is important. Since a CMS is less likely to support thesaurus standard rules, updates to the taxonomy need to be done with care. Additional issues involving a taxonomy in a CMS may include the support and display of multilevel hierarchies and support for polyhierarchy.
+
+Records Management Software
+
+Electronic records management software, which can be considered a form of a CMS, is an area with more potential for thesaurus management features. Records managers, the users of such software, tend to have a library and information science background and thus may already have a familiarity with taxonomies. Furthermore, thesaurus capabilities are included in government-recommended guidelines for records management software. Records management is important not only in the financial and legal industries but also for government agencies. The National Archives and Records Administration has endorsed the 2002 and 2007 editions of the US Department of Defense records management application (RMA) standard (DoD 5015.2 STD). Adherence to the standard is required for all defense agencies and strongly encouraged for all other federal agencies. Among the nonmandatory features, Section C6.2.9 Retrieval Assistance states, “RMAs should have additional search-and-retrieval features, such as full-text search, to assist the user in locating records. The search utility should include the capability to create, modify, or import additional thesauri.”15 British and Australian national standards for records management software have similar specifications.
+
+Since the thesaurus management capabilities of records management systems are not always sufficient, there are third-party thesaurus/classification management software vendors focused specifically on RMAs. Two Australian vendors take the lead in this records and information management market.
+
+Synercon Group, headquartered in Australia and with subsidiary offices in London and Los Angeles, offers a.k.a. (www.a-k-a.co, presented as “information governance” software). The a.k.a. software package supports the creation of taxonomies/thesauri in accordance with the thesaurus standard ISO 25964, record classification schemes in accordance with business activity classifications standard of ISO 15489, and record retention and disposal schedules in accordance with the DIRKS (Designing and Implementing Records Keeping System) methodology, also a part of ISO 15489. The software exports are in CSV and XML formats. There are custom integration tools and also a connector available for the HP TRIM Records Management System. A.k.a is Windows-based client–server software and requires a Microsoft SQL database. It can also be installed on a single PC.
+
+Another Australian vendor, Active Classification Solutions (www.acs121.com), sells One-2-One, which is essentially Windows-based thesaurus software with additional features to support records management. It includes disposal maintenance features and connectors to integrate with electronic documents and records management systems, including Objective ECM, OpenText eDOCS DM, HP Trim, and HP Records Manager.
+
+Data Management Software
+
+Large database management systems, and the variations of data warehousing, master data management systems, and big data systems, may also make use of taxonomies, whether they are called that or not, and thus have taxonomy management capabilities. These include both general and vertical market-specific applications. For example, IBM’s InfoSphere Master Data Management solution includes a Reference Data Management Hub feature. “Reference data” in IBM products means taxonomy or ontology.16 Oracle offers taxonomy or thesaurus management within various vertical market software solutions, such as the Thesaurus Management System. (TMS). The Thesaurus Management System is part of the Oracle health science application suite, aimed particularly at managing data for the drug development process, and provides taxonomy management capabilities within the Oracle Data as a Service (DaaS) for Marketing product.
+
+Microsoft SharePoint
+
+In some respects, Microsoft SharePoint software is in a class by itself. Used widely by many organizations as their intranet platform, it was originally developed as client–server based collaboration software, but its features and utilization quickly evolved to allow its use as a basic document/content management system in organizations whose needs are not great enough or critical enough to require a dedicated document management system, content management system, or records management system. SharePoint, which is accessed by users via a web browser, is available both in client–server installations and SaaS, in the latter case as part of the Office 365 suite for businesses.
+
+For its purposes as a content management system, SharePoint supports the assignment of metadata to documents or other files uploaded to SharePoint. Then other users can search or filter on the metadata terms to find the desired documents. Filtering on the metadata terms can be done either by sorting on selected metadata “columns” in a displayed table of documents within a single “library” or data list, or by selecting terms from within dynamically displayed facets (also called “refinements”), to limit search results.
+
+While earlier versions of SharePoint allowed users to assign metadata to documents, with the release of SharePoint 2010 and its new Managed Metadata Service feature SharePoint also supports taxonomies for metadata. The managed metadata or taxonomies in SharePoint can have deep hierarchies, nonpreferred terms, and scope notes/definitions, and there is a type-ahead feature to match newly created terms against existing terms in the taxonomy. An added feature is custom sorting of the display order of terms. Taxonomies are maintained in a “Term Store” that can be shared on different SharePoint “sites” across the organization. (Managed Metadata Service and Term Store are essentially synonymous.) It is also possible to import a simple hierarchical taxonomy (without nonpreferred terms) into the Term Store as a CSV file. The ability to create and edit taxonomies in the Term Store requires administrative permissions, but the interface is easy to use. Figure 5.10 shows the editing of taxonomy terms in SharePoint’s Term Store.
+
+While SharePoint could be considered as a kind of content management system that supports the creation and editing of taxonomies within the software, the taxonomy management features are limited. As of SharePoint 2013, there is no enforcement of standard taxonomy rules, so it is possible to create circular relationships, duplicate terms, and so forth. For example, the same term could be created as both a preferred term and a nonpreferred term to another preferred term. Polyhierarchy can be created, but requires the “Reuse Terms” function, whereas the default is to create two separate terms with the same name. Furthermore, polyhierarchy is only permitted across different taxonomy hierarchies or facets, whereas often it is desired for a term within a hierarchy or facet. Also, SharePoint does not support associative relationships, only hierarchical. Nevertheless, Share Point’s Term Store feature is adequate for the creation of relatively small hierarchical or faceted taxonomies for the typical content management users of SharePoint (either a small- or medium-sized organization or just a department within a larger enterprise). If a large taxonomy is required, it’s much better to create it in a dedicated thesaurus management software and then import it into SharePoint through the SharePoint connectors available from many thesaurus software vendors.
+
+
+
+Figure 5.10 Microsoft SharePoint’s Term Store, with a hierarchy of terms partially expanded, a term, “Timeline,” selected, and that term’s editable details in the right pane. Hovering over a selected term activates a down arrow that when clicked opens up a context menu to create a narrow term or perform other functions
+
+Taxonomies can be created in SharePoint, using either of two distinct implementations: (1) importing taxonomies into the Term Store, which enables the taxonomy terms to be used for manual tagging by SharePoint users who upload documents, and (2) integration of taxonomies into SharePoint search, which may additionally utilize third-party auto-categorization technologies, but does not have to. A comprehensive taxonomy with sufficient nonpreferred terms may achieve acceptable results without the addition of auto-categorization software, but auto-categorization technologies will significantly improve the accuracy of search results. SharePoint has a built-in search feature, which, if integrated with a taxonomy, supports dynamically displayed facets and their values, including any hierarchies within facets. These are shown in a left-hand margin “Refinement” pane, by which users may filter their search results. Without taxonomies, the Refinement pane shows only default metadata as facets, such as author, date, and tags of uncontrolled keywords.
+
+The same taxonomy may be used in both the Term Store for manual tagging and column filters and in SharePoint Search and its resulting refinements. It is also possible to use different taxonomies, such as a small one for the Term Store and a larger one, with many nonpreferred terms, in SharePoint Search. When creating or importing a taxonomy in the Term Store, the taxonomist has the option of making the taxonomy available for SharePoint Search. Often organizations, which prefer to use auto-categorization and do minimal manual tagging, will utilize taxonomies for search only and not bother with the Term Store. A taxonomy created in dedicated thesaurus management software could be imported to the Term Store, SharePoint Search, or both.
+
+Automated Indexing and Search Software
+
+Like CMSs, automatic indexing/auto-categorization/enterprise search software may or may not have taxonomy support. Even when it does, it rarely includes full-featured thesaurus management capabilities. As the emphasis in these systems is on automated information retrieval, their components for taxonomy creation and management also tend to be automated or minimally manual, although there are some exceptions. Chapter 7 covers automated indexing software in more detail.
+
+Integrated Systems Conclusions
+
+The technology and features in the various integrated software systems discussed here are focused, not on taxonomy creation, but rather on one of the other areas of information management, search and discovery, automated indexing, records management, or web publishing. Thus the capabilities and ease of use of the taxonomy management features are generally inferior to those of dedicated thesaurus software and may vary greatly from one product to another since they are competing primarily in other areas. You should consider these other capabilities carefully with respect to your organization’s requirements. Otherwise, you may be paying for features that you don’t need or missing features that you do need or will need as your taxonomy and its application grow.
+
+Endnotes
+
+  1.  Lynda Moulton, email to author, October 28, 2009.
+
+  2.  Darin Stewart, Building Enterprise Taxonomies (Portland, OR: Mokita Press, 2008), 137.
+
+  3.  “List of Mind Mapping Software,” Wikipedia, accessed October 24, 2015, en.wikipedia.org/wiki/List_of_concept-_and_mind-mapping_software
+
+  4.  Postings to Taxonomy Community of Practice discussion group, “Subject: mind mapping software?” April 21–22 and July 10, 2009, groups.yahoo.com/neo/groups/TaxoCoP, and the additional suggestion of The Brain by Lynda Moulton, email to author, October 28, 2009.
+
+  5.  Definition of SKOS from “SKOS Simple Knowledge Organization System - Home Page” on the World Wide Web Consortium (W3C) website, accessed October 19, 2015 www.w3.org/2004/02/skos, updated December 13, 2012.
+
+  6.  Theresa Regli, “Taxonomy management, or BSM? It’s all semantics,” CMS Watch Trendwatch Blog, July 16, 2007, accessed December 20, 2015, www.cmswatch.com/Trends/972-Taxonomy-management,-or-BSM?-It%E2%80%99s-allsemantics
+
+  7.  The migration of the Willpower Thesaurus Software directory to the TaxoBank website is explained in a blog post by the author, “Taxonomy Software Directories,” The Accidental Taxonomist Blog (April 11, 2014), accessed December 20, 2015, www.accidental-taxonomist.blogspot.com/2014/04/taxonomy-software-directories.html
+
+  8.  Marjorie Hlava, email to author, January 23, 2015.
+
+  9.  Ashleigh N. Faith, an ontologist, wrote “lightweight ontology is where most taxonomies are headed” to the discussion thread “Taxonomy management software in use” on the Taxonomy Community of Practice LinkedIn group, April 2015, accessed December 20, 2015, www.linkedin.com/groups/1750/1750-5978204693472489476
+
+10.  LGOSystems sales team, email to author, January 30, 2015.
+
+11.  Michael Wetzel (Managing Director, Coreon), email to author, October 26, 2015.
+
+12.  Jesús Barrera Francés, Project Manager, GeoSpatiumLab, email to author, October 22, 2015.
+
+13.  Postings to the Taxonomy Community of Practice discussion group, “subject “protégé,” November 19–20, 2008, 20, 2008. finance.groups.yahoo.com/group/TaxoCoP
+
+14.  Lynda Moulton, email to author, May 29, 2009.
+
+15.  Department of Defense Directive 5015.02-STD: Electronic Records Management Software Applications Design Criteria Standard (April 25, 2007), 114, accessed December 20, 2015, www.dtic.mil/whs/directives/corres/pdf/501502std.pdf
+
+16.  Ralph Tamlyn, former chief taxonomist and IT architect at IBM, email to author, August 24, 2015.
+
+

@@ -1,0 +1,491 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 3
+
+Creating Terms
+
+Taxonomies: Not as boring as you think.
+
+—Seth Earley
+
+While different kinds of taxonomies may have different structures and different kinds of relationships between terms, they are all made up of terms. Therefore, we will begin our discussion on creating taxonomies with the details of how to create terms.
+
+Concepts and Terms
+
+Just as there are various types of taxonomies, so are there various designations for the terms—the controlled and defined words or phrases that make up the taxonomy. Fundamentally, a taxonomy comprises distinct concepts, which are things or ideas; a term, on the other hand, is a label for a concept, and a single concept may be described by multiple, somewhat synonymous terms.
+
+Although in a very simple hierarchical taxonomy you may decide to have just a single term per concept, most controlled vocabularies accommodate multiple terms for each concept. In a synonym ring or synset type of taxonomy, all the terms for a concept have equal standing. In other taxonomies, however, the taxonomist designates a single term as preferred, and the rest are nonpreferred terms, which serve as cross-references pointing to the preferred term. Even in the case of a synonym ring, each concept needs to have a single name, at least for internal administration purposes, although it does not matter so much what name it is.
+
+You may find any of the following designations used to refer to terms or components of a taxonomy.
+
+A concept is a thing, idea, or shared understanding of something. A set of synonymous terms could describe it. It is therefore the combination of both a preferred term and its various nonpreferred terms, if any, or all the linked synonyms within a synonym ring. Nevertheless, a concept has to be called something, so if there are also nonpreferred terms, the concept is typically referred to by its preferred term name (a convention that may lead to confusion between a concept and its label), even though every concept is more than just a term. A concept may also be called any one of the following:
+
+
+       •  Node: A concept as expressed within a hierarchical taxonomy. If a hierarchy is like a tree, then the nodes are places where new branches or leaves connect. A node may refer to the preferred term alone, especially if there are no nonpreferred terms, or to the preferred term plus its nonpreferred terms.
+
+       •  Object: A concept especially in an object-oriented database structure. An object comprises any nonpreferred terms and also their definition, notes, and any other attributes. Information on relationships to other terms/objects may be part of an object as well.
+
+       •  Individual: A concept in an ontology.
+
+       •  Entity: Sometimes used for a concept in an ontology or semantic network.
+
+       •  Instance: May refer to (1) an individual in an ontology; (2) a named entity as it relates to a broader topical term, in an instance-type of broader/narrower relationship; or (3) the most specific concept at the narrowest, bottom level of a taxonomy.
+
+       •  (Term) Cluster: A concept that comprises multiple equivalent terms.
+
+       •  Wordset: A concept that comprises multiple equivalent terms.
+
+       •  Taxon: A concept usually only in biological taxonomies.
+
+
+
+A term is a label for a concept—the most common, generic designation, which can be in any controlled vocabulary. It can refer to any kind of term, both preferred terms and nonpreferred terms. However, it sometimes refers to just the preferred term, so the designation may be somewhat ambiguous in practice. Other designations for terms, used to avoid ambiguity, include Vocabulary term and Subject term.
+
+A term record is the complete information regarding a term, especially as stored and displayed in taxonomy management or indexing software. It includes all of a term’s relationships, notes, categories, and any additional attributes, along with administrative information, such as approval status, creation, and modification dates, in other words, the metadata for a single term. Not all of these details need to be included, though, for it to be called a term record. Since most taxonomy management software is based on some kind of database management software, a term record is thus a database record. A term record may also be called term details.
+
+A preferred term is the official displayed word or phrase for the concept. Nonpreferred terms are the various synonyms, variants, or other sufficiently equivalent words or phrases used as cross-references pointing to the preferred term. Other names for a preferred term include the following:
+
+
+       •  Descriptor: A preferred term, especially when nonpreferred terms are called nondescriptors
+
+       •  Subject descriptor: A preferred term, especially one that is a subject or common noun, not a named entity or proper noun
+
+       •  Authorized term: A preferred term, especially if nonpreferred terms are called unauthorized terms
+
+       •  Node name: A preferred term when the designation “node” is used for concepts—this is more often an internal, rather than an end user, designation
+
+
+
+A number of other designations often used in taxonomies are ambiguous, as they might refer either to concepts or to preferred terms. These include the following:
+
+
+       •  Categories
+
+       •  Subjects
+
+       •  Subject areas
+
+       •  Topics
+
+
+
+As there are many ways to refer to the terms or concepts in a taxonomy, one of the first tasks in creating a new taxonomy is to decide what to call its components. It is not unusual to use one designation internally, because it appears logical to you, the taxonomist, or to the software developers responsible for the search software or the user interface, and it also appears logical to display a different designation in the user interface because it makes sense to the end users. Indeed, you might even need to create a mini controlled vocabulary to describe the taxonomy. At the very least, a glossary is helpful. In the following pages and chapters, we will refer to concepts and terms specifically and to preferred terms only when needed.
+
+In creating terms, the taxonomist actually has two tasks:
+
+
+       1.  Identify the concepts that make up the taxonomy.
+
+       2.  Choose the preferred terms for each of the concepts.
+
+
+
+Identifying Concepts
+
+Deciding what concepts should go into a taxonomy involves gathering information on what could be included and then further evaluating these concepts to decide what should be included. In gathering information, the taxonomist should use two sources:
+
+
+       1.  Documents/files representing the content to be searched with the taxonomy
+
+       2.  People, including the taxonomy owners, subject matter experts, and sample users
+
+
+
+Content as a Source of Concepts
+
+Obviously, the primary source for concepts should be the content or material that will be indexed or categorized with the taxonomy. These materials could be almost anything: articles, reports, book chapters or sections, white papers, product specifications, brochures, transcripts, legal documents, website or intranet pages, image files, video files, presentation files, and so forth. The taxonomist’s task is to look for significant concepts contained in or associated with these documents. Reading the full texts is neither practical nor even always possible, as in the case of multimedia files. Rather, the taxonomist should look for concepts within any of the following text sources that may be associated with the documents or files:
+
+
+       •  Titles of the documents or articles
+
+       •  Subdocument-level section headings
+
+       •  Abstracts or summaries
+
+       •  Image or illustration captions
+
+       •  Website navigation menu labels, site maps, and web-page titles
+
+       •  Tables of contents and chapter names in longer documents
+
+       •  Items within directory listings, especially products, names, and so on
+
+       •  Existing metadata (keywords, titles, short descriptions)
+
+
+
+There could also be significant concepts that are mentioned only within the body of a text, but a quick skim of the lead paragraph and the lead sentences of additional paragraphs should be sufficient for identifying these concepts. Additional sources for a content audit specifically for enterprise taxonomies are listed in Chapter 10.
+
+To keep track of the potential concepts at this stage, it is probably easiest to enter them into a spreadsheet table (such as Excel), along with information pertaining to the concept and its source. Of course, to record them, you will need to name the concepts, so even at this stage, each concept requires some sort of term. The term you choose at this point is not final, and you can change it later. Usually the term used in the content text is sufficient unless it is vague and needs clarification. Writing down two or three terms for a concept, separated by slashes, is also fine.
+
+There are different methodologies for recording the concepts at this stage of taxonomy preparation, sometimes referred to as a content audit or a content inventory. There could be a new row for each concept, with the source document noted in one of the columns, as illustrated in Figure 3.1.
+
+Alternatively, there could be a new row for each source file with multiple concepts, as found in each source file, recorded in one of the columns, as illustrated in Figure 3.2. This latter method might be preferred if you want to make sure you include every source page/document.
+
+
+
+Figure 3.1 Example of how a spreadsheet can be set up for a content audit, with a unique row for each concept
+
+
+
+Figure 3.2 Example of how a spreadsheet can be set up for a content audit, with a unique row for each source file or document
+
+If the content to be indexed is in the form of a stream of incoming files, such as periodical articles, then only a sample of the content can be analyzed for concepts. This is better described as a content survey than an audit. If, on the other hand, the content is relatively stable, as on a website, then ideally you should conduct a complete content inventory, as long as the number of pages is not too many to look at individually (hundreds instead of thousands of pages). If the number of pages is too great, you should still conduct an audit of representative pages. In the case of a complete content inventory, such as of a website or intranet, it is best to record the unique file name and directory in the first column of the table and then enter concepts into a subsequent column, thus ensuring that every page, or at least every representative page type, is inventoried. In addition to a concept and its source file, other information to record may include additional synonyms for the concept, content type, file format, and audience. Although the focus at this stage is the concepts, if additional synonymous terms for the same concept are evident, you should definitely note them for future use in building the taxonomy.
+
+The task at this point closely resembles descriptive indexing or cataloging. In a sense, you are test indexing the content to see what concepts might be useful for indexing. This approach makes most sense if you are preparing a taxonomy primarily for indexing a collection of documents or files. If, on the other hand, the taxonomy is to organize a website or intranet, support a search engine or content management system, or otherwise constitute an enterprise taxonomy, then you need to be more liberal in collecting concepts. For these purposes, you are not indexing documents, rather you are gathering all concepts of potential interest, which you will weed through later.
+
+There are also automated methods for extracting candidate terms from sample content. Simple text analytics programs can generate lists of nouns or noun phrases occurring in the text; many programs will also sort those terms by frequency. An example of keyword extraction tool is AlchemyLanguage API, a web-based service from AlchemyAPI (www.alchemyapi.com), an IBM company, which offers monthly subscriptions. There are also several free online term extraction tools, but these can only analyze one document at a time. These include TerMine from the National Centre for Text Mining at the University of Manchester, United Kingdom (www.nactem.ac.uk/software/termine/), Terminology Extraction by Translated Labs (labs.translated.net/terminology-extraction), and Term Extraction by fivefilters.org. Most programmers can also write scripts to extract single words, although extracting useful phrase terms, as these other applications can do, is more complicated. With the right tools, unstructured text can quickly produce useful lists of candidate terms.1
+
+If the content already has metadata, there are additional software tools that are useful for extracting the metadata. For example, some taxonomists have used Metalogix (www.metalogix.com) for this purpose. It is designed to support migration of content to the latest version of SharePoint, but its inventory feature captures a lot of metadata that can be useful for analyzing the content.2
+
+People as a Source of Concepts
+
+The various people who contribute ideas for the concepts within the taxonomy usually include the owner or manager of the taxonomy, subject matter experts, users or test users, and finally you, the taxonomist.
+
+The owner, manager, or sponsor of the taxonomy (who may be a product manager, project manager, or executive in an organization) often has a significant stake in the taxonomy and may want to suggest at least some concepts, based on the person’s understanding of strategic or business needs and the search database design or perceived customer or user needs. These suggestions are more likely to be the top-level concepts in a hierarchical taxonomy but often include other miscellaneous sample terms. Concept suggestions from the taxonomy owner are welcome, but usually the taxonomist should decide the term names.
+
+If a specialty subject area is to be covered, subject matter experts should also be consulted to ensure that all the basic concepts within that subject area are included, although these experts are of greater importance during the stage of determining term names rather than concepts. For a hierarchical taxonomy, subject matter experts can recommend the inclusion of concepts that would fill in any gaps in the hierarchy.
+
+Users are an important source of ideas for taxonomy concepts. If the taxonomy is part of a product or service marketed to external clients or is part of an external website, then you can pose questions pertaining to the taxonomy to focus groups or test-market users. If the taxonomy is for internal use, as an enterprise taxonomy, then you should conduct interviews to find out the needs of employees of various departments who will contribute to and search for the content. Usually some form of online searching has already been taking place before a taxonomy comes along. Search engine logs of user queries and feedback forms can provide ideas for concepts in both general and specific terms.
+
+Finally, you, the taxonomist, can contribute concepts to be included in the taxonomy. Especially if the taxonomy is general in nature, you may rely on your general knowledge. If you have built hierarchies or facets before, you can draw on your previous experience. If charged to build a hierarchical taxonomy, for example, on news categories, industries, or occupations, you can establish a good basic structure on your own, especially if you are familiar with well-known classification systems in these areas, such as industry SIC or NAICS codes. In some cases, it is better to start out with your own ideas of concepts before consulting outside reference sources, lest the outside sources influence you too much.
+
+Evaluating Concept Inclusion
+
+Inevitably, there will be more concepts than practical for a taxonomy, especially when including concepts gathered from a content audit. A potential concept should become a term only if the following questions can be answered affirmatively.
+
+1. Is the concept within the intended subject area scope of the taxonomy?
+
+A taxonomy needs to have a defined subject area scope; otherwise, it can get out of hand. This is especially the case for a hierarchical taxonomy because hierarchies work best when confined to a specific area. This contrasts with an alphabetical back-of-the-book index, which can easily accommodate off-topic entries.
+
+2. Is the concept important and something users are likely to look up?
+
+Trivial subjects should not be included. Any analysis of document content will reveal numerous concepts that are relatively insignificant. If these concepts do not come up in user studies or interviews, then you can probably omit them.
+
+3. Is there enough information on the concept?
+
+Just because a concept appears in the text does not mean that it should be indexed. A given concept may come up only once and with little substantive information about it. This is another reason a taxonomy or a human-created index provides more useful information than a mere keyword search. If creating a taxonomy for periodical-types of content (i.e., if new content is added over time), you also need to determine whether there will be recurring future occurrences of the concept. Will there be a sufficient number of documents on the topic over time? For websites, a content survey thus needs to be large enough so that you can recognize whether a given concept is indeed rare or may appear more frequently.
+
+4. Do users want and expect the concept to be covered?
+
+If a concept appears only marginally in the content and user questionnaires and search logs never reveal any interest in that concept, then perhaps it should not be included in the taxonomy. Conversely, a marginally covered concept that is repeatedly a topic of interest among users should be included in the taxonomy as long as there is at least some content or anticipated content on the topic.
+
+Choosing the Preferred Term
+
+Unless the taxonomy is of the synonym ring type, the taxonomist must select a preferred term to describe each concept; the other possible terms for a concept can then become nonpreferred terms. In general, the preferred term should reflect the language of the taxonomy’s users. If you decide to include a concept in the taxonomy but are not ready to finalize its preferred term name, you may still enter a temporary term name into the taxonomy as a candidate term. Most commercial taxonomy management software supports the designation of candidate versus approved terms. Candidate terms cannot be used for indexing, and the software flags them as requiring further review.
+
+Choosing among Synonyms
+
+Selecting the preferred term often involves choosing between two or more synonyms, such as the following:
+
+
+          doctors vs. physicians
+
+          movies vs. motion pictures
+
+          cars vs. automobiles
+
+
+
+In choosing the preferred term from two or more synonyms, the taxonomist needs to consider the following:
+
+
+       1.  The wording the intended users will most likely look up. This is especially the case in a displayed, browsable taxonomy. For example, if the users are the general public, they are more likely to look up doctors than physicians. Healthcare professionals, on the other hand, will more likely look up physicians.
+
+       2.  The subject focus or scope of the taxonomy and its indexed content. The content and scope are closely related to audience. For example, if the scope is travel services, then cars is probably more appropriate than automobiles. If, instead, the focus is on selling vehicle parts, then automobiles is likely the more appropriate term.
+
+       3.  Enforcing an organizational/enterprise controlled vocabulary. This consideration applies especially if the taxonomy is for internal use or is a public agency taxonomy. For example, an intranet for a company may require the term employee development instead of employee training.
+
+       4.  Conforming to academic, cultural, political, or trade/industry standards. This includes taking into consideration cultural sensitivities and what is “politically correct.” For example, it has become more common to use the term Middle East instead of Near East. If a taxonomy has a scholarly or academic focus, then the preferred terms will reflect those accepted by the discipline.
+
+       5.  Consistency in style throughout the taxonomy. A taxonomy should use a similar level of wording throughout, either informal or formal/technical, to make it more predictable for the user. For example, names of occupations should be either consistently formal, such as physicians, attorneys, and law enforcement officers, or consistently informal, such as doctors, lawyers, and police officers, but not a mixture of both levels.
+
+       6.  The wording of terms within the documents/content indexed by the taxonomy. This will depend, of course, on the degree of consistency within the body of content. If the content has multiple authors, then wording is likely to be inconsistent in some areas. Where it is consistent, though, the content can be a guide for choosing the preferred term, but as just mentioned, this factor is secondary to the needs and expectations of the users.
+
+
+
+The relative importance of these different criteria will vary, but in general, the wording that is most likely to be looked up by the intended users/audience—in other words, the preferred language of the taxonomy’s target population—should take precedence over the other criteria.
+
+Choosing among Near Synonyms
+
+At times, the taxonomist needs to choose which of two similar, but not synonymous, concepts will be the preferred and the nonpreferred. When two concepts have overlapping meaning, maintaining a distinction may be important for the nuances within a specialized subject area, but it is often not practical when it comes to indexing and organizing content. Without clear distinctions between concepts, users may become confused, and content will not be consistently indexed, whether by humans or by auto-categorization methods. Examples of closely related terms, which might require the taxonomist to select one as nonpreferred, include the following:
+
+
+          foreign policy vs. international relations
+
+          colleges and universities vs. higher education
+
+          books vs. literature
+
+
+
+Naturally if the taxonomy has a narrow focus and there is a significant volume of content on each related subject, then perhaps the two concepts should be maintained as distinct terms. Both foreign policy and international relations could exist as separate terms in a single taxonomy focused on international affairs, both colleges and universities and higher education could exist as terms in a taxonomy focused on education, and both books and literature could exist in a taxonomy focused on the humanities. However, even with specialized content, maintaining accurate indexing quality would require a great deal of effort (see Chapter 6), so it may still be simpler to choose one term as preferred and the other as nonpreferred. If the taxonomy does include terms with overlapping meaning, it tends to work best if they are used in different facets. For example, colleges and universities could be in an institutions/organizations facet while higher education could be in a topic/subject facet.
+
+A similar dilemma arises in choosing between different grammatical forms of a word, such as terms describing a topic or an action. For example, see the following:
+
+
+          contracts vs. contracting
+
+          investments vs. investing
+
+          manufacturers vs. manufacturing
+
+
+
+Even in a specialized taxonomy, it is nearly impossible to maintain the distinction between two single-word terms differentiated only by their morphological form, and the taxonomist must choose one over the other. Again, a possible exception would be in a faceted taxonomy. For example, contracts could be in a subject facet while contracting could be in an actions facet, but the indexing would need to follow clearly written rules and policies in order to distinguish the two. In any case, terms within the same hierarchy should adhere to the same morphological form for consistency of style. Determining the overall style is the taxonomist’s decision but may require input from other people.
+
+Sources for Preferred Term Choice
+
+Content is the primary source for concepts, but not necessarily for preferred term names. If the content is consistent and the same terms appear throughout the content to be indexed, then the terms from the content should be primary candidates for the preferred term names. Far too often, however, term usage is inconsistent within a diverse collection of content, and the taxonomist needs to rely on other sources in choosing the preferred terms.
+
+While content is the determining factor in choosing concepts, in general people play a more important role in determining the preferred terms. You should consult subject matter experts, if available, to choose the preferred term for any specialized or technical concepts. The experts understand the terminology better and can advise you on the most appropriate term for specific circumstances and audiences. Taxonomy owners or sponsors play less of a role in determining term names than they do in suggesting some of the top-level concepts, but in certain circumstances, their input into the choice of preferred term names is important. This is particularly the case for internal nomenclature used in enterprise taxonomy.
+
+User expectations and needs are also very important in settling on the preferred term for each concept. Access to information on user expectations varies greatly depending on the type of taxonomy and its use. If the taxonomy is to be part of an information product or service that offers licenses or subscriptions, then the company’s marketing department will likely conduct user studies, and the taxonomist may be only marginally involved in designing these studies. If the taxonomy is to be implemented primarily on a website that is freely accessed by the public, then the user-experience or user-centered design staff will likely be the ones conducting user research, and the involvement of the taxonomist in this research will depend on the degree to which the taxonomist is integrated into the user-experience team.
+
+If the taxonomy is part of an internal content management system, document management system, or intranet, then the users are internal employees. This means that the marketing department will not bother to research user needs, thus leaving more of this responsibility to the taxonomist. On the other hand, gathering information from users who are employees is much easier in a practical sense because the users are identifiable and can be contacted. Nevertheless, in a taxonomy of hundreds or thousands of terms, it is not always feasible to gather user opinions regarding the preferred term for every concept. Gathering input from potential users and other stakeholders will be discussed in more detail in Chapter 9.
+
+External Sources for Preferred Terms
+
+Finally, there are external published sources that can provide valuable input in determining your preferred terms. These include industry standards, specialized glossaries, and the publications or websites of regulatory agencies and trade and professional organizations. Especially interesting are other existing taxonomies or controlled vocabularies. You may utilize those taxonomies that are publicly accessible, but only on a term-by-term basis if you do not have a license. In some cases, it is also possible to purchase a license to an entire taxonomy, as described in Chapter 1, which allows you to use as much of the taxonomy as you wish.
+
+Publicly available taxonomies or controlled vocabularies for browsing include the Library of Congress Subject Headings (LCSH), Library of Congress Thesaurus for Graphic Materials, and those of government agencies, such as NASA, the US Department of Education (ERIC Thesaurus), the National Agricultural Library, and the National Library of Medicine. United Nations agencies maintain multilingual thesauri, such as the UNESCO Thesaurus. A longer list of online thesauri is available on the Online Thesauri and Authority Files page of the American Society for Indexing website (www.asindexing.org/about-indexing/thesauri/online-thesauri-and-authority-files).
+
+There are other sources for determining the preferred term for a named entity (person, company, organization, creative work, place, etc.). These include the Library of Congress Name Authorities (along with the LCSH, part of the Library of Congress Authorities), government websites, and the websites of companies or organizations. For the correct forms of names of people in current events, you can consult websites of reputable newspapers. Finally, for names that have variant forms or spellings, checking the total number of results from a Google search on each variation, restricted by language (English), will indicate which form or spelling is the most common. You will also need to develop consistent policies for certain kinds of names; for example, whether to spell out, abbreviate, or omit company designators in company names.
+
+Term Format
+
+When it comes to the format of the terms, there are guidelines in the published taxonomy standards. ANSI/NISO Z39.19-2005 (2010) Guidelines for the Construction, Format, and Management of Monolingual Controlled Vocabularies addresses the issue of single words versus multiword terms (section 6.3); grammatical forms of terms (section 6.4); singular and plural nouns (section 6.5); abbreviations, slang and jargon, popular or scientific names, foreign or loan words, and variations in spelling (section 6.6); capitalization (section 6.7); and compound terms (section 7).3 Rather than repeat the entire contents of ANSI/NISO Z39.19, we will discuss only some of the points of formatting here. It is important to remember that these standards are guidelines only, and there can certainly be flexibility in their application, especially for an internally used taxonomy.
+
+Lowercase or initial capitals, but not title caps. Although the guidelines recommend all lowercase, initial capitalization is also common. Using title capitalization, however, could cause confusion between proper nouns and generic terms. For example, Business services or business services are both fine, but not Business Services. There is a tendency to use initial capitalization for terms in hierarchical taxonomies to represent a view of hierarchical category labels, whereas all lowercase terms more commonly appear in less hierarchical thesauri or controlled vocabularies. (Examples in this book demonstrate both styles.)
+
+Single words or multiword terms. The preferred length of terms will largely be determined by your software system, the user interface, and what makes sense for usability. Except for proper nouns, which must appear in complete form regardless of length, terms are usually one to four words long.
+
+Nouns or noun phrases. Terms are usually nouns or adjective plus noun phrases. Prepositional phrases are acceptable if they are commonly phrased concepts, such as prisoners of war. Terms may be verbal nouns, such as teaching, but not verbs, such as teach. Adjectives alone, such as educational, are generally not used except in a faceted taxonomy in which a feature or characteristic is a facet, in which case the facet comprises a short list of adjectives, such as a list of colors. Adjectives can also serve as subdivisions in precoordinated indexing, discussed at the end of this chapter.
+
+Common nouns or proper nouns. Common nouns and proper nouns (named entities or unique entities) may be kept separate in individual taxonomies or authority files, or they may be integrated so as to link proper nouns (narrower terms) to their corresponding common-noun terms, such as Golden Gate Bridge and bridges.
+
+Countable nouns. Countable nouns used as terms are in the plural when possible in order to reflect the fact that there are multiple records indexed or multiple occurrences of the topic in the content. However, abstract concepts, substances, and collective nouns are not plural, and neither are body parts, according to the standards. For example, preferred formats are hospitals, healthcare, and ear. Be aware that countable and noncountable forms of some nouns have slightly different meanings, such as finance and finances. Both are correct forms, depending on the meaning required, and taxonomy management software should support this distinction.
+
+Parenthetical qualifiers. There are different ways to handle multiple concepts in a taxonomy that have the same term name, also known as homographs. Usually parenthetical qualifiers are an option for disambiguation, although certain software systems may preclude this. An example is French (language) and French (people). It may not even be necessary to have parentheses in both of the terms. For example, you might have walnut (wood) and walnuts; walnuts in the plural is unambiguous and must mean the nuts, whereas walnut in the singular might be ambiguous. The form of the qualifier could be of the subject domain, as in Saturn (astronomy) and Saturn (mythology), or of the term category, as in Saturn (planet) and Saturn (god). Choose a single format, either domain or category, and stay consistent with it. Do not use parentheses to modify a term with an inverted qualifying adjective, though, such as schools (elementary). Instead, elementary schools is the preferred format.
+
+Acronyms, if well known. Use an acronym instead of a spelled out form if the acronym is better known. For example, DNA is preferred over Deoxyribonucleic acid. Be sure that the acronym is not ambiguous: If the scope of the taxonomy is broad, CDs could mean either compact discs or certificates of deposit, in which case you should use the full form as the preferred term.
+
+No term inversions. Inverted terms with a noun followed by an adjective, such as loans, commercial, were common in controlled vocabularies in printed formats and in the older LCSH used in physical card catalogs because they aided the user when alphabetical browsing was the only option. Now that taxonomies exist in electronic formats and users can search them in addition to browsing them, these awkward inversions are no longer necessary. Thus, commercial loans would be the preferred term. If you know that there will also be a browse option for the taxonomy, then you may include inverted terms as nonpreferred terms, but avoid them as preferred terms in all cases.
+
+Precoordinated Terms
+
+When coming up with concepts, especially from analyzing content sources, it may be difficult to discern whether a complex idea should be expressed as a single concept or a combination of two or more concepts. Take, for example, the idea of foreign relations between the United States and Mexico. This could be a single term:
+
+
+          United States–Mexican relations
+
+
+
+It could be two terms:
+
+
+          United States foreign relations AND Mexico
+
+
+
+And it could also be three terms:
+
+
+          United States AND Mexico AND International relations
+
+
+
+The terms shown in these examples are all combinations of two or more concepts and are called precoordinated terms. Precoordinated means that two or more concepts are put together (i.e., coordinated) prior (thus pre-) to indexing and searching. Other examples of precoordinated terms include the following:
+
+
+          Hispanic actors instead of the separate concepts Hispanics and actors
+
+          software testing instead of software and product testing
+
+          sales force training instead of sales force and employee training
+
+          plastic motor vehicle parts instead of plastic parts and motor vehicles
+
+
+
+Sometimes precoordinated terms are very obvious, with the word and joining two concepts to create one term. This format appears in LCSH and other thesauri based on it, but the standards today discourage this practice. Examples are as follows:
+
+
+          business and politics
+
+          computers and children
+
+
+
+Another kind of precoordination of terms involves a main heading term and a subdivision term that limits the scope of the main heading. In this case, the two terms remain distinct but are tied together and used in combination, both at the indexing stage and in retrieval. This is the format used in the LCSH and in other cataloging systems, and it is still commonly used in catalogs of library materials. An example is as follows:
+
+
+          Massachusetts—History
+
+
+
+This type of structured indexing or second-level indexing is discussed further in Chapter 6.
+
+Advantages of Precoordination
+
+The justification for creating a precoordinated term is that if the scope of the content provides sufficient coverage of the combined concept and the audience is sufficiently interested in the concept, precoordination makes it easier for the users to find that specific information. Use of a precoordinated term retrieves content about the combined concept more reliably than merely combining the terms at the search stage, which is referred to as postcoordination. Postcoordination, even if done correctly, as in Boolean searching, may not always retrieve the desired results, as the following examples illustrate.
+
+
+Precoordinated term: Hispanic writers
+
+Postcoordinated alternative: Hispanics and writers But this could also retrieve content about writers who write about Hispanics.
+
+
+
+Precoordinated term: Russian foreign policy
+
+Postcoordinated alternative: Russia and foreign policy But this could also retrieve content about foreign policy toward Russia.
+
+
+Precoordinated term: software testing
+
+Postcoordinated alternative: software and product testing But this could also retrieve content about software used for testing various products.
+
+
+
+If the content being indexed is very limited and consistent in its type and focus, then such unpredictable results from Boolean-type searching are less likely, and postcoordination is fine. If, however, the content is varied, there is a greater chance of unreliable results with postcoordinated searching. Thus, a broad scope of content benefits from precoordination to avoid ambiguity. Precoordinated terms are also common, though, in specialized subject taxonomies, where there are a greater number of narrower, specific topics. Finally, precoordination is desirable when users are likely to employ a high level of phrase searching to target specific complex topics—in other words, subject expert users.
+
+Considerations in Precoordination
+
+Precoordinated terms do have their disadvantages, however. Using precoordinated terms requires a larger, more complex taxonomy, which then requires more time and effort—and consequently cost—to maintain. The user, whether a human indexer or end-user searcher, may not expect precoordinated terms and thus may overlook them or may use them inconsistently. Thus, it is more difficult to index content correctly with a larger, more complex taxonomy comprising precoordinated terms.
+
+You are not as likely to create precoordinated terms for a taxonomy accessed through a faceted search/browse, as facets naturally enable postcoordination. This does not mean that a faceted taxonomy should never contain precoordinated terms. Rather, any precoordinated terms would likely be limited to certain subject areas. For example, if you have a place facet of geographical names, then you would probably not also include place names as a precoordinated term. Furthermore, a small, simple taxonomy, which faceted taxonomies usually are, is simply less likely to have precoordinated terms. A website navigation taxonomy can be an exception: although relatively small, it may be describing very specific and often precoordinated concepts, such as meeting room reservations policy.
+
+In conclusion, you should consider creating precoordinated terms whenever
+
+
+       •  postcoordination cannot reliably retrieve the desired content of a subject of relative importance
+
+       •  the subject area is focused and thus deep, as in a relatively specialized controlled vocabulary
+
+       •  there is a significant amount of anticipated content for the precoordinated concept
+
+       •  the types of documents making up the content vary greatly, a factor that contributes to unreliable results with postcoordinated searching and
+
+       •  you are creating a hierarchical navigation taxonomy
+
+
+
+Notes and Attributes
+
+As mentioned previously, a concept is more than just a term. It comprises a preferred term and its equivalent nonpreferred term(s) with a single definition and possibly additional information. Depending on how you manage the taxonomy, the concept’s definition may be merely implied, or you may write it down and store it with the concept. Supplemental information pertaining to the concept, such as notes regarding its use, foreign language equivalent preferred terms (in a bilingual or multilingual taxonomy), and designated concept types or categories, is also sometimes stored with the concept and might also be searchable.
+
+Scope Notes and Other Term Notes
+
+Except in technical subjects, it is best to avoid dictionary-type definitions of concepts in taxonomies. Usually users of a taxonomy understand the meaning of its concepts, so including obvious definitions is a waste of everyone’s time. Furthermore, copyright law prohibits you from copying a definition found in a published dictionary, so trying to think up original definitions for each concept would require additional effort.
+
+What may be necessary, however, is a note of clarification as to the use of the concept, or more precisely its preferred term, within the context of the taxonomy. As this refers to the term’s scope of usage, this note is commonly called a scope note (often abbreviated as SN). Scope notes serve any one of the following purposes:
+
+
+       1.  To restrict or expand the application of a term
+
+       2.  To distinguish between terms of overlapping meaning (the terms involved may have reciprocal notes)
+
+       3.  To provide advice on term usage
+
+
+
+The following two examples illustrate different ways in which a scope note can restrict the use of a term:
+
+
+From the ProQuest Controlled Vocabulary:
+
+               inequality
+
+               SN: Socioeconomic disparity stemming from racial, cultural, or social bias
+
+
+
+From the NASA Thesaurus:
+
+               analyzers
+
+               SN: Excludes devices for performing mathematical analysis
+
+The following example from the NASA Thesaurus illustrates how a pair of reciprocal scope notes distinguishes between terms of overlapping meaning:
+
+
+               aramid fiber composites
+
+               SN: Aramid fiber utilization in composites. For properties of aramid fibers themselves use “aramid fibers.”
+
+
+
+               aramid fibers
+
+               SN: Properties of aramid fibers themselves. For aramid fiber utilization in composites use “aramid fiber composites.”
+
+The following example, taken from the ERIC Thesaurus, illustrates advice on term usage:
+
+
+               school organization
+
+               SN: Do not confuse with “School District Reorganization.”
+
+
+
+A scope note ought to be viewable to all: the taxonomy editors, any human indexers, and the end users. Keep scope notes concise to facilitate quick reading by the user and to save space in the user interface display. Keep in mind that users may not have the patience to read the notes, however, or may not even know that scope notes exist, so do not use a scope note as the only means to disambiguate otherwise identical terms or homographs. Also, at some point in the future, the taxonomy could be implemented in a different user search interface or a third-party vendor’s interface that does not support scope note display. For this reason, too, you cannot rely on scope notes to clarify ambiguity. What is more critical, though, is that human indexers have access to the scope notes for correct, consistent indexing.
+
+Although scope notes will most likely be accessible to the users, you may also choose to create other kinds of term notes that are not necessary for the end user and will display only in the taxonomist and indexer interfaces. These would include notes pertaining to the history of a term, such as a change from a previous preferred term name, or the splitting or merging of concepts. It may also be desirable to include a field noting the source of the term. The source can be a reference to a periodical article, another thesaurus, or even web usage according to search engine (such as Google) results. A source note can refer to the concept and/or to the preferred term name.
+
+Notes can be summarized as follows:
+
+
+       •  If term notes are included, not all concepts need notes (except perhaps in a technical subject thesaurus).
+
+       •  Notes should be concise.
+
+       •  There may be multiple types of notes serving various purposes (scope, history, source, etc.).
+
+       •  Notes may be intended for the end user, indexer, or other taxonomists. You can designate different levels of access for different note types.
+
+
+
+Descriptive Attributes
+
+If you are maintaining the taxonomy in a kind of database system and each concept is a database record, it is technically very simple to store various types of additional information for each concept or preferred term. Thus, the taxonomy not only serves to retrieve indexed files or documents but also organizes relatively static data for each concept. This structure makes most sense for named entity (proper noun) types of terms, such as people, companies, organizations, brand-name products, places, laws, and events. Examples of possible extended attributes for various kinds of concepts include the following:
+
+
+       •  Named persons: birth date, occupation/title, affiliation, address
+
+       •  Companies: industry code(s), headquarters location, ticker symbol
+
+       •  Places: latitude and longitude
+
+       •  Events: dates, location
+
+
+
+The values for the extended attributes themselves should be restricted if possible. For example, you might have a controlled vocabulary of cities for company headquarters location and a standard format for entering dates and latitude/longitude. If the search interface supports it, end users can then limit searches according to the extended attributes, thus providing a more powerful means to execute and narrow a search. Most commercial thesaurus management software offers the ability to store some additional data with each concept, under various labels: attributes, additional data, term characteristics, term info, and so forth. In the user interface, the information may have various labels, depending on the term type.
+
+Administrative Attributes
+
+Finally, a concept or term can be assigned various administrative attributes, including identifier numbers, approval status, and creation/update of data. Supporting such data is a standard feature in commercial taxonomy/thesaurus management software. If your organization is developing software for taxonomy maintenance internally, you should ensure that it supports administrative attributes.
+
+In some cases, assigning each concept a unique identifier number allows you to easily manage multiple taxonomies in which the same term name may occur more than once. It also provides an added measure of security when changing term names. Multidigit numeric identifiers may be assigned sequentially to denote the order in which the concepts or terms were added.
+
+A term approval status attribute is an important feature. It allows the taxonomist to create a candidate term and then research it further for possible modification or even elimination before allowing it to go live. This feature is especially practical for a taxonomy that is in active use for indexing. Term approval may also be an issue if there are junior-level taxonomy editors whose additions of new terms need approval from a taxonomy manager.
+
+Standard administrative statistics that any taxonomy management software ought to record include each term’s creation date, date last modified, and the user ID/initials of the taxonomist who made the changes. It is often useful to be able to call up or determine how many terms you modified within the past week or month. For example, you may want to review a batch of work you did recently, such as offline batch spell checking, in cases where the thesaurus software lacks a spell-checker.
+
+Considering the various notes and attributes that a taxonomy term may have, we see how taxonomy and metadata can come full circle. While a taxonomy or controlled vocabulary provides descriptive metadata for a file or document, a single term in the taxonomy can itself be described by a large amount of metadata.
+
+Endnotes
+
+  1.  Lynda Moulton, email to author, November 9, 2009.
+
+  2.  Layne Foit, Taxonomy Community of Practice group post, “Subject: Content Inventory tools—Mac or PC,” November 15, 2007, accessed December 20, 2015, https://groups.yahoo.com/neo/groups/TaxoCoP/conversations/topics/2341
+
+  3.  National Institute of Standards Organization, ANSI/NISO Z39.19-2005 (R2010) Guidelines for Construction, Format, and Management of Monolingual Controlled Vocabularies (Bethesda, MD: NISO Press, 2010), accessed December 20, 2015, www.niso.org/apps/group_public/download.php/12591/z39-19-2005r2010.pdf
+
+

@@ -1,0 +1,300 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Appendix D
+
+Websites
+
+Chapter 1
+
+International Organization for Standardization (ISO), www.iso.org/iso/catalogue_ics
+
+National Information Standards Organization (NISO), www.niso.org
+
+ANSI/NISO Z39.19 2005, www.niso.org/standards/z39-19-2005
+
+Library of Congress Subject Headings, authorities.loc.gov
+
+Medical Subject Headings, www.nlm.nih.gov/mesh/MBrowser.html
+
+ERIC Thesaurus, eric.ed.gov
+
+Getty Research Institute Vocabularies, getty.edu/research/tools/vocabularies
+
+Verizon SuperPages, www.superpages.com/yellowpages
+
+Amazon.com departments, www.amazon.com/gp/site-directory
+
+Shoebuy.com advanced search, www.shoebuy.com
+
+Microbial Life Education Resources, serc.carleton.edu/microbelife/resources
+
+Information Architecture Institute site map, iainstitute.org/en/site-map.php
+
+MyFlorida.com site map, www.myflorida.com/taxonomy
+
+Taxonomy Warehouse, www.taxonomywarehouse.com
+
+www.wand.com
+
+www.photo-keywords.com/keywording-resources.php
+
+Chapter 3
+
+AlchemyAPI, www.aclchemyapi.com
+
+TerMine, www.nactem.ac.uk/software/termine
+
+Translated Labs, labs.translated.net/terminology-extraction
+
+Term Extraction, fivefilters.org
+
+Online Thesauri and Authority Files, American Society for Indexing, www.asindexing.org/about-indexing/thesauri/online-thesauri-and-authority-files
+
+Chapter 5
+
+Xmind, www.xmind.net
+
+FreeMind, freemind.sourceforge.net/wiki
+
+Cmap, cmap.ihmc.us
+
+TheBrain, www.thebrain.com
+
+MindManager, www.mindjet.com
+
+VisiMap, www.visimap.com
+
+TopBraid Composer, www.topquadrant.com/tools/modeling-topbraid-composer-standard-edition
+
+Taxonomy Warehouse, www.taxonomywarehouse.com
+
+TaxoBank resource website, http://www.taxobank.org/content/resources
+
+MultiTes, www.multites.com
+
+Coreon, www.coreon.com
+
+Data Harmony Thesaurus Master, www.dataharmony.com
+
+Mondeca Intelligent Topic Manager, www.mondeca.com
+
+PoolParty, www.poolparty.biz
+
+SAS Ontology Management, www.sas.com
+
+Semaphore, www.smartlogic.com
+
+STAR/Thesaurus from Cuadra Associates, lucidea.com
+
+Synaptica, www.synaptica.com
+
+TopQuadrant Enterprise Vocabulary Net, www.topquadrant.com
+
+Wordmap, www.wordmap.com
+
+TemaTres, www.vocabularyserver.com
+
+VocBench, vocbench.uniroma2.it
+
+ThManager, thmanager.sourceforge.net
+
+Protégé, protege.stanford.edu
+
+SKOS Editor Plug-in, code.google.com/p/skoseditor
+
+SoutronTHESAURUS, www.soutronglobal.com
+
+Adlib, www.adlibsoft.com
+
+a.k.a. from Synercon, www.a-k-a.co
+
+One-2-One from Active Classification Solutions, www.acs121.com
+
+Chapter 6
+
+Delicious, delicious.com
+
+Pinterest, www.pinterest.com
+
+Diigo, www.diigo.com
+
+Flickr, www.flickr.com
+
+Chapter 7
+
+NetOwl, www.netowl.com
+
+Rosette Entity Extractor, www.basistech.com/text-analytics/rosette/entity-extractor
+
+Rosoka Extraction, www.rosoka.com/content/extraction
+
+OpenCalais, www.clearforest.com/solutions.html
+
+BA Insight, www.BAInsight.com
+
+conceptSearching, www.conceptsearching.com
+
+Cogito from Expert Systems, www.expertsystem.com
+
+Data Harmony MAI, www.dataharmony.com
+
+Mondeca Content Annotation Manager, www.mondeca.com
+
+OpenText Content Analytics, www.opentext.com/what-we-do/products/discovery/information-access-platform/content-analytics
+
+PoolParty Power Tagging, www.poolparty.biz/poolparty-powertagging
+
+Semaphore Classification Server, www.smartlogic.com/what-we-do/products-overview/classification-server
+
+SAS Enterprise Content Categorization, http://support.sas.com/software/products/ccs/index.html Synaptica, www.synaptica.com
+
+Chapter 8
+
+Job facets on Simply Hired, www.simplyhired.com/a/jobs/advanced-search
+
+Recipe facets on Food.com, www.food.com/recipe
+
+Car facets at Kelley Blue Book, www.kbb.com/cars-for-sale
+
+Art object facets at the Carnegie Museum of Art, www.cmoa.org/collection-search
+
+Shirt facets at Sears, www.sears.com
+
+Chapter 9
+
+USDA National Agriculture Library Thesaurus, agclass.nal.usda.gov
+
+ERIC Thesaurus A-Z Browse display, eric.ed.gov
+
+Dex Media Superpages yellow pages directory, www.superpages.com/yellowpages
+
+USA Today Content Tree, content.usatoday.com/community/tags/topic-index.aspx
+
+Lynda.com categories, www.Lynda.com
+
+Amazon.com categories, www.amazon.com/gp/site-directory
+
+Buzzillions facets, www.buzzillions.com
+
+North Carolina State University Libraries facets, www.lib.ncsu.edu/catalog
+
+Clinical Trials facets, www.clinicaltrials.gov/ct2/search/advanced
+
+Chapter 10
+
+ClickTale, www.clicktale.com
+
+Clicky, www.getclicky.com
+
+iWebTrack, www.iwebtrack.com
+
+OptimalSort, www.optimalworkshop.com/optimalsort
+
+User Zoom Card Sorting, www.userzoom.com/card-sorting
+
+Measuring the User Experience, www.measuringux.com/CardSorting
+
+Chapter 11
+
+XML, www.w3.org/XML
+
+Zthes, zthes.z3950.org
+
+RDF, www.w3.org/RDF
+
+OWL, www.w3.org/2001/sw/wiki/OWL
+
+SKOS, www.w3.org/2004/02/skos
+
+AGROVOC Thesaurus, http://aims.fao.org/vest-registry/vocabularies/agrovoc-multilingual-agricultural-thesaurus
+
+Chapter 12
+
+Taxonomy Jobs Yahoo! list, groups.yahoo.com/neo/groups/taxonomy-jobs
+
+Taxonomies & Controlled Vocabularies SIG directory of available freelance taxonomists, www.taxonomies-sig.org/members.htm
+
+Kent State University, School of Library & Information Science, www.kent.edu/slis/library-and-information-science-workshops
+
+Simmons College, School of Library and Information Science, www.simmons.edu/academics/professional-education/slis-continuing-ed-workshops
+
+University of Toronto, School of Continuing Studies and Faculty of Information, learn.utoronto.ca/courses-programs/business-professionals/ischool
+
+University of Wisconsin at Madison, School of Library and Information Science, www.slis.wisc.edu/continueed.htm
+
+American Society for Indexing, “Practical Taxonomy Creation,” www.asindexing.org/online-learning/taxonomy-hedden
+
+AIIM, “Taxonomy & Metadata Practitioner Course,” www.aiim.org/Training/Certificate-Courses/Taxonomy-and-Metadata
+
+SLA Taxonomy Division webinars, taxonomy.sla.org/category/ce
+
+Association for Library Collections and Technical Services division of the ALA, “Controlled Vocabulary & Thesaurus Design,” www.loc.gov/catworkshop/courses/thesaurus
+
+SLA conferences, www.sla.org/attend
+
+American Society for Indexing Annual Meeting, www.asindexing.org/conferences
+
+Association for Information Science & Technology Annual Meeting, www.asist.org/events/annual-meeting
+
+Information Architecture (IA) Summit, www.iasummit.org
+
+Euro IA, www.euroia.org
+
+American Library Association conferences, www.ala.org/ala/conferencesevents
+
+AIIM Conference, www.aiimevents.com
+
+International Semantic Web Conference (ISWC), swsa.semanticweb.org/content/international-semantic-web-conference-iswc
+
+Taxonomy Boot Camp, www.taxonomybootcamp.com
+
+KMWorld, www.kmworld.com/conference
+
+Henry Stewart DAM, www.henrystewartconferences.com
+
+SPTechCon, www.sptechcon.com
+
+ASI Taxonomies & Controlled Vocabularies SIG, www.taxonomies-sig.org
+
+SLA Taxonomy Division, taxonomy.sla.org
+
+Information Architecture Institute, www.iainstitute.org
+
+Association for Information Science & Technology, www.asist.org
+
+Meetup.com, www.meetup.com
+
+Taxonomy Community of Practice, groups.yahoo.com/neo/groups/taxocop/info
+
+Taxonomy Community of Practice from LinkedIn, www.linkedin.com/groups/1750
+
+Construction of Controlled Vocabularies: A Primer, written by a member of the ANSI/NISO Z39.19 Standard Committee, marciazeng.slis.kent.edu/Z3919/index.htm
+
+Accidental Taxonomist, accidental-taxonomist.blogspot.com
+
+Earley & Associates Blog, www.earley.com/blog
+
+Enterprise Knowledge, www.enterprise-knowledge.com/category/blog
+
+Green Chameleon, by Patrick Lambe, www.greenchameleon.com
+
+Semantic Puzzle, blog.semantic-web.at
+
+Synaptica Central, www.synapticacentral.com
+
+TaxoDiary, taxodiary.com
+
+Access Innovations, www.accessinn.com/media-library
+
+Controlled Vocabulary, www.controlledvocabulary.com
+
+Taxonomy Strategies, www.taxonomystrategies.com/html/library.htm
+
+Taxonomy Warehouse, www.taxonomywarehouse.com
+
+

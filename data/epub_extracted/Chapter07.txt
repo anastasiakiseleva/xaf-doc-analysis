@@ -1,0 +1,422 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 7
+
+Taxonomies for Automated Indexing
+
+What’s taxonomy got to do with IT!
+
+—David Riecks
+
+As we all know too well, the volume of electronic content is growing at an increasingly rapid rate, and at the same time, the need to find meaningful information is becoming more critical in our competitive, interconnected, global world. The task of indexing content to make it retrievable has become too great for human indexers in many contexts. Meanwhile, technologies for automated indexing have been improving. Although under certain conditions human indexing is still preferred, many organizations are turning to automated indexing to serve their needs.
+
+Automated Indexing, Search, and Taxonomies
+
+Automated indexing is a very broad notion that encompasses various technologies and techniques, some of which involve taxonomies and some of which do not. Automated tagging, auto-classification, and auto-categorization refer to automated indexing technologies that utilize taxonomies by automatically associating taxonomy terms with content items. The terms automated tagging, auto-classification, and auto-categorization (those methods that use taxonomies) are not formally defined and are used interchangeably. General search engines, on the other hand, perform different forms of automated indexing, without necessarily using taxonomies.
+
+When to Use Automated Indexing
+
+Automated indexing is, of course, more practical than human indexing when there is vast volume of content to index in a short period, although there is a trade-off in the form of lower levels of accuracy. Rapidly changing content (such as news), government intelligence, content of a very large enterprise, or other high-volume flows of data, such as emails and social media, and anything that may be called “big data,” all benefit from automated indexing. Although accuracy is never as high as with skilled human indexing, if the volume of content is great, then near-perfect accuracy may not be needed to find desired information or discern trends. The following factors favor choosing automated over human indexing:
+
+
+       •  A very large number of documents, which would require multiple human indexers and would be costly to index
+
+       •  Content that changes quickly and perhaps unpredictably
+
+       •  A need for speed in indexing, such as for time-critical information, current awareness, or news
+
+       •  Relatively common document types or formats or pretagged (structured) content types
+
+       •  Content related to a relatively uniform subject area or a single industry (so there is less ambiguity of terms)
+
+       •  Text content only (although a few technologies can identify digital video and audio data)
+
+       •  A corporate culture that is more comfortable with investing in externally purchased technology than in hiring, training, and managing human indexers
+
+
+
+Consumer-oriented content (such as product/service directories), news and information publishers and aggregators, and large intranets are all areas in which indexing speed and volume are of greater concern than the improved accuracy yet higher cost of human indexers. This is not to say that automated indexing systems are cheap. They can be quite expensive, too, but over an extended period, they will most likely pay for themselves. Automated indexing systems also vary greatly in capability.
+
+Structured content (such as database records) or unstructured content that already has structured metadata assigned to it is much easier to auto-index than is totally unstructured content. Thus, the original users of auto-categorization systems were large publishers or vendors of structured content. The trend toward creating more structured content within organizations, such as in technical documentation and reports, has resulted in more enterprise content that is suitable for automatic indexing. (That is not to say that the proportion of unstructured content has decreased.) At the same time, automated indexing technologies are improving with regard to unstructured content. So, for both these reasons, automated indexing is becoming more popular within organizations to make large volumes of internal content retrievable. The same automated indexing system may work on both structured and unstructured content.
+
+Although automated indexing saves the expense of human indexers, it still requires human involvement to be effective. People need to create and maintain the taxonomies, of course, and human intellectual work is needed either to “train” the system on the taxonomy terms or to write rules for individual terms, as this chapter will explain in more detail.
+
+Taxonomies and Search Software
+
+Although search engines, whether for the entire web or for large websites or intranets, create what are called indexes, they do not usually make use of taxonomies. Search engines retrieve webpages by sorting words according to their location and retrieve the locations by matching search queries to the words or phrases listed in the search engine’s inverted index of words. Algorithms and rules can increase the sophistication of matching search terms with words in webpages, but a taxonomy is not necessarily involved. Building and updating a comprehensive taxonomy to support searching the entire World Wide Web would be nearly an impossible task. The closest that web search engines come to implementing any sort of controlled vocabulary is by including word lists of common misspellings or “fuzzy” matches, but such lists are certainly not taxonomies and not even complete synonym rings.
+
+However, search software for a single site, such as an enterprise’s intranet, a content management system, or software for searching across a corpus of online documents, may incorporate taxonomies. The scope of the subject matter, while still vast, is at least restricted to the interests of an organization, and the content may be more structured in its formatting and metadata. Site or enterprise search software, which is a growing niche industry, may or may not make use of taxonomies, however. Such software was originally based on web search-engine technology and thus did not incorporate taxonomies. But as enterprise search software has become more sophisticated and tailored to the enterprise’s needs and as users come to appreciate the benefits of taxonomies, the incorporation of taxonomies in enterprise search is becoming more common.
+
+A basic search engine matches user-entered query words with words or phrases found within the documents’ metadata field (such as title) or anywhere in the text and returns those documents that are sufficiently relevant based on the position and frequency of those words, among other considerations. Relevance ranking takes into consideration many factors and may determine the display order of results. The deficiencies of free-text search are obvious. If the user enters a word in the search box but the text uses a synonym for that word and not the same word, the search engine misses the document. In other cases, the word entered by the user may occur in the text but not in the same context; it may have a different meaning or use, or it may occur in the text only because it is negated. In any of these cases, the search may retrieve an irrelevant document.
+
+Search engines have become more sophisticated over the years. It is now common to match singular and plural forms of the same word. More specialized search engines also employ grammatical stemming so that words with the same root, such as writers and writing, will also match, perhaps with a lower relevance ranking than for an exact word match. More sophisticated search engines incorporate text analytics technologies to take grammar and interword relationships into consideration, relationships that can help determine whether a given word occurring in a text has the meaning intended by the words in the search query. Nevertheless, it remains difficult to discern concepts, and not merely words, without first establishing some kind of controlled vocabulary and a way to link text words to the taxonomy term.
+
+Controlled vocabularies or taxonomies support search in two different ways: (1) through nonpreferred terms or synonym rings or (2) as browsable taxonomies. Synonym rings for each concept in a controlled vocabulary include terms likely to be searched and terms likely to appear in the content. This facilitates the matching of user-entered search strings with words or phrases in the content texts, as in the example illustrated in Figure 7.1. Despite the name, the terms in a synonym ring need not be exact synonyms but should in fact be nonpreferred terms in accordance with the guidelines described in Chapter 4. A synonym ring typically does not display terms in the user interface, whereas when the taxonomy makes a distinction between preferred and nonpreferred terms, the preferred terms are usually displayed.
+
+
+
+Figure 7.1 Example of how a synonym ring supports search for a concept
+
+In actual practice, the mere presence of a taxonomy with nonpreferred terms does not guarantee that its nonpreferred terms will function as desired. Unless specifically set up to do so, in many cases search engines will ignore the relationships of nonpreferred terms to the preferred terms and will treat them as any other keywords.1 As the taxonomist, you need to ensure that whoever configures the search engine takes into account the intended role of the nonpreferred terms.
+
+The arrangement and display of terms for end-user browsing is another way in which taxonomies support search for automated indexing, just as they do for human-indexed concepts. In a hierarchical taxonomy, when the terms are visible and therefore browsable, users can browse and locate more specific subjects of interest, find out what is included in the taxonomy and what is not, and may find related subjects of interest. Users who are not entirely sure what they are looking for generally prefer a browsable hierarchical taxonomy to a blank search box. If a taxonomy or a set of categories is displayed to the user, then the software involved is more likely called auto-categorization or auto-classification software, rather than search software, because the interface includes categories. Faceted taxonomy displays, described in more detail in Chapter 8, also support search, but the indexing (or metadata tagging, as it may be called) requires a degree of human involvement, and so it is not a completely automatic method.
+
+Automated Indexing Technologies
+
+Just as there are different kinds of human indexing, there are also different forms of automated indexing and retrieval. The two different basic approaches to automated indexing and retrieval are information extraction and auto-categorization. They differ from each other both in technology and in purpose. Information extraction, which involves pulling information from text, focuses on identifying which key names, concepts, and data in a text are sufficiently significant in comparison with those with a mere passing mention. Auto-categorization, on the other hand, seeks to categorize each document based on what it is fundamentally “about.” Information extraction is similar to back-of-the-book indexing in that it seeks to identify significant names and concepts within a chunk of text, whereas auto-categorization is more like article database indexing in that it assigns one or more taxonomy terms to describe the subject matter of the document as a whole. Consequently, results may differ between the two approaches. Information extraction is more suitable for disparate unstructured content, such as all the different documents a company might generate, including email, whereas auto-categorization is better for retrieval of traditional information, such as articles and related documents.
+
+Finally, information extraction does not necessarily use a taxonomy, and when it does, it is usually a simple synonym ring. (Certain information extraction systems, though, can put named entities, such as geographic places and organizations, into a hierarchy.) Auto-categorization, on the other hand, usually involves a taxonomy, specifically a hierarchical taxonomy. As our interest is in taxonomies, this chapter will focus primarily on auto-categorization, after a brief look at information extraction and its most common form, entity extraction. Many automated indexing software products now combine information extraction and auto-categorization.
+
+Information Extraction and Text Analytics
+
+Information extraction, in some contexts called data extraction, and the overlapping fields of text analytics and text mining are technologies within the broader field of natural language processing that aim to extract useful information from varied unstructured content (that which lacks any metadata). These technologies, based on computational linguistics and pattern recognition, have been under development since the 1980s, building on natural language-processing research begun as early as the 1960s, and have produced commercial products since the 1990s. A newer, even broader field of content extraction has also emerged that encompasses technologies to extract information from any kind of content, including images, audio, and video, not just text. There are various technology approaches used in information extraction, including both statistics and rules-based techniques. A basic system might comprise components for the following tasks: dividing text into segments, sequencing text sentences, filtering out irrelevant sentences, detecting the basic parts of speech within sentences, parsing lexical fragments to produce a tree structure, semantically interpreting the parse tree, and so on. On top of these tasks, either rules or machine learning might be added.
+
+Entity Extraction
+
+Entity extraction, also called entity recognition or entity identification, is the most common form of information extraction and comprises technologies to identify named entities in text documents. Named entities include people names, company or organization names, locations, products, and sometimes named events or time designations. Proper nouns are, of course, easier to identify than other concepts, so entity extraction has a higher rate of reliability than concept-based information extraction. Therefore, some of the earliest automated indexing software was of this type. One of the first major commercial entity-extraction tools was NetOwl (www.netowl.com), which SRA International has been offering since 1996. Organizations utilizing NetOwl include several large publishers of online content, such as LexisNexis, Gale (a part of Cengage Learning), and IDT Payment Services.
+
+There is a lot more involved, though, than just identifying words with capital letters that are not at the start of a sentence. Grammar-based linguistic rules and statistical models, as in topical auto-categorization, are required to develop an effective entity-extraction system. Entity extraction thus does not necessarily involve a significantly different technology than the auto-categorization method previously described, but there are nuanced differences, requiring distinct software coding and rules. Thus, software products might be differentiated as either auto-categorizers or entity extractors. A single software product might also combine both, sometimes with the technology for one or the other feature developed by a third-party partner or vendor.
+
+Entity extraction, along with its broader field of information extraction, does not presuppose an existing named term in a taxonomy, although in many cases it will make use of such terms. A controlled vocabulary will reconcile the variant forms of a name through its nonpreferred terms, but a new named term can also be extracted or indexed even if it is not included in a taxonomy. This may in fact be desirable to identify new names, especially of newly prominent people, companies, and products.
+
+In addition to NetOwl (NameMatcher and EntityMatcher), other entity-extraction software products include Rosette Entity Extractor from Basis Technology (www.basistech.com/text-analytics/rosette/entity-extractor), Rosoka Extraction (www.rosoka.com/content/extraction), and OpenCalais from Thomson Reuters’s subsidiary ClearForest (www.clearforest.com/solutions.html). There are also many others products that include entity extraction as a component of a larger auto-indexing solution, rather than as a stand-alone product, such as SAS Enterprise Content Categorization, Lexalytics Salience Engine, Open Text Content Analytics, Cogito Discover from Expert System, BA Insight’s Classification software, and Data Harmony Metadata Extractor, to name a few.
+
+Auto-Categorization
+
+Auto-categorization or auto-classification refers to automatically associating appropriate taxonomy terms, often called categories, with a document, based on one or more different technologies that automatically analyze the text and compare it with data stored with the taxonomy terms and possibly other data as well. In addition to assigning documents to one or more categories, some auto-categorization systems, especially those that are called auto-classifiers, might also assign some other metadata values.2
+
+Referring to “categories” rather than terms in such a taxonomy is not merely a matter of simplicity. The designation category implies something broader than the designation term. Auto-categorization does better at the broader category level than with subtly different specific terms, which call for the discernment of human indexers. The categories involved in auto-categorization might have some hierarchy to them, but in general they do not get as specific as the terms found in a thesaurus used for human indexing. Thus, auto-categorization may be best used with taxonomies that are not too large.
+
+As with automated indexing software in general, there are different technologies and methods for auto-categorization. There are two fundamental approaches to auto-categorization involving predeveloped taxonomies and the possible role of a taxonomist: (1) machine-learning systems and (2) and rules-based systems. There are additional crosscutting technologies, and there are subtypes, so some literature on auto-categorization may list more methods. There is an additional auto-categorization technique of statistical clustering (also called semantic clustering), which does not necessarily require a pre-existing taxonomy, as it can automatically generate taxonomy terms. Therefore, as far as taxonomists are concerned, there are just the two methods of which to be aware.
+
+Machine Learning-Based Auto-Categorization
+
+Auto-categorization that is based on machine learning involves initially having the auto-categorization software “ingest” numerous sample documents that are already correctly indexed according to the taxonomy. This method is also called catalog by example. The system then uses algorithms and statistical analysis to “learn” patterns of text content to determine what kind of text is typically indexed with which taxonomy terms. Therefore, this method is also referred to as the “statistical method” for auto-categorization, although there are additional statistical methods that don’t use machine learning. The statistical analysis is based on various techniques, including the following:
+
+
+       •  Bayesian computations: Methods of probability and statistics named after the 18th-century mathematician Thomas Bayes
+
+       •  Support vector machines: Classification performed initially by the construction of a hyperplane that separates the data into two categories
+
+       •  Neural networks: Statistical analysis procedure based on models of the nervous system (less common than the other two techniques)
+
+
+
+All these methods can “learn” from a collection of examples to discover patterns and trends and to determine what is useful and what is statistically rare.
+
+In machine learning, feeding numerous sample pre-indexed documents is required for what is called training the system, and the documents are called training documents. The minimum number of training documents required and the degree of automated indexing accuracy achievable after training depends on various factors:
+
+
+       •  The statistical method used
+
+       •  The algorithms used
+
+       •  The word count of the training documents
+
+       •  The quality and content of the training documents
+
+       •  The nature, meaning, and clarity (lack of ambiguity) of the individual taxonomy term
+
+
+
+Depending on these circumstances, tens of documents or hundreds of documents could be required to train a particular term. Some documents provide very clear examples of a taxonomy concept, while others express it less concisely, directly, and clearly. It is possible that less than ten training documents might suffice under ideal circumstances, including a perfectly clear and unambiguous term and clear, simple training documents, but this is seldom the case.
+
+If an existing indexing business or operation is migrating from human indexers to automated indexing, then there should be no difficulty in coming up with the desired number of pre-indexed training documents for a given term, except perhaps for some rarely used terms. This is because there already exists a large published collection of human-indexed content to tap for training documents.
+
+If you are starting up an indexing operation from scratch, however, without an existing corpus of indexed documents, then coming up with training documents demands a lot more work.
+
+Someone, often the taxonomist, must either test-index a large number of documents or identify training documents indexed by someone else for each term. Test indexing of documents is useful only to a limited degree. While it is a realistic method to determine what combinations of terms are often needed for typical documents, the documents used might not include some of the taxonomy terms. The other approach, taking each taxonomy term and finding suitable training documents, ensures that all terms are covered. However, finding ideal documents for training is not always easy and requires good online searching skills. It can also take a lot of time.
+
+In some machine-learning systems, the training documents then yield additional automatically generated “keywords” from the multiple texts that are associated with the taxonomy term being trained. The statistical analysis assigns a percentage relevancy or weighting for each automatically generated keyword, but the taxonomist (or perhaps machine-aided indexing analyst) can manually change individual keyword relevancies if the automatically assigned relevancy seems too high or low (usually too high).
+
+Whether starting with a corpus of pre-indexed content, test-indexing individual documents, or searching for new documents for each term, machine-learning automated indexing requires the additional step of quality testing. You will need to check samples of automatically indexed documents matched for each term to determine whether they are sufficiently acceptable (minimal inappropriate documents retrieved) and then make appropriate changes to the collection of training documents. This process involves removing training documents whose content is skewing the results and perhaps adding more appropriate documents or making refinements to the given term by adding or deleting nonpreferred terms. Depending on the nature and source of the training documents, you may even be able to edit the documents in order to provide more ideal content. All these adjustments are part of what is called tuning in the machine-learning process, and it can be a time-consuming task, even a full-time job. If the taxonomy is large, it may not be possible to check and tune every term, so only the high-usage terms get tuned.
+
+Rules-Based Auto-Categorization
+
+Rules-based auto-categorization puts more emphasis on matching text patterns than on statistical analysis. In rules-based auto-categorization, rules are created for each taxonomy term that instruct the system how to automatically index with that term. Humans, often taxonomists, write rules for taxonomy terms. Depending on the system, the rules may be simple or complex, and in cases of simple rules, the system may automatically create suggested rules, which the taxonomist can then edit.
+
+In simple rules-based systems, the user (taxonomist) enters or edits automatically generated synonyms/nonpreferred terms for each term and additionally enters closely related keywords and phrases that are expected to be found in the same document. Unlike taxonomy nonpreferred terms, these keywords do not always have to be suitable for use as the preferred term. A distinction is made between truly equivalent nonpreferred terms and merely supporting keywords.
+
+In systems supporting complex rules, also called semantic rules or Boolean rules, the rules are conditional statements that often involve Boolean logic and may use operators that look at word order, word proximity, and content structure to identify patterns in the text and apply taxonomy terms accordingly. The collection of rules is sometimes called a rule set or a knowledge base. Auto-categorization systems may automatically generate basic rules for every term, and the taxonomist then only needs to write additional conditional statements for the terms that are more ambiguous. Software that is entirely rules based is not quite as common as that which involves some additional statistical technology, such as machine learning-based auto-categorization, simply because greater human intervention is required, and the customers for auto-categorization tools tend to seek the most “automated” method. However, tools that combine rules-based and machine learning-based auto-categorization are becoming more common.
+
+Sometimes a word found in the text matches a term in the taxonomy as a true synonym, in which case no conditional rules are required. However, when a term in the taxonomy has multiple meanings, rules are needed for clarification. Nonpreferred terms also require qualification through rules in order to serve as unambiguous matches. For example, the term earthquakes has a number of possible nonpreferred terms, but these all have other meanings: quakes, tremors, tremblers, and aftershocks. These all could be used as nonpreferred terms, provided there are rules restricting these terms to texts that also include certain other words or phrases, such as Richter scale, disaster, or structural damage.
+
+Both topical concepts and named entities may utilize rules. Rules are especially useful for distinguishing individuals with common surnames (Smith, Brown, Johnson); names that could apply to individuals, organizations, or places (Washington, Columbus, Madison, Jackson); or names that are also common words (Bush, Rice, Gates).
+
+Rules can refer to many different conditions regarding the word or phrase of text to match. These include:
+
+
+       •  Truncation of the word
+
+       •  The mention of other words in the text
+
+       •  Proximity to other words in the text
+
+       •  Relation to other words in the text, based on Boolean AND, OR, and NOT operators
+
+       •  Initial capitalization or full-word capitalization
+
+       •  Text placement within a sentence (a rule usually used in combination with capitalization)
+
+
+
+Software tools vary in how they require the rules to be formatted, but a common construction involves IF, IF ELSE, or more complex variations. The following example, in which terms following the statement USE are in the taxonomy, comes from the Data Harmony Machine Aided Indexer User’s Guide.3
+
+
+               Text to Match: norwegian
+
+
+
+               IF (MENTIONS “language”)
+
+USE Norwegian language
+
+               ELSE IF (MENTIONS “country”)
+
+USE Norway
+
+               ENDIF
+
+               ENDIF
+
+Some complex rules-based systems also utilize regular expressions (regex for short), which are special text strings for describing complex search patterns. Writing regular expressions, usually done by someone called a knowledge engineer rather than a taxonomist, involves following numerous coding rules. It is like creating filter rules for incoming emails to automatically go into a spam folder or other folders, but without a dropdown list of options and with countless more possible rules.
+
+Another feature of many auto-categorization systems, and especially rules-based systems, is the assignment of relative rankings or weightings for each supporting synonym, keyword, or phrase. Some words or phrases will be sufficient by themselves to get the document categorized to the corresponding taxonomy term; whereas other words or phrases, due to lower weightings, must be found in combinations with other listed words or phrases in order to meet the threshold for categorizing a document.
+
+Since simple rules are not expected to achieve the same level of results as more complex Boolean rules and regular expressions, the auto-categorization software may additionally employ other classification technologies at the back end to generate terms and phrases to match against the taxonomy and associated weighted synonyms and keywords. There may also be language processing techniques that perform stemming on extracted terms and consider the lexical variants of terms. Instead of relying on exact matches to terms and their variants and keywords, some of these rules-based auto-categorizers involve “fuzzy matching,” which can be based on either linguistic processing or statistical methods, including the additional use of training sets of documents.
+
+Comparison of Auto-Categorization Methods
+
+Regardless of the method, auto-categorization still requires human involvement, and that human is often the taxonomist who created the taxonomy and continues to maintain it. The tasks and skills required in ensuring that the auto-categorization system properly matches text with taxonomy terms are very different for each method, though.
+
+Writing the rules for rules-based auto-categorization requires intimate familiarity with each taxonomy term and its appropriate usage, so usually the taxonomist who creates the taxonomy also writes the rules. In addition, high-level analytical and problem-solving abilities are needed. Skills in traditional command-line online searching are helpful, although not necessary, for constructing Boolean and nested search expressions, which may remind long-time librarians of command-line Dialog searching.
+
+If regular expressions are also required, then the work is a little more like scripting or coding. You do not need to be a software programmer, but you do need to have a certain comfort level with coding, such as HTML or XML. Some information professionals get into this, and some do not.
+
+The tuning of machine learning, on the other hand, requires the kinds of skills used by a periodical/database-type of indexer or an online searcher to come up with and/or evaluate sample training documents. Thus, former periodical indexers are well qualified for this task. In fact, taxonomist-level skills are not necessary, although one does need to be familiar with the taxonomy. A single taxonomist might have several other people, who are not taxonomists, aid in the task of identifying, assigning, and managing training documents to terms.
+
+The degree of human involvement in auto-categorization systems has a direct impact on the indexing accuracy and retrieval success rate. This includes additional human effort to refine and improve a term’s nonpreferred terms, training documents, or rules. In evaluating the success rates of different auto-categorization methods, vendors will claim that their system is better, but there are in fact too many variables for any accurate comparison of the methods. Machine-learning systems may have a 60–70 percent retrieval success rate without tuning,4 but tuning can achieve a rate of more than 80 percent correct retrievals for certain unambiguous terms. With enough effort in the rules writing, rules-based auto-categorization may achieve a 90 percent success rate.5 Unless technologies are combined, the core technologies have not been able to achieve higher success rates in more recent years. Rules-based auto-categorization tends to have a higher success rate than machine learning on average, simply because a high level of tuning is not a requirement to run a machine-learning system, and if sufficient training documents are lacking, there is not much that can be done. Writing rules for each term, however, is a necessity for rules-based auto-categorization to function at all, and whoever writes the rules has greater control over the end results than does the person who gathers training documents for a machine-learning system. In other words, because rules-based auto-categorization involves greater taxonomist involvement, it has the potential for higher success rates.
+
+Automated Taxonomy Generation
+
+Both rules-based and machine learning-based auto-categorization methods rely on prebuilt taxonomies (built by taxonomists) and match the terms in these taxonomies to the documents being indexed. Some auto-categorization vendors, however, have taken the notion of “automated” one step further by implementing technology to automatically generate what they call taxonomies along with the auto-categorization of content. The method usually used is statistical clustering, which involves the grouping together of documents that share words with the same meanings, as determined by a text analytics component that parses the text and then assigns these clustered documents to a category. Not only do these systems automatically create something like a taxonomy, but the categorization is also fully automated, requiring no humans to assign training documents or to write rules for each taxonomy term. Although more rudimentary than human-created taxonomies, these automatically generated “taxonomies” may even have a hierarchy. In such cases, though, a taxonomist usually creates the top-level categories. For example, many entity-extraction systems can populate predefined entity categories or facets with appropriate name terms upon search execution.
+
+These automatically generated “taxonomies” are far from meeting the standards described in the ANSI/NISO Z39.19 guidelines. They also tend to include redundant concepts and mixed degrees of specificity (granularity).6 However, such systems should not be dismissed merely as inadequate substitutes for human-crafted taxonomies but should instead be viewed as good sources for suggested terms that the taxonomist can edit into a proper taxonomy.
+
+Automatic taxonomy generation software is typically offered as part of a text analytics package or suite, rather than as a stand-alone product.
+
+Software for Auto-Categorization
+
+Compared with the field of thesaurus management software, the field of auto-categorization and other automated indexing software, such as for entity extraction and text analytics, is a less mature industry segment, with companies appearing, disappearing, and being acquired at a relatively high rate. The software described in this section is not industry-specific, but there are also auto-categorization software products for specific industries, such as healthcare and law.
+
+Auto-Categorization Software with Taxonomies
+
+Commercial auto-categorization systems that utilize taxonomies handle these taxonomies in different ways. The software may
+
+
+       •  come with preinstalled taxonomies that cannot be edited
+
+       •  come with preinstalled taxonomies that the user may edit and extend through the user interface
+
+       •  automatically generate a taxonomy that can be edited
+
+       •  support the import of taxonomies but not the editing of those taxonomies
+
+       •  support both the import of taxonomies and the editing of those taxonomies
+
+
+
+There are also combinations of the aforementioned capabilities. For example, the systems that come with preinstalled taxonomies often also support the import of additional taxonomies. Finally, even auto-categorization software without a feature for taxonomies can often integrate with taxonomy management software through APIs (application programming interfaces), connectors, or custom programming. Vendor partnerships are widespread in this industry.
+
+The auto-categorization software that comes with preinstalled taxonomies tends to cover specific vertical markets, such as pharmaceuticals, insurance, or law enforcement, and to include named entities, such as company names and geographic places. Product or industry types are also common as prebuilt taxonomies. From vendors in the United Kingdom, a typical preinstalled taxonomy is the Integrated Public Sector Vocabulary (IPSV), the standard vocabulary for use by local public sector agencies. Prebuilt taxonomies with auto-categorization systems are usually simple hierarchical taxonomies, not thesauri, and in addition to lacking associative term relationships, they may even lack nonpreferred terms. Chapter 1 mentions additional sources of prebuilt taxonomies.
+
+Automated indexing/search software products that permit the importing of taxonomies vary with regard to the degree of complexity they can support in the imported taxonomies. For example, the auto-categorization software may not support associative relationships, only hierarchical, and it may be limited to a certain number of hierarchy levels. Even though it may be more efficient to build and edit a taxonomy in an external thesaurus management program and then import it into the auto-categorization system, such import limitations need to be kept in mind.
+
+Auto-categorization software that utilizes taxonomies or simpler controlled vocabularies but lacks user interface features to edit those taxonomies was originally common, but as competing software products have added features, the inclusion of the ability to edit taxonomies to some degree is becoming more prevalent. The following are examples of auto-categorization products that include taxonomies but provide only limited ability to edit those taxonomies, at least according to the expectations of a skilled taxonomist: IBM Content Classification, Endeca Information Discovery from Oracle, IBM Watson Explorer (formerly Vivisimo), Attensity, Mindbreeze, Exalead, IDOL from HP (Hewlett-Packard), Salience from Lexalytics, and Aspire from Search Technologies.
+
+These systems compete on the basis of their automatic indexing capabilities, and less attention is paid to taxonomy management features. In some cases, taxonomy management is an administrative feature and not a standard user feature. In some cases, the kinds of taxonomies supported are simple synonym rings. The software might not even call them “taxonomies” but rather something else, such as concept sets, concept matrix, category sets, concept libraries, or dictionaries. Additionally, since search/retrieval remains the primary goals of these tools, with taxonomy development only a supporting task, the vendors’ literature on such software tends to focus on the needs of the content manager rather than the needs of the taxonomist. So it is difficult to discern the extent of the taxonomy management capabilities of these tools without trying them out. Evaluating auto-categorization software with taxonomy management is not a simple software evaluation, however, but ideally involves a proof-of-concept procedure.
+
+There are several auto-categorization products that include a strong taxonomy management component with a well-developed user interface, likely to be used by a taxonomist, although they can create only simple hierarchical taxonomies, with no also associative (related term) relationships, like the taxonomies supported by the SharePoint Term Store. Two examples are BA Insight and conceptSearching. Both of these are rules based, and it is more typical for rules-based auto-categorization software to have a good taxonomy management interface, since editing taxonomies, editing nonpreferred terms, and editing rules are tasks that go together.
+
+BA Insight
+
+BA Insight (www.BAInsight.com), founded in 2004 and based in Boston, Massachusetts, specializes in extending and enhancing enterprise search, and especially SharePoint search, through various applications, including auto-categorization software, along with implementation and consulting services. Its core auto-categorization product is called AutoClassifier, but there are also related tools utilizing text analytics for entity extraction, automated Content Type classification, and automatic “property mapping” for other metadata. The AutoClassifier product is fully rules based. Simple rule, that merge synonyms are initially automatically generated, and then the user can edit or enhance them. Rules can also be complex, making use of a scripting language, for example, VBscript. A Test Bench allows categorization results to be previewed in real time against the categorized documents, so that rules can be adjusted. The AutoClassifier includes taxonomy management as one of its main components, but the taxonomies are simple hierarchical taxonomies, since they are managed in the native SharePoint format. The taxonomy management user interface itself is easy and intuitive to use. The AutoClassifier fully integrates with SharePoint.
+
+conceptSearching
+
+The conceptSearching software is a web-based auto-classification and enterprise search product from Concept Searching Limited (www.conceptsearching.com), a company founded in 2002 in the United Kingdom. The conceptSearching product uses a proprietary statistical technology called Compound Term Processing, which Concept Searching introduced in 2003. Compound Term Processing, based on Shannon Information Theory, automatically identifies multiword concepts and then computes the incremental value (i.e., additional meaning) of these compound terms over their component parts. The process uses algorithms, which adapt to each customer’s content.7 In addition to concept search technology, the integrated conceptSearching suite includes Taxonomy Manager and Workflow Manager. Through Taxonomy Manager the user can manage and adjust the weights of the keywords, or “clues,” that the software automatically generates from the content and then quickly test the rules for accuracy. There are various taxonomy import formats, with SKOS and OWL being the easiest to import. The products integrate with all versions of SharePoint and many other platforms.
+
+The conceptSearching product also offers various general industry taxonomies for sale from its taxonomy library. These are intended more as a means to accelerate a customer’s taxonomy development process than to replace it. In fact, Concept Search’s literature notes that the taxonomist or subject matter expert can edit that starter taxonomy in the tool to “further customize it to meet specific of unique organizational requirements.”8
+
+Taxonomy Management/Auto-Categorization Software Combinations
+
+Software that fully supports taxonomy/thesaurus creation and management (as described in Chapter 5), instead of creating just simple hierarchical taxonomies, while also integrating with auto-categorization capabilities are the products supporting auto-categorization that are probably of the greatest interest to the taxonomist. These include offerings from Expert System, Access Innovations, OpenText, The Semantic Web Company (PoolParty), SAS, and Smartlogic. They offer product combinations for auto-categorization and for sophisticated taxonomy, thesaurus, or ontology management. In most cases (except for OpenText), taxonomy management is a stand-alone product, not merely a feature of auto-categorization software. The products described in the following paragraphs are not being endorsed and are thus presented in alphabetical order. Industry analysts would likely present potential customers with a different list of products, but the products are mentioned here because the taxonomist might encounter or use them.
+
+Cogito Taxonomy Studio
+
+Expert System (www.expertsystem.com), with global headquarters in Italy and with subsidiaries in the United States, the United Kingdom, France, Spain, and Germany, is the developer of an auto-categorization suite called Cogito Categorizer. In 2014 it introduced a taxonomy management tool, Cogito Taxonomy Studio, for the purpose of creating content-driven taxonomies and writing or editing rules for individual taxonomy terms for use in auto-categorization.
+
+As Expert System was founded in 1989 and Cogito was developed in 1999, the company has had many years to build up a patented auto-categorization technology that uses a combination of statistics, term frequency, and linguistic clues combined with a “semantic network” to establish word meaning, which in turn supports the development of more complete categorization rules.9 Cogito Categorizer, the core auto-categorization component, uses rules for each taxonomy term to categorize content, but training sets of documents may also be used to supplement the process and automatically generate rules that can be edited. In the other direction, the software can also be used to identify training sets of documents. Once created or edited, the auto-categorization rules are locked and can only be changed by administrator intervention, rather than allowing for changes based on the content of the documents being categorized, a feature aimed at preserving quality. Cogito Categorizer originally had a basic taxonomy creation feature, so it was only more recently that Expert System saw the need to offer a full-featured taxonomy management tool, Cogito Taxonomy Studio.
+
+Cogito Taxonomy Studio can be used as a stand-alone product, as it incorporates its own rules-based auto-categorization capabilities, although it is generally used along with Cogito Categorizer for more sophisticated auto-categorization. Cogito Taxonomy Studio supports standard thesaurus relationships (hierarchical, associative, and equivalence), and taxonomies conform to SKOS guidelines. Taxonomies can be created manually from scratch, but the software also has a feature to extract concepts found in a set of documents as candidate taxonomy terms. Taxonomies can also be used outside the Cogito products, as Taxonomy Studio has a feature to export taxonomies, as OWL (based on RDF), SKOS, or text format. Taxonomy Studio can also import taxonomies in a SKOS format, and the company has a partnership with WAND to offer licensed, prebuilt taxonomies.
+
+The Cogito product line was enhanced with complementary technologies through Expert System’s acquisition of the France-based competitor TEMIS and its Luxid Content Enrichment Platform in 2015. Like the Cogito line of products, the Luxid product family provides auto-categorization and related capabilities, involving text analytics and natural language processing in multiple languages; and as with Cogito, a taxonomy management tool called Luxid WebStudio was also added in 2014 (see Figure 7.2). Luxid WebStudio additionally supports ontologies (user-defined classes, relationships, and attributes), so we can probably expect additional ontology management capabilities coming to Cogito Taxonomy Studio in the future. Like Cogito Taxonomy Studio, Luxid WebStudio also has a synergy with content, since not only can taxonomy terms be automatically tagged to content, but candidate taxonomy terms can also be suggested from automated analysis of texts, and the user can review and add them to the taxonomy. One of the features of the Luxid product line is what it calls Skill Cartridges, which provide both generic and domain-/industry-specific statistical models, rules bases, and vocabularies to support information extraction and auto-categorization, and Luxid WebStudio also makes use of these Skill Cartridges.
+
+
+
+Figure 7.2 The user interface of WebStudio, for editing ontologies, managing the extraction of concepts from text, and reviewing autosuggested candidate terms. Display of nonpreferred (alternate labels) and hierarchical terms
+
+Data Harmony MAIstro
+
+As mentioned in Chapter 5, Access Innovations sells a large-scale taxonomy management system called Data Harmony Thesaurus Master (www.dataharmony.com). An additional product from Access Innovations is its Machine Aided Indexer (M.A.I.), which enables categorization through the rules-based method. M.A.I actually serves two functions: (1) machine-aided indexing, whereby the system suggests terms based on rules for individual documents, which the indexer can then accept or reject (the indexer can also add missing terms), and (2) fully automated indexing of documents in batch mode, typically used only after sufficient fine-tuning of the rules so that the top returns on the list are reliably accurate. According to Access Innovations’s chief taxonomist Alice Redmond-Neal, most of the company’s clients utilize M.A.I. for machine-aided indexing rather than for fully automated indexing and find it increases indexing speed up to 6.7 times that of completely manual indexing.10
+
+While Thesaurus Master and M.A.I. are each available as separate products, an integrated system is also available, called Data Harmony MAIstro. In MAIstro, there are three tabs for the three window displays: Thesaurus Master, M.A.I. Rule Builder, and Test MAI. Thesaurus Master is the same as the stand-alone product for creating thesauri, the MAI Rule Builder is used to edit existing rules and also create new rules (basic rules are included programmatically), and Test MAI allows you to paste text from a document to test how well your rule works in assigning taxonomy terms to it. Although you can use the stand-alone M.A.I. by itself on any term list, in MAIstro the M.A.I. component automatically creates a basic rule for every term and nonpreferred term in the Thesaurus Master’s thesaurus, and the terms and rules stay synchronized.
+
+An additional feature is an internal statistics module that tracks the editor’s term choices and compares them with M.A.I. term suggestions, sorting them as hits, misses, and noise to guide and prioritize the editor’s fine-tuning of rules. Yet another feature is a drop-down menu for rule syntax autofill, which makes it easier to write a rule without memorizing all of the rule base syntax. Available extensions include Inline Tagging, MAIchem (a system for extracting chemical nomenclature within full text), Metadata Extractor, a search tool called Search Harmony, and Recommender (to retrieve more articles like a selected one). MAIstro has connectors to link to search engines and content management systems, including SharePoint.
+
+Mondeca Content Annotation Manager
+
+Mondeca S.A. (www.mondeca.com), whose Intelligent Topic Manager (ITM) was described in Chapter 5, also has an automated indexing (also referred to as “annotation”) product called Content Annotation (CA) Manager, which works with the vocabularies managed in ITM. Not only does taxonomy/ontology software ITM serve as a source of vocabularies for auto-categorization, but CA Manager, through its processing of documents, also provides candidate terms for the vocabularies, which are exposed in the ITM Candidate Management user interface.11
+
+The focus of CA Manager is not merely topical indexing, but rather involves adding metadata (structured annotations) to unstructured content, processing that content according to the Unstructured Information Management Architecture (UIMA) standard. CA Manager relies on the GATE (General Architecture for Text Engineering) open source text mining engine for information extraction, and other third-party text mining engines could be integrated. Auto-categorization is rules based and makes use of linguistic and semantic technologies in GATE. Thus CA Manager’s features and strengths lie primarily in workflow management, connectivity (by providing content output in RDF format), and providing a flexible, scalable implementation.
+
+OpenText Content Analytics
+
+Following its acquisition in 2010 of Nstein, OpenText (opentext.com), a global information/content management software company based in Waterloo, Ontario, rebranded Nstein’s automated indexing/search tool, Text Mining Engine (TME), as OpenText Content Analytics (OTCA).12 The auto-categorization methods of OTCA combine the technologies of concept extraction, rules for terms, and the use of training documents. Users provide training documents for their own taxonomies, but all of the preinstalled taxonomies come already trained. OpenText also maintained the original software’s Authority File and Taxonomy Manager components, combined and renamed as the OTCA Management Console.
+
+The OTCA Management Console is a full-featured thesaurus management tool that supports hierarchical, associative, and equivalence relationships and term attributes in accordance with ANSI/NISO Z39.19 standards and other library group standards. Within the Management Console, the taxonomist can build, maintain, and automate named entities in OTCA’s Authority File Manager; and can build, maintain, and automate taxonomies along with machine-learning and indexing rules in OTCA’s Knowledge Base Manager. Users can build taxonomies from scratch or import them in standard XML formats. Additionally, OTCA ships with sets of prebuilt taxonomies and authority files, such as the International Press Telecommunications Council taxonomy, the Industry Classification Benchmark database of companies and securities from Dow Jones, the Library of Congress Thesaurus for Graphic Materials, and others for geographic locations, organization names, people names, events, etc.
+
+PoolParty Power Tagging
+
+The Semantic Web Company, which provides the PoolParty Thesaurus Server software described in Chapter 5, also offers a set of auto-categorization modules called PoolParty Power Tagging (www.poolparty.biz/poolparty-powertagging). Rather than try to achieve general auto-categorization for any platform, PoolParty Power Tagging focuses on certain applications, with modules specifically for SharePoint, WordPress, Drupal, Atlassian’s Confluence (a wiki platform), and a growing number of specific content management systems, including Jive, Alfresco, and Umbraco. With APIs, Power Tagging can work with other content management systems as well. The company introduced PoolParty Power Tagging in 2012, starting with PoolParty Power Tagging for Confluence. The technology used is based on machine learning from sample content in combination with linguistic processing and fuzzy matches. Taxonomists can also set rules to increase the precision of the built-in word sense disambiguation. PoolParty Power Tagging works in conjunction with an entity-extraction tool, PoolParty Extractor.
+
+SAS Enterprise Content Categorization
+
+SAS Institute, a company that has been providing business analytics software since the 1970s, within its category of “Advanced Analytics” (www.sas.com/en_us/software/analytics.html), offers a suite of automated indexing and taxonomy products called SAS Text Analytics. The SAS Text Analytics suite is based on the products of the company Teragram, which SAS acquired in 2008, and it includes the following: Enterprise Content Categorization, Ontology Management (described in Chapter 5), Sentiment Analysis, and Text Mining.
+
+Enterprise Content Categorization (ECC) is an automated indexing product that has both auto-categorization and entity/concept extraction capabilities. For its rules-based auto-categorization, ECC supports the writing of rules with a graphical tree view of Boolean operators and commands for selection. It also supports use of regular expressions in rules. Additionally, the user can designate relative weightings of terms for a more statistical approach to auto-categorization.
+
+ECC includes the capability for building, maintaining, and testing taxonomies. Taxonomies can be built from scratch, auto-generated and then edited, or preinstalled by SAS. Because ECC also comes with prebuilt taxonomies, nontaxonomists often use it, and thus less emphasis has been put on the manual taxonomy creation features. Although ECC does support creating the basic kinds of term relationships (equivalent, hierarchical, and associative), taxonomists may choose to use the other SAS product, Ontology Management, to build more complex thesauri and ontologies, which support custom relationships and term attributes. These ontologies can easily be exported into ECC for auto-categorization use.
+
+Semaphore Classification Server
+
+Smartlogic (www.smartlogic.com), whose Semaphore Ontology Editor is described in Chapter 5, also offers a rules-based classification engine called Semaphore Classification Server. The Classification Server has three components: Automatic Rules Creator, Rule Template Editor, and Semantic Processor. Utilizing taxonomies created in the Ontology Editor, the Classification Server has the capability to automatically generate rules based on the relationships of the terms in the taxonomy. The user can then edit those rules, create new manual rules that take precedence, and test those rules in the Rule Template Editor. The system supports over 30 different kinds of rules, with more rules added in more recent versions, and various kinds of wildcards. In addition, a text miner tool facilitates taxonomy and ontology development by suggesting additional terms. The Classification Server supports 31 different languages for classification. An additional Classification Review Tool is designed for testing sets of classification results for accuracy, and a Classification Analysis Tool allows the user to look at individual documents to see how they classify.
+
+Synaptica Text Analytics & Auto-Classification System
+
+The taxonomy management software vendor Synaptica (www.synaptica.com), described in Chapter 5, which has long offered a manual indexing component, in 2015 introduced an add-on module for auto-classification. Like Mondeca, Synaptica utilizes the GATE (General Architecture for Text Engineering) open source text mining engine for information extraction, which Synaptica has integrated with its taxonomy management tool. From the different components of GATE, Synaptica’s Text Analytics & Auto-Classification System (TAACS) utilizes both rules-writing-based and training-set/machine-learning methods. Users of the software can then focus on the method that works best for their circumstances. Synaptica’s auto-categorization tool is available in both internal client–server and cloud-hosted options.
+
+Creating Taxonomies for Automated Indexing
+
+Taxonomies for automated indexing, whether by information extraction or auto-categorization, are not fundamentally different from those for human indexing. After all, the end users and the search/retrieval interface may be the same, regardless of the indexing method. Taxonomists should try to follow the best practices suggested in the ANSI/NISO Z39.19 guidelines with respect to term format and relationships, no matter how the taxonomy is used. Nevertheless, automated indexing calls for certain considerations with respect to taxonomies.
+
+Terms for Automated Indexing
+
+Despite the increasing sophistication of automated indexing, no automated system can achieve the level of interpretation of subtle ideas that humans can. Therefore, a taxonomy used in automated indexing cannot support as great a number of concepts. This is particularly the case for statistical methods of auto-categorization. For example, in a taxonomy used by human indexers, you could maintain distinct concepts/terms for each of insurance companies, insurance agents, insurance brokers, and insurance underwriters, but automated indexing would not be able to distinguish the subtle differences among these terms. You should also avoid creating terms for both an action and a topic within the same taxonomy, especially if they share the same root, such as investing and investments or contracting and contracts, although in separate facets this might be acceptable. While the usage of one term or the other is clear to the trained indexer, it is difficult for an automated system to discern.
+
+Precoordination works better for automated indexing, whether rules based or statistical, than leaving simple terms for postcoordination. Examples of precoordinated terms, explained in more detail in Chapter 3, include software training, federal aid to education, and materials handling equipment industry. Such phrase terms will more likely match phrases in the texts and what users may enter in the search box. As described earlier, leaving terms for postcoordination (such as software AND training) is more subject to ambiguity in search and retrieval. Meanwhile, subdivisions for structured indexing (also called second-level indexing), sometimes used for human indexing, especially of periodical literature, as mentioned in Chapter 6, are too complex for automated indexing.
+
+Although with automated indexing there are no human indexers to read term notes, such notes are still helpful for the end user, so taxonomies for automated indexing often have scope notes or other forms of expanded explanations.
+
+Nonpreferred Terms for Automated Indexing
+
+Nonpreferred terms are especially important in taxonomies used for automatic indexing since a crucial part of the process is creating automatic matches between taxonomy terms and words in the content texts. In general, you will want more nonpreferred terms for automated indexing than for human indexing. While a human indexer will search and browse for different possible terms, the automated system must make exact matches, subject only to possible grammatical stemming and any filtering conditions in rules. On the other hand, for automated indexing you do not need phrase-inverted nonpreferred terms (such as photography, digital) that are useful to the human indexer who is searching for terms alphabetically. The following example compares possible nonpreferred terms for the term presidential candidates for human and automated indexing:
+
+
+               Nonpreferred terms for human indexing of presidential candidates:
+
+candidates, presidential
+
+
+
+               Nonpreferred terms for automated indexing of presidential candidates:
+
+
+campaigning for president
+
+presidential candidate
+
+candidacy for president
+
+presidential hopeful
+
+candidate for president
+
+presidential nominee
+
+presidential candidacy
+
+running for president
+
+
+
+As shown in the preceding example, nonpreferred terms for automated indexing may include verbal phrases that do not conform to standard formats for terms. In fact, when it comes to proposing text string matches, there may be a blurred distinction between taxonomy nonpreferred terms and the suggested matches in a rules-based auto-categorization system. Where you put these suggested variant matches depends on the software system you are using.
+
+For automated indexing, you might also want to distinguish between different types of nonpreferred terms, such as those that are auto-generated and those that are human-created. Acronyms can be ambiguous, especially in automated indexing. Thus, designating acronyms as acronyms and not just generic nonpreferred terms may help.
+
+Term Relationships for Automated Indexing
+
+Hierarchical relationships are the same whether a taxonomy is used for human or automated indexing, and polyhierarchies are useful in either application. Automated indexing tends to make use of hierarchical taxonomies, while thesauri are more common in human indexing.
+
+Associative relationships may occur in taxonomies used in automated indexing, but they are not quite as common as in taxonomies used in human indexing. Associative relationships are highly useful for the human indexer, and they are also useful for the end-user searcher to suggest possible related concepts of interest. If there are no human indexers and no browsable display of a taxonomy to end users, then it is simpler to omit associative relationships, despite their potential usefulness. Furthermore, auto-categorization systems that make use of auto-generated keywords from content may automatically suggest related terms on the fly, based on shared keywords among the preferred terms.
+
+Summary of Taxonomy Creation Differences
+
+In creating taxonomies for human or automated indexing, there are different areas of emphasis. Taxonomies for human indexing should have
+
+
+       •  extensive relationships, hierarchical and associative, between terms
+
+       •  term notes for clarification
+
+       •  additional common-use shortcuts and phrase inversions as nonpreferred terms
+
+
+
+Taxonomies for automated indexing should have
+
+
+       •  no subtle differences between terms
+
+       •  precoordinated terms, but no structured subdivisions
+
+       •  many varied nonpreferred terms, including non-noun phrases
+
+
+
+In addition, automated indexing is more suitable for applying weighting or relevance ranking to assigned index terms, whether as primary or secondary, or by even further gradations measured in percentages. In human indexing, this process requires an additional step and decision for the indexer, but in automated indexing, especially that which is based on statistical methods, it is easy to implement.
+
+The same taxonomy may be used for both human indexing and automated indexing. Within an organization, auto-categorization may be applied to some content while humans still index other content. There are also hybrid strategies of machine-aided indexing, which provide automated assistance to human indexers. The humans’ skill and analysis are combined with software to raise productivity and speed, while still allowing indexer-editors to make final choices to ensure indexing accuracy. If a taxonomy is to be used for both human and automated indexing, whether separately or combined in machine-aided indexing, there are not necessarily any conflicts. You will need to put additional work into the taxonomy, though, so that it serves both methods of indexing well. Thus, it is important to know from the beginning how the taxonomy will be used.
+
+Endnotes
+
+  1.  Lynda Moulton, speaking at the Boston KM Forum, Waltham, Massachusetts, June 18, 2009.
+
+  2.  Bernard Chester, “Auto-Categorization and Records Management,” AIIM E-Doc Magazine 18, no. 2 (March 2004): 16.
+
+  3.  Data Harmony Version 3.3 User’s Guide–M.A.I. (Machine Aided Indexer) (Albuquerque, NM: Access Innovations, 2006), 53.
+
+  4.  Bonnie Burwell, “Auto-Categorization Tools,” Intranet Professional (Mar/Apr 2002), accessed December 20, 2015, www.intranetstoday.com/Articles/Editorial/Features/Auto-Categorization-Tools-56706.aspx
+
+  5.  Tom Reamy, email to author, June 23, 2009.
+
+  6.  Louis Rosenfeld and Peter Morville, Information architecture for the World Wide Web, 2nd ed. (Sebastopol, CA: O’Reilly, 2002), 325. (The section on auto-categorization is not included in more recent editions of this book.)
+
+  7.  John Challis (CEO/CTO of Concept Searching Ltd.), email to author, October 6, 2015.
+
+  8.  “Jumpstart Taxonomy Development,” Concept Searching Taxonomy Library, August 14, 2009, accessed December 20, 2015, www.conceptsearching.com/Web/Userfiles/File/ConceptSearchingTaxonomyLibrary.pdf
+
+  9.  Product information within both paragraphs on Cogito Taxonomy Studio is partially from Bryan Bell (executive vice president, Expert System USA), email to author, October 26, 2015.
+
+10.  Alice Redmond-Neal (chief taxonomist, Access Innovations, Inc.), email to author, July 20, 2009, and Margie Hlava (president of Access Innovations, Inc.), email to author, July 21, 2009.
+
+11.  François Thibault (international sales director, Mondeca), email to author, October 21, 2015.
+
+12.  Open Text: Open Text Content Analytics Data Sheet, accessed December 20, 2015, www.opentext.com/file_source/OpenText/en_US/PDF/open-text-content-analytics-product-sheet.pdf and Martin Brousseau (product manager at OpenText), email to author, October 2, 2015.
+
+

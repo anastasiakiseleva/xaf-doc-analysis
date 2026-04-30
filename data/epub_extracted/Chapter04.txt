@@ -1,0 +1,985 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 4
+
+Creating Relationships
+
+A day without taxonomies is not found.
+
+—Jared Spool
+
+What makes a taxonomy more useful than a mere term list or glossary is the presence of relationships between its terms. Relationships between pairs of terms are bidirectional (reciprocal). Broadly speaking there are three kinds of relationships:
+
+
+       1.  Equivalence: between preferred and nonpreferred terms
+
+       2.  Hierarchical: between broader and narrower terms
+
+       3.  Associative: between related terms
+
+
+
+The most basic controlled vocabularies and authority files have at least the equivalence relationship. Classification and categorization schemes, thesauri, and nearly all taxonomies have hierarchical relationships and usually (but not necessarily) associative relationships as well. Thesauri, ontologies, and semantic networks additionally have associative relationships. Thesauri have all three kinds, but ontologies may lack the equivalence relationship. In fact, the kinds of relationships in a given knowledge organization system are often the defining feature. (Decisions regarding which kinds of relationships to include and what kind of knowledge organization system to have are covered in Chapter 10.) Even if you have decided that your taxonomy will include all three kinds of relationships, it is not required that every single term have all three kinds. Each individual relationship should provide some value or purpose. Although hierarchical taxonomies have hierarchical relationships for all terms, a thesaurus might not. It is unusual, however, for a term in a taxonomy or thesaurus to have no relationships to other terms. Such a term is called an orphan. An individual taxonomy’s policy may specify whether orphan terms are permitted.
+
+Relationship types are often denoted by labels, with their corresponding abbreviations or codes, between pairs of terms or preceding the various related terms for a selected term. The following is a list of the most common such labels, although you may choose a different designation in each case:
+
+
+       •  Equivalence: USE/UF (use/use[d] for)
+
+       •  Hierarchical: BT/NT (broader term/narrower term)
+
+       •  Associative: RT (related term)
+
+
+
+All relationships are reciprocal, meaning that they function in both directions between a pair of terms. For example, Term A has a relationship with Term B, and Term B has a relationship with Term A. Depending on the relationship type, the relationships may or may not be identical in both directions. If the relationship is not identical in both directions, it is asymmetrical. The equivalence and hierarchical relationship types are asymmetrical. If the relationship is the same in both directions, it is symmetrical. The default associative relationship type is symmetrical.
+
+Equivalence Relationships and Nonpreferred Terms
+
+An important feature of controlled vocabularies, except for those that are small enough to browse through on a single page, is to have synonymous or equivalent nonpreferred terms pointing, as a kind of cross-reference relationship, to the desired preferred terms. These guide the searcher, either visibly or invisibly, to the preferred term that is linked to the content. The equivalent nonpreferred terms also support the indexing, whether manual or automatic.
+
+As we have seen in the previous chapter, concepts and preferred terms may have various designations. Not surprisingly, the same is true of nonpreferred terms. You do not have to call them nonpreferred terms but can take your pick from the following list:
+
+
+               Aliases
+
+               Alternate labels
+
+               Alternate terms
+
+               Altlabels
+
+               Entry terms
+
+               Equivalent terms
+
+               Lead-in terms
+
+               Nondescriptors
+
+               Nonpostable terms
+
+               Nonpreferred terms
+
+               NPT
+
+               See references
+
+               Use for terms
+
+               Use references
+
+               Used for terms
+
+               Variant terms
+
+               Variants
+
+
+
+Additionally, you might run across the following designations for nonpreferred terms, but you should avoid using them due to ambiguity:
+
+
+       •  Synonyms. However, nonpreferred terms are not just synonyms.
+
+       •  Keywords. However, a keyword can also mean a significant term used for indexing or searching that is not in the taxonomy.
+
+       •  Cross-references. However, cross-references can mean either See references or See also references, the latter being an associative relationship rather than a nonpreferred term.
+
+
+
+“Alternate label” is the designation used in the SKOS guidelines of the World Wide Web Consortium for vocabularies for the Semantic Web (explained in more detail in later chapters). As SKOS is becoming a more common model in newer taxonomy management systems, the designation alternate label is seen more.
+
+When it comes to the style and format of nonpreferred terms, you have more freedom than when creating preferred terms. After all, there is no need to maintain consistency in style, as you are trying to anticipate all the possible formats of terms that users might possibly search for or enter.
+
+The Equivalence Relationship
+
+When compiling nonpreferred terms that refer to a preferred term, it may not seem as though you are creating a relationship, because a preferred term and a nonpreferred term do not have the same standing in the controlled vocabulary. In fact, it might have been perfectly logical to address nonpreferred terms in Chapter 3. However, thesaurus standards describe equivalence as a kind of relationship, thesaurus management software handles nonpreferred terms as relationship types, and thesauri usually display them as relationship types. Other vocabulary or ontology management software that is not specifically for thesauri, especially that which is SKOS based, would not treat equivalence as a relationship. Such software manages vocabulary as concepts rather than having a set of terms that can be either preferred or nonpreferred. It is important, though, to understand the thesaurus approach.
+
+The notion of equivalence does not imply that the terms have to be equal or that they are synonyms. First, it is the concepts, not the terms themselves, that are equivalent. Second, the two terms merely need to be sufficiently similar with respect to the content being indexed that trying to maintain them as distinct terms would lead to too much redundancy, ambiguity, and confusion, and thus for the purpose of indexing the content, they should be treated as the same.
+
+The equivalence relationship between a preferred term and a nonpreferred term is asymmetrical. Thus, a different label for the relationship is used depending on the direction. A nonpreferred term instructs the indexer or searcher to use a preferred term, whereas a preferred term is used for a nonpreferred term. The expression of the relationship is “nonpreferred term use preferred term,” and the reciprocal is “preferred term use(d) for nonpreferred term.” (There is no difference between use for and used for.) In standard thesaurus notation, the relationship is represented by USE/UF. For example, see the following:
+
+
+
+
+
+
+
+               inundations
+
+floods
+
+
+
+
+USE floods
+
+UF inundations
+
+
+
+
+As the taxonomist, you may choose to use a different name for your equivalence relationship, such as see and seen from, if that makes more sense to your users.
+
+Typically, multiple nonpreferred terms refer to a single preferred term. In other words, a preferred term may have multiple nonpreferred terms, as in the following example:
+
+
+               Oil and gas industry
+
+UF Oil and gas industries
+
+UF Oil companies
+
+UF Oil industry
+
+UF Oil producers
+
+UF Petroleum companies
+
+UF Petroleum industry
+
+UF Petroleum sector
+
+
+
+In the other direction, each nonpreferred term typically refers to only a single preferred term; that is, there are no multiple use references. However, this is not always the case. Some thesauri permit a one-to-many use reference, whereby a nonpreferred term may refer to two (but no more) preferred terms under certain conditions. Typically in this situation, the nonpreferred term would be a precoordinated type of term, and the two preferred terms would be the constituent terms coming from breaking apart this precoordinated term. Both preferred terms must be used in combination, in both indexing and in searching, to achieve the desired results. In other words, there is an implied AND, not OR, combination of the two preferred terms. For example, see the following:
+
+
+               folk drama
+
+USE drama AND folk culture
+
+
+
+To convey the concept of folk drama, the indexer must assign both the term drama and the term folk culture to the document, and to properly retrieve documents on folk drama, the searcher must enter both the terms drama and folk culture. This multiple use relationship is often known as used for and or used for plus. It appears only in more structured thesauri, not in simple taxonomies, and the nonpreferred terms must display to both the indexers and the end users. The multiple use relationship occurs in many traditional printed-only thesauri, but not all electronic/database-driven controlled vocabularies support this feature. You might choose to allow for multiple use relationships if you have decided to create a controlled vocabulary with few or no precoordinated terms, or if the content available on a particular precoordinated concept is rather minimal, yet research indicates that users want to search with the precoordinated term.
+
+Types of Nonpreferred Terms
+
+The most typical kind of nonpreferred terms are synonyms, but there are many other types as well. Table 4.1 lists the various kinds of nonpreferred terms and an example of each. (The actual choice of preferred term in most of these sample pairs is arbitrary.)
+
+Near Synonyms
+
+Near synonyms, also called quasi-synonyms, can be tricky, and your choice to use a given nonpreferred term will depend on the scope of the content. In the example in the table, using middle schools for junior high schools (or vice versa) will be fine in most cases, but not for a thesaurus dedicated to the field of education, where the nuanced differences are important. In other cases, two terms may be synonymous only within a limited scope, and if that is the scope of the thesaurus, then there is no problem. The following example of nonpreferred terms may or may not be acceptable depending on the content:
+
+Table 4.1 Types of nonpreferred terms
+
+
+
+
+
+
+
+Type of Nonpreferred Term
+
+Example
+
+
+
+
+synonyms
+
+cars USE automobiles
+
+
+
+
+near-synonyms
+
+junior high schools USE middle schools
+
+
+
+
+variant spellings
+
+defence USE defense
+
+
+
+
+lexical variants
+
+hair loss USE baldness
+
+
+
+
+foreign language terms
+
+Luftwaffe USE German Air Force
+
+
+
+
+acronyms/spelled out forms
+
+UN USE United Nations
+
+
+
+
+scientific/technical names
+
+neoplasms USE cancer
+
+
+
+
+phrase variations
+
+buses, school USE school buses
+
+
+
+
+antonyms
+
+misbehavior USE behavior
+
+
+
+
+narrower terms
+
+hand drills USE hand tools
+
+
+
+
+
+               aviation
+
+UF flight
+
+UF flying
+
+
+
+The terms flight and flying are acceptable as equivalent terms for aviation if the content or database is focused on careers, skills, industries, services, engineering, and so on, but they are not acceptable as nonpreferred terms in a broader, general-interest database that may contain information on birds. When trying to determine whether a term will work as a nonpreferred term, ask yourself this: Given the scope of the content covered, can the preferred term always be used to mean this nonpreferred term?
+
+Variant Spellings
+
+Spelling variations may include British/US spellings and acceptable variations that you would find in a dictionary. Avoid including incorrect spellings as nonpreferred terms unless they (1) are common, (2) unambiguously have the meaning of the preferred term, and (3) are not displayed to the end user so as not to be confusing. Incorrect spellings as nonpreferred terms are more common for proper nouns.
+
+Foreign Language Terms
+
+Foreign language terms are typically used for native-language names of organizational or corporate entities or for rare cases of foreign words that are sometimes used in English discourse (such as sharia USE Islamic law), if not chosen as the preferred term in the first place. Foreign organizational names are usually nonpreferred terms only in the case of Latin-script-based languages (French or German, for example, but not Russian, Arabic, or Chinese). Otherwise, transliterations would be necessary, and then even more variations would come into play. In a bilingual or multilingual taxonomy, the different language terms are not treated as nonpreferred terms but rather have a specially designated foreign language relationship. Each language’s preferred term then has additional nonpreferred terms in its own respective language.
+
+Acronyms
+
+Acronyms, if used as nonpreferred terms, need to be unambiguous. Therefore, you need to take into consideration the scope of the taxonomy and content. For example, CDs can refer to either compact discs or certificates of deposit, so for a general news/information service, such an acronym should not be used as a nonpreferred term and without some kind of qualifier.
+
+Phrase Inversions
+
+Phrase inversions typically involve putting an adjective after a noun. Only add them if you expect them to display in a browsable alphabetical list to the user, either the end user or the indexer. Otherwise, there is no need for them. Browsable alphabetical (as opposed to hierarchical) displays are more common for indexers than for end users. It is rare for end-use displays to consist of alphabetical lists of terms that are not proper nouns, unless the thesaurus is published in print form.
+
+If phrase inversions are used, they should begin with a word that is likely to be looked up for the concept. They may be an inversion of the preferred term or an inversion of nonpreferred term, such as pants, dress USE trousers (in addition to dress pants USE trousers). Avoid creating phrase inversions as nonpreferred terms for prominent preferred terms that have multiple narrower terms. For example, you should not create industry, computer USE computer industry, since industry is likely a term in the taxonomy with numerous narrower terms. If users choose to look up the word industry first, they will find specific industries listed as narrower terms, which is easier to browse than a list of inverted nonpreferred terms.
+
+Antonyms
+
+Antonyms generally work as nonpreferred terms for concepts that are limited to characteristics or attributes. Examples include the following pairs: rigidity/flexibility, softness/hardness, obedience/disobedience, and literacy/illiteracy.
+
+Narrower Terms
+
+Narrower or more specific terms (discussed in detail in the next section, Hierarchical Relationships) can be acceptable as nonpreferred terms for their corresponding broader preferred terms. The broader term can logically be used for the narrower concept that it includes. This is known as upward posting or generic posting and is done when there is too little content on the narrower subject to justify the term, but there is reason to believe that people will look it up. On the indexing side, if a document discusses a very specific topic for which there is no preferred term in the taxonomy, such as tidal power energy, then the corresponding broader term of alternative energy should be used to index it. On the user search side, narrower terms may be used as nonpreferred terms only if the relationship is displayed so that the user is made aware of the fact, as in tidal power energy USE alternative energy. Otherwise, if a search on tidal power energy retrieved documents on all forms of alternative energy, the majority of which were not about tidal power, the user would end up with many undesired results to sift through and would assume the search was not functioning properly. If the end-user interface does not support the display of nonpreferred terms pointing to preferred terms, it may be possible to designate the nonpreferred term for indexing use only and not for end-user application. Otherwise, you should generally avoid upward posting except in unique circumstances when documented search behavior seems to warrant it.
+
+In any case, if you designate narrower terms as nonpreferred terms, do so with discretion. Often a narrower concept is narrower to more than one broader preferred term, which would result in an unintended used for and or used for plus relationship. Furthermore, many end-user search interfaces will offer the additional option to search by keyword (words or phrases not in the taxonomy, but rather in the titles or texts) anyway. If such keywords were nonpreferred terms to a broader preferred term, then instead of getting the desired results through a keyword search, the user would get a much larger set of results, including many undesired records that match the broader term. Finally, you will want to consider narrower concepts as candidates for preferred terms if sufficient usage over time warrants it. If, however, such narrower terms were labeled as nonpreferred terms, then their frequency in keyword searches may not (easily) be tracked, and it would not be clear whether there was sufficient usage to reclassify a given term as a preferred term.
+
+How Many Nonpreferred Terms to Create
+
+Since each preferred term can have multiple nonpreferred terms, you may wonder how many nonpreferred terms to create for each. Considerations include whether the nonpreferred terms will be used for indexing only or also for end-user retrieval, whether the indexing is by humans or automated, whether the end user can browse the taxonomy or has access to a search box, and whether and how a search system matches entered keywords to taxonomy terms.
+
+Nonpreferred terms may be displayed to the user or may not actually be displayed but function in the background to match a user-entered term to the preferred term. The user can be either the indexer or the end-user/searcher. In a controlled vocabulary that is implemented online, it is common to have the nonpreferred terms visible to the indexer but not to the end user. If there is a desire to educate the user on what the preferred term is, however, then nonpreferred terms, along with their corresponding preferred terms, would be displayed. This is especially common in academic thesauri.
+
+If the taxonomy is small and easily browsable within a single page or through pull-down/drop-down term lists, then nonpreferred terms may not be needed for the user search and may only be implemented on the indexing side (whether human or automated), if at all. This may be the case for term lists in the examples of the Shoebuy.com and the Microbial Life Education Resources sites mentioned in Chapter 1.
+
+If users can input search strings into a search box (instead of or in addition to browsing the taxonomy), more nonpreferred terms are needed because the users cannot see the terms to choose from and must guess what the search terms should be. Keep in mind that whenever a search box exists alongside a browsable taxonomy, a significant number of end users will ignore the taxonomy display and simply use the search box.
+
+Even if the taxonomy is displayed for browsing, the type of display may affect the need for certain nonpreferred terms. Taxonomies that are displayed for end-user browsing may be arranged hierarchically, alphabetically, or both, although alphabetical arrangement is less common. Typically, only the alphabetical arrangements of taxonomies can logically show nonpreferred terms interspersed among the preferred terms; it is simply not practical to intersperse nonpreferred terms within a hierarchical display. If a browsable alphabetical display is the only means of accessing the taxonomy, then you may omit nonpreferred terms that are very close alphabetically with their corresponding preferred terms. This is because the user would find the preferred term in that part of the alphabetical display anyway if searching for the same start of a nonpreferred variant. An example of alphabetically close nonpreferred terms is as follows:
+
+
+               ethnic groups
+
+UF ethnic minorities
+
+UF ethnicities
+
+
+
+In a taxonomy that is displayed alphabetically only, you would not need these two nonpreferred terms, ethnic minorities and ethnicities. If a search box were present, though, the additional nonpreferred terms would be quite useful.
+
+How the search feature within the taxonomy functions is also an important factor in determining the need for types of nonpreferred terms. At the simplest level, taxonomy search can be a word or phrase search to match search strings exactly against taxonomy terms. If a search system was programmed to match user-entered keywords or phrases with taxonomy terms and then to present the user with multiple matching taxonomy terms from which to select, then these keywords or phrases may not be needed as nonpreferred terms. The keywords would need to be somewhat unique, however, to be effective in this way. For example, if the user entered nonverbal learning, the matched term nonverbal learning disorder would be retrieved, which was probably the desired result. However, if the user entered United States, not only would the preferred term United States of America be retrieved, but so would the names of dozens of US federal agencies and companies. In this case, finding the desired term within the list of retrieved terms would be time-consuming. It would be preferable simply to designate United States as a nonpreferred term for United States of America, to take precedence over any partial term phrase matching.
+
+More sophisticated search within the taxonomy utilizes tables, rules, and algorithms so as to retrieve equivalent singular/plural variations, terms with multiple words in them in any order, and possibly grammatical stemming (such as –ing and –ed endings). This is sometimes referred to as “smart search.” If smart search is available, then nonpreferred terms for such variations are not needed. For example, a smart search on the phrase “children’s diseases” will retrieve the taxonomy terms of Diseases in children (a nonpreferred term for Pediatric diseases), so it is not necessary to add “children’s diseases” as an additional nonpreferred term. If you have access to the search feature, it is a good idea to test a smart search of the potential nonpreferred term in the taxonomy if there is any question regarding the need to add it.
+
+If indexing is being done automatically, a greater number of nonpreferred terms might be needed to facilitate automatic matching of appropriate words and phrases in the various texts, depending on the method of automatic indexing used. Chapter 7 covers automated indexing in detail.
+
+Finally, the nature of the end users may affect the need for nonpreferred terms. A narrow, limited, and uniform group of users, such as members of a certain profession, is likely to look up concepts consistently and thus not need many nonpreferred terms. The general public, on the other hand, is very diverse in the ways they think of concepts, so numerous nonpreferred terms are needed in order to serve everyone.
+
+In summary, a greater number of nonpreferred terms are needed in the following circumstances:
+
+
+       •  Users can look up content via a search box.
+
+       •  Taxonomy search is not “smart” and does not employ grammatical stemming.
+
+       •  Automated indexing, which matches terms to words and phrases in text, is involved.
+
+       •  The users are diverse.
+
+
+
+Even for a relatively static taxonomy, the number of nonpreferred terms should be permitted to grow as needed. The taxonomist cannot be expected to fully anticipate all nonpreferred term needs from the beginning.
+
+A final note of caution regarding nonpreferred terms: You should not rely on a dictionary-type thesaurus, such as Roget’s, to suggest equivalent terms. Not only is it limited in that it contains only individual words, not phrases (and only a minority of the words are nouns), but because it serves a very different purpose. It provides all the possible equivalent words for a given entry term, and the appropriateness of any given equivalent would depend on the specific context. Nonpreferred terms, on the other hand, must be equivalent in all circumstances of usage for the preferred term. For example, in Roget’s Thesaurus, a synonym for performer is player. However, players are not always performers, so in a taxonomy, players is not an acceptable nonpreferred term for performers.
+
+Hierarchical Relationships
+
+The presence of hierarchical relationships among terms is what makes a simple controlled vocabulary into what is best known as a taxonomy. Hierarchical relationships indicate subordination among concepts. Subordinate concepts are members, parts, examples, or instances of a broader concept, class, or category. The presence of a hierarchy facilitates the navigation of the taxonomy and the location of a concept or clarifies the scope of a concept in relation to others.
+
+
+
+Figure 4.1 Hierarchical relationship characteristics
+
+The hierarchical relationship, like the equivalence relationship, is asymmetrical, or directional; that is, the relationship is not the same in each direction between a pair of terms. According to the standards for controlled vocabularies, a hierarchical relationship pair consists of a broader term and a narrower term. All members of a narrower term’s category must be contained within the broader term, but a broader term is not limited to containing the members of a single narrower term. Thus, only some members of a broader term constitute the members of a given narrower term. The diagram in Figure 4.1 illustrates this directional relationship.
+
+As the hierarchical relationship is asymmetrical, a different label for the relationship is used depending on the direction. A broader term refers to its narrower term with the label NT, and a narrower term refers to its broader term with the label BT. The expression of the relationships is “broader term NT narrower term” and “narrower term BT broader term.” For example, with the terms fruits and apples, all apples are fruits but only some fruits are apples.
+
+
+
+
+
+
+
+               fruits
+
+               apples
+
+
+
+
+NT apples
+
+BT fruits
+
+
+
+
+The all/some rule for creating hierarchical relationships ensures that a user navigating from a broader term down to a narrower term will find content that is indeed completely within, yet more specific than, the broader term. Similarly, if navigating from a narrower term up to a broader term, the user will find content that includes all of the narrower term and more. The following example of a hierarchical relationship is incorrect:
+
+
+               breakfast dishes
+
+NT egg dishes
+
+
+
+Although egg dishes are most often for breakfast, they are not always for breakfast.
+
+Adhering to the all/some rule also supports inclusive retrieval results of multiple narrower terms. A nested approach to retrieval allows a user to select a term that has narrower terms and retrieve not only content that was indexed with the selected term but also all content that was indexed with each of its narrower terms. This feature, sometimes called recursive retrieval, may or may not be desired in the search interface, and you, as the taxonomist, may not know whether the taxonomy will ever be used this way. However, if you build hierarchical relationships correctly following the all/some rule, then there is no problem if recursive retrieval is implemented. (Recursive retrieval is discussed in more detail in Chapters 8 and 9.)
+
+The designations BT and NT are the most common for the hierarchical relationship, but as the taxonomist, you can choose to use other labels for your hierarchical relationships, such as parent and child, if that makes more sense to your users or system developers. In accordance with the family metaphor, terms that share the same broader term are then called siblings. A child/narrower term in a sense “inherits” the additional broader meaning of its parent/broader terms, and it also may “inherit” certain properties, such as types of descriptive attributes (explained in Chapter 3), category or facet designations (explained in Chapter 8), and administrative and editorial policies.
+
+Types of Hierarchical Relationships
+
+Although determining whether a given concept is subordinate to another is often intuitive, sometimes it is not. To ensure that you create a hierarchical relationship only when appropriate, it helps to understand the different types. According to thesaurus standards, there are three kinds of hierarchical relationships:
+
+
+       1.  Generic–specific
+
+       2.  Instance
+
+       3.  Whole–part
+
+
+
+Generic–specific refers to a category or class and its members or more specific types. You can think of it as expressed by the wording is, a, or are in the following construction: “narrower term is a (kind of) broader term,” or “narrower terms are a (kind of) broader term.” Examples are as follows:
+
+
+
+
+
+
+
+            computers
+NT laptops
+
+Laptops are a kind of computer.
+
+
+
+
+            financial services
+NT investment services
+
+Investment services are a kind of financial service.
+
+
+
+
+            engineers
+NT software engineers
+
+Software engineers are a kind of engineer.
+
+
+
+
+If it is desirable to distinguish between the different types of hierarchical relationships in a taxonomy, the standard notation used here is BTG/NTG, which stands for broader term (generic)/narrower term (generic). Here is an example:
+
+
+
+
+
+
+
+               libraries
+
+               academic libraries
+
+
+
+
+NTG academic libraries
+
+BTG libraries
+
+
+
+
+Instance refers to a unique named entity, a proper noun, which has a narrower term relationship to the class to which it belongs. Instances include named individuals, companies or organizations, brand-name products, specific geographic places, published works, laws, and so on. This relationship is not much different from the generic–specific type and also fits the “is a” phrase construction of “narrower term is a (kind of) broader term” or, more specifically, “narrower term is a specific instance of broader term.” Examples are as follows:
+
+
+
+
+
+
+
+            national parks
+NT Grand Canyon
+
+Grand Canyon is a specific instance of national parks.
+
+
+
+
+            children’s writers
+NT Rowling, J.K.
+
+J. K. Rowling is a specific instance of children’s writers.
+
+
+
+
+            holidays
+NT Thanksgiving
+
+Thanksgiving is a specific instance of holidays.
+
+
+
+
+
+If you are distinguishing between the different types of hierarchical relationships, the standard notation used here is BTI/NTI, which stands for broader term (instance)/narrower term (instance). Here is an example:
+
+
+
+
+
+
+
+               automobiles
+
+               Toyota Corolla
+
+
+
+
+NTI Toyota Corolla
+
+BTI automobiles
+
+
+
+
+In some organizational systems, however, named entities are kept in separate taxonomies or facets, in which case the instance hierarchical relationship cannot be created, as relationships between separate taxonomies may not be supported.
+
+A whole–part relationship refers to something that is not more specific but rather is a part of a whole, where the part is the narrower term and the whole is the broader term. You can test the relationship by constructing a phrase with is within or is a constituent part of: “narrower term is within (the) broader term,” or “narrower term is a constituent part of (the) broader term.” The whole–part type of hierarchical relationship is much less common than the generic–specific type, as it occurs only within systems (including anatomical), organizations, geographic places, or disciplines/fields of study. Other kinds of whole–part relations, such as “nonpermanent placement in” (e.g., automobiles and garages) or “manufactured things” (e.g., automobiles and automotive parts), should be treated as associative and not hierarchical. Examples of whole–part hierarchical relationships are as follows:
+
+
+
+
+
+
+
+            US Congress
+NT US Senate
+
+The US Senate is a part of the U.S. Congress.
+
+
+
+
+            Colorado
+NT Denver
+
+Denver is within Colorado.
+
+
+
+
+            biology
+NT marine biology
+
+Marine biology is a part of biology.
+
+
+
+
+If you are distinguishing between the different types of hierarchical relationships, the standard notation used here is BTP/NTP, which stands for broader term (partitive)/narrower term (partitive). Here is an example:
+
+
+
+
+
+
+
+               digestive system
+
+               stomach
+
+
+
+
+NTP stomach
+
+BTP digestive system
+
+
+
+
+In summary, to decide whether the relationship between a pair of terms is indeed hierarchical and not merely associative, remember to think of the concepts behind the terms, and then try formulating a sentence according to one of the following models:
+
+
+       •  Narrower terms are a (kind of) broader term.
+
+       •  Narrower term is a specific instance of broader terms.
+
+       •  Narrower terms are a constituent part of (the) broader term.
+
+       •  Narrower term is within (the) broader term.
+
+
+
+If any one of these sentences holds true for a term pair in all cases, not merely sometimes or often, then the hierarchical relationship is valid.
+
+Polyhierarchies
+
+Sometimes a term may have more than one broader term. This is called a polyhierarchy, or multiple broader terms (MBT). Polyhierarchies may occur within each type of hierarchical relationship—generic–specific, instance, or whole–part—or may even be a combination of types. An example of a generic–specific polyhierarchy is as follows:
+
+
+               school librarians
+
+BT educators
+
+BT librarians
+
+
+
+An example of a whole–part polyhierarchy is as follows:
+
+
+               Egypt
+
+BT Africa
+
+BT Middle East
+
+
+
+Polyhierarchies can involve terms that are in the same larger hierarchical structure and share the same ultimate parent, as in the case of light trucks in Figure 4.2.
+
+
+
+Figure 4.2 Polyhierarchy for the term light trucks
+
+
+
+Figure 4.3 Polyhierarchy for the term Great Salt Lake
+
+Polyhierarchies can also be based on two different methods of categorization, or in other words, two different hierarchical types. For example, Great Salt Lake is narrower to lakes as an instance and also narrower to Utah in a whole–part hierarchy, as illustrated in Figure 4.3.
+
+When creating a polyhierarchy with two (or more) broader terms, make sure that none of these terms has a direct hierarchical relationship with the other, in which one is the broader term of the other. To use the parent–child metaphor, a term cannot be designated as a narrower term to both a parent term and a grandparent term. For example, the following pair of broader terms would be incorrect:
+
+
+               genetic engineering
+
+BT biotechnology
+
+BT technology
+
+
+
+Technology is already the broader term of biotechnology, so it should not also be an immediate broader term of genetic engineering.
+
+Finally, remember that the all/some rule for hierarchical relationships applies to polyhierarchies. All members of a narrower term must belong within/be a part of each of its broader terms in a polyhierarchy, just as in a simple hierarchy.
+
+Although the published thesaurus standards provide specific guidelines on when to create polyhierarchies, the ultimate determining factors for whether you create polyhierarchies are the user interface design and the technical capabilities of the search/browse software.
+
+Associative Relationships
+
+Associative relationships, also known as related term relationships, are created between terms in a taxonomy to provide the indexer or searcher with useful information. Often a related term associated with the original search term is in fact a better match to the concept that the user was trying to locate. In addition, a list of related terms can be useful information in itself because it outlines the subject area of a concept. Finally, related terms allow a searcher who is merely browsing a subject area to branch out and discover related topics of interest. The associative relationship functions in a similar manner to See also cross-references in a book-style index. Associative relationships are generally not used in simple hierarchical taxonomies, but they are a required feature of standard thesauri. Unlike hierarchical relationships, simple associative relations are symmetrically bidirectional by default. The standard designation of RT (related term) applies in either direction. For example, see the following:
+
+
+
+
+
+
+
+               Cameras
+
+               Photography
+
+
+
+
+RT Photography
+
+RT Cameras
+
+
+
+
+Creating associative relationships is generally more subjective than creating hierarchical relationships. Not everyone shares the same belief as to what constitutes “related,” although differences of opinion usually depend on context. The taxonomist’s task is to determine whether the terms are conceptually related, regardless of the circumstances. Furthermore, rules for creating associative relationships are not as strict as for hierarchical relationships. Associative relationships may exist between terms within the same hierarchy or between terms of different hierarchies.
+
+Associative Relationships across Different Hierarchies
+
+It is more common to create associative term relationships between terms belonging to different hierarchies than between sibling terms. This is because the sibling terms already have an implied similarity relationship by being siblings under the same broader term, and this relationship is usually clear in the display of the hierarchy. Since the purpose of the associative relationship is to inform the indexer/searcher that other terms exist, it is the associative relationship indicating related terms in other hierarchies that is most helpful. A different hierarchy in this case means that the terms do not share a broader (parent) term or a broader term of a broader term (grandparent). Whether they have a shared ultimate top term depends on the structure of the taxonomy. In the example in Figure 4.4, the two terms engineering and engineers are located in different hierarchies but are clearly related.
+
+There are many circumstances when establishing an associative relationship between terms of different hierarchies is desirable. Table 4.2 lists various possibilities. This list is not exhaustive, and taxonomists are free to add other related term types.
+
+An index or a thesaurus that is displayed only in an alphabetical browse, such as in print only, would not designate related terms (or See also cross-references) between terms that lie next to or very near each other in the alphabetical list, such as physics and physicists. However, if the users access the taxonomy via a search box, they would not see such neighboring terms that are obviously related alphabetically. Therefore, in a searchable taxonomy, it is important to create the associative relationship consistently regardless of whether the terms begin with the same letters or words. Even if a browsable display version of the taxonomy exists, whenever a search box is also present, a significant percentage of users will choose to access the taxonomy via the search box rather than take advantage of the alphabetical browse.
+
+
+
+Figure 4.4 Associative relationship between terms in different hierarchies
+
+Table 4.2 Types of associative relationships
+
+
+
+
+
+
+
+Process and agent
+
+Research RT Researchers
+Researchers RT Research
+
+
+
+
+Process and counter-agent
+
+Infections RT Antibiotics
+Antibiotics RT Infections
+
+
+
+
+Action and property
+
+Environmental cleanup RT Pollution
+Pollution RT Environmental cleanup
+
+
+
+
+Action and product
+
+Programming RT Software
+Software RT Programming
+
+
+
+
+Action and target/patient
+
+Auto repair RT Automobiles
+Automobiles RT Auto repair
+
+
+
+
+Cause and effect
+
+Hurricanes RT Coastal flooding
+Coastal flooding RT Hurricanes
+
+
+
+
+Object and property
+
+Plastics RT Elasticity
+Elasticity RT Plastics
+
+
+
+
+Object and origins
+
+Petroleum RT Oil wells
+Oil wells RT Petroleum
+
+
+
+
+Raw material and product
+
+Timber RT Wood products
+Wood products RT Timber
+
+
+
+
+Discipline and practitioner
+
+Physics RT Physicists
+Physicists RT Physics
+
+
+
+
+Discipline and object/phenomenon
+
+Meteorology RT Weather
+Weather RT Meteorology
+
+
+
+
+Part and whole (which are not
+systems, geographic places, etc.)
+
+Office furniture RT Offices
+Offices RT Office furniture
+
+
+
+
+Associative Relationships Within the Same Hierarchy
+
+The associative relationship can be created between two terms that share the same broader term (known as siblings) and also have overlapping meaning or usage. In fact, according to thesaurus standards, the associative link is required under these circumstances. In the example in Figure 4.5, the two terms local taxes and property taxes both share the same broader term, taxes, so they are considered sibling terms to each other. They also both have overlapping meaning (inasmuch as local taxes are largely property taxes, and most property taxes are local).
+
+Other examples of sibling terms with overlapping meaning that should have the associative relationship between them are as follows:
+
+
+               children’s books RT picture books
+
+               Middle East RT North Africa
+
+               communications industry RT media industry
+
+
+
+For simplification and to avoid ambiguity, remember that in controlled vocabularies it might be preferable to combine concepts with overlapping meanings to create a single term. You may even have the word and within the term, such as communications and media industry. In general, it is better to avoid having pairs of terms for concepts if their meaning overlaps too greatly.
+
+
+
+Figure 4.5 Associative relationship between sibling terms with overlapping meaning
+
+
+
+Figure 4.6 No associative relationship between sibling terms with no overlapping meaning
+
+If sibling terms do not have overlapping meaning (i.e., they are mutually exclusive), then the associative relationship is not required nor expected. It is not incorrect, according to standards, to have all sibling terms related, but since it is not necessary, in this case you should avoid creating such a relationship. Besides being a waste of the taxonomist’s time, it creates needless information, which gets in the way of efficient thesaurus browsing. In the example in Figure 4.6, the two sibling terms radios and TV sets need not have an associated relationship created between them.
+
+How Many Associative Relationships to Create
+
+The extent to which you create associative relationships is, to a certain degree, a judgment call. It requires a keen sense of what would aid the user. Ask yourself if the searcher (or indexer) would get helpful information from a reminder that a particular term has a link to another term in the same general concept area. Keep in mind that the relationship needs to be close to being useful.
+
+As with hierarchical relationships, you should create associative relationships between a term and its nearest relationships but not also to broader terms or narrower terms of those related terms. For example, suppose you have in a thesaurus the following two sets of terms and relationships:
+
+
+               computers
+
+               RT computer peripherals
+
+
+
+               computer peripherals
+
+               NT keyboards
+
+               NT monitors
+
+               NT printers
+
+You should then not also have the following:
+
+
+               computers RT keyboards
+
+               computers RT monitors
+
+               computers RT printers
+
+
+
+Similarly, you should not create associative relationships between all the related terms of a related term. For example, you may have engineers RT engineering and engineering RT CAE software, but you should not also have engineers RT CAE software. Of course, selected related terms of related terms may be related to each other, if appropriate. Unlike hierarchical relationships, a close circle or web of related terms is acceptable, as in the following example:
+
+
+               Germany
+
+RT Germans
+
+RT German language
+
+
+
+               Germans
+
+RT German language
+
+RT Germany
+
+
+               German language
+
+RT Germans
+
+RT Germany
+
+
+
+If you are unsure whether two terms are closely enough related to have an RT relationship, ask yourself, “Would most of the people looking up the first term also be interested in information on the second term most of the time?” The answer should not be “only some people some of the time.” For example, Germany RT World War II is not appropriate, despite an obviously close tie. Most people looking up Germany would be interested in issues other than World War II. The decision may depend on the scope of the content covered by the taxonomy, however. It might be acceptable to have an associative relationship between Germany and World War II in a specialized history resource.
+
+Simple hierarchical taxonomies, especially those that are relatively small, may not have any associative relationships at all. However, creating just a few associative relationships is never a good compromise. A taxonomy should have either fully developed associative relationships or none at all—it should not go partway. It would be confusing or misleading to the user to find related terms only sporadically. The application of associative relationships should be logical and consistent for all types of terms.
+
+Hierarchical/Associative Ambiguities
+
+Despite the detailed nature of the taxonomy standards in distinguishing between hierarchical and associative relationships, there are still some gray areas, which various taxonomies may handle differently.
+
+One area of ambiguity is the relationship between companies and their industries. While the generic–specific hierarchy is clear within industry groupings, opinions differ over whether to treat companies as instances of an industry. If you use the “is a” wording test, then a company is not an industry. For example, it is not correct to say, “Ford is an automobile industry.” However, if the industry were named differently, then companies could be instances. For example, if the automobile industry were called automobile companies or automobile manufacturers, then the companies would be valid instances of such broader terms. Thus, if you want to display companies as instances of industries in your taxonomy, it would be better to name your industries with words ending in companies, manufacturers, producers, providers, or the like so that the relationships appear logical to the users. Otherwise, the relationship is associative.
+
+A similar questionable area is whether members constitute narrower terms of the organization to which they are affiliated, as a whole–part relationship, since one can argue that the members are part of an organization. However, according to the ANSI/NISO Z39.19 guidelines, a whole–part hierarchical relationship exists when “one concept is inherently included in another, regardless of the context.”1 Applying this standard, it is clear that such a relationship is not hierarchical but rather associative, because membership status can change. If it is important to your taxonomy display to designate members as narrower terms to an organizational affiliation, you could do this through the instance rather than the whole–part relationship, provided that you use appropriate wording for the broader term organization. For example, instead of the organization OPEC having a narrower term relationship with its country members, which would be incorrect, you could use OPEC countries or OPEC members as the broader term, and then its member countries would be correctly linked as narrower terms. Needless to say, you probably do not want both terms—OPEC and OPEC countries—in your taxonomy, and maintaining both could be complex and confusing. So in most cases, the associative relationship is preferable for member–organization relationships.
+
+Ambiguity can also occur when it is not clear whether terms of an apparently whole–part relationship are indeed within a “system.” To qualify as a whole–part hierarchical relationship, the narrower term must be a constituent part of a broader term that comprises a system, which can be anatomical, administrative, political, or corporate. Whole–part constructions that are put together and can be taken apart again, such as office furniture and offices or soccer goals and soccer fields, are not hierarchical but associative. Since one may remove furniture from an office or soccer goals from a field, the inclusion is not inherent regardless of the context. Manufactured systems, however, can be more difficult to discern. A good example would be automobile engines and automobiles. Some taxonomists will consider such a relationship to be hierarchical while others will consider it associative. In fact, the relationship depends on the context. If your content is an automobile user’s manual, then the whole–part hierarchical relationship might be acceptable because the user of an automobile considers its parts to be a system. If, on the other hand, your content covers the automobile manufacturing industry, in which different automotive components are manufactured by different companies in different facilities and locations, then the relationship between automobiles and any automotive parts, including automobile engines, should be associative.
+
+In all these ambiguous cases, the existence of more specific, semantic relationships would eliminate the ambiguity.
+
+Semantic Variations for Relationships
+
+You might wish to customize the relationships between certain terms by including more meaning than simply related or broader/narrower. Semantic refers to meaning, so more complex, customized relationships that have added meaning are often called semantic relationships. Commercial taxonomy/thesaurus software provides the ability to designate your own customized relationships to varying degrees. Although semantic relationships alone do not make an ontology, they are one of the key features that distinguish ontologies from other taxonomies.
+
+Creating customized relationships in a taxonomy can result in an enhanced user experience. Semantic relationships between terms allow the user to access content in more ways, rather than just drilling down through a hierarchical tree or jumping across to related terms. If semantic relationships are implemented in a relational database, users can explore how different categories relate to each other and then access the desired content. For example, a movie database with semantic relationships among various types of terms (genres, themes, actors, producers, production companies, directors, countries, years, etc.) allows the user to obtain more customized retrieval results. These may include lists of actors who performed in certain genres in given years and countries, countries where certain subjects were the theme of movies in certain years, or production companies for which a given actor worked.
+
+Even when you designate your own relationships, you should still base each one on a standard type: equivalent, hierarchical, or associative. Doing this will ensure that the relationships comply with standards and thus are logical. Additionally, most taxonomy software systems distinguish among the three different relationship types in their display, regardless of how you might customize the relationship names. Thus, for example, when generating a hierarchical display, the software knows to include relationships that are fundamentally hierarchical. Terms in a hierarchical relationship may branch out in a tree display. Therefore, most thesaurus software that supports semantic relationships requires that you choose a basic relationship type (equivalent, hierarchical, or associative) for any custom relationship.
+
+When you define your own relationship types, they will still be reciprocal between the members of a pair of terms, that is, they will function in both directions. Users may approach the relationship from either term in a pair, and they need to link from one term to the other. Any customized semantic relationship is not, however, symmetrical. The only symmetrical relationship that exists is the generic associative type: the related term (RT). Customized relationships are inherently asymmetrical, or directional, as a consequence of the richer meaning they contain. You can compare this with relationships between people. For example, a generic associative relationship that is symmetrical is as follows: “Tom is related to David,” and “David is related to Tom.” A semantic version of this relationship might be as follows: “Tom is the uncle of David,” and “David is the nephew of Tom.” This relationship designation is not identical in both directions. Thus, when you create a new kind of semantic relationship, you need to give distinct names and abbreviation codes to the relationship in both directions.
+
+When designating your own relationships, they need to be specific enough to convey the desired meaning but not so specific as to be restrictive. Remember, the relationship needs to apply to multiple term pairings, not just a single pair. You also want to limit the set of relationships so that you or other people editing the controlled vocabulary can easily keep track of what the relationship choices are and not overlook any when creating relationships between terms. Two or three kinds of relationships based on each of the RT and BT/NT types, for a total of four to six, are often sufficient, although complex databases use more.
+
+Hierarchical Semantic Relationships
+
+The following are sample variations based on the hierarchical (BT/NT) relationship. There is nothing standard about them; the all-caps codes are merely examples of relationship labels that have been created by taxonomists. Some are more general (closely following the standard variations of hierarchical types of relationships), and some are more specific.
+
+
+Based on whole–part geographic:
+Located in (LOC)/Contains Location (CONT)
+
+               Empire State Building LOC New York, NY
+
+               New York, NY CONT Empire State Building
+
+
+
+Based on whole–part organizational:
+Has parent organization (PAR)/Has suborganization (SUB)
+
+               Internal Revenue Service PAR Dept. of the Treasury
+
+               Dept. of the Treasury SUB Internal Revenue Service
+
+
+Based on instance:
+Is of the profession (PROF)/Has individuals (IND)
+
+               Smith, Joe PROF biomedical engineers
+
+               biomedical engineers IND Smith, Joe
+
+
+
+Associative Semantic Relationships
+
+Given the opportunity to customize relationships, you are more likely to customize associative relationships than hierarchical relationships. This is because there are so many kinds of associative relationships, such as those illustrated in Table 4.2. The following are sample variations based on the associative (RT) relationship. Again, there is nothing standard about them. The type and specificity of the relationship depend on the scope of the content indexed or tagged with the controlled vocabulary.
+
+
+               Produces the product (PRD)/Is manufactured by the company (COM)
+
+               Apple Inc. PRD iPod
+
+               iPod COM Apple Inc.
+
+
+
+               Has member affiliation with (AFF)/Has members (MEM)
+
+               Saudi Arabia AFF OPEC
+
+               OPEC MEM Saudi Arabia
+
+
+               For treating (TRE)/Can be treated with the drug (DRUG)
+
+               ACE inhibitors TRE hypertension
+
+               hypertension DRUG ACE inhibitors
+
+
+
+               Has patent (PAT)/Invented by (INV)
+
+               Smith, Joe PAT Patent #7,501,419
+
+               Patent #7,501,419 INV Smith, Joe
+
+You may designate any code abbreviation you wish, as long as it is unique to the taxonomy. When creating the relationship names and their abbreviation codes, you should make them logical with respect to the type of term that follows the code in the expression, that is, the direction of the relationship “from–to.”
+
+The relationship names and codes will be visible to the taxonomists, indexers, and systems administrators but not necessarily to the end users. Semantic relationships can link various types of data in ways that are not obvious to the end user, functioning “under the hood.” If the semantic relationships do in fact display to the end user, they should be designated by their full relationship names and not just the codes. Relationship names that will be displayed to the end users should be carefully chosen to be simple yet unambiguous, to make navigating the taxonomy as easy and user friendly as possible.
+
+Semantic Equivalence Relationships
+
+There are various situations in which you may want to distinguish between different kinds of nonpreferred terms. For example, you may want certain nonpreferred terms to display to the user and other nonpreferred terms (such as incorrect or misspelled terms) not to display. Thus, in addition to USE and UF, you might have something such as COR (Correct term) and CORF (Correct for), as in the following example.
+
+
+Millenium COR Millennium
+
+Millennium CORF Millenium
+
+
+
+All the various equivalence relationships function as nonpreferred terms, but only those you designate with the standard USE will display, and those with COR will not display.
+
+In these cases, a different relationship name allows you to manage the nonpreferred terms so that they are implemented only where and when appropriate. You might designate common abbreviations or acronyms this way, especially if the user can also search specifically by abbreviation or acronym. This can reduce ambiguity, especially for two-letter abbreviations, such as for states. Such standardized variants are also common in scientific fields. You might also use semantic equivalence relationships to give slang or jargon terms a designated status because this kind of nonpreferred term might be used only for certain audiences or in certain geographic regions or may change over time.
+
+Sometimes specific kinds of nonpreferred terms are maintained for administrative purposes. Examples include a former or obsolete name for a term or the term name used by a third-party vendor or content provider’s taxonomy. You might also want to have a nonpreferred term function on the indexing side but not on the end-user search side. As explained previously, a narrow concept can always be used as a nonpreferred term for its corresponding broader concept from the point of view of indexing, for it is logical to retrieve a document on a specific topic under the term for a slightly broader concept. However, it can be problematic on the search side to have a narrow concept function as a nonpreferred term, because a user who searches for a specific topic using the nonpreferred term would not be pleased to retrieve documents on other topics that merely share the same broader concept. You can solve this problem by designating a specific type of equivalence relationship that only operates on the indexing side. You could call it USE-I and UF-I, where I stands for indexing, and instruct the programmers to implement it only on the indexing side.
+
+The SKOS framework for vocabularies for the semantic web specifies two kinds of nonpreferred terms by default: alternative labels and hidden labels. So if you use SKOS-based thesaurus management software and you need no more than two different types of nonpreferred terms, then the default will suffice, and there is no need to create additional semantic equivalence relationships. Furthermore, the SKOS framework does not manage nonpreferred terms as relationships,2 so SKOS-based software may not even permit the creation of additional semantic equivalence relationships, rather only semantic hierarchical and associative relationships.
+
+Endnotes
+
+  1.  National Institute of Standards Organization, ANSI/NISO Z39.19-2005 (R2010) Guidelines for Construction, Format, and Management of Monolingual Controlled Vocabularies (Bethesda, MD: NISO Press, 2010), Section 8.3.3, page 49, accessed December 20, 2015, www.niso.org/apps/group_public/download.php/12591/z39-19-2005r2010.pdf
+
+  2.  “Correspondence between ISO 25964 and SKOS/SKOS-XL Models,” ISO TC46/SC9/WG8 working group for the ISO 25964 standard about Thesauri, December 11, 2013, accessed October 25, 2015, www.niso.org/schemas/iso25964/correspondencesSKOS
+
+

@@ -1,0 +1,612 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 8
+
+Taxonomy Structures
+
+Taxonomies: find, organise, discover.
+
+—Patrick Lambe
+
+We have discussed the importance of well-designed terms and relationships, as well as considerations in human and automated indexing, but a taxonomy usually involves structure as well. After all, the technical designation for a taxonomy or controlled vocabulary is knowledge organization system. If taxonomies are to organize knowledge, then they must be organized themselves. This chapter looks at structure via hierarchies, facets, and categories. These different methods of organizing and structuring a taxonomy are not mutually exclusive and may overlap. Chapter 9 addresses the impact of taxonomy structure, including both hierarchies and facets, on the display of the taxonomy.
+
+Hierarchies
+
+Hierarchies, also known as tree structures, are the extension of broader term/narrower term relationships to include every term within a controlled vocabulary. They are the defining feature of hierarchical taxonomies. The emphasis of a hierarchy is on categorization, classification, or sorting. They are created—and used—largely from the top down.
+
+Hierarchies were originally developed to classify things—plants, animals, tools, products, books, or other creative works—but are increasingly used now to organize concepts or topics as well. Examples of hierarchies for classifying things include the following:
+
+
+       •  Linnaean taxonomy for classification of living organisms
+
+       •  Dewey Decimal Classification for books
+
+       •  SIC or NAICS codes for businesses and industries
+
+       •  Open Directory Project (www.dmoz.org) for websites
+
+
+
+When classifying physical things, which can go into only one place, such as books on a shelf or an object in a museum, each taxonomy term can have only one broader term. However, most modern taxonomies exist in electronic form, and so do the items to which they refer, such as websites or digital media. Therefore, a concept can virtually exist in more than one place in the hierarchy. In other words, a term can have more than one broader term; this is called a polyhierarchy. However, even if a taxonomy supports polyhierarchies, they should be created with discretion. There still needs to be an overarching general structure that is logical and easy to use; too many polyhierarchies could become confusing. Designing a clear hierarchical structure takes more than just knowledge of the subject area, as there is often more than one way to create a hierarchy.
+
+Certain subject areas lend themselves more easily to hierarchies than others. Those areas that already have a natural, intuitive, or standard classification scheme are good candidates for hierarchical arrangements of terms. Examples include geographic places, organizational or governmental department structures, industries/products, academic disciplines, scientific/natural objects, and chemicals. Subject areas that are more challenging to arrange into tree-type hierarchies include methods and activities, current events, and any broad area of knowledge.
+
+Arrangements of Hierarchies
+
+Even a “logical” hierarchy may not be as easy to create as first anticipated. When alternatives for classification exist, you first face the decision of how to design a categorization structure. Industries, for example, can be organized by a standard classification system, such as SIC or NAICS codes, or alternatively by vertical market sector, such as information technology (hardware, software, and services), healthcare, transportation, and media. A similar decision would be whether to organize products by material and manufacturing technology (metal products, glass products, plastic products, etc.) or by end use (office products, kitchen products, giftware, toys, etc.). In other areas, terms for organizations can be grouped differently, such as by their objectives (charitable work, political action, educational outreach) or by political or religious affiliation. Government agencies can be categorized by type or by state/country affiliation. Finally, places, which initially may seem perfectly simple to classify, can be organized either by geospatial location on the globe or by type of place (country, city, body of water, etc.). Figure 8.1 illustrates these two different ways to classify places.
+
+Factors to Consider
+
+In determining the arrangement of the hierarchy for your taxonomy, you need to consider user requirements and expectations.
+
+
+
+Figure 8.1 Two different methods of displaying a geographic hierarchy
+
+Ask yourself this: Based on their background and perspective, how would the majority of the users most likely classify the subject matter? For products, classification by end use makes most sense for users who are consumers, whereas classification by material type is more appropriate for wholesalers. For organizing national and international government agencies, a US-centric taxonomy structure would be appropriate for US federal employees but not for international users. For scientific or technical subject areas, while a “correct” hierarchy may exist, if users are not knowledgeable about the subject, then they will not know under which broader term to find desired narrower terms. For example, a classification of world languages based on language families (Indo-European languages, Ural-Altaic languages, etc.) makes sense if your users are scholars, but for the general public or younger students, classification by world region (European languages, Asian languages, etc.) might make more sense. User testing, if you have access to it, is ideal for supporting this kind of decision making. Having users participate in card-sorting exercises, described further in Chapter 10, can reveal valuable information about how your users prefer to categorize concepts.
+
+In designing hierarchies, additional factors to consider include the following:
+
+
+       •  Support of polyhierarchies: If the policy prohibits polyhierarchies, then input from stakeholders and user studies are even more critical in helping you decide how to arrange the hierarchies.
+
+       •  Permissibility of node labels: If node labels (category designations, not linked to content, described later) are allowed, you will have greater flexibility to design truly accurate hierarchies.
+
+       •  Retrieval inclusive of all narrower terms (also called recursive): If searching can automatically retrieve all content linked to a term’s narrower terms, you should be extra careful that the hierarchies function as expected.
+
+
+
+Named Entities in Hierarchies
+
+A more specific issue in designing hierarchies is deciding at what level to relate corresponding named entity terms, if at all. A hierarchical taxonomy comprises primarily generic–specific hierarchical relationships, but instance relationships could be included within it. Sometimes named entities are in a completely separate list, an authority file (as discussed later in the section “Multiple Vocabularies and Categories”). Even if named entities are maintained separately, there still could be hierarchical relationships created between these entities and their corresponding generic terms. You then need to decide at what level within the generic hierarchy to create the relationships to the entity instances. Creating relationships from the most specific (lowest hierarchy level) generic term to named entity instances may seem to be the most logical policy, but it is not always best from the end-user perspective. Users might not know or expect to have to go so deep into the hierarchy to find named entities. Furthermore, entity relationships could change over time, requiring greater attention to maintenance.
+
+In the following example, a generic-specific hierarchy of political occupations has instance relationship to named entities of individual people. As the taxonomist, you may choose to create the entity instance relationships to the most specific terms of presidents and prime ministers, or you may choose to relate all these named entities at one level higher to heads of state & government.
+
+
+
+
+
+
+
+               Heads of state & government
+
+               ← names of all kinds of heads of state & government linked here, or
+
+
+
+
+               —Presidents
+
+               ← names of presidents linked here
+
+
+
+
+               —Prime ministers
+
+               ← names of prime ministers linked here
+
+
+
+
+The reason to consider relating the names of individuals to the slightly broader heads of state & government instead of to one or the other of its narrower terms is that users might not know whether the head of state in a particular country is a president or a prime minister. It would be more convenient for these users to have a single alphabetical list for all. On the other hand, if the hierarchy belongs to the library of an educational institution, there may be an added objective to educate the student users as to the most complete and correct information. Another issue to consider is whether there are entities that do not neatly fall into a most specific generic term category (e.g., Vladimir Putin, whose title has switched between president and prime minister), in which case moving the entities up a level would be better.
+
+Depth and Breadth of Hierarchies
+
+Related to the issue of how to design the classification structure are decisions regarding the depth and breadth of each hierarchical level. For a taxonomy on a website, a popular rule of thumb is to go only three levels deep and have only six to eight concepts per level. These numbers are based on website user-experience design guidelines and practice,1 which suggest that users have the patience to click down only to a third level and can scan only six to eight term entries at once. These conventions make sense for a small taxonomy displayed as a web navigation menu, where the space is confined to a strip along the top or a margin along the side. In reality, though, a taxonomy may have hundreds or thousands of preferred terms. Therefore, for a hierarchical taxonomy, you often need to consider how best to balance the number of levels (depth) and number of terms per level (breadth).
+
+There are no hard rules on how to structure hierarchies. The following pair of examples shows how industry names could be placed in a deep hierarchy of many levels, which is what is done with NAICS industry codes, or in a flat alphabetical list, which in this case comes from the professional networking site LinkedIn.
+
+
+
+
+
+
+
+NAICS (deep hierarchy)
+
+LinkedIn.com (flat list)
+
+
+
+
+Industries
+
+Industry
+
+
+
+
+  - Transportation services
+
+  - Accounting
+
+
+
+
+  -- Air transportation
+
+  - Airlines/Aviation
+
+
+
+
+  --- Scheduled air transportation services
+
+  - Alternative Dispute Resolution
+
+
+
+
+  ---- Scheduled air freight transportation services etc.
+
+  - Alternative Medicine etc.
+
+
+
+
+Factors to Consider
+
+Factors that may influence your decisions on the depth and breadth of a hierarchy include user expectations, the need to maintain consistency, and user interface design. The first consideration is the nature of the content and the users’ needs and expectations. If the content for the taxonomy is scholarly or scientific or if the users are researchers or students, the users will expect many levels. A consumer- or news-oriented service, on the other hand, accessed by the public, would likely have fewer levels but a greater number of top-level terms and terms at each level. Areas that users understand as naturally hierarchical, such as industries/product types and geographic places, can support more levels of depth than subjects that are less intuitively hierarchical, such as business management topics.
+
+Another issue to keep in mind is that, inevitably, the greater the number of levels, the less consistency there will be across levels.
+
+This may or may not be important. If users are experts in the subject area or are using the taxonomy frequently, providing accurate terms is more important than providing a uniform-looking hierarchy. If, on the other hand, users are from the general public and are likely to be new to the taxonomy, then a logically organized taxonomy with a relatively consistent number of levels and consistent degree of specificity at each level would be desirable.
+
+The user interface display, with its vertical or horizontal space limitations, also has an impact on hierarchy design decisions. Therefore, it is advantageous to know in advance what the interface will look like. If each level will display in a separate webpage, then as many terms as can fit onto one page in two or three columns without scrolling could work nicely. Such long lists of terms at the same level, however, may be difficult for the user to skim quickly and are more appropriate for alphabetized lists of proper nouns. If the taxonomy will display as an expandable tree in which sublevels appear, such as by clicking on a plus sign, then more than three levels is fine, but the number of terms per level ought not extend beyond a single-page length in a single column, because the position in the hierarchy cannot be seen. Finally, if the taxonomy will be implemented in facets (described later), then deep hierarchies are less likely to be needed or desirable. From the taxonomist’s perspective, ideally the taxonomy design should dictate the user interface design, not vice versa. Often, however, a product development team designs the user interface without giving consideration to content and prior to creation of the taxonomy, and the taxonomist needs to adapt.
+
+All, General, and Other
+
+In certain areas, thesauri and full hierarchical taxonomies, by their nature, affect indexing and searching differently. One such area is the indexing and retrieval of all, general, and other topics pertaining to a taxonomy term that also has narrower terms.
+
+“All” Uses of a Broader Term
+
+Because a hierarchical taxonomy categorizes everything, users often expect to retrieve everything within a category at the broader level. This is sometimes called “rolled up” or “recursive retrieval.” (The word recursive also has other usages in information science.) When the user selects a term, everything indexed to that term and everything that is indexed to all of its narrower terms are retrieved in a single, large result set. Whether the indexing is done by humans or is automatic, recursive retrieval can be implemented automatically. In taxonomies or thesauri that do not consist merely of one single hierarchy or a few large hierarchies, recursive searching is not so common or at least is not the default. Instead, a broader term is indexed to its broader/general treatment of the subject only. The following example, using the term crafts, compares recursive retrieval in a hierarchical taxonomy with nonrecursive retrieval in a less hierarchical taxonomy or thesaurus (remember, capitalization of terms is more common in hierarchical taxonomies):
+
+Recursive retrieval:
+
+
+
+
+
+
+
+
+Crafts
+← retrieves content on all crafts, including beadwork, embroidery, etc.
+
+
+
+> Beadwork
+← retrieves content on beadwork
+
+
+
+> Embroidery
+← retrieves content on embroidery
+
+
+
+
+
+Nonrecursive retrieval:
+
+
+
+
+
+
+
+
+Crafts
+← retrieves content only indexed with crafts, that is, crafts in general
+
+
+
+> Beadwork
+← retrieves content on beadwork
+
+
+
+> Embroidery
+← retrieves content on embroidery
+
+
+
+
+
+“General” Usage of a Broader Term
+
+If recursive indexing and retrieval is the default in a hierarchical taxonomy and if the user does not have the option to change it, then there needs to be an additional way to index and retrieve only the content that truly is of a general nature as it corresponds to a broader term’s meaning. Typically, to achieve this, the taxonomist creates a category under the broader term that has the word general in it, as in the following example for crafts:
+
+
+
+
+
+
+
+Crafts
+
+← retrieves content on all crafts, including narrower terms and crafts in general
+
+
+
+
+> Crafts in general
+
+← retrieves content on crafts in general
+
+
+
+
+> Beadwork
+
+← retrieves content on beadwork
+
+
+
+
+> Embroidery
+
+← retrieves content on embroidery
+
+
+
+
+You could also name the term General crafts instead of Crafts in general. On the indexing side, there may or may not actually be a term labeled general, as such an additional indexing term is not needed. Indexing of general content could still be to the broader term name, in this case Crafts, but the display of such indexing would be associated with the general term, and the results attached to the broader term name, Crafts, are the sum total of recursive results. The need for a general term arises only in hierarchical taxonomies and specifically in those hierarchical taxonomies that default to recursive retrieval.
+
+Sometimes the end user has the option to select either general or all/recursive retrieval, using a radio button or a check box. Indexing/retrieval systems in which terms correspond with numeric codes tend to allow this flexibility, whereby truncating the numeric code retrieves all narrower concepts and adding the trailing zeros matches the broader term only for general. In the following example, based on Predicasts2 industry codes (a historical periodical index), a search on 6300 is for insurance in general, whereas 63 would retrieve all insurance, including life and health insurance.
+
+
+
+
+
+
+
+6300
+
+Insurance
+
+
+
+
+6310
+
+    Life Insurance
+
+
+
+
+6320
+
+       Accident & Health Insurance
+
+
+
+
+6322
+
+           Health Insurance
+
+
+
+
+Allowing such end-user control is more likely to be an option in a system aimed at relatively expert users.
+
+“Other” Usage of a Broader Term
+
+Parallel with the idea of general terms is the idea of other or miscellaneous. If a specific topic arises in the content being indexed and there is no matching term in the taxonomy (yet), then the content item should be indexed with the next broader term. This is standard indexing practice, whether or not the concept is an explicit narrower term.
+
+However, in the case of a hierarchical taxonomy in which broader terms are not used as index terms but only for recursive retrieval results and in which the broad concept itself is indexed with a general, a dilemma arises. The new narrow concept should not be indexed to a term used for general. The solution is to introduce yet another narrower concept called other or a variation thereof. Situations that call for such an other term are rare, and generally creating an other or miscellaneous term should be avoided, but sometimes it is a practical solution. Following is an example with crafts:
+
+
+               Crafts
+
+               > Crafts in general
+
+               > Beadwork
+
+               > Embroidery
+etc.
+
+               > Other crafts
+
+
+
+An example in practice is the SIC and NAICS industry codes/terms, which have several industry classification types “for other establishments not elsewhere classified.” The following are three separate examples of NAICS codes/terms:
+
+
+
+
+
+
+
+1129
+
+Other Animal Production
+
+
+
+
+3329
+
+Other Fabricated Metal Product Manufacturing
+
+
+
+
+51119
+
+Other Publishers
+
+
+
+
+The distinction between general and other/miscellaneous may be too subtle for automated indexing to discern, so this structure works better with human indexing. If you are using automated indexing that is only questionably reliable in this area, it might be best to avoid creating other and general categories altogether. The broader term would simply be used for all of these (all, general, and other), and the distinctions would be sacrificed. Another possibility would be to combine general and other, since they are difficult to distinguish.
+
+Node Labels
+
+Another way to create a more detailed hierarchical structure in a taxonomy is by including what are called node labels. A node label can be considered a dummy term: a label to help organize the hierarchy, but not a real term used in indexing, hence the designation label rather than term. If implemented, node labels should be designated somehow (enclosed in brackets, or set in a different color, font, or style), so it is clear that they are labels and not index terms. Node labels can appear anywhere in a taxonomy, but the most common are of two kinds:
+
+
+       1.  Broad categories: as top terms or at intermediate to high levels in the taxonomy
+
+       2.  Facet indicators: for the most specific terms
+
+
+
+You may find that the designations facet indicator and node label are used interchangeably, but technically a facet indicator is a kind of node label.
+
+In a hierarchical taxonomy, it is typical to have named hierarchies, which are named for their top term, such as Politics & Government, Business & Finance, Buildings & Facilities, or Occupations, yet not have these top terms actually used in indexing, since they are too broad to be practical. These terms would then be designated as node labels that display to the users but cannot be linked to content. Even the human indexers see the node labels, which help structure the taxonomy, but the indexing software prohibits the use of the node labels in indexing. In some hierarchical taxonomies, not merely the top terms but even second-level concepts might be designated as node labels only, and only the lowest level(s) are actual indexing terms.
+
+A particular kind of node label, called a facet indicator, is used to subcategorize a relatively large number of narrower terms, all at the same hierarchical level, by type or facet. This is the original application of the idea of “facets” in controlled vocabularies and is not exactly the same as top-level facets used to indicate complete separate taxonomies or vocabularies, which are discussed in more detail in the next section. When facet indicators are used, terms in a controlled vocabulary are first classified by subject area and then more narrowly by their facet aspect. Figure 8.2 is an example of the taxonomy term for automobiles and its narrower terms; the facet indicators appear in italics.
+
+Use of brackets, angle or square, is another way to indicate facet indicators. Facet indicators tend to occur in thesauri used by human indexers, if they are implemented at all. They have become less common now that top-level facets have become more popular, but they remain useful for a thesaurus that is both broad in scope and detailed in coverage.
+
+
+
+Figure 8.2 Facet indicators for types of automobiles
+
+Facets
+
+Facets are categorical groupings of terms within a taxonomy. They are used to support what is called faceted classification or faceted search. Facets serve to describe content from multiple angles, perspectives, or attributes. Top-level facets have some similarities with the previously described concept of facet indicators but are implemented somewhat differently. In the case of top-level facets, terms are generally classified first by facet, and then within each facet there might be a subject hierarchy. This is the opposite of how facet indicators work, whereby terms are classified first by subject and then by facet (such as by a subject automobiles and then by a facet indicator by body type). Facets in faceted classification each represent their own distinct hierarchy and are mutually exclusive. The facet values could be a flat list or, if numerous, organized into a hierarchy. The objective of facets is to allow for searching on multiple terms in combination (postcoordination), with one term from each facet. Whereas facet indicators in a hierarchical taxonomy are precoordinated, the facets in faceted search serve postcoordinated searching. In this sense, a facet is not merely a grouping of concepts but also a “dimension” of a query. In fact, the word facet comes from face, or side of something.
+
+Types and Examples of Facets
+
+The idea of faceted classification was first developed by the Indian mathematician and librarian S. R. Ranganathan in the late 1920s as an alternative to the Dewey Decimal Classification system for books, which he felt was inadequate because it permits only a single classification number for what are often multifaceted books. He called his system Colon Classification, as his call-number notation display made use of colons and other forms of punctuation to separate the various facet terms associated with the title being cataloged. Ranganathan developed a set of five broad facets:
+
+
+       •  Personality: topic or orientation
+
+       •  Matter: things or materials
+
+       •  Energy: actions
+
+       •  Space: places or locations
+
+       •  Time: times or time periods
+
+
+
+The colon classification did not catch on, largely because it was too complicated for the average user. Today, with the use of computers and database management software, colon-type coding schemes are not needed to implement faceted classification, and searching by facets has become easy to implement and use. Each content item is a database record, and each field of that record is described by a facet. Thus, faceted search is sometimes called fielded search.
+
+Modern designations of generic facets include those suggested for enterprise taxonomies by Patrick Lambe in his book Organising Knowledge (2007):3
+
+
+       •  People and organizations
+
+       •  Things and parts of things
+
+       •  Activity cycles
+
+       •  Locations
+
+
+
+Louis Rosenfeld and Peter Morville, in Information Architecture (2002, 2006, 2015) aka the “polar bear book,” suggest the following as typical facets for the “business world”:4
+
+
+       •  Topic
+
+       •  Product
+
+       •  Document type
+
+       •  Audience
+
+       •  Geography
+
+       •  Price
+
+
+
+While it may be helpful to refer back to these generic facets, the nature of your content should be the primary determining factor in how you design your facets, if you choose to go this route. Faceted taxonomies and faceted search work best for content that is structured into records that all have at least some characteristics in common. Following are examples of more specific facets on various public websites:
+
+For job postings at Simply Hired (www.simplyhired.com/a/jobs/advanced-search):
+
+
+       •  Location
+
+       •  Posted Within (date range)
+
+       •  Job Type (Full time, Part time, etc.)
+
+       •  Experience (years range)
+
+       •  Education (degree)
+
+       •  Special Features
+
+       •  Job Boards (exclude, only)
+
+       •  Recruiters (exclude, only)
+
+       •  Company Size
+
+       •  Company Revenue
+
+
+
+For recipes at Food.com (Advanced search at www.food.com/recipe):
+
+
+       •  Ingredient
+
+       •  Meal
+
+       •  Course
+
+       •  Diet & Nutrition
+
+       •  Occasion
+
+       •  Cuisine
+
+       •  Preparation
+
+
+
+For cars at Kelley Blue Book (www.kbb.com/cars-for-sale):
+
+
+       •  Make & Model
+
+       •  Price Range
+
+       •  Body Style
+
+       •  Type (New/Used/Certified Pre-Owned)
+
+       •  Fuel Type
+
+       •  Engine
+
+       •  Drive
+
+       •  Transmission
+
+       •  Doors (2 or 4)
+
+       •  Exterior Color
+
+
+
+For art collection objects at the Carnegie Museum of Art (www.cmoa.org/collection-search):
+
+
+       •  Nationality
+
+       •  Date Range
+
+       •  Classification (type of art)
+
+       •  Department
+
+       •  Theme
+
+       •  Location in the Museum
+
+
+
+Implementing Facets
+
+Facets work best with content that is of a somewhat consistent type. This way the same facets may be used across all the content. These could be collections comprising just news articles, technical reports, instructional materials, product data, or image files—but not a miscellaneous collection of all of these. Most of the content should be described by most of the facets, but it is not necessary that each facet apply to every content record. The more similar the content is, the greater the number of facets that can be supported. Thus, from the preceding examples, we see how job descriptions, which are quite uniform and structured, might be supported by up to eight facets, while other types of content would support fewer facets. For a diverse collection of articles, you might have as few as two facets—place and subject—and the subjects could comprise a large thesaurus or hierarchical taxonomy. This latter, more limited implementation of facets is actually quite common, though this type of taxonomy is not necessarily referred to as faceted.
+
+The facets within a single taxonomy and content set can vary greatly. Some facets are relatively large, and some are very small. You could have a large hierarchical facet for over a hundred product types and another facet that contains only three or four values for types of users/customers. Facets also permit you to have taxonomy terms that are mere adjectives, since facets tend to describe the attributes of things. These could be qualities, colors, sizes, and so forth. In general, though, faceted taxonomies are not as large as purely hierarchical taxonomies or thesauri.
+
+Developing facets also involves a slightly different analysis of the content than does developing regular term hierarchies. You look at the content to see the similar patterns and then determine all the different aspects and variables for searching. It is a top-down approach, coming up with facets first and populating them with terms afterward. Although usually it is clear which facet a given term belongs to, there are occasions when it is not so obvious. For example, it is common to have a location or place facet, which comprises geographic places. However, questions then arise regarding man-made structures and institutions. Institutions (schools, hospitals, museums, libraries, churches, etc.) are really organizations but sometimes are considered places as well. While in general they should not be included in a location facet, specific campuses and buildings could be. As another example, it is also common to have a facet for actions, activities, or events. This is often the case in a taxonomy for business information, which might include such concepts as product introductions, orders/sales deals, partner contracts, and acquisitions and mergers. Yet there may also be a general subject facet, which includes business-related topics, such as management, finance, and human resources. In this case, it might be difficult to decide whether certain topics, such as sales, contracts, or joint ventures, belong in the actions or in the subject facet. User search behavior, content, and indexing (manual or automatic) all need to be carefully considered in making such decisions.
+
+Top-level facets are sometimes confused with hierarchies or categories. Categories, described in the next section, are not as strictly defined as facets and may refer to any grouping of terms. Hierarchies differ from facets in two ways. First, terms in hierarchies, unlike facets, are not limited to aspects of a search and thus are not necessarily set up for postcoordination, as in the case of one term from each of multiple facets. Terms may be selected from multiple hierarchies to simply describe several topics (not aspects) about a content resource. Second, while you cannot have polyhierarchies across different facets, because facets are distinct and mutually exclusive, hierarchies are not always strictly separated, and polyhierarchies may transcend them. To test whether your proposed groupings are indeed valid as facets, try putting the word by in front of each facet name, even if this will not be implemented in the display, and see if the facets make sense as a means of searching.
+
+Facets can be combined with hierarchies in either of two ways: hierarchies within facets or facets within hierarchies. If the terms within a facet are topical in nature and too numerous to browse in a single, flat list, then it may be more user-friendly to organize them into a simple hierarchy. Typically the display of terms within a facet is not conducive to more than a two-level hierarchy. It’s not unusual to have a hierarchy within only one or two facets, while the rest of the facets contain shorter lists of terms with no hierarchy. This is a method often employed in enterprise taxonomies. In taxonomies in which each facet contains a multilevel hierarchy, the designations facet and hierarchy may be used interchangeably.
+
+The other combination, that of facets within hierarchies, is common within ecommerce product taxonomies. The end-user first browses a hierarchy of categories, and then once a specific (product) category is selected, then there is the option to filter the results by facets for each of various attributes, such as product-specific features. Figure 8.3 provides an example screenshot from the Sears retail website, where, after the user initially browses the hierarchical taxonomy of Clothing, Shoes & Jewelry > Clothing > Men’s Clothing > Men’s Shirts, then facets, some of which are specific to the selected topic of Men’s Shirts, such as the type of collar, are available to refine the results further.
+
+
+
+Figure 8.3 Facets for men’s shirts on the Sears retail website, where facets can be expanded to reveal the terms/values within each (Source: www.sears.com)
+
+Facets can also cover metadata that is not limited to topical taxonomies. This information could include author, content type, file type, language, source, audience, etc., but each of these facets would still have its own controlled vocabulary. If managed separately by a metadata librarian and not a taxonomist, then these fields will more likely be called metadata rather than being called taxonomy facets. Different organizations manage such metadata differently.
+
+Multiple Vocabularies and Categories
+
+Hierarchies and facets are ways of organizing taxonomy terms that have a direct impact on how the end user browses and makes use of the taxonomy. There are additional ways to organize a taxonomy or set of taxonomies that are more administrative and may or may not impact the end-user display. These include having separate vocabulary files and having categories or classes in the taxonomy.
+
+Separate Taxonomy/Vocabulary Files
+
+A given body of content with its own indexing system and its own search/browse/retrieval interface, or what together might be called a single taxonomy “project,” may have a single taxonomy or a set of multiple taxonomies, depending on how you define and organize your taxonomies. There is no standard to define what constitutes a single taxonomy as opposed to multiple taxonomies, since originally this word was not even used in the plural. Although all terms in a hierarchical taxonomy must belong to a single hierarchy, this does not necessarily mean that each hierarchy is its own taxonomy. Sometimes taxonomies are defined this way, but not always. Additionally, if the controlled vocabulary is not hierarchical, it may be even less obvious how to distinguish one vocabulary from another.
+
+Factors that contribute to the designation of a single taxonomy/thesaurus include relationship types, subject scope, and taxonomy usage. Generally, standard hierarchical and associative relationships do not transcend multiple taxonomies. An exception would be instance-type hierarchical relationships between topics in a taxonomy and named entities (proper nouns) maintained in a separate controlled vocabulary. Other types of relationships may link terms across multiple taxonomies, but they would likely be special-purpose relationships, such as equivalency mappings or translations. One taxonomy is for one subject area, although that subject area could be very broad, for example a taxonomy could be designed to support indexing of the topics in the daily news. Usually a taxonomy is more limited in scope, covering, for example just technology topics or just health topics. Generally, a single taxonomy is utilized in a single indexing/tagging method and with its own indexing policy. For the end user, a retrieval function is served by a single taxonomy, which might support a search function or provide a set of browse categories. In any case, sometimes the taxonomy owner or stakeholders, rather than the taxonomist, determines whether it is to be considered as one taxonomy or multiple taxonomies.
+
+Whether hierarchical or not, it is often useful to break out a large controlled vocabulary into multiple vocabulary files, lists, or databases, both for administrative purposes and to support certain user interface features. Separate vocabularies can support the following:
+
+
+       •  Continued distinctions between preinstalled, user-created, and user-imported taxonomies
+
+       •  Different sets of descriptive attributes for terms (such as location for organization, NAICS codes for companies, birth/death dates for people, etc.)
+
+       •  Different access privileges by different taxonomists and taxonomy-editing subject matter experts
+
+       •  Different administrative policies, such as indexer rights to add and approve new terms
+
+       •  Systematic enforcement of different editorial policies for term format, such as title capitalization for named entities but not for topical terms
+
+       •  Special features for different types of terms, such as subfields for last name and first name and modifiers for products or works
+
+       •  Indexing policies that require a minimum and/or maximum number of terms of certain types
+
+       •  Use of auto-categorization or entity extraction with some vocabularies and not others
+
+       •  Separate and more efficient searching and browsing by taxonomists, indexers, and end users, such as listing named entities alphabetically
+
+       •  Implementation of features such as filtering in the end-user interface
+
+
+
+One of the most common ways to break out controlled vocabularies is between named entities and topical subjects, due to a number of differences between these two types of controlled vocabularies. Separate vocabulary files may also be maintained for different kinds of named entities, such as for people, places, and organizations. You might choose to call your sets of topical subjects thesauri or taxonomies, while calling your named entities authority files, and manage them somewhat separately, perhaps by different taxonomists and perhaps even with different titles.
+
+Distinct vocabulary files may still permit relationships between terms across these different vocabularies, but the databases need to be deliberately designed to do so. As long as the vocabularies are maintained in a kind of relational database management system, then it is possible to set up a kind of table for each vocabulary, with a standard set of fields, and have records within each table relate to records in other tables. Thus, for example, named entities in one vocabulary file can still be linked to their respective broader terms (instance-type) in another vocabulary file, such as linking Mississippi River to rivers. Leading taxonomy management systems support these cross-file relationships (such as Synaptica, which calls them objects), but simpler tools, such as MultiTes, do not necessarily include this feature.
+
+Categories
+
+Categories, also called classes, constitute an additional means of classifying and organizing terms in a taxonomy or set of taxonomies. Nearly all commercial taxonomy management software supports the use of such categories, often as defined within an administrative feature. Categories transcend hierarchies, facets, and vocabulary files and are applied to individual terms. Usually, though, terms within the same hierarchy belong to the same category, and we describe a narrower term as “inheriting” the category and other properties of its broader term. The taxonomist creates a set of category designations and applies them to taxonomy terms, in much the same way as an indexer applies terms to content. Categories are not types of terms, but rather part of the metadata of taxonomy terms. Categories can also be added to sets of terms in a batch method. The same taxonomy term may belong to more than one category. Depending on the purpose of the categories, the end-user searchers may not be aware of the presence of the categories, though.
+
+Categories have unlimited uses, but a common purpose is to designate an intended end-use implementation of a set of taxonomy terms that are all in one master taxonomy. This could involve segmenting the taxonomies to serve any of the following:
+
+
+       •  Different organizational uses, such as external website, extranet, intranet, product database, etc.
+
+       •  Different group or department uses of internal enterprise taxonomies, such as human resources, finance, engineering, customer service, etc.
+
+       •  Different industry markets or database products of published content taxonomies, such as healthcare, financial services, high tech, government, etc.
+
+       •  Different classes that are defined for the purposes of customized, semantic relationships that are permitted only between terms belonging to certain pairs of classes, which is the case in ontology-like taxonomies
+
+
+
+There are no rules or standards regarding how you define or word your categories. They simply reflect their purpose. Thus, the category names human resources, finance, engineering, and customer service could be used for designating department use, or the category names healthcare, financial services, high tech, and government could designate industry markets.
+
+If your taxonomy management software does not support relationships between terms that are within separate vocabulary files, then you could also utilize categories as a means of breaking a single master taxonomy into differently administered subtaxonomies.
+
+Thus, categories could be used for many of the same purposes as separate vocabulary files, such as designating taxonomy types, such as topics, named people, organizations, and places. As with separate vocabulary files, categories could also be implemented as a means for the end user to filter the taxonomy so as to contain only certain subsets of terms when performing a search in the user interface.
+
+Categories can be used to provide a little more structure to an otherwise nonhierarchical thesaurus. If, for example, a hierarchical display is desired for a nonhierarchical thesaurus, then category names could be treated as top terms. Although this would not be an ideal hierarchy and the number of second-level terms might be very great, it could prove adequate as long as the thesaurus is not too large.
+
+Finally, in software that combines thesaurus management and ontology management capabilities, categories may be used to designate “classes” as they are used in an ontology. When ontologists designate customized semantic relationships, they must specify between which classes a given relationship type will function. For example, a semantic relationship pair of “employs”/“is employed by” can only be used between terms within a Person class and an Organization class, and the relationships must point in the proper direction between the terms in those two classes. Ontology management software will enforce this requirement of classes and manages classes differently from generic categories, but sometimes thesaurus management software with customizable relationships and categories will be used instead to create an ontology-like controlled vocabulary, in which case the taxonomist should take care to set up the categories correctly. For example, the thesaurus management software MultiTes permits the creation of semantic relationships and customized categories, but the software does not enforce the use of categories as restrictive, ontology-like classes for the relationship types.
+
+Endnotes
+
+  1.  The “three-click rule” is popular in user-interface design but user testing has not proven its need, as indicated in the following article: Joshua Porter, “Testing the Three-Click Rule, User Interface Engineering, April 16, 2003, accessed September 19, 2015, www.uie.com/articles/three_click_rule
+
+  2.  Gale Group, The Gale Group Guide to Predicasts Codes (Foster City, CA: Gale Group, 1999).
+
+  3.  Patrick Lambe, Organising Knowledge: Taxonomies, Knowledge and Organisational Effectiveness (Oxford: Chandos Publishing, 2007), 34.
+
+  4.  Louis Rosenfeld, Peter Morville, and Jorge Arango, Information Architecture: For the Web and Beyond, 4th ed. (Sebastopol, CA: O’Reilly, 2015), 304. These facets are also listed in the section on facets in previous editions of the book, 2002 and 2006, under the title Information Architecture for the World Wide Web.
+
+

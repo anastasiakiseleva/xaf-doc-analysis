@@ -1,0 +1,532 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 1
+
+What Are Taxonomies?
+
+Taxonomies? That’s classified information.
+
+—Jordan Cassel
+
+The first step in discussing the role and work of the taxonomist is to clarify what a taxonomy is. Even if you already have some understanding of the concept, there are multiple meanings and various types of taxonomies that require further explanation. The descriptions provided here are not strict definitions, and the range of knowledge organization systems should be thought of as a spectrum.
+
+Definitions and Types of Taxonomies
+
+The word taxonomy comes from the Greek taxis, meaning arrangement or order, and nomos, meaning law or science. For present-day information management, the term taxonomy is used both in the narrow sense, to mean a hierarchical classification or categorization system, and in the broad sense, in reference to any means of organizing concepts of knowledge. Some professionals do not even like to use the term, contending that it is too often ambiguous and frequently misused. Yet it has gained sufficient popularity, and a practical alternative term does not seem to exist. In this book, taxonomy will be used in its broader meaning and not limited to hierarchical structures.
+
+In the broader sense, a taxonomy may also be referred to as a knowledge organization system or knowledge organization structure. This designation sometimes appears in scholarly discussions of the field, in course titles at graduate schools of library and information science, and in reference to standards. The designation knowledge organization system was first used by the Networked Knowledge Organization Systems Working Group at its initial meeting at the Association for Computing Machinery Digital Libraries Conference in Pittsburgh, Pennsylvania, in 1998. Gail Hodge further expanded on it in an article in 2000 for the Digital Library Federation Council on Library and Information Resources. In Hodge’s words,
+
+
+               the term knowledge organization systems is intended to encompass all types of schemes for organizing information and promoting knowledge management. Knowledge organization systems include classification schemes that organize materials at a general level (such as books on a shelf), subject headings that provide more detailed access, and authority files that control variant versions of key information (such as geographic names and personal names). They also include less-traditional schemes, such as semantic networks and ontologies.1
+
+
+
+Although she does not mention taxonomies per se in this paragraph, Hodge goes on to list the various types of knowledge organization systems, which include the following:2
+
+
+       1.  Term lists (authority files, glossaries, dictionaries, and gazetteers)
+
+       2.  Classifications and categories (subject headings, classification schemes, taxonomies, and categorization schemes)
+
+       3.  Relationship lists (thesauri, semantic networks, and ontologies)
+
+
+
+The designation knowledge organization system has not caught on in the business world, perhaps due partially to its length. We are therefore not likely to hear of a knowledge organization system manager/editor, but rather just a taxonomist. The designation knowledge organization system may be receiving wider recognition, though, with increasing adoption of the World Wide Web Consortium’s recommended framework for representing these various controlled vocabularies, which is called Simple Knowledge Organization System (SKOS).
+
+While this book uses the term taxonomy broadly (as a synonym for knowledge organization system), most of our discussion focuses on taxonomies that have at least some form of structure or relationship among the terms (types 2 and 3 in Hodge’s list) rather than mere term lists. Indeed, people do not usually call a simple term list a taxonomy. Let us turn now to definitions and explanations of some of these different kinds of knowledge organization systems or taxonomies.
+
+Controlled Vocabularies
+
+The term controlled vocabulary may cover any kind of knowledge organization system, with the possible exclusion of highly structured semantic networks or ontologies. At a minimum, a controlled vocabulary is simply a restricted list of words or terms for some specialized purpose, usually for indexing, labeling, or categorizing. It is “controlled” because only terms from the list may be used for the subject area covered. If used by more than one person, it is also controlled in the sense that there is control over who may add terms to the list and when and how they may do it. The list may grow, but only under defined policies.
+
+The objective of a controlled vocabulary is to ensure consistency in the application of index terms, tags, or labels to avoid ambiguity and the overlooking of information if the “wrong” search term is used. When implemented in search or browse systems, the controlled vocabulary can help guide the user to where the desired information is. While controlled vocabularies are most often used in indexing or tagging, they are also used in technical writing to ensure the use of consistent language. This latter task of writing or creating content is not, however, part of organizing information. Because controlled vocabulary has this broader usage when applied to content creation, not merely information organization, the term controlled vocabulary should not be used as a synonym for knowledge organization system.
+
+Most controlled vocabularies feature a See or Use type of cross-reference system, directing the user from one or more “nonpreferred” terms to the designated “preferred” term. Only if a controlled vocabulary is very small and easily browsed, as on a single page, might such cross-referencing be unnecessary.
+
+In certain controlled vocabularies, there could be a set of synonyms for each concept, with none of them designated as the preferred term (akin to having equivalent double posts in a back-of-the-book index instead of See references). This type of arrangement is known as a synonym ring or a synset because all synonyms are equal and can be expressed in a circular ring of interrelationships. An example of a synonym ring, as illustrated in Figure 1.1, is the series of terms applications, software, computer programs, and tools. Synonym rings may be used when the browsable list of terms or entries is not displayed to the user and when the user merely accesses the terms via a search box. If the synonyms are used behind the scenes with a search engine and never displayed as a browsable list for the user, the distinction between preferred and nonpreferred terms is thus moot. Though these types of controlled vocabularies are quite common, they are often invisible to the user, so the terminology (synonym ring and synset) is not widely known.
+
+Sometimes controlled vocabularies are referred to as authority files, especially if they contain just named entities. Named entities are proper-noun terms, such as specific person names, place names, company names, organization names, product names, and names of published works. These also require control for consistent formats, use of abbreviations, spelling, and so forth.
+
+
+
+Figure 1.1 Example of terms in a synonym ring
+
+Controlled vocabularies may or may not have relationships among their terms. Simple controlled vocabularies, such as a temporary offline list created by an indexer to ensure consistent indexing or a synonym ring used behind the scenes in a search, do not have any structured relationships other than preferred and nonpreferred terms. Other controlled vocabularies may have broader/narrower and related term relationships and still be called controlled vocabularies rather than thesauri or taxonomies. This is often the case at periodical and reference index publishers, such as Gale (a part of Cengage Learning), EBSCO, and ProQuest, which maintain controlled vocabularies for use in their periodical indexes. In some cases, the publisher maintains multiple kinds of controlled vocabularies, some being more structured than others, and controlled vocabulary is the more generic designation for all of these.
+
+Hierarchical Taxonomies
+
+When we think of taxonomy, hierarchical classification systems are what typically come to mind. However, as explained in the previous section, we are using a broader definition of taxonomy that encompasses all kinds of knowledge organization systems. So taxonomies that are structured as hierarchies will be referred to specifically as hierarchical taxonomies.
+
+A hierarchical taxonomy is a kind of controlled vocabulary in which each term is connected to a designated broader term (unless it is the top-level term) and one or more narrower terms (unless it is the bottom-level term), and all the terms are organized into a single large hierarchical structure. Taxonomy in this case could apply to a single hierarchy or a limited set of hierarchies. This type of structure is often referred to as a tree, with a trunk, main branches, and more and more smaller branches off the main branches. Actually, if the taxonomy is displayed as a tree, it is an upside-down tree, with multiple smaller branches for narrower terms lower down on the page or screen. Another way to describe such structure is a taxonomy with nested categories. The expression to drill down is often used to describe how a user navigates down through the branches. An example of an excerpt from a hierarchical taxonomy appears in Figure 1.2.
+
+The classic example of a hierarchical taxonomy is the Linnaean taxonomy (named after Carolus Linnaeus) of biological organisms, with the hierarchical top-down structure: kingdom, phylum, class, order, family, genus, and species. Hierarchical taxonomies are also common in geospatial classification, as for regions, countries, provinces, and cities. While hierarchical taxonomies tend to be used mostly for generic things or concepts, they can also be used for proper nouns that naturally fall into a hierarchy, such as place names, product names, government agency names, or corporate department names.
+
+The structure of a hierarchical taxonomy often reflects an organization of nested categories. Some hierarchical taxonomies permit a term to have multiple broader terms, thus appearing in multiple places in the taxonomy, whereas other hierarchical taxonomies do not permit this “polyhierarchy” structure. Hierarchical taxonomies may or may not make use of nonpreferred terms. Finally, nonhierarchical related term relationships may exist but usually are not present in such hierarchical taxonomies.
+
+
+
+Figure 1.2 Terms in an expandable hierarchical taxonomy; top categories (left) and the expansion of one category (right), from the Abridged Integrated Public Sector Vocabulary, Version 2.00 (www.esd.org.uk/standards/ipsv)
+
+In contrast to the other types of taxonomies described subsequently in this chapter and this book, the hierarchical taxonomy is actually not a defined type of taxonomy. Rather, it is my designation for the narrower, standard definition of taxonomy: “A collection of controlled vocabulary terms organized into a hierarchical structure.”3 It is a kind of taxonomy that is commonly seen in countless real-world applications. And it is the type of taxonomy that the accidental taxonomist is probably most likely to create.
+
+While in some contexts a faceted taxonomy may be considered different from a hierarchical taxonomy, faceted taxonomies, at the high level, are variants of hierarchical taxonomies that are implemented and used in a special way. Faceted taxonomies, like other hierarchical taxonomies, are intended to be browsed by the end user, starting from the top down. A facet is like a hierarchy, and the facet name is like the top-level term in a hierarchy. Relationships between terms that are other than hierarchical are optional and less common. Facets are explained in the section on Retrieval Support later in this chapter and are discussed in much more detail in Chapter 8.
+
+Alpha-Numeric Classification Systems
+
+Classification systems that utilize numeric, alphabetical, or alpha-numeric codes along with the descriptive terms are a type of hierarchical taxonomy. Examples include the Dewey Decimal Classification system and the Library of Congress Classification System for cataloging books. Other well-known examples of hierarchical taxonomies are the Standard Industrial Classification (SIC) and North American Industrial Classification Systems (NAICS) codes for classifying industries. There are classification systems from the United Nations and international agencies, such as the United Nations Statistics Division’s classification for activities, products, and expenditure purposes, and the International Press Telecommunications Council’s (IPTC) NewsCodes.
+
+Classification systems, however, are not used exactly the same way as purely topical taxonomies. The conceptual idea is to “classify” documents, or put them into “classes,” preferably in only one place. (In the case of classification of physical objects—for the purpose of shelving books, for example—there can be only one place.) Classes are like metadata for the document: They tell what class the document belongs in. They are not for topics discussed in the documents or what the document is all about; that is the purpose of indexing. A document could receive topical indexing from a taxonomy that is supplemental to its classification.
+
+Furthermore, numeric code-based systems are not flexible and cannot easily be changed. It is not usually practical to insert additional codes into the scheme, unless perhaps the system allows for one additional hierarchical level. Because these systems are relatively unchanging, they don’t need to be created or updated often, and their applications are somewhat limited. Thus, most of the subject areas that could use classification systems already have them, and they don’t need changing. And those subject areas that don’t have them are not suitable for them. What this means is that there is not much work for taxonomists in the area of classification systems.
+
+Thesauri
+
+The classic meaning of a thesaurus is a kind of dictionary, such as Roget’s, that contains synonyms or alternate expressions (and possibly even antonyms) for each term entry. A thesaurus for information management and retrieval shares this characteristic of listing similar terms at each controlled vocabulary term entry. The difference is that a dictionary-thesaurus includes all the associated terms that could potentially be used in place of the term entry in various contexts; the user (often a writer) needs to consider the specific context in each case because in certain contexts some of the alternate terms would not be appropriate. The information retrieval thesaurus, on the other hand, is designed for use in all contexts within the domain of content covered, regardless of any specific term usage or document. The synonyms or near synonyms must therefore be suitably equivalent in all circumstances. An information retrieval thesaurus must clearly specify which terms can be used as synonyms (used from), which are more specific (narrower terms), which are broader terms, and which are merely related terms.
+
+A thesaurus, therefore, is a more structured type of controlled vocabulary that provides information about each term and its relationships to other terms within the same thesaurus. The leadings standards that provide guidance for creating such thesauri are the following:
+
+
+       •  International Organization for Standardization (www.iso.org/iso/catalogue_ics) ISO 25964. Information and documentation - Thesauri and interoperability with other vocabularies
+
+           Part 1 (2011): Thesauri for information retrieval
+
+           www.iso.org/obp/ui/#iso:std:iso:25964:-1:ed-1:v1:en
+
+           Part 2 (2013): Interoperability with other vocabularies
+
+           www.iso.org/obp/ui/#iso:std:iso:25964:-2:ed-1:v1:en
+
+
+
+These have also been adopted by the British Standards Institute as BS ISO 25964-1:2011 and BS ISO 25964-2:2013.
+
+
+       •  American National Standards Institute and National Information Standards Organization (www.niso.org); ANSI/NISO Z39.19 2005 (R2010): Guidelines for the Construction, Format, and Management of Monolingual Controlled Vocabularies
+
+           www.niso.org/standards/z39-19-2005
+
+
+
+Although the ANSI/NISO standard refers to “controlled vocabularies,” a vocabulary created in accordance with these guidelines is usually called a thesaurus.
+
+The standards explain in detail the three types of relationships in a thesaurus: hierarchical (broader term/narrower term), associative (related term), and equivalence (use/used for). Additional information about a term, such as a scope note, may be included to clarify usage. An example of a term and its details from a thesaurus is shown in Figure 1.3. The consensus is that if a controlled vocabulary includes both broader/narrower and related term relationships between terms, along with nonpreferred terms that redirect to the accepted term, then it is called a thesaurus.
+
+
+
+Figure 1.3 A term in the ASIS&T Thesaurus with its various relationships to other terms (BT: broader term; NT: narrower term; RT: related term; UF: used from)4
+
+In comparing a thesaurus with a hierarchical taxonomy, a thesaurus typically includes the features of a taxonomy plus the additional feature of associative relationships, for a greater degree of structural complexity. However, while all terms must belong to a limited number of hierarchies within a hierarchical taxonomy, this is not a strict requirement for a thesaurus. Although most thesaurus entries will list a broader and/or a narrower term, such relationships are not necessarily required for every term. If there is no appropriate broader term, that relationship may be omitted. In a thesaurus, the focus is more on the individual terms than on the top-down structure. Thus a thesaurus might include multiple small hierarchies, comprising as few as two or three terms, without the strong overarching tree structure typical of a hierarchical taxonomy.
+
+If you had to force all the terms in a thesaurus into a single hierarchical tree, some of the hierarchical relationships would probably be imperfect. Thesaurus guidelines, however, mandate that each term’s hierarchical relationships be accurate and valid. In addition, having multiple broader terms for an entry is never a problem in a thesaurus, whereas such “polyhierarchies” may be prohibited in a given hierarchical taxonomy. Some thesauri do in fact have a significant hierarchical structure, and thus the distinction between a hierarchical taxonomy and a thesaurus may be blurred. Finally, recursive retrieval by a broader term (explained in Chapter 9) is not as common in a thesaurus as in a hierarchical taxonomy.
+
+The greater detail and information contained in a thesaurus, compared with a simple controlled vocabulary or a hierarchical taxonomy, aids the user (whether the indexer or the searcher) in finding the most appropriate term more easily. A thesaurus structure is especially useful for a relatively large controlled vocabulary that involves human indexing and/or supports a term list display that the end user (searcher) can browse. In contrast to a hierarchical taxonomy, which is designed for user navigation from the top down, a thesaurus with multiple means of access can more easily contain a greater number of terms. Thus, a thesaurus may be able to support more granular (specific) and extensive indexing than a simple hierarchical taxonomy can, especially if the hierarchical taxonomy lacks nonpreferred terms. As thesauri explain relationships among terms, they are more common in specialized subject areas, where the purpose is not merely to aid the user in finding information but also to aid the user in obtaining a better understanding of the terminology. In some cases, thesauri have even been published and printed as stand-alone works, separate from any indexed content.
+
+Examples of thesauri include the Getty Art & Architecture Thesaurus (getty.edu/research/tools/vocabularies/aat), the ERIC (Education Resources Information Center) Thesaurus for education research (eric.ed.gov), and the NASA Thesaurus of aeronautics and space terminology (www.sti.nasa.gov/thesvol1.pdf). The periodical and reference index publisher ProQuest also refers to its topical controlled vocabulary as a thesaurus.
+
+Ontologies
+
+An ontology can be considered a type of taxonomy with even more complex relationships between terms than in a thesaurus. Actually, an ontology is more than that; it aims to describe a domain of knowledge, a subject area, by both its terms (called individuals or instances) and their relationships and thus supports inferencing. This objective of a more complex and complete representation of knowledge stems from the etymology of the word ontology, which originally meant the study of the nature of being or existence. Tom Gruber provides a current definition of ontology:
+
+
+               An ontology defines a set of representational primitives with which to model a domain of knowledge or discourse. … ontology can be viewed as a level of abstraction of data models, analogous to hierarchical and relational models.5
+
+
+
+The relationships between terms within an ontology are not limited to broader/narrower and related. Rather, there can be any number of domain-specific types of relationship pairs, such as owns/belongs to, produces/is produced by, and has members/is a member of. The creator of the ontology also creates these relationship types. Thus, not only do the terms have meanings, but also the relationships themselves have meanings. Relationships with meanings are called semantic relationships.
+
+The terms within an ontology not only have simple descriptions, such as scope notes in a thesaurus, but are also accompanied by specific attributes in a more structured format, such as properties, features, characteristics, or parameters. The terms also have assigned classes, which the ontologist defines, as an additional kind of classification. All of these components of an ontology—semantic relationships, attributes (for each of the terms/instances), and classes—contribute to making an ontology a richer source of information than a mere hierarchical taxonomy or thesaurus. A schematic representation of part of an ontology dealing with retail management appears in Figure 1.4.
+
+
+
+Figure 1.4 Example of a domain ontology dealing with retail management (reproduced with permission of the creators, Murat Sensoy and Pinar Yolum)6
+
+While not considered standards, there are guidelines of specifications for constructing ontologies in machine-readable format for the web, which has become the most common implementation of this type of taxonomy. The World Wide Web Consortium (W3C) has published the RDF (resource description framework) Schema and the Web Ontology Language (OWL) recommendation. There is also a presentation format for ontologies called Topic Maps, which is the set of ISO 13250 standards (six parts). Topic Maps are implemented more in Europe than in North America. A looser structure of knowledge organization that does not attempt to adhere to such guidelines might be called a semantic network instead of an actual ontology.
+
+Ontologies are suitable for any subject area, but a significant percentage of those currently published have been in the biological sciences, such as the Gene Ontology, Protein Ontology, Systems Biology Ontology, and Purdue Ontology for Pharmaceutical Engineering. It is an interesting irony that taxonomies, which got their start in biological classification, are now widely used for any form of knowledge, while ontologies, which originally applied to the broad scope of existence, are now used most often in the field of biology. As other scientists find a need to express more complex relationships among terms in their disciplines, the spread of ontologies to other subject areas, however, will likely increase. There is also a growing importance of ontologies in semantic search engine deployment in specialized industries, and building ontologies could be a growth area for experienced taxonomists. In 2009, a new organization for supporting ontologies, the International Association for Ontology and Its Applications (www.iaoa.org), was founded.
+
+The designation given to a knowledge organization system—controlled vocabulary, taxonomy, thesaurus, ontology, and so on—depends largely on the complexity of the structure, but complexity is not the only factor to be considered. As all these designations have ambiguous meanings, the choice of what to call a set of terms also depends on what is most clear and understandable to the contributors, stakeholders, or end users. Depending on the display of the knowledge organization system, the end users may not even need to know what it is called. The confusion in terminology is why we default to using the single designation of taxonomy in most contexts.
+
+Taxonomies and Metadata
+
+There is significant overlap between taxonomy and metadata. Metadata, sometimes called “data about data,” is all the recorded, structured information about a content item, such as a document, digital asset (such as a video or image file), or webpage. Taxonomies (or more generally, controlled vocabularies) are often, but not always, metadata. And much, but not all, of metadata utilizes controlled vocabularies.
+
+A content repository has a metadata schema, which may follow a suggested standard, such as Dublin Core Metadata Elements or MARC (Machine-Readable Cataloging), which is useful if the content is shared among different organizations; or it may have a customized metadata schema, which is more practical for managing metadata within an organization. A metadata schema comprises both the defined set of metadata elements or fields and the rules for each of those fields. Fields get filled or “populated” with specific values as appropriate for each individual content item.
+
+Different types of metadata serve different purposes. The National Information Standards Organization (NISO) defines three kinds of metadata: descriptive, structural, and administrative. Descriptive metadata includes information on what a resource is about, expressed in keywords or short descriptions; and also includes other descriptive information that could be used to look up and retrieve the item, such as title, author, and document type. Structural metadata describes features of the resource, such as pagination or size. Administrative metadata describes information needed to manage a resource, such as its creation date, access rights, intellectual property rights, and archival preservation information. There are other methods besides NISO for classifying metadata types, but most methods distinguish between metadata for managing content and metadata for aiding in search or discovery and retrieval of content.
+
+Taxonomy as Part of Metadata
+
+Taxonomies, or controlled vocabularies in general, are associated with the descriptive type of metadata, for two reasons. First, taxonomists, by the nature of their work, are focused on the goal of descriptive metadata, which is to help users find content. Second, descriptive metadata tends to use controlled vocabularies more than other types of metadata. While administrative or structural metadata may require controlled lists of terms to populate some of its fields, a controlled “list” is not necessarily a controlled “vocabulary.”
+
+Regardless of the type of metadata, (descriptive, structural, or administrative), a specific metadata field may either allow free text or require the user to select from a controlled list of options. A controlled vocabulary is, of course, a type of controlled list. It would be incorrect, however, to call all controlled lists “controlled vocabularies.” For example, the controlled list for a metadata field may consist of just a pair of values, such as yes or no, male or female, or new or used, or it may consist of just three or four values, such as small, medium, and large. These types of lists are not controlled vocabularies, because part of the definition of a controlled vocabulary is that a term is designated for a concept. In the preceding examples, there is not really any question of what word or term to use for each concept in the list of two or three. We don’t even use the word “term” but rather “value” to refer to the choices in short controlled lists. There is no rule, however, as to the number of values a list must have before it is considered a controlled vocabulary. Rather, the defining feature of a controlled vocabulary is that concept-naming decisions need to be made when developing the list. Therefore, the list of 50 states of the United States by itself is not a controlled vocabulary, just a list, because there is no question of what to call them, whereas a list of just 15 “activity types” would likely be a controlled vocabulary, because names for those activities require research and consideration before a choice can be made from among various alternatives.
+
+Controlled vocabularies of any size, including hierarchical taxonomies, may be used to support one or more descriptive metadata fields, especially a field that is called Subject, Topic, or Descriptor. A taxonomist is not necessarily responsible for all metadata, so he or she needs to work in collaboration with a metadata architect, metadata librarian, or content architect, especially in the blurred area of responsibility between short controlled vocabularies and long controlled lists. In addition to determining the metadata fields and their values, other decisions need to be made: whether assigning/tagging values from a specific metadata field is required or optional, whether a metadata field may hold only one value or can permit multiple values, and whether the field will be displayed in the user interface for end-user search-and-retrieval purposes.
+
+Taxonomy That Is Not Metadata
+
+If a taxonomy is implemented in a way that the terms, unlike other metadata, are not attached to a content item, then the taxonomy might not be part of metadata. If a taxonomy is implemented to support dynamic auto-indexing or search, and executed “on the fly,” rather than being permanently attached to a record, then it is not metadata. While we have already stated that a hierarchical navigation design is not necessarily a taxonomy, in some cases a navigation scheme could be a taxonomy and may not be metadata. If a navigation scheme were designed as a taxonomy and taxonomy terms were hyperlinked to content, with some terms indirectly linked to more than one content item (such as through an intermediate navigation page), then the taxonomy terms would not necessarily be metadata.
+
+Applications and Purposes of Taxonomies
+
+As we have seen from the various definitions, there are different kinds of taxonomies or controlled vocabularies, based on their complexity. However, complexity is only one way to classify taxonomies. A more practical approach is to categorize them by their application and use. While a particular taxonomy can certainly serve multiple functions, there tends to be a certain emphasis in its design, use, and purposes. As such, each taxonomy serves primarily one of the following three functions, although there certainly can be combinations of the different types:
+
+
+       1.  Indexing support
+
+       2.  Retrieval support
+
+       3.  Organization and navigation support
+
+
+
+Indexing Support
+
+For indexing or cataloging support, a taxonomy, better known as a controlled vocabulary in this context, is a list of agreed-on terms for the human indexing or cataloging of multiple documents and/or for indexing performed by multiple indexers, to ensure consistency. If multiple documents, especially by different authors, will be indexed over time, the indexer is apt to forget exactly which index terms were assigned and perhaps inadvertently use different synonyms when the same topic comes up in a different document. Similarly, different indexers will also choose different index terms for the same topic if not forced to use a controlled vocabulary.
+
+Thus, the taxonomy’s initial purpose is to serve the people doing the indexing, although a second, equally important purpose is to serve the end users, who, of course, benefit from consistently indexed content and may also have access to the taxonomy. This type of controlled vocabulary is used for cataloging entire works and for indexes to periodical articles, image files, database records, multivolume printed works, webpages, and so on. Because indexers must always choose the most accurate terms, they often use a more structured thesaurus type of controlled vocabulary. The broader, narrower, and related term relationships guide the indexer to the best term, and scope notes further clarify ambiguous terms. Named entities are often indexed, too, and these are managed in an authority file. An authority file lacks the interterm relationships of a thesaurus but may have many synonymous nonpreferred terms for each preferred term, such as variations on an individual’s name.
+
+Controlled vocabularies for indexing support have been around the longest, and their format may be electronic or print. Such controlled vocabularies are used by reference and periodical article database publishers, including Gale (a part of Cengage Learning), EBSCO, and ProQuest, in more specialized subject databases, such as Chemical Abstracts and PsycINFO. And they are also used in the internal documents of large companies, especially those in the sciences. The fact that some of these controlled vocabularies are offered for sale/license illustrates the fact that they serve the purpose of indexing and not just specific content retrieval.
+
+While controlled vocabularies for indexing are quite widespread, those that are publicly available on the web are limited and tend to be those published by public agencies. You may search or browse them, and in some cases, you may also access linked content. Library of Congress Subject Headings and Medical Subject Headings are two such examples.
+
+Library of Congress Subject Headings (LCSH) (authorities.loc.gov) contains both subjects and names and covers all subject areas. LCSH was originally established for cataloging library materials but has also been adopted by various publishers for indexing articles. The terms are called authorities, as in authority file, even those that are not named entities. The purpose of the website is to aid catalogers of library materials in finding the approved subject heading in the Library of Congress controlled vocabulary. It is not aimed at the end user looking for a book, although consistently cataloged books will, of course, benefit the user. The subject headings can be searched and the results browsed alphabetically. Nonpreferred terms are included in the alphabetical list along with preferred terms. Nonpreferred terms are prefaced by a button labeled References, which provides a cross-reference to the preferred term. Preferred terms are called authorized headings (see Figure 1.5).
+
+Medical Subject Headings (MeSH) (www.nlm.nih.gov/mesh/MBrowser.html) is the thesaurus of the US National Library of Medicine, which is considered the authority for medical terms. Users can search terms, or they can browse by selecting the button Navigate from Tree Top. The browse display is hierarchical rather than alphabetical. Clicking once on a term expands the tree and reveals its narrower terms; double-clicking on a term displays its details (see Figure 1.6).
+
+
+
+Figure 1.5 Two successive screenshots from Library of Congress Subject Headings, searching on the term World Wide Web and displaying its details
+
+Other examples of thesauri that aid indexing and are publicly available include the ERIC Thesaurus (eric.ed.gov), sponsored by the Institute of Education Sciences of the US Department of Education, and the various controlled vocabularies of the Getty Research Institute of the J. Paul Getty Trust: the Getty Art & Architecture Thesaurus, Getty Thesaurus of Geographic Names, Cultural Objects Name Authority, and Union List of Artist Names (getty.edu/research/tools/vocabularies).
+
+
+
+Figure 1.6 Two screenshots from Medical Subject Headings, showing the term record and location in the tree structure for the selected term arm injuries
+
+Retrieval Support
+
+A taxonomy that serves indexing also serves end-user retrieval. Searchers benefit from nonpreferred terms, as their search terms may be different from the terms used to index the document. For example, a user may type in doctors for articles that are about physicians. Users can also take advantage of broader and narrower term relationships or hierarchies to broaden or narrow their search. These relationships, and also the related term relationships, may suggest to users other possible terms of interest. In such cases, the end-user searcher will be seeing an explicit representation of the taxonomy for navigation.
+
+There are also taxonomies designed to aid search retrieval without supporting human indexing. These taxonomies are typically mapping tables of terms and their synonyms/variants designed to aid online retrieval. These might be synonym rings or synsets, especially if the terms are not even displayed to the user, or if there is a display, it may designate preferred terms.
+
+Depending on the user interface display, there may or may not be a hierarchical structure to the taxonomy. A hierarchical arrangement allows users to browse and locate narrower (more specific) subjects of interest. Thus, users find out what is included in the taxonomy and what is not, saving themselves the trouble of repeatedly typing in terms that yield no results. Users may also find related subjects of interest by browsing the hierarchies.
+
+These types of controlled vocabularies are often used with website search engines, enterprise search systems (used internally within a large organization), online databases, and large commercial directories (such as online “yellow pages” or classified ads). The format is always electronic, and a form of automated indexing is usually involved.
+
+Examples of taxonomies aiding retrieval include Verizon SuperPages’s yellow pages directory site (www.superpages.com/yellowpages) and the Amazon.com ecommerce site’s “Shop by Department” categories (www.amazon.com/gp/site-directory), as shown in Figure 1.7.
+
+While a hierarchy can be selected for browsing in each, the synonyms in the case of Verizon SuperPages and the related subject links in the case of Amazon.com are not displayed to the user, although the links are evident in the display of results.
+
+Faceted Taxonomies for Retrieval Support
+
+One way to better serve specifically the retrieval of data is to construct a controlled vocabulary that is divided into multiple subsets, lists of terms of different types representing different aspects of information. These aspects are often called facets, and this type of controlled vocabulary is therefore called a faceted taxonomy. Examples of facets might be people, places, events, products, and laws. Facets can also reflect metadata other than subject categories, such as document type, author, and audience. The search interface for a faceted taxonomy is designed for the user to search on a selected combination of multiple facets.
+
+
+
+Figure 1.7 Top-level taxonomy of Amazon.com
+
+Faceted taxonomies are commonly used for online databases and ecommerce sites, such as the shoe-retailing site Shoebuy.com. In Shoebuy’s (www.shoebuy.com) advanced search, the facets are Category, Size, Width, Brand, Color, Price Range, and, additionally for women’s shoes, Heel (height). Another example of a faceted browse interface can be found on the Microbial Life Education Resources site (serc.carleton.edu/microbelife/resources), where facets are Subject, Resource Type, Extreme Environments, Ocean Environments, and Grade Level (Figure 1.8).
+
+
+
+Figure 1.8 Faceted taxonomy in the right margin of the Microbial Life Education Resources search site
+
+Faceted taxonomies, or faceted browse systems, make use of the electronic format. Depending on the size of the vocabulary in each facet, these taxonomies may or may not make use of synonyms and may or may not have hierarchies within them. Some facets can be quite small. Facets are discussed in more detail in Chapter 8.
+
+Organization and Navigation Support
+
+A taxonomy, as a hierarchy, can provide a categorization or classification system for things or for information. For the organization of information, we often see taxonomies applied in website information architecture (structural design), online information services, intranet content organization, and corporate content management systems. In such websites or enterprise taxonomies, the emphasis is on classification and guided user navigation rather than on search and retrieval of specific information. Navigation means finding one’s way around, whereas retrieval means going after specific information. The taxonomy for a website is a lot like a table of contents, organized by topic. It can be reflected in the navigational menu and in the site map. As such, it might be called a navigational taxonomy. These types of taxonomies tend to be relatively small and can coexist with additional, more detailed taxonomies elsewhere on the website.
+
+An example of navigational website taxonomy that is present in both the site map and the navigational menu can be found on the Information Architecture Institute site map (iainstitute.org/en/site-map.php), where the top-level categories of the taxonomy and the navigation are Member Services, IA Network, Learning IA, and About Us (Figure 1.9).
+
+
+
+Figure 1.9 The Information Architecture Institute site map, a navigational taxonomy
+
+Another example of a navigational taxonomy can be found on the MyFlorida.com site map (www.myflorida.com/taxonomy), where the top-level categories of the taxonomy, which also are the main navigation menu items, are Visitor, Floridian, Government, and Business. It is interesting to note that the file name for this site-map page has been named taxonomy.
+
+Taxonomies can serve in the navigation of enterprise taxonomies. Enterprise taxonomies can be very large, but the top levels typically demonstrate some form of information organization for the enterprise. The purpose of this hierarchical organization is then not merely to retrieve documents but also to help users better understand the organization of the enterprise and its intranet and thus make better use of it.
+
+It is open to dispute whether a website navigation structure can actually be called a “taxonomy,” even if it is well designed. A taxonomy, as a form of a controlled vocabulary, serves the purpose of indexing, classifying, or categorizing. It is a system in which a single term can be reused to index or classify more than one item, document, or webpage. In a website navigation structure, on the other hand, a menu label or site-map entry points/links to only a single webpage. This is a significant difference. The website navigation label needs to match or fit only a specific page. A taxonomy term, on the other hand, needs to be applicable to multiple, slightly different content items. Furthermore, website navigation labels are sometimes deliberately worded so as to intrigue or entice a user to visit a certain page within the site, rather than purely to inform or guide users. Finally, the hierarchical relationship and structure of a navigation structure reflect a custom experience, and make no attempt to follow standard conventions for hierarchical taxonomic relationships (explained in Chapter 4).
+
+So, rather than considering every multilevel website navigation hierarchy as a kind of taxonomy, it would be more apt to look into how to make some taxonomies (that serve for indexing multiple content items) serve a second purpose of providing or influencing a website’s hierarchical navigation structure, in cases when a unifying hierarchical structure is desired. This could be the case for enterprise taxonomies, especially if they are implemented both in a content management system and on an intranet and/or public website.
+
+Taxonomies for License
+
+Although the primary objective of this book is to provide instruction on building taxonomies, it is not always necessary to build an entire taxonomy from scratch. Some or all of a taxonomy could be acquired from another source. While taxonomies for enterprises and content management systems should definitely be custom-created, a taxonomy for the indexing of documents or files in a given subject area could be purchased or licensed. Furthermore, taxonomies for license not only serve the purposes of indexing and content retrieval but may also provide an outline of a domain of knowledge. Many subject areas are already covered by existing published taxonomies. There are generic taxonomies for geographic places, industry types, product types, and so forth. In addition, lists of named entities are available from various sources. You might consider licensing an external taxonomy if the right taxonomy already exists and if creating one from scratch would be too great a task due to size, specialty subject area, and limited time. A licensed controlled vocabulary could be used for merely a single facet or for part of a larger set of taxonomies.
+
+Taxonomies or controlled vocabularies that are available for license come from all kinds of sources: government agencies, professional associations, other nonprofit organizations, and a few commercial enterprises. Governmental published taxonomies available for license (or even free without a license) include LCSH, Library of Congress Thesaurus for Graphic Materials, MeSH, USDA National Agricultural Library Thesaurus, and the United Kingdom’s Integrated Public Sector Vocabulary. The Getty Research Institute (part of the J. Paul Getty Trust) is a reputable nonprofit provider of controlled vocabularies, including the Art & Architecture Thesaurus, Getty Thesaurus of Geographic Names, and Union List of Artist Names. The leading commercial vendor of prebuilt taxonomies, WAND Inc. (www.wand.com), specializes in taxonomies in products and services. Some database publishers, such as Gale, a part of Cengage Learning, which created taxonomies initially as part of their own products, may also license these taxonomies alone (not a part of their content products).
+
+The largest directory of taxonomies and thesauri available for use is Taxonomy Warehouse (www.taxonomywarehouse.com). The list is maintained by the taxonomy software vendor Synaptica. The database includes hundreds of taxonomies, including most of those mentioned previously. Some are simple controlled vocabularies or glossaries, but others are full-featured thesauri. Although some are hosted on the web, the data files (usually in CSV or XML formats) can be obtained for most of them. Figure 1.10 shows the information that Taxonomy Warehouse provides for a specific taxonomy. A single publisher may also offer numerous taxonomies on different subjects.
+
+With the growing demand for tagging images, there are also an increasing number of “keyword lists” for photographers. Many of these are, in fact, hierarchical and faceted taxonomies. But since they usually do not include nonpreferred terms, they are rather simple taxonomies, despite the fact that some of them are very large (10,000 or 20,000 terms). Prices for these lists are relatively inexpensive compared with some of the commercial thesauri available, and some of the smaller keyword lists are free. A directory of these, called “Photography Keyword Lists & Free Keywording Resources for Lightroom,” is available on the website of one keyword-list vendor, Photo-Keywords (www.photo-keywords.com/keywording-resources.php), which is targeted especially at freelance professional photographers.
+
+
+
+Figure 1.10 Example display of information for a single taxonomy offered through the Taxonomy Warehouse
+
+Formats may vary, but typically, taxonomies or thesauri that are made available for other uses are formatted in some form of XML, whereby all terms, relationships, nonpreferred terms, scope notes, and so forth are retained when they are imported into other taxonomy management systems. The use of XML and other interoperable taxonomy formats is described in greater detail in Chapter 11. The photography keyword lists are available in Excel or text files, in a format that allows them to be easily imported into photo management software, especially Adobe Lightroom, while maintaining the hierarchy.
+
+If you acquire a taxonomy, however, you will likely want to modify or enhance it for your own needs, and in any case it will require some maintenance over time. The following example case demonstrates how a generic taxonomy, taken as is, may not be ideal. A large-scale historical digitization project that coded early American election results used the Getty Thesaurus of Geographic Names. Even though the thesaurus includes historical place names, it was still found to be insufficient for the project’s needs. It does not include all the towns and boroughs that were named in the elections project, and does not indicate exactly when various historical names were used or when boundaries were redrawn.
+
+Licensing agreements may allow use of a taxonomy without a fee in some cases, but may prohibit for-profit use or require statements referring to the original copyright holder. If the taxonomy is treated as a published copyrighted work, whether free or for a fee, then there will also be restrictions on making changes to it.
+
+A number of free controlled vocabularies, such as the Getty vocabularies, follow the model of Linked Open Data (LOD) and the Open Data Commons Attribution License, which allows modification of the vocabulary but require attribution to the original source. The Getty vocabularies website provides sample forms of attribution statements, such as: “This [title or report or article or dataset] contains information from Art & Architecture Thesaurus (AAT) which is made available under the ODC Attribution License.”7
+
+The policy for using and modifying MeSH is as follows:
+
+
+               If the use is not personal, (1) the U.S. National Library of Medicine must be identified as the creator, maintainer, and provider of the data; (2) the version of the data must be clearly stated by MeSH year, e.g., 1997 MeSH; and (3) if any modification is made in the content of the file, this must be stated, along with a description of the modifications.8
+
+
+
+Often you will want to make changes to the acquired taxonomy, so make sure the license permits changes. Also be aware that you are responsible for continued updating. Licensed taxonomies, both those that prohibit and those that permit changes, typically offer updates through an annual subscription. A solid understanding of how to create terms and relationships, as discussed in Chapters 3 and 4, is still necessary to manage prebuilt taxonomies. Therefore, acquiring a taxonomy from an external source does not eliminate the need for a taxonomist. Starting with a prebuilt taxonomy, though, can save time and make things much easier for the less experienced taxonomist. You can follow examples of term formats and relationships as you build out the taxonomy further.
+
+History of Taxonomies
+
+Taxonomies are both new and old. “Both librarians and indexers were doing ‘taxonomy’ long before it became a hot topic in the 1990s,” wrote taxonomy trainer Jean Graef of the Montague Institute.9
+
+Taxonomies in Cataloging and Indexing
+
+The earliest taxonomies were for classification, such as for organisms or for books, but each item could only go in one place in the taxonomy. For example, a book gets a single call number for its location on the shelf. In the field of library science, by the end of the 19th century, more practical taxonomies emerged that supported supplemental descriptive cataloging, which is not limited to one descriptive term per book. The leading controlled vocabularies for cataloging books have been the American Library Association Subject Headings (1895), Library of Congress Subject Headings (LCSH) (1898), and the Sears List, published originally as the List of Subject Headings for Small Public Libraries (1923). These were simple controlled vocabularies lacking broader/narrower and related term relationships. LCSH used See also references for every kind of relationship and began to introduce broader term, narrower term, and related term references only in 1985.10
+
+LCSH, back when it was still in its simpler form, was adopted by various periodical index publishers for the indexing of articles from multiple newspapers, magazines, and journals. These publishers included the H.W. Wilson Company (since acquired by EBSCO), which dated back to the start of LCSH, and Information Access Company (acquired by Gale, now a part of Cengage Learning) and ABI Inform (now ProQuest) in the 1970s. Cengage’s and ProQuest’s controlled vocabularies have diverged from LCSH over the years based on the work of their taxonomists.
+
+Meanwhile, professional societies developed their own controlled vocabularies for indexing periodical literature in their fields since at least the early 1900s. These included the American Chemical Society’s Chemical Abstracts Service founded in 1907. The word thesaurus was first used to refer to a controlled vocabulary for information retrieval purposes by Peter Luhn at IBM in 1957. Early published thesauri included the Department of Defense’s ASTIA Descriptors in 1960 and the American Institute of Chemical Engineers’ Chemical Engineering Thesaurus in 1961.11 Standard thesaurus relationships emerged over time, and guidelines were developed that reinforced them, including UNESCO’s 1967 guidelines, which formed the basis of the ISO 2788 standard of 198612 (superseded by ISO 25964 in 2011). Since the 1960s, various companies, government agencies, and professional associations have published dozens of specialized thesauri. In 1972, the new company Dialog began offering the first publicly available online research service, providing access to multiple bibliographic citation databases indexed with controlled vocabularies.
+
+Corporate Taxonomies
+
+Up through the 1980s, however, taxonomy (thesaurus) development was mostly limited to large index or literature-retrieval database publishers, a few large companies, especially in the sciences (such as DuPont), and government agencies. The companies and government agencies that developed taxonomies did so mostly within specific subject areas. Taxonomies for an entire organization, that is, enterprise-wide taxonomies, first began to appear in the late 1970s, but their adoption was limited. According to taxonomy and knowledge management consultant Lynda Moulton, it was not so much a lack of interest but simply the limitations of software tools at the time that hindered a wider adoption of enterprise taxonomies. Moulton recalls teaching a number of thesaurus construction workshops during 1982–1984, attended by librarians and indexers from such companies as Liberty Mutual, John Hancock, Fidelity, MITRE, and Digital Equipment Corp.13
+
+Contemporary library automation began to emerge in the late 1970s and systems for “special libraries” (corporate libraries and information management) as early as 1980. Although dedicated taxonomy management systems had not yet appeared on the market, these earlier systems included taxonomy management features. These included BiblioTech by Comstow Information Services (acquired by Inmagic in 1999, and since 2014 part of Lucidea), which was first installed at Polaroid in 1981, and TechLib, released in 1984, which was built on BASIS (acquired by OpenText in 1998). Comstow held a number of workshops that were devoted to thesaurus development for corporate libraries in the early 1980s.14
+
+It was only in the late 1990s that a broader interest in taxonomies, and the corresponding tools to support them, developed. For example, the taxonomy consultancy Earley Information Science started working on classification, categorization, and metadata projects (essentially taxonomy, but not called that yet) to help their clients make the most out of the Lotus Notes application, by building classification structures, forms, and navigation. In 1998, IBM introduced its Lotus Discovery Service, which “really called out the need for a taxonomy,” according to Seth Earley, so he and other consultants at the time provided services in creating taxonomies for Lotus Notes.15
+
+The Growth of Enterprise and Web Taxonomies
+
+The emergence and growth of the web in 1990s was a major contributing factor in the growing interest in taxonomies, for several reasons. The web enabled smaller publishers to offer online information services. Companies started developing intranets that quickly expanded in size and required better navigation and search. “With the growth of the internet, there was a lot of interest in building to improve search results,” explained Synapse Corp. (now Synaptica LLC) co-founder Trish Yancey regarding the start of the company.16 The proliferation of search engines, and then site search or enterprise search, also led to an interest in taxonomies as it became apparent that search alone was not sufficient. According to Jean Graef, “Taxonomy became hot when IT realized that search engines by themselves couldn’t solve the whole retrieval problem.”17
+
+Finally, attention to site design and navigation through the new field of information architecture also put value on taxonomies. Indexer, information architect, and taxonomist Fred Leise wrote, “As the field of information architecture and the influence of Louis Rosenfeld’s and Peter Morville’s Information Architecture for the World Wide Web grew, the knowledge of library science-related information, such as faceted browsing classifications and the use of synonym rings as search improvements, spread more widely.”18
+
+The growing interest in taxonomies in the 1980s and 1990s was also reflected in the growth of taxonomy management software. Software for creating and maintaining taxonomies was originally developed internally within the few large organizations that had already developed taxonomies. In 1980 Comstow released BiblioTech, its fully integrated library system for corporate and government libraries, which included a module for thesaurus creation, fully integrated with the cataloging and indexing module. Battelle Columbus Laboratory released similar functionality in TechLib soon after.19
+
+In the mid-1980s commercial PC software for thesaurus creation became available, including the desktop tools MultiTes, Term Tree, and TCS (later a part of WebChoir). Of these, only MultiTes is still offered today. Larger-scale client–server systems became available in the 1990s, reflecting the growing demand. Synapse Corp. had developed software to maintain taxonomies it was creating for others as a consulting service but soon found a market for the software itself and began selling the Synaptica taxonomy management system, the first commercial, web-based thesaurus management software, in 1999. Similarly, Access Innovations had been offering indexing services since 1978 but then found demand for its taxonomy management tool and has commercially offered its Data Harmony Thesaurus Master since 1998. Wordmap, another taxonomy software vendor, was founded in 1998. Content management systems and enterprise search solutions, which only really entered the market in the 1990s, have also begun to offer taxonomy management components or features.
+
+The 1990s also saw the establishment of commercial vendors of taxonomies, including Synapse Corp. and WAND, both of which were founded in 1995, and the automatic taxonomy generator company Intellisophic in 1999.
+
+The rise of the term taxonomy paralleled this growing interest in taxonomies. Former taxonomy consultant Ron Daniel got his start in the field working for the Department of Energy on its thesaurus. He recounts how, around 1997, it was starting to use the word taxonomy interchangeably with thesaurus and another term that hasn’t become quite as popular, synonymy.20 Earley recalls starting to use the word taxonomy with clients around 1996 or 1997. Moulton recalls the adoption of the term taxonomy as follows:
+
+
+               Throughout my professional career, first as a technical librarian, then as a software developer and consultant, the operative terminology for my work was thesaurus.
+
+               … I first heard the term taxonomy applied to “organization maps,” in the early 1990s. … In the late 1990s I began to see the term “taxonomy” routinely used to describe “terminology maps,” “topical hierarchies,” and “terminology relationships.” Before long, taxonomy became the de facto label for topical navigation schemes on commercial websites that had a focus on text content retrieval. … At some point I recognized that the term “thesaurus” was not understood by IT and business management professionals. So, about 2000, I adopted taxonomy to cover any controlled vocabulary being developed or applied in any indexing, metadata management or retrieval situation. … To this day, I use thesaurus and taxonomy interchangeably depending on which word will most likely resonate with my audience.21
+
+
+
+Our online survey completed by 148 taxonomists in May 2015 also confirmed the relatively later adoption of the term taxonomy. Whereas 26 (17.6 percent) of the respondents had been involved in taxonomy work as we define it (taxonomies, controlled vocabularies, metadata for classification or tagging, thesauri, or authority files) for more than 15 years, only 11 (7.5 percent of the total) reported that their work was specifically called “taxonomy” as long ago as 2000 (15 years prior to the survey). Going back 20 years or more (1995 or earlier), 18 respondents, or 12.2 percent, claim to have already been in the field, but only 2 of them said it was called “taxonomy” then. (See Appendix A, Questions 2 and 3.)
+
+Another way to track the growth in the popularity of taxonomies is to track the mention of taxonomies in periodical literature, especially in business and trade journals. While many of these articles may be about specific subject taxonomies, rather than information taxonomies in general, searching on the plural word taxonomies, rather than taxonomy, focuses the results more on the creation of generic information taxonomies. Looking at Gale’s Business Collection subscription database on InfoTrac for the word taxonomies in titles and full text shows a marked increase from 1998 to 2002 and then a steadier occurrence in subsequent years, except for a spike in 2010, as shown in Table 1.1. Business Index covers 3000–4000 magazines, journals, newsletters, industry reports, and newswires.22 “Taxonomies” is not a subject term in the Gale databases, but rather the slightly broader “controlled vocabularies” is used.
+
+The turning point came around 2000. In the summary of the European Business Information Conference (EBIC) conference in 2000, Tom Koulopoulos, president of the Delphi Group and renowned writer and public speaker on knowledge management, declared, “Taxonomies are chic.” Since then taxonomies have been a popular topic in conference presentations and workshops. The Montague Institute held its first taxonomy roundtable in 2000. A significant number of taxonomies had become available publicly (usually for licensing), so in 2001 Synapse Corp. (now Synaptica, LLC) launched its Taxonomy Warehouse website directory of taxonomies. Taxonomy consultant Marcia Morante recalled as follows:
+
+
+               The year 2000 was probably the very beginning of the commercial taxonomy wave. That was the year that I started with Sageware, and we still had to do a lot of explanation. But by that time, there were definitely a few companies whose business was built around taxonomies.23
+
+
+
+Table 1.1 Number of periodical articles about taxonomies in Gale’s Business Collection database on InfoTrac
+
+
+
+
+
+
+
+
+
+
+Year
+“taxonomies” in article titles
+“taxonomies” in article text
+“controlled vocabularies” Subject
+
+
+
+1998
+0
+6
+0
+
+
+
+1999
+0
+16
+0
+
+
+
+2000
+3
+92
+0
+
+
+
+2001
+6
+111
+0
+
+
+
+2002
+8
+231
+0
+
+
+
+2003
+8
+180
+0
+
+
+
+2004
+14
+208
+0
+
+
+
+2005
+7
+204
+0
+
+
+
+2006
+5
+200
+1
+
+
+
+2007
+7
+206
+9
+
+
+
+2008
+4
+214
+8
+
+
+
+2009
+6
+217
+10
+
+
+
+2010
+10
+365
+15
+
+
+
+2011
+8
+159
+6
+
+
+
+2012
+6
+192
+5
+
+
+
+2013
+3
+169
+4
+
+
+
+2014
+4
+206
+31
+
+
+
+Although newer buzzwords, such as folksonomy, social networking, and Web 2.0, superseded taxonomy in their usage in the 2000s, a sustained interest in taxonomy and taxonomists continues. Search industry analyst Steve Arnold analyzed web traffic on Google from 2002 to 2008 on the term taxonomy and found it continuing to remain strong, stronger than CMS (content management systems). He concluded that “taxonomy is a specialist concept that seems to be moving into the mainstream.”24
+
+Endnotes
+
+  1.  Gale Hodge, Systems of Knowledge Organization for Digital Libraries: Beyond Traditional Authority Files (Washington, DC: The Digital Library Federation Council on Library and Information Resources, 2000), 1, accessed December 20, 2015, www.clir.org/pubs/reports/pub91/pub91.pdf
+
+  2.  Ibid., 4–7.
+
+  3.  National Institute of Standards Organization, ANSI/NISO Z39.19-2005 (R2010) Guidelines for Construction, Format, and Management of Monolingual Controlled Vocabularies (Bethesda, MD: NISO Press, 2010), 166.
+
+  4.  Alice Redmond-Neal and Marjorie M. K. Hlava, eds., ASIS&T Thesaurus of Information Science, Technology, and Librarianship, 3rd ed. (Medford, NJ: Information Today, 2005).
+
+  5.  Tom Gruber, “Ontology,” accessed December 20, 2015, tomgruber.org/writing/ontology-definition-2007.htm
+
+  6.  This image, reprinted with permission of the authors, first appeared in Murat Sensoy and Pinar Yolum, “Ontology-Based Service Representation and Selection,” IEEE Transactions on Knowledge and Data Engineering 19, no. 8 (2007). It is also available at mas.cmpe.boun.edu.tr/project/AgentBasedSemanticWebServices.htm
+
+  7.  Patricia A. Harpring (Managing Editor of the Getty Vocabulary Program, Getty Research Institute), email to author, January 13, 2016.
+
+  8.  MeSH Memorandum of Understanding, accessed December 20, 2015, www.nlm.nih.gov/mesh/termscon.html
+
+  9.  Jean Graef, email to author, November 21, 2008.
+
+10.  Alva Stone, “The LCSH: A Brief History of the Library of Congress Subject Headings, and Introduction to the Centennial Essays,” Cataloging & Classification Quarterly 29, no. 1–2 (2000): 1.
+
+11.  Jean Aitchison and Stella Dextre Clarke, “The Thesaurus: A Historical Viewpoint with a Look to the Future,” in The Thesaurus: Review, Renaissance, and Revision, eds. Sandra K. Roe and Alan R. Thomas (Binghamton, NY: Haworth Press Inc., 2004), 7.
+
+12.  Ibid., 8.
+
+13.  Lynda Moulton, telephone interview with the author, October 19, 2009.
+
+14.  Lynda Moulton, email to author, October 19, 2009.
+
+15.  Seth Earley, telephone interview with author, November 22, 2008.
+
+16.  Kimberly S. Johnson, “International Information Provider Buys Franktown, Colo., Taxonomy Company,” Denver Post, June 30, 2005.
+
+17.  Jean Graef, email to author, November 21, 2008.
+
+18.  Fred Leise, email to author, December 2, 2008.
+
+19.  Lynda Moulton, email to author, October 19, 2009.
+
+20.  Ron Daniel, telephone interview with author, December 1, 2008.
+
+21.  Lynda Moulton, email to author, November 9, 2009.
+
+22.  Gale/Cengage Learning Database Title Lists, solutions.cengage.com/Gale/Database-Title-Lists, updated June 30, 2015. A count of titles without an end date. Titles are added and dropped over the years, so an exact title count for a span of years is not possible.
+
+23.  Marcia Morante, email to author, November 21, 2008.
+
+24.  Steve Arnold, “Taxonomy: Silver Bullet or Shallow Puddle,” Beyond Search blog, September 27, 2008, accessed December 20, 2015, arnoldit.com/wordpress/2008/09/27/taxonomy-silver-bullet-or-shallow-puddle
+
+

@@ -1,0 +1,530 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Chapter 12
+
+Taxonomy Work and the Profession
+
+If you find what you’re looking for, thank a taxonomist.
+
+—J. D. Henry
+
+An accidental taxonomist could be asked to create, revise, or map a taxonomy, and after the project is finished, resume his or her previous job responsibilities. Often, however, an accidental taxonomist remains a taxonomist, in both job responsibilities and professional life. This chapter describes the characteristics of taxonomy jobs, whether full time or freelance, and also suggests sources where taxonomists might look for continuing education and professional networking opportunities.
+
+The Nature of Taxonomy Work
+
+The heart of being a taxonomist is dealing with concepts, figuring out what words are best to describe them, and determining how best to relate and arrange the concepts so that people can find the information they are seeking. The task requires a degree of logic as one must scrupulously analyze relationships between terms. It is neither entirely technical/mathematical nor entirely linguistic but a little of each. You always need to keep in mind how others might look for information when considering how to word a term, create nonpreferred terms, structure relationships, and contribute to the design of the user interface display. Helping people find information is indeed rewarding, but unlike a traditional librarian, you may never meet the people whom you are helping. If you work within a large organization to develop and maintain its internal taxonomies, however, then you do have the added benefit of constantly being able to check with users to find out how the taxonomy is serving them and how it can be improved. However, you would not deal with the diversity of subject areas that a taxonomist working for an information provider or a contract taxonomist encounters.
+
+While the skills and qualifications taxonomists need (listed in Chapter 2) are similar for any kind of taxonomy work, the actual working environment, conditions, responsibilities, and related duties can vary greatly. These depend on whether the taxonomist is a full-time employee, a temporary contract employee, a consultant, or a freelancer and, in the case of a full-time employee, whether taxonomy work is the primary job responsibility.
+
+What Taxonomists Enjoy About Their Work
+
+Our survey in May 2015 of those engaged in taxonomy work asked the open response question: “What do you enjoy about taxonomy work?” The 90 responses revealed that the vast majority enjoy taxonomy work for reasons that fall under one or more of the following general categories, listed in order of the number of responses, and many actually did list a combination of such reasons:
+
+
+       •  Organizing information, and for some a more intellectual extension of modeling knowledge
+
+       •  Solving problems and “puzzles”
+
+       •  Helping people find the content they need or want
+
+       •  Dealing with language, words, and meaning
+
+       •  Learning new subjects
+
+
+
+In the area of organizing information, some of the responses were:
+
+
+       •  I LOVE sifting out similarities and differences, cross-referencing and adding synonyms, and sorting and standardizing terms. —Margaret Nunez
+
+       •  I enjoy the structural interconnections and bringing alignment between metadata, taxonomies, and ontologies, and the content delivered in the customer/user experience on websites and in web applications. —Allan Grohe
+
+       •  I love how a well-planned taxonomy gives us the flexibility to develop intelligent content models. —Vinish Garg
+
+       •  The division of a body of knowledge into discrete yet related concepts, while envisioning how a searcher would think of the information.
+
+
+
+In the area of being challenged and solving problems and puzzles, responses included:
+
+
+       •  I really love the puzzle involved in parsing out the right way to categorize content. Especially when these categories might overlap and need to intersect each other in ways that specifically benefit the user.
+
+       •  It combines language and technology in interesting ways. There are complicated puzzles to solve and rarely a “right” answer. Taxonomy work utilizes my attention to detail.
+
+       •  I love the daily challenge of the work. No two days are ever the same.
+
+
+
+Examples of responses on the subject of helping other find what they are looking for included:
+
+
+       •  It’s just something I feel passionate about. I love knowing that the work I do will help users find or discover the right people or content.
+
+       •  I like lining up points of view to provide better understanding and usability.
+
+       •  I also love to teach others how they can improve findability through tagging. Seeing those a-ha moments in their eyes is almost better than a paycheck.
+
+       •  The work itself is systematic and methodical, and if the taxonomies are deployed well, can result in major improvements in the client’s information and knowledge environment. —Patrick Lambe
+
+
+
+Regarding working with languages, some responses were:
+
+
+       •  First off I love how creative you can be when finding the perfect words to describe whatever the user wants.
+
+       •  I like the tricky intersection between the informality of language/meaning and the formality of structured relationships.
+
+       •  I love vocabulary and its relationship to other words, the structure of the taxonomy.
+
+
+
+Comments about getting to learn new things through taxonomy work included:
+
+
+       •  I’m always learning! It requires a breadth of knowledge and a willingness to learn and research.
+
+       •  Talking to subject matter experts and understanding how they classify concepts in their minds.
+
+       •  Working with taxonomy is about gaining a deeper understanding about what the taxonomy is about. If it’s the enterprise taxonomy for a business, it’s truly understanding what makes that company tick. If it’s a taxonomy about an idea or an industry or a process, it’s about becoming thoroughly educated in those items as well. —Seth Maislin
+
+
+
+Some further comments of what is enjoyable about taxonomy work included:
+
+
+       •  The analysis, creativity and stakeholder engagement.
+
+       •  I enjoy the far-reaching impact that is possible for such little effort.
+
+       •  I enjoy the product development aspect, integrating taxonomies into the user experience. How to do this well is a challenge without it feeling clunky and forced.
+
+       •  What I like most about working on taxonomies is that they’re at the heart of the problem. Good information retrieval relies on good indexing, and good indexing simply isn’t possible without a good taxonomy to work with. Like any craftsman’s product, a well-crafted taxonomy is a combination of artistry and technical skill that is well structured for its purpose. —John Magee1
+
+
+
+What Challenges Taxonomists Face
+
+Our survey also asked the question, “What are pain points or challenges in your taxonomy work?” What is particular to the field of taxonomy is getting others to understand a taxonomy’s role and value and how those who are stakeholders should and should not be contributing.
+
+Responses around achieving stakeholder understanding and buy-in included:
+
+
+       •  Frequently my biggest challenge is justifying the work to begin with. A lot of companies want fast solutions of which taxonomy is not. Nor should it be. So getting buy-in and once you have that tagging is very challenging.
+
+       •  Articulating the ROI of taxonomy work.
+
+       •  Stakeholder buy-in is challenging. Explaining how much time, effort and money an enterprise taxonomy requires is a tough sell … especially since the benefits are not immediately evident.
+
+       •  People not understanding what I am talking about, understanding the value, or wondering why development will take “so long.”
+
+
+
+Sometimes interest in the taxonomy is too great, where there are competing interests, expectations, and requests, as suggested by the following comments:
+
+
+       •  Too many opposing or conflicting opinions of how the taxonomy should be structured.
+
+       •  Employees want to reflect organisational structure into the taxonomy.
+
+       •  Company politics and self-styled “experts” who are product managers, librarians with no taxonomy experience, or marketing people.
+
+       •  Contributors who insist that more keywords are better.
+
+       •  Outside influences/marketing and sales reps requesting to alter taxonomy to better fit key words and buzz terms as opposed to technical terms.
+
+       •  Different people in our organization expect different things out of our taxonomy.
+
+
+
+The lack of ideal tools or technology is also an issue for some with such responses as:
+
+
+       •  Setting up a system and processes to get the metadata aligned is frustrating and slow going.
+
+       •  Finding good software that isn’t enterprise-level.
+
+       •  SharePoint—people are often forced to use it, and it is really not that great at anything, especially taxonomy management.
+
+       •  Software not intended for taxonomies
+
+       •  Keeping up with shifting technologies.
+
+
+
+Limited resources, such as in time or money, are typical concerns:
+
+
+       •  The most difficult challenge for me is advocacy for appropriate resources (e.g., tools, personnel)
+
+       •  Having to move quickly without the proper time to consider the implications of additions or changes
+
+       •  Finding the time to do it well
+
+       •  The expense and effort involved in classification can limit project scope
+
+
+
+Some other comments of note regarding difficulties faced in taxonomy work included:
+
+
+       •  The two biggest challenges I have had are (1) getting assurance that the taxonomy will be maintained after completion and (2) explaining how a taxonomy is useful to teammates with different professional backgrounds.
+
+       •  Getting follow-through from business teams, walking the line between business and technical communication, poor data quality, explaining how the taxonomy works, finding all stakeholders in a project.
+
+       •  Balancing standards/best practices with actual needs of customers, systems.
+
+       •  (1) Acquiring quality taxonomy tags when the taxonomy is deployed. (2) Ensuring continued maintenance and governance of the taxonomy once deployed. —Patrick Lambe
+
+
+
+Employment Opportunities
+
+Taxonomists work for varied employers: governments, international agencies, publishers, information providers, online retailers, consultancies, software vendors, and large corporations in any industry, with examples named in Chapter 2. The fact of the matter is that taxonomists often move around from one industry to another, between products and services, between profit-making and nonprofit enterprises, which certainly contributes to interesting careers. Only some fields, such as medical, pharmaceutical, and scientific/technical publishers, tend to require subject matter expertise.
+
+Dedicated, full-time, permanent taxonomist positions exist, but they are still not very common compared with other types of positions. Any large corporation or government agency that cares to structure and organize its terminology has enough ongoing information management needs to keep at least one full-time taxonomist busy all the time and at times needs even more assistance. However, one or two taxonomists out of a staff of thousands do not amount to much of the labor force. Businesses involved in the sale of indexed content also employ taxonomists and may even support a small team of taxonomists, but such businesses are few. The job-seeking taxonomist who does not wish to relocate may have to wait a while before a position opens up.
+
+If you are searching for a taxonomist job, you will find relatively few openings in any given geographic area. It’s not merely a matter of the diversity of job titles used (see Chapter 2), though that does complicate the search. The fact is that the number of positions in which taxonomy is the primary role is rather limited, and the number of open positions is much smaller still. What is more common, however, are positions in which taxonomy is one of several responsibilities. A search on taxonomy or taxonomies within the job descriptions of open positions yields many more results than a search for taxonomy or taxonomist limited to the job title. For example, on October 30, 2015, the aggregate job search board Indeed.com listed only 15 jobs with taxonomist and 28 taxonomy in the title for all of the United States, but 1,776 with taxonomy in the job description (after excluding jobs with the words biology, biologist, plant, and zoology), with such titles as business analyst, technical writer, data modeler, digital content specialist, and so on. What this means is that you need not be a taxonomist to find yourself using taxonomy skills in your job.
+
+Although the number of jobs may be relatively small, they are growing. The exact same search conducted on Indeed.com six years prior (September 30, 2009) yielded only six jobs total with taxonomist or taxonomy in the title and less than 1,000 with the words in the job description.
+
+A resource for locating jobs that comprise primarily taxonomy work is the Yahoo! mailing list group called Taxonomy Jobs (groups.yahoo.com/neo/groups/taxonomy-jobs). Job postings are from employers and recruiters, who proactively submit such job announcements, but many other taxonomy job openings are not included on this list.
+
+Taxonomists as Contractors
+
+A taxonomy project can take a considerable amount of work for only a temporary period of time. This usually applies to the design and creation stage, but revision and integration projects can also demand periods of intensive work. Thus, to supplement internal resources, a great deal of taxonomy work is done by contractors, whether consultants, or temporary employees. For small operations, these outsiders can take the place of a full-time taxonomist employee, but for larger taxonomy needs, they merely supplement the work of in-house experts.
+
+Some differences in working conditions between employees and contractors are common across industries, but there are also certain specific differences with regard to taxonomy work. For contractors, the biggest benefit is that a lot of taxonomy work can be done at home, and thus they can work for clients in other parts of the country or even in other countries. Most taxonomy management software permits remote access, but many contract projects require only Excel. Contractors also encounter a variety of subject areas to work on, and when working on terms, this diversity is important to many. (As a contractor, I have worked on taxonomies for consumer products, industry categories, insurance, news, business management, travel, food, mining, banking, academic fields of study, transportation, travel, and names of writers, among other areas.)
+
+On the negative side, contractors usually lack access to the latest software and other technical support services. Tasks such as comparing or merging lists of terms could often benefit from scripts that perhaps only more technical colleagues at an office can provide. It is difficult for a contractor to design a taxonomy for a content management system without the benefit of ever having been the user of any content management system or for SharePoint if they are not a user of SharePoint. Finally, the self-employed taxonomist does not have the support of workplace colleagues who can provide input and answers to questions for subjective taxonomy-building tasks. (Of course, not all taxonomist employees have as much co-worker support as they would like either, particularly if they are the only person in an organization who is knowledgeable about taxonomies.)
+
+For a self-employed person seeking taxonomy work, there are plenty of opportunities, but there is a distinct difference between working as a consultant, directly for a client, and working as a freelancer, a step removed from the taxonomy’s users. The nature of the work and the working conditions for each role are quite different.
+
+Working as a Consultant
+
+One of the main distinctions between consultants and freelancers, in general, is that consultants tell their clients what to do, whereas clients tell their freelancers what to do. To be fair, consultants usually (but not always) undertake work on actually constructing the taxonomy as well, but consultants are expected to do at least some consulting, which means giving formal advice to the client. Thus, consultants need to take more initiative, do more research on the taxonomy’s intended use, and make more decisions, and they may have to persuade the client that the taxonomy should be done a certain way. In compensation for this, of course, consultants get paid more than freelancers do. It is also more fulfilling to design an entire taxonomy and make the decisions about its structure. However, even consultants do not always get to design new taxonomies. Increasingly, consulting projects involve reviewing existing taxonomies and making recommendations for improvements.
+
+Following is a summary of what is expected of taxonomy consultants in contrast with taxonomy freelancers:
+
+
+       •  Write up a proposal of what you intend to deliver (and then deliver it).
+
+       •  Estimate how much time you will need (and then meet these deadlines).
+
+       •  Set a pay rate as high as you dare without risking losing a bid to a competing consultant (and do not ask for more money later if it takes more time and effort than expected).
+
+       •  Meet with the client face-to-face at the client’s site, and possibly make several visits to conduct research for the taxonomy based on stakeholder interviews, card-sorting exercises, and test searching a system within a firewall.
+
+       •  Deliver (PowerPoint) presentations to the client of what you intend to do and later what you have done, and what the issues are.
+
+       •  Write up recommendations that will contribute to the taxonomy governance.
+
+       •  Negotiate any differences of opinion on taxonomy design.
+
+       •  Have your own thesaurus management software (with compatible export format options).
+
+
+
+Consultants can work for distant clients, too, if they are willing to travel, and in the taxonomy field, most do. Recognizing the fact that there are relatively few qualified taxonomy consultants, a client does not necessarily expect to find a local consultant and will look nationally and reimburse travel expenses. Similarly, a consultant cannot expect to find all clients locally. A three-month project might involve three on-site visits of one to three days each, but a six-month project may not involve much more.
+
+Working directly with a client on a taxonomy project, especially an enterprise taxonomy project, can be challenging, though. The client might have difficulty communicating the scope and requirements of the project or might not even know which makes it difficult for the consultant to know what is expected and what to deliver. Indeed some of the complaints taxonomists have about their work pertain specifically to consultant–client relationships. A survey response regarding the difficulties of taxonomy work in consulting stated: “The hardest part to taxonomy challenges is getting the full story from your clients. I work at an agency and often have to walk clients through our thinking.”
+
+A successful taxonomy project, though, can be very rewarding for the taxonomist.
+
+Finally, consultants need to aggressively market themselves. This includes speaking at conferences and trade shows (commercial and industry shows, more so than librarian/indexer association events), publishing articles in trade journals, publishing a blog, participating in professional networking organizations, and actively contributing to discussion groups and social networking sites. The consultant should have a professional website, and the website should include all relevant informational resources (articles, presentations, etc.) and be optimized for search engines.
+
+Working as a Freelancer
+
+The work of a freelancer, on the other hand, may be less challenging than that of a consultant, but the diversity of projects usually keeps it stimulating. A freelancer typically works on only part of a taxonomy and does not get to see the bigger picture. The freelance taxonomist is usually immersed in terms, not in structure.
+
+Following is a summary of what is expected of taxonomy freelancers in contrast with taxonomy consultants:
+
+
+       •  Follow instructions, guidelines, and editorial policy provided by the client.
+
+       •  Agree to work a set number of hours per week and/or complete a project by the client’s deadline.
+
+       •  Work with little or no contact with the taxonomy users.
+
+       •  Accept any decisions that have already been made regarding the taxonomy design.
+
+       •  Expect the client to provide any software that is not part of the standard Microsoft Office suite.
+
+       •  Expect to do all or most work from home.
+
+       •  Accept the hourly rate proposed by the client (with perhaps a little negotiation at the start).
+
+
+
+In comparison with in-house taxonomist employees, freelance taxonomists do not usually get involved with full taxonomy and thesaurus development. A large thesaurus may be too complex and interrelated to be broken up into sections for freelancers, even if web-based thesaurus software permits remote access. Also, a project manager might feel that all taxonomists need to have broader overall knowledge of the thesaurus and favor former employees over new freelancers. An exception is work on named entities, whose relationships with other terms are generally not as complex. (Research regarding additional attributes for each name term might be a bigger part of the project.) A freelance taxonomist might not even be called a taxonomist but rather a taxonomy editor, with the implication that taxonomists design taxonomies. Freelance projects could include the following:
+
+
+       •  Building term hierarchies for website taxonomies
+
+       •  Building a top-level straw-man taxonomy
+
+       •  Mapping nonpreferred search terms to taxonomy terms
+
+       •  Researching, adding, and/or editing named entity terms
+
+       •  Adding and editing additional attributes to terms (particularly named entities), involving research and data entry
+
+       •  Providing training documents or writing term rules in support of auto-categorization
+
+
+
+Freelance taxonomy work is paid on an hourly basis, and this could be frustrating for the freelancer who comes from an editing or indexing background and is accustomed to being paid per page or per database record. It is impossible to estimate how many terms one can create or edit per hour, because there are too many variables.
+
+Freelance Opportunities
+
+Freelance work is available for taxonomists, but unless you have a steady client, the work is quite sporadic, more so than book indexing or editorial freelance work. Thus, freelance taxonomists often combine this work with something else, such as consulting, teaching, indexing, or a part-time library job. Steady clients might be found among the few taxonomy vendors, information vendors, or software vendors mentioned in Chapter 2, but these opportunities are somewhat rare. Most of the freelance work offered by information vendors and publishers consists of indexing/tagging rather than taxonomy work. Sources of intermittent freelance taxonomy work include web/online advertisers and directories, search engines, ecommerce sites, and portals. Taxonomy consultancies are also a good source of work for freelance taxonomists, but their work is never steady or predictable, as it depends on when the consultants wins a contract with a client. Then on very short notice, there will be a substantial amount of work to take on. Thus freelancing requires flexibility.
+
+Freelancers must also market and promote themselves, but not necessarily as publicly as consultants do. The best way for freelancers to get work is through networking, especially among taxonomy consultants and fellow freelancers. As taxonomy projects vary in size, often one project needs multiple part-time taxonomy editors. Thus, when one freelancer joins a project, the client may ask that freelancer to refer more taxonomy editors to help. In a more concerted effort to support freelance taxonomists in finding projects, the Taxonomies & Controlled Vocabularies Special Interest Group of the American Society for Indexing (ASI) has set up a directory of available freelance taxonomists on its website (www.taxonomies-sig.org/members.htm).
+
+Taxonomists as Temporary Contract Employees
+
+Finally, taxonomists on temporary assignment for a project could be hired as temporary contract employees, typically through a staffing agency to work at the staffing agency’s client. They would be on the payroll of the staffing agency and treated as employees of the staffing agency for the duration of the project. This type of employment is quite common for short-term assignments in technology professions, and it is increasingly the case for the semitechnical role of a taxonomist.
+
+The main difference from the previously described consultant and freelancer roles is that the contract employee is generally expected to work on-site full time for the duration of the project. Thus, contract work is typically only an option for taxonomists already living in major metropolitan areas. In other cases, they just might be very lucky to find something locally. Computer hardware and software will often be provided to the on-site contractor.
+
+The nature of the temporary work may vary and could involve some level of responsibility and decision making, as is characteristic of the consultant, but it also could involve following more direction as is the case for the freelancer. It really depends on the level of expertise in taxonomy that the organization already has. A contract taxonomist, unlike a freelancer, may be the sole taxonomist on a project, so a certain degree of expertise and decision making may be expected, but their authority and flexibility is not as great as a consultant. The hourly pay rate is similar to freelancing, considerably less than consulting, but many more hours can be logged in a short period of time.
+
+Education and Training
+
+Taxonomy is still an accidental profession. Dedicated academic programs in the field are lacking. There are no majors, concentrations, or certificate programs and only a few courses on the subject. Thus, an aspiring professional cannot plan to become a taxonomist and take all the necessary university courses for it. Educational opportunities for learning how to create taxonomies, thesauri, controlled vocabularies, and so on consist of individual courses in library schools, continuing education workshops, professional organization online learning programs, consulting firm training programs, conference workshops and sessions, and online tutorials.
+
+Information and Library Science Graduate Degree Courses
+
+A review of the course catalogs on the websites for the 58 academic institutions with a graduate degree program in library/information science accredited by the American Libraries Association (ALA) in the United States and Canada, with instruction in English, reveals very few courses with the words taxonomies, thesaurus, or ontology in the titles. (There are no undergraduate courses in these fields.) Furthermore, some of these courses are only offered occasionally (not every year) or in the summer. In the 2015–2016 degree program course catalogs, there appeared to be only seven such courses:
+
+
+       •  Indexing & Thesaurus Construction, University of California at Los Angeles
+
+       •  Indexing, Abstracting, and Thesaurus Construction, Catholic University of America
+
+       •  Knowledge Taxonomies, School of Information Studies, McGill University
+
+       •  Taxonomies: Research and Evaluation, University of British Columbia
+
+       •  Ontologies, Indiana University at Bloomington
+
+       •  Ontology Development, University of Illinois at Urbana-Champaign
+
+       •  Thesaurus Construction, University of Illinois at Urbana-Champaign
+
+
+
+Courses that include coverage of various kinds of controlled vocabularies, while not dedicated exclusively to these topics, are greater in number. There are another 25 courses at ALA-accredited institutions that have various types of knowledge organization systems (controlled vocabularies, thesauri, taxonomies, or ontologies) mentioned in the course descriptions, as one of several topics covered. There are of course many other courses that may include a single class session on taxonomies but do not mention it in the brief, one- to three-sentence course description. Examples of courses with various kinds of knowledge organization systems mentioned in their description are as follows:
+
+
+       •  Information Modeling, University of Illinois
+
+       •  Introduction to Knowledge Organization, Long Island University
+
+       •  Knowledge Management, University of Washington
+
+       •  Managing Organizational Information Assets, University of Michigan
+
+       •  Metadata & Access, McGill University
+
+       •  Metadata and Resource Description, Drexel University
+
+       •  Organization of Information, Dalhousie University
+
+
+
+Graduate courses on knowledge organization or organization of information, however, tend to be surveys about the subject, rather than how to create knowledge organization systems. Sometimes the course is about organization of information just in libraries, such as Anglo-American Cataloging Rules, Dewey Decimal Classification, Library of Congress Classification, and Library of Congress Subject Headings. But other times it covers various controlled vocabularies, such as taxonomies, thesauri, or ontologies.
+
+Many library/information science programs include some instruction (perhaps only a class session) on thesaurus construction as part of a course on information management or indexing. Such literature retrieval thesauri, however, are only one kind of controlled vocabulary. A class session or project in creating an indexing thesaurus does not constitute sufficient training to start creating website or enterprise taxonomies. Nevertheless, even this instruction in the creation of traditional literature retrieval thesauri is not widespread in library school, compared with instruction in the cataloging of books.
+
+Courses in cataloging and classification are taught in most library science programs, but the courses typically cover cataloguing standards, codes, and formats with respect to existing systems (Resource Description & Access (RDA), Dewey Decimal Classification (DDC), Library of Congress Subject Headings (LCSH), and Machine-Readable Cataloging (MARC21), rather than how to develop a new knowledge organization system.
+
+Other courses of related interest are taught at schools of information science, without library science in the name, where the scope of study is broader. These courses include the following:
+
+
+       •  Content Management Systems, University of Michigan
+
+       •  Data Mining, McGill University
+
+       •  Information Systems Design, Indiana University Bloomington
+
+       •  Semantics-Based Knowledge Descriptions and Organization, University of Michigan
+
+
+
+Although library and information science courses tend to be limited to students enrolled in a degree program, some graduate schools permit nondegree students to enroll in one or two regular courses if space is available. Such nondegree student options include the Open Classes program at San Jose State University School of Information, the Nondegree/Community Credit program at the University of Illinois at Urbana-Champaign, and the Nondegree options at St. Catherine University. The prerequisite is usually just a bachelor’s degree. These courses may be online (as is the case for San Jose State), making them accessible to anyone.
+
+Information and Library Science Continuing Education Programs
+
+“Continuing education” does not mean the same thing at every institution. Many schools of library and information science offer a form of continuing education, whereby someone who already has the MLIS or equivalent degree can take individual courses, as a nondegree student, selected from the regular course catalog. In other cases, the only option to take courses as a nondegree student is to be enrolled in a post-master’s certificate program, which requires a minimum number of credits. Post-bachelor’s certificate programs are rare.
+
+Only a few schools of library and information science offer a dedicated continuing education program or professional development comprised of separate short classes or workshops available to anyone with no prerequisites. Such dedicated continuing education classes or workshops are not for credit, are shorter than a regular college course, and are less in-depth, but they do offer an interactive learning experience. They may be offered as single, full-day on-site workshops or as online classes for just a few weeks. These classes are an especially suitable source of instruction in new or hot fields as they can be created and added on short notice and may be taught by practicing professionals rather than academic faculty. Such continuing education workshop programs are offered at the following institutions:
+
+
+       •  Kent State University, School of Library & Information Science (http://www.kent.edu/slis/continuing-study-courses-workshops)
+
+       •  Simmons College, School of Library and Information Science (www.simmons.edu/academics/professional-education/slis-continuing-ed-workshops)
+
+       •  University of Toronto, School of Continuing Studies and Faculty of Information (Classes are part of a certificate program in Information Management, but classes are shorter and less expensive than regular credit courses. Only some are online.) (learn.utoronto.ca/courses-programs/business-professionals/ischool)
+
+       •  University of Wisconsin at Madison, School of Library and Information Science (www.slis.wisc.edu/continueed.htm)
+
+
+
+At this time, only one of these continuing education programs offers an online workshop in taxonomies, and that is Simmons College, with a five-week workshop, “Taxonomies and Controlled Vocabularies.” Other college continuing education programs could add a knowledge organization system class or workshop at any time.
+
+Professional Association Programs
+
+Several professional associations offer online taxonomy workshops and seminars, which are accessible globally. Examples of such programs are the following:
+
+American Society for Indexing (ASI)
+
+Part of ASI’s Online Short Course program is “Practical Taxonomy Creation,” a webinar series comprising three one-hour sessions, originally presented live and video-recorded in 2015. Handouts are also provided. Registrants have access to unlimited repeat viewings. Sessions are (1) Taxonomy types for different applications, (2) Gathering terms for a taxonomy, and (3) Thesaurus management software use with recorded demos (www.asindexing.org/online-learning/taxonomy-hedden).
+
+AIIM (Association for Information and Image Management International)
+
+“Taxonomy & Metadata Practitioner Course” is an online, self-paced course including an audio slide presentation. The topics are especially business-focused, including scoping a taxonomy project, developing a business case, selecting a taxonomy tool, and establishing a governance framework. There is one exam at the end of the course that must be passed in order to obtain a certificate. Once purchased, the course topics, supporting materials, and exams are accessible online and on demand from AIIM’s training portal for six months. AIIM has also offered face-to-face workshops from time to time. Registration is 10 percent discounted for AIIM members (www.aiim.org/Training/Certificate-Courses/Taxonomy-and-Metadata).
+
+SLA (Special Libraries Association)
+
+SLA Taxonomy Division’s Continuing Education program comprises one-hour live webinars on taxonomy-related topics presented several times a year. Registration is free for SLA Taxonomy Division members, and recordings are available at different rates for SLA members and non-SLA members (taxonomy.sla.org/category/ce).
+
+American Libraries Association (ALA)
+
+ALA-affiliated divisions may offer taxonomy-related webinars from time to time, as the Association of College and Research Libraries (www.ala.org/acrl) has in the past. In addition, the Association for Library Collections and Technical Services division of the ALA had codeveloped a full-day PowerPoint workshop for the Library of Congress Catalogers Learning Workshop/Cooperative Cataloging Training program called “Controlled Vocabulary & Thesaurus Design,” intended to be taught by qualified instructors (www.loc.gov/catworkshop/courses/thesaurus).
+
+Conference Workshops
+
+If you prefer a live workshop with instructor interaction, then conference workshops might be your best option. A number of professional association and commercial conferences in the information management field include workshops on taxonomies. The exact programs and speakers will vary from year to year. In the case of professional organization conference workshops, nonmembers are typically permitted to attend at a slightly higher rate. If the program is offered as pre- or postconference workshop, either full day or half day, then there is a separate registration from the main conference with no obligation to register for the main conference. Sometimes taxonomy workshops of only two to three hours are offered as part of the main conference program.
+
+Professional Organization Conference Workshops
+
+Professional organization conferences with workshops include:
+
+
+       •  The SLA Annual Conference (www.sla.org/attend) is usually held in June in different North American cities. There are both half-day and full-day preconference workshops called Continuing Education Courses with separate registrations, and typically there is a workshop on taxonomy creation. Some years there are even two taxonomy-related workshops. SLA chapters in different regions and countries also hold conferences and meetings, which may include taxonomy-related sessions.
+
+       •  The American Society for Indexing (ASI) Annual Meeting (www.asindexing.org/conferences) is held every spring, usually in May, in different US cities. ASI typically offers a workshop on creating taxonomies and thesauri, either a half-day workshop as part of the regular two-day conference program or a full-day pre- or postconference workshop. Regional ASI chapters have also held taxonomy-related sessions and workshops.
+
+       •  The Association for Information Science and Technology (ASIS&T) Annual Meeting (www.asist.org/events/annual-meeting), which is usually held in October or November in different North American cities, has two and half days of preconference workshops, and often there is a workshop on an aspect of knowledge organization systems. Although ASIS&T has the reputation of being more academic in its membership and in its regular conference sessions; its preconference workshops are very practical and are more often taught by practitioners than by academics.
+
+       •  The Information Architecture (IA) Summit (www.iasummit.org), held in March or April in various North American cities and sponsored by ASIS&T, is a conference dedicated to information architecture. Most participants are not ASIS&T members but rather are practicing information architects. Often there is at least one taxonomy-related session among the numerous preconference workshops or regular sessions. Euro IA (www.euroia.org) is an affiliated English-language conference with a similar program that takes place on the European continent in September or October each year.
+
+       •  The American Libraries Association (ALA) Midwinter Meeting in January and Annual Conference in June or July are held in different, major US cities every year (www.ala.org/ala/conferencesevents). Both of these annual events feature full-day and half-day preconference workshops, called Institutes, typically sponsored by ALA divisions. Considering that any topic related to libraries could be on the program, there often is not enough space to include a session on taxonomies, but occasionally a taxonomy-related workshop is included. ALA is very large, so its divisions are also large and have their own national, multiday conferences. These may also be venues for taxonomy-related workshops, especially the Association for Library Collections and Technical Services and the Library and Information Technology Association. Similarly, state and regional ALA chapters also hold conferences.
+
+       •  The AIIM Conference (www.aiimevents.com) is held annually in March or April in different US cities. Its preconference workshops are some of the same as its certificate programs, which could include the Taxonomy & Metadata Practitioner Course described in the previous section, Professional Association Programs. In addition, the regular conference sessions typically include a session on a taxonomy topic. AIIM regional chapters also have conferences that may include half-day taxonomy workshops.
+
+
+
+There are also several conferences pertaining to ontologies and the Semantic Web, which might be of interest, such as the International Semantic Web Conference (ISWC) (swsa.semanticweb.org/content/international-semantic-web-conference-iswc), but these conferences do not have workshops.
+
+Commercial Conferences
+
+Commercial conferences, some of which have workshops, include:
+
+
+       •  Taxonomy Boot Camp (www.taxonomybootcamp.com), put on by Information Today, Inc., takes place every year in Washington, D.C., in late October or early November. It comprises two days of all taxonomy-related sessions. A taxonomy fundamentals workshop (1.5 hours) is often presented the first morning.
+
+       •  KMWorld (www.kmworld.com/conference), a larger Information Today conference co-located and overlapping with Taxonomy Boot Camp (sharing the same exhibition and one keynote presentation), features sessions of related interest on knowledge management. KMWorld includes several half-day, preconference workshop options (with separate registration), which may be on taxonomy-related topics.
+
+       •  Henry Stewart Conferences & Events hosts the DAM (Data Asset Management) Conference (www.henrystewartconferences.com) at different times of the year in Los Angeles, New York, Chicago, and London. Presentations often include a taxonomy topic, although the preconference workshops, called Tutorials, are usually not dedicated to taxonomies.
+
+       •  SPTechCon (www.sptechcon.com) is one of several SharePoint conferences. It is usually held in Austin in winter, and San Francisco in spring, and Boston in late summer. The conference includes full-day and half-day Tutorials, although these are on various technical aspects of SharePoint, and not about developing taxonomies in SharePoint.
+
+
+
+Organizations, Networking, and Resources
+
+All kinds of taxonomists can benefit from networking, whether they are seeking jobs or clients or not. Employed taxonomists, too, feel a need for professional networking, perhaps because they are the only taxonomist in their organization or because new projects and technologies always bring new challenges. In addition, since it is often difficult for taxonomists to explain to others what they do, it is nice to get together, even if only virtually, with others in the same profession to exchange experiences.
+
+Professional Associations
+
+There is no professional association dedicated to taxonomists, but it is questionable whether there even should be one, since most taxonomists already belong to at least one, if not two or more, of the professional associations mentioned in the previous section. There is no shortage of conferences, and if a dedicated discussion forum is needed, a number of those already exist independently.
+
+Two established professional associations have dedicated taxonomy subgroups. The American Society for Indexing (ASI) has had a Taxonomies and Controlled Vocabularies Special Interest Group (SIG) since 2008, and SLA has had a Taxonomy Division since 2009. There is some overlap in membership, but most of ASI’s members are indexers, especially freelance back-of-the-book indexers, and most of SLA’s Taxonomy Division members are corporate, special, or academic librarians.
+
+ASI’s Taxonomies and Controlled Vocabularies SIG (www.taxonomies-sig.org) is, according to its website, “for those in the indexing profession who are involved in creating or editing taxonomies, thesauri, or controlled vocabularies used for indexing.” Some indexers may need to create controlled vocabularies for larger indexing projects, but others are simply attracted to thesaurus creation work due to its similarities with writing book indexes. Most of ASI’s members are freelancers, and so are the members of the Taxonomies and Controlled Vocabularies SIG. The SIG’s website thus serves the additional purpose of promoting members’ freelance services. Membership in the SIG is open to members of ASI and affiliated indexing societies, such as the Indexing Society of Canada, the Society of Indexers (United Kingdom), and the Australia and New Zealand Society of Indexers.
+
+The Taxonomy Division of SLA (taxonomy.sla.org) “offers a practical context for exploring issues and sharing experiences related to planning, creating and maintaining taxonomies, thesauri, authority files, and other controlled vocabularies and information structures,” according to the SLA website. In contrast with ASI’s group, the Taxonomy Division focuses more on conference program planning, educational webinars, and social networking applications. Although membership in the division is limited to SLA members, SLA is an international organization with chapters and members throughout the world.
+
+Other professional associations of possible interest to taxonomists include the IA Institute (www.iainstitute.org) for information architecture and ASIS&T (the Association of Information Science & Technology) (www.asist.org).
+
+Networking
+
+Well before these new professional organization subgroups were formed, taxonomists began actively networking through conference gatherings, discussion lists, and other social networking groups.
+
+Conferences and Meetings
+
+Taxonomy Boot Camp (www.taxonomybootcamp.com), sponsored by Information Today, Inc., is the only conference completely dedicated to taxonomies. As such, it is the best face-to-face networking event for taxonomists, whether employees or self-employed. In addition to those who already consider themselves taxonomists, many attendees simply want to learn more about taxonomies because of a project they are involved in. Taxonomy Boot Camp, usually held in late October or early November, first opened in New York in 2005 and took place in San Jose, California, for four years, but since 2010 it has been held in Washington, D.C. It is co-located with the KMWorld Conference and usually also Enterprise Search & Discovery and SharePoint Symposium, so all four conferences share the same exhibits and preconference workshops.
+
+Local taxonomy gatherings are more difficult to arrange due to the relatively small numbers of taxonomists, but such events have occurred from time to time.
+
+A growth in local face-to-face professional gatherings has been encouraged by the networking portal Meetup.com, founded in 2002, which facilitates the establishment and functioning of groups that meet regularly or periodically in locations around the world through hosted websites for event scheduling and attendee response. Although the field of taxonomy is probably too narrow for a dedicated meetup in any city, meetups in related fields, such as content management or information architecture, may include occasional taxonomy-focused events on their agendas.
+
+In addition to the conferences mentioned in the previous section on Education and Training, other commercial conferences of potential interest with topics related to (if not about) taxonomies include Document Strategy Forum, CMSWire’s DXSummit, the Gilbane Conference, and various text analytics conferences. Networking can be done at the exhibits and receptions without registering for the full conference.
+
+Online Discussion and Social Networking Groups
+
+Online discussion groups are a great way to both network and obtain advice or information. The platforms for the groups have been shifting. Originally they were just listserv mailing lists, then Yahoo! Groups became popular, and more recently LinkedIn is where most of the activity is. Taxonomy Community of Practice is the leading group. It started in 2005 and still exists as a Yahoo! Group (groups.yahoo.com/neo/groups/taxocop/info), where there are about 1,250 members, but discussion volume has dropped from over 100 messages per month in some of months of the early years to around 5–20 messages per month in recent years. As the name implies, most of the discussion centers around taxonomy development and maintenance practices. The corresponding LinkedIn group of the same name (www.linkedin.com/groups/1750) has 3,330 members as of fall 2015 and continues to grow. The LinkedIn group, however, tends to be used more for announcements than for topical discussions.
+
+As a spin-off from Taxonomy Community of Practice, a live, Webex-based discussion group, called Real-World Taxonomy, was started in October 2015 by a taxonomist at Forrester Research, Marie Rodgers. It has periodic meetings, and discussion topics are proposed in advance via shared Google Docs. Topics of discussion have included taxonomy governance, taxonomy management and taxonomy management software, and integration with content management systems.
+
+Other LinkedIn groups of related interest include ASI Taxonomies & Controlled Vocabularies SIG, Classification and Metadata for Information Governance, DAM Pros, Metadata Management, SLA Taxonomy Division, Semantic Technologies, Semantic Web, SharePoint Community Group, Text Analytics, Thesaurus Professionals, and User Experience.
+
+Web Resources
+
+Finally, there are a number of web resources on taxonomies. The following is only a sampling, and it also does not include the websites of the professional organizations previously mentioned in this chapter.
+
+Online Tutorial:
+
+
+       •  Construction of Controlled Vocabularies: A Primer, written by a member of the ANSI/NISO Z39.19 Standard Committee (marciazeng.slis.kent.edu/Z3919/index.htm)
+
+
+
+Blogs:
+
+
+       •  Accidental Taxonomist (accidental-taxonomist.blogspot.com)
+
+       •  Earley & Associates Blog (www.earley.com/blog)
+
+       •  Enterprise Knowledge (www.enterprise-knowledge.com/category/blog)
+
+       •  Green Chameleon (www.greenchameleon.com)
+
+       •  Semantic Puzzle (blog.semantic-web.at)
+
+       •  Synaptica Central (www.synapticacentral.com)
+
+       •  TaxoDiary (taxodiary.com)
+
+
+
+Resource-rich sites of consultants or vendors:
+
+
+       •  Access Innovations (www.accessinn.com/media-library)
+
+       •  Controlled Vocabulary (www.controlledvocabulary.com)
+
+       •  Taxonomy Strategies (www.taxonomystrategies.com/html/library.htm)
+
+       •  Taxonomy Warehouse (www.taxonomywarehouse.com)
+
+
+
+In addition to these web resources is, of course, the website of this book (www.accidental-taxonomist.com). The taxonomy profession is definitely an evolving one. New businesses and information needs of organizations and new technologies will impact the field. Taxonomists, too, can help define and direct the field through their professional organization activities, their writing (including blogging), and their speaking engagements. Individuals who are not afraid to try new things, such as taxonomy work, are also not likely to be afraid of changes and evolution within the field over time.
+
+Endnote
+
+  1.  John Magee, email to the author (rather than a survey response), October 23, 2015.
+
+

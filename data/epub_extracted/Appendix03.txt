@@ -1,0 +1,120 @@
+
+
+The Accidental Taxonomist: Second Edition
+
+
+
+
+Appendix C
+
+Recommended Reading
+
+Chapter 1
+
+Abbas, June. Structures for Organizing Knowledge: Exploring Taxonomies, Ontologies, and Other Schemas. New York: Neal-Schuman, 2010.
+
+Hlava, Marjorie M. K. The Taxobook, Part 1: History, Theories, and Concepts of Knowledge Organization. San Rafael, CA: Morgan & Claypool, 2014.
+
+Hodge, Gale. Systems of Knowledge Organization for Digital Libraries: Beyond Traditional Authority Files. Washington, DC: The Digital Library Federation Council on Library and Information Resources, 2000. www.clir.org/pubs/reports/pub91/pub91.pdf.
+
+Lambe, Patrick. “‘Defining Our Terms’ and ‘Taxonomies Can Take Many Forms.’” In Organising Knowledge: Taxonomies, Knowledge and Organisational Effectiveness. Oxford: Chandos, 2007.
+
+Chapter 2
+
+Lambe, Patrick. “Taxonomists: Evolving or Extinct?” Presentation, Taxonomy Boot Camp conference, San Jose, CA, November 19, 2009. conferences.infotoday.com/documents/71/2818_Lambe.pdf.
+
+Chapters 3 and 4
+
+Aitchison, Jean, Alan Gilchrist, and David Bawden. “‘Vocabulary Control,’ ‘Specificity and Compound Terms,’ and ‘Structure and Relationships.’” In Thesaurus Construction and Use: A Practical Manual. 4th ed. Chicago, IL: Fitzroy Dearborn, 2000.
+
+Hlava, Marjorie M. K. The Taxobook, Part 2: Principles and Practices of Taxonomy Construction. San Rafael, CA: Morgan & Claypool, 2014.
+
+Broughton, Vanda. Essential Thesaurus Construction. London: Facet, 2006.
+
+National Institute of Standards Organization. ANSI/NISO Z39.19-2005 (R2010) Guidelines for Construction, Format, and Management of Monolingual Controlled Vocabularies. Bethesda, MD: NISO Press, 2010.
+
+Zeng, Marcia Lei. “Construction of Controlled Vocabularies: A Primer.” 2005. marciazeng.slis.kent.edu/Z3919.
+
+Chapter 5
+
+Hedden, Heather. “Taxonomy Software Trends.” The Accidental Taxonomist Blog, January 31, 2015. accidental-taxonomist.blogspot.com/2015/01/taxonomy-software-trends.html.
+
+Pohs, Wendi. “Selecting a Taxonomy Management Tools.” Presentation, SLA Annual Conference, San Diego, CA, June 2013. https://www.sla.org/wp-content/uploads/2013/06/SelectingTool_Pohs.pdf.
+
+Chapter 6
+
+Bates, Marcia. “Indexing and Access for Digital Libraries and the Internet: Human, Database, and Domain Factors.” Department of Information Studies, University of California, Los Angeles, 1996. www.gseis.ucla.edu/faculty/bates/articles/indexdlib.html.
+
+Teridman, Daniel. “Folksonomies Tap People Power.” WIRED, February, 2005. www.wired.com/2005/02/folksonomies-tap-people-power.
+
+Chapter 7
+
+Bedford, Denise A. D. “Ontologies, Taxonomies and Search.” Presentation, Special Libraries Association conference, Baltimore, MD, June 15, 2006. sla.dsoc.googlepages.com/Bedford2006Ontologies.pdf.
+
+Miller, Don. “Just the Facts: Auto-classification and Taxonomies.” Concept Searching, 2014. www.conceptsearching.com/wp/solutions-and-product-information.
+
+Pohs, Wendi. “Building a Taxonomy for Auto-classification.” ASIS&T Bulletin. Taxonomies in Practice Special Section, December 2012/January 2013. www.asis.org/Bulletin/Dec-12/DecJan13_Pohs.html.
+
+Reamy, Tom. Enterprise Content Categorization—The Business Strategy for a Semantic Infrastructure. SAS Institute, 2010. www.kapsgroup.com/presentations/ContentCategorization-Business%20Value.pdf.
+
+Chapter 8
+
+Quintarelli, E., A. Resmini, and L. Rosati. “FaceTag: Integrating Bottom-up and Top-down Classification in a Social Tagging System.” Bulletin of the American Society for Information Science & Technology 33 (June/July 2007). www.asis.org/Bulletin/Jun-07/quintarelli_et_al.html.
+
+Tunkelang, Daniel. Faceted Search. San Rafael, CA: Morgan & Claypool, 2009.
+
+Weinberger, David. Everything Is Miscellaneous: The Power of the New Digital Disorder. New York: Times Books, 2007.
+
+Chapter 9
+
+Blocks, Dorothee, Daniel Cunliffe, and Douglas Tudhope. “A Reference Model for User-System Interaction in Thesaurus-Based Searching.” Journal of the American Society for Information Science and Technology 57, no. 12 (2006): 1655–65.
+
+Gilchrist, Alan, and Barry Mahon, eds. Information Architecture: Designing Information Environments for Purpose. New York: Neal-Schuman, 2004.
+
+Hlava, Marjorie M. K. The Taxobook, Part 3: Applications, Implementation, and Integration in Search. San Rafael, CA: Morgan & Claypool, 2014.
+
+Louis Rosenfeld, Louis, Peter Morville, and Jorge Arango. Information Architecture: For the Web and Beyond. 4th ed. Sebastopol, CA: O’Reilly Media, 2015.
+
+Morville, Peter, and Jefferey Callender. Search Patterns. Sebastopol, CA: O’Reilly Media, 2010.
+
+Chapter 10
+
+Busch, Joseph, and Zach Wahl. “Building an Intranet Governance Strategy Workshop.” Presentation, KMWorld Conference, Washington, DC, November 15, 2010. www.taxonomystrategies.com/html/archive.htm.
+
+Carlson, Gary. “Putting the Go in Governance.” Presentation, Taxonomy Boot Camp Conference, Washington, DC, November 2, 2015. www.slideshare.net/garyecarlson/factor-presentation-for-taxonomy-bootcamp-governance-2015.
+
+Daniel, Ron, Jr., and Joseph Busch. “Taxonomy Governance.” Preconference workshop, Enterprise Search Summit, New York, May 16, 2005. www.taxonomystrategies.com/html/archive.htm.
+
+Foulonneau, Muriel, and Jenn Riley. Metadata for Digital Resources: Implementation, Systems Design, and Interoperability. Oxford: Chandos, 2008.
+
+Jansen, Bernard J. “Search Log Analysis: What It Is, What’s Been Done, How to Do It.” Library & Information Science Research 28, no. 3 (2006): 407–32.
+
+Lambe, Patrick. “‘Preparing for a Taxonomy Project,’ ‘Designing Your Taxonomy,’ and ‘Implementing Your Taxonomy.’” In Organising Knowledge: Taxonomies, Knowledge and Organisational Effectiveness. Oxford: Chandos, 2007.
+
+Owens, Leslie. How to Build a High-Octane Taxonomy for ECM and Enterprise Search Systems. Cambridge, MA: Forrester Research, November 17, 2008.
+
+Spencer, Donna. Card Sorting: Designing Usable Categories. New York: Rosenfeld Media, 2009.
+
+Stewart, Darin L. “Preparations.” In Building Enterprise Taxonomies. Portland, OR: Mokita Press, 2008.
+
+Chapter 11
+
+Allemang, Dean, and Jim Hendler. Semantic Web for the Working Ontologist: Effective Modeling in RDFS and OWL. 2nd ed. Waltham, MA: Morgan Kaufmann, 2011.
+
+Dextre Clarke, Stella G., and Marcia Lei Zeng. “From ISO 2788 to ISO 25964: The Evolution of Thesaurus Standards Towards Interoperability and Data Modeling.” Information Standards Quarterly 24, no. 1 (2012): 20–6. www.niso.org/publications/isq/2012/v24no1/clarke/.
+
+ISO 25954-2 Information and Documentation—Thesauri and Interoperability with Other Vocabularies—Part 2: Interoperability with Other Vocabularies. Geneva: International Organization for Standardization, 2013.
+
+Stewart, Darin L. “Interoperability.” In Building Enterprise Taxonomies. Portland, OR: Mokita Press, 2008.
+
+Sweeny, Jim, “Successfully Managing Multilingual Taxonomies.” Presentation, Taxonomy Community of Practice, Washington, DC, November 5, 2013. http://www.slideshare.net/jws356/multi-lingual-tbc2013v4.
+
+SKOS Primer. http://www.w3.org/TR/skos-primer/.
+
+Will, Leonard. “The ISO 25964 Data Model for the Structure of an Information Retrieval Thesaurus. Bulletin of the American Society for Information Science and Technology 38, no. 4 (April/May 2012): 48–51. www.asis.org/Bulletin/Apr-12/AprMay12_Will.pdf.
+
+Chapter 12
+
+Hedden, Heather. “Opportunities in Freelance Taxonomy Work.” Key Words, The Bulletin of the American Society for Indexing 22, no. 12 (December 2014): 165–167
+
+
