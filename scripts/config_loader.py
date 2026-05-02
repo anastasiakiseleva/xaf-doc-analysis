@@ -46,6 +46,10 @@ def _load_patterns() -> dict[str, Any]:
 class _Cfg:
     """Typed accessors for config/product.yml."""
 
+    def product_name(self) -> str:
+        """Short product name (e.g. 'XAF')."""
+        return _load_product()["product"]["name"]
+
     def taxonomy_path(self) -> Path:
         """Absolute path to the taxonomy JSON file."""
         return _ROOT / _load_product()["product"]["taxonomy_file"]

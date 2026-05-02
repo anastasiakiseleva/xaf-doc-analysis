@@ -326,11 +326,9 @@ def load_data():
     except Exception as e:
         print(f"  Warning: could not load concept domains: {e}")
 
-    # ── Per-doc relationship summary (prefer corrected pairs) ──────────────────
+    # ── Per-doc relationship summary ──────────────────────────────────────────
     rel_summary: dict[str, dict] = {}
-    cp_path = ROOT / "outputs" / "classified_pairs_corrected.parquet"
-    if not cp_path.exists():
-        cp_path = ROOT / "outputs" / "classified_pairs.parquet"
+    cp_path = ROOT / "outputs" / "classified_pairs.parquet"
     if cp_path.exists():
         try:
             from collections import Counter  # noqa: PLC0415
@@ -456,7 +454,7 @@ HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XAF Doc Metadata Reviewer</title>
+<title>__PRODUCT_NAME__ Doc Metadata Reviewer</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Segoe UI, Arial, sans-serif; font-size: 13px; background: #1e1e2e; color: #cdd6f4; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
@@ -625,7 +623,7 @@ body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
 <body>
 
 <div id="topbar">
-  <h1>XAF Doc Metadata Reviewer</h1>
+  <h1>__PRODUCT_NAME__ Doc Metadata Reviewer</h1>
   <div id="progress-bar">
     <span id="prog-approved">✓ 0 approved</span>
     <span id="prog-flagged">⚑ 0 flagged</span>
@@ -757,7 +755,7 @@ const ALL_DOCS = __DATA__;
 // ============================================================
 // STATE
 // ============================================================
-const STORAGE_KEY = 'xaf_meta_review_v2';
+const STORAGE_KEY = '__STORAGE_KEY__';
 
 function loadState() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
@@ -1146,9 +1144,20 @@ updateProgress();
 
 
 def build_html(records: list[dict]) -> str:
+    import sys as _sys
+    if str(ROOT.parent) not in _sys.path:
+        _sys.path.insert(0, str(ROOT.parent))
+    try:
+        from scripts.config_loader import cfg as _cfg
+        product_name = _cfg.product_name()
+    except Exception:
+        product_name = "Doc"
+    storage_key = product_name.lower().replace(" ", "_") + "_meta_review_v2"
     data_json = json.dumps(records, ensure_ascii=False, separators=(",", ":"))
     html = HTML_TEMPLATE.replace("__DATA__", data_json)
     html = html.replace("__TOTAL__", str(len(records)))
+    html = html.replace("__PRODUCT_NAME__", product_name)
+    html = html.replace("__STORAGE_KEY__", storage_key)
     return html
 
 

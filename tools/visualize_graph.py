@@ -168,9 +168,7 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
     rel_edges: list[dict] = []
     seen_rel: set[tuple] = set()
 
-    cp_path = PROJECT_ROOT / "outputs" / "classified_pairs_corrected.parquet"
-    if not cp_path.exists():
-        cp_path = PROJECT_ROOT / "outputs" / "classified_pairs.parquet"
+    cp_path = PROJECT_ROOT / "outputs" / "classified_pairs.parquet"
     _loaded_from_parquet = False
     try:
         import pandas as _pd  # noqa: PLC0415
@@ -320,7 +318,7 @@ _HTML_TEMPLATE = r"""<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>XAF Knowledge Graph Explorer</title>
+<title>__PRODUCT_NAME__ Knowledge Graph Explorer</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
@@ -474,7 +472,7 @@ body.light #resize-handle.collapsed { background: #d0d7de; }
 <body>
 
 <div id="toolbar">
-  <h1>XAF Knowledge Graph</h1>
+  <h1>__PRODUCT_NAME__ Knowledge Graph</h1>
   <input id="search" type="text" placeholder="&#128269; Search nodes..." oninput="onSearch(this.value)" />
   <div id="doc-search-wrap">
     <input id="doc-search" type="text" placeholder="&#128196; Find document..." oninput="onDocSearch(this.value)" onblur="closeDocResults()" autocomplete="off" />
@@ -1328,10 +1326,20 @@ def build_html(data: dict, vis_js: str) -> str:
     rel_colours_js = json.dumps(_REL_COLOURS)
     data_js = json.dumps(data, ensure_ascii=False)
 
+    import sys as _sys
+    _root = Path(__file__).resolve().parent.parent
+    if str(_root) not in _sys.path:
+        _sys.path.insert(0, str(_root))
+    try:
+        from scripts.config_loader import cfg as _cfg
+        product_name = _cfg.product_name()
+    except Exception:
+        product_name = "Doc"
     html = _HTML_TEMPLATE
     html = html.replace("VIS_SCRIPT_PLACEHOLDER", vis_js)
     html = html.replace("DATA_JSON_PLACEHOLDER", data_js)
     html = html.replace("DATA_REL_COLOURS_PLACEHOLDER", rel_colours_js)
+    html = html.replace("__PRODUCT_NAME__", product_name)
     return html
 
 

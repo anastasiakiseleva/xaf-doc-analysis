@@ -24,6 +24,7 @@ from utils.pipeline_validators import (
     save_validation_report, load_validation_thresholds
 )
 from utils.taxonomy_loader import load_concepts
+from scripts.config_loader import cfg as _cfg
 
 
 def _load_audience_concept_sets() -> tuple[frozenset, frozenset]:
@@ -478,7 +479,7 @@ def generate_description(row, inventory_df):
     
     # Fallback: use heading with concepts if available
     if heading and concepts and len(heading) > 5:
-        primary_concept = concepts[0] if concepts else "XAF"
+        primary_concept = concepts[0] if concepts else _cfg.product_name()
         return f"Learn about {heading.lower()} in {primary_concept}."
     
     return None
@@ -568,14 +569,12 @@ def load_data():
     print(f"  Loaded {len(concepts)} sections (kept only)")
     print(f"  Loaded {len(pairs)} semantic pairs")
     
-    # Load classified pairs (corrected preferred, raw as fallback)
+    # Load classified pairs
     classified = None
-    for cp_path in ['outputs/classified_pairs_corrected.parquet',
-                     'outputs/classified_pairs.parquet']:
-        if Path(cp_path).exists():
-            classified = pd.read_parquet(cp_path)
-            print(f"  Loaded {len(classified)} classified pairs from {cp_path}")
-            break
+    cp_path = 'outputs/classified_pairs.parquet'
+    if Path(cp_path).exists():
+        classified = pd.read_parquet(cp_path)
+        print(f"  Loaded {len(classified)} classified pairs from {cp_path}")
     
     if classified is None:
         print("  No classified pairs found — proficiency will use heuristics only")
@@ -945,7 +944,7 @@ def validate_phase7_output(df: pd.DataFrame, run_quality_checks: bool = False) -
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate AI-friendly metadata for XAF documentation'
+        description=f'Generate AI-friendly metadata for {_cfg.product_name()} documentation'
     )
     parser.add_argument(
         '--sample',

@@ -227,7 +227,7 @@ def main():
     parser.add_argument(
         "--input",
         type=str,
-        default="outputs/classified_pairs.parquet",
+        default="outputs/classified_pairs_before_merge.parquet",
         help="Input classified pairs file"
     )
     parser.add_argument(

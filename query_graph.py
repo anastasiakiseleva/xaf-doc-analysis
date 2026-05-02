@@ -539,7 +539,7 @@ def show_relationship_stats(classified: pd.DataFrame):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Query the XAF knowledge graph with relationship intelligence")
+    parser = argparse.ArgumentParser(description="Query the knowledge graph with relationship intelligence")
     parser.add_argument("--mode", choices=["query", "gaps", "stats", "prereqs", "relationships"], required=True,
                         help="Operation mode")
     parser.add_argument("--concept", type=str, help="Concept name to query")

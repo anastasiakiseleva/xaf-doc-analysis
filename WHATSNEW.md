@@ -1,5 +1,41 @@
 # What's New
 
+## 2026-05-02 — Product-agnostic tooling and canonical classified pairs
+
+### Change 1 — `classified_pairs.parquet` is now canonical
+
+`outputs/classified_pairs.parquet` was overwritten with the post-audit corrected data (10,102 pairs). All fallback logic that checked for `classified_pairs_corrected.parquet` first has been removed from every consumer:
+
+| File | Change |
+|---|---|
+| `query_graph.py` | Removed fallback chain; reads `classified_pairs.parquet` directly |
+| `tools/visualize_graph.py` | Removed `classified_pairs_corrected.parquet` fallback path |
+| `tools/build_metadata_reviewer.py` | Removed `classified_pairs_corrected.parquet` fallback path |
+| `scripts/07_generate_metadata.py` | Removed two-path loop; reads `classified_pairs.parquet` directly |
+| `scripts/07_postprocess_classifications.py` | Default `--input` changed to `classified_pairs_before_merge.parquet` so a re-run reads the pre-correction snapshot |
+
+`classified_pairs_before_merge.parquet` and `classified_pairs_corrected.parquet` remain on disk as history.
+
+---
+
+### Change 2 — Product name removed from tool UI and runtime strings
+
+All hardcoded "XAF" strings that affect runtime output have been replaced with lookups from `config/product.yml`:
+
+**`scripts/config_loader.py`** — new `product_name()` accessor on the `_Cfg` class reads `product.name` from `product.yml`.
+
+**`scripts/07_generate_metadata.py`** — imports `cfg`; the description-generation fallback (`"Learn about X in XAF"`) now uses `cfg.product_name()`.
+
+**`tools/build_metadata_reviewer.py`** — `<title>`, `<h1>`, and the `localStorage` key use `__PRODUCT_NAME__` / `__STORAGE_KEY__` template placeholders. `build_html()` injects `cfg.product_name()` and derives the storage key as `{name}_meta_review_v2`.
+
+**`tools/visualize_graph.py`** — `<title>` and `<h1>` use `__PRODUCT_NAME__` placeholder. `build_html()` injects `cfg.product_name()`.
+
+**`query_graph.py`** — argparse description no longer mentions XAF.
+
+To adapt for a new product, only `config/product.yml` needs updating — the generated HTML titles, page headings, and localStorage key all derive from `product.name` automatically.
+
+---
+
 ## 2026-05-02 — Metadata reviewer: Related APIs and YAML freshness fixes
 
 ### Issues fixed
