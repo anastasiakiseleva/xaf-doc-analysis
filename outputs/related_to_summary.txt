@@ -1,0 +1,217 @@
+══════════════════════════════════════════════════════════════════════
+RELATED_TO RELATIONSHIP ANALYSIS
+══════════════════════════════════════════════════════════════════════
+
+Total classified pairs    : 16,845
+related_to pairs          : 6,599  (39.2%)
+All other types           : 10,246  (60.8%)
+
+
+──────────────────────────────────────────────────────────────────────
+RELATIONSHIP TYPE BREAKDOWN
+──────────────────────────────────────────────────────────────────────
+  uses                  6,668  ( 39.6%)
+  related_to            6,599  ( 39.2%) ← FOCUS
+  explains              1,509  (  9.0%)
+  requires              1,235  (  7.3%)
+  extends                 466  (  2.8%)
+  applies_to              259  (  1.5%)
+  contrasts_with          107  (  0.6%)
+  implements                2  (  0.0%)
+
+
+──────────────────────────────────────────────────────────────────────
+CONFIDENCE BANDS (related_to only)
+──────────────────────────────────────────────────────────────────────
+  < 0.50          862  ( 13.1% of related_to |  5.1% of all pairs)
+  0.50–0.60     4,032  ( 61.1% of related_to | 23.9% of all pairs)
+  0.60–0.70     1,230  ( 18.6% of related_to |  7.3% of all pairs)
+  0.70–0.80       408  (  6.2% of related_to |  2.4% of all pairs)
+  0.80–0.90        67  (  1.0% of related_to |  0.4% of all pairs)
+  ≥ 0.90            0  (  0.0% of related_to |  0.0% of all pairs)
+
+  Median confidence : 0.550
+  Mean confidence   : 0.539
+  Min / Max         : 0.300 / 0.850
+
+
+──────────────────────────────────────────────────────────────────────
+NEIGHBOR TYPE BREAKDOWN (related_to only)
+──────────────────────────────────────────────────────────────────────
+
+
+──────────────────────────────────────────────────────────────────────
+SECTION TYPE PAIR BREAKDOWN (related_to only)
+──────────────────────────────────────────────────────────────────────
+  Conceptual           → API Reference         3,661  ( 55.5%)
+  API Reference        → Conceptual            1,335  ( 20.2%)
+  API Reference        → API Reference           975  ( 14.8%)
+  How-to Task          → API Reference           212  (  3.2%)
+  API Reference        → How-to Task             172  (  2.6%)
+  Conceptual           → Conceptual              150  (  2.3%)
+  API Reference        → Tutorial                 22  (  0.3%)
+  How-to Task          → How-to Task              19  (  0.3%)
+  Tutorial             → API Reference            16  (  0.2%)
+  How-to Task          → Conceptual                9  (  0.1%)
+  Tutorial             → Conceptual                7  (  0.1%)
+  Conceptual           → How-to Task               6  (  0.1%)
+  Tutorial             → Tutorial                  5  (  0.1%)
+  Conceptual           → Tutorial                  4  (  0.1%)
+  How-to Task          → Tutorial                  4  (  0.1%)
+  Tutorial             → How-to Task               2  (  0.0%)
+
+
+──────────────────────────────────────────────────────────────────────
+SIMILARITY SCORE DISTRIBUTION (related_to only)
+──────────────────────────────────────────────────────────────────────
+  < 0.60        3,750  (56.8%)
+  0.60–0.70     1,266  (19.2%)
+  0.70–0.80       784  (11.9%)
+  0.80–0.90       486  (7.4%)
+  ≥ 0.90          313  (4.7%)
+
+  Mean sim_score    : 0.628
+  High sim (≥0.80)  : 799  (12.1%) ← strong candidates for reclassification
+
+
+──────────────────────────────────────────────────────────────────────
+TOP 30 CONCEPT PAIRS IN related_to
+──────────────────────────────────────────────────────────────────────
+   328  Views  →  Detail View
+   327  Detail View  →  Views
+   278  Property Editors  →  Views
+   261  Views  →  Property Editors
+   236  Property Editors  →  Detail View
+   228  Detail View  →  Property Editors
+   191  Controllers  →  Actions
+   189  Controllers  →  Model Editor
+   155  Built-In Controllers  →  Model Editor
+   154  Views  →  Model Editor
+   138  List View  →  Views
+   134  Views  →  List View
+   118  List Editors  →  Views
+   113  Model Editor  →  Views
+   113  Actions  →  Controllers
+   111  Views  →  List Editors
+   108  View Items  →  Views
+   102  Detail View  →  Model Editor
+   102  Views  →  View Items
+   100  Views  →  Controllers
+    95  Built-In Controllers  →  Controllers
+    87  Controllers  →  Views
+    84  Built-In Controllers  →  Actions
+    80  List Editors  →  List View
+    79  List View  →  List Editors
+    78  Property Editors  →  Model Editor
+    74  View Items  →  Detail View
+    73  Detail View  →  View Items
+    71  Model Editor  →  Validation
+    70  Model Editor  →  Detail View
+
+
+──────────────────────────────────────────────────────────────────────
+CLASSIFICATION SOURCE (related_to only)
+──────────────────────────────────────────────────────────────────────
+  llm                   6,599  (100.0%)
+
+
+──────────────────────────────────────────────────────────────────────
+HIGH-CONFIDENCE related_to (≥ 0.70) — Reclassification Candidates
+──────────────────────────────────────────────────────────────────────
+  475 pairs (7.2% of related_to)
+  These were classified as related_to with HIGH confidence → most
+  likely to yield a more specific type upon prompt improvement.
+
+
+──────────────────────────────────────────────────────────────────────
+SAMPLE PAIRS PER CONFIDENCE BAND (n=3)
+──────────────────────────────────────────────────────────────────────
+
+  [< 0.50]  (862 pairs total)
+    conf=0.40 sim=0.51 [?]
+      deployment/deployment-troubleshooting-guide
+      → XafApplication/XafApplication
+      concepts: [] / ['Controllers', 'Views', 'XAF Application', 'XAF Web API Service']
+    conf=0.35 sim=0.51 [?]
+      built-in-controllers-and-actions/built-in-controllers-and-actions-in-the-system-module
+      → ActionBase/TargetObjectsCriteria1130426
+      concepts: [] / []
+    conf=0.45 sim=0.57 [?]
+      validation/implement-custom-rules
+      → RuleCriteriaAttribute/RuleCriteriaAttribute
+      concepts: [] / ['Model Editor']
+
+  [0.50–0.60]  (4,032 pairs total)
+    conf=0.52 sim=0.60 [?]
+      ui-construction/action-containers
+      → ActionBase/CustomizeControl1174986
+      concepts: ['Action Containers', 'Actions', 'Controllers'] / ['Action Containers', 'Actions', 'Controllers']
+    conf=0.55 sim=0.64 [?]
+      CustomExportEventArgs/ExportTarget1135710
+      → printing-exporting-in-list-view/how-to-customize-the-export-action-behavior
+      concepts: [] / []
+    conf=0.55 sim=0.64 [?]
+      list-view-data-access-modes/queryable-mode
+      → CreateCustomPropertyCollectionSourceEventArgs/DataAccessMode1137754
+      concepts: [] / ['Data Access Modes', 'Model Editor']
+
+  [0.60–0.70]  (1,230 pairs total)
+    conf=0.62 sim=0.60 [?]
+      CompositeView/GetItems``11134474
+      → ways-to-access-ui-elements-and-their-controls/ways-to-access-ui-elements-and-their-controls
+      concepts: ['Detail View', 'View Items', 'Views'] / ['Detail View', 'Property Editors', 'View Items', 'Views']
+    conf=0.60 sim=0.57 [?]
+      ObjectViewController`2/ObjectViewController`2
+      → controllers-and-actions/define-the-scope-of-controllers-and-actions
+      concepts: [] / ['Detail View', 'Views']
+    conf=0.60 sim=0.68 [?]
+      LinkUnlinkController/LinkAction1130881
+      → actions/how-to-add-a-search-action-to-lookup-property-editors-and-link-pop-up-windows
+      concepts: ['Model Editor'] / ['Detail View', 'Lookup Property Editors', 'Property Editors', 'Views']
+
+  [0.70–0.80]  (408 pairs total)
+    conf=0.75 sim=0.97 [?]
+      IRuleSet/ValidateAllTargets
+      → RuleSet/ValidateAllTargets1137142
+      concepts: ['Validation'] / ['Validation']
+    conf=0.75 sim=0.89 [?]
+      RuleCombinationOfPropertiesIsUniqueAttribute/RuleCombinationOfPropertiesIsUniqueAttribute
+      → RuleValueComparisonAttribute/RuleValueComparisonAttribute
+      concepts: ['Validation'] / ['Validation']
+    conf=0.75 sim=0.87 [?]
+      RuleRegularExpressionAttribute/RuleRegularExpressionAttribute
+      → RuleRangeAttribute/RuleRangeAttribute
+      concepts: ['Validation'] / ['Validation']
+
+  [0.80–0.90]  (67 pairs total)
+    conf=0.85 sim=0.96 [?]
+      DashboardsModule/GetModuleUpdaters1182339
+      → SecurityModule/GetModuleUpdaters1136870
+      concepts: ['Database Updates and Seeding'] / ['Database Updates and Seeding']
+    conf=0.85 sim=0.98 [?]
+      TreeListEditorsWindowsFormsModule/GetModuleUpdaters1136856
+      → SchedulerWindowsFormsModule/GetModuleUpdaters1136858
+      concepts: ['Database Updates and Seeding'] / ['Database Updates and Seeding']
+    conf=0.85 sim=0.99 [?]
+      SecurityModule/GetModuleUpdaters1136870
+      → ViewVariantsModule/GetModuleUpdaters1136864
+      concepts: ['Database Updates and Seeding'] / ['Database Updates and Seeding']
+
+
+══════════════════════════════════════════════════════════════════════
+ACTIONABLE IMPROVEMENT TARGETS
+══════════════════════════════════════════════════════════════════════
+
+  1. HIGH SIM related_to (sim ≥ 0.75): 1,359 pairs
+     → These share strong vocabulary — prompt B1/B2 should capture them.
+     → Post-processing heuristic C1 can auto-reclassify `ca` subset as `uses`.
+
+  2. Concept→API (ca) related_to: 0 pairs
+     → Structurally almost always `uses`; strongest win from heuristic C1.
+
+  3. LOW CONFIDENCE related_to (< 0.60): 4,894 pairs
+     → These are genuinely ambiguous/noisy — candidates for `needs_review` flag.
+     → Consider excluding from KG edges (lower signal quality).
+══════════════════════════════════════════════════════════════════════
+
+💾 Detailed CSV → outputs/related_to_analysis.csv  (6,599 rows)

@@ -22,7 +22,8 @@ Choose exactly one:
 
 **uses**
 - Use when: A actively invokes, configures, calls, or depends on an API/feature documented in B (often A=how-to/tutorial, B=API reference).
-- Tie-breaker vs explains: if A contains actionable steps that call/configure B, prefer uses.
+- Structural shortcut: if A is Conceptual, How-to, or Tutorial AND B is API Reference AND they share concept vocabulary → default to `uses` unless A is clearly a parent-level overview of B (→ `explains`) or B defines a concept A cannot work without (→ `requires`).
+- Tie-breaker vs explains: if A contains actionable steps that call/configure B, prefer `uses`.
 
 **extends**
 - Use when: A customizes or adds behavior to B via subclassing, overriding, implementing interfaces, or plugging in custom components (not merely configuring).
@@ -34,9 +35,14 @@ Choose exactly one:
 
 **contrasts_with**
 - Use when: A and B are presented as alternative approaches to the same goal/problem (not just different topics).
+- Also use when: A and B are sibling API Reference pages with the same member name (method/property) on different types — each is a parallel implementation of the same contract (e.g., `ModuleA.GetModuleUpdaters` and `ModuleB.GetModuleUpdaters`). Set `bidirectional: true`.
 
 **related_to**
-- Use only if none of the above fit cleanly AND the sections share significant concepts/vocabulary.
+- Use only as a last resort when none of the above fit AND you cannot identify any directional signal between A and B.
+- Do NOT use when A is Conceptual/How-to/Tutorial and B is API Reference sharing concepts → use `uses`.
+- Do NOT use when A and B are sibling API Reference pages with the same member name on different types → use `contrasts_with`.
+- Do NOT use when A is a conceptual overview and B is the how-to/tutorial it describes → use `explains`.
+- Do NOT use merely because you are uncertain about relationship strength — if you can identify direction, assign the directional type at low confidence (0.5–0.6) rather than defaulting here.
 
 ## Decision order (tie-breaker only)
 Apply this order **only when two or more relationships seem equally applicable**. Do not treat it as a ranking to always follow — choose the relationship that best fits the text regardless of position in this list:
@@ -45,8 +51,8 @@ contrasts_with → applies_to → extends → uses → requires → explains →
 ## Confidence calibration
 - **0.9–1.0**: unambiguous from the text alone
 - **0.7–0.9**: strongly implied; minor inference
-- **0.5–0.7**: plausible but uncertain
-- **< 0.5**: avoid; choose related_to at low confidence
+- **0.5–0.7**: plausible but uncertain; structural shortcuts (section type + shared concepts) can justify this band
+- **< 0.5**: choose the most likely directional type and assign low confidence rather than defaulting to `related_to`. Only use `related_to` if you genuinely cannot identify any direction at all.
 
 ## Bidirectionality
 Default `bidirectional: false`.
@@ -63,7 +69,7 @@ When a `## Taxonomy Context` block appears in the pair data, use it to bias your
 | A's concept *is part of* B's concept | `requires` (B is the parent structure A depends on) |
 | A's concept *has kind* or *has part* B's concept | `explains` (A is the broader concept describing B) |
 | A's concept *replaces* B's concept | `contrasts_with` (A is the modern replacement) |
-| A's concept *is related to* B's concept | `related_to` unless the section text reveals a more specific direction |
+| A's concept *is related to* B's concept | Look hard for a directional type first (`uses`, `explains`, `requires`); fall back to `related_to` only if the section text provides no directional signal at all |
 
 **Platform mismatch** (A's concepts are platform-exclusive vs. B's) → strong signal for `applies_to`. Lower confidence only if the text does not reference scope differences.
 

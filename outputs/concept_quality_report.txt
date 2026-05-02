@@ -1,122 +1,122 @@
 ================================================================================
 CONCEPT QUALITY METRICS REPORT
-Generated: 2026-04-21 09:18:53
+Generated: 2026-05-02 11:29:36
 ================================================================================
 
 📊 METRIC 1: CONCEPT COVERAGE & SPECIFICITY
 --------------------------------------------------------------------------------
 Total sections: 10819
-Tagged sections: 3974 (36.7%)
-Unique concepts used: 133
-Avg sections per concept: 53.2
-Median sections per concept: 19
-Range: 1 - 672
-⚠️  68 concepts have <20 sections (too specific?)
-⚠️  2 concepts have >500 sections (too generic?)
+Tagged sections: 4392 (40.6%)
+Unique concepts used: 94
+Avg sections per concept: 92.8
+Median sections per concept: 34
+Range: 1 - 1009
+⚠️  32 concepts have <20 sections (too specific?)
+⚠️  3 concepts have >500 sections (too generic?)
 
 Top 10 most common concepts:
-  Application Model                         672 sections
-  Model Editor                              580 sections
-  Views                                     414 sections
-  Security System                           349 sections
-  Property Editors                          267 sections
-  Validation                                253 sections
-  Template Kit                              249 sections
-  Actions                                   240 sections
-  Authentication                            201 sections
-  Controllers and Actions                   190 sections
+  Views                                    1009 sections
+  Model Editor                              588 sections
+  Detail View                               510 sections
+  Controllers                               441 sections
+  List View                                 370 sections
+  Solution Structure and Module Design      327 sections
+  Property Editors                          292 sections
+  Validation                                284 sections
+  Security System                           267 sections
+  Actions                                   258 sections
 
 Bottom 10 least common concepts:
-  Business Object Lifecycle                   1 sections
-  Layout Runtime Customization                1 sections
-  Performance Optimization                    1 sections
-  Custom User Management                      1 sections
   Async Operations                            1 sections
-  Object View Controllers                     1 sections
-  Generic View Controllers                    1 sections
-  Collection Property Editors                 2 sections
-  Custom Validation Rules                     2 sections
-  Controller Customization                    2 sections
+  Middle-Tier Application Server              1 sections
+  Direct SQL and Legacy DB Mapping            1 sections
+  Code Analysis                               3 sections
+  Accessibility                               4 sections
+  Security Administrative UI                  4 sections
+  Layout Runtime Customization                4 sections
+  Lazy Loading of View Items                  4 sections
+  Standard Property Editors                   5 sections
+  Specialized Property Editors                5 sections
 
 
 🔗 METRIC 2: CONCEPT CONNECTIVITY RATIOS
 --------------------------------------------------------------------------------
 LOWEST CONNECTIVITY (Potential noise or gaps):
-  🔴 Async Operations                           0.0 links/section (1 sections)
-  🔴 Performance Optimization                   0.0 links/section (1 sections)
-  🔴 Dependency Injection                       4.3 links/section (3 sections)
-  🔴 Direct SQL                                 4.5 links/section (2 sections)
-  🔴 Static View Items                          4.6 links/section (12 sections)
-  🟡 Collection Property                        6.2 links/section (4 sections)
-  🟡 Object Relationships                       7.8 links/section (6 sections)
-  🟢 Master-Detail Views                        8.0 links/section (2 sections)
-  🟢 Recurring Events                           8.2 links/section (5 sections)
-  🟢 Tabbed MDI Interface                       9.3 links/section (3 sections)
+  🔴 Lazy Loading of View Items                 3.0 links/section (4 sections)
+  🟡 Accessibility                              6.0 links/section (4 sections)
+  🟡 Async Operations                           6.0 links/section (1 sections)
+  🟡 Code Analysis                              6.7 links/section (3 sections)
+  🟢 Direct SQL and Legacy DB Mapping           8.0 links/section (1 sections)
+  🟢 Calculated and Aliased Properties          8.4 links/section (8 sections)
+  🟢 Performance Optimization                   9.7 links/section (15 sections)
+  🟢 Logging                                   10.0 links/section (21 sections)
+  🟢 Model Cache                               10.0 links/section (8 sections)
+  🟢 Diagnostics and Tracing                   10.3 links/section (12 sections)
 
 HIGHEST CONNECTIVITY (Reference models):
-  🔵 Clone Object                              32.6 links/section (27 sections)
-  🔵 Conditional Appearance                    33.0 links/section (104 sections)
-  🔵 Action Customization                      33.5 links/section (2 sections)
-  🔵 Non-persistent Object                     34.4 links/section (28 sections)
-  🔵 Custom User Management                    40.0 links/section (1 sections)
-  🔵 Controller Customization                  46.0 links/section (2 sections)
-  🔵 Built-in Controllers                      47.4 links/section (17 sections)
-  🔵 Property Editor Customization             48.2 links/section (18 sections)
-  🔵 Collection Property Editors               75.0 links/section (2 sections)
-  🔵 Custom Validation Rules                   82.0 links/section (2 sections)
+  🔵 TreeList Editors                          33.1 links/section (107 sections)
+  🔵 Localization                              33.4 links/section (34 sections)
+  🔵 Localization in Model Editor              33.6 links/section (9 sections)
+  🔵 Layout Runtime Customization              33.8 links/section (4 sections)
+  🔵 Custom Validation Rules                   33.8 links/section (25 sections)
+  🔵 Concurrency Control                       35.2 links/section (6 sections)
+  🔵 Tree Node Interface                       36.5 links/section (38 sections)
+  🔵 Lookup Property Editors                   43.3 links/section (18 sections)
+  🔵 Specialized Property Editors              44.2 links/section (5 sections)
+  🔵 Built-In Controllers                      51.4 links/section (21 sections)
 
 
 🚪 METRIC 3: SEMANTIC GATE QUALITY
 --------------------------------------------------------------------------------
-Total semantic pairs: 75193
+Total semantic pairs: 79661
 Overall quality: 🔴 HIGH FALLBACK
-Fallback usage: 24.2%
+Fallback usage: 21.6%
 
 Gate passage rates:
-  xref_link                       25.6% ( 19265 pairs, avg sim: 0.621)
-  concept_overlap                 25.2% ( 18936 pairs, avg sim: 0.728)
-  doc_id_namespace_overlap        25.0% ( 18822 pairs, avg sim: 0.844)
-  high_similarity_fallback        24.2% ( 18170 pairs, avg sim: 0.861)
+  concept_overlap                 30.4% ( 24228 pairs, avg sim: 0.723)
+  xref_link                       24.3% ( 19327 pairs, avg sim: 0.622)
+  doc_id_namespace_overlap        23.7% ( 18869 pairs, avg sim: 0.844)
+  high_similarity_fallback        21.6% ( 17237 pairs, avg sim: 0.863)
 
 Overall similarity distribution:
-  Mean: 0.762  Median: 0.765  Std: 0.127
+  Mean: 0.758  Median: 0.758  Std: 0.125
   Range: 0.500 - 1.000
 
 
 🔀 METRIC 4: CONCEPT CO-OCCURRENCE PATTERNS
 --------------------------------------------------------------------------------
-Total unique concept pairs: 574
+Total unique concept pairs: 690
 
 Top 10 co-occurring concept pairs:
-  Application Model              + Model Editor                    580x
-  Authentication                 + Security System                 201x
-  View Items                     + Views                           108x
-  Multi-Tenancy                  + Tenant                           98x
-  Action Types                   + Actions                          93x
-  View Types                     + Views                            79x
-  Actions                        + Controllers and Actions          75x
-  Dashboards                     + Views                            61x
-  View Customization             + Views                            56x
-  Controller Types               + Controllers and Actions          55x
+  Detail View                    + Views                           510x
+  List View                      + Views                           370x
+  Detail View                    + Property Editors                292x
+  Property Editors               + Views                           292x
+  Actions                        + Controllers                     258x
+  Solution Structure and Module Design + Template Kit and CLI            250x
+  List Editors                   + List View                       246x
+  List Editors                   + Views                           246x
+  Detail View                    + View Items                      160x
+  View Items                     + Views                           160x
 
 
 🏝️  METRIC 5: ISOLATED CONTENT ANALYSIS
 --------------------------------------------------------------------------------
 Total sections: 10819
-Isolated sections: 559 (5.2%)
-Quality flag: 🟡 WATCH
+Isolated sections: 521 (4.8%)
+Quality flag: 🟢 HEALTHY
 
 Concepts frequently appearing in isolated sections:
-  Application Model                          13 isolated sections
-  Model Editor                               12 isolated sections
-  Actions                                     6 isolated sections
-  Property Editors                            4 isolated sections
-  Controllers and Actions                     3 isolated sections
-  Views                                       3 isolated sections
-  Object Space                                2 isolated sections
-  Action Types                                2 isolated sections
-  Single Choice Action                        2 isolated sections
-  Package Management                          2 isolated sections
+  Model Editor                               10 isolated sections
+  Views                                       6 isolated sections
+  XAF Application                             4 isolated sections
+  Controllers                                 3 isolated sections
+  Detail View                                 3 isolated sections
+  Database Updates and Seeding                3 isolated sections
+  Actions                                     2 isolated sections
+  Property Editors                            2 isolated sections
+  XAF Web API Service                         2 isolated sections
+  Application Model                           2 isolated sections
 
 
 ================================================================================

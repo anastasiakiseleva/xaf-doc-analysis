@@ -55,6 +55,52 @@ def _load_audience_concept_sets() -> tuple[frozenset, frozenset]:
 _EXPERT_CONCEPTS, _BEGINNER_CONCEPTS = _load_audience_concept_sets()
 
 
+def _build_taxonomy_vocab() -> tuple[dict, frozenset]:
+    """Build controlled vocabulary from XAF taxonomy for tag generation.
+
+    Returns:
+        term_to_tag: maps any normalized term (concept name, keyword, synonym) to
+                     the canonical normalized tag for that concept (normalize_tag(concept.name)).
+                     Ensures all emitted tags correspond to actual taxonomy concepts.
+        platform_set: set of known platform values from facets.platforms (e.g. 'blazor', 'winforms').
+    """
+    try:
+        concepts_cfg = load_concepts()
+        all_concepts = concepts_cfg.get('concepts', [])
+    except Exception:
+        return {}, frozenset()
+
+    def _norm(text: str) -> str:
+        """Inline normalizer (normalize_tag not yet defined at call time)."""
+        tag = text.lower().replace('.', '').replace(' ', '-')
+        import re as _re
+        tag = _re.sub(r'[^a-z0-9-]', '', tag)
+        tag = _re.sub(r'-+', '-', tag).strip('-')
+        return tag
+
+    term_to_tag: dict = {}
+    platform_set: set = set()
+
+    for concept in all_concepts:
+        canonical_tag = _norm(concept['name'])
+        # Map canonical name itself
+        term_to_tag[_norm(concept['name'])] = canonical_tag
+        # Map every synonym and keyword → canonical tag
+        # load_concepts() flattens terminology.* to top-level fields
+        for term in (concept.get('synonyms', []) or []) + (concept.get('keywords', []) or []):
+            if term:
+                term_to_tag[_norm(term)] = canonical_tag
+        # Collect platform values
+        for plat in concept.get('facets', {}).get('platforms', []):
+            if plat:
+                platform_set.add(plat.lower())
+
+    return term_to_tag, frozenset(platform_set)
+
+
+_TAXONOMY_TERM_TO_TAG, _TAXONOMY_PLATFORMS = _build_taxonomy_vocab()
+
+
 # ============================================================================
 # Helper Functions
 # ============================================================================
@@ -440,43 +486,43 @@ def generate_description(row, inventory_df):
 
 def consolidate_tags(row):
     """
-    Build comprehensive tag list from concepts, platforms, APIs
-    
+    Build tag list constrained to the XAF taxonomy controlled vocabulary.
+
+    Only emits tags that correspond to an actual taxonomy concept (via its name,
+    keyword, or synonym), ensuring documentation tags share vocabulary with the
+    support-ticket taxonomy.  Non-taxonomy terms are silently dropped.
+
     XAF tag categories:
-    - Platform: blazor, winforms, asp-net-core, maui, wpf
-    - Feature/Scenario: security, filtering, actions, validation
-    - API: securitystrategy, viewcontroller, gridcolumn
-    - Type: api-reference, how-to, tutorial
+    - Concept: normalized taxonomy concept name (e.g. 'security-system', 'actions')
+    - Platform: 'blazor' or 'winforms' (from taxonomy facets.platforms)
+    - Type: 'api-reference' or 'how-to' (structural, not domain vocabulary)
     """
     tags = set()
-    
-    # Add normalized concepts
+
+    # Concepts and API names → look up against taxonomy controlled vocabulary
     for concept in safe_list(row.get('concepts', [])):
-        tags.add(normalize_tag(concept))
-    
-    # Add normalized platforms
-    for platform in safe_list(row.get('platforms', [])):
-        tags.add(normalize_tag(platform))
-    
-    # Add normalized APIs (use short name, not full namespace)
+        tag = _TAXONOMY_TERM_TO_TAG.get(normalize_tag(concept))
+        if tag:
+            tags.add(tag)
+
     for api in safe_list(row.get('apis', [])):
-        # Take last part of namespace: DevExpress.ExpressApp.Actions -> actions
-        short_name = api.split('.')[-1]
-        if short_name and len(short_name) > 2:  # Skip very short names
-            tags.add(normalize_tag(short_name))
-    
-    # Add type tag
-    if row.get('is_api', False):
-        tags.add('api-reference')
-    else:
-        tags.add('how-to')
-    
-    # Remove overly generic tags
-    generic = {'other', 'general', 'devexpress', 'expressapp', 'module', 'system'}
-    tags = tags - generic
-    
-    # Sort and return as list
-    return sorted(list(tags))
+        # Try full name first, then short name (last namespace segment)
+        for term in (api, api.split('.')[-1]):
+            tag = _TAXONOMY_TERM_TO_TAG.get(normalize_tag(term))
+            if tag:
+                tags.add(tag)
+                break
+
+    # Platforms → only those present in taxonomy facets
+    for platform in safe_list(row.get('platforms', [])):
+        norm = platform.lower().strip()
+        if norm in _TAXONOMY_PLATFORMS:
+            tags.add(norm)
+
+    # Structural type tag (not domain vocabulary — always included)
+    tags.add('api-reference' if row.get('is_api', False) else 'how-to')
+
+    return sorted(tags)
 
 
 def calculate_tag_statistics(metadata_df):
@@ -551,6 +597,68 @@ def build_connections_dict(pairs_df):
     return connections
 
 
+def build_related_sections_index(classified_df, max_per_section: int = 5) -> dict:
+    """
+    Build a per-section index of top-N classified neighbours.
+
+    For each section, collects all outgoing and incoming classified edges,
+    sorts by confidence descending, and keeps the top `max_per_section` entries.
+
+    Each entry is a dict:
+        {
+            'doc_id': str,           # neighbour's doc_id
+            'section_id': str,        # neighbour's section_id
+            'relationship': str,      # e.g. 'uses', 'requires', 'explains'
+            'direction': str,         # 'outgoing' or 'incoming'
+            'confidence': float,
+        }
+
+    Outgoing = this section IS the source (it points to neighbour).
+    Incoming = this section IS the target (neighbour points to it).
+
+    The distinction matters for AI: "this page USES [API]" vs
+    "this page IS USED BY [how-to guide]".
+    """
+    if classified_df is None or classified_df.empty:
+        return {}
+
+    from collections import defaultdict
+
+    index: dict[tuple, list] = defaultdict(list)
+
+    for _, row in classified_df.iterrows():
+        rel = row.get('relationship_type')
+        conf = float(row.get('relationship_confidence', 0.5))
+        if not rel or pd.isna(rel):
+            continue
+
+        src_key = (row['source_doc'], row['source_section'])
+        tgt_key = (row['target_doc'], row['target_section'])
+
+        index[src_key].append({
+            'doc_id': row['target_doc'],
+            'section_id': row['target_section'],
+            'relationship': rel,
+            'direction': 'outgoing',
+            'confidence': round(conf, 3),
+        })
+        index[tgt_key].append({
+            'doc_id': row['source_doc'],
+            'section_id': row['source_section'],
+            'relationship': rel,
+            'direction': 'incoming',
+            'confidence': round(conf, 3),
+        })
+
+    # Sort each section's neighbours by confidence desc, keep top N
+    result = {}
+    for key, neighbours in index.items():
+        neighbours.sort(key=lambda x: x['confidence'], reverse=True)
+        result[key] = neighbours[:max_per_section]
+
+    return result
+
+
 def build_relationship_profiles(classified_df):
     """
     Build per-section relationship profiles from classified pairs.
@@ -614,7 +722,8 @@ def build_relationship_profiles(classified_df):
 
 
 def generate_metadata(concepts_df, inventory_df, connections_dict,
-                      relationship_profiles=None, sample_size=None):
+                      relationship_profiles=None, related_sections_index=None,
+                      sample_size=None):
     """
     Generate metadata for all documents
     
@@ -623,6 +732,7 @@ def generate_metadata(concepts_df, inventory_df, connections_dict,
         inventory_df: Full document text
         connections_dict: Connection counts per section
         relationship_profiles: Per-section relationship type profiles (from classified pairs)
+        related_sections_index: Per-section top-N classified neighbours (from classified pairs)
         sample_size: If provided, process only this many random documents (for testing)
     """
     print("\nGenerating metadata...")
@@ -671,6 +781,7 @@ def generate_metadata(concepts_df, inventory_df, connections_dict,
             'num_semantic_connections': num_connections,
             'num_classified_connections': classified_connections,
             'dominant_relationship_type': dominant_rel,
+            'related_sections': (related_sections_index or {}).get(section_key, []),
             'is_api': row.get('is_api', False),
             'original_concepts': safe_list(row.get('concepts', [])),
             'original_platforms': safe_list(row.get('platforms', [])),
@@ -723,7 +834,7 @@ def validate_phase7_output(df: pd.DataFrame, run_quality_checks: bool = False) -
     
     # Check schema
     required_cols = ["doc_id", "section_id", "suggested_tags", "suggested_description", 
-                     "proficiency_level", "num_semantic_connections"]
+                     "proficiency_level", "num_semantic_connections", "related_sections"]
     column_types = {
         "doc_id": str,
         "section_id": str,
@@ -874,17 +985,20 @@ def main():
     if relationship_profiles:
         print(f"  Built relationship profiles for {len(relationship_profiles)} sections")
     
+    # Build related sections index (top-N neighbours per section with relationship type)
+    related_sections_index = build_related_sections_index(classified_df)
+    if related_sections_index:
+        covered = sum(1 for v in related_sections_index.values() if v)
+        print(f"  Built related-sections index for {covered:,} sections")
+
     # Generate metadata
     metadata_df = generate_metadata(
-        concepts_df, 
-        inventory_df, 
+        concepts_df,
+        inventory_df,
         connections_dict,
         relationship_profiles=relationship_profiles,
-        sample_size=args.sample
+        related_sections_index=related_sections_index,
     )
-    
-    # Save results
-    print(f"\nSaving to {args.output}...")
     Path(args.output).parent.mkdir(parents=True, exist_ok=True)
     metadata_df.to_parquet(args.output, index=False)
     
@@ -906,7 +1020,12 @@ def main():
         print(f"  Description: {row['suggested_description']}")
         print(f"  Proficiency: {row['proficiency_level']}")
         print(f"  Connections: {row['num_semantic_connections']}")
-    
+        rels = row.get('related_sections', [])
+        if rels:
+            print(f"  Related sections ({len(rels)}):")
+            for r in rels[:3]:
+                arrow = '-->' if r['direction'] == 'outgoing' else '<--'
+                print(f"    {arrow} [{r['relationship']}] {r['doc_id']} (conf={r['confidence']:.2f})")
     # Run validation
     if not args.skip_validation:
         report = validate_phase7_output(metadata_df, run_quality_checks=args.validate_quality)

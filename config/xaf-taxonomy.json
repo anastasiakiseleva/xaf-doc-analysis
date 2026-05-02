@@ -178,8 +178,6 @@
         "relations": {
           "related_to": [
             "xaf.tooling.model-editor.model-editor",
-            "xaf.architecture.application-model.model-differences",
-            "xaf.architecture.application-model.model-extension",
             "xaf.architecture.core.xaf-application",
             "xaf.architecture.modules.modules"
           ]
@@ -523,7 +521,6 @@
           "related_to": [
             "xaf.security.core.security-system",
             "xaf.data.database.multiple-databases",
-            "xaf.architecture.multi-tenancy.tenant-classes",
             "xaf.architecture.core.enterprise-features"
           ]
         },
@@ -766,9 +763,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.security.authentication.authentication",
-            "xaf.security.authorization.authorization",
-            "xaf.security.users.users-and-roles",
             "xaf.architecture.multi-tenancy.multi-tenancy",
             "xaf.architecture.core.enterprise-features"
           ]
@@ -844,7 +838,6 @@
             "xaf.security.core.security-system"
           ],
           "related_to": [
-            "xaf.security.authentication.oauth",
             "xaf.security.users.users-and-roles",
             "xaf.security.core.security-system",
             "xaf.architecture.modules.web-api-service"
@@ -1282,12 +1275,14 @@
         },
         "relations": {
           "related_to": [
-            "xaf.data.object-space.object-space",
             "xaf.data.orm.xpo",
             "xaf.data.orm.ef-core",
             "xaf.data.business-model.validation",
             "xaf.data.business-model.clone-object",
             "xaf.data.properties.file-attachments"
+          ],
+          "requires": [
+            "xaf.data.object-space.object-space"
           ]
         },
         "facets": {
@@ -1556,7 +1551,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.data.business-model.custom-validation-rules",
             "xaf.data.business-model.business-object",
             "xaf.ui.ux.error-styling"
           ]
@@ -1814,7 +1808,6 @@
           "related_to": [
             "xaf.data.orm.xpo",
             "xaf.data.orm.ef-core",
-            "xaf.data.object-space.business-logic",
             "xaf.architecture.dependency-injection.dependency-injection",
             "xaf.security.auditing.audit-trail",
             "xaf.data.business-model.business-object",
@@ -2478,8 +2471,7 @@
         "relations": {
           "related_to": [
             "xaf.data.orm.xpo",
-            "xaf.data.orm.ef-core",
-            "xaf.data.database.multiple-databases"
+            "xaf.data.orm.ef-core"
           ]
         },
         "facets": {
@@ -2808,8 +2800,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.data.criteria.built-in-criteria-operators",
-            "xaf.data.criteria.custom-criteria-functions",
             "xaf.data.orm.xpo",
             "xaf.security.authorization.authorization",
             "xaf.data.business-model.calculated-properties",
@@ -3238,7 +3228,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.quality.performance.memory-management",
             "xaf.data.database.data-access-modes",
             "xaf.architecture.application-model.model-cache",
             "xaf.ui.views.lazy-loading"
@@ -3362,8 +3351,6 @@
         "relations": {
           "related_to": [
             "xaf.architecture.modules.modules",
-            "xaf.tooling.project-creation.template-kit",
-            "xaf.tooling.project-creation.package-management",
             "xaf.ops.deployment.deployment",
             "xaf.tooling.code-analysis.code-analysis"
           ]
@@ -3721,8 +3708,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.localization.localization.programmatic-localization",
-            "xaf.localization.localization.localization-tool",
             "xaf.localization.localization.accessibility"
           ]
         },
@@ -3958,9 +3943,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.ui.views.detail-view",
-            "xaf.ui.views.list-view",
-            "xaf.ui.views.view-lifecycle",
             "xaf.ui.views.view-variants",
             "xaf.ui.views.reports",
             "xaf.ui.ux.notifications",
@@ -4030,7 +4012,6 @@
           ],
           "related_to": [
             "xaf.ui.views.list-view",
-            "xaf.ui.layout.layout",
             "xaf.ui.views.views",
             "xaf.ui.views.master-detail-views"
           ]
@@ -4100,7 +4081,6 @@
           ],
           "related_to": [
             "xaf.ui.views.detail-view",
-            "xaf.ui.list-editors.list-editors",
             "xaf.data.database.data-access-modes",
             "xaf.ui.views.views",
             "xaf.ui.views.master-detail-views",
@@ -4827,9 +4807,6 @@
             "xaf.ui.views.detail-view"
           ],
           "related_to": [
-            "xaf.ui.editors.lookup-editors",
-            "xaf.ui.editors.standard-editors",
-            "xaf.ui.editors.specialized-editors",
             "xaf.ui.views.office-module",
             "xaf.ui.views.view-items"
           ]
@@ -5241,7 +5218,6 @@
             "xaf.ui.views.detail-view"
           ],
           "related_to": [
-            "xaf.ui.layout.layout-runtime-customization",
             "xaf.ui.views.detail-view"
           ]
         },
@@ -5424,7 +5400,6 @@
         },
         "relations": {
           "related_to": [
-            "xaf.ui.theming.svg-graphics",
             "xaf.ui.theming.conditional-appearance"
           ]
         },
@@ -5807,9 +5782,7 @@
         },
         "relations": {
           "related_to": [
-            "xaf.ui.actions.actions",
             "xaf.ui.views.views",
-            "xaf.ui.controllers.built-in-controllers",
             "xaf.ui.navigation.navigation"
           ]
         },
@@ -5956,8 +5929,6 @@
             "xaf.ui.controllers.controllers"
           ],
           "related_to": [
-            "xaf.ui.actions.action-containers",
-            "xaf.ui.actions.action-state",
             "xaf.ui.controllers.controllers"
           ]
         },

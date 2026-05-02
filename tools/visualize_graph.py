@@ -5,9 +5,9 @@ Generate a rich self-contained interactive HTML visualisation of the XAF
 knowledge graph.  Opens in any browser — no server needed.
 
 Modes (selectable in the browser):
-  Concept Map      — 146 concept nodes connected by section co-occurrence.
+  Concept Map      — 100 concept nodes connected by section co-occurrence.
                      Click a concept to expand its top documents.
-  Relationship Map — 1,940 document-to-document typed edges from Phase 6
+  Relationship Map — Document-to-document typed edges from Phase 6/7
                      (uses / explains / requires / extends / contrasts_with /
                       applies_to / related_to).  Toggle types on/off.
 
@@ -117,7 +117,7 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
         if n["type"] == "concept"
     ]
 
-    # ── Document details ──────────────────────────────────────────────────
+    # ── Document details (base from KG nodes) ──────────────────────────────
     doc_details: dict[str, dict] = {}
     for n in kg["nodes"]:
         if n["type"] in ("document", "api"):
@@ -125,7 +125,28 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
                 "title": (n.get("title") or n["id"].split("/")[-1])[:80],
                 "path": n.get("doc_id", ""),
                 "isApi": n["type"] == "api",
+                "tags": "",
+                "description": "",
+                "proficiency": "",
             }
+
+    # ── Enrich doc_details from document_metadata.parquet ────────────────
+    dm_path = PROJECT_ROOT / "outputs" / "document_metadata.parquet"
+    if dm_path.exists():
+        try:
+            import pandas as _pd_dm  # noqa: PLC0415
+            import numpy as _np_dm  # noqa: PLC0415
+            _dm = _pd_dm.read_parquet(dm_path)
+            for _row in _dm.itertuples(index=False):
+                _did = f"doc:{_row.doc_id}"
+                _tags = _row.tags
+                _tags_str = ", ".join(str(t) for t in _tags if t) if hasattr(_tags, "__iter__") and not isinstance(_tags, str) else str(_tags or "")
+                if _did in doc_details:
+                    doc_details[_did]["tags"] = _tags_str
+                    doc_details[_did]["description"] = str(_row.description or "")[:200]
+                    doc_details[_did]["proficiency"] = str(_row.proficiency_level or "")
+        except Exception as _dm_e:
+            print(f"  Warning: could not enrich doc_details from document_metadata ({_dm_e})")
 
     # ── Top docs per concept (for sidebar) ───────────────────────────────
     concept_top_docs: dict[str, list] = {}
@@ -147,7 +168,9 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
     rel_edges: list[dict] = []
     seen_rel: set[tuple] = set()
 
-    cp_path = PROJECT_ROOT / "outputs" / "classified_pairs.parquet"
+    cp_path = PROJECT_ROOT / "outputs" / "classified_pairs_corrected.parquet"
+    if not cp_path.exists():
+        cp_path = PROJECT_ROOT / "outputs" / "classified_pairs.parquet"
     _loaded_from_parquet = False
     try:
         import pandas as _pd  # noqa: PLC0415
@@ -184,6 +207,9 @@ def prepare_data(kg: dict, min_cooc: int = 3) -> dict:
                             "title": raw.split("/")[-1].replace(".md", "")[:80],
                             "path": raw,
                             "isApi": is_api,
+                            "tags": "",
+                            "description": "",
+                            "proficiency": "",
                         }
                 src_concepts = [str(c) for c in row.source_concepts][:5]
                 tgt_concepts = [str(c) for c in row.target_concepts][:5]
@@ -902,7 +928,10 @@ function showDocDetails(id) {
   document.getElementById('details-panel').innerHTML = `
     <h3>${title}</h3>
     <div class="stat">Type: <span>${d.isApi ? 'API Reference' : 'Article'}</span></div>
+    ${d.proficiency ? `<div class="stat">Proficiency: <span>${d.proficiency}</span></div>` : ''}
     <div class="stat" style="word-break:break-all;font-size:11px;color:#484f58;margin-top:4px">${path}</div>
+    ${d.description ? `<div style="font-size:11px;color:#8b949e;margin-top:6px;line-height:1.5;padding:6px 0;border-top:1px solid #21262d">${d.description}</div>` : ''}
+    ${d.tags ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:3px">${d.tags.split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span style="font-size:10px;padding:1px 6px;border-radius:3px;background:#21262d;color:#8b949e">${t}</span>`).join('')}</div>` : ''}
     ${outgoing.length ? `<div class="stat" style="margin-top:10px">Outgoing relationships:</div><ul class="doc-list" style="list-style:none">${relHtml(outgoing, 'out')}</ul>` : ''}
     ${incoming.length ? `<div class="stat" style="margin-top:8px">Incoming relationships:</div><ul class="doc-list" style="list-style:none">${relHtml(incoming, 'in')}</ul>` : ''}
     ${!outgoing.length && !incoming.length ? '<div class="stat" style="margin-top:10px;color:#484f58">No classified relationships for this document.</div>' : ''}

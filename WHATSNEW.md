@@ -1,5 +1,114 @@
 # What's New
 
+## 2026-05-02 — Relationship audit, taxonomy-constrained tags (Phase 7), and updated tooling
+
+### Motivation
+
+Three separate quality gaps were identified after the Phase 6 classification run:
+
+1. **`related_to` over-classification** — 24.7% of classified pairs (4,162 out of 16,845) were labelled `related_to`, masking many pairs that have a more specific, useful relationship type. Further analysis showed a large subset of these were actually `uses` or `explains`.
+2. **Phase 7 tags were unconstrained** — `consolidate_tags()` emitted raw API short names, generic labels, and platform names not in the taxonomy, so doc section tags had no semantic alignment with support-center vocabulary.
+3. **Tools were not reflecting the corrected data** — both the knowledge graph explorer and the metadata reviewer were built from the pre-audit classification files.
+
+---
+
+### Change 1 — `related_to` audit and reclassification
+
+**New `tools/analyze_related_to.py`** — standalone analysis tool that inspects all `related_to` pairs and scores each for reclassification confidence. Outputs `outputs/related_to_analysis.csv` and `outputs/related_to_summary.txt`.
+
+**New `tools/audit_taxonomy_relations.py`** — applies targeted corrections to the classified pairs file. Supports `--apply` (write corrected file) and `--backup` (snapshot current state before writing).
+
+**Workflow:**
+1. `tools/analyze_related_to.py` identified the distribution and re-run candidates.
+2. `scripts/07_postprocess_classifications.py` (new) merges a selective `related_to` re-run (`outputs/classified_pairs_rt_rerun.parquet`) back into the main pairs file, resolving conflicts by confidence score. Produces `outputs/classified_pairs_corrected.parquet`.
+3. `tools/audit_taxonomy_relations.py --apply --backup` applied 31 manual corrections (demoted `related_to`, promoted 1 `requires`), creating `config/xaf-taxonomy_backup_20260501_204704.json` and updating `config/xaf-taxonomy.json`.
+
+**Results:**
+
+| Metric | Before | After |
+|---|---|---|
+| Total classified pairs | 16,845 | 10,102 |
+| `related_to` share | 24.7% (4,162) | 0.2% (22) |
+| `uses` pairs | — | 5,283 |
+| `extends` pairs | — | 1,642 |
+| `explains` pairs | — | 1,305 |
+| `requires` pairs | — | 1,061 |
+| `contrasts_with` pairs | — | 580 |
+| `applies_to` pairs | — | 207 |
+| `implements` pairs | — | 2 |
+
+**`config/prompts/relationship_classification.md`** — tightened the `related_to` definition to "last resort only when no other type fits" with explicit counter-examples for each relationship type it can be confused with.
+
+**Downstream scripts updated** — `scripts/06_classify_relationships.py` updated to reference corrected pairs file; all Phase 8–13 scripts consume `classified_pairs_corrected.parquet` when present.
+
+---
+
+### Change 2 — `scripts/07_generate_metadata.py`: taxonomy-constrained tags
+
+**`_build_taxonomy_vocab()`** — new module-level function. Loads all 100 taxonomy concepts via `load_concepts()` (which flattens `terminology.*` to top level) and builds:
+- `_TAXONOMY_TERM_TO_TAG` — dict mapping every concept name, keyword, and synonym (1,307 terms total) to its canonical slug
+- `_TAXONOMY_PLATFORMS` — frozenset of valid platform strings (`blazor`, `winforms`)
+
+**`consolidate_tags()` updated** — every candidate concept/API name is now matched against `_TAXONOMY_TERM_TO_TAG`; only taxonomy-matched terms are emitted as tags. Platform values are filtered to `_TAXONOMY_PLATFORMS`. `api-reference` and `how-to` are always included as structural tags.
+
+**`build_related_sections_index()`** — new function that reads `classified_pairs_corrected.parquet` and builds, per section, a list of the top-5 classified neighbours with `{doc_id, section_id, relationship, direction, confidence}`. Stored as the `related_sections` column in `outputs/metadata_suggestions.parquet`.
+
+**Results:**
+
+| Metric | Before | After |
+|---|---|---|
+| Unique tags | unconstrained | 95 taxonomy-only tags |
+| Avg tags/section | — | 1.8 |
+| Sections with `related_sections` | — | 5,241 |
+
+---
+
+### Change 3 — `tools/build_metadata_reviewer.py`: related docs and new filters
+
+**New data joined:** `related_sections` from `metadata_suggestions.parquet` is aggregated at doc level (top-8 neighbours per document, deduplicated by doc) and exposed as `related_docs` in each record.
+
+**New record fields:** `related_docs` (list of `{doc_id, slug, relationship, direction, confidence}`), `classified_conns` (int), `dominant_rel` (str).
+
+**New UI elements:**
+- Tag filter dropdown (`<select id="filter-tag">`) — populated from taxonomy vocabulary; filters the doc list to sections with a given tag
+- "Has related docs" toggle button — narrows list to docs with at least one classified relationship
+- Classified connections count pill (`.dm-classified`) in the doc detail panel
+- Related documents section — shows up to 8 neighbours with coloured relationship chips and in/out direction badges
+
+**Bug fixed:** `filter-tag` `<select>` and `filter-has-related` `<button>` were referenced in JS but absent from the HTML markup, causing `applyFilters()` to throw a TypeError on page load and render an empty list.
+
+---
+
+### Change 4 — `tools/visualize_graph.py`: corrected pairs + enriched sidebar
+
+**`classified_pairs_corrected.parquet`** — the Relationship Map edge set now uses the post-audit file (5,963 doc-to-doc edges in the graph, up from 1,940).
+
+**Doc details enrichment** — after the base node loop, `document_metadata.parquet` is joined to add `tags`, `description` (≤200 chars), and `proficiency` to each `doc_details` entry; fallback entries for newly discovered docs also carry these fields.
+
+**Sidebar rendering updated** — clicking a document node in the Relationship Map now shows proficiency level, description, and taxonomy tag chips below the title in the details panel.
+
+---
+
+### Files changed
+
+| File | Change |
+|---|---|
+| `tools/analyze_related_to.py` | New — `related_to` pair analysis tool |
+| `tools/audit_taxonomy_relations.py` | New — manual correction applicator with backup |
+| `scripts/07_postprocess_classifications.py` | New — merge re-run pairs, produce corrected file |
+| `scripts/06_classify_relationships.py` | References corrected output file |
+| `scripts/07_generate_metadata.py` | Taxonomy vocab constraint; `related_sections` builder |
+| `config/prompts/relationship_classification.md` | Tightened `related_to` definition |
+| `config/xaf-taxonomy.json` | 31 relationship corrections applied |
+| `tools/build_metadata_reviewer.py` | Related docs, tag filter, has-related toggle, bug fix |
+| `tools/visualize_graph.py` | Corrected pairs, enriched doc details, sidebar update |
+| `outputs/classified_pairs_corrected.parquet` | New — 10,102 post-audit pairs |
+| `outputs/classified_pairs_before_merge.parquet` | New — snapshot before postprocess merge |
+| `outputs/related_to_analysis.csv` | New — per-pair reclassification scores |
+| `outputs/related_to_summary.txt` | New — aggregate audit summary |
+
+---
+
 ## 2026-04-23 — Product-agnostic configuration layer
 
 ### Motivation

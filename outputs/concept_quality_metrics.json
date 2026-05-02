@@ -1,940 +1,706 @@
 {
-  "timestamp": "2026-04-21T09:18:49.580425",
+  "timestamp": "2026-05-02T11:29:32.623039",
   "coverage": {
     "total_sections": 10819,
-    "tagged_sections": 3974,
-    "coverage_percent": 36.7,
-    "unique_concepts_used": 133,
-    "avg_sections_per_concept": 53.2,
-    "median_sections_per_concept": 19,
+    "tagged_sections": 4392,
+    "coverage_percent": 40.6,
+    "unique_concepts_used": 94,
+    "avg_sections_per_concept": 92.8,
+    "median_sections_per_concept": 34,
     "min_sections": 1,
-    "max_sections": 672,
-    "concepts_under_20": 68,
-    "concepts_over_500": 2,
+    "max_sections": 1009,
+    "concepts_under_20": 32,
+    "concepts_over_500": 3,
     "concept_distribution": {
-      "Application Model": 672,
-      "Model Editor": 580,
-      "Views": 414,
-      "Security System": 349,
-      "Property Editors": 267,
-      "Validation": 253,
-      "Template Kit": 249,
-      "Actions": 240,
-      "Authentication": 201,
-      "Controllers and Actions": 190,
-      "List Editors": 147,
-      "Reports": 141,
-      "Criteria": 133,
-      "XPO": 126,
-      "Package Management": 109,
-      "View Items": 108,
-      "Multi-Tenancy": 106,
-      "Conditional Appearance": 104,
-      "Entity Framework Core": 100,
-      "Tenant": 98,
-      "Business Object": 97,
-      "ApplicationBuilder": 95,
-      "Action Types": 93,
-      "Object Space": 91,
-      "Business Logic": 80,
-      "View Types": 79,
-      "XAF Application": 67,
-      "Dashboards": 61,
-      "Loading Indicators": 57,
-      "View Customization": 56,
-      "Controller Types": 55,
-      "Single Choice Action": 54,
-      "Tree List": 53,
-      "View Variants": 50,
-      "Scheduler": 48,
-      "Application Templates": 48,
-      "Web API Service": 47,
-      "PivotGrid": 41,
-      "Property Metadata": 41,
-      "Audit Trail": 39,
-      "Migration": 38,
-      "Notifications": 38,
-      "Report Parameters": 36,
-      "Modules": 35,
-      "Action Containers": 35,
-      "Dashboard View": 34,
-      "Testing": 34,
-      "Authorization": 34,
-      "Localization Tool": 31,
-      "Localization Basics": 31,
-      "Non-persistent Object": 28,
-      "List View": 28,
-      "List View Data Access Modes": 28,
-      "Windows": 28,
-      "Clone Object": 27,
-      "Context Menus": 27,
-      "Reference Property": 27,
-      "Object Space Provider": 26,
-      "File Attachments": 26,
-      "View Controller": 26,
-      "Property Editor Types": 24,
-      "Layout": 24,
+      "Views": 1009,
+      "Model Editor": 588,
+      "Detail View": 510,
+      "Controllers": 441,
+      "List View": 370,
+      "Solution Structure and Module Design": 327,
+      "Property Editors": 292,
+      "Validation": 284,
+      "Security System": 267,
+      "Actions": 258,
+      "Template Kit and CLI": 250,
+      "List Editors": 246,
+      "Business Objects": 244,
+      "Object Space": 193,
+      "XPO": 188,
+      "View Items": 160,
+      "Application Model": 156,
+      "Entity Framework Core": 151,
+      "Windows and Frames": 150,
+      "Criteria and Query Language": 146,
+      "Authentication": 131,
+      "Reports Module": 117,
+      "XAF Application": 114,
+      "Conditional Appearance": 110,
+      "TreeList Editors": 107,
+      "Notifications": 106,
+      "NuGet Package Management": 93,
+      "Non-Persistent Objects": 82,
+      "Testing": 81,
+      "Dashboards Module": 63,
+      "Users and Roles": 61,
+      "File Attachments": 60,
+      "Object Relationships": 59,
+      "Action Containers": 52,
+      "Office Module": 49,
+      "Theming and Styling": 48,
+      "View Variants": 46,
+      "Deployment": 45,
+      "XAF Web API Service": 44,
+      "Database Updates and Seeding": 42,
+      "Authorization and Permissions": 40,
+      "Dashboard View": 40,
+      "Dependency Injection": 39,
+      "Tree Node Interface": 38,
+      "Multi-Tenancy": 35,
+      "Model Differences": 35,
+      "Application Templates": 34,
+      "Localization": 34,
+      "Modules": 33,
+      "Detail View Layout": 32,
+      "Data Access Modes": 31,
+      "Images and SVG Graphics": 31,
+      "Audit Trail": 30,
+      "OAuth and Identity Providers": 30,
+      "Navigation System": 28,
+      "Pivot Grid Module": 27,
+      "Tenant Classes and Resolver": 25,
+      "Custom Validation Rules": 25,
+      "Scheduler Module": 23,
+      "Database Connection and Configuration": 23,
       "Logging": 21,
-      "Reports V2": 21,
-      "Office Module": 21,
-      "Database Connection": 19,
-      "Dialog Controller": 19,
-      "Spreadsheet Control": 19,
-      "State Machine": 18,
-      "Property Editor Customization": 18,
-      "Model Differences": 17,
-      "Built-in Controllers": 17,
-      "Parametrized Action": 17,
-      "Optimistic Locking": 17,
-      "Lookup Property Editors": 16,
-      "Frames": 15,
-      "Action State Management": 14,
-      "Mail Merge": 14,
-      "Permission Policies": 14,
-      "Satellite Assemblies": 13,
-      "Navigation": 13,
-      "Custom Criteria Functions": 13,
-      "Database Update": 12,
-      "Static View Items": 12,
-      "Culture-Specific Formatting": 11,
-      "Window Controller": 11,
-      "Property Editor Features": 11,
-      "Deployment": 9,
-      "Simple Action": 9,
-      "Action Container View Items": 9,
-      "Project Wizards": 8,
-      "Diagnostic Tools": 8,
-      "Tree Node Interface": 7,
-      "Assembly References": 7,
-      "SVG Graphics": 7,
-      "Theming": 7,
-      "Calculated Property": 7,
-      "Model Cache": 7,
-      "Lookup View": 6,
-      "Object Relationships": 6,
-      "Inline Editing": 5,
-      "Recurring Events": 5,
-      "Accordion Control": 4,
-      "Collection Property": 4,
-      "Legacy .NET Framework": 4,
-      "Controller Activation": 4,
-      "Specialized Property Editors": 4,
-      "Auto-Increment Fields": 3,
-      "Built-in Actions": 3,
-      "Nested Views": 3,
-      "Tabbed MDI Interface": 3,
-      "Model Nodes": 3,
-      "Dependency Injection": 3,
-      "Popup Window Show Action": 3,
-      "Collection Property Editors": 2,
-      "Custom Validation Rules": 2,
-      "Controller Customization": 2,
-      "Controller Lifecycle": 2,
-      "Action Customization": 2,
-      "Popup Windows": 2,
-      "Built-in Criteria Operators": 2,
-      "Direct SQL": 2,
-      "Middle Tier": 2,
-      "Target Properties": 2,
-      "Charts": 2,
-      "Master-Detail Views": 2,
-      "Business Object Lifecycle": 1,
-      "Layout Runtime Customization": 1,
-      "Performance Optimization": 1,
-      "Custom User Management": 1,
+      "Built-In Controllers": 21,
+      "Business Logic and Data Manipulation": 18,
+      "Charts Module": 18,
+      "Master-Detail Views": 18,
+      "Lookup Property Editors": 18,
+      "Action Active and Enabled State": 17,
+      "ORM Data Model Designer": 17,
+      "View Lifecycle and Navigation": 17,
+      "Performance Optimization": 15,
+      "Built-In Criteria Operators": 15,
+      "Version Upgrades and Migration": 13,
+      "Business Object Lifecycle": 13,
+      "Application Model Extension": 13,
+      "Diagnostics and Tracing": 12,
+      "State Machine": 11,
+      "Inline Editing": 10,
+      "Localization in Model Editor": 9,
+      "Custom Criteria Functions": 9,
+      "Calculated and Aliased Properties": 8,
+      "Model Cache": 8,
+      "Auto-Increment and Sequential Numbers": 7,
+      "Clone Object": 7,
+      "Concurrency Control": 6,
+      "Standard Property Editors": 5,
+      "Specialized Property Editors": 5,
+      "Accessibility": 4,
+      "Security Administrative UI": 4,
+      "Layout Runtime Customization": 4,
+      "Lazy Loading of View Items": 4,
+      "Code Analysis": 3,
       "Async Operations": 1,
-      "Object View Controllers": 1,
-      "Generic View Controllers": 1
+      "Middle-Tier Application Server": 1,
+      "Direct SQL and Legacy DB Mapping": 1
     }
   },
   "connectivity": {
-    "Report Parameters": {
-      "num_sections": 36,
-      "total_connections": 786,
-      "avg_connections_per_section": 21.8
+    "Version Upgrades and Migration": {
+      "num_sections": 13,
+      "total_connections": 276,
+      "avg_connections_per_section": 21.2
     },
-    "Optimistic Locking": {
-      "num_sections": 17,
-      "total_connections": 518,
-      "avg_connections_per_section": 30.5
+    "Localization": {
+      "num_sections": 34,
+      "total_connections": 1137,
+      "avg_connections_per_section": 33.4
     },
-    "Custom Validation Rules": {
-      "num_sections": 2,
-      "total_connections": 164,
-      "avg_connections_per_section": 82.0
+    "Authorization and Permissions": {
+      "num_sections": 40,
+      "total_connections": 740,
+      "avg_connections_per_section": 18.5
     },
-    "Permission Policies": {
-      "num_sections": 14,
-      "total_connections": 246,
-      "avg_connections_per_section": 17.6
-    },
-    "Custom User Management": {
-      "num_sections": 1,
-      "total_connections": 40,
-      "avg_connections_per_section": 40.0
-    },
-    "Model Differences": {
-      "num_sections": 17,
-      "total_connections": 453,
-      "avg_connections_per_section": 26.6
-    },
-    "Tenant": {
-      "num_sections": 98,
-      "total_connections": 3067,
-      "avg_connections_per_section": 31.3
-    },
-    "Views": {
-      "num_sections": 414,
-      "total_connections": 7583,
-      "avg_connections_per_section": 18.3
-    },
-    "Charts": {
-      "num_sections": 2,
-      "total_connections": 28,
-      "avg_connections_per_section": 14.0
-    },
-    "Property Editors": {
-      "num_sections": 267,
-      "total_connections": 8084,
-      "avg_connections_per_section": 30.3
+    "Business Objects": {
+      "num_sections": 244,
+      "total_connections": 5783,
+      "avg_connections_per_section": 23.7
     },
     "Model Editor": {
-      "num_sections": 580,
-      "total_connections": 12020,
-      "avg_connections_per_section": 20.7
+      "num_sections": 588,
+      "total_connections": 12978,
+      "avg_connections_per_section": 22.1
     },
-    "Frames": {
+    "Accessibility": {
+      "num_sections": 4,
+      "total_connections": 24,
+      "avg_connections_per_section": 6.0
+    },
+    "Application Model Extension": {
+      "num_sections": 13,
+      "total_connections": 183,
+      "avg_connections_per_section": 14.1
+    },
+    "Standard Property Editors": {
+      "num_sections": 5,
+      "total_connections": 77,
+      "avg_connections_per_section": 15.4
+    },
+    "Built-In Criteria Operators": {
       "num_sections": 15,
-      "total_connections": 288,
-      "avg_connections_per_section": 19.2
-    },
-    "Controller Customization": {
-      "num_sections": 2,
-      "total_connections": 92,
-      "avg_connections_per_section": 46.0
-    },
-    "Target Properties": {
-      "num_sections": 2,
-      "total_connections": 25,
-      "avg_connections_per_section": 12.5
-    },
-    "Static View Items": {
-      "num_sections": 12,
-      "total_connections": 55,
-      "avg_connections_per_section": 4.6
-    },
-    "Action State Management": {
-      "num_sections": 14,
-      "total_connections": 341,
-      "avg_connections_per_section": 24.4
-    },
-    "Reference Property": {
-      "num_sections": 27,
-      "total_connections": 824,
-      "avg_connections_per_section": 30.5
+      "total_connections": 305,
+      "avg_connections_per_section": 20.3
     },
     "Entity Framework Core": {
-      "num_sections": 100,
-      "total_connections": 2460,
-      "avg_connections_per_section": 24.6
-    },
-    "Project Wizards": {
-      "num_sections": 8,
-      "total_connections": 158,
-      "avg_connections_per_section": 19.8
-    },
-    "Context Menus": {
-      "num_sections": 27,
-      "total_connections": 556,
-      "avg_connections_per_section": 20.6
-    },
-    "Parametrized Action": {
-      "num_sections": 17,
-      "total_connections": 224,
-      "avg_connections_per_section": 13.2
-    },
-    "Master-Detail Views": {
-      "num_sections": 2,
-      "total_connections": 16,
-      "avg_connections_per_section": 8.0
-    },
-    "Dependency Injection": {
-      "num_sections": 3,
-      "total_connections": 13,
-      "avg_connections_per_section": 4.3
-    },
-    "Nested Views": {
-      "num_sections": 3,
-      "total_connections": 72,
-      "avg_connections_per_section": 24.0
-    },
-    "Tabbed MDI Interface": {
-      "num_sections": 3,
-      "total_connections": 28,
-      "avg_connections_per_section": 9.3
-    },
-    "Mail Merge": {
-      "num_sections": 14,
-      "total_connections": 139,
-      "avg_connections_per_section": 9.9
-    },
-    "View Customization": {
-      "num_sections": 56,
-      "total_connections": 906,
-      "avg_connections_per_section": 16.2
-    },
-    "Async Operations": {
-      "num_sections": 1,
-      "total_connections": 0,
-      "avg_connections_per_section": 0.0
-    },
-    "Controller Types": {
-      "num_sections": 55,
-      "total_connections": 1143,
-      "avg_connections_per_section": 20.8
-    },
-    "Authorization": {
-      "num_sections": 34,
-      "total_connections": 498,
-      "avg_connections_per_section": 14.6
-    },
-    "Auto-Increment Fields": {
-      "num_sections": 3,
-      "total_connections": 32,
-      "avg_connections_per_section": 10.7
-    },
-    "Controller Lifecycle": {
-      "num_sections": 2,
-      "total_connections": 33,
-      "avg_connections_per_section": 16.5
-    },
-    "ApplicationBuilder": {
-      "num_sections": 95,
-      "total_connections": 1290,
-      "avg_connections_per_section": 13.6
-    },
-    "Conditional Appearance": {
-      "num_sections": 104,
-      "total_connections": 3430,
-      "avg_connections_per_section": 33.0
-    },
-    "XAF Application": {
-      "num_sections": 67,
-      "total_connections": 1549,
-      "avg_connections_per_section": 23.1
-    },
-    "Controller Activation": {
-      "num_sections": 4,
-      "total_connections": 58,
-      "avg_connections_per_section": 14.5
-    },
-    "Layout": {
-      "num_sections": 24,
-      "total_connections": 267,
-      "avg_connections_per_section": 11.1
-    },
-    "Spreadsheet Control": {
-      "num_sections": 19,
-      "total_connections": 344,
-      "avg_connections_per_section": 18.1
-    },
-    "Validation": {
-      "num_sections": 253,
-      "total_connections": 4516,
-      "avg_connections_per_section": 17.8
-    },
-    "Action Containers": {
-      "num_sections": 35,
-      "total_connections": 1042,
-      "avg_connections_per_section": 29.8
-    },
-    "Middle Tier": {
-      "num_sections": 2,
-      "total_connections": 25,
-      "avg_connections_per_section": 12.5
-    },
-    "Single Choice Action": {
-      "num_sections": 54,
-      "total_connections": 551,
-      "avg_connections_per_section": 10.2
-    },
-    "Deployment": {
-      "num_sections": 9,
-      "total_connections": 250,
-      "avg_connections_per_section": 27.8
-    },
-    "Reports V2": {
-      "num_sections": 21,
-      "total_connections": 572,
-      "avg_connections_per_section": 27.2
-    },
-    "State Machine": {
-      "num_sections": 18,
-      "total_connections": 222,
-      "avg_connections_per_section": 12.3
-    },
-    "Lookup Property Editors": {
-      "num_sections": 16,
-      "total_connections": 412,
-      "avg_connections_per_section": 25.8
-    },
-    "Popup Windows": {
-      "num_sections": 2,
-      "total_connections": 19,
-      "avg_connections_per_section": 9.5
-    },
-    "Calculated Property": {
-      "num_sections": 7,
-      "total_connections": 65,
-      "avg_connections_per_section": 9.3
-    },
-    "XPO": {
-      "num_sections": 126,
-      "total_connections": 2136,
-      "avg_connections_per_section": 17.0
-    },
-    "Dashboard View": {
-      "num_sections": 34,
-      "total_connections": 708,
-      "avg_connections_per_section": 20.8
-    },
-    "Loading Indicators": {
-      "num_sections": 57,
-      "total_connections": 1716,
-      "avg_connections_per_section": 30.1
-    },
-    "Model Nodes": {
-      "num_sections": 3,
-      "total_connections": 51,
-      "avg_connections_per_section": 17.0
-    },
-    "Object Relationships": {
-      "num_sections": 6,
-      "total_connections": 47,
-      "avg_connections_per_section": 7.8
-    },
-    "Collection Property": {
-      "num_sections": 4,
-      "total_connections": 25,
-      "avg_connections_per_section": 6.2
-    },
-    "Object View Controllers": {
-      "num_sections": 1,
-      "total_connections": 17,
-      "avg_connections_per_section": 17.0
-    },
-    "Layout Runtime Customization": {
-      "num_sections": 1,
-      "total_connections": 31,
-      "avg_connections_per_section": 31.0
-    },
-    "Built-in Controllers": {
-      "num_sections": 17,
-      "total_connections": 805,
-      "avg_connections_per_section": 47.4
-    },
-    "Built-in Criteria Operators": {
-      "num_sections": 2,
-      "total_connections": 28,
-      "avg_connections_per_section": 14.0
-    },
-    "Business Object Lifecycle": {
-      "num_sections": 1,
-      "total_connections": 30,
-      "avg_connections_per_section": 30.0
-    },
-    "Dialog Controller": {
-      "num_sections": 19,
-      "total_connections": 443,
-      "avg_connections_per_section": 23.3
-    },
-    "Lookup View": {
-      "num_sections": 6,
-      "total_connections": 72,
-      "avg_connections_per_section": 12.0
-    },
-    "List Editors": {
-      "num_sections": 147,
-      "total_connections": 3897,
-      "avg_connections_per_section": 26.5
-    },
-    "Popup Window Show Action": {
-      "num_sections": 3,
-      "total_connections": 35,
-      "avg_connections_per_section": 11.7
-    },
-    "Action Customization": {
-      "num_sections": 2,
-      "total_connections": 67,
-      "avg_connections_per_section": 33.5
-    },
-    "Satellite Assemblies": {
-      "num_sections": 13,
-      "total_connections": 424,
-      "avg_connections_per_section": 32.6
-    },
-    "Model Cache": {
-      "num_sections": 7,
-      "total_connections": 71,
-      "avg_connections_per_section": 10.1
-    },
-    "Direct SQL": {
-      "num_sections": 2,
-      "total_connections": 9,
-      "avg_connections_per_section": 4.5
-    },
-    "Business Logic": {
-      "num_sections": 80,
-      "total_connections": 2286,
-      "avg_connections_per_section": 28.6
-    },
-    "View Types": {
-      "num_sections": 79,
-      "total_connections": 1478,
-      "avg_connections_per_section": 18.7
-    },
-    "View Items": {
-      "num_sections": 108,
-      "total_connections": 2509,
-      "avg_connections_per_section": 23.2
-    },
-    "SVG Graphics": {
-      "num_sections": 7,
-      "total_connections": 105,
-      "avg_connections_per_section": 15.0
-    },
-    "Theming": {
-      "num_sections": 7,
-      "total_connections": 105,
-      "avg_connections_per_section": 15.0
-    },
-    "Recurring Events": {
-      "num_sections": 5,
-      "total_connections": 41,
-      "avg_connections_per_section": 8.2
-    },
-    "View Variants": {
-      "num_sections": 50,
-      "total_connections": 794,
-      "avg_connections_per_section": 15.9
-    },
-    "Culture-Specific Formatting": {
-      "num_sections": 11,
-      "total_connections": 279,
-      "avg_connections_per_section": 25.4
-    },
-    "List View": {
-      "num_sections": 28,
-      "total_connections": 505,
-      "avg_connections_per_section": 18.0
-    },
-    "Built-in Actions": {
-      "num_sections": 3,
-      "total_connections": 57,
-      "avg_connections_per_section": 19.0
-    },
-    "Object Space": {
-      "num_sections": 91,
-      "total_connections": 2446,
-      "avg_connections_per_section": 26.9
-    },
-    "Database Connection": {
-      "num_sections": 19,
-      "total_connections": 332,
-      "avg_connections_per_section": 17.5
-    },
-    "Custom Criteria Functions": {
-      "num_sections": 13,
-      "total_connections": 214,
-      "avg_connections_per_section": 16.5
-    },
-    "Scheduler": {
-      "num_sections": 48,
-      "total_connections": 552,
-      "avg_connections_per_section": 11.5
-    },
-    "Office Module": {
-      "num_sections": 21,
-      "total_connections": 278,
-      "avg_connections_per_section": 13.2
-    },
-    "Testing": {
-      "num_sections": 34,
-      "total_connections": 454,
-      "avg_connections_per_section": 13.4
-    },
-    "Tree List": {
-      "num_sections": 53,
-      "total_connections": 1674,
-      "avg_connections_per_section": 31.6
-    },
-    "Tree Node Interface": {
-      "num_sections": 7,
-      "total_connections": 196,
-      "avg_connections_per_section": 28.0
-    },
-    "Non-persistent Object": {
-      "num_sections": 28,
-      "total_connections": 963,
-      "avg_connections_per_section": 34.4
-    },
-    "Package Management": {
-      "num_sections": 109,
-      "total_connections": 2154,
-      "avg_connections_per_section": 19.8
-    },
-    "Audit Trail": {
-      "num_sections": 39,
-      "total_connections": 881,
-      "avg_connections_per_section": 22.6
-    },
-    "Action Container View Items": {
-      "num_sections": 9,
-      "total_connections": 104,
-      "avg_connections_per_section": 11.6
-    },
-    "Action Types": {
-      "num_sections": 93,
-      "total_connections": 1229,
-      "avg_connections_per_section": 13.2
-    },
-    "Specialized Property Editors": {
-      "num_sections": 4,
-      "total_connections": 50,
-      "avg_connections_per_section": 12.5
-    },
-    "Simple Action": {
-      "num_sections": 9,
-      "total_connections": 148,
-      "avg_connections_per_section": 16.4
-    },
-    "Generic View Controllers": {
-      "num_sections": 1,
-      "total_connections": 18,
-      "avg_connections_per_section": 18.0
-    },
-    "Collection Property Editors": {
-      "num_sections": 2,
-      "total_connections": 150,
-      "avg_connections_per_section": 75.0
-    },
-    "Controllers and Actions": {
-      "num_sections": 190,
-      "total_connections": 4714,
-      "avg_connections_per_section": 24.8
-    },
-    "Authentication": {
-      "num_sections": 201,
-      "total_connections": 5607,
-      "avg_connections_per_section": 27.9
-    },
-    "Navigation": {
-      "num_sections": 13,
-      "total_connections": 133,
-      "avg_connections_per_section": 10.2
-    },
-    "Object Space Provider": {
-      "num_sections": 26,
-      "total_connections": 506,
-      "avg_connections_per_section": 19.5
-    },
-    "Clone Object": {
-      "num_sections": 27,
-      "total_connections": 879,
-      "avg_connections_per_section": 32.6
-    },
-    "Performance Optimization": {
-      "num_sections": 1,
-      "total_connections": 0,
-      "avg_connections_per_section": 0.0
-    },
-    "Windows": {
-      "num_sections": 28,
-      "total_connections": 512,
-      "avg_connections_per_section": 18.3
-    },
-    "Business Object": {
-      "num_sections": 97,
-      "total_connections": 2648,
-      "avg_connections_per_section": 27.3
-    },
-    "Assembly References": {
-      "num_sections": 7,
-      "total_connections": 111,
-      "avg_connections_per_section": 15.9
-    },
-    "Localization Basics": {
-      "num_sections": 31,
-      "total_connections": 914,
-      "avg_connections_per_section": 29.5
-    },
-    "PivotGrid": {
-      "num_sections": 41,
-      "total_connections": 576,
-      "avg_connections_per_section": 14.0
-    },
-    "Application Templates": {
-      "num_sections": 48,
-      "total_connections": 1106,
+      "num_sections": 151,
+      "total_connections": 3468,
       "avg_connections_per_section": 23.0
     },
-    "File Attachments": {
-      "num_sections": 26,
-      "total_connections": 745,
-      "avg_connections_per_section": 28.7
+    "Action Active and Enabled State": {
+      "num_sections": 17,
+      "total_connections": 378,
+      "avg_connections_per_section": 22.2
     },
-    "Migration": {
-      "num_sections": 38,
-      "total_connections": 980,
-      "avg_connections_per_section": 25.8
+    "State Machine": {
+      "num_sections": 11,
+      "total_connections": 146,
+      "avg_connections_per_section": 13.3
     },
-    "Property Editor Customization": {
-      "num_sections": 18,
-      "total_connections": 868,
-      "avg_connections_per_section": 48.2
+    "Criteria and Query Language": {
+      "num_sections": 146,
+      "total_connections": 1993,
+      "avg_connections_per_section": 13.7
+    },
+    "Localization in Model Editor": {
+      "num_sections": 9,
+      "total_connections": 302,
+      "avg_connections_per_section": 33.6
+    },
+    "Testing": {
+      "num_sections": 81,
+      "total_connections": 1966,
+      "avg_connections_per_section": 24.3
+    },
+    "Concurrency Control": {
+      "num_sections": 6,
+      "total_connections": 211,
+      "avg_connections_per_section": 35.2
+    },
+    "Code Analysis": {
+      "num_sections": 3,
+      "total_connections": 20,
+      "avg_connections_per_section": 6.7
+    },
+    "Actions": {
+      "num_sections": 258,
+      "total_connections": 5612,
+      "avg_connections_per_section": 21.8
+    },
+    "Pivot Grid Module": {
+      "num_sections": 27,
+      "total_connections": 455,
+      "avg_connections_per_section": 16.9
+    },
+    "View Items": {
+      "num_sections": 160,
+      "total_connections": 4465,
+      "avg_connections_per_section": 27.9
+    },
+    "Action Containers": {
+      "num_sections": 52,
+      "total_connections": 1682,
+      "avg_connections_per_section": 32.3
+    },
+    "Property Editors": {
+      "num_sections": 292,
+      "total_connections": 9661,
+      "avg_connections_per_section": 33.1
+    },
+    "XAF Application": {
+      "num_sections": 114,
+      "total_connections": 2157,
+      "avg_connections_per_section": 18.9
     },
     "Logging": {
       "num_sections": 21,
-      "total_connections": 402,
-      "avg_connections_per_section": 19.1
+      "total_connections": 210,
+      "avg_connections_per_section": 10.0
     },
-    "Property Metadata": {
-      "num_sections": 41,
-      "total_connections": 946,
-      "avg_connections_per_section": 23.1
+    "Tenant Classes and Resolver": {
+      "num_sections": 25,
+      "total_connections": 801,
+      "avg_connections_per_section": 32.0
     },
-    "Actions": {
-      "num_sections": 240,
-      "total_connections": 4634,
-      "avg_connections_per_section": 19.3
-    },
-    "Dashboards": {
-      "num_sections": 61,
-      "total_connections": 1200,
-      "avg_connections_per_section": 19.7
-    },
-    "Template Kit": {
-      "num_sections": 249,
-      "total_connections": 5270,
-      "avg_connections_per_section": 21.2
-    },
-    "Window Controller": {
-      "num_sections": 11,
-      "total_connections": 272,
-      "avg_connections_per_section": 24.7
-    },
-    "Property Editor Features": {
-      "num_sections": 11,
-      "total_connections": 237,
-      "avg_connections_per_section": 21.5
-    },
-    "Property Editor Types": {
-      "num_sections": 24,
-      "total_connections": 689,
-      "avg_connections_per_section": 28.7
-    },
-    "Reports": {
-      "num_sections": 141,
-      "total_connections": 3100,
-      "avg_connections_per_section": 22.0
-    },
-    "Application Model": {
-      "num_sections": 672,
-      "total_connections": 13832,
-      "avg_connections_per_section": 20.6
-    },
-    "Web API Service": {
-      "num_sections": 47,
-      "total_connections": 597,
-      "avg_connections_per_section": 12.7
-    },
-    "Multi-Tenancy": {
-      "num_sections": 106,
-      "total_connections": 3227,
-      "avg_connections_per_section": 30.4
-    },
-    "View Controller": {
-      "num_sections": 26,
-      "total_connections": 538,
-      "avg_connections_per_section": 20.7
-    },
-    "Criteria": {
-      "num_sections": 133,
-      "total_connections": 1708,
-      "avg_connections_per_section": 12.8
-    },
-    "Modules": {
-      "num_sections": 35,
-      "total_connections": 608,
-      "avg_connections_per_section": 17.4
-    },
-    "Security System": {
-      "num_sections": 349,
-      "total_connections": 8762,
-      "avg_connections_per_section": 25.1
-    },
-    "Notifications": {
-      "num_sections": 38,
-      "total_connections": 675,
-      "avg_connections_per_section": 17.8
-    },
-    "Diagnostic Tools": {
-      "num_sections": 8,
-      "total_connections": 102,
-      "avg_connections_per_section": 12.8
-    },
-    "Database Update": {
-      "num_sections": 12,
-      "total_connections": 148,
-      "avg_connections_per_section": 12.3
-    },
-    "Inline Editing": {
+    "Specialized Property Editors": {
       "num_sections": 5,
-      "total_connections": 98,
+      "total_connections": 221,
+      "avg_connections_per_section": 44.2
+    },
+    "Reports Module": {
+      "num_sections": 117,
+      "total_connections": 2827,
+      "avg_connections_per_section": 24.2
+    },
+    "Layout Runtime Customization": {
+      "num_sections": 4,
+      "total_connections": 135,
+      "avg_connections_per_section": 33.8
+    },
+    "Data Access Modes": {
+      "num_sections": 31,
+      "total_connections": 501,
+      "avg_connections_per_section": 16.2
+    },
+    "ORM Data Model Designer": {
+      "num_sections": 17,
+      "total_connections": 334,
       "avg_connections_per_section": 19.6
     },
-    "Localization Tool": {
-      "num_sections": 31,
-      "total_connections": 743,
-      "avg_connections_per_section": 24.0
+    "Charts Module": {
+      "num_sections": 18,
+      "total_connections": 531,
+      "avg_connections_per_section": 29.5
     },
-    "Legacy .NET Framework": {
-      "num_sections": 4,
-      "total_connections": 92,
-      "avg_connections_per_section": 23.0
+    "Tree Node Interface": {
+      "num_sections": 38,
+      "total_connections": 1386,
+      "avg_connections_per_section": 36.5
     },
-    "List View Data Access Modes": {
+    "Users and Roles": {
+      "num_sections": 61,
+      "total_connections": 1255,
+      "avg_connections_per_section": 20.6
+    },
+    "Diagnostics and Tracing": {
+      "num_sections": 12,
+      "total_connections": 124,
+      "avg_connections_per_section": 10.3
+    },
+    "View Lifecycle and Navigation": {
+      "num_sections": 17,
+      "total_connections": 379,
+      "avg_connections_per_section": 22.3
+    },
+    "File Attachments": {
+      "num_sections": 60,
+      "total_connections": 1867,
+      "avg_connections_per_section": 31.1
+    },
+    "Authentication": {
+      "num_sections": 131,
+      "total_connections": 3381,
+      "avg_connections_per_section": 25.8
+    },
+    "Async Operations": {
+      "num_sections": 1,
+      "total_connections": 6,
+      "avg_connections_per_section": 6.0
+    },
+    "Navigation System": {
       "num_sections": 28,
-      "total_connections": 505,
-      "avg_connections_per_section": 18.0
+      "total_connections": 513,
+      "avg_connections_per_section": 18.3
     },
-    "Accordion Control": {
+    "XAF Web API Service": {
+      "num_sections": 44,
+      "total_connections": 851,
+      "avg_connections_per_section": 19.3
+    },
+    "Modules": {
+      "num_sections": 33,
+      "total_connections": 757,
+      "avg_connections_per_section": 22.9
+    },
+    "Calculated and Aliased Properties": {
+      "num_sections": 8,
+      "total_connections": 67,
+      "avg_connections_per_section": 8.4
+    },
+    "XPO": {
+      "num_sections": 188,
+      "total_connections": 2778,
+      "avg_connections_per_section": 14.8
+    },
+    "Notifications": {
+      "num_sections": 106,
+      "total_connections": 2840,
+      "avg_connections_per_section": 26.8
+    },
+    "Windows and Frames": {
+      "num_sections": 150,
+      "total_connections": 3428,
+      "avg_connections_per_section": 22.9
+    },
+    "Direct SQL and Legacy DB Mapping": {
+      "num_sections": 1,
+      "total_connections": 8,
+      "avg_connections_per_section": 8.0
+    },
+    "Security System": {
+      "num_sections": 267,
+      "total_connections": 6352,
+      "avg_connections_per_section": 23.8
+    },
+    "TreeList Editors": {
+      "num_sections": 107,
+      "total_connections": 3540,
+      "avg_connections_per_section": 33.1
+    },
+    "Clone Object": {
+      "num_sections": 7,
+      "total_connections": 165,
+      "avg_connections_per_section": 23.6
+    },
+    "Scheduler Module": {
+      "num_sections": 23,
+      "total_connections": 395,
+      "avg_connections_per_section": 17.2
+    },
+    "Business Logic and Data Manipulation": {
+      "num_sections": 18,
+      "total_connections": 431,
+      "avg_connections_per_section": 23.9
+    },
+    "Solution Structure and Module Design": {
+      "num_sections": 327,
+      "total_connections": 7580,
+      "avg_connections_per_section": 23.2
+    },
+    "Dashboards Module": {
+      "num_sections": 63,
+      "total_connections": 1334,
+      "avg_connections_per_section": 21.2
+    },
+    "Conditional Appearance": {
+      "num_sections": 110,
+      "total_connections": 3529,
+      "avg_connections_per_section": 32.1
+    },
+    "Theming and Styling": {
+      "num_sections": 48,
+      "total_connections": 922,
+      "avg_connections_per_section": 19.2
+    },
+    "Object Space": {
+      "num_sections": 193,
+      "total_connections": 4253,
+      "avg_connections_per_section": 22.0
+    },
+    "Audit Trail": {
+      "num_sections": 30,
+      "total_connections": 576,
+      "avg_connections_per_section": 19.2
+    },
+    "Database Connection and Configuration": {
+      "num_sections": 23,
+      "total_connections": 402,
+      "avg_connections_per_section": 17.5
+    },
+    "Object Relationships": {
+      "num_sections": 59,
+      "total_connections": 1049,
+      "avg_connections_per_section": 17.8
+    },
+    "Deployment": {
+      "num_sections": 45,
+      "total_connections": 1043,
+      "avg_connections_per_section": 23.2
+    },
+    "Multi-Tenancy": {
+      "num_sections": 35,
+      "total_connections": 972,
+      "avg_connections_per_section": 27.8
+    },
+    "Detail View Layout": {
+      "num_sections": 32,
+      "total_connections": 657,
+      "avg_connections_per_section": 20.5
+    },
+    "List View": {
+      "num_sections": 370,
+      "total_connections": 9083,
+      "avg_connections_per_section": 24.5
+    },
+    "Lazy Loading of View Items": {
       "num_sections": 4,
-      "total_connections": 47,
-      "avg_connections_per_section": 11.8
+      "total_connections": 12,
+      "avg_connections_per_section": 3.0
+    },
+    "Middle-Tier Application Server": {
+      "num_sections": 1,
+      "total_connections": 11,
+      "avg_connections_per_section": 11.0
+    },
+    "Custom Validation Rules": {
+      "num_sections": 25,
+      "total_connections": 844,
+      "avg_connections_per_section": 33.8
+    },
+    "Inline Editing": {
+      "num_sections": 10,
+      "total_connections": 301,
+      "avg_connections_per_section": 30.1
+    },
+    "Model Cache": {
+      "num_sections": 8,
+      "total_connections": 80,
+      "avg_connections_per_section": 10.0
+    },
+    "Dashboard View": {
+      "num_sections": 40,
+      "total_connections": 784,
+      "avg_connections_per_section": 19.6
+    },
+    "Model Differences": {
+      "num_sections": 35,
+      "total_connections": 779,
+      "avg_connections_per_section": 22.3
+    },
+    "Dependency Injection": {
+      "num_sections": 39,
+      "total_connections": 518,
+      "avg_connections_per_section": 13.3
+    },
+    "List Editors": {
+      "num_sections": 246,
+      "total_connections": 6959,
+      "avg_connections_per_section": 28.3
+    },
+    "OAuth and Identity Providers": {
+      "num_sections": 30,
+      "total_connections": 780,
+      "avg_connections_per_section": 26.0
+    },
+    "Controllers": {
+      "num_sections": 441,
+      "total_connections": 10706,
+      "avg_connections_per_section": 24.3
+    },
+    "Database Updates and Seeding": {
+      "num_sections": 42,
+      "total_connections": 513,
+      "avg_connections_per_section": 12.2
+    },
+    "Detail View": {
+      "num_sections": 510,
+      "total_connections": 13259,
+      "avg_connections_per_section": 26.0
+    },
+    "Application Model": {
+      "num_sections": 156,
+      "total_connections": 2985,
+      "avg_connections_per_section": 19.1
+    },
+    "Images and SVG Graphics": {
+      "num_sections": 31,
+      "total_connections": 643,
+      "avg_connections_per_section": 20.7
+    },
+    "Template Kit and CLI": {
+      "num_sections": 250,
+      "total_connections": 5877,
+      "avg_connections_per_section": 23.5
+    },
+    "Business Object Lifecycle": {
+      "num_sections": 13,
+      "total_connections": 349,
+      "avg_connections_per_section": 26.8
+    },
+    "View Variants": {
+      "num_sections": 46,
+      "total_connections": 861,
+      "avg_connections_per_section": 18.7
+    },
+    "Application Templates": {
+      "num_sections": 34,
+      "total_connections": 832,
+      "avg_connections_per_section": 24.5
+    },
+    "Non-Persistent Objects": {
+      "num_sections": 82,
+      "total_connections": 2694,
+      "avg_connections_per_section": 32.9
+    },
+    "Master-Detail Views": {
+      "num_sections": 18,
+      "total_connections": 346,
+      "avg_connections_per_section": 19.2
+    },
+    "Auto-Increment and Sequential Numbers": {
+      "num_sections": 7,
+      "total_connections": 84,
+      "avg_connections_per_section": 12.0
+    },
+    "Performance Optimization": {
+      "num_sections": 15,
+      "total_connections": 145,
+      "avg_connections_per_section": 9.7
+    },
+    "Lookup Property Editors": {
+      "num_sections": 18,
+      "total_connections": 780,
+      "avg_connections_per_section": 43.3
+    },
+    "NuGet Package Management": {
+      "num_sections": 93,
+      "total_connections": 2134,
+      "avg_connections_per_section": 22.9
+    },
+    "Custom Criteria Functions": {
+      "num_sections": 9,
+      "total_connections": 143,
+      "avg_connections_per_section": 15.9
+    },
+    "Views": {
+      "num_sections": 1009,
+      "total_connections": 24683,
+      "avg_connections_per_section": 24.5
+    },
+    "Security Administrative UI": {
+      "num_sections": 4,
+      "total_connections": 67,
+      "avg_connections_per_section": 16.8
+    },
+    "Office Module": {
+      "num_sections": 49,
+      "total_connections": 1118,
+      "avg_connections_per_section": 22.8
+    },
+    "Built-In Controllers": {
+      "num_sections": 21,
+      "total_connections": 1079,
+      "avg_connections_per_section": 51.4
+    },
+    "Validation": {
+      "num_sections": 284,
+      "total_connections": 5719,
+      "avg_connections_per_section": 20.1
     }
   },
   "gate_quality": {
-    "total_pairs": 75193,
+    "total_pairs": 79661,
     "gate_passages": {
-      "xref_link": 19265,
-      "concept_overlap": 18936,
-      "doc_id_namespace_overlap": 18822,
-      "high_similarity_fallback": 18170
+      "concept_overlap": 24228,
+      "xref_link": 19327,
+      "doc_id_namespace_overlap": 18869,
+      "high_similarity_fallback": 17237
     },
     "gate_percentages": {
-      "xref_link": 25.6,
-      "concept_overlap": 25.2,
-      "doc_id_namespace_overlap": 25.0,
-      "high_similarity_fallback": 24.2
+      "concept_overlap": 30.4,
+      "xref_link": 24.3,
+      "doc_id_namespace_overlap": 23.7,
+      "high_similarity_fallback": 21.6
     },
     "avg_similarity_by_gate": {
-      "xref_link": 0.621,
-      "concept_overlap": 0.728,
+      "concept_overlap": 0.723,
+      "xref_link": 0.622,
       "doc_id_namespace_overlap": 0.844,
-      "high_similarity_fallback": 0.861
+      "high_similarity_fallback": 0.863
     },
     "overall_similarity": {
-      "mean": 0.762,
-      "median": 0.765,
-      "std": 0.127,
+      "mean": 0.758,
+      "median": 0.758,
+      "std": 0.125,
       "min": 0.5,
       "max": 1.0
     },
-    "fallback_percentage": 24.2,
+    "fallback_percentage": 21.6,
     "quality_flag": "\ud83d\udd34 HIGH FALLBACK"
   },
   "cooccurrence": {
     "top_cooccurrences": [
       {
         "concepts": [
-          "Application Model",
-          "Model Editor"
+          "Detail View",
+          "Views"
         ],
-        "count": 580
+        "count": 510
       },
       {
         "concepts": [
-          "Authentication",
-          "Security System"
+          "List View",
+          "Views"
         ],
-        "count": 201
+        "count": 370
+      },
+      {
+        "concepts": [
+          "Detail View",
+          "Property Editors"
+        ],
+        "count": 292
+      },
+      {
+        "concepts": [
+          "Property Editors",
+          "Views"
+        ],
+        "count": 292
+      },
+      {
+        "concepts": [
+          "Actions",
+          "Controllers"
+        ],
+        "count": 258
+      },
+      {
+        "concepts": [
+          "Solution Structure and Module Design",
+          "Template Kit and CLI"
+        ],
+        "count": 250
+      },
+      {
+        "concepts": [
+          "List Editors",
+          "List View"
+        ],
+        "count": 246
+      },
+      {
+        "concepts": [
+          "List Editors",
+          "Views"
+        ],
+        "count": 246
+      },
+      {
+        "concepts": [
+          "Detail View",
+          "View Items"
+        ],
+        "count": 160
       },
       {
         "concepts": [
           "View Items",
           "Views"
         ],
-        "count": 108
-      },
-      {
-        "concepts": [
-          "Multi-Tenancy",
-          "Tenant"
-        ],
-        "count": 98
-      },
-      {
-        "concepts": [
-          "Action Types",
-          "Actions"
-        ],
-        "count": 93
-      },
-      {
-        "concepts": [
-          "View Types",
-          "Views"
-        ],
-        "count": 79
-      },
-      {
-        "concepts": [
-          "Actions",
-          "Controllers and Actions"
-        ],
-        "count": 75
-      },
-      {
-        "concepts": [
-          "Dashboards",
-          "Views"
-        ],
-        "count": 61
-      },
-      {
-        "concepts": [
-          "View Customization",
-          "Views"
-        ],
-        "count": 56
-      },
-      {
-        "concepts": [
-          "Controller Types",
-          "Controllers and Actions"
-        ],
-        "count": 55
+        "count": 160
       }
     ],
-    "total_unique_pairs": 574
+    "total_unique_pairs": 690
   },
   "isolation": {
     "total_sections": 10819,
-    "isolated_sections": 559,
-    "isolated_percentage": 5.2,
-    "quality_flag": "\ud83d\udfe1 WATCH",
+    "isolated_sections": 521,
+    "isolated_percentage": 4.8,
+    "quality_flag": "\ud83d\udfe2 HEALTHY",
     "concepts_in_isolated_sections": {
-      "Application Model": 13,
-      "Model Editor": 12,
-      "Actions": 6,
-      "Property Editors": 4,
-      "Controllers and Actions": 3,
-      "Views": 3,
-      "Object Space": 2,
-      "Action Types": 2,
-      "Single Choice Action": 2,
-      "Package Management": 2
+      "Model Editor": 10,
+      "Views": 6,
+      "XAF Application": 4,
+      "Controllers": 3,
+      "Detail View": 3,
+      "Database Updates and Seeding": 3,
+      "Actions": 2,
+      "Property Editors": 2,
+      "XAF Web API Service": 2,
+      "Application Model": 2
     }
   }
 }

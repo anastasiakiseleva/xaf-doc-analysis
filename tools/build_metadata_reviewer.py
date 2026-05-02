@@ -326,9 +326,11 @@ def load_data():
     except Exception as e:
         print(f"  Warning: could not load concept domains: {e}")
 
-    # ── Per-doc relationship summary from classified_pairs.parquet ────────────
+    # ── Per-doc relationship summary (prefer corrected pairs) ──────────────────
     rel_summary: dict[str, dict] = {}
-    cp_path = ROOT / "outputs" / "classified_pairs.parquet"
+    cp_path = ROOT / "outputs" / "classified_pairs_corrected.parquet"
+    if not cp_path.exists():
+        cp_path = ROOT / "outputs" / "classified_pairs.parquet"
     if cp_path.exists():
         try:
             from collections import Counter  # noqa: PLC0415
@@ -342,6 +344,44 @@ def load_data():
             rel_summary = {k: dict(v) for k, v in _rel_cnts.items()}
         except Exception as e:
             print(f"  Warning: could not load relationship summary: {e}")
+
+    # ── Per-doc related-docs index from metadata_suggestions related_sections ──
+    related_docs_index: dict[str, list] = {}
+    ms_path = ROOT / "outputs" / "metadata_suggestions.parquet"
+    if ms_path.exists():
+        try:
+            ms = pd.read_parquet(ms_path, columns=["doc_id", "related_sections"])
+            _best: dict[str, dict] = {}  # src_doc -> {tgt_doc -> best entry}
+            for _, _row in ms.iterrows():
+                _src = _row["doc_id"]
+                _rels = _row.get("related_sections", [])
+                if not hasattr(_rels, "__len__") or len(_rels) == 0:
+                    continue
+                if _src not in _best:
+                    _best[_src] = {}
+                for _item in _rels:
+                    _tgt = _item.get("doc_id", "")
+                    if not _tgt or _tgt == _src:
+                        continue
+                    _conf = float(_item.get("confidence", 0.0))
+                    _rel  = _item.get("relationship", "related_to")
+                    _dir  = _item.get("direction", "outgoing")
+                    _prev = _best[_src].get(_tgt)
+                    if _prev is None or _conf > _prev["confidence"]:
+                        _best[_src][_tgt] = {
+                            "doc_id":       _tgt,
+                            "slug":         _tgt.rstrip("/").split("/")[-1],
+                            "relationship": _rel,
+                            "direction":    _dir,
+                            "confidence":   _conf,
+                        }
+            for _src, _tgt_map in _best.items():
+                related_docs_index[_src] = sorted(
+                    _tgt_map.values(), key=lambda x: x["confidence"], reverse=True
+                )[:8]
+            print(f"  Related-docs index: {len(related_docs_index)} source docs")
+        except Exception as e:
+            print(f"  Warning: could not build related_docs index: {e}")
 
     # Metadata descriptions are only relevant for articles, not API reference docs
     if "is_api" in dm.columns:
@@ -384,8 +424,11 @@ def load_data():
             "concepts":    _normalize_list_col(row.get("concepts", "")),
             "platforms":   _normalize_list_col(row.get("platforms", "")),
             "apis":        _normalize_list_col(row.get("apis", "")),
-            "domains":     doc_domains.get(doc_id, ""),
-            "rel_summary": rel_summary.get(doc_id, {}),
+            "domains":        doc_domains.get(doc_id, ""),
+            "rel_summary":    rel_summary.get(doc_id, {}),
+            "related_docs":   related_docs_index.get(doc_id, []),
+            "classified_conns": sum(rel_summary.get(doc_id, {}).values()),
+            "dominant_rel":   max(rel_summary.get(doc_id, {}), key=rel_summary.get(doc_id, {}).get) if rel_summary.get(doc_id) else "",
         })
 
     article_count = sum(1 for r in records if not r["is_api"])
@@ -479,6 +522,14 @@ button.action { padding: 4px 10px; border: none; border-radius: 4px; cursor: poi
 .info-section .concepts-text { font-size: 11px; color: #6c7086; line-height: 1.4; }
 .info-section .plat-text { font-size: 11px; color: #89dceb; }
 .rel-chip { display: inline-flex; align-items: center; font-size: 10px; padding: 1px 6px; border-radius: 3px; margin: 2px; font-weight: 600; }
+/* ---- related docs list ---- */
+#related-docs-list { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.related-doc-item { font-size: 11px; display: flex; align-items: center; gap: 5px; padding: 3px 0; border-bottom: 1px solid #313244; }
+.related-doc-item:last-child { border-bottom: none; }
+.related-doc-slug { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #89b4fa; font-weight: 600; }
+.dir-out { font-size: 10px; color: #a6e3a1; flex: 0 0 auto; }
+.dir-in  { font-size: 10px; color: #cba6f7; flex: 0 0 auto; }
+.pill-rel { font-size: 10px; padding: 1px 5px; border-radius: 3px; font-weight: 600; flex: 0 0 auto; }
 
 /* ---- verdict bar ---- */
 #verdict-bar { flex: 0 0 auto; display: flex; gap: 8px; align-items: center; padding: 8px 14px; border-top: 1px solid #313244; background: #181825; }
@@ -554,6 +605,10 @@ body.light #verdict-note::placeholder { color: #8c959f; }
 body.light button.nav { background: #f6f8fa; border-color: #d0d7de; color: #24292f; }
 body.light button.nav:hover { background: #eaeef2; }
 body.light #empty-state { color: #8c959f; }
+body.light .related-doc-item { border-bottom-color: #eaeef2; }
+body.light .related-doc-slug { color: #0969da; }
+body.light .dir-out { color: #1a7f37; }
+body.light .dir-in  { color: #8250df; }
 body.light ::-webkit-scrollbar-track { background: #f6f8fa; }
 body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
 </style>
@@ -601,12 +656,16 @@ body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
         <select id="filter-domain">
           <option value="all">All domains</option>
         </select>
+        <select id="filter-tag">
+          <option value="all">All tags</option>
+        </select>
       </div>
       <div class="filter-row">
         <button class="fbtn" id="filter-has-desc" title="Only show docs with a description">Has description</button>
         <button class="fbtn" id="filter-no-desc" title="Only show docs without a description">No description</button>
         <button class="fbtn" id="filter-isolated" title="0 semantic connections">Isolated</button>
         <button class="fbtn" id="filter-connected" title=">10 connections">Well-connected</button>
+        <button class="fbtn" id="filter-has-related" title="Has classified neighbours">Has related docs</button>
       </div>
     </div>
     <div id="list-count"></div>
@@ -626,6 +685,7 @@ body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
         <span class="meta-pill" id="dm-type"></span>
         <span class="meta-pill" id="dm-prof"></span>
         <span class="meta-pill pill-conn" id="dm-conn"></span>
+        <span class="meta-pill pill-conn" id="dm-classified" style="display:none"></span>
         <span class="meta-pill pill-conn" id="dm-sections" style="display:none"></span>
         <span class="meta-pill" id="dm-plat" style="background:#89dceb22;color:#89dceb;border:1px solid #89dceb55;"></span>
       </div>
@@ -656,6 +716,10 @@ body.light ::-webkit-scrollbar-thumb { background: #d0d7de; }
             <div class="info-section">
               <label>Relationships (Phase 6)</label>
               <div class="tags-wrap" id="is-rels-wrap"></div>
+            </div>
+            <div class="info-section" id="is-related-docs">
+              <label>Related documents</label>
+              <ul id="related-docs-list"></ul>
             </div>
           </div>
         </div>
@@ -698,7 +762,7 @@ function saveState() {
 let state = loadState(); // { [doc_id]: { verdict, note, yaml } }
 let filtered = [...ALL_DOCS];
 let selectedIdx = -1;
-let activeToggles = { hasDesc: false, noDesc: false, isolated: false, connected: false };
+let activeToggles = { hasDesc: false, noDesc: false, isolated: false, connected: false, hasRelated: false };
 
 // ============================================================
 // FILTER + RENDER LIST
@@ -709,6 +773,7 @@ function applyFilters() {
   const prof    = document.getElementById('filter-proficiency').value;
   const status  = document.getElementById('filter-status').value;
   const domain  = document.getElementById('filter-domain').value;
+  const tag     = document.getElementById('filter-tag').value;
 
   filtered = ALL_DOCS.filter(d => {
     if (q && !d.id.toLowerCase().includes(q) && !d.slug.toLowerCase().includes(q)) return false;
@@ -718,10 +783,12 @@ function applyFilters() {
     const v = (state[d.id] || {}).verdict || 'none';
     if (status !== 'all' && v !== status) return false;
     if (domain !== 'all' && !(d.domains || '').split(',').map(s => s.trim()).includes(domain)) return false;
+    if (tag !== 'all' && !(d.tags || '').split(',').map(s => s.trim()).includes(tag)) return false;
     if (activeToggles.hasDesc && !d.description) return false;
     if (activeToggles.noDesc && d.description) return false;
     if (activeToggles.isolated && d.connections !== 0) return false;
     if (activeToggles.connected && d.connections <= 10) return false;
+    if (activeToggles.hasRelated && (!d.related_docs || d.related_docs.length === 0)) return false;
     return true;
   });
 
@@ -835,6 +902,32 @@ function selectDoc(idx) {
     secEl.textContent = `${d.num_sections} section${d.num_sections === 1 ? '' : 's'}`;
     secEl.style.display = '';
   } else { secEl.style.display = 'none'; }
+
+  // Classified connections pill
+  const classEl = document.getElementById('dm-classified');
+  if (d.classified_conns > 0) {
+    classEl.textContent = `${d.classified_conns} classified`;
+    classEl.style.display = '';
+  } else { classEl.style.display = 'none'; }
+
+  // Related documents list
+  const relDocsList = document.getElementById('related-docs-list');
+  const relDocs = d.related_docs || [];
+  const relDocColors = {uses:'#ef9a9a',explains:'#80cbc4',requires:'#f48fb1',extends:'#ce93d8',related_to:'#bdbdbd',contrasts_with:'#ffb74d',applies_to:'#a5d6a7'};
+  if (relDocs.length) {
+    relDocsList.innerHTML = relDocs.map(r => {
+      const col = relDocColors[r.relationship] || '#888';
+      const arrow = r.direction === 'outgoing'
+        ? `<span class="dir-out">\u2192</span>`
+        : `<span class="dir-in">\u2190</span>`;
+      const chip = `<span class="pill-rel" style="background:${col}22;color:${col};border:1px solid ${col}44">${escHtml(r.relationship)}</span>`;
+      return `<li class="related-doc-item">${arrow}${chip}<span class="related-doc-slug" title="${escHtml(r.doc_id)}">${escHtml(r.slug)}</span><span style="color:#6c7086;font-size:10px">${r.confidence.toFixed(2)}</span></li>`;
+    }).join('');
+  } else {
+    relDocsList.innerHTML = '<li style="color:#6c7086;font-size:11px">None found</li>';
+  }
+  document.getElementById('is-related-docs').style.display = '';
+
   // YAML editor — use saved edit if any, else build from data
   const saved = state[d.id];
   const yaml  = (saved && saved.yaml) ? saved.yaml : buildYaml(d);
@@ -966,13 +1059,22 @@ const domainSet = new Set(ALL_DOCS.flatMap(d => (d.domains || '').split(',').map
   domainSel.appendChild(opt);
 });
 
-['search-input','filter-type','filter-proficiency','filter-status','filter-domain'].forEach(id => {
+// Populate tag dropdown from taxonomy-controlled tags
+const tagSel = document.getElementById('filter-tag');
+const tagSet = new Set(ALL_DOCS.flatMap(d => (d.tags || '').split(',').map(s => s.trim()).filter(Boolean)));
+[...tagSet].sort().forEach(tag => {
+  const opt = document.createElement('option');
+  opt.value = tag; opt.textContent = tag;
+  tagSel.appendChild(opt);
+});
+
+['search-input','filter-type','filter-proficiency','filter-status','filter-domain','filter-tag'].forEach(id => {
   document.getElementById(id).addEventListener('input', applyFilters);
   document.getElementById(id).addEventListener('change', applyFilters);
 });
 
-['filter-has-desc','filter-no-desc','filter-isolated','filter-connected'].forEach(btnId => {
-  const key = { 'filter-has-desc':'hasDesc','filter-no-desc':'noDesc','filter-isolated':'isolated','filter-connected':'connected' }[btnId];
+['filter-has-desc','filter-no-desc','filter-isolated','filter-connected','filter-has-related'].forEach(btnId => {
+  const key = { 'filter-has-desc':'hasDesc','filter-no-desc':'noDesc','filter-isolated':'isolated','filter-connected':'connected','filter-has-related':'hasRelated' }[btnId];
   document.getElementById(btnId).addEventListener('click', function() {
     activeToggles[key] = !activeToggles[key];
     this.classList.toggle('active', activeToggles[key]);

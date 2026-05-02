@@ -649,12 +649,21 @@ def _text_hash(text: str) -> str:
 class CostTracker:
     """Accumulates token counts and estimated cost across LLM calls."""
 
-    # Per-million-token pricing (input, output) — approximate as of early 2026
+    # Per-million-token pricing (input, output) — as of April 2026
+    # Source: https://docs.anthropic.com/en/docs/about-claude/models/overview
     PRICING = {
-        "gpt-4o-mini":                    (0.15,  0.60),
-        "claude-3-haiku-20240307":        (0.25,  1.25),
-        "claude-sonnet-4-20250514":       (3.00, 15.00),
+        # Anthropic Claude 4 family
+        "claude-haiku-4-5-20251001":      (1.00,  5.00),
+        "claude-haiku-4-5":               (1.00,  5.00),
+        "claude-sonnet-4-6":              (3.00, 15.00),
+        "claude-opus-4-7":                (5.00, 25.00),
+        # Anthropic Claude 3.x legacy
         "claude-3-5-haiku-20241022":      (0.80,  4.00),
+        "claude-sonnet-4-20250514":       (3.00, 15.00),
+        "claude-3-haiku-20240307":        (0.25,  1.25),
+        # OpenAI
+        "gpt-4o-mini":                    (0.15,  0.60),
+        "gpt-4o":                         (2.50, 10.00),
     }
 
     def __init__(self, model: Optional[str] = None):

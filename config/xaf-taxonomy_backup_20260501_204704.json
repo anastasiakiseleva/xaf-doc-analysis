@@ -1,0 +1,6573 @@
+{
+  "schema_version": "1.0",
+  "taxonomy": {
+    "metadata": {
+      "product": "DevExpress XAF",
+      "purpose": "Documentation taxonomy and concept registry for XAF knowledge management",
+      "owner": "DevExpress Documentation Team",
+      "last_updated": "2026-04-24"
+    },
+    "concepts": [
+      {
+        "id": "xaf.architecture.core.xaf-application",
+        "name": "XAF Application",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "core",
+        "description": "The root application object that bootstraps and hosts an XAF application, wires together modules, platforms, and services.",
+        "terminology": {
+          "synonyms": [
+            "XafApplication",
+            "application object",
+            "application bootstrap",
+            "app startup"
+          ],
+          "keywords": [
+            "XafApplication",
+            "BlazorApplication",
+            "WinApplication",
+            "IXafApplication"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "XafApplication",
+            "BlazorApplication",
+            "WinApplication"
+          ],
+          "related_types": [
+            "ApplicationModulesManager",
+            "IXafApplication"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.modules.modules",
+            "xaf.architecture.application-model.application-model",
+            "xaf.architecture.dependency-injection.dependency-injection",
+            "xaf.architecture.core.ai-integration"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.modules.modules",
+        "name": "Modules",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "modules",
+        "description": "Reusable, composable units that extend XAF application functionality. Modules package business objects, controllers, and model extensions into independently installable components.",
+        "terminology": {
+          "synonyms": [
+            "XAF module",
+            "module system",
+            "modular architecture",
+            "module design",
+            "dynamically loaded modules"
+          ],
+          "keywords": [
+            "ModuleBase",
+            "XafModule",
+            "module project",
+            "solution structure",
+            "Dynamically Loaded Modules"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ModuleBase"
+          ],
+          "related_types": [
+            "ApplicationModulesManager",
+            "XafModule"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application",
+            "xaf.architecture.application-model.application-model",
+            "xaf.tooling.project-creation.solution-structure"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.application-model.application-model",
+        "name": "Application Model",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "application-model",
+        "description": "Metadata-driven configuration system that defines XAF application UI structure, view layouts, captions, and behavior. Stored in XAFML files and mergeable at runtime.",
+        "terminology": {
+          "synonyms": [
+            "UI metadata",
+            "UI configuration",
+            "app model",
+            "model node",
+            "Model Editor settings"
+          ],
+          "keywords": [
+            "IModelApplication",
+            "IModelNode",
+            "XAFML",
+            "model differences",
+            "BOModel",
+            "ViewDesign"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IModelApplication",
+            "IModelNode",
+            "ModelApplicationBase"
+          ],
+          "related_types": [
+            "IModelListView",
+            "IModelDetailView",
+            "IModelClass",
+            "IModelColumn",
+            "IModelOptions",
+            "IModelLayoutGroup",
+            "IModelPropertyEditor",
+            "ModelNode"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.tooling.model-editor.model-editor",
+            "xaf.architecture.application-model.model-differences",
+            "xaf.architecture.application-model.model-extension",
+            "xaf.architecture.core.xaf-application",
+            "xaf.architecture.modules.modules"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "configuration",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.application-model.model-extension",
+        "name": "Application Model Extension",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "application-model",
+        "description": "Techniques for reading, customizing, and extending the Application Model programmatically using model nodes, node generators, and custom interfaces.",
+        "terminology": {
+          "synonyms": [
+            "read application model",
+            "customize application model",
+            "extend application model",
+            "custom model attributes",
+            "IModelExtender",
+            "model node generator"
+          ],
+          "keywords": [
+            "IModelExtender",
+            "ModelDefault",
+            "ModelDefaultAttribute",
+            "IModelApplication",
+            "Read Customize Extend",
+            "Default and Custom Attributes"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IModelExtender",
+            "ModelDefaultAttribute"
+          ],
+          "related_types": [
+            "IModelNode",
+            "ModelNodeGeneratorUpdater",
+            "IModelList"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.architecture.application-model.application-model"
+          ],
+          "related_to": [
+            "xaf.tooling.model-editor.model-editor",
+            "xaf.architecture.application-model.application-model"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.application-model.model-differences",
+        "name": "Model Differences",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "application-model",
+        "description": "Mechanism for storing and merging incremental Application Model customizations made at runtime or design time into persistent difference storages.",
+        "terminology": {
+          "synonyms": [
+            "model difference storages",
+            "model diff",
+            "XAFML diff",
+            "user model",
+            "model store",
+            "FileModelStore",
+            "view settings persistence"
+          ],
+          "keywords": [
+            "ModelDifference",
+            "ModelDifferenceAspect",
+            "FileModelStore",
+            "ResourcesModelStore",
+            "model.xafml",
+            "UserModelDifferenceStore"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ModelDifference",
+            "FileModelStore"
+          ],
+          "related_types": [
+            "ResourcesModelStore",
+            "ModelDifferenceAspect",
+            "UserModelDifferenceStore"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.architecture.application-model.application-model"
+          ],
+          "related_to": [
+            "xaf.architecture.application-model.application-model"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.application-model.model-cache",
+        "name": "Model Cache",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "application-model",
+        "description": "Application Model caching system that pre-compiles and stores the merged model to reduce application startup time.",
+        "terminology": {
+          "synonyms": [
+            "ModelAssembly cache",
+            "EnableModelCache",
+            "model assembly",
+            "compiled model"
+          ],
+          "keywords": [
+            "ModelAssembly",
+            "EnableModelCache",
+            "startup performance",
+            "model compilation"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ModelApplicationBase"
+          ],
+          "related_types": [
+            "XafApplication"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.architecture.application-model.application-model"
+          ],
+          "related_to": [
+            "xaf.quality.performance.performance-optimization"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.dependency-injection.dependency-injection",
+        "name": "Dependency Injection",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "dependency-injection",
+        "description": "The .NET dependency injection (DI) container integration in XAF that allows registering and resolving services in controllers, business objects, and modules.",
+        "terminology": {
+          "synonyms": [
+            "DI container",
+            "service registration",
+            "IServiceProvider",
+            "service locator",
+            "DI in XAF",
+            "dependency injection in controllers",
+            "dependency injection in business objects"
+          ],
+          "keywords": [
+            "IServiceProvider",
+            "GetRequiredService",
+            "GetService",
+            "AddSingleton",
+            "AddScoped",
+            "AddTransient",
+            "IObjectSpaceFactory"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IServiceProvider",
+            "IObjectSpaceFactory"
+          ],
+          "related_types": [
+            "IServiceCollection",
+            "GetRequiredService",
+            "ServiceCallSite"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application",
+            "xaf.data.object-space.object-space"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.multi-tenancy.multi-tenancy",
+        "name": "Multi-Tenancy",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "multi-tenancy",
+        "description": "XAF's built-in SaaS multi-tenancy support that isolates data, configuration, and users across multiple tenants within a single application deployment.",
+        "terminology": {
+          "synonyms": [
+            "SaaS",
+            "multi-tenant",
+            "tenant isolation",
+            "tenant support",
+            "multiple tenants",
+            "Multi-Tenancy module",
+            "ITenant",
+            "licensing",
+            "CAL",
+            "switch tenants",
+            "select tenants",
+            "tenant features",
+            "limit features",
+            "SKU",
+            "user count",
+            "tenant login",
+            "Multi-Tenancy Database"
+          ],
+          "keywords": [
+            "ITenant",
+            "IXafTenantProvider",
+            "tenant database",
+            "tenant resolver",
+            "tenant login",
+            "tenant switching",
+            "licensing",
+            "CAL compliance",
+            "switch tenant",
+            "select tenant on login",
+            "tenant features",
+            "multi-tenancy database"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ITenant",
+            "IXafTenantProvider"
+          ],
+          "related_types": [
+            "IMultiTenantDataStoreProvider",
+            "TenantProviderBase"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.security.core.security-system",
+            "xaf.data.database.multiple-databases",
+            "xaf.architecture.multi-tenancy.tenant-classes",
+            "xaf.architecture.core.enterprise-features"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime",
+            "deployment"
+          ],
+          "audiences": [
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.multi-tenancy.tenant-classes",
+        "name": "Tenant Classes and Resolver",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "multi-tenancy",
+        "description": "Customization of the tenant entity class, tenant resolver (URL-based, ID-based), tenant login selection, and in-app tenant switching.",
+        "terminology": {
+          "synonyms": [
+            "custom tenant class",
+            "tenant resolver",
+            "custom tenant resolver",
+            "URL-based tenant",
+            "select tenant on login",
+            "switch tenant",
+            "ITenantProvider",
+            "tenant URL",
+            "tenant ID"
+          ],
+          "keywords": [
+            "Custom Tenant",
+            "Custom Tenant Resolver",
+            "Select Tenants on Login",
+            "Switch Tenants",
+            "Limit Tenant Features",
+            "Licensing CAL"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ITenant"
+          ],
+          "related_types": [
+            "IXafTenantProvider",
+            "TenantProviderBase"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.architecture.multi-tenancy.multi-tenancy"
+          ],
+          "related_to": [
+            "xaf.architecture.multi-tenancy.multi-tenancy"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.core.ai-integration",
+        "name": "AI Integration",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "core",
+        "description": "Integration of AI capabilities (LLM-based assistance, AI extensions) into XAF applications, including AI-powered UI features and backend AI service connectors.",
+        "terminology": {
+          "synonyms": [
+            "AI",
+            "artificial intelligence",
+            "LLM integration",
+            "AI extension",
+            "AI for XAF",
+            "AI assistant",
+            "AI Integration module"
+          ],
+          "keywords": [
+            "AI Integration",
+            "LLM",
+            "Azure OpenAI",
+            "AI extension",
+            "Blazor AI",
+            "artificial intelligence"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.core.xaf-application"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "evolving"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.core.enterprise-features",
+        "name": "Enterprise Development Features",
+        "artifact_kind": "conceptual",
+        "domain": "architecture",
+        "subdomain": "core",
+        "description": "Set of XAF capabilities suited for large-scale enterprise applications, including middleware tiers, advanced security, multi-tenancy, scalable deployment, and compliance features.",
+        "terminology": {
+          "synonyms": [
+            "enterprise XAF",
+            "enterprise features",
+            "Features For Enterprise Development",
+            "large-scale applications"
+          ],
+          "keywords": [
+            "enterprise",
+            "scalability",
+            "CAL",
+            "compliance",
+            "middle tier",
+            "SaaS"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.multi-tenancy.multi-tenancy",
+            "xaf.security.core.security-system",
+            "xaf.security.core.middle-tier"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime",
+            "deployment"
+          ],
+          "audiences": [
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.core.security-system",
+        "name": "Security System",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "core",
+        "description": "XAF's integrated security framework providing authentication, authorization, permission management, and data-level access control for XAF applications.",
+        "terminology": {
+          "synonyms": [
+            "XAF security",
+            "security module",
+            "Security Module",
+            "SecuritySystem",
+            "access control",
+            "permission system"
+          ],
+          "keywords": [
+            "SecuritySystem",
+            "ISecurityProvider",
+            "ISecurityStrategyBase",
+            "security strategy",
+            "administrative UI",
+            "security in non-XAF apps"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "SecuritySystem",
+            "ISecurityProvider",
+            "ISecurityStrategyBase"
+          ],
+          "related_types": [
+            "SecurityStrategyComplex",
+            "IPermissionPolicyUser",
+            "IPermissionPolicyRole",
+            "SecurityPermissionPolicy"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.security.authentication.authentication",
+            "xaf.security.authorization.authorization",
+            "xaf.security.users.users-and-roles",
+            "xaf.architecture.multi-tenancy.multi-tenancy",
+            "xaf.architecture.core.enterprise-features"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "configuration",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.authentication.authentication",
+        "name": "Authentication",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "authentication",
+        "description": "Mechanisms for verifying user identity in XAF, including standard logon forms, custom authentication strategies, OAuth/OpenID providers, and Windows Authentication.",
+        "terminology": {
+          "synonyms": [
+            "logon",
+            "login",
+            "sign in",
+            "logon form",
+            "custom authentication",
+            "authentication strategy",
+            "logon parameters",
+            "Custom Authentication/Logon Parameters Form"
+          ],
+          "keywords": [
+            "AuthenticationBase",
+            "AuthenticationStandard",
+            "IAuthenticationProvider",
+            "LogonParameters",
+            "OAuth",
+            "OpenID",
+            "Windows Authentication",
+            "custom logon form",
+            "EntraID"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "AuthenticationBase",
+            "AuthenticationStandard"
+          ],
+          "related_types": [
+            "IAuthenticationProvider",
+            "LogonParameters",
+            "AuthenticationOAuth"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.security.authentication.oauth",
+            "xaf.security.users.users-and-roles",
+            "xaf.security.core.security-system",
+            "xaf.architecture.modules.web-api-service"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.authentication.oauth",
+        "name": "OAuth and Identity Providers",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "authentication",
+        "description": "Integration with external OAuth 2.0 and OpenID Connect identity providers (Microsoft Entra ID, Google, GitHub) for XAF application authentication.",
+        "terminology": {
+          "synonyms": [
+            "OAuth",
+            "OpenID Connect",
+            "OIDC",
+            "social login",
+            "external identity provider",
+            "OAuth Identity Providers",
+            "EntraID",
+            "Azure AD",
+            "Microsoft identity"
+          ],
+          "keywords": [
+            "OAuth",
+            "OpenID",
+            "AuthenticationOAuth",
+            "Microsoft.Identity",
+            "EntraID",
+            "Google authentication",
+            "GitHub authentication"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "AuthenticationOAuth"
+          ],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.authentication.authentication"
+          ],
+          "related_to": [
+            "xaf.security.authentication.authentication"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.authorization.authorization",
+        "name": "Authorization and Permissions",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "authorization",
+        "description": "Role-based and policy-based access control in XAF, covering object-level, member-level, and action permissions, including built-in permission setup and custom permission implementations.",
+        "terminology": {
+          "synonyms": [
+            "permissions",
+            "permission policies",
+            "role-based access",
+            "RBAC",
+            "object permissions",
+            "member permissions",
+            "action permissions",
+            "Built-In Permissions Setup",
+            "Custom Permissions Implementation",
+            "security permissions",
+            "GrantedInAllRoles"
+          ],
+          "keywords": [
+            "IPermissionPolicyRole",
+            "PermissionPolicyUser",
+            "PermissionSettingsAttribute",
+            "SecurityPermissionPolicy",
+            "ObjectOperationPermission",
+            "MemberOperationPermission",
+            "action permissions",
+            "administrative UI",
+            "filter by security user"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IPermissionPolicyRole",
+            "PermissionSettingsAttribute"
+          ],
+          "related_types": [
+            "IPermissionPolicyUser",
+            "ObjectOperationPermission",
+            "MemberOperationPermission",
+            "SecurityPermissionPolicy"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.security.users.users-and-roles",
+            "xaf.data.criteria.criteria",
+            "xaf.security.core.security-system",
+            "xaf.architecture.modules.web-api-service",
+            "xaf.security.users.administrative-ui"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.users.users-and-roles",
+        "name": "Users and Roles",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "users",
+        "description": "User and role entities in XAF security, including built-in PermissionPolicyUser and PermissionPolicyRole, and guidance on implementing custom user and role classes.",
+        "terminology": {
+          "synonyms": [
+            "custom user class",
+            "custom role class",
+            "user entity",
+            "role entity",
+            "Custom User and Role Classes",
+            "PermissionPolicyUser",
+            "PermissionPolicyRole",
+            "security user",
+            "security role",
+            "administrative UI"
+          ],
+          "keywords": [
+            "PermissionPolicyUser",
+            "PermissionPolicyRole",
+            "IPermissionPolicyUser",
+            "IPermissionPolicyRole",
+            "ISecurityUser",
+            "ISecurityRole",
+            "custom user",
+            "custom role",
+            "user management"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "PermissionPolicyUser",
+            "PermissionPolicyRole"
+          ],
+          "related_types": [
+            "IPermissionPolicyUser",
+            "IPermissionPolicyRole",
+            "ISecurityUser",
+            "ISecurityRole"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.security.authorization.authorization",
+            "xaf.security.core.security-system",
+            "xaf.security.authentication.authentication"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.core.middle-tier",
+        "name": "Middle-Tier Application Server",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "core",
+        "description": "XAF's middleware application server architecture that separates the client tier from the data tier, enabling secured remote data access through a dedicated application server.",
+        "terminology": {
+          "synonyms": [
+            "middle tier",
+            "middleware server",
+            "Middle-Tier Application Server",
+            "application server",
+            "client-server",
+            "WCF service",
+            "middle tier security"
+          ],
+          "keywords": [
+            "MiddleTierSecurityClient",
+            "MiddleTierServerSecurityClient",
+            "DataServerSecurityClient",
+            "secure data access",
+            "remote data access"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "MiddleTierSecurityClient"
+          ],
+          "related_types": [
+            "DataServerSecurityClient",
+            "MiddleTierServerSecurityClient"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.ops.deployment.deployment",
+            "xaf.architecture.core.enterprise-features"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.auditing.audit-trail",
+        "name": "Audit Trail",
+        "artifact_kind": "module",
+        "domain": "security",
+        "subdomain": "auditing",
+        "description": "XAF module that automatically tracks and persists changes to business objects, providing a complete audit history viewable in the UI and queryable in code.",
+        "terminology": {
+          "synonyms": [
+            "Audit Trail Module",
+            "audit log",
+            "change tracking",
+            "audit history",
+            "AuditTrailModule",
+            "object change tracking",
+            "audit in non-XAF apps"
+          ],
+          "keywords": [
+            "AuditTrailModule",
+            "AuditDataItem",
+            "AuditedObjectWeakReference",
+            "audit history",
+            "lightweight mode",
+            "purge history",
+            "custom operations",
+            "custom storage classes",
+            "BaseAuditDataItemPersistent",
+            "custom audit operations",
+            "storage classes"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "AuditTrailModule",
+            "AuditDataItem"
+          ],
+          "related_types": [
+            "AuditedObjectWeakReference",
+            "IAuditTrailService",
+            "BaseAuditDataItemPersistent"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.core.security-system"
+          ],
+          "related_to": [
+            "xaf.data.object-space.object-space"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "audit-trail"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.business-object",
+        "name": "Business Objects",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "Persistent .NET classes that define the application's data model in XAF. Business objects map to database tables via XPO or EF Core and carry validation, business logic, and security rules.",
+        "terminology": {
+          "synonyms": [
+            "business class",
+            "domain object",
+            "persistent object",
+            "data model class",
+            "Business Model Design",
+            "business object class",
+            "XAF entity"
+          ],
+          "keywords": [
+            "PersistentBase",
+            "BaseObject",
+            "XPObject",
+            "persistent class",
+            "business class library",
+            "BCL",
+            "IXPObject",
+            "DateTime",
+            "DateTimeOffset",
+            "UTC",
+            "datetime properties",
+            "non-unique key",
+            "unique key constraint",
+            "key value",
+            "custom implementations",
+            "BCL entities"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "BaseObject",
+            "PersistentBase",
+            "XPObject"
+          ],
+          "related_types": [
+            "XPCustomObject",
+            "IXPSimpleObject",
+            "IObjectSpaceLink"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.data.orm.xpo",
+            "xaf.data.orm.ef-core",
+            "xaf.data.business-model.validation",
+            "xaf.data.business-model.clone-object",
+            "xaf.data.properties.file-attachments"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.non-persistent-object",
+        "name": "Non-Persistent Objects",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "Business objects that exist only in memory and are not saved to a database. Used to create views from external data sources, aggregated data, or transient UI state.",
+        "terminology": {
+          "synonyms": [
+            "non-persistent",
+            "NonPersistentObject",
+            "NonPersistentBase",
+            "in-memory object",
+            "transient object",
+            "virtual object"
+          ],
+          "keywords": [
+            "NonPersistentBase",
+            "NonPersistentObjectSpace",
+            "INonPersistentObjectSpace",
+            "non-persistent",
+            "memory objects",
+            "external data source"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "NonPersistentBase",
+            "NonPersistentObjectSpace"
+          ],
+          "related_types": [
+            "INonPersistentObjectSpace",
+            "NonPersistentObjectSpaceProvider"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.object-space.object-space"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.business-object-lifecycle",
+        "name": "Business Object Lifecycle",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "Events and hooks in the lifecycle of a persistent business object: creation, property change notification, validation, saving, and deletion.",
+        "terminology": {
+          "synonyms": [
+            "property changed event",
+            "OnSaving",
+            "object lifecycle",
+            "saving event",
+            "INotifyPropertyChanged",
+            "Custom Logic Within a Data Model",
+            "PropertyChanged"
+          ],
+          "keywords": [
+            "OnSaving",
+            "OnLoaded",
+            "OnDeleting",
+            "INotifyPropertyChanged",
+            "PropertyChanged",
+            "XPBaseObject",
+            "AfterChange",
+            "OnChanged"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "XPBaseObject"
+          ],
+          "related_types": [
+            "INotifyPropertyChanged",
+            "IObjectSpaceLink"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.business-model.state-machine"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.calculated-properties",
+        "name": "Calculated and Aliased Properties",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "Properties whose values are computed from other data using XPO PersistentAlias, CalculatedPersistentAlias, or EF Core computed columns. Includes custom metadata and DisplayName attributes.",
+        "terminology": {
+          "synonyms": [
+            "PersistentAlias",
+            "aliased property",
+            "calculated field",
+            "computed property",
+            "Aliased Calculated and Custom Fields",
+            "custom metadata",
+            "DisplayName",
+            "XafDisplayName",
+            "CalculatedPersistentAlias"
+          ],
+          "keywords": [
+            "PersistentAlias",
+            "CalculatedPersistentAlias",
+            "XafDisplayName",
+            "ModelDefault",
+            "DisplayFormat",
+            "ExpressionEvaluator"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "PersistentAliasAttribute",
+            "CalculatedPersistentAliasAttribute"
+          ],
+          "related_types": [
+            "XafDisplayNameAttribute",
+            "ModelDefaultAttribute"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.criteria.criteria"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.validation",
+        "name": "Validation",
+        "artifact_kind": "module",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "XAF Validation Module that enforces business rules on persistent objects through declarative validation rules, custom rule implementations, and rule sets.",
+        "terminology": {
+          "synonyms": [
+            "Validation Module",
+            "validation rules",
+            "business rules",
+            "RuleRequired",
+            "RuleSet",
+            "validation attributes",
+            "validate persistent objects"
+          ],
+          "keywords": [
+            "RuleRequiredField",
+            "RuleValueComparison",
+            "ValidationModule",
+            "RuleSet",
+            "IRule",
+            "ValidationResults",
+            "RuleSetValidationResult",
+            "custom rule",
+            "validation context",
+            "Built-In Rules"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ValidationModule",
+            "RuleRequiredField",
+            "RuleSet"
+          ],
+          "related_types": [
+            "IRule",
+            "RuleBaseAttribute",
+            "ValidationResults",
+            "IRuleSet"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.custom-validation-rules",
+            "xaf.data.business-model.business-object",
+            "xaf.ui.ux.error-styling"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "validation"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.custom-validation-rules",
+        "name": "Custom Validation Rules",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "Implementation of custom validation rule types and RuleSet customizations that extend the built-in XAF Validation Module.",
+        "terminology": {
+          "synonyms": [
+            "custom rule type",
+            "custom validation",
+            "RuleSet customization",
+            "Custom Rule Type Implementation",
+            "IRule implementation"
+          ],
+          "keywords": [
+            "IRule",
+            "RuleBaseAttribute",
+            "IRuleSource",
+            "ValidationModule",
+            "custom rule",
+            "rule source"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IRule"
+          ],
+          "related_types": [
+            "RuleBaseAttribute",
+            "IRuleSource"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.validation"
+          ],
+          "related_to": [
+            "xaf.data.business-model.validation"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.state-machine",
+        "name": "State Machine",
+        "artifact_kind": "module",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "XAF State Machine Module that implements workflow-style state transitions on business objects, with configurable states, transitions, and conditional enable/hide logic.",
+        "terminology": {
+          "synonyms": [
+            "State Machine Module",
+            "workflow states",
+            "state transitions",
+            "ISupportStateMachine",
+            "custom states",
+            "enable/hide states"
+          ],
+          "keywords": [
+            "StateMachineModule",
+            "IStateMachine",
+            "IState",
+            "StatePropertyName",
+            "Custom Enable/Hide States",
+            "workflow"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "StateMachineModule",
+            "IStateMachine",
+            "IState"
+          ],
+          "related_types": [
+            "StatePropertyName"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object-lifecycle"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "state-machine"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.clone-object",
+        "name": "Clone Object",
+        "artifact_kind": "module",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "XAF Clone Object Module that provides a built-in action to duplicate business objects, with support for customizing which properties and associations are cloned.",
+        "terminology": {
+          "synonyms": [
+            "Clone Object Module",
+            "duplicate object",
+            "copy object",
+            "cloner customization",
+            "ICloneable"
+          ],
+          "keywords": [
+            "CloneObjectModule",
+            "ICloneable",
+            "CloneObjectHelper",
+            "Cloner Customization"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CloneObjectModule"
+          ],
+          "related_types": [
+            "ICloneable"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "clone-object"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.object-space.object-space",
+        "name": "Object Space",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "object-space",
+        "description": "XAF's unit-of-work abstraction that manages object identity, tracks changes, and mediates between business objects and the underlying ORM. Central to all data operations in XAF.",
+        "terminology": {
+          "synonyms": [
+            "IObjectSpace",
+            "object space",
+            "unit of work",
+            "data context",
+            "CreateObjectSpace",
+            "object space provider"
+          ],
+          "keywords": [
+            "IObjectSpace",
+            "ObjectSpace",
+            "CreateObjectSpace",
+            "IObjectSpaceProvider",
+            "CommitChanges",
+            "GetObjects",
+            "CreateObject",
+            "IObjectSpaceFactory",
+            "Error using CreateObjectSpace",
+            "Object belongs to different Session"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IObjectSpace",
+            "IObjectSpaceProvider",
+            "IObjectSpaceFactory"
+          ],
+          "related_types": [
+            "XPObjectSpace",
+            "EFCoreObjectSpace",
+            "NonPersistentObjectSpace",
+            "CompositeObjectSpace"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.xpo",
+            "xaf.data.orm.ef-core",
+            "xaf.data.object-space.business-logic",
+            "xaf.architecture.dependency-injection.dependency-injection",
+            "xaf.security.auditing.audit-trail",
+            "xaf.data.business-model.business-object",
+            "xaf.data.business-model.non-persistent-object",
+            "xaf.data.concurrency.optimistic-locking",
+            "xaf.data.database.data-access-modes",
+            "xaf.architecture.modules.web-api-service"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.object-space.business-logic",
+        "name": "Business Logic and Data Manipulation",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "object-space",
+        "description": "Patterns for implementing business logic within XAF, including object creation, modification, deletion, transaction management, and using ObjectSpace in non-UI contexts.",
+        "terminology": {
+          "synonyms": [
+            "data manipulation",
+            "business logic",
+            "transaction",
+            "unit of work",
+            "Transaction/Unit of Work",
+            "XAF data in non-XAF apps",
+            "CommitChanges",
+            "RollbackChanges",
+            "deep insert"
+          ],
+          "keywords": [
+            "CommitChanges",
+            "RollbackChanges",
+            "CreateObject",
+            "GetObjectByKey",
+            "Delete",
+            "deep insert",
+            "async",
+            "await",
+            "CancellationToken"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IObjectSpace"
+          ],
+          "related_types": [
+            "IObjectSpaceFactory",
+            "IObjectSpaceProvider"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.object-space.object-space"
+          ],
+          "related_to": [
+            "xaf.data.object-space.async-operations",
+            "xaf.data.object-space.object-space"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.object-space.async-operations",
+        "name": "Async Operations",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "object-space",
+        "description": "Support for async/await patterns and thread-safe data access in XAF, including async controllers, async business logic, and ThreadSafeDataLayer configuration.",
+        "terminology": {
+          "synonyms": [
+            "async/await",
+            "asynchronous",
+            "ASync/Await Method Support",
+            "ThreadSafeDataLayer",
+            "thread-safe data access"
+          ],
+          "keywords": [
+            "async",
+            "await",
+            "Task",
+            "CancellationToken",
+            "ThreadSafeDataLayer",
+            "IAsyncEnumerable",
+            "InvokeAsync"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "ThreadSafeDataLayer",
+            "InvokeAsync"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.object-space.object-space"
+          ],
+          "related_to": [
+            "xaf.data.object-space.business-logic"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.orm.xpo",
+        "name": "XPO",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "orm",
+        "description": "DevExpress eXpress Persistent Objects (XPO) — the built-in .NET ORM that maps business objects to relational databases. Supports LINQ, criteria queries, associations, and schema migrations.",
+        "terminology": {
+          "synonyms": [
+            "eXpress Persistent Objects",
+            "XPO ORM",
+            "LINQ to XPO",
+            "XPCollection",
+            "DevExpress ORM",
+            "XpoDeltaBase",
+            "ORM Data Model Wizard"
+          ],
+          "keywords": [
+            "UnitOfWork",
+            "Session",
+            "XPCollection",
+            "XPQuery",
+            "XPObjectSpace",
+            "PersistentBase",
+            "LINQ to XPO",
+            "XPOData",
+            "OData",
+            "ThreadSafeDataLayer",
+            "XPO Web API Data Store",
+            "XPO IList Associations"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "XPObject",
+            "UnitOfWork",
+            "Session",
+            "XPCollection"
+          ],
+          "related_types": [
+            "XPObjectSpace",
+            "XPQuery",
+            "XPClassInfo",
+            "XPMemberInfo"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.ef-core",
+            "xaf.data.object-space.object-space",
+            "xaf.data.criteria.criteria",
+            "xaf.data.business-model.business-object",
+            "xaf.data.database.database-connection",
+            "xaf.data.database.direct-sql",
+            "xaf.data.updates.database-update",
+            "xaf.data.business-model.orm-designer"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.orm.ef-core",
+        "name": "Entity Framework Core",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "orm",
+        "description": "Integration of Microsoft Entity Framework Core as the ORM layer for XAF applications, enabling code-first data modeling, migrations, and LINQ queries with XAF's Object Space abstraction.",
+        "terminology": {
+          "synonyms": [
+            "EF Core",
+            "EFCore",
+            "Entity Framework",
+            "code-first",
+            "DbContext",
+            "EF migrations",
+            "ORM Data Model Wizard"
+          ],
+          "keywords": [
+            "DbContext",
+            "OnModelCreating",
+            "EFCoreObjectSpace",
+            "EFCoreObjectSpaceProvider",
+            "Microsoft.EntityFrameworkCore",
+            "EF Core migration",
+            "DbSet"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "EFCoreObjectSpace",
+            "EFCoreObjectSpaceProvider"
+          ],
+          "related_types": [
+            "DbContext",
+            "DbSet"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.xpo",
+            "xaf.data.object-space.object-space",
+            "xaf.data.updates.database-update",
+            "xaf.data.business-model.business-object",
+            "xaf.data.database.database-connection"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.relationships.object-relationships",
+        "name": "Object Relationships",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "relationships",
+        "description": "Associations between business objects in XAF, including one-to-many, many-to-many, and aggregated associations. Covers XPO IList associations and EF Core navigation properties.",
+        "terminology": {
+          "synonyms": [
+            "associations",
+            "one-to-many",
+            "many-to-many",
+            "aggregated association",
+            "Relationships Associations",
+            "XPCollection",
+            "navigation property",
+            "XPO IList Associations",
+            "ManyToManyAliasAttribute"
+          ],
+          "keywords": [
+            "Association",
+            "Aggregated",
+            "OneToMany",
+            "ManyToMany",
+            "ReferenceObject",
+            "CollectionMember",
+            "ManyToManyAliasAttribute",
+            "XPCollection"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "AssociationAttribute",
+            "AggregatedAttribute"
+          ],
+          "related_types": [
+            "ManyToManyAliasAttribute",
+            "XPCollection",
+            "IList"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.business-object"
+          ],
+          "related_to": [
+            "xaf.data.properties.tree-node-interface"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.properties.file-attachments",
+        "name": "File Attachments",
+        "artifact_kind": "module",
+        "domain": "data",
+        "subdomain": "properties",
+        "description": "XAF File Attachments Module that enables attaching files to business objects with configurable storage backends (file system, database, custom) and UI editors.",
+        "terminology": {
+          "synonyms": [
+            "File Attachments Module",
+            "file upload",
+            "IFileData",
+            "FileSystemStoreObject",
+            "file storage",
+            "FileData",
+            "CompressionUtils",
+            "FileData in non-XAF apps"
+          ],
+          "keywords": [
+            "IFileData",
+            "FileSystemStoreObject",
+            "FileDataModule",
+            "FileLinkObject",
+            "CompressionUtils",
+            "file attachment",
+            "file storage"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "FileDataModule",
+            "IFileData",
+            "FileSystemStoreObject"
+          ],
+          "related_types": [
+            "FileLinkObject",
+            "CompressionUtils",
+            "FileAttachmentsModule"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.business-object"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "file-attachments"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.properties.auto-increment-fields",
+        "name": "Auto-Increment and Sequential Numbers",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "properties",
+        "description": "Generating sequential or auto-increment values for business object properties in XAF, including XPO sequence generators and database identity columns.",
+        "terminology": {
+          "synonyms": [
+            "sequential numbers",
+            "auto-increment",
+            "auto-generated key",
+            "Sequential Numbers Auto-Increment",
+            "sequence generator"
+          ],
+          "keywords": [
+            "Sequence",
+            "SequenceGenerator",
+            "AutoIncrementColumn",
+            "Identity",
+            "sequential",
+            "auto-increment"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "SequenceGenerator"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.business-model.business-object"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.properties.tree-node-interface",
+        "name": "Tree Node Interface",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "properties",
+        "description": "Implementation of the ITreeNode interface on business objects to represent hierarchical (parent-child) data structures compatible with XAF's TreeList editor.",
+        "terminology": {
+          "synonyms": [
+            "ITreeNode",
+            "tree node",
+            "hierarchical data",
+            "parent-child",
+            "ITreeNode Implementation"
+          ],
+          "keywords": [
+            "ITreeNode",
+            "ITreeNodeImageProvider",
+            "Children",
+            "Parent",
+            "hierarchical object",
+            "tree structure"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ITreeNode"
+          ],
+          "related_types": [
+            "ITreeNodeImageProvider"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.relationships.object-relationships",
+            "xaf.ui.list-editors.tree-list"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.concurrency.optimistic-locking",
+        "name": "Concurrency Control",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "concurrency",
+        "description": "XAF's optimistic concurrency mechanisms that detect and resolve conflicting simultaneous edits, including merge strategies and user notifications when data has been changed by another user.",
+        "terminology": {
+          "synonyms": [
+            "data locking",
+            "optimistic locking",
+            "concurrency",
+            "Data Locking",
+            "conflict resolution",
+            "merge changes",
+            "object changed by another user",
+            "track changes",
+            "default merging"
+          ],
+          "keywords": [
+            "OptimisticLocking",
+            "ObjectChangeConflictException",
+            "Error: Object was changed by another user",
+            "DefaultMerging",
+            "TrackChanges"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "OptimisticLockingAttribute"
+          ],
+          "related_types": [
+            "ObjectChangeConflictException"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.database.database-connection",
+        "name": "Database Connection and Configuration",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "database",
+        "description": "Configuration of database connections in XAF applications, including connection strings, multiple simultaneous database connections, and connecting to external data sources or services.",
+        "terminology": {
+          "synonyms": [
+            "connection string",
+            "data store",
+            "database configuration",
+            "Data Store Configuration",
+            "multiple databases",
+            "Connect Several Databases Simultaneously",
+            "Obtain Data From External Services"
+          ],
+          "keywords": [
+            "ConnectionString",
+            "XpoProvider",
+            "DataStorePool",
+            "ThreadSafeDataLayer",
+            "IDataLayer",
+            "RegisterDataStore",
+            "connection provider"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "XpoDefault"
+          ],
+          "related_types": [
+            "IDataLayer",
+            "DataStorePool",
+            "IDataStore"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.xpo",
+            "xaf.data.orm.ef-core",
+            "xaf.data.database.multiple-databases"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.database.multiple-databases",
+        "name": "Multiple Databases",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "database",
+        "description": "Connecting an XAF application to multiple databases simultaneously, including split storage for security, tenant isolation, or external data integration.",
+        "terminology": {
+          "synonyms": [
+            "multiple data stores",
+            "Connect Several Databases Simultaneously",
+            "Security in Multiple Databases",
+            "split database",
+            "multiple connections"
+          ],
+          "keywords": [
+            "MultipleObjectSpaceProviders",
+            "CompositeObjectSpace",
+            "multiple data stores",
+            "split storage"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CompositeObjectSpace"
+          ],
+          "related_types": [
+            "IObjectSpaceProvider",
+            "MultipleObjectSpaceProviders"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.database.database-connection"
+          ],
+          "related_to": [
+            "xaf.architecture.multi-tenancy.multi-tenancy",
+            "xaf.data.database.database-connection"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.database.direct-sql",
+        "name": "Direct SQL and Legacy DB Mapping",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "database",
+        "description": "Techniques for executing raw SQL, mapping to SQL views, using composite keys, and integrating legacy database schemas that do not conform to standard XPO/EF conventions.",
+        "terminology": {
+          "synonyms": [
+            "direct SQL",
+            "raw SQL",
+            "SQL view",
+            "composite key",
+            "legacy database",
+            "Legacy DB Mapping SQL View Composite Key",
+            "execute sproc",
+            "custom SQL"
+          ],
+          "keywords": [
+            "ExecuteNonQuery",
+            "ExecuteScalar",
+            "ExecuteSprocAsync",
+            "XPView",
+            "SqlView",
+            "CompositeKey",
+            "legacy schema"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "XPView"
+          ],
+          "related_types": [
+            "IDataLayer",
+            "Session"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.xpo"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.database.data-access-modes",
+        "name": "Data Access Modes",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "database",
+        "description": "Collection source data access strategies in XAF that control how list view data is loaded from the database: DataView, Server, InstantFeedback, ServerView, and Queryable modes.",
+        "terminology": {
+          "synonyms": [
+            "DataAccessMode",
+            "Server Mode",
+            "Instant Feedback",
+            "ServerView",
+            "DataView mode",
+            "Queryable mode",
+            "InstantFeedbackView",
+            "DataRepresentation Sources and Modes",
+            "DataAccessMode = Server/IF",
+            "DataAccessMode = DataView",
+            "DataAccessMode = Queryable",
+            "XPBindingSource",
+            "XPObjectSource",
+            "XPObjectSource for Reports and Dashboards"
+          ],
+          "keywords": [
+            "CollectionSourceDataAccessMode",
+            "DataView",
+            "InstantFeedbackView",
+            "ServerView",
+            "Queryable",
+            "XPBindingSource",
+            "XPObjectSource",
+            "CollectionSource",
+            "ColumnFilterPopupMaxRecordsCount"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CollectionSourceDataAccessMode",
+            "XPBindingSource"
+          ],
+          "related_types": [
+            "CollectionSource",
+            "XPObjectSource",
+            "InstantFeedbackView"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.ui.list-editors.list-editors",
+            "xaf.quality.performance.performance-optimization",
+            "xaf.ui.views.list-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.updates.database-update",
+        "name": "Database Updates and Seeding",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "updates",
+        "description": "Mechanisms for applying database schema changes and seeding initial data when deploying or updating an XAF application, including ModuleUpdater and DBUpdater.",
+        "terminology": {
+          "synonyms": [
+            "ModuleUpdater",
+            "DBUpdater",
+            "database migration",
+            "seed data",
+            "schema migration",
+            "ORM Database Schema Migrations",
+            "UpdateDatabaseAfterUpdateSchema"
+          ],
+          "keywords": [
+            "ModuleUpdater",
+            "DBUpdater",
+            "UpdateDatabaseAfterUpdateSchema",
+            "IObjectSpace",
+            "Updater",
+            "DatabaseSchemaVersion",
+            "EF Core migration"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ModuleUpdater"
+          ],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.ef-core",
+            "xaf.data.orm.xpo",
+            "xaf.ops.deployment.deployment"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.criteria.criteria",
+        "name": "Criteria and Query Language",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "criteria",
+        "description": "XAF's criteria language for filtering, sorting, and querying data. Built on top of DevExpress CriteriaOperator, supports both a string syntax and a fluent API.",
+        "terminology": {
+          "synonyms": [
+            "criteria",
+            "CriteriaOperator",
+            "filter criteria",
+            "criteria string",
+            "Filtering and Querying Data",
+            "XPO query",
+            "LINQ to XPO"
+          ],
+          "keywords": [
+            "CriteriaOperator",
+            "GroupOperator",
+            "BinaryOperator",
+            "FunctionOperator",
+            "criteria string",
+            "filter expression",
+            "LINQ to XPO",
+            "query"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CriteriaOperator",
+            "GroupOperator",
+            "BinaryOperator"
+          ],
+          "related_types": [
+            "FunctionOperator",
+            "InOperator",
+            "UnaryOperator",
+            "OperandProperty"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.criteria.built-in-criteria-operators",
+            "xaf.data.criteria.custom-criteria-functions",
+            "xaf.data.orm.xpo",
+            "xaf.security.authorization.authorization",
+            "xaf.data.business-model.calculated-properties",
+            "xaf.ui.editors.specialized-editors",
+            "xaf.ui.theming.conditional-appearance"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.criteria.built-in-criteria-operators",
+        "name": "Built-In Criteria Operators",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "criteria",
+        "description": "The set of built-in DevExpress criteria operators and functions available in XAF's filter dialogs, Model Editor, and code-based queries.",
+        "terminology": {
+          "synonyms": [
+            "criteria operators",
+            "built-in operators",
+            "filter operators",
+            "Built-In Criteria Operators",
+            "criteria functions"
+          ],
+          "keywords": [
+            "IsNull",
+            "IsNullOrEmpty",
+            "Contains",
+            "StartsWith",
+            "Between",
+            "CriteriaOperator",
+            "LocalizedDescription"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CriteriaOperator"
+          ],
+          "related_types": [
+            "FunctionOperator",
+            "OperandValue"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.criteria.criteria"
+          ],
+          "related_to": [
+            "xaf.data.criteria.criteria"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "reference",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.criteria.custom-criteria-functions",
+        "name": "Custom Criteria Functions",
+        "artifact_kind": "conceptual",
+        "domain": "data",
+        "subdomain": "criteria",
+        "description": "Implementation of custom criteria functions that extend XAF's filter expression language, usable in criteria strings, Model Editor filters, and persistent alias expressions.",
+        "terminology": {
+          "synonyms": [
+            "custom criteria function",
+            "ICustomFunctionOperator",
+            "Custom Criteria Functions",
+            "custom function",
+            "function operator"
+          ],
+          "keywords": [
+            "ICustomFunctionOperator",
+            "ICustomFunctionOperatorBrowsable",
+            "CriteriaOperator.RegisterCustomFunction",
+            "custom filter function"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ICustomFunctionOperator"
+          ],
+          "related_types": [
+            "ICustomFunctionOperatorBrowsable"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.data.criteria.criteria"
+          ],
+          "related_to": [
+            "xaf.data.criteria.criteria"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ops.deployment.deployment",
+        "name": "Deployment",
+        "artifact_kind": "conceptual",
+        "domain": "ops",
+        "subdomain": "deployment",
+        "description": "Packaging and deploying XAF applications to production environments including Windows (ClickOnce), Linux (Docker, nginx), and cloud platforms (Azure, AWS).",
+        "terminology": {
+          "synonyms": [
+            "publish",
+            "deploy XAF",
+            "production deployment",
+            "ClickOnce",
+            "Docker deployment",
+            "Linux deployment",
+            "cloud deployment",
+            "Cloud Deployment Azure AWS",
+            "XAF Application Updater"
+          ],
+          "keywords": [
+            "ClickOnce",
+            "Docker",
+            "nginx",
+            "Apache",
+            "Electron",
+            "Azure",
+            "AWS",
+            "publish",
+            "hosting",
+            "XAF Application Updater",
+            "ModuleUpdater"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.updates.database-update",
+            "xaf.tooling.project-creation.solution-structure",
+            "xaf.security.core.middle-tier"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ops.diagnostics.diagnostic-tools",
+        "name": "Diagnostics and Tracing",
+        "artifact_kind": "conceptual",
+        "domain": "ops",
+        "subdomain": "diagnostics",
+        "description": "Tools and techniques for diagnosing XAF application issues including the XAF Tracer, XPO Profiler, LinqPad driver, and built-in logging infrastructure.",
+        "terminology": {
+          "synonyms": [
+            "tracer",
+            "XPO Profiler",
+            "XAF Tracer",
+            "LinqPad Driver",
+            "diagnostic",
+            "Debugging Testing and Error Handling",
+            "tracing",
+            "profiling"
+          ],
+          "keywords": [
+            "Tracer",
+            "XpoProfiler",
+            "LinqPad",
+            "logging",
+            "diagnostics",
+            "Tracing.TraceSource",
+            "XPO SQL log"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ops.logging.logging",
+            "xaf.quality.testing.testing"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ops.logging.logging",
+        "name": "Logging",
+        "artifact_kind": "conceptual",
+        "domain": "ops",
+        "subdomain": "logging",
+        "description": "Application logging in XAF using Microsoft.Extensions.Logging, structured logging, and XAF-specific log sources for monitoring and error tracking.",
+        "terminology": {
+          "synonyms": [
+            "Web API logging",
+            "application logging",
+            "log",
+            "structured logging",
+            "ILogger",
+            "log output"
+          ],
+          "keywords": [
+            "ILogger",
+            "ILoggerFactory",
+            "Microsoft.Extensions.Logging",
+            "Serilog",
+            "NLog",
+            "logging",
+            "log level"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ILogger"
+          ],
+          "related_types": [
+            "ILoggerFactory"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ops.diagnostics.diagnostic-tools"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.quality.testing.testing",
+        "name": "Testing",
+        "artifact_kind": "conceptual",
+        "domain": "quality",
+        "subdomain": "testing",
+        "description": "Testing XAF applications at unit and integration levels, including EasyTest UI automation, unit testing with mocked ObjectSpaces, and functional testing approaches.",
+        "terminology": {
+          "synonyms": [
+            "unit testing",
+            "EasyTest",
+            "Script Recorder",
+            "functional testing",
+            "UI test",
+            "XAF test",
+            "EasyTest/Script Recorder Module",
+            "Debugging Testing and Error Handling"
+          ],
+          "keywords": [
+            "EasyTest",
+            "ScriptRecorder",
+            "XafApplicationFactory",
+            "IObjectSpace",
+            "unit test",
+            "mock",
+            "test helper",
+            "Test Cafe"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "XafApplicationFactory"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ops.diagnostics.diagnostic-tools"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.quality.performance.performance-optimization",
+        "name": "Performance Optimization",
+        "artifact_kind": "conceptual",
+        "domain": "quality",
+        "subdomain": "performance",
+        "description": "Techniques for improving XAF application runtime performance, including data loading strategies, UI rendering, collection source optimization, and query tuning.",
+        "terminology": {
+          "synonyms": [
+            "performance",
+            "speed",
+            "slow performance",
+            "Performance",
+            "Speed",
+            "query optimization",
+            "lazy loading",
+            "performance tuning"
+          ],
+          "keywords": [
+            "performance",
+            "slow",
+            "speed",
+            "N+1 queries",
+            "InstantFeedbackView",
+            "lazy loading",
+            "query tuning",
+            "profiling"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.quality.performance.memory-management",
+            "xaf.data.database.data-access-modes",
+            "xaf.architecture.application-model.model-cache",
+            "xaf.ui.views.lazy-loading"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.quality.performance.memory-management",
+        "name": "Memory Management",
+        "artifact_kind": "conceptual",
+        "domain": "quality",
+        "subdomain": "performance",
+        "description": "Controlling memory consumption in XAF applications, including object space lifetime, disposal patterns, and avoiding memory leaks in long-running processes.",
+        "terminology": {
+          "synonyms": [
+            "memory consumption",
+            "memory leak",
+            "Memory Consumption",
+            "object disposal",
+            "garbage collection",
+            "memory optimization"
+          ],
+          "keywords": [
+            "memory",
+            "Dispose",
+            "GC",
+            "memory leak",
+            "ObjectDisposedException",
+            "object lifetime",
+            "memory consumption"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.quality.performance.performance-optimization"
+          ],
+          "related_to": [
+            "xaf.quality.performance.performance-optimization"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.tooling.project-creation.solution-structure",
+        "name": "Solution Structure and Module Design",
+        "artifact_kind": "conceptual",
+        "domain": "tooling",
+        "subdomain": "project-creation",
+        "description": "Recommended XAF solution structure including module project layout, platform-specific projects, and separation of concerns across layers.",
+        "terminology": {
+          "synonyms": [
+            "solution structure",
+            "project layout",
+            "module design",
+            "XAF project",
+            "Solution Structure and Module Design",
+            "multi-project solution",
+            "ValueManager",
+            "dynamically loaded modules",
+            "version control"
+          ],
+          "keywords": [
+            "module project",
+            "platform project",
+            "solution template",
+            "XAF solution",
+            "project structure",
+            "ValueManager",
+            "dynamically loaded",
+            "version control",
+            "Xafari",
+            "Galaktika"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.modules.modules",
+            "xaf.tooling.project-creation.template-kit",
+            "xaf.tooling.project-creation.package-management",
+            "xaf.ops.deployment.deployment",
+            "xaf.tooling.code-analysis.code-analysis"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.tooling.project-creation.template-kit",
+        "name": "Template Kit and CLI",
+        "artifact_kind": "tool",
+        "domain": "tooling",
+        "subdomain": "project-creation",
+        "description": "Visual Studio project templates and .NET CLI templates for creating new XAF application solutions, modules, and platform projects.",
+        "terminology": {
+          "synonyms": [
+            "Template Kit",
+            "CLI Templates",
+            "dotnet new",
+            "project template",
+            "Visual Studio template",
+            "XAF template gallery",
+            "Template Kit"
+          ],
+          "keywords": [
+            "Template Kit",
+            "CLI template",
+            "dotnet new",
+            "XAF template",
+            "project wizard",
+            "DecExpress Template Gallery"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.tooling.project-creation.solution-structure"
+          ],
+          "related_to": [
+            "xaf.tooling.project-creation.solution-structure"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "tutorial",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.tooling.project-creation.package-management",
+        "name": "NuGet Package Management",
+        "artifact_kind": "tool",
+        "domain": "tooling",
+        "subdomain": "project-creation",
+        "description": "Managing DevExpress XAF NuGet packages including the online feed, local packages, and resolving missing assembly references after version upgrades.",
+        "terminology": {
+          "synonyms": [
+            "NuGet",
+            "package management",
+            "NuGet feed",
+            "DevExpress packages",
+            "missing assemblies",
+            "Missing Assemblies and Resources",
+            "assembly references",
+            "upgrade NuGet"
+          ],
+          "keywords": [
+            "NuGet",
+            "DevExpress.ExpressApp",
+            "package version",
+            "NuGet feed",
+            "ProjectConverter",
+            "assembly reference",
+            "missing assembly"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.tooling.project-creation.solution-structure"
+          ],
+          "related_to": [
+            "xaf.migration.migration.version-upgrade",
+            "xaf.tooling.project-creation.solution-structure"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "deployment"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.tooling.model-editor.model-editor",
+        "name": "Model Editor",
+        "artifact_kind": "tool",
+        "domain": "tooling",
+        "subdomain": "model-editor",
+        "description": "Visual Studio integrated tool for viewing and editing the XAF Application Model at design time. Supports custom model editors and model editor controllers for extensibility.",
+        "terminology": {
+          "synonyms": [
+            "Model Editor",
+            "model designer",
+            "model.xafml editor",
+            "Custom Model Editors",
+            "Custom Model Editor Controllers",
+            "model node editor",
+            "Application Model editor"
+          ],
+          "keywords": [
+            "ModelEditor",
+            "model.xafml",
+            "IModelEditorController",
+            "design time editor",
+            "custom model editor",
+            "xafml"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "IModelEditorController"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.architecture.application-model.application-model",
+            "xaf.architecture.application-model.model-extension"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.tooling.code-analysis.code-analysis",
+        "name": "Code Analysis",
+        "artifact_kind": "tool",
+        "domain": "tooling",
+        "subdomain": "project-creation",
+        "description": "Roslyn-based static code analyzers for XAF that detect common coding mistakes, enforce XAF patterns, and provide IDE diagnostics and code fixes.",
+        "terminology": {
+          "synonyms": [
+            "Roslyn Analyzers",
+            "code analyzers",
+            "Code Analysis Roslyn Analyzers",
+            "static analysis",
+            "XAF analyzers",
+            "false-positive diagnostics"
+          ],
+          "keywords": [
+            "Roslyn",
+            "DiagnosticAnalyzer",
+            "CodeFix",
+            "code analysis",
+            "SuppressDiagnostic",
+            "DevExpress.ExpressApp.CodeAnalysis"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "DiagnosticAnalyzer"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.tooling.project-creation.solution-structure"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.migration.migration.version-upgrade",
+        "name": "Version Upgrades and Migration",
+        "artifact_kind": "conceptual",
+        "domain": "migration",
+        "subdomain": "migration",
+        "description": "Upgrading XAF applications between DevExpress versions, resolving breaking changes, using ProjectConverter, and migrating from legacy platforms (.NET Framework, WebForms, WCF).",
+        "terminology": {
+          "synonyms": [
+            "upgrade",
+            "version migration",
+            "ProjectConverter",
+            "migrate to .NET",
+            "migration to .NET Core",
+            "breaking changes",
+            "upgrade guide"
+          ],
+          "keywords": [
+            "ProjectConverter",
+            "upgrade",
+            "migration",
+            "breaking change",
+            ".NET Framework",
+            ".NET Core",
+            "WebForms migration"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.tooling.project-creation.package-management"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.localization.localization.localization-basics",
+        "name": "Localization",
+        "artifact_kind": "conceptual",
+        "domain": "localization",
+        "subdomain": "localization",
+        "description": "Localizing XAF applications into multiple languages using satellite assemblies, the DevExpress Localization Service, model-based captions, and programmatic string overrides.",
+        "terminology": {
+          "synonyms": [
+            "Localization Accessibility",
+            "localize",
+            "language support",
+            "satellite assemblies",
+            "multi-language",
+            "CultureInfo",
+            "template localization",
+            "obtain captions"
+          ],
+          "keywords": [
+            "LocalizationService",
+            "satellite assemblies",
+            "CultureInfo",
+            "ILocalizerFactory",
+            "model caption",
+            "localization service",
+            "Template Localization",
+            "Obtain Captions in Non-XAF Apps"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "LocalizationService",
+            "ILocalizerFactory"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.localization.localization.programmatic-localization",
+            "xaf.localization.localization.localization-tool",
+            "xaf.localization.localization.accessibility"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.localization.localization.programmatic-localization",
+        "name": "Programmatic Localization",
+        "artifact_kind": "conceptual",
+        "domain": "localization",
+        "subdomain": "localization",
+        "description": "Custom localization in code: overriding captions, messages, and strings programmatically in XAF without satellite assemblies.",
+        "terminology": {
+          "synonyms": [
+            "Custom Localization in code",
+            "code-based localization",
+            "programmatic caption",
+            "custom caption"
+          ],
+          "keywords": [
+            "LocalizationService",
+            "ILocalizerFactory",
+            "custom caption",
+            "overriding captions",
+            "programmatic localization"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "LocalizationService"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
+          ],
+          "related_to": [
+            "xaf.localization.localization.localization-basics"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.localization.localization.localization-tool",
+        "name": "Localization in Model Editor",
+        "artifact_kind": "conceptual",
+        "domain": "localization",
+        "subdomain": "localization",
+        "description": "Using the Model Editor and DevExpress Localization Service portal to manage and publish translation strings for XAF applications.",
+        "terminology": {
+          "synonyms": [
+            "localization in Model Editor",
+            "Localization Service",
+            "localization portal",
+            "translation strings",
+            "translation management"
+          ],
+          "keywords": [
+            "Model Editor",
+            "Localization in Model Editor",
+            "DevExpress Localization",
+            "satellite assembly",
+            "translation"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.localization.localization.localization-basics"
+          ],
+          "related_to": [
+            "xaf.localization.localization.localization-basics"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.localization.localization.accessibility",
+        "name": "Accessibility",
+        "artifact_kind": "conceptual",
+        "domain": "localization",
+        "subdomain": "localization",
+        "description": "Accessibility compliance in XAF applications, including WCAG, Section 508, keyboard navigation, screen reader support, and Right-to-Left layout.",
+        "terminology": {
+          "synonyms": [
+            "WCAG",
+            "Section 508",
+            "WPAT",
+            "accessibility",
+            "screen reader",
+            "keyboard navigation",
+            "Accessibility WPAT Section 508",
+            "Right-to-Left",
+            "RTL",
+            "right-to-left layout"
+          ],
+          "keywords": [
+            "accessibility",
+            "WCAG",
+            "Section 508",
+            "ARIA",
+            "RTL",
+            "Right-to-Left",
+            "keyboard",
+            "screen reader"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.localization.localization.localization-basics"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.views",
+        "name": "Views",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "The top-level UI concept in XAF. A view is a visual container that displays business data — either a single object (Detail View) or a collection (List View, Dashboard View). Views are generated from the Application Model.",
+        "terminology": {
+          "synonyms": [
+            "XAF view",
+            "view type",
+            "view container",
+            "view framework",
+            "Views and View Items and Property Editors"
+          ],
+          "keywords": [
+            "View",
+            "CompositeView",
+            "IView",
+            "ShowView",
+            "view generation",
+            "view types",
+            "creating views",
+            "showing views"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "View",
+            "CompositeView",
+            "IView"
+          ],
+          "related_types": [
+            "IModelView",
+            "ShowViewParameters",
+            "ViewShowingEventArgs"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.detail-view",
+            "xaf.ui.views.list-view",
+            "xaf.ui.views.view-lifecycle",
+            "xaf.ui.views.view-variants",
+            "xaf.ui.views.reports",
+            "xaf.ui.ux.notifications",
+            "xaf.ui.controllers.controllers"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.detail-view",
+        "name": "Detail View",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "A view that displays properties of a single business object for viewing or editing. Detail Views are composed of layout groups and view items mapped from business object properties.",
+        "terminology": {
+          "synonyms": [
+            "DetailView",
+            "detail form",
+            "edit form",
+            "object detail",
+            "record form",
+            "single-object view"
+          ],
+          "keywords": [
+            "DetailView",
+            "IModelDetailView",
+            "LayoutGroup",
+            "ViewItem",
+            "detail layout",
+            "edit mode"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "DetailView",
+            "IModelDetailView"
+          ],
+          "related_types": [
+            "LayoutGroup",
+            "ViewItem",
+            "PropertyEditor"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.list-view",
+            "xaf.ui.layout.layout",
+            "xaf.ui.views.views",
+            "xaf.ui.views.master-detail-views"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.list-view",
+        "name": "List View",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "A view that displays a collection of business objects in a grid, tree list, or other list editor. Supports sorting, filtering, grouping, inline editing, and data access mode configuration.",
+        "terminology": {
+          "synonyms": [
+            "ListView",
+            "list form",
+            "grid view",
+            "collection view",
+            "Grid List Editors",
+            "grid control"
+          ],
+          "keywords": [
+            "ListView",
+            "IModelListView",
+            "ListEditor",
+            "CollectionSource",
+            "grid",
+            "DataGridView",
+            "DxGrid",
+            "list editor"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ListView",
+            "IModelListView"
+          ],
+          "related_types": [
+            "ListEditor",
+            "CollectionSource",
+            "IModelColumn"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.detail-view",
+            "xaf.ui.list-editors.list-editors",
+            "xaf.data.database.data-access-modes",
+            "xaf.ui.views.views",
+            "xaf.ui.views.master-detail-views",
+            "xaf.ui.views.charts",
+            "xaf.ui.views.pivot-grid",
+            "xaf.ui.views.scheduler"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.view-lifecycle",
+        "name": "View Lifecycle and Navigation",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "Creating, showing, and closing views programmatically in XAF, including popup windows, nested views, lazy loading, and master-detail navigation.",
+        "terminology": {
+          "synonyms": [
+            "creating views",
+            "showing views",
+            "view navigation",
+            "Creating and Showing Views",
+            "popup window",
+            "show detail view",
+            "lazy loading",
+            "DelayedViewItemsInitialization",
+            "ShowViewStrategy"
+          ],
+          "keywords": [
+            "ShowViewParameters",
+            "ShowViewStrategy",
+            "Frame.SetView",
+            "ObjectSpace.GetObjectByKey",
+            "View.Close",
+            "popup window",
+            "nested view",
+            "lazy loading",
+            "DelayedViewItemsInitialization",
+            "Lazy Loading DelayedViewItemsInitialization"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ShowViewParameters",
+            "ShowViewStrategy"
+          ],
+          "related_types": [
+            "Frame",
+            "PopupWindowShowAction",
+            "IObjectSpace"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.master-detail-views",
+            "xaf.ui.views.views",
+            "xaf.ui.navigation.navigation",
+            "xaf.ui.windows-frames.windows-and-frames"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.master-detail-views",
+        "name": "Master-Detail Views",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "Combining a List View and a Detail View side-by-side or nested so that selecting a record in the list shows its details inline, without opening a separate window.",
+        "terminology": {
+          "synonyms": [
+            "master-detail",
+            "ListViewAndDetailView",
+            "master detail",
+            "ListViewAndDetailView (Master-Detail",
+            "nested list",
+            "side-by-side view"
+          ],
+          "keywords": [
+            "ListViewAndDetailView",
+            "MasterDetail",
+            "nested ListView",
+            "master detail mode",
+            "Blazor nested ListView"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ListView"
+          ],
+          "related_types": [
+            "DetailView",
+            "IModelListView"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.detail-view",
+            "xaf.ui.views.list-view",
+            "xaf.ui.views.view-lifecycle"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.dashboard-view",
+        "name": "Dashboard View",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "A composite view that contains multiple view items of mixed types (lists, detail panels, charts, custom controls) arranged in a flexible layout.",
+        "terminology": {
+          "synonyms": [
+            "DashboardView",
+            "composite view",
+            "DashboardViews",
+            "dashboard layout"
+          ],
+          "keywords": [
+            "DashboardView",
+            "IModelDashboardView",
+            "DashboardViewItem",
+            "composite view",
+            "view item container"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "DashboardView",
+            "IModelDashboardView"
+          ],
+          "related_types": [
+            "DashboardViewItem"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.views.views"
+          ],
+          "related_to": [
+            "xaf.ui.views.dashboards"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.view-variants",
+        "name": "View Variants",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF View Variants Module that allows users to switch between multiple predefined views of the same business object collection, with per-user variant persistence.",
+        "terminology": {
+          "synonyms": [
+            "View Variants Module",
+            "view selector",
+            "view switcher",
+            "Custom Storages in View Variants"
+          ],
+          "keywords": [
+            "ViewVariantsModule",
+            "IModelVariants",
+            "view variant",
+            "view switcher",
+            "variant storage"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ViewVariantsModule"
+          ],
+          "related_types": [
+            "IModelVariants",
+            "IModelVariant"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "view-variants"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.dashboards",
+        "name": "Dashboards Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF integration of the DevExpress Dashboard component, enabling drag-and-drop analytical dashboards with charts, grids, filters, and custom data sources.",
+        "terminology": {
+          "synonyms": [
+            "Dashboards Module",
+            "XAF dashboards",
+            "analytical dashboard",
+            "Dashboard control",
+            "DashboardsModule",
+            "Dashboards Control Customization",
+            "Dashboard Filtering",
+            "FillServices",
+            "Non-XAF Data Sources"
+          ],
+          "keywords": [
+            "DashboardsModule",
+            "IDashboardData",
+            "Dashboard",
+            "FillService",
+            "dashboard filtering",
+            "dashboard widget",
+            "non-XAF data source"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "DashboardsModule"
+          ],
+          "related_types": [
+            "IDashboardData"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.dashboard-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "dashboards"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.reports",
+        "name": "Reports Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF Reports Module (ReportsV2) that integrates DevExpress XtraReports for designing, storing, previewing, printing, and exporting reports from XAF applications.",
+        "terminology": {
+          "synonyms": [
+            "Reports Module",
+            "ReportsV2",
+            "XtraReports in XAF",
+            "XAF reporting",
+            "report preview",
+            "report designer",
+            "InPlace Reports",
+            "Predefined Reports",
+            "Bind To Custom Data Sources",
+            "Show Preview Print Export in Code",
+            "XAF Report Object Parameters",
+            "XtraReport Parameters",
+            "Report Control Customization"
+          ],
+          "keywords": [
+            "ReportsModule",
+            "ReportsModuleV2",
+            "XtraReport",
+            "ReportDataType",
+            "ReportViewer",
+            "predefined report",
+            "report parameters",
+            "CollectionDataSource",
+            "XtraReports REST API"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ReportsModuleV2",
+            "XtraReport"
+          ],
+          "related_types": [
+            "ReportDataType",
+            "IReportDataSourceHelper",
+            "IReportController"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "reports"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.charts",
+        "name": "Charts Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF Chart Module that adds chart views to list views, enabling visualization of business data. Supports customization via the chart wizard and code.",
+        "terminology": {
+          "synonyms": [
+            "Chart Module",
+            "XAF charts",
+            "chart view",
+            "chart wizard",
+            "Chart Customization in Code",
+            "Chart Customization in Wizard"
+          ],
+          "keywords": [
+            "ChartModule",
+            "XtraChart",
+            "ChartListEditor",
+            "chart wizard",
+            "chart customization",
+            "chart view"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ChartModule"
+          ],
+          "related_types": [
+            "ChartListEditor",
+            "XtraChart"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.list-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "charts"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.pivot-grid",
+        "name": "Pivot Grid Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF Pivot Grid Module that adds pivot table and cross-tab analysis views, allowing users to summarize and analyze business data by multiple dimensions.",
+        "terminology": {
+          "synonyms": [
+            "Pivot Grid Module",
+            "pivot table",
+            "cross-tab",
+            "PivotGrid",
+            "Pivot Grid Customization in Code",
+            "Pivot Grid Customization in Wizard"
+          ],
+          "keywords": [
+            "PivotGridModule",
+            "PivotGridListEditor",
+            "XtraPivotGrid",
+            "pivot customization"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "PivotGridModule",
+            "PivotGridListEditor"
+          ],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.list-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "pivot-grid"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.scheduler",
+        "name": "Scheduler Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF Scheduler Module that adds calendar and appointment scheduling views to XAF applications, supporting recurring events and custom resource/event data models.",
+        "terminology": {
+          "synonyms": [
+            "Scheduler Module",
+            "scheduling",
+            "calendar",
+            "appointments",
+            "IEvent and IResource Implementation",
+            "Recurring Events",
+            "Scheduler Control Customization",
+            "Custom Filtering in Scheduler"
+          ],
+          "keywords": [
+            "SchedulerModule",
+            "IEvent",
+            "IResource",
+            "RecurringEvent",
+            "SchedulerListEditor",
+            "scheduler appointment",
+            "recurring",
+            "scheduler timeout",
+            "timeout"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "SchedulerModule",
+            "IEvent",
+            "IResource"
+          ],
+          "related_types": [
+            "SchedulerListEditor",
+            "RecurringEventBase"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.list-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "scheduler"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.office-module",
+        "name": "Office Module",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "XAF Office Module that integrates rich text editing, spreadsheet, and PDF viewer capabilities into XAF Detail Views as property editors.",
+        "terminology": {
+          "synonyms": [
+            "Office Module",
+            "rich text editor",
+            "spreadsheet",
+            "PDF viewer",
+            "Office Module Rich Text Spreadsheets PDF",
+            "Rich Text Editor",
+            "Spreadsheet",
+            "PDF Viewer",
+            "RichTextPropertyEditor"
+          ],
+          "keywords": [
+            "OfficeModule",
+            "RichTextPropertyEditor",
+            "SpreadsheetPropertyEditor",
+            "PdfViewerPropertyEditor",
+            "rich text",
+            "spreadsheet",
+            "PDF"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "OfficeModule",
+            "RichTextPropertyEditor"
+          ],
+          "related_types": [
+            "SpreadsheetPropertyEditor",
+            "PdfViewerPropertyEditor"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.editors.property-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "office"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.editors.property-editors",
+        "name": "Property Editors",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "editors",
+        "description": "UI controls in XAF Detail Views that display and edit individual business object properties. Built-in editors cover strings, numbers, dates, booleans, and references. Custom editors extend this set.",
+        "terminology": {
+          "synonyms": [
+            "PropertyEditor",
+            "property editor",
+            "Built-In View Items and Editors",
+            "Custom Property Editors",
+            "view items",
+            "field editor"
+          ],
+          "keywords": [
+            "PropertyEditor",
+            "IPropertyEditor",
+            "ViewItem",
+            "ModelPropertyEditor",
+            "custom property editor",
+            "editor value",
+            "ImmediatePostData"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "PropertyEditor",
+            "ViewItem"
+          ],
+          "related_types": [
+            "IPropertyEditor",
+            "IModelPropertyEditor",
+            "IComplexViewItem"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.detail-view"
+          ],
+          "related_to": [
+            "xaf.ui.editors.lookup-editors",
+            "xaf.ui.editors.standard-editors",
+            "xaf.ui.editors.specialized-editors",
+            "xaf.ui.views.office-module",
+            "xaf.ui.views.view-items"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.editors.standard-editors",
+        "name": "Standard Property Editors",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "editors",
+        "description": "Built-in XAF property editors for common .NET types: text, number, boolean, date/time, enum, and image. Includes formatting, display, and ImmediatePostData support.",
+        "terminology": {
+          "synonyms": [
+            "built-in editors",
+            "standard editors",
+            "Built-In View Items and Editors",
+            "Enum Editors",
+            "Image Editors",
+            "ImmediatePostData",
+            "Property Editor Value Formatting"
+          ],
+          "keywords": [
+            "StringPropertyEditor",
+            "BooleanPropertyEditor",
+            "DateTimePropertyEditor",
+            "IntPropertyEditor",
+            "EnumPropertyEditor",
+            "ImagePropertyEditor",
+            "ImmediatePostData",
+            "DisplayFormat",
+            "EditMask"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "StringPropertyEditor",
+            "DateTimePropertyEditor",
+            "BooleanPropertyEditor"
+          ],
+          "related_types": [
+            "IntPropertyEditor",
+            "EnumPropertyEditor",
+            "ImagePropertyEditor"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.editors.property-editors"
+          ],
+          "related_to": [
+            "xaf.ui.editors.property-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "reference",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.editors.lookup-editors",
+        "name": "Lookup Property Editors",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "editors",
+        "description": "Property editors for selecting referenced objects from a dropdown or popup list. Includes LookupPropertyEditor, ObjectPropertyEditor, Tag Box editors, and pop-up editors.",
+        "terminology": {
+          "synonyms": [
+            "LookupPropertyEditor",
+            "lookup editor",
+            "reference editor",
+            "Lookup Property Editors",
+            "Tag Box Editors",
+            "Pop-Up Property Editors",
+            "combo box editor",
+            "ObjectPropertyEditor"
+          ],
+          "keywords": [
+            "LookupPropertyEditor",
+            "ObjectPropertyEditor",
+            "TagBoxEditor",
+            "PopupPropertyEditor",
+            "AllowEdit",
+            "Cascaded Lookup",
+            "DxComboBox",
+            "lookup selection"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "LookupPropertyEditor",
+            "ObjectPropertyEditor"
+          ],
+          "related_types": [
+            "TagBoxEditor",
+            "PopupPropertyEditor",
+            "IObjectPropertyEditorView"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.editors.property-editors"
+          ],
+          "related_to": [
+            "xaf.ui.editors.property-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.editors.specialized-editors",
+        "name": "Specialized Property Editors",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "editors",
+        "description": "Property editors for specialized data entry: criteria/filter editors, pop-up editors, and other non-standard types that go beyond basic field editing.",
+        "terminology": {
+          "synonyms": [
+            "Criteria Editors",
+            "Filter Editors",
+            "specialized editors",
+            "criteria property editor",
+            "filter property editor"
+          ],
+          "keywords": [
+            "CriteriaPropertyEditor",
+            "FilterPropertyEditor",
+            "PopupPropertyEditor",
+            "criteria editor",
+            "filter editor"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "CriteriaPropertyEditor"
+          ],
+          "related_types": [
+            "FilterPropertyEditor",
+            "PopupPropertyEditor"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.editors.property-editors"
+          ],
+          "related_to": [
+            "xaf.data.criteria.criteria",
+            "xaf.ui.editors.property-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.list-editors.list-editors",
+        "name": "List Editors",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "list-editors",
+        "description": "UI controls that render a List View's data — grid, tree list, chart, scheduler, and custom editors. Custom list editors allow embedding any collection control into a List View.",
+        "terminology": {
+          "synonyms": [
+            "ListEditor",
+            "grid editor",
+            "list control",
+            "Custom List Editors",
+            "Grid List Editors",
+            "custom list editor"
+          ],
+          "keywords": [
+            "ListEditor",
+            "GridListEditor",
+            "ASPxGridListEditor",
+            "DXGridListEditor",
+            "custom list editor",
+            "IListEditor",
+            "grid",
+            "DxDataGrid"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ListEditor",
+            "IListEditor"
+          ],
+          "related_types": [
+            "GridListEditor",
+            "ASPxGridListEditor",
+            "DXGridListEditor"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.list-view"
+          ],
+          "related_to": [
+            "xaf.data.database.data-access-modes",
+            "xaf.ui.views.list-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.list-editors.tree-list",
+        "name": "TreeList Editors",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "list-editors",
+        "description": "XAF TreeList Editors Module that provides a hierarchical tree grid list editor for displaying business objects that implement ITreeNode, with filtering and inline editing support.",
+        "terminology": {
+          "synonyms": [
+            "TreeList Editors Module",
+            "tree list",
+            "hierarchical editor",
+            "TreeListEditor",
+            "Custom Filtering in TreeList Editor",
+            "InPlace Editing in TreeList Editor"
+          ],
+          "keywords": [
+            "TreeListEditorModule",
+            "TreeListEditor",
+            "ITreeNode",
+            "tree list",
+            "hierarchical",
+            "tree grid"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "TreeListEditorModule",
+            "TreeListEditor"
+          ],
+          "related_types": [
+            "ITreeNode"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.list-editors.list-editors"
+          ],
+          "requires": [
+            "xaf.data.properties.tree-node-interface"
+          ],
+          "related_to": [
+            "xaf.data.properties.tree-node-interface"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "tree-list-editors"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.layout.layout",
+        "name": "Detail View Layout",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "layout",
+        "description": "Arrangement of property editors and view items in a Detail View using layout groups, tab pages, and nested containers. Includes auto-generated layouts and API-based customization.",
+        "terminology": {
+          "synonyms": [
+            "layout",
+            "Custom Detail View Layouts",
+            "Custom List View Layouts",
+            "Layout Generation and Customization API",
+            "LayoutGroup",
+            "LayoutItem",
+            "collapsible group",
+            "Collapsible Groups IsGroupCollapsed"
+          ],
+          "keywords": [
+            "LayoutGroup",
+            "LayoutItem",
+            "TabbedGroup",
+            "EmptySpaceItem",
+            "IModelViewLayout",
+            "layout generation",
+            "layout customization",
+            "IsGroupCollapsed",
+            "HorizontalAlign",
+            "VerticalAlign"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "LayoutGroup",
+            "LayoutItem"
+          ],
+          "related_types": [
+            "TabbedGroup",
+            "EmptySpaceItem",
+            "IModelViewLayout",
+            "IModelLayoutGroup",
+            "IModelLayoutItem"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.detail-view"
+          ],
+          "related_to": [
+            "xaf.ui.layout.layout-runtime-customization",
+            "xaf.ui.views.detail-view"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.layout.layout-runtime-customization",
+        "name": "Layout Runtime Customization",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "layout",
+        "description": "Allowing end users to rearrange, hide, and save Detail View layout changes at runtime via the Layout Editor, with per-user persistence.",
+        "terminology": {
+          "synonyms": [
+            "end-user layout customization",
+            "layout customization",
+            "Layout End-User Customization",
+            "layout editor",
+            "runtime layout",
+            "customize layout action"
+          ],
+          "keywords": [
+            "LayoutManager",
+            "Customize Layout",
+            "end-user customization",
+            "layout persistence",
+            "IModelViewLayout"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.layout.layout"
+          ],
+          "related_to": [
+            "xaf.ui.layout.layout"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.navigation.navigation",
+        "name": "Navigation System",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "navigation",
+        "description": "XAF's hierarchical navigation system that organizes application views into groups and items, displayed via a navigation control (accordion, tree, or ribbon). Configurable in the Model Editor and in code.",
+        "terminology": {
+          "synonyms": [
+            "Navigation System",
+            "navigation bar",
+            "navigation items",
+            "NavBar",
+            "accordion navigation",
+            "Configure Navigation in Model Editor",
+            "Navigation Control Customization",
+            "ShowNavigationItemController Customization"
+          ],
+          "keywords": [
+            "NavigationItem",
+            "IModelNavigationItem",
+            "ShowNavigationItemController",
+            "NavigationItemCreatedEventArgs",
+            "navigation group",
+            "navigation control",
+            "Accordion",
+            "NavBar"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ShowNavigationItemController"
+          ],
+          "related_types": [
+            "IModelNavigationItem",
+            "NavigationItemCreatedEventArgs"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.view-lifecycle",
+            "xaf.ui.controllers.controllers"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.theming.theming",
+        "name": "Theming and Styling",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "theming",
+        "description": "Visual theming, skins, and CSS-based styling of XAF applications, including DevExpress skin selection, skin-aware color usage, SVG graphics, and image customization.",
+        "terminology": {
+          "synonyms": [
+            "themes",
+            "skins",
+            "visual theme",
+            "styling",
+            "Skin-Aware Colors",
+            "CSS",
+            "DevExpress theme",
+            "custom skin"
+          ],
+          "keywords": [
+            "SkinManager",
+            "Theme",
+            "SkinName",
+            "skinAwareColor",
+            "CSS class",
+            "DxTheme",
+            "skin-aware colors"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "SkinManager"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.theming.svg-graphics",
+            "xaf.ui.theming.conditional-appearance"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.theming.svg-graphics",
+        "name": "Images and SVG Graphics",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "theming",
+        "description": "Managing images and SVG icons in XAF applications, including custom image sources, ImageLoader customization, and diagnosing missing image issues.",
+        "terminology": {
+          "synonyms": [
+            "images",
+            "SVG",
+            "icons",
+            "Image Source",
+            "ImageLoader",
+            "Custom Image Source",
+            "ImageLoader Customizations",
+            "Missing Images ShowXXX options",
+            "image loader"
+          ],
+          "keywords": [
+            "ImageLoader",
+            "SvgImage",
+            "ImageSource",
+            "ImageName",
+            "SVG icon",
+            "missing image",
+            "image resource",
+            "IImageSource"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ImageLoader"
+          ],
+          "related_types": [
+            "SvgImage",
+            "IImageSource"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.theming.theming"
+          ],
+          "related_to": [
+            "xaf.ui.theming.theming"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "troubleshooting"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.theming.conditional-appearance",
+        "name": "Conditional Appearance",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "theming",
+        "description": "XAF Conditional Appearance Module that applies dynamic formatting rules (font, color, visibility, enabled state) to views and editors based on object property values or custom conditions.",
+        "terminology": {
+          "synonyms": [
+            "Conditional Appearance Module",
+            "appearance rules",
+            "dynamic formatting",
+            "conditional formatting",
+            "Custom Appearance on Events",
+            "Custom UI Elements",
+            "Skin-Aware Colors"
+          ],
+          "keywords": [
+            "ConditionalAppearanceModule",
+            "AppearanceRule",
+            "IAppearanceEnabled",
+            "IAppearanceVisibility",
+            "TargetItem",
+            "Criteria",
+            "appearance rule"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ConditionalAppearanceModule",
+            "AppearanceRule"
+          ],
+          "related_types": [
+            "IAppearanceEnabled",
+            "IAppearanceVisibility",
+            "IAppearanceFontStyleOwner"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.theming.theming",
+            "xaf.data.criteria.criteria"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "conditional-appearance"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.ux.notifications",
+        "name": "Notifications",
+        "artifact_kind": "module",
+        "domain": "ui",
+        "subdomain": "ux",
+        "description": "XAF Notifications Module that delivers scheduled alerts to users via a built-in notification center, and provides ShowMessage/Toast API for inline user feedback.",
+        "terminology": {
+          "synonyms": [
+            "Notifications Module",
+            "alerts",
+            "reminders",
+            "ShowMessage",
+            "Toast notifications",
+            "Text Notifications ShowMessage Toast",
+            "ISupportNotifications",
+            "notification center",
+            "Custom Filtering in Notifications Module"
+          ],
+          "keywords": [
+            "NotificationsModule",
+            "ISupportNotifications",
+            "AlertControl",
+            "ShowMessage",
+            "Toast",
+            "IAlertControl",
+            "notification"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "NotificationsModule",
+            "ISupportNotifications"
+          ],
+          "related_types": [
+            "AlertControl",
+            "IAlertControl"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.views"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "ownership": {
+          "module": "notifications"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.ux.inline-editing",
+        "name": "Inline Editing",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "ux",
+        "description": "Editing records directly within a List View without navigating to a separate Detail View, including batch (bulk) edit mode and in-place cell editing.",
+        "terminology": {
+          "synonyms": [
+            "inline edit",
+            "batch edit",
+            "Inline Edit (Batch)",
+            "in-place editing",
+            "batch editing",
+            "EditCell mode",
+            "Grid Print Export",
+            "InPlace Actions in Grid Cells"
+          ],
+          "keywords": [
+            "InlineEditMode",
+            "BatchEdit",
+            "EditCell",
+            "DxGrid EditMode",
+            "inline edit",
+            "batch edit",
+            "ListViewAndBatchEdit"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "ListEditor",
+            "DXGridListEditor"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.list-editors.list-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.ux.error-styling",
+        "name": "Validation Error Highlighting",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "ux",
+        "description": "Customizing how validation errors are displayed to users in XAF views, including error icons, highlighting colors, error message formatting, and custom error indicators.",
+        "terminology": {
+          "synonyms": [
+            "Custom Error Highlighting",
+            "validation error display",
+            "error indicator",
+            "error styling",
+            "validation UI"
+          ],
+          "keywords": [
+            "IAppearance",
+            "ValidationResults",
+            "error highlighting",
+            "asterisk",
+            "mandatory field indicator",
+            "error icon"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "ValidationResults"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.business-model.validation"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.controllers.controllers",
+        "name": "Controllers",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "controllers",
+        "description": "XAF controllers are the primary extension point for adding custom business logic and UI behavior. They are associated with views or windows and respond to events, managing actions and interacting with the application model.",
+        "terminology": {
+          "synonyms": [
+            "Controller",
+            "ViewController",
+            "WindowController",
+            "ObjectViewController",
+            "Custom Controllers Design",
+            "controller design",
+            "controller customization"
+          ],
+          "keywords": [
+            "ViewController",
+            "WindowController",
+            "ObjectViewController",
+            "GetController",
+            "controller lifecycle",
+            "Active",
+            "Enabled",
+            "CustomControllersDesign",
+            "controller template"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ViewController",
+            "WindowController",
+            "ObjectViewController"
+          ],
+          "related_types": [
+            "Controller",
+            "ActionBase",
+            "Frame"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.actions.actions",
+            "xaf.ui.views.views",
+            "xaf.ui.controllers.built-in-controllers",
+            "xaf.ui.navigation.navigation"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.controllers.built-in-controllers",
+        "name": "Built-In Controllers",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "controllers",
+        "description": "The set of controllers shipped with XAF that provide default application behavior: saving, deleting, refreshing, navigation, new object creation, and more.",
+        "terminology": {
+          "synonyms": [
+            "built-in controllers",
+            "Built-in Controllers",
+            "default controllers",
+            "standard controllers",
+            "CRUD controllers",
+            "ShowNavigationItemController",
+            "ListViewProcessCurrentObjectController"
+          ],
+          "keywords": [
+            "NewObjectViewController",
+            "DeleteObjectsViewController",
+            "ModificationsController",
+            "ListViewProcessCurrentObjectController",
+            "ShowNavigationItemController",
+            "RefreshController",
+            "SaveAndCloseAction",
+            "built-in action"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "NewObjectViewController",
+            "DeleteObjectsViewController",
+            "ModificationsController"
+          ],
+          "related_types": [
+            "ListViewProcessCurrentObjectController",
+            "ShowNavigationItemController"
+          ]
+        },
+        "relations": {
+          "is_a": [
+            "xaf.ui.controllers.controllers"
+          ],
+          "related_to": [
+            "xaf.ui.controllers.controllers"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "reference",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.actions.actions",
+        "name": "Actions",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "actions",
+        "description": "User-interface commands in XAF that appear as buttons, menu items, or toolbar entries. Actions are defined in controllers and executed in response to user interaction.",
+        "terminology": {
+          "synonyms": [
+            "Action",
+            "SimpleAction",
+            "PopupWindowShowAction",
+            "SingleChoiceAction",
+            "ParametrizedAction",
+            "Built-in Action Types",
+            "Action and Container Controls",
+            "action button",
+            "toolbar button"
+          ],
+          "keywords": [
+            "SimpleAction",
+            "PopupWindowShowAction",
+            "SingleChoiceAction",
+            "ParametrizedAction",
+            "ActionBase",
+            "ActionContainer",
+            "Active",
+            "Enabled",
+            "Caption",
+            "ToolTip",
+            "LinkNewObjectToParentImmediately"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "SimpleAction",
+            "PopupWindowShowAction",
+            "SingleChoiceAction",
+            "ParametrizedAction"
+          ],
+          "related_types": [
+            "ActionBase",
+            "ActionContainer",
+            "SimpleActionExecuteEventArgs",
+            "ChoiceActionItem"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.controllers.controllers"
+          ],
+          "related_to": [
+            "xaf.ui.actions.action-containers",
+            "xaf.ui.actions.action-state",
+            "xaf.ui.controllers.controllers"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.actions.action-containers",
+        "name": "Action Containers",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "actions",
+        "description": "UI regions that host and display actions (toolbars, ribbon bands, context menus, inline grid cells). Controls which actions appear where in the application frame.",
+        "terminology": {
+          "synonyms": [
+            "action container",
+            "ActionContainer",
+            "toolbar",
+            "ribbon",
+            "context menu",
+            "Action and Container Controls",
+            "InPlace Actions in Grid Cells",
+            "action placement"
+          ],
+          "keywords": [
+            "ActionContainer",
+            "ActionContainerId",
+            "toolbar",
+            "ribbon band",
+            "context menu",
+            "inline action",
+            "grid cell action",
+            "PredefinedCategory",
+            "ActionContainerAttribute"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ActionContainer"
+          ],
+          "related_types": [
+            "ActionContainerAttribute",
+            "PredefinedCategory"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.actions.actions"
+          ],
+          "related_to": [
+            "xaf.ui.actions.actions",
+            "xaf.ui.templates.application-templates"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.actions.action-state",
+        "name": "Action Active and Enabled State",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "actions",
+        "description": "Controlling the visibility (Active) and interactability (Enabled) of XAF actions based on context, object state, security, and custom business conditions.",
+        "terminology": {
+          "synonyms": [
+            "Active state",
+            "Enabled state",
+            "Active/Enabled State",
+            "action visibility",
+            "disable action",
+            "hide action",
+            "enable action",
+            "action enabled"
+          ],
+          "keywords": [
+            "Active",
+            "Enabled",
+            "BoolList",
+            "ActionBase.Active",
+            "ActionBase.Enabled",
+            "condition",
+            "criteria"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ActionBase"
+          ],
+          "related_types": [
+            "BoolList"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.actions.actions"
+          ],
+          "related_to": [
+            "xaf.ui.actions.actions"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.templates.application-templates",
+        "name": "Application Templates",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "templates",
+        "description": "XAF frame templates (form templates) that define the visual shell of the application window — the chrome surrounding views, including toolbars, navigation, and status bars.",
+        "terminology": {
+          "synonyms": [
+            "form template",
+            "frame template",
+            "application frame",
+            "Form Templates",
+            "main frame template",
+            "window frame",
+            "application shell",
+            "UI Customization"
+          ],
+          "keywords": [
+            "IFrameTemplate",
+            "ISupportActionsToolbarVisibility",
+            "TemplateContainerControl",
+            "frame template",
+            "form template",
+            "BarManager",
+            "ToolbarManager"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "IFrameTemplate"
+          ],
+          "related_types": [
+            "ISupportActionsToolbarVisibility",
+            "TemplateContainerControl"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.windows-frames.windows-and-frames",
+            "xaf.ui.actions.action-containers"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "design_time",
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.windows-frames.windows-and-frames",
+        "name": "Windows and Frames",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "windows-frames",
+        "description": "XAF's window and frame abstraction that hosts views and their controllers. Includes main windows, popup windows, and the Frame/Window object model.",
+        "terminology": {
+          "synonyms": [
+            "Frame",
+            "Window",
+            "popup window",
+            "main window",
+            "FloatingView",
+            "Tabbed MDI"
+          ],
+          "keywords": [
+            "Frame",
+            "Window",
+            "XafPopupWindow",
+            "PopupWindow",
+            "Tabbed MDI",
+            "MDIController",
+            "FloatingView"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "Frame",
+            "Window",
+            "XafPopupWindow"
+          ],
+          "related_types": [
+            "PopupWindowShowAction",
+            "ShowViewParameters"
+          ]
+        },
+        "relations": {
+          "related_to": [
+            "xaf.ui.views.view-lifecycle",
+            "xaf.ui.templates.application-templates"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.architecture.modules.web-api-service",
+        "name": "XAF Web API Service",
+        "artifact_kind": "module",
+        "domain": "architecture",
+        "subdomain": "modules",
+        "description": "XAF's built-in ASP.NET Core Web API Service that generates RESTful and OData endpoints for XAF business objects, enabling headless access, mobile clients, and third-party integrations.",
+        "terminology": {
+          "synonyms": [
+            "Web API",
+            "Web API Service",
+            "OData service",
+            "REST API",
+            "XAF REST",
+            "headless XAF",
+            "API endpoints",
+            "XPO OData",
+            "JSON serialization",
+            "XPO Web API Data Store",
+            "XAF Data and Logic in Non-XAF Apps"
+          ],
+          "keywords": [
+            "WebApiService",
+            "OData",
+            "IObjectSpaceFactory",
+            "Endpoint",
+            "JWT",
+            "Swagger",
+            "CRUD endpoints",
+            "non-XAF apps",
+            "XpoDataStore",
+            "HttpClient",
+            "XAF Web API Service"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "WebApiService"
+          ],
+          "related_types": [
+            "IObjectSpaceFactory",
+            "ISecurityStrategyBase"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.architecture.core.xaf-application"
+          ],
+          "related_to": [
+            "xaf.data.object-space.object-space",
+            "xaf.security.authentication.authentication",
+            "xaf.security.authorization.authorization"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime",
+            "deployment"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced",
+            "architect"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "concept",
+            "how_to",
+            "tutorial",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.view-items",
+        "name": "View Items",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "Non-editor components placed in XAF Detail Views: static text, hyperlinks, web browser containers, and custom view items. Extend the Detail View beyond standard property editors.",
+        "terminology": {
+          "synonyms": [
+            "ViewItem",
+            "custom view item",
+            "Custom View Items and Editors",
+            "StaticTextViewItem",
+            "WebBrowserViewItem",
+            "HyperlinkPropertyEditor",
+            "view item",
+            "Built-In View Items and Editors"
+          ],
+          "keywords": [
+            "ViewItem",
+            "IViewItem",
+            "StaticTextViewItem",
+            "WebBrowserViewItem",
+            "CustomViewItem",
+            "IComplexViewItem",
+            "custom view item",
+            "view component",
+            "non-property editor"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "ViewItem",
+            "IViewItem"
+          ],
+          "related_types": [
+            "StaticTextViewItem",
+            "WebBrowserViewItem",
+            "IComplexViewItem"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.detail-view"
+          ],
+          "related_to": [
+            "xaf.ui.editors.property-editors"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate",
+            "advanced"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "reference"
+          ]
+        }
+      },
+      {
+        "id": "xaf.ui.views.lazy-loading",
+        "name": "Lazy Loading of View Items",
+        "artifact_kind": "conceptual",
+        "domain": "ui",
+        "subdomain": "views",
+        "description": "Deferring initialization of Detail View items until the user navigates to them (e.g., tab pages), reducing load time and improving performance for complex views.",
+        "terminology": {
+          "synonyms": [
+            "lazy loading",
+            "DelayedViewItemsInitialization",
+            "Lazy Loading (DelayedViewItemsInitialization)",
+            "deferred view items",
+            "delayed initialization"
+          ],
+          "keywords": [
+            "DelayedViewItemsInitialization",
+            "lazy load",
+            "tab deferred loading",
+            "lazy view item"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": [
+            "DetailView",
+            "TabbedGroup"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.ui.views.detail-view"
+          ],
+          "related_to": [
+            "xaf.quality.performance.performance-optimization"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to"
+          ]
+        }
+      },
+      {
+        "id": "xaf.security.users.administrative-ui",
+        "name": "Security Administrative UI",
+        "artifact_kind": "conceptual",
+        "domain": "security",
+        "subdomain": "users",
+        "description": "XAF's built-in views and actions for managing users, roles, and permission assignments at runtime, including the Users, Roles, and Action Permissions management screens.",
+        "terminology": {
+          "synonyms": [
+            "Administrative UI",
+            "admin UI",
+            "user management UI",
+            "roles management",
+            "permission management UI",
+            "Action Permissions",
+            "Built-In Permissions Setup"
+          ],
+          "keywords": [
+            "PermissionPolicyUser",
+            "PermissionPolicyRole",
+            "Administrative UI",
+            "user management",
+            "role management",
+            "permission assignment",
+            "Action Permissions"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [
+            "PermissionPolicyUser",
+            "PermissionPolicyRole"
+          ],
+          "related_types": [
+            "SecuritySystemUserBase",
+            "SecuritySystemRoleBase"
+          ]
+        },
+        "relations": {
+          "part_of": [
+            "xaf.security.users.users-and-roles"
+          ],
+          "related_to": [
+            "xaf.security.authorization.authorization"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms",
+            "blazor"
+          ],
+          "lifecycle_phases": [
+            "runtime"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "how_to",
+            "configuration"
+          ]
+        }
+      },
+      {
+        "id": "xaf.data.business-model.orm-designer",
+        "name": "ORM Data Model Designer",
+        "artifact_kind": "tool",
+        "domain": "data",
+        "subdomain": "business-model",
+        "description": "The visual XPO ORM Data Model Designer (ORM Wizard) for creating business classes and defining associations in Visual Studio, generating XPO-based persistent class hierarchies.",
+        "terminology": {
+          "synonyms": [
+            "ORM Data Model Wizard",
+            "ORM Designer",
+            "XPO Data Model Designer",
+            "XPO Wizard",
+            "Data Model Wizard",
+            "ORM Data Model Wizard/Designer",
+            "business class wizard"
+          ],
+          "keywords": [
+            "ORM Wizard",
+            "XPO Data Model Designer",
+            "visual designer",
+            "code generation",
+            "persistent class",
+            "XPO designer",
+            "ORMDesigner"
+          ]
+        },
+        "api_surface": {
+          "primary_types": [],
+          "related_types": []
+        },
+        "relations": {
+          "related_to": [
+            "xaf.data.orm.xpo"
+          ]
+        },
+        "facets": {
+          "platforms": [
+            "winforms"
+          ],
+          "lifecycle_phases": [
+            "design_time"
+          ],
+          "audiences": [
+            "beginner",
+            "intermediate"
+          ],
+          "stability": "stable"
+        },
+        "documentation": {
+          "doc_intents": [
+            "tutorial",
+            "how_to"
+          ]
+        }
+      }
+    ]
+  }
+}
