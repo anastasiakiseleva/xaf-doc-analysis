@@ -383,6 +383,11 @@ def load_data():
         except Exception as e:
             print(f"  Warning: could not build related_docs index: {e}")
 
+    # Build lookup of API doc IDs (before filtering) so related_docs can flag API targets
+    api_doc_ids: set[str] = set()
+    if "is_api" in dm.columns:
+        api_doc_ids = set(dm.loc[dm["is_api"] == True, "doc_id"])
+
     # Metadata descriptions are only relevant for articles, not API reference docs
     if "is_api" in dm.columns:
         dm = dm[dm["is_api"] != True].copy()
@@ -427,6 +432,10 @@ def load_data():
             "domains":        doc_domains.get(doc_id, ""),
             "rel_summary":    rel_summary.get(doc_id, {}),
             "related_docs":   related_docs_index.get(doc_id, []),
+            "related_api_docs": [
+                r for r in related_docs_index.get(doc_id, [])
+                if r["doc_id"] in api_doc_ids
+            ],
             "classified_conns": sum(rel_summary.get(doc_id, {}).values()),
             "dominant_rel":   max(rel_summary.get(doc_id, {}), key=rel_summary.get(doc_id, {}).get) if rel_summary.get(doc_id) else "",
         })
@@ -748,7 +757,7 @@ const ALL_DOCS = __DATA__;
 // ============================================================
 // STATE
 // ============================================================
-const STORAGE_KEY = 'xaf_meta_review_v1';
+const STORAGE_KEY = 'xaf_meta_review_v2';
 
 function loadState() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
@@ -881,9 +890,20 @@ function selectDoc(idx) {
   const tagsWrap = document.getElementById('is-tags');
   tagsWrap.innerHTML = (d.tags || '').split(',').map(t => t.trim()).filter(Boolean)
     .map(t => `<span class="tag">${escHtml(t)}</span>`).join('');
-  // Related APIs
+  // Related APIs — API reference pages from classified relationships
   const apisEl = document.getElementById('is-apis');
-  document.getElementById('is-apis-text').textContent = d.apis || '\u2014';
+  const relApiDocs = d.related_api_docs || [];
+  const apisTextEl = document.getElementById('is-apis-text');
+  if (relApiDocs.length) {
+    const relDocColors = {uses:'#ef9a9a',explains:'#80cbc4',requires:'#f48fb1',extends:'#ce93d8',related_to:'#bdbdbd',contrasts_with:'#ffb74d',applies_to:'#a5d6a7'};
+    apisTextEl.innerHTML = relApiDocs.map(r => {
+      const col = relDocColors[r.relationship] || '#888';
+      const arrow = r.direction === 'outgoing' ? '\u2192' : '\u2190';
+      return `<span style="display:inline-block;margin:2px 0">${arrow} <span style="color:${col};font-size:10px">${escHtml(r.relationship)}</span> <span style="color:#c9d1d9">${escHtml(r.slug)}</span> <span style="color:#6c7086;font-size:10px">${r.confidence.toFixed(2)}</span></span>`;
+    }).join('<br>');
+  } else {
+    apisTextEl.textContent = '\u2014';
+  }
   apisEl.style.display = d.is_api ? 'none' : '';
 
   // Relationship summary

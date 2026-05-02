@@ -1,5 +1,24 @@
 # What's New
 
+## 2026-05-02 — Metadata reviewer: Related APIs and YAML freshness fixes
+
+### Issues fixed
+
+1. **Related APIs was always empty** — the section was populated from Phase 10's `apis` column, which is empty for most article docs because Phase 10 does not join API reference page slugs into the rollup. The related documents from classified pairs, however, do include API reference pages.
+2. **YAML editor showed stale tags** — tags saved in `localStorage` under key `v1` reflected an earlier pipeline run before the taxonomy-constrained Phase 7 re-run, so the editor opened with the old tag set instead of the current one.
+
+### Changes — `tools/build_metadata_reviewer.py`
+
+**Related APIs populated from classified relationships:**
+- Before filtering out API docs, a `api_doc_ids` set is built from all rows where `is_api=True` in `document_metadata.parquet`.
+- Each article record now carries a `related_api_docs` list: entries from `related_docs` whose `doc_id` is in `api_doc_ids`.
+- The Related APIs panel renders these as `→`/`←` arrow + coloured relationship chip + slug + confidence score, matching the Related Documents style.
+
+**YAML freshness:**
+- `STORAGE_KEY` bumped from `xaf_meta_review_v1` → `xaf_meta_review_v2`, discarding any saved state from prior sessions so the editor always opens with current pipeline values.
+
+---
+
 ## 2026-05-02 — Relationship audit, taxonomy-constrained tags (Phase 7), and updated tooling
 
 ### Motivation
