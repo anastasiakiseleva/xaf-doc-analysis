@@ -7,7 +7,7 @@
 - [Pipeline 1: Knowledge Graph Construction](#pipeline-1-knowledge-graph-construction)
   - [Phase 1 — Read the documentation like a human would](#phase-1--read-the-documentation-like-a-human-would)
   - [Phase 2 — Capture how authors intended docs to connect](#phase-2--capture-how-authors-intended-docs-to-connect)
-  - [Phase 3 — Teach the system XAF language](#phase-3--teach-the-system-xaf-language)
+  - [Phase 3 — Teach the system product language](#phase-3--teach-the-system-product-language)
   - [Phase 3.5 — Measure documentation readiness before AI](#phase-35--measure-documentation-readiness-before-ai)
   - [Phase 4 — Turn text into "meaning coordinates"](#phase-4--turn-text-into-meaning-coordinates)
   - [Phase 5 — Discover hidden relationships](#phase-5--discover-hidden-relationships)
@@ -222,7 +222,7 @@ This answers questions like:
 
 This is the "hallway map" of the documentation.
 
-## Phase 3 — Teach the system XAF language
+## Phase 3 — Teach the system product language
 
 ### Script
 `scripts/03_extract_concepts.py`
@@ -480,7 +480,7 @@ Classification with LLMs is expensive/slow. This ensures you:
 ### Output
 `outputs/semantic_pairs_high_value.parquet`
 
-## Phase 6 — Classify Relationship Types (Experimental)
+## Phase 6 — Classify Relationship Types (Expensive)
 
 ### Script
 `scripts/06_classify_relationships.py`
@@ -711,7 +711,7 @@ python query_graph.py --mode query --section "article/security-system/authentica
 | `tools/extractor_sanity_check.py` | Validate concept extraction results |
 | `tools/graph-sanity-check.py` | Validate graph structure and integrity |
 
-### MCP Server Integration
+### MCP Server Integration (Experimental)
 
 **Script:** `tools/mcp_server_adapter.py`
 
