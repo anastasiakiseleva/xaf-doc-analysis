@@ -721,6 +721,8 @@ Provides clean function interfaces for MCP server integration. The `XAFDocAnalys
 
 All functions return JSON-serializable structures for downstream consumption.
 
+**Status:** ⚠️ Experimental - Suggested as a theoretical implementation
+
 ### MVP Deliverables
 
 **Script:** `tools/package_mvp_deliverables.py`
