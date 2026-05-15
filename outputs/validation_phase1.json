@@ -1,7 +1,7 @@
 {
   "phase_name": "Ingest & Parse",
   "phase_number": 1,
-  "timestamp": "2026-04-17T11:08:59.862699",
+  "timestamp": "2026-05-15T12:20:18.523575",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -16,31 +16,56 @@
     {
       "check_name": "Minimum documents",
       "passed": true,
-      "message": "Row count 7,566 is within acceptable range",
+      "message": "Row count 7,561 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 7566
+        "row_count": 7561
       }
     },
     {
       "check_name": "Documents with xref links",
       "passed": true,
-      "message": "Value 5656.00 meets threshold >= 1000",
+      "message": "Value 5650.00 meets threshold >= 1000",
       "severity": "info",
       "details": {
-        "actual_value": 5656,
+        "actual_value": 5650,
         "threshold_value": 1000
       }
     },
     {
       "check_name": "Average word count",
       "passed": true,
-      "message": "Value 89.67 meets threshold >= 80",
+      "message": "Value 89.69 meets threshold >= 80",
       "severity": "info",
       "details": {
-        "actual_value": 89.67023526301877,
+        "actual_value": 89.69342679539743,
         "threshold_value": 80
       }
+    },
+    {
+      "check_name": "Section ID uniqueness",
+      "passed": true,
+      "message": "All 12,403 section IDs are unique",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Empty text sections",
+      "passed": true,
+      "message": "Only 0.4% sections are truly empty (within threshold); 1937 code-only sections excluded",
+      "severity": "info",
+      "details": {
+        "truly_empty_count": 53,
+        "code_only_count": 1937,
+        "total_sections": 12403
+      }
+    },
+    {
+      "check_name": "Internal links format",
+      "passed": true,
+      "message": "All 21,267 internal links are properly formatted",
+      "severity": "info",
+      "details": null
     }
   ]
 }

@@ -1,66 +1,17 @@
 {
   "pipeline": "knowledge-graph",
-  "start_time": "2026-04-16T20:33:00.546332",
-  "end_time": "2026-04-16T20:55:05.036383",
-  "total_duration_seconds": 1324.490051,
-  "validation_level": "quick",
+  "start_time": "2026-05-15T11:59:44.853474",
+  "end_time": "2026-05-15T12:01:31.943647",
+  "total_duration_seconds": 107.090173,
+  "validation_level": "full",
   "phase_results": [
     {
       "phase": 1,
       "name": "Ingest & Parse",
-      "success": true,
-      "error": null,
-      "duration_seconds": 228.681443
-    },
-    {
-      "phase": 2,
-      "name": "Build Explicit Graph",
-      "success": true,
-      "error": null,
-      "duration_seconds": 2.405736
-    },
-    {
-      "phase": 3,
-      "name": "Extract Concepts",
-      "success": true,
-      "error": null,
-      "duration_seconds": 1054.59723
-    },
-    {
-      "phase": 4,
-      "name": "Make Embeddings",
-      "success": true,
-      "error": null,
-      "duration_seconds": 14.482894
-    },
-    {
-      "phase": 5,
-      "name": "Find Semantic Pairs",
-      "success": true,
-      "error": null,
-      "duration_seconds": 15.870132
-    },
-    {
-      "phase": 11,
-      "name": "Extract API Entities",
-      "success": true,
-      "error": null,
-      "duration_seconds": 1.5172
-    },
-    {
-      "phase": 12,
-      "name": "Map APIs to Concepts",
-      "success": true,
-      "error": null,
-      "duration_seconds": 1.467755
-    },
-    {
-      "phase": 13,
-      "name": "Build Knowledge Graph",
-      "success": true,
-      "error": null,
-      "duration_seconds": 5.460347
+      "success": false,
+      "error": "Phase 1 failed with exit code 1",
+      "duration_seconds": 107.087994
     }
   ],
-  "overall_success": true
+  "overall_success": false
 }

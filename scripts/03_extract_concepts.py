@@ -951,7 +951,7 @@ def main() -> None:
 
         for s in sections:
             # Pull fields safely
-            section_id = s.get("section_id") or f"{Path(doc_id).stem}::unknown"
+            section_id = s.get("section_id") or f"{doc_id}::unknown"
             h_path_list = as_list(s.get("h_path"))
             h_path = " > ".join([str(x) for x in h_path_list if isinstance(x, (str, int))])
 

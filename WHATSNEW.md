@@ -1,5 +1,48 @@
 # What's New
 
+## 2026-05-15 — Phase 1 validation fixes: unique section IDs and accurate empty-section check
+
+### Change 1 — Section IDs are now path-qualified (`scripts/01_ingest_parse.py`)
+
+Section IDs were previously built from `path.stem` (bare filename, no directory). Files with the same name in different subdirectories — notably API overload pages (`#ctor.md`, `FindObjectAsync.md`, etc.) appearing in multiple namespace folders — produced colliding IDs such as `#ctor::1` appearing 101 times.
+
+**Root cause:** `section_id: f"{path.stem}::{n}"` uses only the filename with no namespace context.
+
+**Fix:** A `_doc_key` is computed from the path relative to the `raw_md/` root before the section loop, and used in place of `path.stem`:
+
+```python
+_path_parts = path.with_suffix("").parts
+try:
+    _raw_idx = list(_path_parts).index("raw_md")
+    _doc_key = "/".join(_path_parts[_raw_idx + 1:])
+except ValueError:
+    _doc_key = "/".join(_path_parts[-4:])
+```
+
+Result: 12,403 section IDs are now unique (previously 544 duplicates).
+
+The fallback in `scripts/03_extract_concepts.py` (line ~954) was also updated to use `doc_id` instead of `Path(doc_id).stem` for consistency.
+
+---
+
+### Change 2 — Empty-section check now excludes code-only sections (`scripts/01_ingest_parse.py`)
+
+The validation flagged 16% of sections as "empty", triggering a warning that blocked the pipeline. On inspection, 1,937 of those 1,990 "empty" sections contain code blocks but no surrounding prose — this is expected behaviour for API reference pages that show a method signature or usage example without descriptive text.
+
+**Fix:** The check now distinguishes three categories:
+
+| Category | Count | Treated as |
+|---|---|---|
+| Has prose text | 10,413 | normal |
+| Code block only, no prose | 1,937 | **excluded from empty count** |
+| No text and no code | 53 | truly empty |
+
+Only the 53 truly-empty sections (0.4%) are counted against the threshold. The message and `validation_phase1.json` details now report all three counts explicitly.
+
+A full inventory of code-only sections is exported to **`outputs/code_only_sections.csv`** (1,937 rows, columns: `doc_id`, `doc_type`, `uid`, `title`, `section_id`, `h_path`, `num_code_blocks`, `first_code_preview`).
+
+---
+
 ## 2026-05-02 — Product-agnostic tooling and canonical classified pairs
 
 ### Change 1 — `classified_pairs.parquet` is now canonical

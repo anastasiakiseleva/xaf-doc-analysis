@@ -174,6 +174,15 @@ def parse_markdown(path: pathlib.Path) -> Dict[str, Any]:
 
     page_uid = extract_uid(text)
 
+    # Derive a path-relative key so section_ids are unique across directories.
+    # Files like #ctor.md appear in many namespace folders; bare path.stem collides.
+    _path_parts = path.with_suffix("").parts
+    try:
+        _raw_idx = list(_path_parts).index("raw_md")
+        _doc_key = "/".join(_path_parts[_raw_idx + 1:])
+    except ValueError:
+        _doc_key = "/".join(_path_parts[-4:])  # fallback: last 4 components
+
     title: str | None = None
     headings: List[Dict[str, Any]] = []
     sections: List[Dict[str, Any]] = []
@@ -184,7 +193,7 @@ def parse_markdown(path: pathlib.Path) -> Dict[str, Any]:
         if current["text"] or current["code_blocks"]:
             sections.append(
                 {
-                    "section_id": f"{path.stem}::{len(sections) + 1}",
+                    "section_id": f"{_doc_key}::{len(sections) + 1}",
                     "h_path": current["h_path"].copy(),
                     "text": "\n".join(current["text"]).strip(),
                     "code_blocks": current["code_blocks"].copy(),
@@ -355,35 +364,45 @@ def validate_phase1_output(df: pd.DataFrame, run_quality_checks: bool = False) -
                 severity="info"
             ))
         
-        # Check for empty text sections
-        empty_text_count = 0
+        # Check for empty text sections.
+        # Sections with code blocks but no prose are legitimate (API examples);
+        # only sections with neither text nor code are truly empty.
+        truly_empty_count = 0
+        code_only_count = 0
         total_section_count = 0
         for _, row in df.iterrows():
             sections = row['sections']
             if isinstance(sections, list):
                 for section in sections:
                     total_section_count += 1
-                    if not section.get('text', '').strip():
-                        empty_text_count += 1
-        
-        empty_pct = (empty_text_count / total_section_count * 100) if total_section_count > 0 else 0
+                    has_text = bool(section.get('text', '').strip())
+                    cb = section.get('code_blocks')
+                    cb_list = cb.tolist() if hasattr(cb, 'tolist') else list(cb or [])
+                    has_code = len(cb_list) > 0
+                    if not has_text:
+                        if has_code:
+                            code_only_count += 1
+                        else:
+                            truly_empty_count += 1
+
+        empty_pct = (truly_empty_count / total_section_count * 100) if total_section_count > 0 else 0
         max_empty = thresholds.get('phase1_ingest', {}).get('max_empty_text_sections', 0.10) * 100
-        
+
         if empty_pct > max_empty:
             report.add_result(ValidationResult(
                 check_name="Empty text sections",
                 passed=False,
-                message=f"{empty_pct:.1f}% sections have empty text (max: {max_empty:.1f}%)",
+                message=f"{empty_pct:.1f}% sections are truly empty (max: {max_empty:.1f}%); {code_only_count} code-only sections are expected and excluded",
                 severity="warning",
-                details={"empty_count": empty_text_count, "total_sections": total_section_count}
+                details={"truly_empty_count": truly_empty_count, "code_only_count": code_only_count, "total_sections": total_section_count}
             ))
         else:
             report.add_result(ValidationResult(
                 check_name="Empty text sections",
                 passed=True,
-                message=f"Only {empty_pct:.1f}% sections have empty text (within threshold)",
+                message=f"Only {empty_pct:.1f}% sections are truly empty (within threshold); {code_only_count} code-only sections excluded",
                 severity="info",
-                details={"empty_count": empty_text_count, "total_sections": total_section_count}
+                details={"truly_empty_count": truly_empty_count, "code_only_count": code_only_count, "total_sections": total_section_count}
             ))
         
         # Check internal links format
