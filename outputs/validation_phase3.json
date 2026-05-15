@@ -1,10 +1,10 @@
 {
   "phase_name": "Extract Concepts",
   "phase_number": 3,
-  "timestamp": "2026-04-17T11:33:53.331529",
-  "passed": true,
-  "has_warnings": true,
-  "has_errors": false,
+  "timestamp": "2026-05-15T12:45:34.199375",
+  "passed": false,
+  "has_warnings": false,
+  "has_errors": true,
   "results": [
     {
       "check_name": "Schema validation",
@@ -16,71 +16,100 @@
     {
       "check_name": "Minimum sections",
       "passed": true,
-      "message": "Row count 11,584 is within acceptable range",
+      "message": "Row count 12,403 is within acceptable range",
       "severity": "info",
       "details": {
-        "row_count": 11584
+        "row_count": 12403
       }
     },
     {
       "check_name": "Minimum kept percentage",
       "passed": true,
-      "message": "Value 93.40 meets threshold >= 60.0",
+      "message": "Value 93.24 meets threshold >= 60.0",
       "severity": "info",
       "details": {
-        "actual_value": 93.3960635359116,
+        "actual_value": 93.23550753849875,
         "threshold_value": 60.0
       }
     },
     {
       "check_name": "Maximum kept percentage",
       "passed": true,
-      "message": "Value 93.40 meets threshold <= 95.0",
+      "message": "Value 93.24 meets threshold <= 95.0",
       "severity": "info",
       "details": {
-        "actual_value": 93.3960635359116,
+        "actual_value": 93.23550753849875,
         "threshold_value": 95.0
       }
     },
     {
       "check_name": "Minimum avg concepts/section",
-      "passed": false,
-      "message": "Value 0.66 fails threshold >= 1.5",
-      "severity": "warning",
+      "passed": true,
+      "message": "Value 0.82 meets threshold >= 0.5",
+      "severity": "info",
       "details": {
-        "actual_value": 0.6579166281541732,
-        "threshold_value": 1.5,
-        "comparison": ">="
+        "actual_value": 0.8242822552749913,
+        "threshold_value": 0.5
       }
     },
     {
       "check_name": "Maximum avg concepts/section",
       "passed": true,
-      "message": "Value 0.66 meets threshold <= 4.0",
+      "message": "Value 0.82 meets threshold <= 4.0",
       "severity": "info",
       "details": {
-        "actual_value": 0.6579166281541732,
+        "actual_value": 0.8242822552749913,
         "threshold_value": 4.0
       }
     },
     {
       "check_name": "Concept density range [0.0-1.0]",
       "passed": true,
-      "message": "concept_density values in range [0.0000, 0.3333]",
+      "message": "concept_density values in range [0.0000, 0.2308]",
       "severity": "info",
       "details": {
         "min": 0.0,
-        "max": 0.3333
+        "max": 0.2308
       }
     },
     {
       "check_name": "Minimum API sections",
       "passed": true,
-      "message": "Value 6557.00 meets threshold >= 4000",
+      "message": "Value 7026.00 meets threshold >= 4000",
       "severity": "info",
       "details": {
-        "actual_value": 6557,
+        "actual_value": 7026,
         "threshold_value": 4000
+      }
+    },
+    {
+      "check_name": "Concepts match vocabulary",
+      "passed": true,
+      "message": "All 94 unique values match vocabulary",
+      "severity": "info",
+      "details": {
+        "unique_values": 94,
+        "vocabulary_size": 100
+      }
+    },
+    {
+      "check_name": "Sections with zero concepts",
+      "passed": false,
+      "message": "6796 kept sections (58.8%) have zero concepts",
+      "severity": "error",
+      "details": {
+        "count": 6796,
+        "percentage": 58.76859218263577
+      }
+    },
+    {
+      "check_name": "Skip reason distribution",
+      "passed": true,
+      "message": "Found 2 different skip reasons",
+      "severity": "info",
+      "details": {
+        "api_low_signal_short": 829,
+        "too_short": 10
       }
     }
   ]

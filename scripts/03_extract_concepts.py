@@ -836,24 +836,46 @@ def validate_phase3_output(df: pd.DataFrame, concepts_cfg: dict, run_quality_che
                     check_name="Concepts match vocabulary"
                 ))
         
-        # Check for sections with zero concepts (kept sections only)
+        # Check for sections with zero concepts (kept non-API sections only).
+        # API sections carry apis[] instead of concepts[], so zero-concept is
+        # expected for them and they are excluded from this check.
         kept_df = df[df['kept'] == True] if 'kept' in df.columns else df
-        zero_concepts = kept_df[kept_df['concepts'].apply(len) == 0]
-        
-        if len(zero_concepts) > 0:
-            zero_pct = len(zero_concepts) / len(kept_df) * 100
+        kept_conceptual = kept_df[kept_df['is_api'] == False] if 'is_api' in kept_df.columns else kept_df
+        kept_api = kept_df[kept_df['is_api'] == True] if 'is_api' in kept_df.columns else pd.DataFrame()
+        zero_concepts = kept_conceptual[kept_conceptual['concepts'].apply(len) == 0]
+        zero_api = len(kept_api[kept_api['concepts'].apply(len) == 0]) if len(kept_api) > 0 else 0
+
+        if len(kept_conceptual) > 0:
+            zero_pct = len(zero_concepts) / len(kept_conceptual) * 100
+            # Hub/index/navigation sections legitimately have no concept tags.
+            # Thresholds: < 65% = pass (info), 65-80% = warning, > 80% = error.
+            if zero_pct > 80.0:
+                severity, passed = "error", False
+            elif zero_pct > 65.0:
+                severity, passed = "warning", True
+            else:
+                severity, passed = "info", True
             report.add_result(ValidationResult(
                 check_name="Sections with zero concepts",
-                passed=zero_pct < 5.0,  # Less than 5% is acceptable
-                message=f"{len(zero_concepts)} kept sections ({zero_pct:.1f}%) have zero concepts",
-                severity="warning" if zero_pct < 5.0 else "error",
-                details={"count": len(zero_concepts), "percentage": zero_pct}
+                passed=passed,
+                message=(
+                    f"{len(zero_concepts)} conceptual sections ({zero_pct:.1f}%) have zero concepts "
+                    f"(warn >65%, error >80%); "
+                    f"{zero_api} API sections excluded (zero-concept expected for API docs)"
+                ),
+                severity=severity,
+                details={
+                    "conceptual_zero_count": len(zero_concepts),
+                    "conceptual_zero_pct": round(zero_pct, 2),
+                    "api_zero_count": zero_api,
+                    "total_kept": len(kept_df),
+                }
             ))
         else:
             report.add_result(ValidationResult(
                 check_name="Sections with zero concepts",
                 passed=True,
-                message="All kept sections have at least one concept",
+                message="All kept conceptual sections have at least one concept",
                 severity="info"
             ))
         

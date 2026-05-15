@@ -106,16 +106,17 @@ class PipelineRunner:
         # Build command
         cmd = [sys.executable, str(script_path)]
         
-        # Add validation arguments based on level
-        if self.validation_level == "quick":
-            # Default - validation runs automatically
-            pass
-        elif self.validation_level == "full":
-            cmd.append("--validate-quality")
-        elif self.validation_level == "skip":
-            cmd.append("--skip-validation")
-        
-        # Always save reports for aggregation
+        # Only phases that implement --validate-quality / --skip-validation accept these flags.
+        PHASES_WITH_VALIDATION = {1, 2, 3, 7, 10, 13}
+        if phase_num in PHASES_WITH_VALIDATION:
+            if self.validation_level == "quick":
+                pass  # Default - validation runs automatically
+            elif self.validation_level == "full":
+                cmd.append("--validate-quality")
+            elif self.validation_level == "skip":
+                cmd.append("--skip-validation")
+
+        # Always save reports for aggregation (phases that support it)
         cmd.append("--save-report")
         
         # Execute phase

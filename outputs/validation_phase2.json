@@ -1,7 +1,7 @@
 {
   "phase_name": "Build Explicit Graph",
   "phase_number": 2,
-  "timestamp": "2026-04-17T11:09:00.978599",
+  "timestamp": "2026-05-15T12:22:37.293763",
   "passed": true,
   "has_warnings": false,
   "has_errors": false,
@@ -23,10 +23,10 @@
     {
       "check_name": "Link resolution rate",
       "passed": true,
-      "message": "Value 97.97 meets threshold >= 0.7",
+      "message": "Value 97.98 meets threshold >= 0.7",
       "severity": "info",
       "details": {
-        "actual_value": 97.97286161621712,
+        "actual_value": 97.9775157059407,
         "threshold_value": 0.7
       }
     },
@@ -40,12 +40,42 @@
     {
       "check_name": "Minimum connected documents",
       "passed": true,
-      "message": "Value 5531.00 meets threshold >= 5000",
+      "message": "Value 5529.00 meets threshold >= 5000",
       "severity": "info",
       "details": {
-        "actual_value": 5531,
+        "actual_value": 5529,
         "threshold_value": 5000
       }
+    },
+    {
+      "check_name": "Document references validation",
+      "passed": true,
+      "message": "All 5529 referenced documents exist in inventory",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Duplicate edge detection",
+      "passed": true,
+      "message": "No duplicate edges found",
+      "severity": "info",
+      "details": null
+    },
+    {
+      "check_name": "Unresolved UID bucket distribution",
+      "passed": true,
+      "message": "Unresolved UIDs categorized into 1 buckets",
+      "severity": "info",
+      "details": {
+        ".net_bcl": 367
+      }
+    },
+    {
+      "check_name": "Combined edges completeness",
+      "passed": true,
+      "message": "Combined edges complete: 18,146 total edges",
+      "severity": "info",
+      "details": null
     }
   ]
 }

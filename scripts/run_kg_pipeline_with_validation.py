@@ -73,11 +73,13 @@ class PipelineRunner:
 
         cmd = [sys.executable, str(script_path)]
 
-        # Validation flags convention
-        if self.validation_level == "full":
-            cmd.append("--validate-quality")
-        elif self.validation_level == "skip":
-            cmd.append("--skip-validation")
+        # Only phases that implement --validate-quality / --skip-validation accept these flags.
+        PHASES_WITH_VALIDATION = {1, 2, 3, 7, 10, 13}
+        if phase_num in PHASES_WITH_VALIDATION:
+            if self.validation_level == "full":
+                cmd.append("--validate-quality")
+            elif self.validation_level == "skip":
+                cmd.append("--skip-validation")
 
         # Most scripts accept --save-report; embeddings/pairs may not, but tolerate unknown?
         # So only pass --save-report to scripts known to support it.
