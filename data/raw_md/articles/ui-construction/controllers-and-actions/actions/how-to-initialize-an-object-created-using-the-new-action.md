@@ -43,6 +43,37 @@ public class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.ExpressApp.SystemModule
+'...
+Public Class MyController
+    Inherits ViewController
+    Private controller As NewObjectViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        controller = Frame.GetController(Of NewObjectViewController)()
+        If controller IsNot Nothing Then
+            AddHandler controller.ObjectCreated, AddressOf controller_ObjectCreated
+        End If
+    End Sub
+    Private Sub controller_ObjectCreated(ByVal sender As Object, ByVal e As ObjectCreatedEventArgs)
+        If TypeOf e.CreatedObject Is Task Then
+            CType(e.CreatedObject, Task).StartDate = DateTime.Now
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If controller IsNot Nothing Then
+            RemoveHandler controller.ObjectCreated, AddressOf controller_ObjectCreated
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 In certain scenarios, it can be required to initialize a new object created through the lookup editor's New button, using a value from the parent Detail View. To access the parent object from the **ObjectCreated** event handler, cast the [Controller.Frame](xref:DevExpress.ExpressApp.Controller.Frame) value to the [](xref:DevExpress.ExpressApp.NestedFrame) type, access the [NestedFrame.ViewItem](xref:DevExpress.ExpressApp.NestedFrame.ViewItem) property and then get the master object using the [ViewItem.CurrentObject](xref:DevExpress.ExpressApp.Editors.ViewItem.CurrentObject) property.
@@ -63,4 +94,22 @@ void controller_ObjectCreated(object sender, ObjectCreatedEventArgs e) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub controller_ObjectCreated(ByVal sender As Object, ByVal e As ObjectCreatedEventArgs)
+    Dim nestedFrame As NestedFrame = TryCast(Frame, NestedFrame)
+    If nestedFrame IsNot Nothing Then
+        Dim createdItem As Item = TryCast(e.CreatedObject, Item)
+        If createdItem IsNot Nothing Then
+            Dim parent As Parent = TryCast(CType(Frame, NestedFrame).ViewItem.CurrentObject, Parent)
+            If parent IsNot Nothing Then
+                createdItem.Title = parent.DefaultItemTitle
+            End If
+        End If
+    End If
+End Sub
+```
+
 ***

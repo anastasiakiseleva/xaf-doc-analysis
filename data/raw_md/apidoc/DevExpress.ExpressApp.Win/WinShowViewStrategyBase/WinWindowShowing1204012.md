@@ -46,4 +46,41 @@ private static void ShowViewStrategy_WinWindowShowing(object sender, WinWindowSh
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Drawing
+' ...
+Shared Sub Main()
+    ' ...
+    Dim winApplication As New MySolutionWindowsFormsApplication()
+    ' ...
+    AddHandler winApplication.ShowViewStrategyChanged, AddressOf WinApplication_ShowViewStrategyChanged
+    ' ...
+         winApplication.Setup()
+    winApplication.Start()
+End Sub
+Private Shared Sub WinApplication_ShowViewStrategyChanged(ByVal sender As Object, ByVal e As EventArgs)
+    Dim winApplication As WinApplication = CType(sender, WinApplication)
+    If winApplication.ShowViewStrategy IsNot Nothing Then
+        AddHandler winApplication.ShowViewStrategy.WinWindowShowing, AddressOf ShowViewStrategy_WinWindowShowing
+    End If
+End Sub
+Private Shared Sub ShowViewStrategy_WinWindowShowing(ByVal sender As Object, ByVal e As WinWindowShowingEventArgs)
+    If (CType(sender, WinShowViewStrategyBase)).MainWindow Is Nothing Then
+        e.Form.StartPosition = FormStartPosition.Manual
+        e.Form.Location = New Point(10, 10)
+    Else
+        If e.IsModal Then
+            e.Form.Owner = Form.ActiveForm
+            e.Form.StartPosition = FormStartPosition.CenterParent
+        Else
+            e.Form.StartPosition = FormStartPosition.Manual
+            e.Form.Location = If((Form.ActiveForm IsNot Nothing), Form.ActiveForm.Location, New Point(10, 10))
+        End If
+    End If
+End Sub
+```
+
 ***

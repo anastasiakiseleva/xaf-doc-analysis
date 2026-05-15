@@ -106,6 +106,19 @@ static class Program {
             new MySolutionWindowsFormsApplication();
         //...
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{4}
+Public Class Program
+    ' ...
+    Public Shared Sub Main(ByVal arguments() As String)
+        Tracing.LogName = "CustomLogFile"
+        ' ...
+        Dim _application As MySolutionWindowsFormsApplication = _
+        New MySolutionWindowsFormsApplication()
+        ' ...
+```
+
 ***
 
 #### ASP.NET Core Blazor and Web API

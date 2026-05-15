@@ -4,7 +4,7 @@ name: Controller
 type: Class
 summary: The base class for [Controllers](xref:112621).
 syntax:
-  content: 'public abstract class Controller : Component, ISupportUpdate'
+  content: 'public abstract class Controller : Component, ISupportUpdate, INotifyDisposed'
 seealso:
 - linkId: DevExpress.ExpressApp.Controller._members
   altText: Controller Members

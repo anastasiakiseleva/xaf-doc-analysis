@@ -61,7 +61,37 @@ public string Text {
     set { SetPropertyValue(nameof(Text), ref text, value); }
 }
 ```
+# [VB.NET (XPO)](#tab/tabid-vb)
 
+```vb
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+' ...
+' Byte array property example:
+Private fText() As Byte
+<EditorAlias(EditorAliases.RichTextPropertyEditor)> _
+Public Property Text() As Byte()
+	Get
+		Return fText
+	End Get
+	Set(ByVal value As Byte())
+		SetPropertyValue(NameOf(Text), fText, value)
+	End Set
+End Property
+
+' String property example:
+Private fText As String
+<Size(SizeAttribute.Unlimited), EditorAlias(EditorAliases.RichTextPropertyEditor)> _
+Public Property Text() As String
+	Get
+		Return fText
+	End Get
+	Set(ByVal value As String)
+		SetPropertyValue(NameOf(Text), fText, value)
+	End Set
+End Property
+```
 ***
 
 ### In the Model Editor

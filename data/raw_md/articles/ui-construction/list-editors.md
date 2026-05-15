@@ -32,6 +32,7 @@ List Editors are abstract UI entities represented by `ListEditor` class descenda
 | [](xref:DevExpress.ExpressApp.Blazor.Editors.DxTreeListEditor) | Displays data in the form of a two-dimensional table with nested rows. To display object collections, the `DxTreeListEditor` uses the [DxTreeList](xref:DevExpress.Blazor.DxTreeList) component. |
 | [](xref:DevExpress.ExpressApp.Scheduler.Blazor.Editors.SchedulerListEditor) | Implemented in the [Scheduler module](xref:112811). Designed to display and manage scheduling information in XAF ASP.NET Core Blazor applications. |
 | [](xref:DevExpress.ExpressApp.Blazor.Editors.DxChartListEditor) | Displays data in the form of a chart. |
+| @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor (CTP) | Displays data in the form of a pivot table. |
 
 ## Customize List Editors
 

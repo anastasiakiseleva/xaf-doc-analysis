@@ -28,4 +28,25 @@ public sealed partial class MySolutionModule : ModuleBase {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+   ' ...
+    Public Overrides Sub Setup(ByVal application As XafApplication)
+        MyBase.Setup(application)
+        AddHandler application.CustomProcessShortcut, Sub(sender As Object, e As CustomProcessShortcutEventArgs)
+            If (e.Shortcut.ViewId = "MyDomainObject_ListView") Then
+                Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(e.Shortcut.ObjectClass)
+                e.View = Application.CreateDashboardView(objectSpace, "MyDashboardView", True)
+                e.Handled = True
+            End If
+        End Sub
+    End Sub
+    ' ...
+End Class
+```
+
 ***

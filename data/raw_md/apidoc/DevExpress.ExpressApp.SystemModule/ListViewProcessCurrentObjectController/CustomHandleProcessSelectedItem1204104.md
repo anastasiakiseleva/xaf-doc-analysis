@@ -60,4 +60,53 @@ public class EmployeeLookupListViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports System.ComponentModel
+' ...
+Public Class EmployeeLookupListViewController
+    Inherits ViewController
+    
+    Private _processCurrentObjectController As ListViewProcessCurrentObjectController
+    Private _openObjectController As OpenObjectController
+    
+    Public Sub New()
+        TargetViewId = "Employee_LookupListView"
+    End Sub
+    
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated
+        Me._processCurrentObjectController = Frame.GetController(Of ListViewProcessCurrentObjectController)
+        Me._openObjectController = Frame.GetController(Of OpenObjectController)
+        If (Not (Me._processCurrentObjectController) Is Nothing) Then
+            AddHandler Me._processCurrentObjectController.CustomHandleProcessSelectedItem, AdressOf EmployeeLookupListViewController_CustomHandleProcessSelectedItem
+        End If
+    End Sub
+    
+    Private Sub EmployeeLookupListViewController_CustomHandleProcessSelectedItem(ByVal sender As Object, ByVal e As HandledEventArgs)
+        Dim currentEmployee As Employee = CType(View.CurrentObject,Employee)
+        If currentEmployee.IsOnLeave Then
+            e.Handled = true
+            If (Not (Me._openObjectController) Is Nothing) Then
+                Me._openObjectController.SetObjectToOpen(View.CurrentObject)
+                If (Me._openObjectController.OpenObjectAction.Active AndAlso Me._openObjectController.OpenObjectAction.Enabled) Then
+                    Me._openObjectController.OpenObjectAction.DoExecute
+                End If
+            End If
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated
+        If (Not (Me._processCurrentObjectController) Is Nothing) Then
+            RemoveHandler Me._processCurrentObjectController.CustomHandleProcessSelectedItem, AddressOf EmployeeLookupListViewController_CustomHandleProcessSelectedItem
+            Me._processCurrentObjectController = Nothing
+        End If
+        Me._openObjectController = Nothing
+    End Sub
+End Class
+```
 ***

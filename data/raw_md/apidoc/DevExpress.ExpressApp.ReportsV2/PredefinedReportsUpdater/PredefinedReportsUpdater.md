@@ -21,6 +21,19 @@ public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace object
     return new ModuleUpdater[] { predefinedReportsUpdater };
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Function GetModuleUpdaters(ByVal objectSpace As IObjectSpace, ByVal versionFromDB As Version) _
+As IEnumerable(Of ModuleUpdater)
+    Dim predefinedReportsUpdater As New PredefinedReportsUpdater(Application, objectSpace, versionFromDB)
+    predefinedReportsUpdater.AddPredefinedReport(Of XtraReport1)( _
+    "Contacts Report", GetType(Contact))
+    Return New ModuleUpdater() { predefinedReportsUpdater }
+End Function
+```
+
 ***
 
 > [!NOTE]

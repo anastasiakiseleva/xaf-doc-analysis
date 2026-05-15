@@ -26,6 +26,20 @@ public sealed class MySolutionModule : ModuleBase {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Class MySolutionModule
+      Inherits ModuleBase
+   '...
+   Public Sub New()
+      InitializeComponent()
+      Me.RequiredModuleTypes.Add(GetType(MyCustomModule.CustomModule))
+   End Sub
+End Class
+```
+
 ***
 
 The added module(s) must also be referenced in the current module project.

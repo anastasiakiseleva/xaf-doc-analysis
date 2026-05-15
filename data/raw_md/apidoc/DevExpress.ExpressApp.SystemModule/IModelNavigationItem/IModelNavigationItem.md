@@ -4,7 +4,9 @@ name: IModelNavigationItem
 type: Interface
 summary: A NavigationItem node defines a **ShowNavigationItem** Action item displayed in the main Window's navigation control.
 syntax:
-  content: 'public interface IModelNavigationItem : IModelNode, IModelBaseChoiceActionItem, IModelToolTip, IModelChoiceActionItemChildItemsDisplayStyle'
+  content: |-
+    [ModelEditorBrowsable(typeof(ModelNodeVisibilityCalculator))]
+    public interface IModelNavigationItem : IModelNode, IModelBaseChoiceActionItem, IModelToolTip, IModelChoiceActionItemChildItemsDisplayStyle
 seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.IModelNavigationItem._members
   altText: IModelNavigationItem Members

@@ -32,6 +32,25 @@ public class ProjectTaskController : ViewController {
      Application.ShowViewStrategy.ShowMessage(options);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Public Class ProjectTaskController
+    Inherits ViewController
+    '…
+    Private options As New MessageOptions()
+    options.OkDelegate = Sub()
+        Dim os As IObjectSpace = Application.CreateObjectSpace(GetType(ProjectTask))
+        Dim newTaskDetailView As DetailView = Application.CreateDetailView(os, os.CreateObject(Of ProjectTask)())
+        Application.ShowViewStrategy.ShowViewInPopupWindow(newTaskDetailView)
+    End Sub
+    '…
+    Application.ShowViewStrategy.ShowMessage(options)
+End Class
+```
+
 ***
 
 ### ASP.NET Core Blazor UI

@@ -45,4 +45,12 @@ To create a [predefined](xref:113591) in-place report, use the [PredefinedReport
 predefinedReportsUpdater.AddPredefinedReport<XtraReport1>(
     "My Inplace Report", typeof(Contact), isInplaceReport: true);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+predefinedReportsUpdater.AddPredefinedReport(Of XtraReport1)( _
+"My Inplace Report", GetType(Contact), isInplaceReport:= True)
+```
+
 ***

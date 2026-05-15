@@ -42,4 +42,35 @@ public class MyViewController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.FileAttachments.Win
+'...
+Public Class MyViewController
+    Inherits ViewController(Of ListView)
+    Private openSelectedDocuments As SimpleAction
+    Public Sub New()
+        TargetObjectType = GetType(Resume)
+        openSelectedDocuments = New SimpleAction( _
+        Me, "OpenSelectedDocumentsAction", "RecordEdit", AddressOf openSelectedDocuments_Execute)
+        openSelectedDocuments.Caption = "Open Selected Documents"
+        openSelectedDocuments.SelectionDependencyType = _
+        SelectionDependencyType.RequireMultipleObjects
+    End Sub
+    Private Sub openSelectedDocuments_Execute( _
+    ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        For Each [resume] As [Resume] In View.SelectedObjects
+            If [resume].File IsNot Nothing Then
+                FileAttachmentsWindowsFormsModule.GetFileDataManager( _ 
+                Application).Open([resume].File)
+            End If
+        Next [resume]
+    End Sub
+End Class
+```
+
 ***

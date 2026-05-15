@@ -72,6 +72,31 @@ public class SolutionNameWindowsFormsApplication : WinApplication {
       // ...
 ```
 
+# [SolutionName.Win\WinApplication.vb](#tab/tabid-vb)
+
+```vb
+Public Partial Class MySolutionWindowsFormsApplication
+      Inherits WinApplication
+   Private Shared Sub MySolutionWindowsFormsApplication_DatabaseVersionMismatch( _
+   ByVal sender As Object, _
+   ByVal e As DatabaseVersionMismatchEventArgs) Handles MyBase.DatabaseVersionMismatch
+      If System.Diagnostics.Debugger.IsAttached Then
+         e.Updater.Update()
+         e.Handled = True
+      End If
+   End Sub
+Public Partial Class MySolutionWindowsFormsApplication
+   '...
+   Private Sub InitializeComponent()
+      '...
+      AddHandler DatabaseVersionMismatch, _
+      AddressOf MySolutionWindowsFormsApplication_DatabaseVersionMismatch
+      ' ...
+   End Sub
+   ' ...
+End Class
+```
+
 ***
 
 > [!important]

@@ -74,7 +74,7 @@ Note that after updating the solution in this way, EasyTest will use the databas
 
 In a Windows Forms application project, the following methods must be updated:
 
-1. The **DatabaseVersionMismatch** method in the _WinApplication.cs_ (_WinApplication.vb_) file.
+1. The **DatabaseVersionMismatch** method in the _WinApplication.cs_ file.
     
     # [C#](#tab/tabid-csharp)
     
@@ -94,8 +94,30 @@ In a Windows Forms application project, the following methods must be updated:
     #endif
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Private Sub MySolutionWindowsFormsApplication_DatabaseVersionMismatch( _
+    ByVal sender As Object, ByVal e As _
+    DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs) _
+    Handles MyBase.DatabaseVersionMismatch
+    #If DEBUG Then
+        e.Updater.Update()
+        e.Handled = True
+    #Else
+        If System.Diagnostics.Debugger.IsAttached Then
+            '...
+        Else
+            '...
+        End If
+    #End If
+    End Sub
+    ```
+    
     ***
-2. The **Main** method in the _Program.cs_ (_Program.vb_) file.
+
+2. The **Main** method in the _Program.cs_ file.
     
     # [C#](#tab/tabid-csharp)
     
@@ -107,6 +129,18 @@ In a Windows Forms application project, the following methods must be updated:
     //....
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Public Shared Sub Main(ByVal arguments() As String)
+    #If DEBUG Then
+        DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register()
+    #End If
+    '...
+    End Sub
+    ```
+    
     ***
 
 3. In the *App.config* file, add the following keys to **\<appSettings>**:
@@ -147,7 +181,7 @@ You can remove all EasyTest components from your application. In this case, dele
 
 * The **FunctionalTests** folder.
 * The **DevExpress.ExpressApp.EasyTest.WinAdapter** assembly reference (or NuGet package) from the Windows Forms application project.
-* The `EASYTEST` conditions from the Windows Forms application project's _Program.cs_ (_Program.vb_) and _WinApplication.cs_ (_WinApplication.vb_) files.
+* The `EASYTEST` conditions from the Windows Forms application project's _Program.cs_  and _WinApplication.cs_ files.
 
 
 

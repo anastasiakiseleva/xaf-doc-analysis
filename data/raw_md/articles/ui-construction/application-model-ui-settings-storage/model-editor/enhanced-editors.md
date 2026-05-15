@@ -30,15 +30,12 @@ The **Mask Editor** is available for properties that specify [Edit Masks](xref:5
 
 ![ModelEditor_SpecialEditors_EditMask](~/images/modeleditor_specialeditors_editmask116848.png)
 
-## Chart Designer
+## Chart Designer (Windows Forms Only)
 The **Chart Designer** is intended to specify settings of the charting List Editor ([IModelChartSettings.Settings](xref:DevExpress.ExpressApp.Chart.IModelChartSettings.Settings)). To invoke the designer, click the ellipsis button (![EllipsisButton](~/images/ellipsisbutton116182.png)) displayed to the right of a settings string. To see an example of how to use this designer, refer to the [How to: Display a List View as a Chart](xref:113314) tutorial. To learn about the Chart Designer capabilities in detail, refer to the [Chart Designer](xref:114070) topic.
-
-> [!NOTE]
-> The **Chart Designer** is available only for XAF Windows Forms applications.
 
 ![ModelEditor_SpecialEditors_ChartWizard](~/images/modeleditor_specialeditors_chartwizard116849.png)
 
-## PivotGrid Designer
+## PivotGrid Designer (Windows Forms Only)
 The **PivotGrid Designer** is intended to specify settings of the Pivot Grid List Editor ([IPivotSettings.Settings](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.Settings)). To invoke the wizard, click the ellipsis button (![EllipsisButton](~/images/ellipsisbutton116182.png)) displayed to the right of a settings string. To learn about PivotGrid Designer capabilities in detail, refer to the [PivotGrid Designer](xref:1825) help topic.
 
 ![ModelEditor_SpecialEditors_PivotSettingsEditor](~/images/modeleditor_specialeditors_pivotsettingseditor116850.png)

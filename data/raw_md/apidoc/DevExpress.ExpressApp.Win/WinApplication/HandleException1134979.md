@@ -29,4 +29,19 @@ static void Main() {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Shared Sub Main()
+    ' ...
+   Try
+        winApplication.Setup()
+        winApplication.Start()
+    Catch e As Exception
+        winApplication.HandleException(e)
+    End Try
+End Sub
+```
+
 ***

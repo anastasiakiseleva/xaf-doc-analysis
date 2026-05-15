@@ -30,6 +30,23 @@ public class SecurityStrategyController : ViewController {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Security
+' ...
+Public Class SecurityStrategyController
+    Inherits ViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim securityStrategy As SecurityStrategy = Application.GetSecurityStrategy()
+        ' ...
+    End Sub
+End Class
+
+```
+
 ***
 
 Refer to the @DevExpress.ExpressApp.Security.IsGrantedExtensions class methods for more examples.

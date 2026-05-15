@@ -26,6 +26,23 @@ builder.ObjectSpaceProviders
     })
     // ...
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win
+Imports DevExpress.ExpressApp.Xpo
+' ...
+Partial Public Class MySolutionWindowsFormsApplication
+    Inherits WinApplication
+    ' ...
+    Protected Overrides Sub CreateDefaultObjectSpaceProvider(ByVal args As CreateCustomObjectSpaceProviderEventArgs)
+        args.ObjectSpaceProviders.Add(New XPObjectSpaceProvider( 
+            XPObjectSpaceProvider.GetDataStoreProvider(args.ConnectionString, args.Connection, True), True))
+        ' ...
+    End Sub
+End Class
+```
 ***
 
 You can enable this feature for Views that fit all the conditions below.

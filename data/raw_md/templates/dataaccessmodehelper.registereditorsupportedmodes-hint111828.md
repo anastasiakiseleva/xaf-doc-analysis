@@ -16,4 +16,23 @@ public sealed partial class MySolutionWinModule : ModuleBase {
     // ...
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections.Generic
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Utils
+' ...
+Public NotInheritable Partial Class MySolutionWinModule
+	Inherits ModuleBase
+	Public Sub New()
+		' ...
+		DataAccessModeHelper.RegisterEditorSupportedModes(GetType(CustomListEditor), 
+        New List(Of CollectionSourceDataAccessMode) _
+        From {CollectionSourceDataAccessMode.Client, CollectionSourceDataAccessMode.Server})
+	End Sub
+	' ...
+End Class
+```
+
 ***

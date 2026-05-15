@@ -22,6 +22,23 @@ public partial class MyCustomController : ViewController {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Partial Public Class MyCustomController
+    Inherits ViewController
+
+   ' ...
+   Private Sub MyCustomController_FrameAssigned(ByVal sender As Object, ByVal e As EventArgs)
+      Dim controller As AboutInfoController = Frame.GetController(Of AboutInfoController)()
+      If controller IsNot Nothing Then
+          controller.Active.SetItemValue("DisabledByMyCustomController", False)
+      End If
+   End Sub
+End Class
+```
+
 ***
 
 To perform specific actions with a [](xref:DevExpress.ExpressApp.ViewController) before it is activated, override the **OnViewChanging** or **OnViewChanged** method.

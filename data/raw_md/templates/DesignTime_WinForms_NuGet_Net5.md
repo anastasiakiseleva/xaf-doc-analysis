@@ -1,1 +1,1 @@
-To use designer tools for DevExpress controls in XAF applications, install the _DevExpress.Win.Design_ package from the local NuGet feed, or from a remote NuGet feed at [https://nuget.devexpress.com](https://nuget.devexpress.com).
+To use designer tools for DevExpress controls in XAF applications, install the _DevExpress.Win.Design_ package from the local NuGet feed, or from a remote NuGet feed at [https://nuget.org](https://nuget.org/packages/DevExpress.Win.Design).

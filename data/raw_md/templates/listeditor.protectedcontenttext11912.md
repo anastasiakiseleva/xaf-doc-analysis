@@ -28,4 +28,28 @@ public partial class CustomProtectedStrings : ViewController {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+
+Partial Public Class CustomProtectedStrings
+ Inherits ViewController
+
+   Public Sub New()
+      TargetViewType = ViewType.ListView
+      AddHandler Activated, AddressOf CustomProtectedStrings_Activated
+   End Sub
+
+   Private Sub CustomProtectedStrings_Activated(ByVal sender As Object, ByVal e As EventArgs)
+      If (TryCast(View, ListView)).ObjectType Is GetType(ProtectedContentRootObject) Then
+         (TryCast(View, ListView)).Editor.ProtectedContentText = _
+         "You cannot view inaccessible properties"
+      End If
+   End Sub
+End Class 
+```
+
 ***

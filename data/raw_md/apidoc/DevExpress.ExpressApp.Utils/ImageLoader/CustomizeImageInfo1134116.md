@@ -18,4 +18,17 @@ void ImageLoader_CustomizeImageInfo(object sender, CustomizeImageInfoEventArgs e
     if(e.ImageName == "MyIncorrectlyDisplayedImage") e.MakeTransparent = true;            
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private ImageLoader.Instance.CustomizeImageInfo += AddressOf ImageLoader_CustomizeImageInfo
+'...
+Private Sub ImageLoader_CustomizeImageInfo(ByVal sender As Object, ByVal e As CustomizeImageInfoEventArgs)
+    If e.ImageName = "MyIncorrectlyDisplayedImage" Then
+        e.MakeTransparent = True
+    End If
+End Sub
+```
+
 ***

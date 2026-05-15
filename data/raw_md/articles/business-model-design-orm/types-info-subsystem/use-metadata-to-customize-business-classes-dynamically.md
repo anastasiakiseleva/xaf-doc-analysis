@@ -82,6 +82,24 @@ public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+    MyBase.CustomizeTypesInfo(typesInfo)
+    Dim personTypeInfo As TypeInfo = TryCast(typesInfo.FindTypeInfo(GetType(Person)), TypeInfo)
+    If personTypeInfo IsNot Nothing Then
+        personTypeInfo.CreateMember("PersistentField1", GetType(Integer))
+        personTypeInfo.CreateMember("PersistentField2", GetType(Integer)).AddAttribute(New ImmediatePostDataAttribute())
+        personTypeInfo.CreateMember("CalculatedField", GetType(Integer), "PersistentField1 + PersistentField2")
+    End If
+End Sub
+```
+
 ***
 
 ## Access a Custom Field in Code
@@ -95,6 +113,14 @@ ITypeInfo personInfo = this.Application.TypesInfo.FindTypeInfo(typeof(Person));
 int? value = personInfo.FindMember("CalculatedField").GetValue(person) as int?;
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim person As Person = TryCast(Me.View.CurrentObject, Person)
+Dim personInfo As ITypeInfo = Me.Application.TypesInfo.FindTypeInfo(GetType(Person))
+Dim value? As Integer = CType(personInfo.FindMember("CalculatedField").GetValue(person), Integer?)
+```
+
 ***
 
 The following snippet illustrates how to access a custom field in a [Controller](xref:112621) context from the [PropertyEditor.ControlValue](xref:DevExpress.ExpressApp.Editors.PropertyEditor.ControlValue) property.
@@ -104,6 +130,13 @@ The following snippet illustrates how to access a custom field in a [Controller]
 ```csharp
 ViewItem viewItem = ((DetailView)View).FindItem("CalculatedField");
 decimal? value = ((PropertyEditor)viewItem).ControlValue as decimal?;
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim viewItem As ViewItem = CType(View, DetailView).FindItem("CalculatedField")
+Dim value? As Decimal = CType(CType(viewItem, PropertyEditor).ControlValue, Decimal?)
 ```
 
 ***
@@ -134,6 +167,29 @@ public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+    MyBase.CustomizeTypesInfo(typesInfo)
+    Dim typeInfo1 As ITypeInfo = typesInfo.FindTypeInfo(GetType(DomainObject1))
+    Dim typeInfo2 As ITypeInfo = typesInfo.FindTypeInfo(GetType(DomainObject2))
+    Dim memberInfo1 As IMemberInfo = typeInfo1.FindMember("Object2")
+    Dim memberInfo2 As IMemberInfo = typeInfo2.FindMember("Object1s")
+    If memberInfo1 Is Nothing Then
+        memberInfo1 = typeInfo1.CreateMember("Object2", GetType(DomainObject2))
+        memberInfo1.AddAttribute(New DevExpress.Xpo.AssociationAttribute("A", GetType(DomainObject2)), True)
+    End If
+    If memberInfo2 Is Nothing Then
+        memberInfo2 = typeInfo2.CreateMember("Object1s", GetType(XPCollection(Of DomainObject1)))
+        memberInfo2.AddAttribute(New DevExpress.Xpo.AssociationAttribute("A", GetType(DomainObject1)), True)
+        memberInfo2.AddAttribute(New DevExpress.Xpo.AggregatedAttribute(), True)
+    End If
+    CType(memberInfo1, XafMemberInfo).Refresh()
+    CType(memberInfo2, XafMemberInfo).Refresh()
+End Sub
+```
+
 ***
 
 As you can see in the code above, the [IMemberInfo.AddAttribute](xref:DevExpress.ExpressApp.DC.IMemberInfo.AddAttribute(System.Attribute,System.Boolean)) method's second parameter is **true**. In this case, Types Info does not reload information from [](xref:DevExpress.Xpo.Metadata.XPDictionary) immediately. After adding all required attributes, call the **XafMemberInfo.Refresh** method for each updated member. Alternatively, you can call **XafTypesInfo.RefreshInfo** for each type containing updated members:
@@ -146,6 +202,16 @@ public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
     typesInfo.RefreshInfo(typeof(DomainObject1));
     typesInfo.RefreshInfo(typeof(DomainObject2));
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+    ' ...
+    typesInfo.RefreshInfo(GetType(DomainObject1))
+    typesInfo.RefreshInfo(GetType(DomainObject2))
+End Sub
 ```
 
 ***

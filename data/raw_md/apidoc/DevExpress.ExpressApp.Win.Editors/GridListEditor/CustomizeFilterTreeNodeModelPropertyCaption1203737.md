@@ -32,4 +32,29 @@ CustomizeFilterTreeNodeModelPropertyCaptionEventArgs e) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+'...
+Public Class CustomizeFilterTreeNodeModelPropertyCaptionController
+    Inherits ViewController(Of ListView)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim editor As GridListEditor = TryCast(View.Editor, GridListEditor)
+        If editor IsNot Nothing Then
+            AddHandler editor.CustomizeFilterTreeNodeModelPropertyCaption, _
+AddressOf Editor_CustomizeFilterTreeNodeModelPropertyCaption
+        End If
+    End Sub
+    Private Sub Editor_CustomizeFilterTreeNodeModelPropertyCaption(ByVal sender As Object, _
+ByVal e As CustomizeFilterTreeNodeModelPropertyCaptionEventArgs)
+        e.Caption = e.DefaultCaption
+    End Sub
+End Class
+```
+
 ***

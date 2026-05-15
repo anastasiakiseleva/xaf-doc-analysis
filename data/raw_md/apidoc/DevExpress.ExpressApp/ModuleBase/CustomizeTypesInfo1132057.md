@@ -33,6 +33,26 @@ public sealed class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.Persistent.Base
+'...
+Partial Public NotInheritable Class MyModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+        MyBase.CustomizeTypesInfo(typesInfo)
+        Dim Department As ITypeInfo = XafTypesInfo.Instance.FindTypeInfo(GetType(Department))
+        Department.CreateMember("Building", GetType(Integer))
+        Dim DepartmentOffice As IMemberInfo = Department.FindMember("Office")
+        DepartmentOffice.AddAttribute(New VisibleInReportsAttribute(False))
+    End Sub
+End Class
+```
+
 ***
 
 You can perform analogous actions via the [Controller.CustomizeTypesInfo](xref:DevExpress.ExpressApp.Controller.CustomizeTypesInfo(DevExpress.ExpressApp.DC.ITypesInfo)) method. It is more suitable when a feature that requires BOModel node customization is represented by a [Controller](xref:112621).

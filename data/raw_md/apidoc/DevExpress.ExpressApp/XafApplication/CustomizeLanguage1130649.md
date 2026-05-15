@@ -36,6 +36,30 @@ public sealed partial class MySolutionModule : ModuleBase {
       }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+'...
+Friend Class Program
+   Public Shared Sub Main()
+      '...
+      Dim _application As MySolutionWindowsFormsApplication = _
+      New MySolutionWindowsFormsApplication()
+      AddHandler _application.CustomizeLanguage, AddressOf application_CustomizeLanguageEventArgs
+      ' ...
+   End Sub
+   Private Shared Sub application_CustomizeLanguageEventArgs(ByVal sender As Object, _
+         ByVal e As CustomizeLanguageEventArgs)
+      e.LanguageName = "de"
+      'To use the default (English) language, use the following code line instead:
+      'e.LanguageName = "en"
+   End Sub
+End Class
+```
+
 ***
 
 > [!TIP]

@@ -67,6 +67,29 @@ namespace MySolution.Module {
     }  
 }  
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Namespace MySolution.[Module]
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+    Protected Overrides Function GetDeclaredControllerTypes() As IEnumerable(Of Type)
+        Dim originalList = CType(MyBase.GetDeclaredControllerTypes(), Type())
+        Dim newList = originalList.ToList()
+        newList.Add(GetType(ClassLibrary1.CustomController))
+        Return newList
+    End Function
+    Protected Overrides Function GetDeclaredExportedTypes() As IEnumerable(Of Type)
+        Dim originalList = MyBase.GetDeclaredExportedTypes()
+        Dim newList = originalList.ToList()
+        newList.Add(GetType(ClassLibrary1.MyCustomTask))
+        Return newList
+    End Function
+End Class
+End Namespace
+```
+
 ***
 
 ### Update the Database Using Module Updaters
@@ -109,6 +132,23 @@ public class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyModule
+    Inherits ModuleBase
+    '...
+    Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory _
+    As EditorDescriptorsFactory)
+        editorDescriptorsFactory.RegisterListEditorAlias("CustomListEditorAlias", _
+        GetType(object), True)
+        editorDescriptorsFactory.RegisterListEditor("CustomListEditorAlias", _
+        GetType(object), GetType(GridListEditor), True)
+    End Sub
+End Class
+```
+
 ***
 
 The list below describes how to customize this example.
@@ -132,6 +172,23 @@ The list below describes how to customize this example.
         }
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Public Class MyModule
+        Inherits ModuleBase
+        '...
+        Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory As EditorDescriptorsFactory)
+            '...
+            editorDescriptorsFactory.RegisterListEditorAlias("MyAlias", GetType(Object), AddressOf IsCriteriaProperty)
+        End Sub
+        Private Shared Function IsCriteriaProperty(ByVal modelClass As IModelClass) As Boolean
+            '...    
+        End Function
+    End Class
+    ```
+    
     ***
 
 The following example registers a default Property Editor:
@@ -151,6 +208,24 @@ public class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyModule
+    Inherits ModuleBase
+    '...
+    Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory _
+    As EditorDescriptorsFactory)
+        '...
+        editorDescriptorsFactory.RegisterPropertyEditorAlias("CustomPropertyEditorAlias", _
+        GetType(object), True)
+        editorDescriptorsFactory.RegisterPropertyEditor("CustomPropertyEditorAlias", _
+        GetType(object), GetType(DefaultPropertyEditor), True)
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]
@@ -179,6 +254,26 @@ The list below describes how you can modify this example.
         }
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Public Class MyModule
+        Inherits ModuleBase
+        '...
+        Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory _
+        As EditorDescriptorsFactory)
+            '... 
+            editorDescriptorsFactory.RegisterPropertyEditorAlias("MyAlias", _
+            GetType(Date), AddressOf IsMemberCompatibleHandler)
+        End Sub
+        Private Shared Function IsMemberCompatibleHandler(ByVal modelMember _
+        As IModelMember) As Boolean
+            '...
+        End Function
+    End Class
+    ```
+    
     ***
 
 You do not have to create instances of `ModuleBase` class descendants. They are created automatically.
@@ -204,6 +299,22 @@ XAF uses [reflection](https://learn.microsoft.com/en-us/dotnet/csharp/programmin
         }
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb{6,7}
+    Namespace MySolution.[Module]
+        Public NotInheritable Partial Class MySolutionModule
+            Inherits ModuleBase
+            Public Sub New()
+                InitializeComponent()
+                AdditionalControllerTypes.Add(GetType(ClassLibrary1.Controller1))
+                AdditionalExportedTypes.Add(GetType(ClassLibrary1.PersistentClass1))
+            End Sub
+        End Class
+    End Namespace
+    ```
+    
     ***
 
 * Override the `GetDeclaredControllerTypes` and `GetDeclaredExportedTypes` methods of the [ModuleBase](xref:DevExpress.ExpressApp.ModuleBase) class to add external business objects and Controllers to the Application Model:
@@ -227,6 +338,27 @@ XAF uses [reflection](https://learn.microsoft.com/en-us/dotnet/csharp/programmin
             }  
         }  
     }  
+    ```
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Namespace MySolution.[Module]
+        Public NotInheritable Partial Class MySolutionModule
+            Inherits ModuleBase
+            Protected Overrides Function GetDeclaredControllerTypes() As IEnumerable(Of Type)
+                Dim originalList = CType(MyBase.GetDeclaredControllerTypes(), Type())
+                Dim newList = originalList.ToList()
+                newList.Add(GetType(ClassLibrary1.CustomController))
+                Return newList
+            End Function
+            Protected Overrides Function GetDeclaredExportedTypes() As IEnumerable(Of Type)
+                Dim originalList = MyBase.GetDeclaredExportedTypes()
+                Dim newList = originalList.ToList()
+                newList.Add(GetType(ClassLibrary1.MyCustomTask))
+                Return newList
+            End Function
+        End Class
+    End Namespace
     ```
     ***
 

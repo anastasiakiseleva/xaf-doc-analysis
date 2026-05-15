@@ -39,6 +39,48 @@ public class AsyncAssignedToInfoController : ObjectViewController<ListView, Demo
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Xpo
+Imports MainDemo.Module.BusinessObjects
+Imports System
+Imports System.Threading
+' ...
+Public Class AsyncAssignedToInfoController
+    Inherits ObjectViewController(Of ListView, DemoTask)
+    Private contactView As View = Nothing
+    Public Sub New()
+        MyBase.New()
+        Dim showAssignedToInfoAction As New SimpleAction(Me, "Assigned contact's info", "Edit")
+        showAssignedToInfoAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler showAssignedToInfoAction.Execute, AddressOf showAssignedToInfoAction_Execute
+    End Sub
+    Private Async Sub showAssignedToInfoAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim cancellationTokenSource As New CancellationTokenSource()
+        Dim contactObjectSpace As XPObjectSpace = CType(Application.CreateObjectSpace(GetType(Contact)), XPObjectSpace)
+        contactView = Application.CreateDetailView(contactObjectSpace, "Contact_DetailView", True)
+        e.ShowViewParameters.CreatedView = contactView
+        Dim obj As Contact = Nothing
+        If ViewCurrentObject.AssignedTo IsNot Nothing Then
+            obj = CType(Await contactObjectSpace.GetObjectAsync(ViewCurrentObject.AssignedTo), Contact)
+            Dim contacts() As Contact = {obj}
+            Await contactObjectSpace.PreFetchAsync(contacts, New String() {"Tasks"})
+        End If
+        If obj Is Nothing Then
+            obj = contactObjectSpace.CreateObject(Of Contact)()
+            AddHandler contactObjectSpace.Committed, AddressOf contactObjectSpace_Committed
+        End If
+        contactView.CurrentObject = obj
+    End Sub
+    Private Sub contactObjectSpace_Committed(ByVal sender As Object, ByVal e As EventArgs)
+        ViewCurrentObject.AssignedTo = TryCast(ObjectSpace.GetObject(contactView.CurrentObject), Contact)
+    End Sub
+End Class
+```
+
 ***
 
 [!include[CancellationToken-info](~/templates/CancellationToken-info.md)]

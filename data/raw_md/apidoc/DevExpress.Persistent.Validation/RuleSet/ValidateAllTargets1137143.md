@@ -30,5 +30,16 @@ RuleSetValidationResult validationResult = Validator.RuleSet.ValidateAllTargets(
 ValidationResults obj = new ValidationResults(validationResult, base.Application.Model);
 bool flag = validationResult.State != ValidationState.Invalid;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim validationResult As RuleSetValidationResult = Validator.RuleSet.ValidateAllTargets( _
+ObjectSpace, ObjectSpace.GetObjectsToSave(False), ContextIdentifier.Save)
+Dim obj As New ValidationResults(validationResult, MyBase.Application.Model)
+Dim flag As Boolean = validationResult.State <> ValidationState.Invalid
+```
+
 ***
+
 This method raises the [RuleSet.RuleValidated](xref:DevExpress.Persistent.Validation.RuleSet.RuleValidated) event for each target.

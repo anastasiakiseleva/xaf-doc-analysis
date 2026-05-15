@@ -55,6 +55,48 @@ public class Task : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+'...
+Public Enum TaskStatus
+    Draft
+    NotStarted
+    InProgress
+    Paused
+    Completed
+    Dropped
+End Enum
+
+<DefaultClassOptions, ImageName("BO_Task")> _
+Public Class Task
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Public Property Subject() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Subject))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Subject), value)
+        End Set
+    End Property
+    Public Property Status() As TaskStatus
+        Get
+            Return GetPropertyValue(Of TaskStatus)(NameOf(Status))
+        End Get
+        Set(ByVal value As TaskStatus)
+            SetPropertyValue(Of TaskStatus)(NameOf(Status), value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 To create a state machine for this class, perform the following steps.
@@ -72,7 +114,24 @@ To create a state machine for this class, perform the following steps.
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.StateMachine.NonPersistent
+	'...
+	Public Class TaskStatusStateMachine
+	    Inherits StateMachine(Of Task)
+	    Public Overrides ReadOnly Property Name() As String
+	        Get
+	            Return "Change status to"
+	        End Get
+	    End Property
+	End Class
+	```
+	
 	***
+
 2. Decide which business class property should be used as a **state property**. To function, a state machine must be able to distinguish between object states. This is why you need to specify a property whose values will represent different object states. This can be either an _enumeration-typed property_ or a _reference property_. In this example, the **Status** property is a perfect candidate. Thus, it is used as a **state property**, and consequently, its values will be used as **state markers**. Note that different states must use different marker objects. To specify a **state property**, override the **StatePropertyName** property.
 	
 	# [C#](#tab/tabid-csharp)
@@ -85,7 +144,23 @@ To create a state machine for this class, perform the following steps.
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public Class TaskStatusStateMachine
+	    Inherits StateMachine(Of Task)
+	    '...
+	    Public Overrides ReadOnly Property StatePropertyName() As String
+	        Get
+	            Return "Status"
+	        End Get
+	    End Property
+	End Class
+	```
+	
 	***
+	
 3. Declare a set of allowed states and transitions between them. States are **State** class instances and transitions are **Transition** class instances. A state belongs to a state machine and has an associated caption and a marker. Each state has a collection of allowed transitions that specify possible target states. In this example, it should not be possible for a task to become **completed** until it is **in progress**, so the **in progress** state should not contain a **completed** transition.
 	
 	# [C#](#tab/tabid-csharp)
@@ -126,6 +201,50 @@ To create a state machine for this class, perform the following steps.
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.StateMachine
+	'...
+	Public Class TaskStatusStateMachine
+	    Inherits StateMachine(Of Task)
+	    '...
+	    Private startState_Renamed As IState
+	    Public Sub New(ByVal objectSpace As IObjectSpace)
+	        MyBase.New(objectSpace)
+	        startState_Renamed = New State(Me, TaskStatus.Draft)
+	
+	        Dim notStartedState As IState = New State(Me, "Not Started", TaskStatus.NotStarted)
+	        Dim inProgressState As IState = New State(Me, "In Progress", TaskStatus.InProgress)
+	        Dim pausedState As IState = New State(Me, TaskStatus.Paused)
+	        Dim completedState As IState = New State(Me, TaskStatus.Completed)
+	        Dim droppedState As IState = New State(Me, TaskStatus.Dropped)
+	
+	        startState_Renamed.Transitions.Add(New Transition(notStartedState))
+	        notStartedState.Transitions.Add(New Transition(startState_Renamed))
+	        notStartedState.Transitions.Add(New Transition(inProgressState))
+	        inProgressState.Transitions.Add(New Transition(pausedState))
+	        inProgressState.Transitions.Add(New Transition(completedState))
+	        inProgressState.Transitions.Add(New Transition(droppedState))
+	        pausedState.Transitions.Add(New Transition(inProgressState))
+	        droppedState.Transitions.Add(New Transition(notStartedState))
+	
+	        States.Add(startState_Renamed)
+	        States.Add(notStartedState)
+	        States.Add(inProgressState)
+	        States.Add(pausedState)
+	        States.Add(completedState)
+	        States.Add(droppedState)
+	    End Sub
+	    Public Overrides ReadOnly Property StartState() As IState
+	        Get
+	            Return startState_Renamed
+	        End Get
+	    End Property
+	End Class
+	```
+	
 	***
 	
 	After you have defined states, transitions, and appearance rules in a state machine constructor, add them to the machine's **States** collection. Override the **StartState** property to specify the initial state for newly created objects.
@@ -150,7 +269,32 @@ To create a state machine for this class, perform the following steps.
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public Class TaskStatusStateMachine
+	    Inherits StateMachine(Of Task)
+	    Private startState_Renamed As IState
+	    '...
+	    Public Sub New(ByVal objectSpace As IObjectSpace)
+	        MyBase.New(objectSpace)
+	        '...
+	        Dim inProgressAppearance As New StateAppearance(inProgressState)
+	        inProgressAppearance.TargetItems = "Subject"
+	        inProgressAppearance.Enabled = False
+	        Dim completedAppearance As New StateAppearance(completedState)
+	        completedAppearance.TargetItems = "Subject"
+	        completedAppearance.Enabled = False
+	        Dim pausedAppearance As New StateAppearance(pausedState)
+	        pausedAppearance.TargetItems = "*"
+	        pausedAppearance.BackColor = System.Drawing.Color.Yellow
+	    End Sub
+	End Class
+	```
+	
 	***
+
 5. Implement the **IStateMachineProvider** interface in the target business class. The interface's only member - **GetStateMachines** method - returns a list of all state machines available for the business class.
 	
 	# [C# (EF Core)](#tab/tabid-csharp-ef)
@@ -187,6 +331,24 @@ To create a state machine for this class, perform the following steps.
 	    }
 	}
 	```
+	
+	# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+	
+	```vb
+	Imports System.Collections.Generic
+	'...
+	Public Class Task
+	    Inherits BaseObject
+	    Implements IStateMachineProvider
+	    '...
+	    Public Function GetStateMachines() As IList(Of IStateMachine)
+	        Dim result As New List(Of IStateMachine)()
+	        result.Add(New TaskStatusStateMachine(XPObjectSpace.FindObjectSpaceByObject(Me)))
+	        Return result
+	    End Function
+	End Class
+	```
+	
 	***
 
 The State Machine module will display the **ChangeStateAction** Action in **Task** Views. The Action is provided by the **StateMachineController**.
@@ -208,6 +370,22 @@ public class TaskStatusStateMachine : StateMachine<Task>, IStateMachineUISetting
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{3,5-9}
+Public Class TaskStatusStateMachine
+    Inherits StateMachine(Of Task)
+    Implements IStateMachineUISettings
+    '...
+    Public ReadOnly Property ExpandActionsInDetailView() As Boolean
+        Get
+            Return True
+        End Get
+    End Property
+End Class
+```
+
 ***
 
 In this instance, the target business class Detail Views will contain separate [Simple Actions](xref:112622) corresponding to available state transitions.

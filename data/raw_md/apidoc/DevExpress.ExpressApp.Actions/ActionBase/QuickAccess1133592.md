@@ -32,6 +32,26 @@ public class NewObjectActionController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+
+Public Class NewObjectActionController
+    Inherits WindowController
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim newObjectViewController As NewObjectViewController = Window.GetController(Of NewObjectViewController)()
+        If newObjectViewController IsNot Nothing Then
+            newObjectViewController.NewObjectAction.QuickAccess = True
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 The following image illustrates the **New** Action, accessible via the Quick Access Toolbar.

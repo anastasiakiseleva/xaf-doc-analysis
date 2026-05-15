@@ -25,6 +25,18 @@ if (creatableList) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myView As View
+'...
+Dim creatableList As BoolList = myView.AllowNew
+If creatableList.ResultValue Then
+    '...
+End If
+```
+
 ***
 
 To prohibit creation of new objects, use the [BoolList.SetItemValue](xref:DevExpress.ExpressApp.Utils.BoolList.SetItemValue(System.String,System.Boolean)) method of the **BoolList** object returned by this property. Pass the prohibition reason as the first parameter, and **false**, or a Boolean expression as the second parameter. Alternatively, you can use the **[_key_]** operator of the **BoolList** object returned by the **AllowNew** property, to get or set the specified key's value.
@@ -37,6 +49,16 @@ View myView;
 BoolList creatableList = myView.AllowNew;
 creatableList["myKey"] = false;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myView As View
+'...
+Dim creatableList As BoolList = myView.AllowNew
+creatableList("myKey") = False
+```
+
 ***
 
 To allow new objects to be created, use the [BoolList.RemoveItem](xref:DevExpress.ExpressApp.Utils.BoolList.RemoveItem(System.String)) method of the **BoolList** object returned by this property. Pass the key (reason) of the item with the **false** value.  Call this method as many times as there are items with the **false** value. Alternatively, you can call the [BoolList.SetItemValue](xref:DevExpress.ExpressApp.Utils.BoolList.SetItemValue(System.String,System.Boolean)) method by passing the key, which has **false** as a value, and **true** as a new value for it.
@@ -49,6 +71,16 @@ View myView;
 BoolList creatableList = myView.AllowNew;
 creatableList["disablingKey"] = true;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myView As View
+'...
+Dim creatableList As BoolList = myView.AllowNew
+creatableList("disablingKey") = True
+```
+
 ***
 
 # [C#](#tab/tabid-csharp)
@@ -64,6 +96,22 @@ public class MyController : ViewController {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyController
+      Inherits ViewController
+   Private Sub UpdateViewStateEventHandler(ByVal sender As Object, ByVal e As EventArgs)
+      View.AllowNew.SetItemValue("CurrentUser", SecuritySystem.CurrentUser.FirstName = "Sam")
+   End Sub
+   Protected Overrides Sub OnActivated()
+      MyBase.OnActivated()
+      AddHandler View.CurrentObjectChanged, AddressOf UpdateViewStateEventHandler
+   End Sub
+End Class
+```
+
 ***
 
 When a View's **AllowNew** state is changed, the [View.AllowNewChanged](xref:DevExpress.ExpressApp.View.AllowNewChanged) event is raised.

@@ -35,6 +35,26 @@ public class CustomizeNewActionItemsListController : ObjectViewController<Object
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Public Class CustomizeNewActionItemsListController
+    Inherits ObjectViewController(Of ObjectView, Task)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim controller As NewObjectViewController = Frame.GetController(Of NewObjectViewController)()
+        If controller IsNot Nothing Then
+            controller.NewObjectActionItemListMode = NewObjectActionItemListMode.LastDescendantsOnly
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 To specify the default value applied in all Views, use the static [NewObjectViewController.DefaultNewObjectActionItemListMode](xref:DevExpress.ExpressApp.SystemModule.NewObjectViewController.DefaultNewObjectActionItemListMode) field.

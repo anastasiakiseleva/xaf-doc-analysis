@@ -21,9 +21,9 @@ The Office Module integrates the following DevExpress controls into an XAF appli
 To enable the Office module in your application follow the steps below:
 
 1. Install NuGet packages that contain the Office module:
-    * [DevExpress.ExpressApp.Office](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office)
-    * [DevExpress.ExpressApp.Office.Blazor](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office.Blazor)
-    * [DevExpress.ExpressApp.Office.Win](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office.Win)
+    * [DevExpress.ExpressApp.Office](https://nuget.org/packages/DevExpress.ExpressApp.Office)
+    * [DevExpress.ExpressApp.Office.Blazor](https://nuget.org/packages/DevExpress.ExpressApp.Office.Blazor)
+    * [DevExpress.ExpressApp.Office.Win](https://nuget.org/packages/DevExpress.ExpressApp.Office.Win)
 2. Navigate to the _MyApplication.Blazor.Server\Startup.cs_ file (for Blazor) or _MyApplication.Win\Startup.cs_ file (for WinForms) and call the [AddOffice](xref:DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeApplicationBuilderExtensions.AddOffice(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder},System.Action{DevExpress.ExpressApp.Blazor.ApplicationBuilder.OfficeOptions})) (for Blazor) / [AddOffice](xref:DevExpress.ExpressApp.Win.ApplicationBuilder.OfficeApplicationBuilderExtensions.AddOffice(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder},System.Action{DevExpress.ExpressApp.Office.Win.OfficeOptions})) (for WinForms) method:
 
     # [ASP.NET Core Blazor](#tab/tabid-appbuilder-blazor)
@@ -63,9 +63,9 @@ Refer to the following help topics for details on how to work with the office co
 
 | Platform | Module | NuGet package |
 | -------- | ------ | ------------- |
-| Platform-agnostic | @DevExpress.ExpressApp.Office.OfficeModule | [DevExpress.ExpressApp.Office](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office) |
-| ASP.NET Core Blazor | @DevExpress.ExpressApp.Office.Blazor.OfficeBlazorModule | [DevExpress.ExpressApp.Office.Blazor](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office.Blazor) |
-| Windows Forms | @DevExpress.ExpressApp.Office.Win.OfficeWindowsFormsModule | [DevExpress.ExpressApp.Office.Win](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Office.Win) |
+| Platform-agnostic | @DevExpress.ExpressApp.Office.OfficeModule | [DevExpress.ExpressApp.Office](https://nuget.org/packages/DevExpress.ExpressApp.Office) |
+| ASP.NET Core Blazor | @DevExpress.ExpressApp.Office.Blazor.OfficeBlazorModule | [DevExpress.ExpressApp.Office.Blazor](https://nuget.org/packages/DevExpress.ExpressApp.Office.Blazor) |
+| Windows Forms | @DevExpress.ExpressApp.Office.Win.OfficeWindowsFormsModule | [DevExpress.ExpressApp.Office.Win](https://nuget.org/packages/DevExpress.ExpressApp.Office.Win) |
 
 On Linux, the Office Module for Blazor might need extra libraries: [Use Office File API on Linux - Prerequisites](xref:401441#prerequisites).
 

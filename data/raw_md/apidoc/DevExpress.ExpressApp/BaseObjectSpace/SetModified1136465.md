@@ -32,6 +32,27 @@ public partial class MyViewController : ViewController {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Partial Class MyViewController
+      Inherits ViewController
+   '...
+   Private Sub MyViewController_AfterConstruction(ByVal sender As Object, _
+         ByVal e As EventArgs)
+      Me.deleteAction.TargetViewNesting = DevExpress.ExpressApp.Nesting.Nested
+      Me.deleteAction.TargetViewType = DevExpress.ExpressApp.ViewType.ListView
+   End Sub
+   Private Sub deleteAction_Execute(ByVal sender As Object, _
+         ByVal e As SimpleActionExecuteEventArgs)
+      For Each obj As Object In View.SelectedObjects
+         TryCast(View, ListView).CollectionSource.Remove(obj)
+         TryCast(View, ListView).CollectionSource.ObjectSpace.SetModified(obj)
+      Next obj
+   End Sub
+End Class
+```
 ***
 
 When executing the Delete Action demonstrated above, the selected objects will be marked as objects to be deleted and the nested List View's editor will be refreshed. Since nested List Views are created in the parent Detail View's Object Space, the deleted objects will actually be removed when executing the Detail View's Save or SaveAndClose Action.

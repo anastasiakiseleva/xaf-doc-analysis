@@ -25,6 +25,19 @@ public class Updater : ModelNodesGeneratorUpdater<NavigationItemNodeGenerator> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModelNodesGeneratorUpdater(Of )
+    Public Overrides Sub UpdateNode(ByVal node As ModelNode)
+        ' Cast the 'node' parameter to IModelRootNavigationItems
+        ' to access the NavigationItems node.
+    End Sub
+End Class
+```
+
 ***
 
 The Generator Updater above should be registered within the overridden [ModuleBase.AddGeneratorUpdaters](xref:DevExpress.ExpressApp.ModuleBase.AddGeneratorUpdaters(DevExpress.ExpressApp.Model.Core.ModelNodesGeneratorUpdaters)) method.

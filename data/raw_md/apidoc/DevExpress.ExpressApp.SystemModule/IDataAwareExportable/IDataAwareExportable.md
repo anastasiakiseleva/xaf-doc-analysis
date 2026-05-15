@@ -44,4 +44,34 @@ public class CustomizeExportTypeController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.Export
+' ...
+Public Class CustomizeExportTypeController
+    Inherits ViewController
+    Private exportController As ExportController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        exportController = Frame.GetController(Of ExportController)()
+        If exportController IsNot Nothing Then
+            AddHandler exportController.CustomExport, AddressOf CustomExport
+        End If
+    End Sub
+    Protected Overridable Sub CustomExport(ByVal sender As Object, ByVal e As CustomExportEventArgs)
+        CType(e.ExportOptions, IDataAwareExportOptions).ExportType = ExportType.WYSIWYG
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If exportController IsNot Nothing Then
+             RemoveHandler exportController.CustomExport, AddressOf CustomExport
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

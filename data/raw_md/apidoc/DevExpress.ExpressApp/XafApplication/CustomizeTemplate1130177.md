@@ -38,6 +38,35 @@ public class MyHideToolbarController : Controller {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Templates
+'...
+Public Class MyHideToolbarController
+    Inherits Controller
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Application.CustomizeTemplate, AddressOf Application_CustomizeTemplate
+    End Sub
+    Private Sub Application_CustomizeTemplate(ByVal sender As Object, _
+    ByVal e As CustomizeTemplateEventArgs)
+        If e.Context = TemplateContext.NestedFrame Then
+            Dim template As ISupportActionsToolbarVisibility = _
+            TryCast(e.Template, ISupportActionsToolbarVisibility)
+            If template IsNot Nothing Then
+                template.SetVisible(false)
+            End If
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Application.CustomizeTemplate, AddressOf Application_CustomizeTemplate
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 In Windows Forms applications, this event is raised after XAF creates a [Template](xref:112609) and before the template is assigned to a [Window](xref:112608).

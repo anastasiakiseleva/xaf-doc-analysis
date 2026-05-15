@@ -88,6 +88,62 @@ public class Issue : BaseObject, ICategorizedItem {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base.General
+'...
+<DefaultClassOptions> _
+Public Class Issue
+      Inherits BaseObject
+      Implements ICategorizedItem
+   Private fCategory As Category
+   Private fSubject As String
+   Private fDescription As String
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Public Sub New(ByVal session As Session, ByVal fSubject As String)
+      MyBase.New(session)
+      Me.fSubject = fSubject
+   End Sub
+   <Association("Category-Issues")> _
+   Public Property Category() As Category
+      Get
+         Return fCategory
+      End Get
+      Set
+         SetPropertyValue(NameOf(Category), fCategory, Value)
+      End Set
+   End Property
+   Public Property Subject() As String
+      Get
+         Return fSubject
+      End Get
+      Set
+         SetPropertyValue(NameOf(Subject), fSubject, Value)
+      End Set
+   End Property
+   Public Property Description() As String
+      Get
+         Return fDescription
+      End Get
+      Set
+         SetPropertyValue(NameOf(Description), fDescription, Value)
+      End Set
+   End Property
+   Private Property ICategorizedItem_Category() As ITreeNode Implements ICategorizedItem.Category
+      Get
+         Return Category
+      End Get
+      Set
+         Category = CType(Value, Category)
+      End Set
+   End Property
+End Class
+```
+
 ***
 
 > [!NOTE]
@@ -157,6 +213,42 @@ public abstract class Category : BaseObject, ITreeNode {
   //...
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<NavigationItem> _
+Public MustInherit Class Category
+      Inherits BaseObject
+      Implements ITreeNode
+   <Association("Category-Issues")> _
+   Public ReadOnly Property Issues() As XPCollection(Of Issue)
+      Get
+         Return GetCollection(Of Issue)(NameOf(Issues))
+      End Get
+   End Property
+   Private fAllIssues As XPCollection(Of Issue)
+   Public ReadOnly Property AllIssues() As XPCollection(Of Issue)
+      Get
+         If fAllIssues Is Nothing Then
+            fAllIssues = New XPCollection(Of Issue)(Session, False)
+            CollectIssuesRecursive(Me, fAllIssues)
+            fAllIssues.BindingBehavior = CollectionBindingBehavior.AllowNone
+         End If
+         Return fAllIssues
+      End Get
+   End Property
+   Private Sub CollectIssuesRecursive(ByVal issueCategory As Category, _
+         ByVal target As XPCollection(Of Issue))
+      target.AddRange(issueCategory.Issues)
+      For Each childCategory As Category In issueCategory.Children
+      CollectIssuesRecursive(childCategory, target)
+      Next childCategory
+   End Sub
+  '...
+End Class
+```
+
 ***
 
 Check that the TreeList Editors module is added to the Windows Forms application project, and run the application. Invoke the Issue List View. Select a tree node in the tree list to the left and execute the New Action, to create an Issue for the corresponding Category object. To the right of the tree list, a list of Issue objects associated with the currently selected tree node is displayed.

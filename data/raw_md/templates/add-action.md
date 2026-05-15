@@ -17,6 +17,28 @@ public class CustomViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+' ...
+Public Class CustomViewController
+    Inherits ViewController
+    Public Sub New()
+        Dim customAction As New SimpleAction(Me, "CustomAction", PredefinedCategory.View)
+        ' or
+        customAction.Category = PredefinedCategory.View.ToString()
+        ' or 
+        customAction.Category = "View"
+        ' or 
+        customAction.Category = "MyCustomCategory"
+    End Sub
+End Class
+```
+
 ***
 [`ViewController`]: xref:DevExpress.ExpressApp.ViewController
 [`SimpleAction`]: xref:DevExpress.ExpressApp.Actions.SimpleAction

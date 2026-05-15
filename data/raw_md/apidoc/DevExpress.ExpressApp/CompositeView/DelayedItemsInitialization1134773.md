@@ -27,6 +27,19 @@ namespace SolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Public Class DisablePerformanceOptimizationController
+    Inherits ViewController(Of DetailView)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        View.DelayedItemsInitialization = False
+    End Sub
+End Class
+```
 ***
 
 You can also change this setting globally for all Views using the [XafApplication.DelayedViewItemsInitialization](xref:DevExpress.ExpressApp.XafApplication.DelayedViewItemsInitialization) property.

@@ -124,7 +124,7 @@ This lesson explains how to create a Many-to-Many relationship between two entit
 
     This declaration of the `Tasks` collection property completes the relationship. Now the classes reference each other. 
 
-4. Go to the _MySolution.Module\MySolutionDbContext_ file and add a DbSet of the `Task` type:
+4. Go to the _MySolution.Module\BusinessObjects\MySolutionDbContext_ file and add a DbSet of the `Task` type:
 
      ```csharp
     public class MySolutionEFCoreDbContext : DbContext {

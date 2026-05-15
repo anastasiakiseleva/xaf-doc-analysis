@@ -17,4 +17,26 @@ public class MyViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Actions
+' ...
+Public Class MyViewController
+    Inherits ViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim controller As ObjectMethodActionsViewController = Frame.GetController(Of ObjectMethodActionsViewController)()
+        If controller IsNot Nothing Then
+            Dim markCompletedAction As SimpleAction = TryCast(controller.Actions("Task.MarkCompleted"), SimpleAction)
+            ' ...
+        End If
+        ' ...
+    End Sub
+End Class
+```
+
 ***

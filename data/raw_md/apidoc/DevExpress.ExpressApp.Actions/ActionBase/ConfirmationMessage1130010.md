@@ -47,4 +47,28 @@ public class SetNickNameController : ObjectViewController<DetailView, Contact> {
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class SetNickNameController
+    Inherits ObjectViewController(Of DetailView, Contact)
+    Public Sub New()
+        Dim setNickNameAction As New SimpleAction(Me, "SetNickName", PredefinedCategory.Edit)
+        setNickNameAction.ConfirmationMessage = "Do you want to continue?"
+        AddHandler setNickNameAction.Execute, AddressOf SetNickNameAction_Execute
+    End Sub
+    Private Sub SetNickNameAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim currentObject As Contact = ViewCurrentObject
+        If currentObject IsNot Nothing Then
+            currentObject.NickName = currentObject.FirstName
+        End If
+    End Sub
+End Class
+```
 ***

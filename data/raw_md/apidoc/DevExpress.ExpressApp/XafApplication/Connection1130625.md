@@ -26,6 +26,19 @@ static void Main() {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Shared Sub Main()
+   '...
+   Dim _application As MySolutionWindowsFormsApplication = New MySolutionWindowsFormsApplication()
+   _application.Connection = New OracleConnection(...)
+   _application.Setup()
+   '...
+End Sub
+```
+
 ***
 
 By default, SQL connection is used.

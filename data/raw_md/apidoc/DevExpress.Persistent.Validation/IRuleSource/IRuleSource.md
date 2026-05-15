@@ -194,6 +194,141 @@ public class RuleRequiredFieldPersistent : BaseObject, IRuleSource {
     #endregion
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports System
+Imports System.Collections.Generic
+Imports System.ComponentModel
+Imports System.Reflection
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Persistent.Validation
+Imports DevExpress.Xpo
+' ...
+<DefaultClassOptions>
+Public Class RuleRequiredFieldPersistent
+    Inherits BaseObject
+    Implements IRuleSource
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Public Property RuleName() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(RuleName))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(RuleName), value)
+        End Set
+    End Property
+    Public Property CustomMessageTemplate() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(CustomMessageTemplate))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(CustomMessageTemplate), value)
+        End Set
+    End Property
+    Public Property SkipNullOrEmptyValues() As Boolean
+        Get
+            Return GetPropertyValue(Of Boolean)(NameOf(SkipNullOrEmptyValues))
+        End Get
+        Set(ByVal value As Boolean)
+            SetPropertyValue(NameOf(SkipNullOrEmptyValues), value)
+        End Set
+    End Property
+    Public Property Id() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Id))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Id), value)
+        End Set
+    End Property
+    Public Property InvertResult() As Boolean
+        Get
+            Return GetPropertyValue(Of Boolean)(NameOf(InvertResult))
+        End Get
+        Set(ByVal value As Boolean)
+            SetPropertyValue(NameOf(InvertResult), value)
+        End Set
+    End Property
+    Public Property ContextIDs() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(ContextIDs))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(ContextIDs), value)
+        End Set
+    End Property
+    Public Property [Property]() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf([Property]))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf([Property]), value)
+        End Set
+    End Property
+    <Persistent("ObjectType")>
+    Protected Property ObjectType() As String
+        Get
+            If ObjectTypeCore IsNot Nothing Then
+                Return ObjectTypeCore.FullName
+            End If
+            Return ""
+        End Get
+        Set(ByVal value As String)
+            ObjectTypeCore = ReflectionHelper.FindType(value)
+        End Set
+    End Property
+    <NonPersistent, TypeConverter(GetType(LocalizedClassInfoTypeConverter))>
+    Public Property ObjectTypeCore() As Type
+        Get
+            Return GetPropertyValue(Of Type)(NameOf(ObjectTypeCore))
+        End Get
+        Set(ByVal value As Type)
+            SetPropertyValue(NameOf(ObjectTypeCore), value)
+        End Set
+    End Property
+#Region "IRuleSource Members"
+    Public Function CreateRules() As ICollection(Of IRule) _
+    Implements IRuleSource.CreateRules
+        Dim list As New List(Of IRule)()
+        Dim rule As New RuleRequiredField()
+        rule.Properties.SkipNullOrEmptyValues = Me.SkipNullOrEmptyValues
+        rule.Properties.Id = Me.Id
+        rule.Properties.InvertResult = Me.InvertResult
+        rule.Properties.CustomMessageTemplate = Me.CustomMessageTemplate
+        rule.Properties.TargetContextIDs = Me.ContextIDs
+        rule.Properties.TargetType = Me.ObjectTypeCore
+        If rule.Properties.TargetType IsNot Nothing Then
+            For Each pi As PropertyInfo In rule.Properties.TargetType.GetProperties()
+                If pi.Name = Me.Property Then
+                    rule.Properties.TargetPropertyName = pi.Name
+                End If
+            Next pi
+        End If
+        For i As Integer = Validator.RuleSet.RegisteredRules.Count - 1 To 0 Step -1
+            If Validator.RuleSet.RegisteredRules(i).Id = Me.Id Then
+                Validator.RuleSet.RegisteredRules.RemoveAt(i)
+            End If
+        Next i
+        list.Add(rule)
+        Return list
+    End Function
+    <Browsable(False)>
+    Public ReadOnly Property Name() As String _
+    Implements IRuleSource.Name
+        Get
+            Return Me.RuleName
+        End Get
+    End Property
+#End Region
+End Class
+```
+
 ***
 
 ## Limitations

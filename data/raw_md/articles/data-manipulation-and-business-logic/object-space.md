@@ -119,6 +119,13 @@ Use the [XafApplication.CreateObjectSpace(Type)](xref:DevExpress.ExpressApp.XafA
 ```csharp
 IObjectSpace objectSpace = this.Application.CreateObjectSpace(typeof(MyBusinessClass)); 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim objectSpace As IObjectSpace = Me.Application.CreateObjectSpace(GetType(MyBusinessClass))
+```
+
 ***
 
 **See also:**

@@ -25,6 +25,18 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
 
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Win.Editors
+'...
+Public Class MyDecimalCalcEditPropertyEditor
+   Inherits DXPropertyEditor
+
+End Class
+```
+
 ***
 
 When implementing a Property Editor, you should apply the **PropertyEditor** attribute to it. This attribute represents an indicator for the [Application Model](xref:112580) loader. The classes that use this attribute can be set to display properties of the type specified by the attribute's parameter.
@@ -40,6 +52,20 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
 
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Win.Editors
+'...
+<PropertyEditor(GetType(Decimal), True)> _
+Public Class MyDecimalCalcEditPropertyEditor
+   Inherits DXPropertyEditor
+
+End Class
+```
+
 ***
 
 The Property Editor is now available within Property Editor types that can display decimal properties. To set a Property Editor to be automatically used for all properties of a specified data type, pass **true** as the second attribute parameter.
@@ -61,6 +87,23 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Model
+'...
+<PropertyEditor(GetType(Decimal), True)> _
+Public Class MyDecimalCalcEditPropertyEditor
+      Inherits DXPropertyEditor
+    Public Sub New(ByVal objectType As Type, ByVal model As IModelMemberViewItem)
+        MyBase.New(objectType, model)
+    End Sub
+End Class
+```
+
 ***
 
 To specify the CalcEdit editor as a control to be used to display the Property Editor's property, override the **CreateControlCore** method:
@@ -78,6 +121,22 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
 //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.XtraEditors
+'...
+<PropertyEditor(GetType(Decimal), True)> _
+Public Class MyDecimalCalcEditPropertyEditor
+      Inherits DXPropertyEditor
+   Protected Overrides Function CreateControlCore() As Object
+      Return New CalcEdit()
+   End Function
+'...
+End Class
+```
+
 ***
 
 To specify the required settings for the Property Editor, override the **SetupRepositoryItem** method (see [](xref:DevExpress.ExpressApp.Win.Editors.DXPropertyEditor)). This method's _item_ parameter specifies the default repository item created for the CalcEdit editor (see [CalcEdit.Properties](xref:DevExpress.XtraEditors.CalcEdit.Properties)).
@@ -97,6 +156,24 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.XtraEditors.Repository
+'...
+<PropertyEditor(GetType(Decimal), True)> _
+Public Class MyDecimalCalcEditPropertyEditor
+      Inherits DXPropertyEditor
+   Protected Overrides Sub SetupRepositoryItem(ByVal item As RepositoryItem)
+      MyBase.SetupRepositoryItem(item)
+      CType(item, RepositoryItemCalcEdit).Mask.EditMask = "C"
+      CType(item, RepositoryItemCalcEdit).Mask.UseMaskAsDisplayFormat = True
+   End Sub
+   '...
+End Class
+```
+
 ***
 
 In the code snippet above, the Currency mask is set for the editor. The same mask is used as the display format.
@@ -114,6 +191,24 @@ public class MyDecimalCalcEditPropertyEditor : DXPropertyEditor {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.XtraEditors.Repository
+'...
+<PropertyEditor(GetType(Decimal), True)> _
+Public Class MyDecimalCalcEditPropertyEditor
+      Inherits DXPropertyEditor
+   Protected Overrides Sub SetupRepositoryItem(ByVal item As RepositoryItem)
+      MyBase.SetupRepositoryItem(item)
+      CType(item, RepositoryItemCalcEdit).Mask.EditMask = "C"
+      CType(item, RepositoryItemCalcEdit).Mask.UseMaskAsDisplayFormat = True
+   End Sub
+   '...
+End Class
+```
+
 ***
 
 > [!NOTE]

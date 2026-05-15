@@ -44,7 +44,7 @@ This lesson explains how to create a One-to-Many relationship between two entiti
 
     Refer to the following topic for more information: [Data Annotations in Data Model](xref:112701).
 
-2. Go to the _MySolution.Module\MySolutionDbContext_ file and add a DbSet of the `Department` class:
+2. Go to the _MySolution.Module\BusinessObjects\MySolutionDbContext_ file and add a DbSet of the `Department` class:
 
     ```csharp{3}
     public class MySolutionEFCoreDbContext : DbContext {

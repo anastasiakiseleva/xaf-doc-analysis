@@ -29,6 +29,23 @@ public class ProjectTaskController : ViewController {
     Application.ShowViewStrategy.ShowMessage(options);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Public Class ProjectTaskController
+    Inherits ViewController
+    '…
+    Private options As New MessageOptions()
+    options.CancelDelegate = Sub()
+        'Place here your code that is executed on a Cancel button click.
+    End Sub
+    '…
+    Application.ShowViewStrategy.ShowMessage(options)
+End Class
+```
+
 ***
 
 ### ASP.NET Core Blazor UI

@@ -1,6 +1,5 @@
 ---
 uid: "117454"
-seealso: []
 title: 'Access the Dashboard Control'
 seealso:
   - linkId: '404466'

@@ -25,6 +25,18 @@ if(myList) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myList As BoolList = New BoolList()
+myList("myKey") = True
+'...
+If (myList) Then
+    '...
+End If
+```
+
 ***
 
 For a general description of the **BoolList** class, refer to the [](xref:DevExpress.ExpressApp.Utils.BoolList) class description.

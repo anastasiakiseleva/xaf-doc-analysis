@@ -52,6 +52,34 @@ public class MyPropertyEditor : WinPropertyEditor {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Win.Editors
+' ...
+<PropertyEditor(GetType(Integer), False)> _
+Public Class MyPropertyEditor
+    Inherits WinPropertyEditor
+    Public Sub New(ByVal objectType As Type, ByVal model As IModelMemberViewItem)
+        MyBase.New(objectType, model)
+    End Sub
+    Protected Overrides Function CreateControlCore() As Object
+        Dim trackbarControl As New System.Windows.Forms.TrackBar()
+        trackbarControl.Minimum = 0
+        trackbarControl.Maximum = 100
+        AddHandler trackbarControl.Scroll, AddressOf trackbarControl_Scroll
+        Me.ControlBindingProperty = "Value"
+        Return trackbarControl
+    End Function
+    Private Sub trackbarControl_Scroll(ByVal sender As Object, ByVal e As EventArgs)
+        Me.OnControlValueChanged()
+    End Sub
+End Class
+```
+
 ***
 
 > [!TIP]

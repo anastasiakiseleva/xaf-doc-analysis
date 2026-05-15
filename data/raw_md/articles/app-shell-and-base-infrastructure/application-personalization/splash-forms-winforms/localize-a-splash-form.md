@@ -13,7 +13,7 @@ Use one of the approaches below to localize [splash forms](xref:112680) that hav
 
 Use this approach for [splash forms](xref:112680) that support the [](xref:DevExpress.ExpressApp.Win.ISplash) interface.
 
-Open the _Program.cs_ (_Program.vb_) file in the [WinForms Application project](xref:118045). Call the [ISplash.SetDisplayText](xref:DevExpress.ExpressApp.Win.ISplash.SetDisplayText(System.String)) method before methods that start the application. Specify the text you require. A Splash Screen or a Wait Form that is currently open displays this text.
+Open the _Program.cs_ file in the [WinForms Application project](xref:118045). Call the [ISplash.SetDisplayText](xref:DevExpress.ExpressApp.Win.ISplash.SetDisplayText(System.String)) method before methods that start the application. Specify the text you require. A Splash Screen or a Wait Form that is currently open displays this text.
 	
 # [C#](#tab/tabid-csharp)
 
@@ -47,7 +47,7 @@ To localize [splash forms](xref:112680) that support the @DevExpress.ExpressApp.
 
 ### Localize Status Messages Manually
 
-Access the _WinApplication.cs_ (_WinApplication.vb_) file in the [WinForms Application project](xref:118045). Override the [WinApplication.UpdateStatus](xref:DevExpress.ExpressApp.Win.WinApplication.UpdateStatus(System.String,System.String,System.String,System.Object[])) method. To determine the current context, compare the _context_ parameter with one of the **ApplicationStatusMessageId** enumeration values.
+Access the _WinApplication.cs_ file in the [WinForms Application project](xref:118045). Override the [WinApplication.UpdateStatus](xref:DevExpress.ExpressApp.Win.WinApplication.UpdateStatus(System.String,System.String,System.String,System.Object[])) method. To determine the current context, compare the _context_ parameter with one of the **ApplicationStatusMessageId** enumeration values.
 
 # [C#](#tab/tabid-csharp)
 

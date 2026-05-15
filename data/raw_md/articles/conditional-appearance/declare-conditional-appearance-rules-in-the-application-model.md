@@ -69,6 +69,17 @@ private static bool DisablePropertyByStaticMethod() {
 }
 public string SampleProperty { get; set; }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Appearance("DisableSampleProperty", TargetItems := "SampleProperty", Enabled := False)> _
+Private Shared Function DisablePropertyByStaticMethod() As Boolean
+    Return True
+End Function
+Public Property SampleProperty() As String
+```
+
 ***
 
 When specifying the **Method** property, use a drop-down list to select the required method.

@@ -38,6 +38,21 @@ public class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyController
+    Inherits ViewController
+    Public Sub New()
+        TargetObjectType = GetType(Task)
+        Dim myAction As New SimpleAction(Me, "MyAction", DevExpress.Persistent.Base.PredefinedCategory.Unspecified)
+        myAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects
+        myAction.TargetObjectsCriteria = "DueDate <= LocalDateTimeToday()"
+    End Sub
+End Class
+```
+
 ***
 
 The **TargetObjectsCriteria** property is appropriate for Actions displayed only for specific business object types. If an Action is displayed for a type that does not have properties specified in the **TargetObjectsCriteria** expression, an exception will be thrown. That is why if you wish to define the **TargetObjectsCriteria** for an Action that can be displayed for multiple types (e.g., for one of the built-in actions), do this dynamically in code when a View of the required type is displayed, and clear the passed value when this View is closed:
@@ -68,4 +83,34 @@ public class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyController
+    Inherits ViewController
+
+    Public Sub New()
+        TargetObjectType = GetType(Department)
+    End Sub
+    Private deleteController As DeleteObjectsViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        deleteController = Frame.GetController(Of DeleteObjectsViewController)()
+        If deleteController IsNot Nothing Then
+            deleteController.DeleteAction.TargetObjectsCriteria = "Contacts.Count = 0"
+            deleteController.DeleteAction.TargetObjectsCriteriaMode = TargetObjectsCriteriaMode.TrueForAll
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        If deleteController IsNot Nothing Then
+            deleteController.DeleteAction.TargetObjectsCriteria = Nothing
+            deleteController.DeleteAction.TargetObjectsCriteriaMode = Nothing
+            deleteController = Nothing
+        End If
+    End Sub
+End Class
+```
+
 ***

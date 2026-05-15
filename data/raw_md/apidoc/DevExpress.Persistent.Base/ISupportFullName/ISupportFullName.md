@@ -68,4 +68,48 @@ public class DemoObject : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+' ...
+Public Class FileDataEx
+    Inherits FileData
+    Implements ISupportFullName
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fullName_Renamed As String
+    <ModelDefault("AllowEdit", "False")>
+    Public Property FullName() As String
+        Get
+            Return fullName_Renamed
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(FullName), fullName_Renamed, value)
+        End Set
+    End Property
+End Class
+<DefaultClassOptions>
+Public Class DemoObject
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private file_Renamed As FileDataEx
+    Public Property File() As FileDataEx
+        Get
+           Return file_Renamed
+        End Get
+        Set(ByVal value As FileDataEx)
+            SetPropertyValue(NameOf(File), file_Renamed, value)
+        End Set
+    End Property
+End Class
+```
+
 ***

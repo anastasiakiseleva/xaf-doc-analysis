@@ -4,7 +4,7 @@ name: View
 type: Class
 summary: The base class for [Views](xref:112611).
 syntax:
-  content: 'public abstract class View : ISelectionContext, IDisposable'
+  content: 'public abstract class View : ISelectionContext, IDisposable, INotifyDisposed'
 seealso:
 - linkId: DevExpress.ExpressApp.View._members
   altText: View Members

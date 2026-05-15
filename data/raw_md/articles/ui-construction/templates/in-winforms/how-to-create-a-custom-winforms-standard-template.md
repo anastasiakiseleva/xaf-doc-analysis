@@ -70,6 +70,19 @@ This example demonstrates how to do the following:
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public Class MyViewController
+	    Inherits ViewController
+	    Public Sub New()
+	        Dim myAction As New SimpleAction(Me, "MyAction", "My Actions")
+	        myAction.ImageName = "Action_SimpleAction"
+	    End Sub
+	End Class
+	```
+	
 	***
 
 	Alternatively, you can do the following:
@@ -90,6 +103,22 @@ This example demonstrates how to do the following:
 	    // ...
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<STAThread> _
+	Shared Sub Main()
+	    ' ...
+	    AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+	        If e.Context = TemplateContext.View Then
+	            e.Template = New DetailForm1()
+	        End If
+	    End Sub
+	    ' ...
+	End Sub
+	```
+	
 	***
 
 	If your application implements both the Ribbon and the Standard User Interfaces, you need to check the [IModelOptionsWin.FormStyle](xref:DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.FormStyle) property value in the @DevExpress.ExpressApp.XafApplication.CreateCustomTemplate event handler before you specify your custom template.
@@ -108,6 +137,19 @@ This example demonstrates how to do the following:
 		}
 	};
 	```
+
+	# [VB.NET](#tab/tabid-vb)
+
+	```vb
+	AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+		If e.Application.Model IsNot Nothing Then
+			If DirectCast(winApplication.Model.Options, IModelOptionsWin).FormStyle = RibbonFormStyle.Standard Then
+				' ...
+			End If
+		End If
+	End Sub
+	```
+
 	***
 
 	The following image illustrates the result.
@@ -139,4 +181,17 @@ winApplication.CreateCustomTemplate += delegate(object sender, CreateCustomTempl
 	}
 };
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+	If e.Context = TemplateContext.ApplicationWindow Then
+		e.Template = New MainForm1()
+	ElseIf e.Context = TemplateContext.View Then
+		e.Template = New DetailForm1()
+	End If
+End Sub
+```
+
 ***

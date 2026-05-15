@@ -41,6 +41,19 @@ public sealed class MySolutionModule : ModuleBase {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Class MySolutionModule
+        Inherits ModuleBase
+    '...
+    Public Sub New()
+        InitializeComponent()
+        Me.RequiredModuleTypes.Add(GetType(DevExpress.ExpressApp.StateMachine.StateMachineModule))
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

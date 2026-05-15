@@ -91,3 +91,8 @@ A Web application works very slowly while debugging.
 
 The Excessive Conditional Appearance rule updates due to control value changes.*
 :   [How to avoid excessive ConditionalAppearance rule updates and improve overall form performance](https://supportcenter.devexpress.com/ticket/details/s171794/conditionalappearance-how-to-avoid-excessive-appearance-and-immediatepostdata-rule).
+
+How to reduce web server memory consumption when the application operates in Tabbed MDI mode ?
+:   Limit the maximum number of open tabs. When the tab count exceeds the specified limit (see <xref:DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.MaxTabLimit>), the view strategy can close or unload old tabs, or prevent new tabs from opening, depending on the value of the @DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.TabOverflowStrategy property.
+
+    You can enable the @DevExpress.ExpressApp.Blazor.SystemModule.IModelOptionsBlazor.RestoreTabbedMdiLayout property to save the tab arrangement before closing the browser window and restore it when the user starts the application again.

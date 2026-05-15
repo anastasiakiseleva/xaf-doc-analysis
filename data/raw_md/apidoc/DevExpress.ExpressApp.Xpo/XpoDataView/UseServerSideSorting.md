@@ -27,6 +27,23 @@ public class CustomizeListViewController : ViewController<ListView> {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{10}
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Xpo
+' ...
+Public Class CustomizeListViewController
+    Inherits ViewController(Of ListView)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim xpoDataView As XpoDataView = TryCast(View.CollectionSource.Collection, XpoDataView)
+        If xpoDataView IsNot Nothing Then
+            xpoDataView.UseServerSideSorting = False
+        End If
+    End Sub
+End Class
+```
 ***
 
 If you want to specify this option globally for all List Views, use the static @DevExpress.ExpressApp.Xpo.XpoDataView.DefaultUseServerSideSorting field instead.

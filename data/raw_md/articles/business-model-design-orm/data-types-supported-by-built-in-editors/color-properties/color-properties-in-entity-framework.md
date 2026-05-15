@@ -1,7 +1,7 @@
 ---
 uid: "113660"
 title: Color Properties in EF Core
-seealso:  
+seealso: 
 - linkId: "117395"
 ---
 # Color Properties in EF Core

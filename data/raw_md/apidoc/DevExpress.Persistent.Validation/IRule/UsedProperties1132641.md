@@ -24,6 +24,19 @@ public override ReadOnlyCollection<string> UsedProperties {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections.ObjectModel
+' ...
+Public Overrides ReadOnly Property UsedProperties() As ReadOnlyCollection(Of String)
+    Get
+        Return New ReadOnlyCollection(Of String)(New List(Of String)() From {"Amount"})
+    End Get
+End Property
+```
+
 ***
 
 > [!IMPORTANT]

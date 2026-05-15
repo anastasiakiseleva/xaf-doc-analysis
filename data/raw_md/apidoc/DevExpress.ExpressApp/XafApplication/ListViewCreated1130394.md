@@ -36,4 +36,31 @@ public class Program {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+' ...
+Public Class Program
+   Public Shared Sub Main(ByVal arguments As String())
+      Dim winApplication As MySolutionWinApplication = New MySolutionWinApplication()
+         '...
+      AddHandler winApplication.ListViewCreated, AddressOf Of ListViewCreatedEventArgs
+   End Sub
+   Private Shared Sub winApplication_ListViewCreated( _
+   ByVal sender As Object, ByVal e As ListViewCreatedEventArgs)
+      If e.ListView.Id = "Person_ListView" Then
+         AddHandler e.ListView.CreateCustomCurrentObjectDetailView, _
+         AddressOf CreateCustomCurrentObjectDetailViewEventArgs
+      End If
+   End Sub
+   Private Shared Sub ListView_CreateCustomCurrentObjectDetailView(ByVal _
+         sender As Object, ByVal e As CreateCustomCurrentObjectDetailViewEventArgs)
+      e.DetailViewId = "MyCustomDetailView"
+   End Sub
+End Class
+```
+
 ***

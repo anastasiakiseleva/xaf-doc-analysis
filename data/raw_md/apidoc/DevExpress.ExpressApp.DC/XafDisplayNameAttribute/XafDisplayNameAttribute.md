@@ -21,4 +21,16 @@ public class DemoTask : Task {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<XafDisplayName("Task")> _
+Public Class DemoTask
+    Inherits Task
+
+    ' ...
+End Class
+```
+
 ***

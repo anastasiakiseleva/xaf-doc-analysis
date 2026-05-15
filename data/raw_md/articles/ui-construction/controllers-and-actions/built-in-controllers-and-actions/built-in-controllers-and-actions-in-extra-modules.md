@@ -925,6 +925,8 @@ Actions: none.
 
 A [ReportServiceController](#reportservicecontroller) descendant. Contains platform-specific code that displays the Preview Report window in XAF ASP.NET Core Blazor applications.
 
+**See Also:** @DevExpress.ExpressApp.ReportsV2.Blazor.BlazorReportServiceController
+
 ***
 
 #### BlazorEditReportController

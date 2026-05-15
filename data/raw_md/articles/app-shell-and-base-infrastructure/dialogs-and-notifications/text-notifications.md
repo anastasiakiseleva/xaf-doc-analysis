@@ -88,6 +88,30 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Public Class ProjectTaskController
+    Inherits ViewController
+    '…
+    Private options As New MessageOptions()
+    options.Duration = 2000
+    options.Message = String.Format("{0} task(s) have been successfully updated!", e.SelectedObjects.Count)
+    options.Type = InformationType.Success
+    options.Web.Position = InformationPosition.Right
+    options.Win.Caption = "Success"
+    options.Win.Type = WinMessageType.Toast
+    options.OkDelegate = Sub()
+        Dim os As IObjectSpace = Application.CreateObjectSpace(GetType(ProjectTask))
+        Dim newTaskDetailView As DetailView = Application.CreateDetailView(os, os.CreateObject(Of ProjectTask)())
+        Application.ShowViewStrategy.ShowViewInPopupWindow(newTaskDetailView)
+    End Sub
+    Application.ShowViewStrategy.ShowMessage(options)
+End Class
+```
+
 ***
 
 ASP.NET Core Blazor  
@@ -119,6 +143,23 @@ Windows Forms
 	options.Win.ImageOptions = imageOptions;
 	Application.ShowViewStrategy.ShowMessage(options);
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports System.Drawing
+	Imports DevExpress.ExpressApp.Win
+	'...
+	    CType(Application.ShowViewStrategy, WinShowViewStrategyBase).CustomGetImage += _
+	ShowMessagesController_CustomGetImage
+	    '...
+	    Private Sub ShowMessagesController_CustomGetImage(ByVal sender As Object, _
+	ByVal e As CustomGetImageEventArgs)
+	        e.Image = New Bitmap(32, 32)
+	        '...
+	    End Sub
+	```
+	
 	***
 
     Alternatively, you can use the `WinShowViewStrategyBase` class's `CustomGetImage` event as shown below:
@@ -137,6 +178,24 @@ Windows Forms
 	        //...
 	    }
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports System.Drawing
+	Imports DevExpress.ExpressApp.Win
+	'...
+	    CType(Application.ShowViewStrategy, WinShowViewStrategyBase).CustomGetFlyoutBackColor += _
+	    ShowMessagesController_CustomGetFlyoutBackColor
+	    '...
+	    Private Sub ShowMessagesController_CustomGetFlyoutBackColor(ByVal sender As Object, _
+	    ByVal e As CustomGetFlyoutBackColorEventArgs)
+	        If e.InformationType = InformationType.Error Then
+	            e.BackColor = Color.Red
+	        End If
+	    End Sub
+	```
+	
 	***
 * Use the `WinShowViewStrategyBase` class's `CustomGetFlyoutBackColor` event to change the [Flyout Dialog](xref:114568)'s color:
 	
@@ -155,7 +214,24 @@ Windows Forms
 	        } 
 	    }
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports System.Drawing
+	Imports DevExpress.ExpressApp.Win
+	'...
+	    CType(Application.ShowViewStrategy, WinShowViewStrategyBase).CustomGetFlyoutBackColor += _
+	    ShowMessagesController_CustomGetFlyoutBackColor
+	    '...
+	    Private Sub ShowMessagesController_CustomGetFlyoutBackColor(ByVal sender As Object, _
+	    ByVal e As CustomGetFlyoutBackColorEventArgs)
+	        If e.InformationType = InformationType.Error Then
+	            e.BackColor = Color.Red
+	        End If
+	    End Sub
+	```
+	
 	***
 
 * Use the `WinShowViewStrategyBase` class's `CustomizeAlertControl` event to customize the [Alert](xref:5395) control:
@@ -177,6 +253,26 @@ Windows Forms
 	        //...
 	    }
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Utils
+	Imports DevExpress.ExpressApp.Win
+	Imports DevExpress.XtraBars.Alerter
+	'...
+	    AddHandler CType(Application.ShowViewStrategy, WinShowViewStrategyBase).CustomizeAlertControl, _
+	AddressOf ShowMessagesController_CustomizeAlertControl
+	    '...
+	    Private Sub void ShowMessagesController_CustomizeAlertControl(Object sender, _
+	CustomizeAlertControlEventArgs e)
+	        Dim button As New AlertButton(ImageLoader.Instance.GetImageInfo("BO_Attention").Image)
+	        button.Name = "buttonAlert"
+	        e.AlertControl.Buttons.Add(button)
+	        '...
+	    End Sub
+	```
+	
 	***
 
 * Use the `WinShowViewStrategyBase` class's `CustomizeToastNotificationsManager` to access the [Toast Notification Manager](xref:17020) instance:
@@ -198,6 +294,26 @@ Windows Forms
 	        //...
 	    }
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Win
+	'...
+	    AddHandler CType(Application.ShowViewStrategy, WinShowViewStrategyBase).CustomizeToastNotificationsManager, _
+	AddressOf ShowMessagesController_CustomizeToastNotificationsManager
+	    '...
+	    Private Sub void ShowMessagesController_CustomizeToastNotificationsManager(Object sender, _
+	CustomizeToastNotificationsManagerEventArgs e)
+	        AddHandler e.ToastNotificationsManager.UserCancelled, AddressOf _
+	ToastNotificationsManager_UserCancelled
+	    Ens Sub
+	    Private Sub void ToastNotificationsManager_UserCancelled(Object sender, _
+	DevExpress.XtraBars.ToastNotifications.ToastNotificationEventArgs e)
+	        '...
+	    End Sub
+	```
+	
 	***
 
 ## Notification Button Caption Localization

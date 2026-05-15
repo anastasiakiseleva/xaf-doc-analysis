@@ -36,4 +36,27 @@ private void Instance_CreateCustomObjectSpaceProvider(object sender, CreateCusto
     e.IsObjectSpaceProviderOwner = false;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub Instance_CreateCustomObjectSpaceProvider(ByVal sender As Object, ByVal e As CreateCustomObjectSpaceProviderEventArgs)
+    Dim dataStoreProvider As IXpoDataStoreProvider = Nothing
+    If Application("DataStoreProvider") IsNot Nothing Then
+        dataStoreProvider = TryCast(Application("DataStoreProvider"), IXpoDataStoreProvider)
+        e.ObjectSpaceProvider = New SecuredObjectSpaceProvider(CType(WebApplication.Instance.Security, ISelectDataSecurityProvider), dataStoreProvider, True)
+    Else
+        If Not String.IsNullOrEmpty(e.ConnectionString) Then
+            Dim connectionString As String = DevExpress.Xpo.XpoDefault.GetConnectionPoolString(e.ConnectionString)
+            dataStoreProvider = New ConnectionStringDataStoreProvider(connectionString, True)
+        ElseIf e.Connection IsNot Nothing Then
+            dataStoreProvider = New ConnectionDataStoreProvider(e.Connection)
+        End If
+        Application("DataStoreProvider") = dataStoreProvider
+        e.ObjectSpaceProvider = New SecuredObjectSpaceProvider(CType(WebApplication.Instance.Security, ISelectDataSecurityProvider), dataStoreProvider, True)
+    End If
+    e.IsObjectSpaceProviderOwner = False
+End Sub
+```
+
 ***

@@ -33,4 +33,19 @@ public partial class MySolutionWindowsFormsApplication : WinApplication {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win
+' ...
+Partial Public Class MySolutionWindowsFormsApplication
+    Inherits WinApplication
+    ' ...
+    Public Sub New()
+        NonPersistentObjectSpace.AutoRefreshAdditionalObjectSpacesByDefault = True
+        ' ...
+    End Sub
+End Class
+```
 ***

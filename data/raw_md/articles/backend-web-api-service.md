@@ -92,7 +92,7 @@ When you register for a free DevExpress product, you can use your registered pro
 
 **Q: Do I have to include XAF UI dependencies in my project?**
 
-**A:** Our Web API Service relies on Visual Studio 2022 and a few non-visual cross-platform .NET packages ([example](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Api.EFCore.All/22.1.5)). These include DevExpress.Data, DevExpress.Xpo, DevExpress.Document.Processor, and other core libraries. Though these packages have "XAF" or "ExpressApp" in their names, you do not need to pull XAF WinForms and ASP.NET Core Blazor dependencies in your projects.
+**A:** Our Web API Service relies on Visual Studio 2022 and a few non-visual cross-platform .NET packages ([example](https://nuget.org/packages/DevExpress.ExpressApp.Api.EFCore.All)). These include DevExpress.Data, DevExpress.Xpo, DevExpress.Document.Processor, and other core libraries. Though these packages have "XAF" or "ExpressApp" in their names, you do not need to pull XAF WinForms and ASP.NET Core Blazor dependencies in your projects.
 
 In other words, if you do not require XAF, you are not forced to use it. Optionally, you can tell the [Template Kit](xref:405447) to create the Web API Service inside an XAF Blazor UI app. This could be helpful to those who wish to incorporate a web Admin Panel ([watch the video](https://www.youtube.com/watch?v=aV8YJ7LjW74&feature=youtu.be)) and an embedded API server within the same package (for easier hosting and maintenance). Again, this is entirely up to you. You can always use the Web API Service on a standalone basis.
 

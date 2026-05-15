@@ -55,4 +55,39 @@ public class AssignTasksController : ObjectViewController<ListView, DemoTask> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections.Generic
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.Base.General
+Imports DevExpress.Persistent.BaseImpl
+Imports MainDemo.Module.BusinessObjects
+
+Public Class AssignTasksController
+    Inherits ObjectViewController(Of ListView, DemoTask)
+    Public Sub New()
+        Dim assignTasksAction As New ParametrizedAction(Me, "AssignTasks", PredefinedCategory.Edit, GetType(String))
+        AddHandler assignTasksAction.Execute, AddressOf AssignTasksAction_Execute
+    End Sub
+    Private Sub AssignTasksAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Dim objectSpace As IObjectSpace = View.ObjectSpace
+        Dim personParamValue As String = TryCast(e.ParameterCurrentValue, String)
+        Dim person As Person = objectSpace.FirstOrDefault(Function (p as Person) p.LastName.Contains(personParamValue))
+        If person IsNot Nothing Then
+            Dim taskCriteria As CriteriaOperator = CriteriaOperator.Parse("[Status] = ?", TaskStatus.Deferred)
+            Dim tasks As IList(Of DemoTask) = objectSpace.GetObjects(Of DemoTask)(taskCriteria)
+            For Each task As DemoTask In tasks
+                task.AssignedTo = person
+            Next task
+        End If
+    End Sub
+End Class
+
+```
+
 ***

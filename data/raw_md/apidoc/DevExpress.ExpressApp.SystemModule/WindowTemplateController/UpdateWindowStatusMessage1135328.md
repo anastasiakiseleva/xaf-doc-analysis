@@ -54,4 +54,47 @@ public class UpdateWindowStatusMessagesController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class UpdateWindowStatusMessagesController
+    Inherits ViewController(Of ListView)
+
+    Private windowTemplateController As WindowTemplateController
+    Public Sub New()
+        TargetViewNesting = Nesting.Root
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        windowTemplateController = Frame.GetController(Of WindowTemplateController)()
+        If windowTemplateController IsNot Nothing Then
+            AddHandler windowTemplateController.CustomizeWindowStatusMessages, AddressOf windowTemplateController_CustomizeWindowStatusMessages
+        End If
+    End Sub
+    Protected Overrides Sub OnViewControlsCreated()
+        MyBase.OnViewControlsCreated()
+        AddHandler View.Editor.SelectionChanged, AddressOf Editor_SelectionChanged
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler View.Editor.SelectionChanged, AddressOf Editor_SelectionChanged
+        If windowTemplateController IsNot Nothing Then
+            RemoveHandler windowTemplateController.CustomizeWindowStatusMessages, AddressOf windowTemplateController_CustomizeWindowStatusMessages
+            windowTemplateController.UpdateWindowStatusMessage()
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+    Private Sub windowTemplateController_CustomizeWindowStatusMessages(ByVal sender As Object, ByVal e As CustomizeWindowStatusMessagesEventArgs)
+        e.StatusMessages.Add(String.Format("Selected objects count: {0}", View.SelectedObjects.Count))
+    End Sub
+    Private Sub Editor_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
+        windowTemplateController.UpdateWindowStatusMessage()
+    End Sub
+End Class
+```
+
 ***

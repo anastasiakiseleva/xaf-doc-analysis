@@ -27,4 +27,11 @@ using System.Drawing;
 //...
 Image image = ImageLoader.Instance.GetLargeImageInfo("Action_Open").Image;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim image As Drawing.Image = ImageLoader.Instance.GetLargeImageInfo("Action_Open").Image
+```
+
 ***

@@ -76,6 +76,19 @@ This example demonstrates how to do the following:
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb{4}
+	Public Class MyViewController
+	    Inherits ViewController
+	    Public Sub New()
+	        Dim myAction As New SimpleAction(Me, "MyAction", "MyActionCategory")
+	        myAction.ImageName = "Action_SimpleAction"
+	    End Sub
+	End Class
+	```
+	
 	***
 	
 	Alternatively, you can:
@@ -96,6 +109,22 @@ This example demonstrates how to do the following:
 	    // ...
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<STAThread> _
+	Shared Sub Main()
+	    ' ...
+	    AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+	        If e.Context = TemplateContext.View Then
+	            e.Template = New DetailRibbonForm1()
+	        End If
+	    End Sub
+	    ' ...
+	End Sub
+	```
+	
 	***
 
 	If your application implements both the Ribbon User Interface and the Standard User Interface, you need to check the [IModelOptionsWin.FormStyle](xref:DevExpress.ExpressApp.Win.SystemModule.IModelOptionsWin.FormStyle) property value in the @DevExpress.ExpressApp.XafApplication.CreateCustomTemplate event handler before you specify your custom template.
@@ -117,6 +146,23 @@ This example demonstrates how to do the following:
 		};
 		// ...
 	}
+	```
+
+	# [VB.NET](#tab/tabid-vb)
+
+	```vb{5}
+	<STAThread> _
+	Shared Sub Main()
+	    ' ...
+		AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+			If e.Application.Model IsNot Nothing Then
+				If DirectCast(winApplication.Model.Options, IModelOptionsWin).FormStyle = RibbonFormStyle.Ribbon Then
+					' ...
+				End If
+			End If
+		End Sub
+		'...
+	End Sub
 	```
 	***
 
@@ -150,4 +196,17 @@ winApplication.CreateCustomTemplate += delegate (object sender, CreateCustomTemp
 	}
 };
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+AddHandler winApplication.CreateCustomTemplate, Sub(sender As Object, e As CreateCustomTemplateEventArgs)
+	If e.Context = TemplateContext.ApplicationWindow Then
+		e.Template = New LightStyleMainRibbonForm1()
+	ElseIf e.Context = TemplateContext.View Then
+		e.Template = New DetailRibbonForm1()
+	End If
+End Sub
+```
+
 ***

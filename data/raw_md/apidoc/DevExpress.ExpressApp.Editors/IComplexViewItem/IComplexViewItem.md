@@ -46,6 +46,34 @@ XafApplication application) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+'...
+Public Class CustomListEditor
+    Inherits PropertyEditor
+    Implements IComplexViewItem
+
+    Private objectSpace As IObjectSpace
+    Private application As XafApplication
+    #Region "IComplexViewItem Members"
+        Public Sub Setup(ByVal objectSpace As IObjectSpace, _
+ByVal application As XafApplication) Implements IComplexViewItem.Setup
+            Me.objectSpace = objectSpace
+            Me.application = application
+        End Sub
+    #End Region
+    ' Example:
+    Protected Overrides Function CreateControlCore() As Object
+        Dim dataSource As IList = objectSpace.GetObjects(Model.ModelMember.Type)
+        ' ...
+    End Function
+End Class
+```
+
 ***
 
 [!example[XAF WinForms - How to use a custom Lookup Property Editor control for reference properties](https://github.com/DevExpress-Examples/obsolete-xaf-win-custom-lookup-property-editor)]

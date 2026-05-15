@@ -52,6 +52,49 @@ CustomGetFullTextSearchPropertiesEventArgs e) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Collections.Generic
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+'...
+Public Class MyFilterController
+    Inherits ViewController
+    Public Sub New()
+        TargetObjectType = GetType(DevExpress.Persistent.BaseImpl.Person)
+    End Sub
+    Private standardFilterController As FilterController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        standardFilterController = Frame.GetController(Of FilterController)()
+        If standardFilterController IsNot Nothing Then
+            AddHandler standardFilterController.CustomGetFullTextSearchProperties, AddressOf standardFilterController_CustomGetFullTextSearchProperties
+        End If
+    End Sub
+    Private Sub standardFilterController_CustomGetFullTextSearchProperties(ByVal sender As Object, ByVal e As CustomGetFullTextSearchPropertiesEventArgs)
+        For Each [property] As String In GetFullTextSearchProperties()
+            e.Properties.Add([property])
+        Next [property]
+        e.Handled = True
+    End Sub
+    Private Function GetFullTextSearchProperties() As List(Of String)
+        Dim searchProperties As New List(Of String)()
+        searchProperties.Add("LastName")
+        Return searchProperties
+    End Function
+    Protected Overrides Sub OnDeactivated()
+        If standardFilterController IsNot Nothing Then
+            RemoveHandler standardFilterController.CustomGetFullTextSearchProperties, AddressOf standardFilterController_CustomGetFullTextSearchProperties
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+
+```
+
 ***
 
 The following image demonstrate that the **MyFilterController** works:
@@ -134,4 +177,81 @@ FilterController_CustomGetFullTextSearchProperties;
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Collections.Generic
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.Data.Summary
+Imports System.Data.SqlTypes
+'...
+Public Class MyFilterController
+    Inherits ViewController(Of ListView)
+
+    Private Shared ReadOnly minDate As Date
+    Private Shared ReadOnly maxDate As Date
+    Shared Sub New()
+        minDate = CDate(SqlDateTime.MinValue)
+        maxDate = CDate(SqlDateTime.MaxValue)
+    End Sub
+    Private Function CanFilter(ByVal propertyName As String, ByVal filterText As String) As Boolean
+        Dim memberInfo As IMemberInfo = View.ObjectTypeInfo.FindMember(propertyName)
+        If SummaryItemTypeHelper.IsDateTime(memberInfo.MemberType) Then
+            Dim convertedFilter? As Date = Nothing
+            Try
+                convertedFilter = CType(Convert.ChangeType(filterText, GetType(Date)), Date?)
+            Catch
+                Return False
+            End Try
+            If convertedFilter.HasValue Then
+                If (convertedFilter.Value < minDate) OrElse (convertedFilter.Value > maxDate) Then
+                    Return False
+                End If
+            End If
+        End If
+        Return True
+    End Function
+    Private Function GetProcessedRequiredProperties(ByVal searchProperties As ICollection(Of String), _
+ByVal filterText As String) As ICollection(Of String)
+        Dim result As New List(Of String)()
+        For Each propertyName As String In searchProperties
+           If CanFilter(propertyName, filterText) Then
+               result.Add(propertyName)
+           End If
+        Next propertyName
+        Return result
+    End Function
+    Private Sub FilterController_CustomGetFullTextSearchProperties(ByVal sender As Object, _
+ByVal e As CustomGetFullTextSearchPropertiesEventArgs)
+        Dim filterText As String = TryCast(DirectCast(sender, FilterController).FullTextFilterAction.Value, String)
+        If Not String.IsNullOrEmpty(filterText) Then
+            Dim searchProperties As ICollection(Of String) = _
+GetProcessedRequiredProperties(DirectCast(sender, FilterController).GetFullTextSearchProperties(), filterText)
+            e.Properties.AddRange(searchProperties)
+            e.Handled = True
+        End If
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim filterController As FilterController = Frame.GetController(Of FilterController)()
+        If filterController IsNot Nothing Then
+            AddHandler filterController.CustomGetFullTextSearchProperties, _
+AddressOf FilterController_CustomGetFullTextSearchProperties
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        Dim filterController As FilterController = Frame.GetController(Of FilterController)()
+        If filterController IsNot Nothing Then
+            RemoveHandler filterController.CustomGetFullTextSearchProperties, _
+AddressOf FilterController_CustomGetFullTextSearchProperties
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

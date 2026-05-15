@@ -16,6 +16,17 @@ using(mySession.CreateParseCriteriaSessionScope()) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Using mySession.CreateParseCriteriaSessionScope()
+    '...
+    CriteriaOperator.Parse("...")
+    '...
+End Using
+```
+
 ***
 
 In this instance, the existing **CriteriaOperator.Parse** method will correctly restore persistent objects in the "mySession" session.

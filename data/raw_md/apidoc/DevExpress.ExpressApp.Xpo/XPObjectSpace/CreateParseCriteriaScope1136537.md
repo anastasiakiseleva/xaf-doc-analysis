@@ -20,6 +20,16 @@ using(IDisposable scope = objectSpace.CreateParseCriteriaScope()) {
   criteria = CriteriaOperator.Parse(filterString);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim criteria As CriteriaOperator
+Using scope As IDisposable = objectSpace.CreateParseCriteriaScope()
+  criteria = CriteriaOperator.Parse(filterString)
+End Using
+```
+
 ***
 
 Persistent objects are serialized as a part of a CriteriaOperator in a special format and a 'scope' object is necessary to restore objects from a serialized string.

@@ -30,6 +30,23 @@ public class FilterPersonListViewController : ObjectViewController<ListView, Per
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.Data.Filtering
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Public Class FilterPersonListViewController
+    Inherits ObjectViewController(Of ListView, Person)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        View.CollectionSource.Criteria("Filter1") = CriteriaOperator.Parse("StartsWith([FullName], 'A')")
+    End Sub
+End Class
+```
+
 ***
 
 This approach can be applied to any List View that you can define in code. In the code above, all List Views that display `Person` type objects are filtered.

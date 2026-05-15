@@ -31,4 +31,11 @@ using System.Drawing;
 //...
 var customer = ImageLoader.Instance.GetImageInfo("BO_Customer").Image;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim customer As Drawing.Image = ImageLoader.Instance.GetImageInfo("BO_Customer").Image
+```
+
 ***

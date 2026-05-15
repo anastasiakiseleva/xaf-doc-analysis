@@ -57,6 +57,56 @@ public class DemoParameters : ReportParametersObjectBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.ExpressApp.ReportsV2
+Imports DevExpress.Xpo
+Imports DevExpress.Xpo.DB
+' ...
+<DomainComponent> _
+Public Class DemoParameters
+    Inherits ReportParametersObjectBase
+
+    Public Property SortByFirstName() As Boolean
+    Public Property FilterByFirstName() As Boolean
+    Public Property FirstName() As String
+    Public Property FilterByPosition() As Boolean
+    Public Property ContactPosition() As Position
+    Public Sub New(ByVal provider As IObjectSpaceCreator)
+        MyBase.New(provider)
+    End Sub
+    Protected Overrides Function CreateObjectSpace() As IObjectSpace
+        Return objectSpaceCreator.CreateObjectSpace(GetType(Contact))
+    End Function
+    Public Overrides Function GetCriteria() As CriteriaOperator
+        Dim criteriaName As CriteriaOperator = Nothing
+        Dim criteriaPosition As CriteriaOperator = Nothing
+        If FilterByFirstName Then
+            criteriaName = CriteriaOperator.Parse("FirstName = ?", FirstName)
+        End If
+        If FilterByPosition Then
+            criteriaPosition = CriteriaOperator.Parse("Position.Oid = ?", ContactPosition.Oid)
+        End If
+        Return CriteriaOperator.And(criteriaName, criteriaPosition)
+    End Function
+    Public Overrides Function GetSorting() As SortProperty()
+        Dim sorting As New List(Of SortProperty)()
+        If SortByFirstName Then
+            sorting.Add(New SortProperty(NameOf(FirstName), SortingDirection.Ascending))
+        End If
+        Return sorting.ToArray()
+    End Function
+    Public Overrides Function ToString() As String
+        Return "London"
+    End Function
+End Class
+```
+
 ***
 
 Do not forget to apply the [](xref:DevExpress.ExpressApp.DC.DomainComponentAttribute) to this class. Otherwise, the class will not be added to the Application Model and the report parameters Detail View will not be generated.

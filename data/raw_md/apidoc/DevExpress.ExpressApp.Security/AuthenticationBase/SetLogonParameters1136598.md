@@ -20,5 +20,15 @@ public override void SetLogonParameters(object logonParameters) {
      this.logonParameters = (CustomLogonParameters)logonParameters;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub SetLogonParameters(ByVal logonParameters As Object)
+     Me.logonParameters = CType(logonParameters, CustomLogonParameters)
+End Sub
+```
+
 ***
+
 Here, **logonParameters** is a private value holder of the [AuthenticationBase.LogonParameters](xref:DevExpress.ExpressApp.Security.AuthenticationBase.LogonParameters) property, and **CustomLogonParameters** is a type of your custom Logon Parameters object.

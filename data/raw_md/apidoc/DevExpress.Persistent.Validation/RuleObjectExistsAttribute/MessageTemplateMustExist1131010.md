@@ -25,6 +25,21 @@ public class ComplexValidationSettingsObject: BaseObject{
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<RuleObjectExists("ComplexValidationSettingsObject_RuleObjectExists", DefaultContexts.Save, _
+   "FirstName = '@FirstName' AND LastName = '@LastName'", MessageTemplateMustExist := _
+   "Objects with the same combination of the" & _
+   "'FirstName' and 'LastName' properties must not exist.", _
+   InvertResult := True, SkipNullOrEmptyValues := True)> _
+Public Class ComplexValidationSettingsObject
+   Inherits BaseObject
+   '...
+End Class
+```
+
 ***
 
 This code is taken from the FeatureCenter demo that illustrates all the capabilities of the Validation module. This demo is located in the _[!include[PathToFeatureCenter](~/templates/path-to-feature-center.md)]_ folder, by default.

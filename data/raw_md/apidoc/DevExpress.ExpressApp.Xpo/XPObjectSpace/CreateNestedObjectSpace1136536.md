@@ -41,6 +41,34 @@ public class NewObjectController : ObjectViewController<ListView, DemoTask> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports MainDemo.Module.BusinessObjects
+' ...
+
+Public Class NewObjectController
+    Inherits ObjectViewController(Of ListView, DemoTask)
+
+    Public Sub New()
+        TargetViewNesting = Nesting.Nested
+    End Sub
+    Protected Overrides Sub OnActivated()
+        Dim controller As NewObjectViewController = Frame.GetController(Of NewObjectViewController)()
+        AddHandler controller.ObjectCreating, AddressOf Controller_ObjectCreating
+    End Sub
+    Private Sub Controller_ObjectCreating(ByVal sender As Object, ByVal e As ObjectCreatingEventArgs)
+        Dim objectSpace As IObjectSpace = View.ObjectSpace.CreateNestedObjectSpace()
+        Dim task As DemoTask = objectSpace.CreateObject(Of DemoTask)()
+        e.ObjectSpace = objectSpace
+        e.NewObject = task
+    End Sub
+End Class
+```
+
 ***
 
 

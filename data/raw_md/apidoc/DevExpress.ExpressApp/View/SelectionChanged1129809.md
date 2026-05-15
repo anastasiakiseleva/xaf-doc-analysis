@@ -70,6 +70,47 @@ public class ActionCaptionController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class ActionCaptionController
+    Inherits ViewController
+    Private objectAction As SimpleAction
+    Private Sub UpdateActionCaption()
+        objectAction.Caption = CalculateActionCaption()
+    End Sub
+    Private Function CalculateActionCaption() As String
+        Dim currentObject As Contact = CType(View.CurrentObject, Contact)
+        If currentObject IsNot Nothing Then
+            Return currentObject.FullName
+        End If
+        Return "Object Action"
+    End Function
+    Private Sub View_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs)
+        UpdateActionCaption()
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        UpdateActionCaption()
+        AddHandler View.SelectionChanged, AddressOf View_SelectionChanged
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler View.SelectionChanged, AddressOf View_SelectionChanged
+        MyBase.OnDeactivated()
+    End Sub
+    Public Sub New()
+        TargetObjectType = GetType(Contact)
+        objectAction = New SimpleAction(Me, "ObjectAction", PredefinedCategory.Edit)
+    End Sub
+End Class
+```
 ***
 
 > [!NOTE]

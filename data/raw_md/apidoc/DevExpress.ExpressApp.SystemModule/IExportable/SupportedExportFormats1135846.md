@@ -39,4 +39,28 @@ public List<ExportTarget> SupportedExportFormats {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public ReadOnly Property SupportedExportFormats() As List(Of ExportTarget)
+   Get
+      If Printable Is Nothing Then
+         Return New List(Of ExportTarget)()
+      Else
+         Return New List(Of ExportTarget)(New ExportTarget() {
+            ExportTarget.Csv,
+            ExportTarget.Html,
+            ExportTarget.Image,
+            ExportTarget.Mht,
+            ExportTarget.Pdf,
+            ExportTarget.Rtf,
+            ExportTarget.Text,
+            ExportTarget.Xls,
+            ExportTarget.Xlsx})
+      End If
+   End Get
+End Property
+```
+
 ***

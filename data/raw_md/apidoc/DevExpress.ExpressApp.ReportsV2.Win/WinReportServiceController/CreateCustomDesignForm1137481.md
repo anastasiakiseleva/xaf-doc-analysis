@@ -41,4 +41,38 @@ public class AddCustomDataSourceController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ReportsV2.Win
+' ...
+Public Class AddCustomDataSourceController
+    Inherits ViewController
+
+    Private reportService As WinReportServiceController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        reportService = Frame.GetController(Of WinReportServiceController)()
+        If reportService IsNot Nothing Then
+             AddHandler reportService.CreateCustomDesignForm, Sub(sender As Object, e As CreateCustomDesignFormEventArgs)
+                AddHandler e.DesignForm.DesignMdiController.DesignPanelLoaded, AddressOf DesignMdiController_DesignPanelLoaded
+                AddHandler CType(designForm, XtraForm).FormClosed, AddressOf designForm_FormClosed
+             End Sub
+        End If
+    End Sub
+    Private Sub DesignMdiController_DesignPanelLoaded(ByVal sender As Object, ByVal args As DesignerLoadedEventArgs)
+        AddToolboxItem(args.DesignerHost)
+    End Sub
+    Private Sub AddToolboxItem(ByVal serviceProvider As IServiceProvider)
+        Dim ts As IToolboxService = CType(serviceProvider.GetService(GetType(IToolboxService)), IToolboxService)
+        ts.AddToolboxItem(New ToolboxItem(GetType(CustomDataSource)), "Custom Category")
+    End Sub
+    Private Sub designForm_FormClosed(ByVal sender As Object, ByVal e As FormClosedEventArgs)
+        RemoveHandler CType(sender, IDesignForm).DesignMdiController.DesignPanelLoaded, AddressOf DesignMdiController_DesignPanelLoaded
+        RemoveHandler CType(sender, XtraForm).FormClosed, AddressOf designForm_FormClosed
+    End Sub
+End Class
+```
+
 ***

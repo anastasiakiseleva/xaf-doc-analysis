@@ -30,6 +30,20 @@ public enum SampleEnum {
     Third 
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Enum SampleEnum
+    <ImageName("BO_Person")> _
+    First
+    <ImageName("BO_Position")> _
+    Second
+    <ImageName("BO_Employee")> _
+    Third
+End Enum
+```
+
 ***
 
 ASP.NET Core Blazor
@@ -54,6 +68,20 @@ public enum SampleEnum {
     Third 
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Enum SampleEnum
+    <XafDisplayName("John")> _
+    First
+    <XafDisplayName("Sam")> _
+    Second
+    <XafDisplayName("Bob")> _
+    Third
+End Enum
+```
+
 ***
 
 ASP.NET Core Blazor
@@ -90,6 +118,31 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Utils
+'...
+Public Class SelectViewController
+  Inherits DevExpress.ExpressApp.ViewController
+    Public Sub New()
+        MyBase.New()
+        InitializeComponent()
+        SetPriorityAction.Items.Clear()
+        For Each current As Priority In System.Enum.GetValues(GetType(Priority))
+            ' Create an EnumDescriptor to get the localized enumeration value
+            Dim ed As EnumDescriptor = New EnumDescriptor(GetType(Priority))
+            Dim item As ChoiceActionItem = _
+            New ChoiceActionItem(ed.GetCaption(current), current)
+            ' Set the image name         
+            item.ImageName = ImageLoader.Instance.GetEnumValueImageName(current)
+            SetPriorityAction.Items.Add(item)
+      Next current
+    End Sub
+End Class
+```
+
 ***
 
 The following image displays the `SetPriorityAction`:

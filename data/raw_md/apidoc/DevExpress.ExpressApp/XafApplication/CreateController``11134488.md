@@ -26,6 +26,17 @@ private void MyPopupWindowShowAction_OnCustomizePopupWindowParams(Object sender,
    e.DialogController = Application.CreateController<MyDialogController>();
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub MyPopupWindowShowAction_OnCustomizePopupWindowParams(ByVal sender As Object, _
+      ByVal e As CustomizePopupWindowParamsEventArgs)
+   '...
+   e.DialogController = Application.CreateController(Of MyDialogController)()
+End Sub
+```
+
 ***
 
 This method creates a Controller of the specified type. If a Controller of the same type already exists, the [Controller.Actions](xref:DevExpress.ExpressApp.Controller.Actions) of the found Controller serve as a source for the [ActionBase.Model](xref:DevExpress.ExpressApp.Actions.ActionBase.Model) property of the new Controller's [Actions](xref:112622).

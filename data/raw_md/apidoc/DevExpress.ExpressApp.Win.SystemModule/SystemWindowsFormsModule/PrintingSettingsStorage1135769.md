@@ -10,10 +10,26 @@ syntax:
   parameters: []
   return:
     type: DevExpress.ExpressApp.Win.SystemModule.PrintingSettingsStorage
-    description: A [](xref:DevExpress.ExpressApp.Win.SystemModule.PrintingSettingsStorage) enumeration value specifying whether printing settings are saved separately for each View.
+    description: An value that specifies whether printing settings are saved separately for each View.
 seealso:
 - linkId: "113012"
+- linkId: "113283"
 ---
-The options specified in the "Page Setup" dialog and the 'Header and Footer' options, which are set in the Preview dialog, are saved automatically. The [](xref:DevExpress.ExpressApp.Win.SystemModule.IModelPrintingSettings) are added to the [Application Model](xref:112580), and filled with values each time printing setting are changed via the **PageSetup** or **PrintPreview** [Actions](xref:112622) for a [View](xref:112611). These options can be saved separately for each View, or they can be saved to the [](xref:DevExpress.ExpressApp.Model.IModelOptions), to affect all the Views in an application. By default, the options set for a View affect all the Views. You can change this behavior via the application project designer:
+When a user modifies print options in the **Page Setup** or **Preview** dialog, the options are saved in the [Application Model](xref:112580) and are applied to every View in the application.
 
-![PrintingSettingsStorage](~/images/printingsettingsstorage116313.png)
+Set the `PrintingSettingsStorage` property to `View` to save print model settings for each [View](xref:112611) separately.
+
+# [SolutionName.Win\ApplicationBuilder.cs](#tab/tabid-cs)
+ 
+```csharp
+public class ApplicationBuilder : IDesignTimeApplicationFactory {
+    public static WinApplication BuildApplication() {
+        builder.AddBuildStep(application => {
+            // Configure PrintingSettingsStorage
+            var systemModule = application.Modules.FindModule<DevExpress.ExpressApp.Win.SystemModule.SystemWindowsFormsModule>();
+            if (systemModule != null) {
+                systemModule.PrintingSettingsStorage = DevExpress.ExpressApp.Win.SystemModule.PrintingSettingsStorage.View;
+            }
+            // ...
+```
+***

@@ -37,6 +37,26 @@ public class NewObjectActionController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+
+Public Class NewObjectActionController
+    Inherits WindowController
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim newObjectViewController As NewObjectViewController = Window.GetController(Of NewObjectViewController)()
+        If newObjectViewController IsNot Nothing Then
+            newObjectViewController.NewObjectAction.QuickAccess = True
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 If there is no Controller of the specified type in the [Frame.Controllers](xref:DevExpress.ExpressApp.Frame.Controllers) collection, this method returns the first Controller which is assignable to this type.

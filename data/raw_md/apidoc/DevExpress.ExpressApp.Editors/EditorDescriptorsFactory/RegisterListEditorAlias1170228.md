@@ -36,4 +36,23 @@ public class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyModule
+    Inherits ModuleBase
+    '...
+    Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory _
+    As EditorDescriptorsFactory)
+        '...
+        editorDescriptorsFactory.RegisterListEditorAlias("MyAlias", GetType(Object), _
+        AddressOf IsCriteriaProperty)
+    End Sub
+    Private Shared Function IsCriteriaProperty(ByVal modelClass As IModelClass) As Boolean
+        '...    
+    End Function
+End Class
+```
+
 ***

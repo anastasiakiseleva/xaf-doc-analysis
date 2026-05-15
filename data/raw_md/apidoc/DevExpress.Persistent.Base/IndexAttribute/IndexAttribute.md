@@ -97,6 +97,97 @@ public class DomainObject2 : DomainObject1 {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<DefaultClassOptions> _
+Public Class DomainObject1
+        Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    <Index(1)> _
+    Public Property Property1() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property1))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property1), Value)
+        End Set
+    End Property
+    <Index(2)> _
+    Public Property Property2() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property2))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property2), Value)
+        End Set
+    End Property
+    <Index(3)> _
+    Public Property Property3() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property3))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property3), Value)
+        End Set
+    End Property
+    <Index(5)> _
+    Public Property Property4() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property4))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property4), Value)
+        End Set
+    End Property
+    <Index(4)> _
+    Public Property Property5() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property5))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property5), Value)
+        End Set
+    End Property
+End Class
+<DefaultClassOptions> _
+Public Class DomainObject2
+        Inherits DomainObject1
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    <Index(7)> _
+    Public Property Property6() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property6))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property6), Value)
+        End Set
+    End Property
+    <Index(6)> _
+    Public Property Property7() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property7))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property7), Value)
+        End Set
+    End Property
+    Public Property Property8() As Integer
+        Get
+            Return GetPropertyValue(Of Integer)(NameOf(Property8))
+        End Get
+        Set
+            SetPropertyValue(Of Integer)(NameOf(Property8), Value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 In the Detail and List Views of the DomainObject1 class, properties are arranged according to the indexes specified for them:

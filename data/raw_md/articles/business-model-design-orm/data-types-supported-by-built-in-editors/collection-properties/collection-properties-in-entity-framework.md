@@ -1,7 +1,7 @@
 ---
 uid: "113570"
 title: Collection Properties in EF Core
-seealso:  
+seealso: 
 - linkId: "117395"
 - linkId: "404862"
 - linkId: "404429"

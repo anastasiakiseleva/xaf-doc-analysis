@@ -12,7 +12,7 @@ In all new XAF WinForms applications, the [Template Kit](xref:405447) [initializ
 
 You can use a different @DevExpress.ExpressApp.Win.Utils.DXSplashScreen constructor to enable a different combination of splash forms.
 
-Access the _WinApplication.cs_ (_WinApplication.vb_) file in the [WinForms Application project](xref:118045) and modify the default code. For example, you can use a default Wait Form, [upload an image](xref:400748#use-a-splash-image), and [create a custom Splash Screen](xref:400748#create-and-use-a-splash-screen-or-a-wait-form). Use the @DevExpress.ExpressApp.Win.Utils.DXSplashScreen.#ctor(System.Type,System.Drawing.Image,System.Type,DevExpress.ExpressApp.Win.DefaultOverlayFormOptions) constructor to enable all four [splash forms](xref:112680).
+Access the _WinApplication.cs_ file in the [WinForms Application project](xref:118045) and modify the default code. For example, you can use a default Wait Form, [upload an image](xref:400748#use-a-splash-image), and [create a custom Splash Screen](xref:400748#create-and-use-a-splash-screen-or-a-wait-form). Use the @DevExpress.ExpressApp.Win.Utils.DXSplashScreen.#ctor(System.Type,System.Drawing.Image,System.Type,DevExpress.ExpressApp.Win.DefaultOverlayFormOptions) constructor to enable all four [splash forms](xref:112680).
 
 
 # [C#](#tab/tabid-csharp)
@@ -34,7 +34,7 @@ namespace MySolution.Win {
 
 ## Disable All Built-In Splash Forms
 
-To disable all [splash forms](xref:112680) in an application, access the the _WinApplication.cs_ (_WinApplication.vb_) file in the [WinForms Application project](xref:118045) and set the @DevExpress.ExpressApp.Win.WinApplication.SplashScreen property to _null_:
+To disable all [splash forms](xref:112680) in an application, access the the _WinApplication.cs_ file in the [WinForms Application project](xref:118045) and set the @DevExpress.ExpressApp.Win.WinApplication.SplashScreen property to _null_:
 
 # [C#](#tab/tabid-csharp)
 

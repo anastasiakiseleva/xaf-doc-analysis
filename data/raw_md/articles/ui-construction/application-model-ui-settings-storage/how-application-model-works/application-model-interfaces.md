@@ -17,8 +17,7 @@ This topic lists [Application Model](xref:112579) interfaces and extenders shipp
 | @DevExpress.ExpressApp.Model.IModelAction
 | Contains [Action](xref:112622) settings.
 | @DevExpress.ExpressApp.Validation.IModelActionValidationContexts
-|
--
+|-
 
 | @DevExpress.ExpressApp.Model.IModelActionContainerViewItem
 | Defines a View Item that displays an [Action Container](xref:112610).
@@ -73,6 +72,8 @@ This topic lists [Application Model](xref:112579) interfaces and extenders shipp
 
 @DevExpress.ExpressApp.TreeListEditors.Win.IModelColumnTreeListWin
 
+@DevExpress.ExpressApp.Blazor.SystemModule.IModelColumnPivotGridBlazor
+
 |-
 
 | @DevExpress.ExpressApp.Model.IModelDetailView
@@ -105,6 +106,8 @@ This topic lists [Application Model](xref:112579) interfaces and extenders shipp
 @DevExpress.ExpressApp.SystemModule.IModelListViewFilter,
 
 @DevExpress.ExpressApp.SystemModule.IModelViewHiddenActions,
+
+@DevExpress.ExpressApp.Blazor.SystemModule.IModelListViewPivotGridBlazor,
 
 @DevExpress.ExpressApp.SystemModule.IModelListViewPreviewColumn,
 

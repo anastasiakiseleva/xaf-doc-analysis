@@ -110,9 +110,10 @@ This article explains how to access properties of a grid component displayed in 
     Use the @DevExpress.ExpressApp.Blazor.Editors.Models.DxGridModel.ComponentInstance property to access the underlying component instance and its full API.
 
 > [!NOTE]
-> For platform-agnostic Grid List and Tree List customization, use `DevExpress.ExpressApp.Editors.ColumnWrapper`. For platform-specific customization, use its descendants:
+> For platform-agnostic List Editor customization, use `DevExpress.ExpressApp.Editors.ColumnWrapper`. For platform-specific customization, use its descendants:
 > - `DevExpress.ExpressApp.Blazor.Editors.DxGridColumnWrapper` (ASP.NET Core Blazor)
 > - `DevExpress.ExpressApp.Blazor.Editors.DxTreeListColumnWrapper` (ASP.NET Core Blazor)
+> - `DevExpress.ExpressApp.Blazor.Editors.DxPivotGridColumnWrapper` (ASP.NET Core Blazor)
 > - `DevExpress.ExpressApp.Win.Editors.WinGridColumnWrapper` (Windows Forms)
 
 [!include[platform-specific-events-control-customization](~/templates/platform-specific-events-control-customization.md)]

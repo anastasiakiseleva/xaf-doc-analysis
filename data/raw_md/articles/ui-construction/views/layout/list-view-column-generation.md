@@ -45,6 +45,36 @@ public class ObjectA : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Public Class ObjectA
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _propertyA1 As String
+    Private _propertyA2 As String
+    Public Property PropertyA1() As String
+        Get
+            Return _propertyA1
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(PropertyA1), _propertyA1, value)
+        End Set
+    End Property
+    Public Property PropertyA2() As String
+        Get
+            Return _propertyA2
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(PropertyA2), _propertyA2, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 The **ListView**'s and **LookupListView**'s **Columns** node contains child nodes generated for this class. The following image illustrates this node in the Model Editor:
@@ -66,6 +96,16 @@ If the class has a [default](xref:113525) or friendly key property (see @DevExpr
 public class ObjectA : BaseObject {
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultProperty(NameOf(PropertyA2))> _
+Public Class ObjectA
+    Inherits BaseObject
+    ' ...
+```
+
 ***
 
 ![ListViewColumns_2](~/images/listviewcolumns_2116686.png)
@@ -82,6 +122,17 @@ public class ObjectA : BaseObject {
     public string ObjectName {
         // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class ObjectA
+    Inherits BaseObject
+    ' ...
+    Public Property ObjectName() As String
+        ' ...
+```
+
 ***
 
 ![ListViewColumns_3](~/images/listviewcolumns_3116687.png)
@@ -148,6 +199,50 @@ public class ObjectB : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Public Class ObjectA
+    Inherits BaseObject
+    ' ...
+    Private _propertyA3 As ObjectB
+    Public Property PropertyA3() As ObjectB
+        Get
+            Return _propertyA3
+        End Get
+        Set(ByVal value As ObjectB)
+            SetPropertyValue(NameOf(propertyA3), _propertyA3, value)
+        End Set
+    End Property
+End Class
+<DefaultProperty(NameOf(PropertyB2))> _
+Public Class ObjectB
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _propertyB1 As String
+    Public Property PropertyB1() As String
+        Get
+            Return _propertyB1
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(propertyB1), _propertyB1, value)
+        End Set
+    End Property
+    Private _propertyB2 As String
+    Public Property PropertyB2() As String
+        Get
+            Return _propertyB2
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(propertyB2), _propertyB2, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 A column is generated to display the `PropertyA3` property.
@@ -167,6 +262,19 @@ public class ObjectA : BaseObject {
     public ObjectB PropertyA3 {
         // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class ObjectA
+    Inherits BaseObject
+    ' ...
+    <ExpandObjectMembers(ExpandObjectMembers.InListView)> _
+    Public Property PropertyA3() As ObjectB
+        Get
+            ' ...
+```
+
 ***
 
 ![ListViewColumns_5](~/images/listviewcolumns_5116689.png)
@@ -202,6 +310,36 @@ public class ObjectC : ObjectA {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Public Class ObjectC
+    Inherits ObjectA
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _propertyC1 As String
+    Public Property PropertyC1() As String
+         Get
+             Return _propertyC1
+         End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(propertyC1), _propertyC1, value)
+        End Set
+    End Property
+    Private _propertyC2 As String
+    Public Property PropertyC2() As String
+        Get
+            Return _propertyC2
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(propertyC2), _propertyC2, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Typically, the columns for this class properties are generated as usual (see the description of `ObjectA` List Views column generation above). The columns for derived properties are generated as hidden (with -1 indexes). Note the following specifics:

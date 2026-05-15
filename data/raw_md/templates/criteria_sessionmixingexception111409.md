@@ -4,4 +4,8 @@ A persistent object used in Collection Source's Criteria does not reload when th
 ```csharp
 View.CollectionSource.Criteria["Filter1"] = CriteriaOperator.Parse("Manager.Oid = ?", ObjectSpace.GetKeyValue(manager));
 ```
+# [VB.NET](#tab/tabid-vb)
+```vb
+View.CollectionSource.Criteria("Filter1") = CriteriaOperator.Parse("Manager.Oid = ?", ObjectSpace.GetKeyValue(manager))
+```
 ***

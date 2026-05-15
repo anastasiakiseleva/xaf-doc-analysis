@@ -156,8 +156,6 @@ The default Lookup Property Editor uses a [predefined alias](xref:DevExpress.Exp
 public class CustomLookupPropertyEditor : BlazorPropertyEditorBase { /* ... */ }
 ```
 
-[!example[XAF WinForms - How to use a custom Lookup Property Editor control for reference properties](https://github.com/DevExpress-Examples/obsolete-xaf-win-custom-lookup-property-editor)]
-
 ### Alternative Property Editor Registration Method (No Attributes)
 
 You can disable the mechanism that locates classes decorated with `PropertyEditorAttribute`. This change may help you optimize application load time. 

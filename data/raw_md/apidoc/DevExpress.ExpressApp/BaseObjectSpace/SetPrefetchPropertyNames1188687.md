@@ -29,4 +29,20 @@ public class PreFetchOrdersViewController : ObjectViewController<ListView, Custo
     }
 }
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Imports DevExpress.ExpressApp
+' ...
+Public Class PreFetchOrdersViewController
+    Inherits ObjectViewController(Of ListView, Customer)
+    Protected Overrides Sub OnActivated()
+        If View.CollectionSource.DataAccessMode = CollectionSourceDataAccessMode.Client Then
+            CType(ObjectSpace, BaseObjectSpace).SetPrefetchPropertyNames(View.CollectionSource.Collection, nameof(Customer.Orders))
+        End If
+    End Sub
+End Class
+```
+ 
 ***

@@ -52,6 +52,46 @@ namespace AdditionalCommands {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Globalization
+Imports DevExpress.EasyTest.Framework
+
+Public Class FillDateTimeValueCommand
+    Inherits Command
+    Private Function GetIntegerParameterValue(ByVal parameterName As String) As Integer
+        Dim result As Integer = 0
+        Dim parameter As Parameter = Parameters(parameterName)
+        If parameter IsNot Nothing Then
+            If (Not Int32.TryParse(parameter.Value, result)) Then
+                Throw New CommandException(String.Format( _
+                "'{0}' value is incorrect", parameterName), Me.StartPosition)
+            End If
+        End If
+        Return result
+    End Function
+    Protected Overrides Sub InternalExecute(ByVal adapter As ICommandAdapter)
+        Dim deltaDays As Integer = GetIntegerParameterValue("Days")
+        Dim deltaHours As Integer = GetIntegerParameterValue("Hours")
+        Dim deltaMinutes As Integer = GetIntegerParameterValue("Minutes")
+        Dim cultureName As String = _
+        If(Parameters("Culture") IsNot Nothing, Parameters("Culture").Value, Nothing)
+        Dim currentCulture As CultureInfo = _
+        If(cultureName IsNot Nothing, CultureInfo.GetCultureInfo(cultureName), Nothing)
+        Dim fieldName As String = Parameters.MainParameter.Value
+        Dim testControl As ITestControl = _
+            adapter.CreateTestControl(TestControlType.Field, fieldName)
+        Dim dateTime As DateTime = DateTime.Now.Add( _
+        New TimeSpan(deltaDays, deltaHours, deltaMinutes, 0))
+        Dim dateTimeValue As String = _
+        If(currentCulture IsNot Nothing, dateTime.ToString(currentCulture), dateTime.ToString())
+        testControl.GetInterface(Of IControlText)().Text = dateTimeValue
+    End Sub
+End Class
+```
+
 ***
 
 This command's primary parameter specifies a field caption to be filled. It also takes the Days, Hours, and Minutes extra parameters that specify the differences between the time to be specified and the current time. The Culture extra parameter is intended for overcoming any localization-specific issues.
@@ -79,15 +119,41 @@ namespace ExtendedAdapters {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.EasyTest.WinAdapter
+Imports DevExpress.EasyTest.Framework
+Imports AdditionalCommands
+
+Namespace ExtendedAdapters
+    Public Class ExtendedWinAdapter
+        Inherits WinAdapter
+        Public Overrides Sub RegisterCommands(ByVal registrator As IRegisterCommand)
+            MyBase.RegisterCommands(registrator)
+            registrator.RegisterCommand("FillDateTimeValue", GetType(FillDateTimeValueCommand))
+        End Sub
+    End Class
+End Namespace
+```
+
 ***
 
-In the same Class Library project, open the _AssemblyInfo.cs_ (_AssemblyInfo.vb_) file and register the adapter.
+In the same Class Library project, open the _AssemblyInfo.cs_ file and register the adapter.
 
 # [C#](#tab/tabid-csharp)
 
 ```csharp
 [assembly: DevExpress.EasyTest.Framework.Adapter(typeof(ExtendedAdapters.ExtendedWinAdapter))]
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Assembly: DevExpress.EasyTest.Framework.Adapter(GetType(ExtendedAdapters.ExtendedWinAdapter))>
+```
+
 ***
 
 **ExtendedWebAdapter Class:**
@@ -109,15 +175,42 @@ namespace ExtendedAdapters {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.EasyTest.WebAdapter
+Imports DevExpress.EasyTest.Framework
+Imports AdditionalCommands
+
+Namespace ExtendedAdapters
+    Public Class ExtendedWebAdapter
+        Inherits WebAdapter
+        Public Overrides Sub RegisterCommands(ByVal registrator As IRegisterCommand)
+            MyBase.RegisterCommands(registrator)
+            registrator.RegisterCommand("FillDateTimeValue", GetType(FillDateTimeValueCommand))
+            Dim scriptParser As ScriptParser = (CType(registrator, ScriptParser))
+        End Sub
+    End Class
+End Namespace
+```
+
 ***
 
-In the same Class Library project, open the _AssemblyInfo.cs_ (_AssemblyInfo.vb_) file and register the adapter.
+In the same Class Library project, open the _AssemblyInfo.cs_ file and register the adapter.
 
 # [C#](#tab/tabid-csharp)
 
 ```csharp
 [assembly: DevExpress.EasyTest.Framework.Adapter(typeof(ExtendedAdapters.ExtendedWebAdapter))]
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Assembly: DevExpress.EasyTest.Framework.Adapter(GetType(ExtendedAdapters.ExtendedWebAdapter))>
+```
+
 ***
 
 The resulting solution structure is illustrated in the image below (new and modified files are highlighted).

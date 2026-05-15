@@ -30,6 +30,30 @@ public class CustomizeGridColumnController : ObjectViewController<ListView, Cont
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+' ...
+Public Class CustomizeGridColumnController
+    Inherits ObjectViewController(Of ListView, Contact)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim listEditor As GridListEditor = TryCast(CType(View, ListView).Editor, GridListEditor)
+        If listEditor IsNot Nothing Then
+            AddHandler listEditor.CustomizeGridColumn, AddressOf listEditor_CustomizeGridColumn
+        End If
+    End Sub
+    Private Sub listEditor_CustomizeGridColumn(ByVal sender As Object, ByVal e As CustomizeGridColumnEventArgs)
+        If e.GridColumn.FieldName = "FullName" Then
+            e.GridColumn.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 > [!IMPORTANT]

@@ -136,6 +136,65 @@ namespace MySolution.Module.BusinessObjects {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports System.Linq
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+
+Public Class Customer
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    ReadOnly Property Total As Decimal
+        Get
+            Return Orders.Sum(Function(c) c.Price)
+        End Get
+    End Property
+
+    <Association>
+    Public ReadOnly Property Orders() As XPCollection(Of Order)
+        Get
+            Return GetCollection(Of Order)(NameOf(Orders))
+        End Get
+    End Property
+End Class
+
+Public Class Order
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Private _customer As Customer
+    Private _price As Decimal
+
+    Property Price As Decimal
+        Get
+            Return _price
+        End Get
+        Set(ByVal Value As Decimal)
+            SetPropertyValue(NameOf(Price), _price, Value)
+        End Set
+    End Property
+
+    <Association>
+    Property Customer() As Customer
+        Get
+            Return _customer
+        End Get
+        Set(ByVal Value As Customer)
+            SetPropertyValue(NameOf(Customer), _customer, Value)
+        End Set
+    End Property
+
+End Class
+```
+
 ***
 
 This code calculates the **Total** property value when a **Customer** object is loaded. To notify bound editors that the **Total** property value changed, subscribe to changes of the **Orders** collection and send notifications about the **Total** property value changes when they occur:
@@ -202,6 +261,29 @@ public class Customer : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Xpo.Metadata
+' ...
+Public Class Customer
+    Inherits BaseObject
+    ' ...
+
+    Protected Overrides Function CreateCollection(Of T)([property] As XPMemberInfo) As XPCollection(Of T)
+        Dim collection = MyBase.CreateCollection(Of T)([property])
+        If [property].Name = NameOf(Orders) Then
+            AddHandler collection.CollectionChanged, AddressOf Collection_CollectionChanged
+        End If
+        Return collection
+    End Function
+    Private Sub Collection_CollectionChanged(ByVal sender As Object, ByVal e As XPCollectionChangedEventArgs)
+        OnChanged(NameOf(Total))
+    End Sub
+End Class
+```
+
 ***
 
 You can also notify that the `Total` property value is changed from the `Order` business class. Refer to the following article that describes this: [How to: Calculate a Property Value Based on Values from a Detail Collection](xref:113179).

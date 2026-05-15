@@ -34,4 +34,21 @@ public class FullNameController : ObjectViewController<DetailView, MainDemo.Modu
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+
+Public Class FullNameController
+    Inherits ObjectViewController(Of DetailView, MainDemo.Module.BusinessObjects.Contact)
+    Protected Overrides Sub OnActivated()
+        Dim firstNameEditor As StringPropertyEditor = CType(View.FindItem("FirstName"), StringPropertyEditor)
+        Dim lastNameEditor As StringPropertyEditor = CType(View.FindItem("LastName"), StringPropertyEditor)
+        firstNameEditor.ImmediatePostData = True
+        lastNameEditor.ImmediatePostData = True
+    End Sub
+End Class
+```
 ***

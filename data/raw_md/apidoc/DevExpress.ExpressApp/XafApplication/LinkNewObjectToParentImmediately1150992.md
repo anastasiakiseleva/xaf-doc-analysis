@@ -39,6 +39,22 @@ namespace MySolution.Win {
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Namespace MySolution.Win
+    Partial Public Class MySolutionWindowsFormsApplication
+        Inherits WinApplication
+        Public Sub New()
+            ' ...
+            LinkNewObjectToParentImmediately = True
+        End Sub
+        ' ...
+    End Class
+End Namespace
+
+```
 ***
 
 To change the behavior for a specific [View](xref:112611), set the [NewObjectViewController.LinkNewObjectToParentImmediately](xref:DevExpress.ExpressApp.SystemModule.NewObjectViewController.LinkNewObjectToParentImmediately) property in a [Controller](xref:112621) that targets the View. The behavior of aggregated collections is not changed.

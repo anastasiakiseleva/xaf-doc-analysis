@@ -22,7 +22,7 @@ You can perform a custom process of checking the database and application compat
 
 If you do not need the scenario implemented in the [XafApplication.DatabaseVersionMismatch](xref:DevExpress.ExpressApp.XafApplication.DatabaseVersionMismatch) event handler, which is generated automatically in your application, write a custom event handler. For instance, you can implement a custom **DatabaseUpdater** class and call its **Update** method in the **DatabaseVersionMismatch** event handler.
 
-Use the [XafApplication.DatabaseUpdateMode](xref:DevExpress.ExpressApp.XafApplication.DatabaseUpdateMode) property to set the required behavior for the updating database mechanism. For instance, you can set the **UpdateDatabaseAlways** value so that the database's version is updated each time the application runs.
+Use the [XafApplication.DatabaseUpdateMode](xref:DevExpress.ExpressApp.XafApplication.DatabaseUpdateMode) property to set the required behavior for the updating database mechanism. For instance, you can set the **UpdateDatabaseAlways** value so that the database's version is updated each time the application runs. This is useful in applications written using VB, because of the difficulty in incrementing versions in VB projects.
 |-
 
 | When the **AuthenticationActiveDirectory** strategy is used, authentication is accomplished immediately after the application is started. A user is authenticated if their account has been found in the system, and the corresponding object in the database exists.

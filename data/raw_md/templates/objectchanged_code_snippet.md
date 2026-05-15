@@ -23,6 +23,32 @@ public class MyViewController : ObjectViewController<ObjectView, Sale> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+
+Public Class MyViewController
+    Inherits ObjectViewController(Of ObjectView, Sale)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler ObjectSpace.ObjectChanged, AddressOf ObjectSpace_ObjectChanged
+    End Sub
+    Private Sub ObjectSpace_ObjectChanged(ByVal sender As Object, ByVal e As ObjectChangedEventArgs)
+        If e.PropertyName = NameOf(Sale.Count) Then
+            Dim sale = CType(e.Object, Sale)
+            sale.TotalPrice = sale.Count * sale.Price
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        RemoveHandler ObjectSpace.ObjectChanged, AddressOf ObjectSpace_ObjectChanged
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

@@ -13,10 +13,10 @@ seealso: []
 ---
 The **PageSetup** Action invokes the **Page Setup** dialog, where an end-user can set up page printing options:
 
-![PrintingModule_1](~/images/printingmodule_1115834.png)
+![PrintingModule_1](~/images/xaf-printing-page-setup.png)
 
 This Action is added to the **Print** [Action Container](xref:112610), which is available in the **File** main menu.
 
-![PrintingModule](~/images/printingmodule115833.png)
+![PrintingModule](~/images/xaf-printing-print-actions.png)
 
 This Action is enabled only for root Views.

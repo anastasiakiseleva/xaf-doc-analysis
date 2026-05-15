@@ -53,6 +53,43 @@ public class Issue : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+' ...
+<DefaultClassOptions, ImageName("BO_List")> _
+Public Class Issue
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _subject As String
+    Public Property Subject() As String
+        Get
+            Return _subject
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Subject), _subject, value)
+        End Set
+    End Property
+    Private _description As String
+    <Size(SizeAttribute.Unlimited)> _
+    Public Property Description() As String
+        Get
+            Return _description
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Description), _description, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 To create a new object using the Navigation control, add a new navigation item and specify the code to be executed on this item click.
@@ -114,6 +151,39 @@ public class NewObjectFromNavigationController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class NewObjectFromNavigationController
+    Inherits WindowController
+
+    Public Sub New()
+        TargetWindowType = WindowType.Main
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim showNavigationItemController As ShowNavigationItemController = Frame.GetController(Of ShowNavigationItemController)()
+        AddHandler showNavigationItemController.CustomShowNavigationItem, _
+AddressOf showNavigationItemController_CustomShowNavigationItem
+    End Sub
+    Private Sub showNavigationItemController_CustomShowNavigationItem(ByVal sender As Object, _
+ByVal e As CustomShowNavigationItemEventArgs)
+        If e.ActionArguments.SelectedChoiceActionItem.Id = "NewIssue" Then
+            Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Issue))
+            Dim newIssue As Issue = objectSpace.CreateObject(Of Issue)()
+            Dim detailView As DetailView = Application.CreateDetailView(objectSpace, newIssue)
+            detailView.ViewEditMode = DevExpress.ExpressApp.Editors.ViewEditMode.Edit
+            e.ActionArguments.ShowViewParameters.CreatedView = detailView
+            e.Handled = True
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Run the WinForms or ASP.NET Core Blazor application to check that the `Issue` objects can be created using the **Create New Issue…** navigation item (see the image at the beginning of this topic).

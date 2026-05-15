@@ -33,6 +33,18 @@ private void xtraReport1_BeforePrint(object sender, System.Drawing.Printing.Prin
         new DevExpress.Xpo.SortProperty("FullName", DevExpress.Xpo.DB.SortingDirection.Ascending));
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub xtraReport1_BeforePrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs)
+    Dim report = CType(sender, DevExpress.XtraReports.UI.XtraReport)
+    Dim dataSource = CType(report.DataSource, DevExpress.Persistent.Base.ReportsV2.ISupportSorting)
+    dataSource.Sorting.Clear()
+    dataSource.Sorting.Add(New DevExpress.Xpo.SortProperty("FullName", DevExpress.Xpo.DB.SortingDirection.Ascending))
+End Sub
+```
+
 ***
 
 ## Parameters Object

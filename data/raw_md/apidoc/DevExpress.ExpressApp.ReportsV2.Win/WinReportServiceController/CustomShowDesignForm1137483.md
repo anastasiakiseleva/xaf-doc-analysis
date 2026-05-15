@@ -32,6 +32,37 @@ public class CustomizeReportDesignerController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ReportsV2.Win
+' ...
+Public Class CustomizeReportDesignerController
+    Inherits ViewController
+    Private reportService As WinReportServiceController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        reportService = Frame.GetController(Of WinReportServiceController)()
+        If reportService IsNot Nothing Then
+            AddHandler reportService.CustomShowDesignForm, _
+            AddressOf reportService_CustomShowDesignForm
+        End If
+    End Sub
+    Private Sub reportService_CustomShowDesignForm( _
+    ByVal sender As Object, ByVal e As CustomShowDesignFormEventArgs)
+        CType(e.DesignForm, System.Windows.Forms.Form).ShowInTaskbar = False
+        e.Report.DrawGrid = False
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If reportService IsNot Nothing Then
+            RemoveHandler reportService.CustomShowDesignForm, _
+            AddressOf reportService_CustomShowDesignForm
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 You can set the **Handled** parameter to **true** to suppress the default **Report Designer**.

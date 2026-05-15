@@ -48,4 +48,51 @@ namespace MainDemo.Module {
     }
 }
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+
+Namespace MainDemo.Module
+    Public Class SelectedNavigationItemController
+        Inherits WindowController
+
+        Public Sub New()
+            TargetWindowType = WindowType.Main
+        End Sub
+
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            Frame.GetController(Of ShowNavigationItemController)().CustomUpdateSelectedItem += AddressOf SelectedNavigationItemController_CustomUpdateSelectedItem
+            Application.ViewShowing += AddressOf Application_ViewShowing
+        End Sub
+
+        Private cancelSelectedNavigationItemChange As Boolean
+
+        Private Sub Application_ViewShowing(ByVal sender As Object, ByVal e As ViewShowingEventArgs)
+            If e.View.Id Is "Employee_DetailView" AndAlso e.SourceFrame?.View?.Id Is "Person_ListView" Then
+                cancelSelectedNavigationItemChange = True
+            End If
+        End Sub
+
+        Private Sub SelectedNavigationItemController_CustomUpdateSelectedItem(ByVal sender As Object, ByVal e As CustomUpdateSelectedItemEventArgs)
+            If cancelSelectedNavigationItemChange Then
+                cancelSelectedNavigationItemChange = False
+                e.Handled = True
+                e.ProposedSelectedItem = CType(sender, ShowNavigationItemController).ShowNavigationItemAction.SelectedItem
+            End If
+        End Sub
+
+        Protected Overrides Sub OnDeactivated()
+            MyBase.OnDeactivated()
+            Frame.GetController(Of ShowNavigationItemController)().CustomUpdateSelectedItem -= AddressOf SelectedNavigationItemController_CustomUpdateSelectedItem
+            Application.ViewShowing -= AddressOf Application_ViewShowing
+        End Sub
+    End Class
+End Namespace
+
+```
+ 
 ***

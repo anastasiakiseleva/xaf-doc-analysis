@@ -11,6 +11,7 @@ The following data filtering options are available in **Reports V2**:
 * [Criteria Property of the Data Source](#criteria-property-of-the-data-source)
 * [Report Parameters](#report-parameters)
 * [Parameters Object](#parameters-object)
+* [Filter Data in Code](#filter-data-in-code)
 
 ## FilterString Property of the Report
 The [XtraReportBase.FilterString](xref:DevExpress.XtraReports.UI.XtraReportBase.FilterString) property specifies the filter applied on the client side before a report is displayed. 
@@ -115,10 +116,22 @@ public class DemoParameters : ReportParametersObjectBase {
 	predefinedReportsUpdater.AddPredefinedReport<ContactsBaseReport>(
 	    "Contacts by Department", typeof(ContactsReport), typeof(MyParametersObject));
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	predefinedReportsUpdater.AddPredefinedReport(Of ContactsBaseReport)( _
+	"Contacts by Department", GetType(ContactsReport), GetType(MyParametersObject))
+	```
+	
 	***
 	
 	For details on adding predefined reports, refer to the [](xref:DevExpress.ExpressApp.ReportsV2.PredefinedReportsUpdater) class description.
 
 > [!TIP]
-> * To validate parameters, you can use the approach from the [Non-Persistent Objects Validation](xref:113259) topic.
-> * To support [Conditional Appearance](xref:113286) and other XAF features that imply certain reactions to object property changes, support the [INotifyPropertyChanged](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged) interface in your `ReportParametersObjectBase` descendant (see [The Importance of Property Change Notifications for Automatic UI Updates](xref:117395)).
+> * To validate parameters, use the approach from the [Non-Persistent Objects Validation](xref:113259) topic.
+> * To support [Conditional Appearance](xref:113286) and other XAF features that depend on object property changes, implement the [INotifyPropertyChanged](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged) interface in your `ReportParametersObjectBase` descendant (see [The Importance of Property Change Notifications for Automatic UI Updates](xref:117395)).
+
+## Filter Data in Code
+
+If you call the @DevExpress.ExpressApp.ReportsV2.ReportServiceController.ShowPreview* method to display the Report Preview from code, you can pass a criterion as a method parameter to filter the displayed data. Refer to the following help topic for additional details and an example: <xref:113703>.

@@ -9,7 +9,6 @@ syntax:
   return:
     type: System.Boolean
     description: '`true` if data changes are to be committed; otherwise, `false`.'
-    description: '`true` if data changes are to be committed; otherwise, `false`.'
 seealso: []
 ---
 If the `AutoCommit` property is set to `true`, the Action Attribute ([](xref:DevExpress.Persistent.Base.ActionAttribute)) has the following behavior:

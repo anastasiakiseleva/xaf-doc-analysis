@@ -31,6 +31,19 @@ public class DemoTask : Task {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+' ...
+<ModelDefault("Caption", "Task"), ModelDefault("ImageName", "Tasks")> _
+Public Class DemoTask
+    Inherits Task
+    ' ...
+End Class
+```
+
 ***
 
 ![ModelDefault attribute in Model Editor](~/images/modeldefaultattribute.png)

@@ -38,6 +38,8 @@ This topic describes how to create a report based on [non-persistent](xref:11651
 
 ## Supply the Report with Data (Initialize Non-Persistent Objects)
 
+You can use one of the following techniques to generate report data:
+
 ### Use the Application Builder
 
 In the Application Builder code, handle the `NonPersistentObjectSpace.ObjectsGetting` event as shown below:
@@ -51,26 +53,29 @@ using System.ComponentModel;
 using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Core;
 // ...
-// Handle the `NonPersistentObjectSpace.ObjectsGetting` event.
-builder.ObjectSpaceProviders.Events.OnObjectSpaceCreated = context => {
-	if (context.ObjectSpace is NonPersistentObjectSpace nonPersistentObjectSpace) {
-		nonPersistentObjectSpace.ObjectsGetting += NonPersistentObjectSpace_ObjectsGetting; 
-	}
-};
-// ...
-private static void NonPersistentObjectSpace_ObjectsGetting(object sender, ObjectsGettingEventArgs e) {
-	// In the event handler, populate the `e.Objects` collection 
-	// with non-persistent objects of the required type.
-	if (e.ObjectType == typeof(MyNonPersistentObject)) {
-		BindingList<MyNonPersistentObject> objects = new BindingList<MyNonPersistentObject>();
-		for (int i = 1; i < 10; i++) {
-			objects.Add(new MyNonPersistentObject() { Name = string.Format("Object {0}", i) });
-		}
-		e.Objects = objects;
-	}
-}
-// ...
 
+public class Startup {
+     public void ConfigureServices(IServiceCollection services) {
+             services.AddXaf(Configuration, builder => {
+			 	// Handle the `NonPersistentObjectSpace.ObjectsGetting` event.
+                builder.ObjectSpaceProviders.Events.OnObjectSpaceCreated = context => {
+                    if(context.ObjectSpace is NonPersistentObjectSpace nonPersistentObjectSpace) {
+                      nonPersistentObjectSpace.ObjectsGetting += NonPersistentObjectSpace_ObjectsGetting;
+                   }
+                };
+// ...
+	private static void NonPersistentObjectSpace_ObjectsGetting(object sender, ObjectsGettingEventArgs e) {
+		// In the event handler, populate the `e.Objects` collection 
+		// with non-persistent objects of the required type.
+		if (e.ObjectType == typeof(MyNonPersistentObject)) {
+			BindingList<MyNonPersistentObject> objects = new BindingList<MyNonPersistentObject>();
+			for (int i = 1; i < 10; i++) {
+				objects.Add(new MyNonPersistentObject() { Name = string.Format("Object {0}", i) });
+			}
+			e.Objects = objects;
+		}
+	}
+// ...
 ```
 
 ***

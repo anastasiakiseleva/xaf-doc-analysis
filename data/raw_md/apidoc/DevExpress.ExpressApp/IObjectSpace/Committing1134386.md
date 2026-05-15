@@ -36,6 +36,28 @@ public class CancelCommitController : ObjectViewController<DetailView, MainDemo.
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{11-13}
+Imports System.ComponentModel
+Imports DevExpress.ExpressApp
+
+Public Class CancelCommitController
+    Inherits ObjectViewController(Of DetailView, MainDemo.Module.BusinessObjects.Payment)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler View.ObjectSpace.Committing, AddressOf ObjectSpace_Committing
+    End Sub
+    Private Sub ObjectSpace_Committing(ByVal sender As Object, ByVal e As CancelEventArgs)
+        e.Cancel = True
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler View.ObjectSpace.Committing, AddressOf ObjectSpace_Committing
+    End Sub
+End Class
+```
+
 ***
 
 [!include[<30-39><37-48>](~/templates/os_committing_committed_customcommitchanges_reloaded.md)]

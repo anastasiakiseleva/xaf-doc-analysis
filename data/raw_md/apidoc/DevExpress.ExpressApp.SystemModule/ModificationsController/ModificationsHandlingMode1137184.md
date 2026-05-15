@@ -33,6 +33,24 @@ public class MyWinModificationsController : WinModificationsController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Win.SystemModule
+// ...
+Public Class MyWinModificationsController
+    Inherits WinModificationsController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        If (TypeOf View Is ListView) Then
+            Me.ModificationsHandlingMode = ModificationsHandlingMode.AutoCommit
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Note that a custom value should be assigned after the base class' **OnActivated** method is called, as the default value is calculated by this method. Avoid changing the **ModificationsHandlingMode** by accessing the [](xref:DevExpress.ExpressApp.SystemModule.ModificationsController) from a custom controller via the [Frame.GetController\<ControllerType>](xref:DevExpress.ExpressApp.Frame.GetController``1) method. Your custom controller may be activated before the **ModificationsController** activation, and your customization will be ignored.

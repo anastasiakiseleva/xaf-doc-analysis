@@ -61,4 +61,30 @@ public class ShowListViewController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+
+Public Class ShowListViewController
+    Inherits WindowController
+    Public Sub New()
+        Dim showListViewAction As New PopupWindowShowAction(Me, "ShowListView", PredefinedCategory.Edit)
+        AddHandler showListViewAction.CustomizePopupWindowParams, _
+            AddressOf ShowListViewAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub ShowListViewAction_CustomizePopupWindowParams(ByVal sender As Object, _
+        ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectType As Type = GetType(Person)
+        Dim newObjectSpace As IObjectSpace = Application.CreateObjectSpace(objectType)
+        e.View = Application.CreateListView(newObjectSpace, objectType, True)
+    End Sub
+End Class
+```
+
 ***

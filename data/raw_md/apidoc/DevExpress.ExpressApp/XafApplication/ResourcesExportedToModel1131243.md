@@ -36,6 +36,21 @@ By default, the **Localization** node allows you to localize internal XAF resour
        }
     }
     ```
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Public Class Program
+       Public Shared Sub Main(ByVal arguments As String())
+          Dim winApplication As MySolutionWinApplication = New MySolutionWinApplication()
+             '...      
+             winApplication.ResourcesExportedToModel.Add(GetType( _
+                DevExpress.ExpressApp.Win.Localization.GridControlLocalizer))
+             winApplication.Setup()
+             '...
+       End Sub
+    End Class
+    ```
+    
     ***
 
 Invoke the [Model Editor](xref:112830) for the current application project. In the **Localization** node, you will find child nodes corresponding to the added resources. Here, you can localize them, as with any other resources in XAF (see [Localization Basics](xref:112595) and [Localize UI Elements](xref:403184)):

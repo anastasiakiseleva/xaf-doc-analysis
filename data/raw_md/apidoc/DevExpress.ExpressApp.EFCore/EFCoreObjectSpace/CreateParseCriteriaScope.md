@@ -23,4 +23,17 @@ using(IDisposable scope = objectSpace.CreateParseCriteriaScope()) {
   criteria = CriteriaOperator.Parse(filterString);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp.EFCore
+' ...
+Dim criteria As CriteriaOperator
+Using scope As IDisposable = objectSpace.CreateParseCriteriaScope()
+  criteria = CriteriaOperator.Parse(filterString)
+End Using
+```
+
 ***

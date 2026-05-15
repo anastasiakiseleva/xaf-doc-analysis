@@ -43,6 +43,36 @@ To make an application use custom Templates, do the following:
 	}
 	```
 	
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp
+	Imports DevExpress.ExpressApp.Model
+	Imports DevExpress.ExpressApp.Utils
+	Imports DevExpress.ExpressApp.Win
+	'...
+	Public Class MyFrameTemplateFactory
+	    Inherits DefaultLightStyleFrameTemplateFactory
+	    Private application As WinApplication
+	    Public Sub New(ByVal application As WinApplication)
+	        Guard.ArgumentNotNull(application, NameOf(application))
+	        Me.application = application
+	    End Sub
+	    Protected Function GetTemplateInfo(ByVal templateContext As TemplateContext) As IModelTemplate
+	        Return application.Model.Templates(templateContext.Name)
+	    End Function
+	    Protected Overrides Function CreateApplicationWindowTemplate() As _
+	    DevExpress.ExpressApp.Templates.IFrameTemplate
+	        Return New MyMainForm(GetTemplateInfo(TemplateContext.ApplicationWindow))
+	    End Function
+	    Protected Overrides Function CreateViewTemplate() As _
+	    DevExpress.ExpressApp.Templates.IFrameTemplate
+	        Return New MyDetailViewForm(GetTemplateInfo(TemplateContext.View))
+	    End Function  
+	End Class
+	```
+	
 	***
 * Set the custom Frame Template Factory for the application.
 	
@@ -61,6 +91,23 @@ To make an application use custom Templates, do the following:
 	   }
 	   //...
 	}
+	```
+	
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Win
+	'...
+	Public Class MyWindowsFormsModule
+	      Inherits ModuleBase
+	   Public Overrides Sub Setup(ByVal application As XafApplication)
+	      MyBase.Setup(application)
+	      CType(application, WinApplication).FrameTemplateFactory = _
+	      New MyFrameTemplateFactory(CType(application, WinApplication))
+	   End Sub
+	   '...
+	End Class
 	```
 	
 	***

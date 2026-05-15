@@ -14,7 +14,7 @@ seealso:
 ---
 An XAF application automatically checks application and database version compatibility on each start. The application compares module versions stored in the database with actual module versions. If versions do not match, the application collects persistent classes and automatically updates the database schema. However, you may need to convert the database data to reflect changes in your application.
 
-When you add a new module via the **New Module** template, the _Updater.cs_ (_Updater.vb_) file is automatically created in the module's project. This file contains the declaration of the `ModuleUpdater` class' descendant. To handle differences between versions of an application, override the following descendant's methods:
+When you add a new module via the **New Module** template, the _Updater.cs_ file is automatically created in the module's project. This file contains the declaration of the `ModuleUpdater` class' descendant. To handle differences between versions of an application, override the following descendant's methods:
 
 | Method | Description |
 |---|---|
@@ -58,11 +58,38 @@ public class Updater : DevExpress.ExpressApp.Updating.ModuleUpdater {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits DevExpress.ExpressApp.Updating.ModuleUpdater
+    Public Sub New(ByVal objectSpace As IObjectSpace, ByVal currentDBVersion As Version)
+        MyBase.New(objectSpace, currentDBVersion)
+    End Sub
+    Public Overrides Sub UpdateDatabaseAfterUpdateSchema()
+        MyBase.UpdateDatabaseAfterUpdateSchema()
+        If CurrentDBVersion < New Version("1.5.0.0") Then
+            Dim developerPosition As Position = ObjectSpace.FirstOrDefault(Function(position as Position) position.Title = "Developer")
+            If developerPosition Is Nothing Then
+                developerPosition = ObjectSpace.CreateObject(Of Position)()
+                developerPosition.Title = "Developer"
+                developerPosition.Save()
+            End If
+            Dim managerPosition As Position = ObjectSpace.FirstOrDefault(Function(position as Position) position.Title = "Manager")
+            If managerPosition Is Nothing Then
+                managerPosition = ObjectSpace.CreateObject(Of Position)()
+                managerPosition.Title = "Manager"
+                managerPosition.Save()
+            End If
+        End If
+        ObjectSpace.CommitChanges()
+    End Sub
+End Class
+```
+
 ***
 
-&nbsp;
-
-### Methods to Acess and Modify the Database Directly
+### Methods to Access and Modify the Database Directly
 
 You can use the following protected methods to execute custom SQL queries:
 
@@ -92,4 +119,4 @@ The protected methods described above log their activities in the application [l
 > These methods cannot be used when the application is connected with the database via a [Middle-tier Application Server](xref:113439), a Data Store Pool ([XpoDefault.GetConnectionPoolString](xref:DevExpress.Xpo.XpoDefault.GetConnectionPoolString*)), or a [Cached Data Store](xref:9892). In these scenarios (except for the Middle-tier Application Server), another approach can be used: cast the object space to [](xref:DevExpress.ExpressApp.Xpo.XPObjectSpace), access its [XPObjectSpace.Session](xref:DevExpress.ExpressApp.Xpo.XPObjectSpace.Session) member, and use corresponding methods of the [](xref:DevExpress.Xpo.Session) class. For more information, refer to the following topic: [](xref:8914).
 
 > [!NOTE]
-> You can have multiple module updaters per module. To register extra updaters, edit the [ModuleBase.GetModuleUpdaters](xref:DevExpress.ExpressApp.ModuleBase.GetModuleUpdaters(DevExpress.ExpressApp.IObjectSpace,System.Version)) method's implementation located in the _Module.cs_ (_Module.vb_) file. You can return [ModuleUpdater.EmptyModuleUpdaters](xref:DevExpress.ExpressApp.Updating.ModuleUpdater.EmptyModuleUpdaters) in this method's override if your module does not require database updates. When this method is not overridden, the module updaters are automatically collected via the reflection.
+> You can have multiple module updaters per module. To register extra updaters, edit the [ModuleBase.GetModuleUpdaters](xref:DevExpress.ExpressApp.ModuleBase.GetModuleUpdaters(DevExpress.ExpressApp.IObjectSpace,System.Version)) method's implementation located in the _Module.cs_ file. You can return [ModuleUpdater.EmptyModuleUpdaters](xref:DevExpress.ExpressApp.Updating.ModuleUpdater.EmptyModuleUpdaters) in this method's override if your module does not require database updates. When this method is not overridden, the module updaters are automatically collected via the reflection.

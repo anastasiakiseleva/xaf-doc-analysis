@@ -19,7 +19,9 @@ Use this property to specify when the application database should be updated: at
 
 The DevExpress [Template Kit](xref:405447) sets the `DatabaseUpdateMode` property for new applications to the `UpdateDatabaseAlways` value in Debug mode.
 
-# [SolutionName.Blazor.Server\BlazorApplication.cs](#tab/tabid-blazor)
+**File:** _SolutionName.Blazor.Server\BlazorApplication.cs_ or _SolutionName.Win\Startup.cs(.vb)_
+
+# [C# (Blazor)](#tab/tabid-blazor)
  
 ```csharp
 protected override void OnSetupStarted() {
@@ -30,7 +32,7 @@ protected override void OnSetupStarted() {
     // ...
 ```
  
-# [SolutionName.Win\Startup.cs](#tab/tabid-win)
+# [C# (WinForms)](#tab/tabid-win)
  
 ```csharp
 builder.AddBuildStep(application => {
@@ -41,6 +43,23 @@ builder.AddBuildStep(application => {
     // ...
 ```
  
+# [VB.NET (WinForms)](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+' ...
+Public Class Program
+   Public Shared Sub Main()
+      ' ...
+      Dim _application As MySolutionWindowsFormsApplication = New MySolutionWindowsFormsApplication()
+      If Debugger.IsAttached AndAlso _application.CheckCompatibilityType = CheckCompatibilityType.DatabaseSchema Then
+          _application.DatabaseUpdateMode = DatabaseUpdateMode.UpdateDatabaseAlways
+      End If
+      ' ...
+    End Sub
+End Class
+```
+
 ***
 
 If your application includes [Middle Tier Application Server](xref:404640), the server application must update the database. Updating from client applications must be disabled. 

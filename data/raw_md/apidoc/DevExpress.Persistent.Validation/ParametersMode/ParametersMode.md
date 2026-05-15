@@ -37,4 +37,24 @@ public DateTime LastSevenDays {
 }
 //...
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Validation
+' ...
+Private fLastSevenDays As Date
+<RuleRange("LastSevenDays_RuleRange", "Save", "AddDays(LocalDateTimeToday(), -7)", 
+    "LocalDateTimeToday()", ParametersMode.Expression)>
+Public Property LastSevenDays() As Date
+    Get
+        Return fLastSevenDays
+    End Get
+    Set(ByVal value As Date)
+        SetPropertyValue(NameOf(LastSevenDays), fLastSevenDays, value)
+    End Set
+End Property
+' ...
+```
+
 ***

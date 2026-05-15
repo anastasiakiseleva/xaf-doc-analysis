@@ -65,6 +65,39 @@ public class MyFilterUpdater : ModelNodesGeneratorUpdater<ModelListViewFiltersGe
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Model.Core
+Imports DevExpress.ExpressApp.SystemModule
+'...
+Public NotInheritable Class [Module]
+    Inherits ModuleBase
+   ' ...    
+    Public Overrides Sub AddGeneratorUpdaters(ByVal updaters As ModelNodesGeneratorUpdaters)
+        MyBase.AddGeneratorUpdaters(updaters)
+        updaters.Add(New MyFilterUpdater())
+    End Sub
+End Class
+Public Class MyFilterUpdater
+    Inherits ModelNodesGeneratorUpdater(Of ModelListViewFiltersGenerator)
+    Public Overrides Sub UpdateNode(ByVal node As ModelNode)
+        Dim filtersNode As IModelListViewFilters = CType(node, IModelListViewFilters)
+        If (CType(filtersNode.Parent, IModelListView)).ModelClass.TypeInfo.Type Is _
+        GetType(MyBusinessClass) Then
+            Dim myFilter As IModelListViewFilterItem = _
+            filtersNode.AddNode(Of IModelListViewFilterItem)("MyComplexFilter")
+            myFilter.Criteria = ""
+            myFilter.Index = 1
+            myFilter.Caption = "My Filter"
+            myFilter.Description = ""
+            filtersNode.CurrentFilter = myFilter
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 To learn about the entire concept of how to extend the Application Model in code, refer to the [Extend and Customize the Application Model in Code](xref:112810) topic.

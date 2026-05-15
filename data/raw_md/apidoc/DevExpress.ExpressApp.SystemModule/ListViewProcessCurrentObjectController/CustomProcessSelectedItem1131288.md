@@ -46,6 +46,42 @@ public class ProcessContactListViewRowController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class ProcessContactListViewRowController
+    Inherits ViewController
+
+    Public Sub New()
+        TargetViewId = "Contact_ListView"
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim listProcessController As ListViewProcessCurrentObjectController = Frame.GetController(Of ListViewProcessCurrentObjectController)()
+        If (Not (listProcessController Is Nothing)) Then
+            AddHandler listProcessController.CustomProcessSelectedItem, AddressOf ProcessContactListViewRowController_CustomProcessSelectedItem
+        End If        
+    End Sub
+    Private Sub ProcessContactListViewRowController_CustomProcessSelectedItem(ByVal sender As Object, ByVal e As CustomProcessListViewSelectedItemEventArgs)
+        Dim currentContact As Contact = CType(e.InnerArgs.CurrentObject, Contact)
+        If currentContact.Position IsNot Nothing AndAlso currentContact.Position.Title = "Manager" Then
+            Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(currentContact.GetType())
+            e.InnerArgs.ShowViewParameters.CreatedView = Application.CreateDetailView( _
+            objectSpace, "Contact_DetailView_Manager", True, objectSpace.GetObject(currentContact))
+            e.Handled = True
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        RemoveHandler Frame.GetController(Of ListViewProcessCurrentObjectController)().CustomProcessSelectedItem, AddressOf ProcessContactListViewRowController_CustomProcessSelectedItem
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

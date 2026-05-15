@@ -1,6 +1,5 @@
 ---
 uid: "119064"
-seealso: []
 title: User Logon and Authentication
 seealso:
 - linkType: HRef

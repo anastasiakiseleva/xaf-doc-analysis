@@ -45,6 +45,24 @@ public byte[] Data {
     set { SetPropertyValue(nameof(Data), ref data, value); }
 }
 ```
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Private fData() As Byte
+<EditorAlias(EditorAliases.SpreadsheetPropertyEditor)> _
+Public Property Data() As Byte()
+	Get
+		Return fData
+	End Get
+	Set(ByVal value As Byte())
+		SetPropertyValue(NameOf(Data), fData, value)
+	End Set
+End Property
+```
 ***
 
 ### In the Model Editor

@@ -12,7 +12,7 @@ This help topic describes how to allow end users to select a property value of a
 
 ## Populate the Lookup Editor with Values from Another Property
 
-This section demonstrates how to display user-friendly strings instead of simple type values in a lookup editor.
+This scenario displays user-friendly strings instead of simple type values in a lookup editor.
 
 ### Scenario
 Suppose you have the following class and want to display user-friendly strings for the **Position** integer property:
@@ -48,6 +48,33 @@ public class DemoClass : BaseObject {
     }
 }
 ```
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions>
+Public Class DemoClass
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _position As Integer
+    Public Property Position() As Integer
+        Get
+            Return _position
+        End Get
+        Set(ByVal value As Integer)
+            SetPropertyValue(NameOf(Position), _position, value)
+        End Set
+    End Property
+End Class
+
+```
+
+[`DefaultClassOptions`]: xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute
+
 ***
 
 > [!ImageGallery]
@@ -57,7 +84,7 @@ public class DemoClass : BaseObject {
 
 ### Solution
 
-1. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the `Position` property to hide its editor from the UI:
+1. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the **Position** property to hide its editor from the UI:
 
     # [C# (EF Core)](#tab/tabid-csharp-ef)
     ```csharp
@@ -84,9 +111,22 @@ public class DemoClass : BaseObject {
         }
     }
     ```
+
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+    ```vb
+    Imports System.ComponentModel
+    '...
+    Public Class DemoClass
+        '...
+        <Browsable(False)>
+        Public Property Position As Integer
+            '...
+        End Property
+    End Class
+    ```
     ***
 
-2. Create an additional `PositionPropertyWrapper` class that is a wrapper for the `DemoClass.Position` property. Apply the [DomainComponent](xref:DevExpress.ExpressApp.DC.DomainComponentAttribute) attribute to this class to make it [non-persistent](xref:116516). In `PositionPropertyWrapper`, the `Key` property stores the original integer values, and the `DisplayName` property returns their user-friendly string representations.
+2. Create an additional **PositionPropertyWrapper** class that is a wrapper for the **DemoClass.Position** property. Apply the [DomainComponent](xref:DevExpress.ExpressApp.DC.DomainComponentAttribute) attribute to this class to make it [non-persistent](xref:116516). In **PositionPropertyWrapper**, the **Key** property stores the original integer values, and the **DisplayName** property returns their user-friendly string representations.
 
     **File**: _MySolution.Module\BusinessObjects\PositionPropertyWrapper.cs_.
 
@@ -108,6 +148,33 @@ public class DemoClass : BaseObject {
         public string PositionName { get { return _positionName; } }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb)
+
+    ```vb
+    Imports DevExpress.ExpressApp.DC
+    '...
+    <DomainComponent, XafDefaultProperty(nameof(PositionName))>
+    Public Class PositionPropertyWrapper
+        Private _key As Integer
+        Private _positionName As String
+        Public Sub New(ByVal positionName As String, ByVal key As Integer)
+            Me._key = key
+            Me._positionName = positionName
+        End Sub
+        <DevExpress.ExpressApp.Data.Key>
+        Public ReadOnly Property Key() As Integer
+            Get
+                Return _key
+            End Get
+        End Property
+        Public ReadOnly Property PositionName() As String
+            Get
+                Return _positionName
+            End Get
+        End Property
+    End Class
+    ```
     ***
 
     [`DomainComponent`]: xref:DevExpress.ExpressApp.DC.DomainComponentAttribute
@@ -115,9 +182,9 @@ public class DemoClass : BaseObject {
     [`DevExpress.ExpressApp.Data.Key`]: xref:DevExpress.ExpressApp.Data.KeyAttribute
 
     > [!IMPORTANT]
-    > Use the `Key` attribute from the `DevExpress.ExpressApp.Data` namespace only (not from the [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) or [](xref:DevExpress.Xpo) namespaces). This attribute is required for XAF ASP.NET Core Blazor applications.
+    > Use the **Key** attribute from the **DevExpress.ExpressApp.Data** namespace only (not from the [System.ComponentModel.DataAnnotations](xref:System.ComponentModel.DataAnnotations) or [](xref:DevExpress.Xpo) namespaces). This attribute is required for XAF ASP.NET Web Forms and ASP.NET Core Blazor applications.
 
-3. Extend `DemoClass` with the `PositionDataSource` property that stores the collection of non-persistent `PositionPropertyWrapper` objects. The `Position` lookup editor displays these objects. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the `PositionDataSource` property to hide its editor from the UI: 
+3. Extend **DemoClass** with the **PositionDataSource** property that stores the collection of non-persistent **PositionPropertyWrapper** objects. The **Position** lookup editor displays these objects. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the **PositionDataSource** property to hide its editor from the UI: 
 
     **File**: _MySolution.Module\BusinessObjects\DemoClass.cs_.
 
@@ -169,11 +236,35 @@ public class DemoClass : BaseObject {
         }
     }
     ```
+
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+    ```vb
+    Imports System.ComponentModel
+    '...
+    Public Class DemoClass
+        '...
+        Private dataSource As BindingList(Of PositionPropertyWrapper)
+        <Browsable(False)>
+        Public ReadOnly Property PositionsDataSource() As BindingList(Of PositionPropertyWrapper)
+            Get
+                If dataSource Is Nothing Then
+                    dataSource = New BindingList(Of PositionPropertyWrapper)()
+                    For i As Integer = 0 To 4
+                        dataSource.Add(New PositionPropertyWrapper("Position" & i.ToString(), i))
+                    Next i
+                End If
+                Return dataSource
+            End Get
+        End Property
+    End Class
+    ```
+
     ***
 
     [`BindingList`]: xref:System.ComponentModel.BindingList`1
 
-4. Extend `DemoClass` with the non-persistent `PositionWrapper` property of the `PositionPropertyWrapper` type to update the persistent `Position` property. Apply the [DataSourceProperty](xref:DevExpress.Persistent.Base.DataSourcePropertyAttribute) attribute to `PositionWrapper` to populate the lookup editor data source:
+4. Extend **DemoClass** with the non-persistent **PositionWrapper** property of the **PositionPropertyWrapper** type to update the persistent **Position** property. Apply the [DataSourceProperty](xref:DevExpress.Persistent.Base.DataSourcePropertyAttribute) attribute to **PositionWrapper** to populate the lookup editor data source:
 
     # [C# (EF Core)](#tab/tabid-csharp-ef)
     ```csharp
@@ -227,13 +318,38 @@ public class DemoClass : BaseObject {
         }
     }
     ```
+
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+    ```vb
+    Imports System.Linq
+    ' ...
+    Public Class DemoClass
+        ' ...
+        Private _positionPropertyWrapper As PositionPropertyWrapper
+        <NonPersistent, XafDisplayName("Position"), DataSourceProperty(nameof(PositionDataSource))>
+        Public Property PositionWrapper() As PositionPropertyWrapper
+            Get
+                If _positionPropertyWrapper Is Nothing OrElse _positionPropertyWrapper.Key <> Position Then
+                    _positionPropertyWrapper = PositionDataSource.FirstOrDefault(Function(i) i.Key = Position)
+                End If
+                Return _positionPropertyWrapper
+            End Get
+            Set(ByVal value As PositionPropertyWrapper)
+                SetPropertyValue(NameOf(PositionWrapper), _positionPropertyWrapper, value)
+                If Not IsLoading AndAlso Not IsSaving Then
+                    Position = value.Key
+                End If
+            End Set
+        End Property
+    End Class
+    ```
     ***
 
     [`NonPersistent`]: xref:DevExpress.Xpo.NonPersistentAttribute
     [`XafDisplayName`]: xref:DevExpress.ExpressApp.DC.XafDisplayNameAttribute
     [`DataSourceProperty`]: xref:DevExpress.Persistent.Base.DataSourcePropertyAttribute
 
-5. **Optional**. You can also hide the lookup editor's **Clear** button for a [non-nullable](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types) `PositionWrapper` property. To do this, set its @DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.AllowClear property to `false` in the Model Editor or apply @DevExpress.ExpressApp.Model.ModelDefaultAttribute to `PositionWrapper`:
+5. **Optional**. You can also hide the lookup editor's **Clear** button for a [non-nullable](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/nullable-value-types) **PositionWrapper** property. To do this, set its @DevExpress.ExpressApp.Model.IModelCommonMemberViewItem.AllowClear property to **false** in the Model Editor or apply @DevExpress.ExpressApp.Model.ModelDefaultAttribute to **PositionWrapper**:
 
     # [C#](#tab/tabid-csharp)
     ```csharp
@@ -247,15 +363,27 @@ public class DemoClass : BaseObject {
         }
     }
     ```
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Imports DevExpress.ExpressApp.Model
+    ' ...
+    Public Class DemoClass
+        ' ...
+        <ModelDefault("AllowClear", "false")>
+        Public Property PositionWrapper() As PositionPropertyWrapper
+            ' ...
+        End Property
+    End Class
+    ```
     ***
     [`ModelDefault`]: xref:DevExpress.ExpressApp.Model.ModelDefaultAttribute
 
 ## Populate the Lookup Editor with Persistent Business Objects
 
-This section demonstrates how to display a lookup editor with persistent objects instead of a simple type editor. Use this technique if you have legacy databases and cannot modify their schemas to create associations between tables.
+This scenario displays a lookup editor with persistent objects instead of a simple type editor. Use this technique if you have legacy databases and cannot modify their schemas to create associations between tables.
 
 ### Scenario
-Suppose you have the following classes and want to display the `Position.Title` lookup editor instead of the `DemoClass.PositionTitle` string editor.
+Suppose you have the following classes and want to display the **Position.Title** lookup editor instead of the **DemoClass.PositionTitle** string editor.
 
 # [C# (EF Core)](#tab/tabid-csharp-ef)
 ```csharp
@@ -309,6 +437,50 @@ public class Position : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions>
+Public Class DemoClass
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _positionTitle As String
+    Public Property PositionTitle As String
+        Get
+            Return _positionTitle
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(PositionTitle), _positionTitle, value)
+        End Set
+    End Property
+End Class
+
+<DefaultClassOptions, XafDefaultProperty(NameOf(Position.Title))>
+Public Class Position
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _title As String
+    <Size(SizeAttribute.DefaultStringMappingFieldSize)>
+    Public Property Title As String
+        Get
+            Return _title
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Title), _title, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 > [!ImageGallery]
@@ -318,7 +490,7 @@ public class Position : BaseObject {
 
 ### Solution
 
-1. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the `PositionTitle` property to hide its editor from the UI:
+1. Apply the [Browsable](xref:System.ComponentModel.BrowsableAttribute) attribute to the **PositionTitle** property to hide its editor from the UI:
 
     # [C#](#tab/tabid-csharp)
     ```csharp
@@ -332,9 +504,21 @@ public class Position : BaseObject {
         }
     }
     ```
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Imports System.ComponentModel
+    '...
+    Public Class DemoClass
+        '...
+        <Browsable(False)>
+        Public Property PositionTitle As String
+            '...
+        End Property
+    End Class
+    ```
     ***
 
-2. Create a non-persistent wrapper property (`LookupPropertyForDisplay`) to fetch records from the `Position` data table:
+2. Create a non-persistent wrapper property (**LookupPropertyForDisplay**) to fetch records from the **Position** data table:
 
     # [C# (EF Core)](#tab/tabid-csharp-ef)
 
@@ -395,6 +579,38 @@ public class Position : BaseObject {
         }
     }
     ```
+
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+    ```vb
+    Imports DevExpress.Data.Filtering
+    Imports DevExpress.ExpressApp.DC
+    Imports DevExpress.Xpo
+    '...
+    Public Class DemoClass
+        '...
+        Private _LookupPropertyForDisplay As Position
+        <NonPersistent, XafDisplayName("Position")>
+        Public Property LookupPropertyForDisplay() As Position
+            Get
+                If (_LookupPropertyForDisplay Is Nothing AndAlso Not String.IsNullOrEmpty(positionTitle)) OrElse
+                (_LookupPropertyForDisplay IsNot Nothing AndAlso _LookupPropertyForDisplay.Title <> PositionTitle) Then
+                    _LookupPropertyForDisplay = 
+                        Session.FindObject(Of Position)(New BinaryOperator("Title", positionTitle))
+                End If
+                Return _LookupPropertyForDisplay
+            End Get
+            Set(ByVal value As Position)
+                SetPropertyValue(Of Position)(NameOf(LookupPropertyForDisplay),
+                                              _LookupPropertyForDisplay, value)
+                If Not IsLoading AndAlso Not IsSaving Then
+                    PositionTitle = If(value IsNot Nothing, value.Title, String.Empty)
+                End If
+            End Set
+        End Property
+    End Class
+    ```
+
     ***
 
 ## Notes

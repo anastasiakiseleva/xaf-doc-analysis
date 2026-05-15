@@ -31,7 +31,7 @@ Customize the control as required; e.g., convert the [GridControl.MainView](xref
 > You can also add the [](xref:DevExpress.Persistent.Base.ReportsV2.CollectionDataSource) component from the **DX.<:xx.x:>: XAF Data Sources for Reports** toolbox group and then bind the control to this component. Use the [DataSourceBase.ObjectTypeName](xref:DevExpress.Persistent.Base.ReportsV2.DataSourceBase.ObjectTypeName) property to specify the required business object type. This will allow you to see the data columns in the designer and customize them as required. Actual data binding will be performed further in code.
 
 ## Bind the Control to Data Using Object Space
-Close the designer, right-click the _UserControl1.cs_ (_UserControl1.vb_) file and choose **View Code** to edit the **User Control** code. Implement the [](xref:DevExpress.ExpressApp.Editors.IComplexControl) interface. In the [IComplexControl.Setup](xref:DevExpress.ExpressApp.Editors.IComplexControl.Setup(DevExpress.ExpressApp.IObjectSpace,DevExpress.ExpressApp.XafApplication)) method, you can access the [Object Space](xref:113707) using the _objectSpace_ parameter, use the [Object Space API](xref:113711) to read the required data and then initialize the control's data source. In the [IComplexControl.Refresh](xref:DevExpress.ExpressApp.Editors.IComplexControl.Refresh) method (that is executed when a user clicks the **Refresh** Action), you can recreate the control's data source. The code below demonstrates the collection of **DemoTask** objects assigned to the [GridControl.DataSource](xref:DevExpress.XtraGrid.GridControl.DataSource) property.
+Close the designer, right-click the _UserControl1.cs_ file and choose **View Code** to edit the **User Control** code. Implement the [](xref:DevExpress.ExpressApp.Editors.IComplexControl) interface. In the [IComplexControl.Setup](xref:DevExpress.ExpressApp.Editors.IComplexControl.Setup(DevExpress.ExpressApp.IObjectSpace,DevExpress.ExpressApp.XafApplication)) method, you can access the [Object Space](xref:113707) using the _objectSpace_ parameter, use the [Object Space API](xref:113711) to read the required data and then initialize the control's data source. In the [IComplexControl.Refresh](xref:DevExpress.ExpressApp.Editors.IComplexControl.Refresh) method (that is executed when a user clicks the **Refresh** Action), you can recreate the control's data source. The code below demonstrates the collection of **DemoTask** objects assigned to the [GridControl.DataSource](xref:DevExpress.XtraGrid.GridControl.DataSource) property.
 
 # [C#](#tab/tabid-csharp)
 
@@ -53,6 +53,31 @@ public partial class UserControl1 : UserControl, IComplexControl {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+' ...
+Partial Public Class UserControl1
+    Inherits UserControl
+    Implements IComplexControl
+
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+    Private objectSpace As IObjectSpace
+    Private Sub IComplexControl_Setup(ByVal objectSpace As IObjectSpace, ByVal application As XafApplication) Implements IComplexControl.Setup
+        gridControl1.DataSource = objectSpace.GetObjects(Of EFDemo.Module.Data.DemoTask)()
+        Me.objectSpace = objectSpace
+    End Sub
+    Private Sub IComplexControl_Refresh() Implements IComplexControl.Refresh
+        gridControl1.DataSource = objectSpace.GetObjects(Of EFDemo.Module.Data.DemoTask)()
+    End Sub
+End Class
+```
+
 ***
 
 > [!TIP]

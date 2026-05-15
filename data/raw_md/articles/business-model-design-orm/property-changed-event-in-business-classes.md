@@ -1,6 +1,5 @@
 ---
 uid: "117395"
-seealso: []
 title: The Importance of Property Change Notifications for Automatic UI Updates
 seealso:
   - linkId: "404292"
@@ -54,6 +53,25 @@ public class Department : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Department
+    Inherits BaseObject
+    ' ...
+    Private _title As String
+    Public Property Title() As String
+        Get
+            Return _title
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Title), _title, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 **See Also:** [Creating a Persistent Object](xref:2077)
@@ -86,6 +104,33 @@ public class NonPersistentObject1 : INotifyPropertyChanged {
     public event PropertyChangedEventHandler PropertyChanged;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class NonPersistentObject1
+    Implements INotifyPropertyChanged
+    ' ...
+    Private _sampleProperty As String
+    Public Property SampleProperty() As String
+        Get
+            Return _sampleProperty
+        End Get
+        Set(ByVal value As String)
+            If _sampleProperty <> value Then
+                _sampleProperty = value
+                OnPropertyChanged()
+            End If
+        End Set
+    End Property
+    Private Sub OnPropertyChanged( _
+        <System.Runtime.CompilerServices.CallerMemberName> Optional propertyName As String = Nothing)
+        RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
+    End Sub
+    Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
+End Class
+```
+
 ***
 
 To create a new non-persistent class that supports `INotifyPropertyChanged`, use the **XAF Business Object** | **Non-Persistent Object** project item template.

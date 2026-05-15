@@ -49,6 +49,41 @@ public class CustomizeNewActionWindowController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Public Class CustomizeNewActionWindowController
+    Inherits ViewController
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim controller As NewObjectViewController = Frame.GetController(Of NewObjectViewController)()
+        If controller IsNot Nothing Then
+            AddHandler controller.CollectDescendantTypes, AddressOf NewObjectViewController_CollectDescendantTypes
+        End If
+    End Sub
+    Private Sub NewObjectViewController_CollectDescendantTypes(ByVal sender As Object, ByVal e As CollectTypesEventArgs)
+        For Each type As Type In e.Types
+            If type.Name = NameOf(Person) Then
+                e.Types.Remove(type)
+                Exit For
+            End If
+        Next type
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        Dim controller As NewObjectViewController = Frame.GetController(Of NewObjectViewController)()
+        If controller IsNot Nothing Then
+            RemoveHandler controller.CollectDescendantTypes, AddressOf NewObjectViewController_CollectDescendantTypes
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 ## Inherit From a Controller

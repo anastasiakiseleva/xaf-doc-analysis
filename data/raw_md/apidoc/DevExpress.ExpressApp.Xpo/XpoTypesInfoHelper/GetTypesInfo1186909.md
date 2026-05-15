@@ -21,6 +21,17 @@ using DevExpress.ExpressApp.Xpo;
 XpoTypesInfoHelper.ForceInitialize();
 ITypesInfo typesInfo = XpoTypesInfoHelper.GetTypesInfo();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.ExpressApp.Xpo
+' ...
+XpoTypesInfoHelper.ForceInitialize()
+Dim typesInfo As ITypesInfo = XpoTypesInfoHelper.GetTypesInfo()
+```
+
 ***
 
 Refer to the [How to: Use XAF Reports in a non-XAF Application](xref:114515) topic to see an example on how to use the **GetTypesInfo** method.

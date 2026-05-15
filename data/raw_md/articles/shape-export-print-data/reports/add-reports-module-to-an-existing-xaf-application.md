@@ -1,62 +1,50 @@
 ---
 uid: "404243"
 title: Add Reports V2 Module to an Existing XAF Application
+seealso:
+- linkId: 118047
 ---
 # Add Reports V2 Module to an Existing XAF Application
 
-To add the **Reports V2** module to an existing XAF application, install the appropriate NuGet package:
+1. Install the following NuGet packages:
 
-| Platform | Module | NuGet package |
-| -------- | ------ | ------------- |
-| platform-agnostic | @DevExpress.ExpressApp.ReportsV2.ReportsModuleV2 | **DevExpress.ExpressApp.ReportsV2** |
-| ASP.NET Core Blazor | `DevExpress.ExpressApp.ReportsV2.Blazor.ReportsBlazorModuleV2` | **DevExpress.ExpressApp.ReportsV2.Blazor** |
-| WinForms | @DevExpress.ExpressApp.ReportsV2.Win.ReportsWindowsFormsModuleV2 | **DevExpress.ExpressApp.ReportsV2.Win** |
+    * [DevExpress.ExpressApp.ReportsV2.Blazor](https://nuget.org/packages/DevExpress.ExpressApp.ReportsV2.Blazor)
+    * [DevExpress.ExpressApp.ReportsV2.Win](https://nuget.org/packages/DevExpress.ExpressApp.ReportsV2.Win)
 
-Next, use either of the following techniques:
+2. Call the `AddReports` method in the _Startup.cs_ file of each project that will use Reports. In the method call, specify the @DevExpress.ExpressApp.ReportsV2.ReportModuleOptions.ReportDataType property value.
 
-* [!include[<@DevExpress.ExpressApp.Blazor.ApplicationBuilder.ReportsApplicationBuilderExtensions.AddReports(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Blazor.ApplicationBuilder.IBlazorApplicationBuilder},System.Action{DevExpress.ExpressApp.ReportsV2.Blazor.ReportsOptions}) / @DevExpress.ExpressApp.Win.ApplicationBuilder.ReportsApplicationBuilderExtensions.AddReports(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder},System.Action{DevExpress.ExpressApp.ReportsV2.Win.ReportsOptions})>,<ASP.NET Core Blazor / WinForms>](~/templates/ExtraModulesNote_ApplicationBuilder.md)]
-* If you do not use an application builder, you can add these Modules to the [ModuleBase.RequiredModuleTypes](xref:DevExpress.ExpressApp.ModuleBase.RequiredModuleTypes) collection of the platform-specific Module.
+    **Files**: _SolutionName.WebApi\Startup.cs_, _SolutionName.Blazor.Server\Startup.cs_, _SolutionName.Win\Startup.cs_, _SolutionName.MiddleTier\Startup.cs_.
 
-The following additional steps may be required:
-
-## Entity Framework Core-Based Application
-
-1. Navigate to the _MySolution.Module\\BusinessObjects\\MySolutionDbContext.cs_ file and include the [](xref:DevExpress.Persistent.BaseImpl.EF.ReportDataV2) entity in the data model:  
-
+    # [EF Core](#tab/tabid-core)
+    
     ```csharp
-    using DevExpress.Persistent.BaseImpl.EF;
-    // ...
-    public class MySolutionEFCoreDbContext : DbContext {
-        // ...
-        public DbSet<ReportDataV2> ReportData { get; set; }
-        // ...
-    }
-    ```	
-
-2. Navigate to the  _MySolution.Blazor.Server\\Startup.cs_ file (ASP.NET Core Blazor) or the _MySolution.Win\\Startup.cs_ file (Windows Forms) and specify the `ReportDataType` explicitly:
-
-    ```csharp{5}
     // ...
     builder.Modules
         .AddReports(options => {
-            options.EnableInplaceReports = true;
             options.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.EF.ReportDataV2);
-            options.ReportStoreMode = DevExpress.ExpressApp.ReportsV2.ReportStoreModes.XML;
-        })
-    ```
-### ASP.NET Core Blazor Application Without Application Builder
-
-1. Navigate to the _MySolution.Blazor.Server\\Startup.cs_ file and call `AddXafReporting` in the `Startup.ConfigureServices` method to register the Reports V2 Module services in @Microsoft.Extensions.DependencyInjection.IServiceCollection:
-
-	```csharp
-	using DevExpress.ExpressApp.ReportsV2.Blazor;
-	// ...
-	public class Startup {
-		// ...
-		public void ConfigureServices(IServiceCollection services){
-			//...
-			services.AddXafReporting();
-		}
         // ...
-	}
-	```
+    ```
+    
+    # [XPO](#tab/tabid-xpo)
+    
+    ```csharp
+    // ...
+    builder.Modules
+        .AddReports(options => {
+            options.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.ReportDataV2);
+        // ...
+    ```
+    
+    ***
+
+
+3. If your application is based on the **Entity Framework Core**, navigate to the _SolutionName.Module\BusinessObjects\SolutionDbContextName.cs_ file and include the @DevExpress.Persistent.BaseImpl.EF.ReportDataV2 class in the data model:
+
+    ```csharp{4}
+    using DevExpress.Persistent.BaseImpl.EF;
+    // ...
+    public class SolutionEFCoreDbContextName : DbContext {
+        public DbSet<ReportDataV2> ReportData { get; set; }
+        // ...
+    }
+    ```

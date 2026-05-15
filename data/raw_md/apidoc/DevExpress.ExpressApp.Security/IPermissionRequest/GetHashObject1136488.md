@@ -29,6 +29,20 @@ public class CustomOperationPermissionRequest : IPermissionRequest {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class CustomOperationPermissionRequest
+    Implements IPermissionRequest
+    Public Property Operation() As String
+    Public Property ObjectType() As Type
+    Public Function GetHashObject() As Object
+        Return String.Format("{0}-{1}", ObjectType.FullName, Operation)
+    End Function
+End Class
+```
+
 ***
 
 In the simplest case, when your custom Permission Request exposes no properties, you can return the current object type.
@@ -42,4 +56,16 @@ public class MyPermissionRequest : IPermissionRequest {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyPermissionRequest
+    Implements IPermissionRequest
+    Public Function GetHashObject() As Object
+        return this.GetType().FullName;
+    End Function
+End Class
+```
+
 ***

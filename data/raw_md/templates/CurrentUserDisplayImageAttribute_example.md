@@ -23,6 +23,30 @@ Follow the steps below to extend a user class with a property that stores a user
         }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb)
+
+    ```vb
+    Imports DevExpress.Persistent.Base
+    Imports DevExpress.Persistent.BaseImpl
+    ' ...
+    <CurrentUserDisplayImage(nameof(Photo))>
+    Public Class MyAppUser
+        Inherits PermissionPolicyUser
+        Implements IObjectSpaceLink, ISecurityUserWithLoginInfo
+        ' ...
+        Private _photo As MediaDataObject
+        Public Property Photo() As MediaDataObject
+            Get
+                Return _photo
+            End Get
+            Set(ByVal value As MediaDataObject)
+                SetPropertyValue(NameOf(Photo), _photo, value)
+            End Set
+        End Property
+    End Class
+    ```
+
     ***
 
     **EF Core**

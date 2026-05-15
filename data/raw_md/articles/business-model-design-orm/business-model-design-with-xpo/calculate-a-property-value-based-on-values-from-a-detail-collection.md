@@ -41,6 +41,34 @@ public class Product : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Product
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fName As String
+    Public Property Name() As String
+        Get
+            Return fName
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Name), fName, value)
+        End Set
+    End Property
+    <Association("Product-Orders"), Aggregated> _
+    Public ReadOnly Property Orders() As XPCollection(Of Order)
+        Get
+            Return GetCollection(Of Order)(NameOf(Orders))
+        End Get
+    End Property
+End Class
+```
+
 ***
 
 The following snippet illustrates the **Order** class implementation.
@@ -68,6 +96,46 @@ public class Order : BaseObject {
         set { SetPropertyValue(nameof(Product), ref fProduct, value); }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Order
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fDescription As String
+    Public Property Description() As String
+         Get
+             Return fDescription
+         End Get
+         Set(ByVal value As String)
+             SetPropertyValue(NameOf(Description), fDescription, value)
+         End Set
+    End Property
+    Private fTotal As Decimal
+    Public Property Total() As Decimal
+        Get
+            Return fTotal
+        End Get
+        Set(ByVal value As Decimal)
+            SetPropertyValue(NameOf(Total), fTotal, value)
+        End Set
+    End Property
+    Private fProduct As Product
+    <Association("Product-Orders")> _
+    Public Property Product() As Product
+        Get
+            Return fProduct
+        End Get
+        Set(ByVal value As Product)
+            SetPropertyValue(NameOf(Product), fProduct, value)
+        End Set
+    End Property
+End Class
 ```
 ***
 
@@ -111,6 +179,44 @@ public class Product : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Product
+    Inherits BaseObject
+    ' ...
+    Private fOrdersCount As Nullable(Of Integer) = Nothing
+    Public ReadOnly Property OrdersCount() As Nullable(Of Integer)
+        Get
+            If (Not IsLoading) AndAlso (Not IsSaving) AndAlso Not fOrdersCount.HasValue Then
+                UpdateOrdersCount(False)
+            End If
+            Return fOrdersCount
+        End Get
+    End Property
+    Private fOrdersTotal As Nullable(Of Decimal) = Nothing
+    Public ReadOnly Property OrdersTotal() As Nullable(Of Decimal)
+        Get
+           If (Not IsLoading) AndAlso (Not IsSaving) AndAlso Not fOrdersTotal.HasValue Then
+                UpdateOrdersTotal(False)
+           End If
+            Return fOrdersTotal
+        End Get
+    End Property
+    Private fMaximumOrder As Nullable(Of Decimal) = Nothing
+    Public ReadOnly Property MaximumOrder() As Nullable(Of Decimal)
+        Get
+            If (Not IsLoading) AndAlso (Not IsSaving) AndAlso Not fMaximumOrder.HasValue Then
+                UpdateMaximumOrder(False)
+            End If
+            Return fMaximumOrder
+        End Get
+    End Property
+End Class
+```
+
 ***
 
 In the code above, the **Order** class contains the **Total** property and the **Product** class has the **MaximumOrder** and **OrdersTotal** properties. These **Product**'s properties are calculated based on **Total** properties of the aggregated **Orders**. The **OrderCount** property is also added to the **Product** class. This property exposes the number of aggregated **Orders**.
@@ -155,6 +261,48 @@ public class Product : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Product
+    Inherits BaseObject
+    ' ...
+    Public Sub UpdateOrdersCount(ByVal forceChangeEvents As Boolean)
+        Dim oldOrdersCount As Nullable(Of Integer) = fOrdersCount
+        fOrdersCount = Convert.ToInt32(Evaluate(CriteriaOperator.Parse("Orders.Count")))
+        If forceChangeEvents Then
+          OnChanged(NameOf(OrdersCount), oldOrdersCount, fOrdersCount)
+        End If
+    End Sub
+    Public Sub UpdateOrdersTotal(ByVal forceChangeEvents As Boolean)
+        Dim oldOrdersTotal As Nullable(Of Decimal) = fOrdersTotal
+        Dim tempTotal As Decimal = 0D
+        For Each detail As Order In Orders
+            tempTotal += detail.Total
+        Next detail
+        fOrdersTotal = tempTotal
+        If forceChangeEvents Then
+            OnChanged(NameOf(OrdersTotal), oldOrdersTotal, fOrdersTotal)
+        End If
+    End Sub
+    Public Sub UpdateMaximumOrder(ByVal forceChangeEvents As Boolean)
+        Dim oldMaximumOrder As Nullable(Of Decimal) = fMaximumOrder
+        Dim tempMaximum As Decimal = 0D
+        For Each detail As Order In Orders
+            If detail.Total > tempMaximum Then
+                tempMaximum = detail.Total
+            End If
+        Next detail
+        fMaximumOrder = tempMaximum
+        If forceChangeEvents Then
+            OnChanged(NameOf(MaximumOrder), oldMaximumOrder, fMaximumOrder)
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Note that the **fOrdersCount** is evaluated on the client side using the objects loaded from an internal **XPO** cache in the **UpdateOrdersCount** method. You can use the following code to evaluate the **fOrdersCount** on the server side, so the uncommitted objects are not taken into account.
@@ -165,6 +313,14 @@ Note that the **fOrdersCount** is evaluated on the client side using the objects
 fOrdersCount = Convert.ToInt32(Session.Evaluate<Product>(CriteriaOperator.Parse("Orders.Count"), 
     CriteriaOperator.Parse("Oid=?", Oid)));
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+fOrdersCount = Convert.ToInt32(Session.Evaluate(Of Product)( _
+CriteriaOperator.Parse("Orders.Count"), CriteriaOperator.Parse("Oid=?", Oid)))
+```
+
 ***
 
 In the **Order** class' **Total** and **Product** property setters, a UI is updated when an **Order** object's property values change and an object is not currently being initialized:
@@ -203,6 +359,47 @@ public class Order : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Order
+    Inherits BaseObject
+    ' ...
+    Private fTotal As Decimal
+    Public Property Total() As Decimal
+        Get
+            Return fTotal
+        End Get
+        Set(ByVal value As Decimal)
+            Dim modified As Boolean = SetPropertyValue(NameOf(Total), fTotal, value)
+            If (Not IsLoading) AndAlso (Not IsSaving) AndAlso Product IsNot Nothing AndAlso modified Then
+                Product.UpdateOrdersTotal(True)
+                Product.UpdateMaximumOrder(True)
+            End If
+        End Set
+    End Property
+    Private fProduct As Product
+    <Association("Product-Orders")> _
+    Public Property Product() As Product
+        Get
+            Return fProduct
+        End Get
+        Set(ByVal value As Product)
+            Dim oldProduct As Product = fProduct
+            Dim modified As Boolean = SetPropertyValue(NameOf(Product), fProduct, value)
+            If (Not IsLoading) AndAlso (Not IsSaving) AndAlso oldProduct IsNot fProduct AndAlso modified Then
+                oldProduct = If((oldProduct <> Nothing), oldProduct, fProduct)
+                oldProduct.UpdateOrdersCount(True)
+                oldProduct.UpdateOrdersTotal(True)
+                oldProduct.UpdateMaximumOrder(True)
+            End If
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 In the **Product** class, the **OnLoaded** method is overridden, as it is necessary to reset cached values when using "lazy" calculations.
@@ -224,4 +421,24 @@ public class Product : BaseObject {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Product
+    Inherits BaseObject
+    ' ...
+    Protected Overrides Sub OnLoaded()
+        Reset()
+        MyBase.OnLoaded()
+    End Sub
+    Private Sub Reset()
+        fOrdersCount = Nothing
+        fOrdersTotal = Nothing
+        fMaximumOrder = Nothing
+    End Sub
+    ' ...
+```
+
 ***

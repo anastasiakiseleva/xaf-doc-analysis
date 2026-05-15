@@ -39,6 +39,28 @@ public class SetNickNameController : ViewController<DetailView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class SetNickNameController
+    Inherits ViewController(Of DetailView)
+    Public Sub New()
+        Dim setNickNameAction As New SimpleAction(Me, "SetNickName", PredefinedCategory.Edit)
+        AddHandler setNickNameAction.Execute, AddressOf SetNickNameAction_Execute
+    End Sub
+    Private Sub SetNickNameAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim currentObject As Contact = TryCast(View.CurrentObject, Contact)
+        If currentObject IsNot Nothing Then
+            currentObject.NickName = currentObject.FirstName
+        End If
+    End Sub
+End Class
+```
 ***
 
 By default, this property is set to the object that was passed in the Detail View constructor. You can change it. This will raise the [View.SelectionChanged](xref:DevExpress.ExpressApp.View.SelectionChanged), [View.CaptionChanged](xref:DevExpress.ExpressApp.View.CaptionChanged) and [View.CurrentObjectChanged](xref:DevExpress.ExpressApp.View.CurrentObjectChanged) events one after another.

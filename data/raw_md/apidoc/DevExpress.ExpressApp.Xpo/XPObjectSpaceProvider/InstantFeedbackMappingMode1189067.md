@@ -23,6 +23,18 @@ builder.ObjectSpaceProviders
         };
         // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Protected Overrides Sub CreateDefaultObjectSpaceProvider(ByVal args _
+As CreateCustomObjectSpaceProviderEventArgs)
+    Dim provider As New XPObjectSpaceProvider(args.ConnectionString, args.Connection)
+    provider.InstantFeedbackMappingMode = XPInstantFeedbackSourceMappingMode.RequiredProperties
+    args.ObjectSpaceProvider = provider
+End Sub
+```
+
 ***
 
 To map other columns that do not appear in the grid, add them to the collection of displayed options. See the [CollectionSourceBase.DisplayableProperties](xref:DevExpress.ExpressApp.CollectionSourceBase.DisplayableProperties) topic for details.

@@ -35,4 +35,34 @@ static class Program {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend NotInheritable Class Program
+    Private Sub New()
+    End Sub
+    Shared Sub Main()
+        ' ...
+        Dim winApplication As MySolutionWindowsFormsApplication = _
+        New CustomMessagingWindowsFormsApplication()
+        '...
+        AddHandler winApplication.CustomHandleException, _
+        AddressOf winApplication_CustomHandleException
+        ' ...
+        Try
+            winApplication.Setup()
+            winApplication.Start()
+        Catch e As Exception
+            winApplication.HandleException(e)
+        End Try
+    End Sub
+    ' ...
+    Private Shared Sub winApplication_CustomHandleException( _
+    ByVal sender As Object, ByVal e As CustomHandleExceptionEventArgs)
+        ' Place your code here. Set e.Handled to true to prohibit displaying default message box.
+    End Sub
+End Class
+```
+
 ***

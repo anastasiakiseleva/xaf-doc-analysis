@@ -92,6 +92,92 @@ public class User : BaseObject {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<DefaultClassOptions> _
+Public Class Address
+      Inherits BaseObject
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Private fstreet As String
+   Public Property Street() As String
+      Get
+         Return fstreet
+      End Get
+      Set
+         SetPropertyValue(NameOf(Street), fstreet, Value)
+      End Set
+   End Property
+   Private fhouse As Integer
+   Public Property House() As Integer
+      Get
+         Return fhouse
+      End Get
+      Set
+         SetPropertyValue(NameOf(House), fhouse, Value)
+      End Set
+   End Property
+End Class
+<DefaultClassOptions, RuleCriteria("", DefaultContexts.Save, "ClientAddress.House != 0", _
+   "House should not be 0", SkipNullOrEmptyValues := False)> _
+Public Class Client
+      Inherits BaseObject
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Public Property ClientName() As String
+       Get
+           Return fClientName
+       End Get
+       Set(ByVal value as String)
+           SetPropertyValue(NameOf(ClientName), fClientName, value)
+       End Set
+   End Property
+   Private fClientName As String
+
+   Public Property ClientAddress() As Address
+       Get
+           Return fClientAddress
+       End Get
+       Set(ByVal value as Address)
+           SetPropertyValue(NameOf(ClientAddress), fClientAddress, value)
+       End Set
+   End Property
+   Private fClientAddress As Address
+
+End Class
+<DefaultClassOptions> _
+Public Class User
+      Inherits BaseObject
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Public Property UserName() As String
+       Get
+           Return fUserName
+       End Get
+       Set(ByVal value as String)
+           SetPropertyValue(NameOf(UserName), fUserName, value)
+       End Set
+   End Property
+   Private fUserName As String
+
+   Public Property UserAddress() As Address
+       Get
+           Return fUserAddress
+       End Get
+       Set(ByVal value as Address)
+           SetPropertyValue(NameOf(UserAddress), fUserAddress, value)
+       End Set
+   End Property
+   Private fUserAddress As Address
+
+End Class
+```
+
 ***
 
 In the code above, the **RuleCriteriaAttribute** has the [RuleBaseAttribute.SkipNullOrEmptyValues](xref:DevExpress.Persistent.Validation.RuleBaseAttribute.SkipNullOrEmptyValues) parameter set to **false**. This is required, so that the rule defined by this attribute is checked when the target property is not specified.

@@ -337,6 +337,20 @@ public partial class SetPriorityController : ViewController {
    // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Partial Class SetPriorityController
+      Inherits ViewController
+   '...
+   Private Sub SetPriorityController_AfterConstruction(ByVal sender As Object, ByVal e As EventArgs)
+      SetPriorityAction.DiagnosticInfo += Constants.vbCrLf & "Hello!"
+   End Sub
+   ' ...
+End Class
+```
+
 ***
 
 The diagnostic info snippet below demonstrates the state of the **SetPriorityController** and its **SetPriorityAction** when a Contact is displayed in the main Window.

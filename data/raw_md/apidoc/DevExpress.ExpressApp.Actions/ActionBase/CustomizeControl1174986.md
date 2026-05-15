@@ -34,6 +34,31 @@ public class ChangeActionColorController : WindowController {
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Drawing
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.XtraBars
+
+Public Class ChangeActionColorController
+    Inherits WindowController
+    Public Sub New()
+        Dim simpleAction As New SimpleAction(Me, "Action", PredefinedCategory.Edit)
+        AddHandler simpleAction.CustomizeControl, AddressOf SimpleAction_CustomizeControl
+    End Sub
+    Private Sub SimpleAction_CustomizeControl(ByVal sender As Object, ByVal e As CustomizeControlEventArgs)
+        Dim button As BarButtonItem = TryCast(e.Control, BarButtonItem)
+        If button IsNot Nothing Then
+            button.ItemAppearance.Normal.BackColor = Color.LightBlue
+        End If
+    End Sub
+End Class
+
+```
 ***
 
 Do not handle this event for a [built-in Action](xref:113016) in a [View or Window Controller](xref:112621)'s `OnActivated` method because this method is called after the Action control is created - call the `OnFrameAssigned` method instead.
@@ -60,6 +85,16 @@ myAction.CustomizeControl += (s, e) => {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+AddHandler myAction.CustomizeControl, Sub(s, e)
+    Dim control As SimpleButton = TryCast(e.Control, SimpleButton)
+    ' or
+    Dim control As BarButtonItem = TryCast(e.Control, BarButtonItem)
+    '...
+End Sub
+```
 ***
 
 #### Single Choice Actions
@@ -76,6 +111,15 @@ myAction.CustomizeControl += (s, e) => {
     BarEditItem control = e.Control as BarEditItem;
     //...
 }
+```
+# [VB.NET](#tab/tabid-vb)
+```vb
+AddHandler myAction.CustomizeControl, Sub(s, e)
+    Dim control As ImageComboBoxEdit = TryCast(e.Control, ImageComboBoxEdit)
+    ' or
+    Dim control As BarEditItem = TryCast(e.Control, BarEditItem)
+    '...
+End Sub
 ```
 ***
 
@@ -94,6 +138,15 @@ Frame.GetController<ShowNavigationItemController>().ShowNavigationItemAction.Cus
     //...
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+```vb
+AddHandler Frame.GetController(Of ShowNavigationItemController)().ShowNavigationItemAction.CustomizeControl, Sub(s, e)
+    Dim navBar As NavBarControl = TryCast(e.Control, NavBarControl)
+    ' or
+    Dim treeListControl As TreeList = TryCast(e.Control, TreeList)
+    '...
+End Sub
+```
 ***
 
 #### Parametrized Actions
@@ -111,6 +164,15 @@ myAction.CustomizeControl += (s, e) => {
     //...
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+```vb
+AddHandler myAction.CustomizeControl, Sub(s, e)
+    Dim control As DateEdit = TryCast(e.Control, DateEdit)
+    ' or
+    Dim control As BarEditItem = TryCast(e.Control, BarEditItem)
+    '...
+End Sub
+```
 ***
 
 #### PopupWindowShow Actions
@@ -127,6 +189,16 @@ myAction.CustomizeControl += (s, e) => {
     BarButtonItem control = e.Control as BarButtonItem;
     //...
 }
+```
+    
+# [VB.NET](#tab/tabid-vb)
+```vb
+AddHandler myAction.CustomizeControl, Sub(s, e)
+    Dim control As SimpleButton = TryCast(e.Control, SimpleButton)
+    ' or
+    Dim control As BarButtonItem = TryCast(e.Control, BarButtonItem)
+    '...
+End Sub
 ```
 ***
 

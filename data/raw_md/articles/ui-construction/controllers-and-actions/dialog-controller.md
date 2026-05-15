@@ -73,6 +73,25 @@ void myAction_Execute(Object sender, SimpleActionExecuteEventArgs e) {
    e.ShowViewParameters.Controllers.Add(Application.CreateController<DialogController>());
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Private Sub MyAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+   Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(MyBusinessClass))
+   Dim listViewId As String = Application.FindListViewId(GetType(MyBusinessClass))
+   e.ShowViewParameters.CreatedView = Application.CreateListView( _
+      listViewId, _
+      Application.CreateCollectionSource(objectSpace, GetType(MyBusinessClass), listViewId), _
+      True)
+   e.ShowViewParameters.TargetWindow = TargetWindow.NewWindow
+   e.ShowViewParameters.Context = TemplateContext.PopupWindow
+   e.ShowViewParameters.Controllers.Add(Application.CreateController(Of DialogController)())
+End Sub
+```
+
 ***
 
 > [!NOTE]
@@ -117,4 +136,20 @@ private void MyPopupWindowShowAction_CustomizePopupWindowParams(object sender,
    e.DialogController = Application.CreateController<MyDialogController>();
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub MyPopupWindowShowAction_CustomizePopupWindowParams(ByVal sender As Object, _
+      ByVal e As CustomizePopupWindowParamsEventArgs)
+   Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(MyBusinessClass))
+   Dim listViewId As String = Application.FindListViewId(GetType(MyBusinessClass))
+   e.View = Application.CreateListView( _
+      listViewId, _
+      Application.CreateCollectionSource(objectSpace, GetType(MyBusinessClass), listViewId), _
+      True)
+   e.DialogController = Application.CreateController(Of DialogController)()
+End Sub
+```
+
 ***

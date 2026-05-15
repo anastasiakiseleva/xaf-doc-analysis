@@ -30,6 +30,19 @@ public static void Main(string[] arguments) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments() As String)
+    ' ...
+    _application.ShowViewStrategy = New MdiShowViewStrategy(_application)
+    _application.Setup()
+    _application.Start()
+    '...
+End Sub
+```
+
 ***
 
 [!include[ShovViewStrategy_Events](~/templates/showviewstrategy_events111940_1130243.md)]

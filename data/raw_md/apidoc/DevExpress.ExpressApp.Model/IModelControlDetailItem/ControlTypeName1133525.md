@@ -26,6 +26,10 @@ To load the type assembly, create any lightweight object from the assembly type 
 ```csharp
 var pivotGridAssemblyInitializer = new PivotGridField();
 ```
+# [VB](#tab/tabid-vb)
+```vb
+Dim pivotGridAssemblyInitializer As New PivotGridField()
+```
 ***
 
 Alternatively, add a control to a `UserControl`, as shown in the following topics:

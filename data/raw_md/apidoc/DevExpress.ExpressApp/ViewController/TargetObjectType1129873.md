@@ -48,6 +48,31 @@ public class ShowListViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+
+Public Class ShowListViewController
+    Inherits ViewController
+    Public Sub New()
+        Dim showListViewAction As New PopupWindowShowAction(Me, "ShowListView", PredefinedCategory.Edit)
+        Me.TargetObjectType = GetType(Note)
+        AddHandler showListViewAction.CustomizePopupWindowParams, _
+            AddressOf ShowListViewAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub ShowListViewAction_CustomizePopupWindowParams(ByVal sender As Object, _
+        ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectType As Type = GetType(Person)
+        e.View = Application.CreateListView(objectType, True)
+    End Sub
+End Class
+```
 ***
 
 Alternatively, you can implement the generic [](xref:DevExpress.ExpressApp.ObjectViewController`2) Controller instead of the [](xref:DevExpress.ExpressApp.ViewController) and specify the View and object type for which this Controller should be activated in the **ViewType** and **ObjectType** generic parameters.

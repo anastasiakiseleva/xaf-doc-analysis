@@ -48,6 +48,17 @@ string connectionString =
 #endif
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim connectionString As String = _
+   ConfigurationManager.ConnectionStrings("ConnectionStringForDevelopment").ConnectionString
+#If DEBUG Then
+   Dim connectionString As String = _
+      ConfigurationManager.ConnectionStrings("ConnectionStringForDebug").ConnectionString
+#End If
+```
+
 ***
 
 In the code above, the connection string is specified by the ConnectionStringForDevelopment setting of the configuration file when the application is compiled in **Release** mode, and by the ConnectionStringForDebug setting when the application is compiled in **Debug** mode. To specify **Release** or **Debug** mode, use the **Define DEBUG constant** checkbox in the **Build** tab of the application project's **Project Properties** window. If this checkbox is selected, the application is compiled in **Debug** mode.
@@ -56,5 +67,3 @@ In the code above, the connection string is specified by the ConnectionStringFor
 
 > [!NOTE]
 > The [DBUpdater](xref:113239#how-database-is-updated-in-debug-mode) updates the database if the connection string is specified by the `ConnectionString` setting in the configuration file. If you use another name for this setting, the `DBUpdater` does not work.
-
-***

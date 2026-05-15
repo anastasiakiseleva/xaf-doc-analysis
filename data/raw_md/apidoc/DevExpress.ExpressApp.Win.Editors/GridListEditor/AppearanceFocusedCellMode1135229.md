@@ -31,4 +31,24 @@ public class MyController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+'...
+Public Class MyController
+    Inherits ViewController(Of ListView)
+    Protected Overrides Sub OnViewControlsCreated()
+        MyBase.OnViewControlsCreated()
+        Dim gridEditor As GridListEditor = TryCast(View.Editor, GridListEditor)
+        If gridEditor IsNot Nothing Then
+            gridEditor.AppearanceFocusedCellMode = AppearanceFocusedCellMode.Disabled
+        End If
+    End Sub
+End Class
+```
+
 ***

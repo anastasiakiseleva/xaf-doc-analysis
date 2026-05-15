@@ -21,7 +21,7 @@ This lesson explains the following concepts:
 
 ## Step-by-Step Instructions
 
-1. In the _MySolution.Module\Business Objects_ folder, create the `Position` class. Replace the generated class declaration with the following code:
+1. In the _MySolution.Module\Business Objects_ folder, create the `Position` class. Replace the generated class declaration with the following code sample:
     
     ```csharp
     using DevExpress.Persistent.Base;
@@ -39,7 +39,7 @@ This lesson explains the following concepts:
     ```
     [`DefaultProperty`]: xref:System.ComponentModel.DefaultPropertyAttribute
 
-2. Go to the _MySolution.Module\MySolutionDbContext_ file and add a DbSet of `Position` type:
+2. Go to the _MySolution.Module\BusinessObjects\MySolutionDbContext_ file and add a DbSet of `Position` type:
 
     ```csharp
     public class MySolutionEFCoreDbContext : DbContext {
@@ -92,7 +92,7 @@ This lesson explains the following concepts:
 
 ## Exercise: Add an "Address" Reference Property
 
-1. Use the same steps to add an `Address` reference property to the `Employee` entity. You can find the type declaration in the code sample below.
+1. Use the same steps to add an `Address` reference property to the `Employee` entity. You can find the type declaration in the following code snippet.
 
    > [!TIP]
    >

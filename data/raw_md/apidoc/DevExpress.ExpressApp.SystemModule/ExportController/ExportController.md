@@ -4,7 +4,7 @@ name: ExportController
 type: Class
 summary: An abstract [](xref:DevExpress.ExpressApp.ViewController) descendant, that contains the **Export** [Action](xref:112622).
 syntax:
-  content: 'public abstract class ExportController : ViewController'
+  content: 'public class ExportController : ViewController'
 seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.ExportController._members
   altText: ExportController Members

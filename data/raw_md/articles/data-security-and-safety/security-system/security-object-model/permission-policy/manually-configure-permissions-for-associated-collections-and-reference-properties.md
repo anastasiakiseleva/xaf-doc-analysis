@@ -1,6 +1,5 @@
 ---
 uid: "113556"
-seealso: []
 title: 'Manually Configure Permissions for Associated Collections and Reference Properties'
 seealso:
 - linkId: "116170"

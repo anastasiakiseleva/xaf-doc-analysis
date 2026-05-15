@@ -36,6 +36,39 @@ public class ViewController1 : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports System
+' ...
+Public Class ViewController1
+    Inherits ViewController
+
+    Private action1 As SimpleAction
+    Public Sub New()
+        action1 = New SimpleAction(Me, "Action1", DevExpress.Persistent.Base.PredefinedCategory.View)
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler ObjectSpace.ModifiedChanged, AddressOf ObjectSpace_ModifiedChanged
+        UpdateActionState()
+    End Sub
+    Private Sub ObjectSpace_ModifiedChanged(ByVal sender As Object, ByVal e As EventArgs)
+        UpdateActionState()
+    End Sub
+    Protected Overridable Sub UpdateActionState()
+        action1.Enabled("ObjectSpaceIsModified") = Not ObjectSpace.IsModified
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        RemoveHandler ObjectSpace.ModifiedChanged, AddressOf ObjectSpace_ModifiedChanged
+    End Sub
+End Class
+```
+
 ***
 
 As a result, the **Action1** is grayed out in the UI when there are unsaved changes in the current View. It is impossible to execute the Action until changes are saved to a data store (e.g., using the **Save** Action). When the changes are saved, the **Action1** reverts to its normal state.

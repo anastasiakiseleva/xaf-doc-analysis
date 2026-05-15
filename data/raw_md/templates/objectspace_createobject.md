@@ -20,4 +20,29 @@ public class AddDepartmentController : ObjectViewController<DetailView, Contact>
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{<:1:>}
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+
+Public Class AddDepartmentController
+    Inherits ObjectViewController(Of DetailView, Contact)
+    Public Sub New()
+        Dim addDepartmentAction As New ParametrizedAction(
+            Me, "AddDepartment", PredefinedCategory.Edit, GetType(String))
+        AddHandler addDepartmentAction.Execute, AddressOf AddDepartmentAction_Execute
+    End Sub
+    Private Sub AddDepartmentAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Dim department As Department = ObjectSpace.CreateObject(Of Department)()
+        department.Title = TryCast(e.ParameterCurrentValue, String)
+        Dim contact As Contact = CType(View.CurrentObject, Contact)
+        contact.Departments.Add(department)
+    End Sub
+End Class
+
+```
+
 ***

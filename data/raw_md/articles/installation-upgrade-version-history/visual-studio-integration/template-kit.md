@@ -99,13 +99,4 @@ To create a new project, follow the steps below:
 
 Install DevExpress component packages to build your project. You can use the [DevExpress Unified Component Installer](xref:15615) that adds a local NuGet feed to your machine.
 
-As an alternative to the installer, you can configure a personal DevExpress NuGet Feed that loads the required packages from the [DevExpress NuGet Gallery](https://nuget.devexpress.com/). To do this, follow the instructions below:
-
-1. [Obtain your NuGet feed URL.](xref:116042)
-2. Register the source. You can do this in your IDE or from a CLI:
-    
-    * [Visual Studio for Windows](xref:116698#visual-studio-for-windows)
-    * [JetBrains Rider](xref:116698#jetbrains-rider-macos-windows-linux)
-    * [Visual Studio Code](xref:116698#visual-studio-code-vs-code)
-    * [CLI](xref:117209)
-3. [Register your .NET license key.](xref:405494#online-nuget-feeds-cicd-and-other-installation-methods-windows-macos-linux)
+As an alternative to the installer, you can [register your license key](xref:405494#manual-registration-obtain-and-register-your-key) and load the required packages from the [nuget.org](https://nuget.org/).

@@ -32,6 +32,24 @@ void showWindowAction_Execute(object sender, SimpleActionExecuteEventArgs e) {
     form.ShowDialog();        
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub showWindowAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+    Dim form As New NonXAFForm()
+    '...
+    Dim frame As Frame = Application.CreateFrame(TemplateContext.NestedFrame)
+    frame.CreateTemplate()
+    frame.SetView(listView)
+    Dim item2 As New LayoutControlItem()
+    item2.Parent = layoutControl.Root
+    item2.Text = "Persons"
+    item2.Control = CType(frame.Template, Control)
+    form.ShowDialog()
+End Sub
+```
+
 ***
 
 ![CustomWindowWithXAFView_NestedFrame](~/images/customwindowwithxafview_nestedframe127388.png)

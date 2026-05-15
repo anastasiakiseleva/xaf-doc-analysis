@@ -68,7 +68,71 @@ This topic describes how to implement a persistent class mapped to a database vi
         public string ProductAmount;
     }
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports System
+	Imports System.ComponentModel
 
+	Imports DevExpress.ExpressApp.Xpo.Utils
+	Imports DevExpress.Persistent.Base
+	Imports DevExpress.Xpo
+	' ...
+	<DefaultClassOptions> _
+	Public Class CustomerReports
+		Inherits XPLiteObject
+		Public Sub New(ByVal session As Session)
+			MyBase.New(session)
+		End Sub
+		Private fKey As CustomerReportsViewKey
+		<Key, Persistent, Browsable(False)> _
+		Public Property Key() As CustomerReportsViewKey
+			Get
+				Return fKey
+			End Get
+			Set(ByVal value As CustomerReportsViewKey)
+				SetPropertyValue(nameof(Key), fKey, value)
+			End Set
+		End Property
+		<PersistentAlias("Key.ProductName")> _
+		Public ReadOnly Property ProductName() As String
+			Get
+				Return Key.ProductName
+			End Get
+		End Property
+		<PersistentAlias("Key.CompanyName")> _
+		Public ReadOnly Property CompanyName() As String
+			Get
+				Return Key.CompanyName
+			End Get
+		End Property
+		<PersistentAlias("Key.OrderDate")> _
+		Public ReadOnly Property OrderDate() As DateTime
+			Get
+				Return Key.OrderDate
+			End Get
+		End Property
+		<PersistentAlias("Key.ProductAmount")> _
+		Public ReadOnly Property ProductAmount() As String
+			Get
+				Return Key.ProductAmount
+			End Get
+		End Property
+	End Class
+	<TypeConverter(GetType(StructTypeConverter(Of CustomerReportsViewKey)))> _
+	Public Structure CustomerReportsViewKey
+		<Persistent("ProductName")> _
+		Public ProductName As String
+		<Persistent("CompanyName")> _
+		Public CompanyName As String
+		<Persistent("OrderDate")> _
+		Public OrderDate As DateTime
+		<Persistent("ProductAmount")> _
+		Public ProductAmount As String
+	End Structure
+	```
+	
 	***
 	
 	Each persistent class requires a primary key. The `CustomerReports` class is an [](xref:DevExpress.Xpo.XPLiteObject) descendant and does not have a key property generated automatically. For this reason, the example implements the composite `Key` property (a key formed by combining multiple columns).
@@ -91,8 +155,19 @@ This topic describes how to implement a persistent class mapped to a database vi
 	    // ...
 	}
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<DefaultClassOptions, Persistent("CustomerReports")> _
+	Public Class MyCustomerReports
+	    Inherits XPLiteObject
+	    ' ...
+	End Class
+	```
+	
 	***
+	
 4. Run the application. The "Customer Reports" object is available.
 	
 	![MapDatabaseView_2](~/images/mapdatabaseview_2116673.png)

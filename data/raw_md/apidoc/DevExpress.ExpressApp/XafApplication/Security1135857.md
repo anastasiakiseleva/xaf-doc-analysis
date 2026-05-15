@@ -32,5 +32,26 @@ static class Program {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend Class Program
+   ' ... 
+   Public Shared Sub Main()
+      ' ... 
+      Dim _application As MySolutionWindowsFormsApplication = _
+      New MySolutionWindowsFormsApplication()
+      _application.Security = New MySecurityStrategy(Of User, Role)( _
+      New MyAuthenticationStrategy(Of User, AuthenticationStandardLogonParameters)())
+      ' ... 
+      _application.Setup()
+      _application.Start()
+      ' ... 
+   End Sub 
+End Class
+```
+
 ***
+
 For details on the Security System supplied by XAF, refer to the [Security System Overview](xref:113366) topic.

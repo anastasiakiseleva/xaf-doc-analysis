@@ -26,6 +26,18 @@ if (mylist.Contains("myKey")) {
     myValue = mylist["myKey"];
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim mylist As New BoolList()
+'...
+Dim myValue As Boolean = False
+If mylist.Contains("myKey") Then
+    myValue = mylist("myKey")
+End If
+```
+
 ***
 
 To get all keys from the **BoolList**'s collection of key/value pairs, use the [BoolList.GetKeys](xref:DevExpress.ExpressApp.Utils.BoolList.GetKeys) method.

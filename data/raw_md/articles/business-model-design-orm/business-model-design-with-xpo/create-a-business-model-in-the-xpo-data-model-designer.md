@@ -91,6 +91,25 @@ If you prefer to watch a video rather than walk through these step-by-step instr
 	}
 	```
 	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Persistent.Base
+	' ...
+	<DefaultClassOptions, ImageName("BO_Employee")> _
+	Partial Public Class Employee
+	    Public Sub New(ByVal session As Session)
+	        MyBase.New(session)
+	    End Sub
+	    Public Sub New()
+	        MyBase.New(Session.DefaultSession)
+	    End Sub
+	    Public Overrides Sub AfterConstruction()
+	        MyBase.AfterConstruction()
+	    End Sub
+	End Class
+	```
+	
 	***
 
 * Open the _Task.cs_ file. Decorate the `Task` class with the `DefaultClassOptions` and `ImageName` attributes.
@@ -107,7 +126,26 @@ If you prefer to watch a video rather than walk through these step-by-step instr
 	    public override void AfterConstruction() { base.AfterConstruction(); }
 	}
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Persistent.Base
+	' ...
+	<DefaultClassOptions, ImageName("BO_Task")> _
+	Partial Public Class Task
+	        Public Sub New(ByVal session As Session)
+	            MyBase.New(session)
+	        End Sub
+	        Public Sub New()
+	            MyBase.New(Session.DefaultSession)
+	        End Sub
+	        Public Overrides Sub AfterConstruction()
+	            MyBase.AfterConstruction()
+	        End Sub
+	End Class
+	```
+	
 	***
 
 > [!NOTE]
@@ -125,4 +163,3 @@ Alternatively, you can use the designer to apply attributes. Focus the required 
 Now you can run the Windows Forms application to see the result. This application is completely based on the business model specified in the XPO Data Model Designer.
 
 ![XAF XPO Designer Runtime WinForms, DevExpress](~/images/xpodesigner_runtimewin117134.png)
-

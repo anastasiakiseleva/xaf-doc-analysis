@@ -31,6 +31,25 @@ static class Program {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend Class Program
+    Shared Sub Main()
+        '..
+        Dim application As MySolutionWindowsFormsApplication = _
+        New MySolutionWindowsFormsApplication()
+        Try
+            application.SplashScreen = New MySplash()
+            application.Setup()
+            application.Start()
+        End Try
+        '...
+    End Sub
+End Class
+```
+
 ***
 
 Note that you should perform the assignment before the **Setup** method call. Otherwise, a form of the default splash screen will be shown.

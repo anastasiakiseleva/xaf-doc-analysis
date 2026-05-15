@@ -49,6 +49,38 @@ public class Department : XPObject {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions()> 
+Public Class Contact
+    Inherits XPObject
+    '...
+    Private fDepartment As Department
+    <Association("Department-Contacts")> 
+    Public Property Department() As Department
+        Get
+            Return fDepartment
+        End Get
+        Set(ByVal value As Department)
+            SetPropertyValue(NameOf(Department), fDepartment, value)
+        End Set
+    End Property
+End Class
+<DefaultClassOptions()> 
+Public Class Department
+    Inherits XPObject
+    '...
+    <Association("Department-Contacts")> 
+    Public ReadOnly Property ContactsCollection() _
+    As XPCollection(Of Contact)
+        Get
+            Return GetCollection(Of Contact)(NameOf(ContactsCollection))
+        End Get
+    End Property
+End Class
+```
+
 ***
 
 ## One-to-Many (Aggregated)
@@ -84,6 +116,38 @@ public class Note : XPObject {
         set { SetPropertyValue(nameof(Contact), ref contact, value); }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions()> 
+Public Class Contact
+    Inherits XPObject
+    '...
+    <Association("Contact-Notes"), DevExpress.Xpo.Aggregated()> 
+    Public ReadOnly Property NotesCollection() _
+    As XPCollection(Of Note)
+        Get
+            Return GetCollection(Of Note)(NameOf(NotesCollection))
+        End Get
+    End Property
+End Class
+<DefaultClassOptions()> 
+Public Class Note
+    Inherits XPObject
+    '...
+    Private fContact As Contact
+    <Association("Contact-Notes")> 
+    Public Property Contact() As Contact
+        Get
+            Return fContact
+        End Get
+        Set(ByVal value As Contact)
+            SetPropertyValue(NameOf(Contact), fContact, value)
+        End Set
+    End Property
+End Class
 ```
 
 ***
@@ -122,6 +186,34 @@ public class Task : XPObject {
         get { return GetCollection<Contact>(nameof(ContactsCollection)); }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions()>
+Public Class Contact
+    Inherits XPObject
+   '...
+    <Association("Contacts-Tasks")> 
+    Public ReadOnly Property TasksCollection() _
+    As XPCollection(Of Task)
+        Get
+            Return GetCollection(Of Task) (NameOf(TasksCollection))
+        End Get
+    End Property
+End Class
+<DefaultClassOptions()> 
+Public Class Task
+    Inherits XPObject
+    '...
+    <Association("Contacts-Tasks")> 
+    Public ReadOnly Property ContactsCollection() As XPCollection(Of Contact)
+        Get
+            Return GetCollection(Of Contact)(NameOf(ContactsCollection))
+       End Get
+    End Property
+End Class
 ```
 
 ***
@@ -180,6 +272,78 @@ public class ContactTask : XPObject {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Security
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Xpo
+Imports System.Collections.Generic
+Imports System.ComponentModel
+' ...
+<DefaultClassOptions>
+Public Class Contact
+    Inherits XPObject
+    ' ...
+    <Browsable(False), Association("Contact-ContactTasks"), Aggregated>
+    Public ReadOnly Property ContactTasks() As XPCollection(Of ContactTask)
+        Get
+            Return GetCollection(Of ContactTask)(NameOf(ContactTasks))
+        End Get
+    End Property
+    <ManyToManyAlias(nameof(ContactTasks), nameof(ContactTask.Task))>
+    Public ReadOnly Property TaskCollection() As IList(Of Task)
+        Get
+            Return GetList(Of Task)(NameOf(TaskCollection))
+        End Get
+    End Property
+End Class
+<DefaultClassOptions>
+Public Class Task
+    Inherits XPObject
+    ' ...
+    <Browsable(False), Association("Task-ContactTasks"), Aggregated>
+    Public ReadOnly Property ContactTasks() As XPCollection(Of ContactTask)
+        Get
+            Return GetCollection(Of ContactTask)(NameOf(ContactTasks))
+        End Get
+    End Property
+    <ManyToManyAlias(nameof(ContactTasks), nameof(ContactTask.Contact))>
+    Public ReadOnly Property ContactCollection() As IList(Of Contact)
+        Get
+            Return GetList(Of Contact)(NameOf(ContactCollection))
+        End Get
+    End Property
+End Class
+' Uncomment the following line if your application uses the Security System. 
+' <IntermediateObject(nameof(Contact), nameof(Task))>
+Public Class ContactTask
+    Inherits XPObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fContact As Contact
+    <Association("Contact-ContactTasks")>
+    Public Property Contact() As Contact
+        Get
+            Return fContact
+        End Get
+        Set(ByVal value As Contact)
+            SetPropertyValue(Of Contact)(NameOf(Contact), fContact, value)
+        End Set
+    End Property
+    Private fTask As Task
+    <Association("Task-ContactTasks")>
+    Public Property Task() As Task
+        Get
+            Return fTask
+        End Get
+        Set(ByVal value As Task)
+            SetPropertyValue(Of Task)(NameOf(Task), fTask, value)
+        End Set
+    End Property
+End Class
+```
 ***
 
 For more information on this technique, refer to the following help topic: [Relationships Between Objects](xref:2041#technique-1-with-a-custom-intermediate-object).
@@ -236,6 +400,67 @@ public class Address : XPObject {
         }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions()>
+Public Class Contact
+    Inherits XPObject
+    '...
+    <Aggregated>
+    Private fAddress As Address
+    Public Property Address() As Address
+        Get
+            Return fAddress
+        End Get
+        Set(ByVal value As Address)
+            If fAddress Is value Then
+                Return
+            End If
+            Dim prevAddress As Address = fAddress
+            fAddress = value
+            If IsLoading Then
+                Return
+            End If
+            If prevAddress IsNot Nothing AndAlso prevAddress.Contact Is Me Then
+                prevAddress.Contact = Nothing
+            End If
+            If fAddress IsNot Nothing Then
+                fAddress.Contact = Me
+            End If
+            OnChanged(NameOf(Address))
+        End Set
+    End Property
+End Class
+<DefaultClassOptions>
+Public Class Address
+    Inherits XPObject
+    Private fContact As Contact = Nothing
+    Public Property Contact() As Contact
+        Get
+            Return fContact
+        End Get
+        Set(ByVal value As Contact)
+            If fContact Is value Then
+                Return
+            End If
+            Dim prevContact As Contact = fContact
+            fContact = value
+            If IsLoading Then
+                Return
+            End If
+            If prevContact IsNot Nothing AndAlso prevContact.Address Is Me Then
+                prevContact.Address = Nothing
+            End If
+            If fContact IsNot Nothing Then
+                fContact.Address = Me
+            End If
+            OnChanged(NameOf(Contact))
+        End Set
+    End Property
+End Class
 ```
 
 ***

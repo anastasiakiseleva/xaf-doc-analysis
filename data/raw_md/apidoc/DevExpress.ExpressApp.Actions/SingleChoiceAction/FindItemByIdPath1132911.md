@@ -28,6 +28,17 @@ if (priorityHighItem != null)
     priorityHighItem.Enabled.SetItemValue(
         "SecurityAllowance", SecuritySystem.CurrentUserName != "John");
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim priorityHighItem As ChoiceActionItem = SetTaskAction.FindItemByIdPath("Priority/High")
+If priorityHighItem IsNot Nothing Then
+    priorityHighItem.Enabled.SetItemValue( _
+    SecurityAllowance", SecuritySystem.CurrentUserName <> "John")
+End If
+```
+
 ***
 
 ![FindItemByCaptionPath](~/images/finditembycaptionpath116702.png)

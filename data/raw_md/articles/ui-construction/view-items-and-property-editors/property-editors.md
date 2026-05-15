@@ -81,6 +81,22 @@ To display an object in a [Detail View](xref:112611) with a specific control ins
         }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb)
+
+    ```vb
+    Public Class MyBusinessClass
+        Inherits BaseObject
+        '...
+        <VisibleInListView(False)> _
+        Public ReadOnly Property Self() As MyBusinessClass
+            Get
+                Return Me
+            End Get
+        End Property
+    End Class
+    ```
+
     ***
 
     As a result, List Views display a set of properties and Detail Views display the custom control.

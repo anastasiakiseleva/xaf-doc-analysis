@@ -21,10 +21,10 @@ Download and run our [Unified Component Installer](https://www.devexpress.com/Pr
 
 ### Option 2: Use DevExpress NuGet Gallery (.NET)
 
-[Register the DevExpress remote NuGet Feed](xref:116698#register) and install the following [DevExpress NuGet](https://nuget.devexpress.com/) packages for .NET. 
+[Register the DevExpress remote NuGet Feed](xref:116698#register) and install the following DevExpress NuGet packages for .NET. 
 
-- EF Core: [DevExpress.ExpressApp.Api.EFCore.All](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Api.EFCore.All)
-- XPO: [DevExpress.ExpressApp.Api.Xpo.All](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.Api.Xpo.All)
+- EF Core: [DevExpress.ExpressApp.Api.EFCore.All](https://nuget.org/packages/DevExpress.ExpressApp.Api.EFCore.All)
+- XPO: [DevExpress.ExpressApp.Api.Xpo.All](https://nuget.org/packages/DevExpress.ExpressApp.Api.Xpo.All)
 
 Please click the NuGet package links above to see specific .NET assemblies.
 

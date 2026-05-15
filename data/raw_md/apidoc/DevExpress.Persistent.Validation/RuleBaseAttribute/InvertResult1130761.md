@@ -21,6 +21,16 @@ public double Amount {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<RuleRange("",DefaultContexts.Save, 45,35,InvertResult:=True)> _
+Public Property Amount() As Double
+   '...
+End Property
+```
+
 ***
 
 By default, **InvertResult** is set to **false**.

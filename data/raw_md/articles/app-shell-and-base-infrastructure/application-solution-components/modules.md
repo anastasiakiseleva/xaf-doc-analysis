@@ -57,7 +57,7 @@ Third-Party XAF Modules
 
 
 |-
-| colspan="2" | ## ConditionalAppearance
+| colspan="2" | ## Conditional Appearance
 
 |-
 | ![|EM_ConditionalAppearance](~/images/em_conditionalappearance120050.png)
@@ -88,17 +88,6 @@ Third-Party XAF Modules
 **Additional information:** <xref:112781>
 
 **Supported platforms:** ASP.NET Core Blazor, Windows Forms.
-
-|-
-| colspan="2" | ## Maps Module
-
-|-
-| ![|EM_Maps](~/images/em_maps120056.png)
-| This module adds List and Property Editors that display business objects on a map.
-
-**Additional information:** -
-
-**Supported platforms:** [ASP.NET Core Blazor](https://supportcenter.devexpress.com/ticket/details/t995233/blazor-how-to-support-the-xaf-maps-module-scenarios-display-vector-and-raster-maps)[^1], [Windows Forms](https://supportcenter.devexpress.com/ticket/details/t287322/winforms-how-to-display-geospatial-information-in-xaf-views-using-google-bing-or)[^1].
 
 |-
 | colspan="2" | ## Multi-Tenancy (Data per Tenant)
@@ -141,11 +130,11 @@ Third-Party XAF Modules
 
 |-
 | ![|EM_Pivot](~/images/em_pivot120074.png)
-| This module adds [List Editors](xref:113189) for data analysis with pivot grid controls and integrates the [PivotGrid Designer](xref:1825) into the [Model Editor](xref:112582).
+| This module adds [List Editors](xref:113189) for data analysis with pivot grid controls. For WinForms applications, the module integrates the [PivotGrid Designer](xref:1825) into the [Model Editor](xref:112582).
 
 **Additional information:** <xref:113303>
 
-**Supported platforms:** [ASP.NET Core Blazor](https://supportcenter.devexpress.com/ticket/details/t994515/blazor-how-to-integrate-the-pivot-grid-into-an-xaf-app)[^1], Windows Forms.
+**Supported platforms:** ASP.NET Core Blazor (CTP), Windows Forms.
 
 |-
 | colspan="2" | ## Reports V2 Module
@@ -212,8 +201,3 @@ Third-Party XAF Modules
 
 **Supported platforms:** ASP.NET Core Blazor, Windows Forms.
 |}
-
-[^1]: This feature requires a custom solution with DevExpress UI components. You can find examples in our [Outlook Inspired Demo](xref:113577#net-winforms--blazor-outlook-inspired-demo-multi-tenancysaas-readyxref404669). For more information, see [Integrate Custom UI Components](xref:403277#integrate-custom-ui-components).
-
-      To get more ready-to-use modules, visit [XAF Community Extensions](https://www.devexpress.com/products/net/application_framework/#extensions).
-

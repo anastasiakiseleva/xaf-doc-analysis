@@ -27,6 +27,24 @@ The Administrative UI allows application administrators to manage user settings 
       }
 	}
 	```
+
+   # [VB.NET](#tab/tabid-vb)
+
+   ```vb
+   Imports DevExpress.Persistent.BaseImpl
+   ' ...
+   Namespace MainDemo.Module
+      Partial Public NotInheritable Class MainDemoModule
+         Inherits ModuleBase
+         Public Sub New()
+            ' ...
+            AdditionalExportedTypes.Add(GetType(ModelDifference))
+            AdditionalExportedTypes.Add(GetType(ModelDifferenceAspect))
+         End Sub
+         ' ...
+      End Class
+   End Namespace
+   ```
 	***
 
    If you use the Entity Framework Core, ensure that your **DbContext** contains the following lines:

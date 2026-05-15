@@ -45,6 +45,39 @@ public class ListEditorController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Drawing
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+
+Public Class ListEditorController
+    Inherits ViewController(Of ListView)
+    Private listEditor As GridListEditor
+    Private Sub ListEditor_ControlsCreated(ByVal sender As Object, ByVal e As EventArgs)
+        Dim gridView As DevExpress.XtraGrid.Views.Grid.GridView = CType(View.Editor, GridListEditor).GridView
+        gridView.OptionsView.EnableAppearanceOddRow = True
+        gridView.Appearance.OddRow.BackColor = Color.FromArgb(244, 244, 244)
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        listEditor = TryCast(View.Editor, GridListEditor)
+        If listEditor IsNot Nothing Then
+            AddHandler listEditor.ControlsCreated, AddressOf ListEditor_ControlsCreated
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If listEditor IsNot Nothing Then
+            RemoveHandler listEditor.ControlsCreated, AddressOf ListEditor_ControlsCreated
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+
+```
 ***
 
 > [!NOTE]

@@ -34,6 +34,35 @@ public partial class ViewController1 : ViewController{
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class DomainObject1
+      Inherits BaseObject
+   '...
+   Private fwebSite As String
+    Public Property WebSite As String
+        Get
+            Return webSite
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(fwebSite, value)
+        End Set
+    End Property
+End Class
+Public Partial Class ViewController1
+      Inherits ViewController
+   Private Sub InitializeComponent()
+      '...
+      Me.urlAction1 = New DevExpress.ExpressApp.Actions.ActionUrl(Me.components)
+      Me.urlAction1.UrlFieldName = "WebSite"
+      Me.urlAction1.UrlFormatString = "http://{0}"
+      '...
+   End Sub
+End Class
+```
+
 ***
 
 In this instance, the ActionUrl should be activated in a Detail View or for each object in a List View. To do that, set the [ActionBase.SelectionDependencyType](xref:DevExpress.ExpressApp.Actions.ActionBase.SelectionDependencyType) property to [SelectionDependencyType.RequireSingleObject](xref:DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject) and the [ActionBase.Category](xref:DevExpress.ExpressApp.Actions.ActionBase.Category) property to "RecordEdit". In a List View, the Action will be displayed in an additional cell for each object.

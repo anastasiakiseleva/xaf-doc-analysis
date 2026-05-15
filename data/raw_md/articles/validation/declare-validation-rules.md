@@ -95,6 +95,43 @@ public class Incident : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports System.ComponentModel
+Imports DevExpress.Persistent.Validation
+'...
+<DefaultClassOptions(), DefaultProperty(NameOf(Incident.Subject)), _
+ RuleCriteria("RuleCriteria for Incident", DefaultContexts.Save, "AssignedTo is not null", _
+ SkipNullOrEmptyValues := False)> _
+Public Class Incident
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fAssignedTo As Person
+    Private fSubject As String
+    <RuleRequiredField("RuleRequiredField for Incident.Subject", DefaultContexts.Save)> _
+    Public Property Subject() As String
+        Get
+            Return fSubject
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Subject), fSubject, value)
+        End Set
+    End Property
+    Public Property AssignedTo() As Person
+        Get
+            Return fAssignedTo
+        End Get
+        Set(ByVal value As Person)
+            SetPropertyValue(NameOf(AssignedTo), fAssignedTo, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 To customize Validation Rules, use the [](xref:DevExpress.ExpressApp.Validation.PersistenceValidationController). Refer to its description to find an example of how to use this Controller.

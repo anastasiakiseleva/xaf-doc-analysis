@@ -34,4 +34,19 @@ public class AddSimpleActionController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+
+Public Class AddSimpleActionController
+    Inherits ViewController
+    Public Sub New()
+        TargetViewId = "Department_ListView"
+        Dim departmentAction As New SimpleAction(Me, "DepartmentAction", PredefinedCategory.Edit)
+    End Sub
+End Class
+```
 ***

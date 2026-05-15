@@ -25,4 +25,12 @@ Below is an example of using this method:
 IList objects = objectSpace.GetObjects(typeof(Product));
 objectSpace.SetTopReturnedObjectsCount(objects, 500);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim objects As IList = objectSpace.GetObjects(GetType(Product))
+objectSpace.SetTopReturnedObjectsCount(objects, 500)
+```
+
 ***

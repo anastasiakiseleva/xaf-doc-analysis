@@ -33,6 +33,22 @@ public class Contact : Person {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.Base
+
+Public Class Contact
+    Inherits Person
+    '...
+    <DataSourceCriteria("Position.Title = 'Manager'")>
+    Public ReadOnly Property Manager() As Contact
+        ' ...
+    End Property
+    ' ...
+End Class
+```
 ***
 
 For a complete scenario, see [](xref:402979).

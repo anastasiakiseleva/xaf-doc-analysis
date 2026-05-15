@@ -46,4 +46,36 @@ public class CustomizeDashboardDesigner : ObjectViewController<ObjectView, IDash
     } 
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.DashboardWin
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Dashboards.Win
+Imports DevExpress.Persistent.Base
+' ... 
+Public Class CustomizeDashboardDesigner
+    Inherits ObjectViewController(Of ObjectView, IDashboardData)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim showDashboardDesignerController As WinShowDashboardDesignerController = Frame.GetController(Of WinShowDashboardDesignerController)()
+        If showDashboardDesignerController IsNot Nothing Then
+            AddHandler showDashboardDesignerController.DashboardDesignerManager.DashboardDesignerCreated, AddressOf DashboardDesignerManager_DashboardDesignerCreated
+        End If
+    End Sub
+    Private Sub DashboardDesignerManager_DashboardDesignerCreated(ByVal sender As Object, ByVal e As DashboardDesignerShownEventArgs)
+        e.DashboardDesigner.ActionOnClose = DashboardActionOnClose.Save
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        Dim showDashboardDesignerController As WinShowDashboardDesignerController = Frame.GetController(Of WinShowDashboardDesignerController)()
+        If showDashboardDesignerController IsNot Nothing Then
+            RemoveHandler showDashboardDesignerController.DashboardDesignerManager.DashboardDesignerCreated, AddressOf DashboardDesignerManager_DashboardDesignerCreated
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

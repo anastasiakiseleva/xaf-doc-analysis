@@ -60,6 +60,33 @@ public class MyBusinessObject : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.ExpressApp
+' ...
+<DefaultClassOptions> _
+Public Class MyBusinessObject
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    '...
+    Private _auditTrail As XPCollection(Of AuditDataItemPersistent)
+    <CollectionOperationSet(AllowAdd:=False, AllowRemove:=False)> _
+    Public ReadOnly Property AuditTrail() As XPCollection(Of AuditDataItemPersistent)
+        Get
+            If _auditTrail Is Nothing Then
+                _auditTrail = AuditedObjectWeakReference.GetAuditTrail(Session, Me)
+            End If
+        Return _auditTrail
+      End Get
+   End Property
+End Class
+```
+
 ***
 
 The following image shows a Detail View that contains the **AuditTrail** property demonstrated in the code above.

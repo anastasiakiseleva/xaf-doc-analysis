@@ -40,6 +40,13 @@ You can fetch only a necessary number of first records. To fetch them, use the [
 IQueryable<Product> query = this.ObjectSpace.GetObjectsQuery<Product>();
 List<Product> top500 = query.Take(500).ToList();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Dim query = Me.ObjectSpace.GetObjectsQuery(Of Product)()
+Dim top500 = query.Take(500).ToList()
+```
+
 ***
 
 ### Get Only Certain Properties from a Database
@@ -56,6 +63,16 @@ var list = query.Select(p => new { p.ID, p.Name, Total = p.Sales.Sum(s => s.Coun
 int id = list[0].ID;
 decimal total = list[0].Total;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim query = Me.ObjectSpace.GetObjectsQuery(Of Product)()
+Dim list = query.Select(Function(p) New With {.ID = p.ID, .Name = p.Name, .Total = p.Sales.Sum(Function(s) s.Count * s.Price)}).ToList()
+Dim id = list(0).ID
+Dim total = list(0).Total
+```
+
 ***
 
 This code generates the following SQL query to fetch the required data that does not fetch the rest properties of the **Product** business class.
@@ -83,6 +100,15 @@ Employee employee = (Employee)View.CurrentObject;
 IQueryable<Employee> query = ObjectSpace.GetObjectsQuery<Employee>();
 int result = query.Where(e => e.ID == employee.ID).Select(e => e.Tasks.Where(t => t.Status == Status.Completed).Count()).Single();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim employee = CType(View.CurrentObject, Employee)
+Dim query = Me.ObjectSpace.GetObjectsQuery(Of Employee)()
+Dim result = query.Where(Function(e) e.ID = employee.ID).Select(Function(e) e.Tasks.Where(Function(t) t.Status = Status.Completed).Count()).Single()
+```
+
 ***
 
 This expression produces the following SQL query to calculate a scalar value at the database level.
@@ -111,6 +137,14 @@ When you get a collection of objects using the [IObjectSpace.GetObjects](xref:De
 IList objects = objectSpace.GetObjects(typeof(Product));
 objectSpace.SetTopReturnedObjectsCount(objects, 500);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim objects As IList = objectSpace.GetObjects(GetType(Product))
+objectSpace.SetTopReturnedObjectsCount(objects, 500)
+```
+
 ***
 
 ### Get Only Certain Properties from a Database
@@ -125,6 +159,14 @@ The following example creates an `XafDataView` instance to fetch the **ID** and 
 XafDataView dataView = (XafDataView)objectSpace.CreateDataView(
     typeof(Product), "ID;Name;Sales.Sum([Count] * Price)", null, null);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataView As XafDataView = CType(objectSpace.CreateDataView( _
+    GetType(Product), "ID;Name;Sales.Sum([Count] * Price)", Nothing, Nothing), XafDataView)
+```
+
 ***
 
 After this, access a data record by [its index](xref:DevExpress.ExpressApp.XafDataView.Item(System.Int32)). An [](xref:DevExpress.ExpressApp.XafDataViewRecord) object is returned.
@@ -134,6 +176,13 @@ After this, access a data record by [its index](xref:DevExpress.ExpressApp.XafDa
 ```csharp
 XafDataViewRecord dataRecord = dataView[0];
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataRecord As XafDataViewRecord = dataView(0)
+```
+
 ***
 
 To get a column value from a data record, use the [XafDataViewRecord.Item](xref:DevExpress.ExpressApp.XafDataViewRecord.Item*) property as follows:
@@ -144,6 +193,14 @@ To get a column value from a data record, use the [XafDataViewRecord.Item](xref:
 int id = dataView[0]["ID"];
 int total = dataView[0]["Sales.Sum(Count * Price)"];
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim id As Integer = dataView(0)("ID")
+Dim total As Integer = dataView(0)("Sales.Sum(Count * Price)")
+```
+
 ***
 
 ### Evaluate a Scalar Value
@@ -157,6 +214,15 @@ CriteriaOperator expression = CriteriaOperator.Parse("Tasks[Status = 'Completed'
 CriteriaOperator criteria = new BinaryOperator(nameof(Employee.ID), ObjectSpace.GetKeyValue(View.CurrentObject));
 int result = (int)ObjectSpace.Evaluate(typeof(Employee), expression, criteria);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim expression As CriteriaOperator = CriteriaOperator.Parse("Tasks[Status = 'Completed'].Count()")
+Dim criteria As CriteriaOperator = New BinaryOperator(NameOf(Employee.ID), ObjectSpace.GetKeyValue(View.CurrentObject))
+Dim result As Integer = CInt(ObjectSpace.Evaluate(GetType(Employee), expression, criteria))
+```
+
 ***
 
 <!-- TODO: ## In XPO Business Class

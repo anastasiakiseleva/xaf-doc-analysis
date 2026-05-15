@@ -36,4 +36,24 @@ public class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyModule
+    Inherits ModuleBase
+    '...
+    Protected Overrides Sub RegisterEditorDescriptors(ByVal editorDescriptorsFactory _
+    As EditorDescriptorsFactory)
+        '... 
+        editorDescriptorsFactory.RegisterPropertyEditorAlias("CustomPropertyEditorAlias", _
+        GetType(Date), AddressOf IsMemberCompatibleHandler)
+    End Sub
+    Private Shared Function IsMemberCompatibleHandler(ByVal modelMember _
+    As IModelMember) As Boolean
+        '...
+    End Function
+End Class
+```
+
 ***

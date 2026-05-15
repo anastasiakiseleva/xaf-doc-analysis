@@ -51,4 +51,36 @@ public class SendEmailController : ObjectViewController<ListView, Contact> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Xpo
+Imports DevExpress.Persistent.Base
+Imports System.Diagnostics
+' ...
+Public Class SendEmailController
+    Inherits ObjectViewController(Of ListView, Contact)
+    Public Sub New()
+        Dim sendEmailAction As New ParametrizedAction(Me, "SendEmail", 
+        PredefinedCategory.Edit, GetType(String))
+        AddHandler sendEmailAction.Execute, AddressOf SendEmailAction_Execute
+    End Sub
+    Private Sub SendEmailAction_Execute(ByVal sender As Object, 
+    ByVal e As ParametrizedActionExecuteEventArgs)
+        Dim objectSpace As XPObjectSpace = CType(View.ObjectSpace, XPObjectSpace)
+        Dim contactParamValue As String = TryCast(e.ParameterCurrentValue, String)
+        If Not String.IsNullOrEmpty(contactParamValue) Then
+            Dim contact As Contact = objectSpace.FirstOrDefault(Of Contact) _
+            (Function(p) p.LastName = contactParamValue, True)
+            If Not String.IsNullOrEmpty(contact?.Email) Then
+                Process.Start($"mailto:{contact.Email}")
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***

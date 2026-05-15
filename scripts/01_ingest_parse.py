@@ -198,6 +198,24 @@ def parse_markdown(path: pathlib.Path) -> Dict[str, Any]:
             flush_section()
 
         elif t.type == "inline" and t.map and i > 0 and tokens[i - 1].type == "heading_open":
+            # Skip DocFX code-tab label headings: # [SomeName.cs](#tab/tabid-...)
+            # These are rendered as real headings by markdown-it but are only UI
+            # tab labels, not document structure headings.
+            # Note: markdown-it-py returns attrs as a dict (not list-of-tuples).
+            def _href(attrs):
+                if not attrs:
+                    return ""
+                if isinstance(attrs, dict):
+                    return str(attrs.get("href", ""))
+                return next((str(v) for k, v in attrs if k == "href"), "")
+
+            _is_tab_label = any(
+                c.type == "link_open" and _href(c.attrs).startswith("#tab/")
+                for c in (t.children or [])
+            )
+            if _is_tab_label:
+                continue
+
             prev = tokens[i - 1]
             txt = "".join([c.content for c in (t.children or []) if c.type == "text"])
             if prev.tag == "h1" and not title:

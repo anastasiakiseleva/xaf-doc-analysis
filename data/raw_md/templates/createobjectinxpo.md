@@ -24,4 +24,30 @@ public class Employee : Person {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{<:1:>}
+Imports DevExpress.Data.Filtering
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+' ...
+Public Class Employee
+    Inherits Person
+    '...
+    Public Overrides Sub AfterConstruction()
+        MyBase.AfterConstruction()
+        Address1 = New Address(Session)
+        Address1.Country = Session.FindObject(Of Country)(CriteriaOperator.Parse("Name = 'USA'"))
+        If Address1.Country Is Nothing Then
+            Address1.Country = New Country(Session)
+            Address1.Country.Name = "USA"
+            Address1.Country.Save()
+        End If
+        Manager = Session.FindObject(Of Employee)(CriteriaOperator.Parse( _
+        "FirstName = 'John' && LastName = 'Doe'"))
+    End Sub
+End Class
+```
+
 ***

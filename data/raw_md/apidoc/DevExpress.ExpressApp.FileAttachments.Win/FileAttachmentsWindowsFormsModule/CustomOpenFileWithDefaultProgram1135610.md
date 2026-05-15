@@ -35,4 +35,36 @@ public class MyViewController : ViewController {
     }        
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.FileAttachments.Win
+Imports DevExpress.Persistent.Base
+'...
+Public Class MyViewController
+    Inherits ViewController
+    Private fileAttachmentsModule As FileAttachmentsWindowsFormsModule
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        fileAttachmentsModule = Application.Modules.FindModule( _
+        Of FileAttachmentsWindowsFormsModule)()
+        AddHandler fileAttachmentsModule.CustomOpenFileWithDefaultProgram, _
+        AddressOf OnCustomOpenFile
+    End Sub
+    Private Sub OnCustomOpenFile(ByVal sender As Object, ByVal e As CustomFileOperationEventArgs)
+        'manually open the e.FileData file and perform necessary cleanup
+        '...            
+        e.Handled = True
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler fileAttachmentsModule.CustomOpenFileWithDefaultProgram, _
+        AddressOf OnCustomOpenFile
+        fileAttachmentsModule = Nothing
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

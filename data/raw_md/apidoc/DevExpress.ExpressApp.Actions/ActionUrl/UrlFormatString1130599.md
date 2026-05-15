@@ -26,6 +26,22 @@ public partial class ViewController1 : ViewController{
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Partial Class ViewController1
+      Inherits ViewController
+   Private Sub InitializeComponent()
+      '...
+      Me.urlAction1 = New DevExpress.ExpressApp.Actions.ActionUrl(Me.components)
+      Me.urlAction1.UrlFieldName = "https://www.yahoo.com/"
+      'Me.urlAction1.UrlFieldName = "error.aspx"
+      '...
+   End Sub
+End Class
+```
+
 ***
 
 You can specify a persistent object property that contains a URL value. For details, see [ActionUrl.UrlFieldName](xref:DevExpress.ExpressApp.Actions.ActionUrl.UrlFieldName).
@@ -51,6 +67,35 @@ public partial class ViewController1 : ViewController{
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class DomainObject1
+      Inherits BaseObject
+   '...
+   Private fwebSite As String
+    Public Property WebSite As String
+        Get
+            Return webSite
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(fwebSite, value)
+        End Set
+    End Property
+End Class
+Public Partial Class ViewController1
+      Inherits ViewController
+   Private Sub InitializeComponent()
+      '...
+      Me.urlAction1 = New DevExpress.ExpressApp.Actions.ActionUrl(Me.components)
+      Me.urlAction1.UrlFieldName = "WebSite"
+      Me.urlAction1.UrlFormatString = "http://{0}"
+      '...
+   End Sub
+End Class
+```
+
 ***
 
 In this instance, the ActionURL should be activated in a List View for each object or in a Detail View. To do that, set the [ActionBase.SelectionDependencyType](xref:DevExpress.ExpressApp.Actions.ActionBase.SelectionDependencyType) property to the [SelectionDependencyType.RequireSingleObject](xref:DevExpress.ExpressApp.Actions.SelectionDependencyType.RequireSingleObject) value and the [ActionBase.Category](xref:DevExpress.ExpressApp.Actions.ActionBase.Category) property to "RecordEdit". In a List View, the Action will be displayed in an additional cell for each object.

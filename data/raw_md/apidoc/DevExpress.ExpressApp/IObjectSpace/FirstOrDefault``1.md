@@ -47,6 +47,36 @@ public class SendEmailController : ObjectViewController<ListView, Contact> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports System.Diagnostics
+' ...
+Public Class SendEmailController
+    Inherits ObjectViewController(Of ListView, Contact)
+    Public Sub New()
+        Dim sendEmailAction As New ParametrizedAction(Me, "SendEmail", 
+        PredefinedCategory.Edit, GetType(String))
+        AddHandler sendEmailAction.Execute, AddressOf SendEmailAction_Execute
+    End Sub
+    Private Sub SendEmailAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Dim objectSpace As IObjectSpace = View.ObjectSpace
+        Dim contactParamValue As String = TryCast(e.ParameterCurrentValue, String)
+        If Not String.IsNullOrEmpty(contactParamValue) Then
+            Dim contact As Contact = objectSpace.FirstOrDefault(Of Contact) _
+            (Function(p) p.LastName = contactParamValue)
+            If Not String.IsNullOrEmpty(contact?.Email) Then
+                Process.Start($"mailto:{contact.Email}")
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Do not implement this method when you implement the [](xref:DevExpress.ExpressApp.IObjectSpace) interface in a [](xref:DevExpress.ExpressApp.BaseObjectSpace) descendant. The [BaseObjectSpace.FirstOrDefault\<ObjectType>(Expression\<Func\<ObjectType, Boolean>>)](xref:DevExpress.ExpressApp.BaseObjectSpace.FirstOrDefault``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})) method invokes a public virtual [BaseObjectSpace.FirstOrDefault\<ObjectType>(Expression\<Func\<ObjectType, Boolean>>, Boolean)](xref:DevExpress.ExpressApp.BaseObjectSpace.FirstOrDefault``1(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)) method. Override the public virtual **BaseObjectSpace.FirstOrDefault** method to implement an object search.

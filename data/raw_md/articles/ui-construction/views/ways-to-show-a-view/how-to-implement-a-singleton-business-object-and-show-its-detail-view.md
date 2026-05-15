@@ -82,13 +82,50 @@ If you implement this solution in a multi-tenant application, singleton data is 
         }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb-xpo)
+
+    ```vb
+    Imports DevExpress.Persistent.BaseImpl
+    Imports DevExpress.Persistent.Validation
+    ' ...
+    <RuleObjectExists("AnotherSingletonExists", DefaultContexts.Save, "True", InvertResult := True, _
+    CustomMessageTemplate := "Another Singleton already exists."), _
+    RuleCriteria("CannotDeleteSingleton", DefaultContexts.Delete, "False", _
+    CustomMessageTemplate := "Cannot delete Singleton.")> _
+    Public Class Singleton
+        Inherits BaseObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        Private _name As String
+        Public Property Name() As String
+            Get
+                Return _name
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue("Name", _name, value)
+            End Set
+        End Property
+        Private _description As String
+        Public Property Description() As String
+            Get
+                Return _description
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue("Description", _description, value)
+            End Set
+        End Property
+    End Class
+    ```
+
     ***
 
 2. If you use Entity Framework Core, add the `Singleton` type to your `DbContext`:
 
     **File:** _SingletonSolution.Module\BusinessObjects\SingletonSolutionDbContext.cs_
 
-    # [EF Core](#tab/tabid-sharp-efcore)
+    # [EF Core](#tab/tabid-sharp-efcore1)
     ```csharp
     using DevExpress.ExpressApp.EFCore.Updating;
     using Microsoft.EntityFrameworkCore;
@@ -181,6 +218,27 @@ If you implement this solution in a multi-tenant application, singleton data is 
         }
     }
     ```
+    # [VB.NET](#tab/tabid-vb-xpo)
+
+    ```vb
+    Imports DevExpress.ExpressApp
+    Imports DevExpress.ExpressApp.Updating
+    ' ...
+    Public Class Updater
+        Inherits ModuleUpdater
+        ' ...
+        Public Overrides Sub UpdateDatabaseAfterUpdateSchema()
+            MyBase.UpdateDatabaseAfterUpdateSchema()
+            If ObjectSpace.GetObjectsCount(GetType(Singleton), Nothing) = 0 Then
+                Dim _singleton As Singleton = ObjectSpace.CreateObject(Of Singleton)()
+                _singleton.Name = "My Singleton"
+                _singleton.Description = "Sample Description"
+            End If
+            ObjectSpace.CommitChanges()
+        End Sub
+    End Class
+    ```
+
     ***
 
 > [!NOTE]
@@ -229,6 +287,30 @@ namespace SingletonSolution.Module.Controllers {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.ExpressApp.Editors
+' ...
+Public Class ShowSingletonController
+    Inherits WindowController
+    Public Sub New()
+        Me.TargetWindowType = WindowType.Main
+        Dim showSingletonAction As New PopupWindowShowAction(Me, "ShowSingleton", PredefinedCategory.View)
+        AddHandler showSingletonAction.CustomizePopupWindowParams, AddressOf showSingletonAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub showSingletonAction_CustomizePopupWindowParams(ByVal sender As Object, ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Singleton))
+        Dim detailView As DetailView = Application.CreateDetailView(objectSpace, objectSpace.GetObjects(Of Singleton)()(0))
+        detailView.ViewEditMode = ViewEditMode.Edit
+        e.View = detailView
+    End Sub
+End Class
+```
+
 ***
 
 Run the application. Verify that the **Show Singleton** Action is available and you can modify the singleton.

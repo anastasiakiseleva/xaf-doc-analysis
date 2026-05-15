@@ -35,4 +35,33 @@ public sealed partial class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Validation
+Imports DevExpress.Persistent.Validation
+'...
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    Private validationModule As ValidationModule
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+    Public Overrides Sub Setup(ByVal moduleManager As ApplicationModulesManager)
+        MyBase.Setup(moduleManager)
+        validationModule = moduleManager.Modules.FindModule(Of ValidationModule)()
+        AddHandler validationModule.CustomizeApplicationRuntimeRules, AddressOf OnCustomizeRules
+    End Sub
+    Private Sub OnCustomizeRules(ByVal sender As Object, _
+    ByVal e As CustomizeApplicationRuntimeRulesEventArgs)
+        Dim myRule As New RuleRequiredField("myRule", _
+        XafTypesInfo.Instance.FindTypeInfo(GetType(Contact)).FindMember("Anniversary"), _
+        ContextIdentifier.Save)
+        e.Rules.Add(myRule)
+    End Sub
+End Class
+```
+
 ***

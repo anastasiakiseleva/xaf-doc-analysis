@@ -43,6 +43,58 @@ public PopupDetailViewObject PopupDetailViewObject {
     set { SetPropertyValue(nameof(PopupDetailViewObject), ref popupDetailViewObject, value); }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private _lookupReferencedObject As ReferencedObject
+' Displayed in a lookup control:
+Public Property LookupReferencedObject() As ReferencedObject
+    Get
+        Return _lookupReferencedObject
+    End Get
+    Set(ByVal value As ReferencedObject)
+        SetPropertyValue(NameOf(LookupReferencedObject), _lookupReferencedObject, value)
+    End Set
+End Property
+
+Private _expandPropertiesObject As ExpandPropertiesObject
+' Displayed in a set of editors. Each editor represents an individual property of the referenced object:
+<Aggregated, ExpandObjectMembers(ExpandObjectMembers.Always)>
+Public Property ExpandPropertiesObject() As ExpandPropertiesObject
+    Get
+        Return _expandPropertiesObject
+    End Get
+    Set(ByVal value As ExpandPropertiesObject)
+        SetPropertyValue(NameOf(ExpandPropertiesObject), _expandPropertiesObject, value)
+    End Set
+End Property
+
+Private _embeddedDetailViewObject As EmbeddedDetailViewObject
+' Displayed in a Detail Property Editor that shows a referenced object's Detail View:
+<Aggregated, EditorAlias(EditorAliases.DetailPropertyEditor), ExpandObjectMembers(ExpandObjectMembers.Never)>
+Public Property EmbeddedDetailViewObject() As EmbeddedDetailViewObject
+    Get
+        Return _embeddedDetailViewObject
+    End Get
+    Set(ByVal value As EmbeddedDetailViewObject)
+        SetPropertyValue(NameOf(EmbeddedDetailViewObject), _embeddedDetailViewObject, value)
+    End Set
+End Property
+
+Private _popupDetailViewObject As PopupDetailViewObject
+' Displayed in a button edit that invokes a referenced object's Detail View in a separate modal window:
+<Aggregated, ExpandObjectMembers(ExpandObjectMembers.Never)>
+Public Property PopupDetailViewObject() As PopupDetailViewObject
+    Get
+        Return _popupDetailViewObject
+    End Get
+    Set(ByVal value As PopupDetailViewObject)
+        SetPropertyValue(NameOf(PopupDetailViewObject), _popupDetailViewObject, value)
+    End Set
+End Property
+```
+
 ***
 
 If you use **Detail Property Editor** for a reference property, or apply [](xref:DevExpress.Persistent.Base.ExpandObjectMembers) attribute to a reference property, it is required to initialize such a property in the when a new parent object is created. Otherwise, the reference property's fields will be read-only. The initialization should be done in the overridden **AfterConstruction** method the following way:
@@ -55,4 +107,14 @@ public override void AfterConstruction() {
     embeddedDetailViewObject = new EmbeddedDetailViewObject(Session);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub AfterConstruction()
+    MyBase.AfterConstruction()
+    embeddedDetailViewObject = New EmbeddedDetailViewObject(Session)
+End Sub
+```
+
 ***

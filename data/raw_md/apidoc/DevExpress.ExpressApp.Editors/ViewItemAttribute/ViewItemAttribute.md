@@ -20,6 +20,15 @@ To use [a custom View Item](xref:405483) in the [Application Model](xref:112580)
 public MyDetailViewItem(IModelViewItem model, Type objectType) : base(objectType, model.Id) {
 //...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Sub New(ByVal model As IModelViewItem, ByVal objectType As Type)
+    MyBase.New(objectType, model.Id)
+'...
+```
+
 ***
 
 This allows you to use the data from the corresponding Application Model's node, to initialize and configure the View Item.

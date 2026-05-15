@@ -22,6 +22,16 @@ using DevExpress.ExpressApp.DC.Xpo;
 // ...
 XpoTypeInfoSource xpoTypeInfoSource = XpoTypesInfoHelper.GetXpoTypeInfoSource();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Xpo
+Imports DevExpress.ExpressApp.DC.Xpo
+' ...
+Private xpoTypeInfoSource As XpoTypeInfoSource = XpoTypesInfoHelper.GetXpoTypeInfoSource()
+```
+
 ***
 
 You can access the [](xref:DevExpress.Xpo.Metadata.XPDictionary) object as follows:
@@ -34,6 +44,16 @@ using DevExpress.ExpressApp.Xpo;
 // ...
 XPDictionary xpDictionary = XpoTypesInfoHelper.GetXpoTypeInfoSource().XPDictionary;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Xpo.Metadata
+Imports DevExpress.ExpressApp.Xpo
+' ...
+Private xpDictionary As XPDictionary = XpoTypesInfoHelper.GetXpoTypeInfoSource().XPDictionary
+```
+
 ***
 
 More examples on how to use the **GetXpoTypeInfoSource** method are provided in the following topics:

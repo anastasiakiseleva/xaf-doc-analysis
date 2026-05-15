@@ -38,6 +38,35 @@ public class WinCustomListEditor : ListEditor, /* ...*/ IRequireContextMenu, IRe
         #endregion
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<ListEditor(GetType(IPictureItem))> _
+Public Class WinCustomListEditor ' ...
+    Inherits ListEditor
+    Implements IRequireContextMenu, IRequireDXMenuManager
+
+    #Region "IRequireContextMenu Members"
+    Private Sub BarManager_QueryShowPopupMenu(ByVal sender As Object, ByVal e As QueryShowPopupMenuEventArgs)
+        If e.Control <> control Then
+            e.Cancel = True
+            e.BreakShowPopupMenu = False
+        End If
+    End Sub
+    Public Sub SetMenu(ByVal popupMenu As PopupMenu, ByVal barManager As BarManager)
+        barManager.SetPopupContextMenu(control, popupMenu)
+        AddHandler barManager.QueryShowPopupMenu, AddressOf BarManager_QueryShowPopupMenu
+    End Sub
+        #End Region
+
+        #Region "IRequireDXMenuManager Members"
+        Public Sub SetMenuManager(ByVal menuManager As IDXMenuManager)
+        End Sub
+        #End Region
+End Class
+```
+
 ***
 
 If you implement a List Editor using a descendant of the [](xref:DevExpress.XtraEditors.Container.EditorContainer) control, initialize the [EditorContainer.MenuManager](xref:DevExpress.XtraEditors.Container.EditorContainer.MenuManager) property in the **SetMenuManager** method.
@@ -52,4 +81,14 @@ e.Cancel = !(((hitTest == GridHitTest.Row) ||
     (hitTest == GridHitTest.RowCell) || (hitTest == GridHitTest.EmptyRow) || 
     (hitTest == GridHitTest.RowDetail) || (hitTest == GridHitTest.None)));
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim hitTest As GridHitTest = gridView.CalcHitInfo(gridControl.PointToClient(e.Position)).HitTest
+e.Cancel = Not(((hitTest Is GridHitTest.Row) OrElse _
+    (hitTest Is GridHitTest.RowCell) OrElse (hitTest Is GridHitTest.EmptyRow) OrElse _
+    (hitTest Is GridHitTest.RowDetail) OrElse (hitTest Is GridHitTest.None)))
+```
+
 ***

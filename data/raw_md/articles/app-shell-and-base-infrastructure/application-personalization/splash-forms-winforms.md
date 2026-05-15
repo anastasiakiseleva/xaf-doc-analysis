@@ -1,6 +1,5 @@
 ---
 uid: "112680"
-seealso: []
 title: Loading Panels / Splash Forms (WinForms)
 seealso:
   - linkId: '404738'
@@ -28,7 +27,7 @@ If you need to access additional methods, use the @DevExpress.XtraSplashScreen.S
 
 When you create a new XAF WinForms Application, the[Template Kit](xref:405447) sets the [WinApplication.SplashScreen](xref:DevExpress.ExpressApp.Win.WinApplication.SplashScreen) property value to a new @DevExpress.ExpressApp.Win.Utils.DXSplashScreen instance. The [Template Kit](xref:405447) uses the [](xref:DevExpress.ExpressApp.Win.Utils.DXSplashScreen.#ctor(System.Type,DevExpress.ExpressApp.Win.DefaultOverlayFormOptions)) constructor.
 
-You can find this code in the [WinForms Application project](xref:118045)'s _WinApplication.cs_ (_WinApplication.vb_) file.
+You can find this code in the [WinForms Application project](xref:118045)'s _WinApplication.cs_ file.
 
 
 

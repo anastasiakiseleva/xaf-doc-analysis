@@ -83,6 +83,23 @@ namespace MySolution.Module.BusinessObjects {
     }  
 }  
 ```
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Namespace MySolution.Module.BusinessObjects  
+    Public Class YourBusinessClass  
+        Inherits YourBaseXpoClass  
+        ' ...  
+        Protected Overrides Sub OnSaved()  
+            MyBase.OnSaved()  
+            If Number = 0 Then '0 is the default value of the sequence number property.
+                Session.Reload(Me)  
+            End If  
+        End Sub  
+        ' ...  
+    End Class  
+End Namespace  
+```
 ***
 
 #### Use a Custom Controller to Reload the Object Space
@@ -131,4 +148,50 @@ namespace MySolution.Module.Controllers {
     }  
 }  
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Namespace MySolution.Module.Controllers  
+    ' ...  
+    Public Class RefreshAfterCommitController  
+        Inherits ViewController  
+        Private needRefresh As Boolean = False  
+        Public Sub New()  
+            TargetViewNesting = Nesting.Root  
+        End Sub  
+        Protected Overrides Sub OnActivated()  
+            MyBase.OnActivated()  
+            AddHandler ObjectSpace.Committed, AddressOf ObjectSpace_Committed  
+            AddHandler ObjectSpace.Committing, AddressOf ObjectSpace_Committing  
+            AddHandler ObjectSpace.Reloaded, AddressOf ObjectSpace_Reloaded  
+        End Sub  
+        Protected Overrides Sub OnDeactivated()  
+            RemoveHandler ObjectSpace.Committed, AddressOf ObjectSpace_Committed  
+            RemoveHandler ObjectSpace.Committing, AddressOf ObjectSpace_Committing  
+            RemoveHandler ObjectSpace.Reloaded, AddressOf ObjectSpace_Reloaded  
+            MyBase.OnDeactivated()  
+        End Sub  
+        Private Sub ObjectSpace_Reloaded(ByVal sender As Object, ByVal e As EventArgs)  
+            needRefresh = False  
+        End Sub  
+        Private Sub ObjectSpace_Committing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)  
+            Dim objectSpace = CType(sender, IObjectSpace)  
+            For Each obj In objectSpace.GetObjectsToSave(False)  
+                If objectSpace.IsNewObject(obj) Then  
+                    needRefresh = True  
+                    Exit For  
+                End If  
+            Next obj  
+        End Sub  
+        Private Sub ObjectSpace_Committed(ByVal sender As Object, ByVal e As EventArgs)  
+            If needRefresh Then  
+                CType(sender, IObjectSpace).Refresh()  
+                needRefresh = False  
+            End If  
+        End Sub  
+    End Class  
+End Namespace  
+```
+ 
 ***

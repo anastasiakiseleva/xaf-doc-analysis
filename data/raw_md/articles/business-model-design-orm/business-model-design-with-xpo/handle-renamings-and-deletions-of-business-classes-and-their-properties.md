@@ -43,6 +43,26 @@ public class Department : BaseObject {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Department
+    Inherits BaseObject
+    ' ...
+    Private fOffice As String
+    Public Property Office() As String
+         Get
+             Return fOffice
+         End Get
+         Set(ByVal value As String)
+             SetPropertyValue(NameOf(Office), fOffice, value)
+         End Set
+    End Property
+    ' ...
+```
+
 ***
 
 The following steps are required to rename a property, and handle the database and application model changes.
@@ -81,6 +101,23 @@ The following steps are required to rename a property, and handle the database a
 	     }
 	    // ...
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public Class Updater
+	    Inherits ModuleUpdater
+	    ' ...
+	    Public Overrides Sub UpdateDatabaseBeforeUpdateSchema()
+	        MyBase.UpdateDatabaseBeforeUpdateSchema()
+	        If CurrentDBVersion < New Version("1.1.0.0") _
+	        AndAlso CurrentDBVersion > New Version("0.0.0.0") Then
+	            RenameColumn("Department", "Office", "Room")
+	        End If
+	    End Sub
+	    ' ...
+	```
+	
 	***
 	
 	The "1.1.0.0" string is the application version in which changes are introduced. So, the column will be renamed only if the database version is less than "1.1.0.0". It is required to check if the database version is greater than "0.0.0.0", to make changes only when the database exists and is filled with data (the empty database version is "0.0.0.0", by default).
@@ -115,6 +152,23 @@ public class Updater : ModuleUpdater {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModuleUpdater
+    ' ...
+    Public Overrides Sub UpdateDatabaseBeforeUpdateSchema()
+        MyBase.UpdateDatabaseBeforeUpdateSchema()
+        If CurrentDBVersion < New Version("1.1.0.0") _
+        AndAlso CurrentDBVersion > New Version("0.0.0.0") Then
+            DropColumn("Department", "Room")
+        End If
+    End Sub
+    ' ...
+```
+
 ***
 
 The "1.1.0.0" string is the application version in which changes are introduced. So, the column will be removed only if the database version is less than "1.1.0.0". Checking to determine if the database version is greater then "0.0.0.0" is required to handle a scenario when the database is empty or does not exist.
@@ -145,6 +199,25 @@ public class Department : BaseObject {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Department
+    Inherits BaseObject
+    ' ...
+    Private fDescription As String
+    Public Property Description() As String
+        Get
+            Return fDescription
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Description), fDescription, value)
+        End Set
+    End Property
+    ' ...
+```
+
 ***
 
 100 characters is the default size of a text property in **XPO**. For instance, if your database server is Microsoft SQL Server 2005, a column with the **nvarchar(100)** data type is created for the string property.
@@ -169,6 +242,24 @@ public class Updater : ModuleUpdater {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModuleUpdater
+    ' ...
+    Public Overrides Sub UpdateDatabaseBeforeUpdateSchema()
+        MyBase.UpdateDatabaseBeforeUpdateSchema()
+        If CurrentDBVersion < New Version("1.1.0.0") _
+         AndAlso CurrentDBVersion > New Version("0.0.0.0") Then
+                ExecuteNonQueryCommand( _
+                    "alter table Department alter column Description nvarchar(200)", true);
+        End If
+    End Sub
+    ' ...
+```
+
 ***
 
 The "1.1.0.0" string is the application version in which changes are introduced. So, the data type will be changed only if the database version is less than "1.1.0.0". It is required to check if the database version is greater then "0.0.0.0" to make changes only when the database exists and is filled with data (the empty database version is "0.0.0.0", by default). Available data types depend on the database server, so ensure that the specified data type is valid. The SQL command text is written to the application [Log File](xref:112575) with the "ExecuteNonQueryCommand:" prefix before being executed. If an error occurs when executing the **ExecuteNonQueryCommand** method, an exception text is also logged. However, application execution is not interrupted. You can refer to the application log file for debugging purposes. If it is required to throw an exception when an error occurs, set the second parameter of the **ExecuteNonQueryCommand** method to **false**.
@@ -228,6 +319,25 @@ Lets assume you have a **Department** persistent class that should be renamed to
 	    }
 	    // ...
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public Class Updater
+	    Inherits ModuleUpdater
+	    ' ...
+	    Public Overrides Sub UpdateDatabaseBeforeUpdateSchema()
+	        MyBase.UpdateDatabaseBeforeUpdateSchema()
+	        If CurrentDBVersion < New Version("1.1.0.0") _
+	        AndAlso CurrentDBVersion > New Version("0.0.0.0") Then
+	            RenameTable("Department", "Division")
+	            UpdateXPObjectType( _
+	            "MySolution.Module.Department", "MySolution.Module.Division", "MySolution.Module")
+	        End If
+	    End Sub
+	    ' ...
+	```
+	
 	***
 	
 	The "1.1.0.0" string is the application version in which changes are introduced. So, the column will be removed only if the database version is less than "1.1.0.0". Checking if the database version is greater than "0.0.0.0" is required to make changes only when the database exists and is filled with data.
@@ -275,7 +385,38 @@ public class Position : BaseObject {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions> _
+Public Class Department
+    Inherits BaseObject
+    ' ...
+    <Association("Departments-Positions")> _
+    Public ReadOnly Property Positions() As XPCollection(Of Position)
+        Get
+            Return GetCollection(Of Position)(NameOf(Positions))
+        End Get
+    End Property
+    ' ...
+End Class
+<DefaultClassOptions> _
+Public Class Position
+    Inherits BaseObject
+    ' ...
+    <Association("Departments-Positions")> _
+    Public ReadOnly Property Departments() As XPCollection(Of Department)
+        Get
+            Return GetCollection(Of Department)(NameOf(Departments))
+        End Get
+    End Property
+    ' ...
+End Class
+```
+
 ***
+
 All the steps described in the [Rename a Persistent Class](#rename-the-persistent-class) section are required in this case. But, there are two additional steps.
 
 * Rename the **Position.Departments** property to **Divisions** and modify the property name used in this property's getter. Change the "Departments-Positions" association name to "Divisions-Positions".
@@ -293,6 +434,16 @@ All the steps described in the [Rename a Persistent Class](#rename-the-persisten
 	    RenameTable("PositionPositions_DepartmentDepartments", "PositionPositions_DivisionDivisions");
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	If TableExists("PositionPositions_DepartmentDepartments") Then
+	    RenameColumn("PositionPositions_DepartmentDepartments", "Departments", "Divisions")
+	    RenameTable("PositionPositions_DepartmentDepartments", "PositionPositions_DivisionDivisions")
+	End If
+	```
+	
 	***
 
 ## Rename the Persistent Class Used as the Data Type in Analysis
@@ -306,6 +457,15 @@ ExecuteNonQueryCommand(
     "update Analysis set ObjectTypeName = 'MySolution.Module.Division' " + 
     "where ObjectTypeName = 'MySolution.Module.Department'", true);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+ExecuteNonQueryCommand( _
+"update Analysis set ObjectTypeName = 'MySolution.Module.Division' " & _
+"where ObjectTypeName = 'MySolution.Module.Department'", True)
+```
+
 ***
 
 ## Rename a Persistent Class Used as the Data Type in Reports
@@ -319,6 +479,17 @@ using DevExpress.ExpressApp.ReportsV2;
 ReportDataProvider.MassUpdateDataType<ReportDataV2>(
     ObjectSpace, "MySolution.Module.Department", typeof(Division));
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.ReportsV2
+'...
+ReportDataProvider.MassUpdateDataType(Of ReportDataV2)( _
+ObjectSpace, "MySolution.Module.Department", GetType(Division))
+```
+
 ***
 
 In the code above, the [ReportDataProvider.MassUpdateDataType\<T>](xref:DevExpress.ExpressApp.ReportsV2.ReportDataProvider.MassUpdateDataType*) method is used instead of **ExecuteNonQueryCommand**.
@@ -341,6 +512,24 @@ public class Updater : ModuleUpdater {
     }
     // ...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModuleUpdater
+    ' ...
+    Public Overrides Sub UpdateDatabaseBeforeUpdateSchema()
+        MyBase.UpdateDatabaseBeforeUpdateSchema()
+        If CurrentDBVersion < New Version("1.1.0.0") _
+        AndAlso CurrentDBVersion > New Version("0.0.0.0") Then
+            DropTable("Division", true)
+            DeleteObjectType("MySolution.Module.Division")
+        End If
+    End Sub
+    ' ...
+```
+
 ***
 
 The "1.1.0.0" string is the application version in which changes are introduced. So, the table will be removed only if the database version is less than "1.1.0.0". It is required to check if the database version is greater then "0.0.0.0" to make changes only when the database exists and is filled with data (the empty database version is "0.0.0.0", by default).

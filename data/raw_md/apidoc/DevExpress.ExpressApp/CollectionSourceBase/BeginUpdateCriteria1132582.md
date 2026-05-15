@@ -20,4 +20,16 @@ collectionSource.Criteria["2"] = CriteriaOperator.Parse("...");
 collectionSource.EndUpdateCriteria();
 //...
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+'...
+collectionSource.BeginUpdateCriteria()
+collectionSource.Criteria("1") = CriteriaOperator.Parse("...")
+collectionSource.Criteria("2") = CriteriaOperator.Parse("...")
+collectionSource.EndUpdateCriteria()
+'...
+```
+
 ***

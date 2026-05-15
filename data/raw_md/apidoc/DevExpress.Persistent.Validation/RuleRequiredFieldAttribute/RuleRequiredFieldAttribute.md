@@ -46,6 +46,28 @@ public class Position : BaseObject {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<DefaultClassOptions(), System.ComponentModel.DefaultProperty(NameOf(Title))> _
+Public Class Position
+   Inherits BaseObject
+   '...
+   Private fTitle As String
+   <RuleRequiredField("RuleRequiredField for Position.Title", DefaultContexts.Save, _
+      "A title must be specified")> _
+   Public Property Title() As String
+      Get
+         Return fTitle
+      End Get
+      Set(ByVal value As String)
+         SetPropertyValue(NameOf(Title), fTitle, value)
+      End Set
+   End Property
+End Class
+```
+
 ***
 
 When a property is decorated with a `RuleRequiredFieldAttribute`, the property value is not valid in the following cases:
@@ -104,6 +126,29 @@ public enum Priority {
     High
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<RuleValueComparison( _
+Nothing, DefaultContexts.Save, ValueComparisonType.NotEquals, Priority.Unspecified)> _
+Public Property Priority() As Priority
+    Get
+        Return priority
+    End Get
+    Set(ByVal value As Priority)
+        SetPropertyValue(NameOf(Priority), priority, value)
+    End Set
+End Property
+' ...
+Public Enum Priority
+    Unspecified
+    Low
+    Normal
+    High
+End Enum
+```
+
 ***
 
 ### Customize the Validation Rule

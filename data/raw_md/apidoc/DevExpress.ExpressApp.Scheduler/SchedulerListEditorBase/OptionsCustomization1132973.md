@@ -22,4 +22,12 @@ using DevExpress.XtraScheduler;
 // ...
 ((SchedulerOptionsCustomization)schedulerListEditor.OptionsCustomization).AllowInplaceEditor = UsedAppointmentType.All;
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.XtraScheduler
+' ...
+CType(schedulerListEditor.OptionsCustomization, SchedulerOptionsCustomization).AllowInplaceEditor = UsedAppointmentType.All
+```
+
 ***

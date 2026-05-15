@@ -46,6 +46,43 @@ public class MyModelCacheManager : ModelCacheManager {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections.Generic
+Imports System.IO
+Imports System.Runtime.Serialization.Formatters.Binary
+' ...
+Public Class MyModelCacheManager
+    Inherits ModelCacheManager
+    Private fileName As String = "MyCacheFile.bin"
+    Public Sub New()
+        MyBase.New(Nothing, AppDomain.CurrentDomain.SetupInformation.ApplicationBase)
+    End Sub
+    Public Sub New(ByVal stream As Stream, ByVal modelCacheFileLocationPath As String)
+        MyBase.New(stream, modelCacheFileLocationPath)
+    End Sub
+    Protected Overrides Function CanLoadModelCache() As Boolean
+        Return File.Exists(fileName)
+    End Function
+    Protected Overrides Function LoadCore() As IDictionary(Of String, String)
+        Dim serializedModel As Dictionary(Of String, String) = Nothing
+        Using loadStream As New FileStream(fileName, FileMode.Open, FileAccess.Read)
+            Dim bf As New BinaryFormatter()
+            serializedModel = TryCast(bf.Deserialize(loadStream), Dictionary(Of String, String))
+        End Using
+        Return serializedModel
+    End Function
+    Protected Overrides Sub SaveCore(ByVal serializedModel As Dictionary(Of String, String))
+        Using saveStream As New FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite)
+            Dim bf As New BinaryFormatter()
+            bf.Serialize(saveStream, serializedModel)
+        End Using
+    End Sub
+End Class
+```
+
 ***
 
 To use this custom implementation, handle the **CreateCustomModelCacheManager** event in the _Program.cs_ file:
@@ -60,6 +97,16 @@ winApplication.CreateCustomModelCacheManager += delegate(object sender, CreateCu
 winApplication.Setup();
 winApplication.Start();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+winApplication.EnableModelCache = True
+AddHandler winApplication.CreateCustomModelCacheManager, Sub(sender As Object, e As CreateCustomModelCacheManagerEventArgs) e.ModelCacheManager = New MyModelCacheManager()
+winApplication.Setup()
+winApplication.Start()
+```
+
 ***
 
 The Application Model cache is not used when the debugger is attached (see [Debugger.IsAttached](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.debugger.isattached#System_Diagnostics_Debugger_IsAttached)). So, the **CreateCustomModelCacheManager** is not triggered when you debug your application in Visual Studio. If you need to temporarily enable caching to debug your custom code, set the [ModelCacheManager.UseCacheWhenDebuggerIsAttached](xref:DevExpress.ExpressApp.ModelCacheManager.UseCacheWhenDebuggerIsAttached) field to **true** in the _WinApplication.cs_ file.
@@ -69,6 +116,13 @@ The Application Model cache is not used when the debugger is attached (see [Debu
 ```csharp
 ModelCacheManager.UseCacheWhenDebuggerIsAttached = true;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+ModelCacheManager.UseCacheWhenDebuggerIsAttached = True
+```
+
 ***
 
 When you finished with debugging, remove this line. The model cache does not speed up your application startup in Visual Studio because the modules versions are constantly updated, and consequently, the cache is always recreated.

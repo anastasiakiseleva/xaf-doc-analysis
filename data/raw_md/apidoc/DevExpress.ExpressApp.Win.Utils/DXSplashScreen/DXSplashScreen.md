@@ -26,7 +26,7 @@ The **DXSplashScreen** class uses the [WinForms Splash Screen Manager](xref:1082
 
 You can pass custom form types, an image, and Overlay From options to a **DXSplashScreen** constructor and assign the initialized **DXSplashScreen** instance to the [WinApplication.SplashScreen](xref:DevExpress.ExpressApp.Win.WinApplication.SplashScreen) property. The [](xref:DevExpress.ExpressApp.Win.WinApplication) object uses **DXSplashScreen** methods to show splashes where required.
 
-For example, you can add the following code to the _WinApplication.cs_ (_WinApplication.vb_) file in the [WinForms Application project](xref:118045) to enable all four splash forms:
+For example, you can add the following code to the _WinApplication.cs_ file in the [WinForms Application project](xref:118045) to enable all four splash forms:
 
 # [C#](#tab/tabid-csharp)
 
@@ -41,6 +41,24 @@ namespace MySolution.Win {
         // ...
     }
 }
+
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Namespace MySolution.Win
+    Partial Public Class MySolutionWindowsFormsApplication
+        Inherits WinApplication
+        Public Sub New()
+            ' ...
+            SplashScreen = SplashScreen = New DXSplashScreen(GetType(SplashScreen1), GetType(WaitForm1), svgImage, _
+                New DefaultOverlayFormOptions())
+            ExecuteStartupLogicBeforeClosingLogonWindow = True
+        End Sub
+        ' ...
+    End Class
+End Namespace
 
 ```
 ***

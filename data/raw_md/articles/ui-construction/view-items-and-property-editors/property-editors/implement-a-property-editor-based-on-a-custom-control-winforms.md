@@ -89,6 +89,72 @@ public class CustomIntegerEditor : PropertyEditor, IInplaceEditSupport {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports Microsoft.VisualBasic
+
+<PropertyEditor(GetType(Int32), False)> _
+Public Class CustomIntegerEditor
+    Inherits PropertyEditor
+    Implements IInplaceEditSupport
+
+    Private control As NumericUpDown = Nothing
+    Protected Overrides Sub ReadValueCore()
+        If control IsNot Nothing Then
+            If CurrentObject IsNot Nothing Then
+                control.ReadOnly = False
+                control.Value = CInt(Fix(PropertyValue))
+            Else
+                control.ReadOnly = True
+                control.Value = 0
+            End If
+        End If
+    End Sub
+    Private Sub control_ValueChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If Not IsValueReading Then
+            OnControlValueChanged()
+            WriteValueCore()
+        End If
+    End Sub
+    Protected Overrides Function CreateControlCore() As Object
+        control = New NumericUpDown()
+        control.Minimum = 0
+        control.Maximum = 5
+        AddHandler control.ValueChanged, AddressOf control_ValueChanged
+        Return control
+    End Function
+    Protected Overrides Sub OnControlCreated()
+        MyBase.OnControlCreated()
+        ReadValue()
+    End Sub
+    Public Sub New(ByVal objectType As Type, ByVal info As IModelMemberViewItem)
+        MyBase.New(objectType, info)
+    End Sub
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If control IsNot Nothing Then
+            RemoveHandler control.ValueChanged, AddressOf control_ValueChanged
+            control = Nothing
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+    Private Function IInplaceEditSupport_CreateRepositoryItem() As RepositoryItem Implements IInplaceEditSupport.CreateRepositoryItem
+        Dim item As New RepositoryItemSpinEdit()
+        item.MinValue = 0
+        item.MaxValue = 5
+        item.Mask.EditMask = "0"
+        Return item
+    End Function
+    Protected Overrides Function GetControlValueCore() As Object
+        If control IsNot Nothing Then
+            Return CInt(Fix(control.Value))
+        End If
+        Return Nothing
+    End Function
+End Class
+```
+
 ***
 
 [!include[IComplexViewItem-note](~/templates/IComplexViewItem-note.md)]

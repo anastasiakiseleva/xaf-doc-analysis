@@ -18,9 +18,9 @@ All new XAF applications [display the following default Splash Screen](xref:4007
 
 ![splashformsplashscreen](~/images/SplashForm01_SplashScreen.png)
 
-You can specify a custom **Application Name**, **Subtitle**, **Copyright**, and **Company Name**. Access your solution's [WinForms Application project](xref:118045) and open the _XafSplashScreen.cs_ (_XafSplashScreen.vb_) file in the Visual Studio Designer. Click the required element and change its **Text** property. 
+You can specify a custom **Application Name**, **Subtitle**, **Copyright**, and **Company Name**. Access your solution's [WinForms Application project](xref:118045) and open the _XafSplashScreen.cs_ file in the Visual Studio Designer. Click the required element and change its **Text** property. 
 
-Alternatively, you can open the _XafSplashScreen.cs_ (_XafSplashScreen.vb_) file in code and set these properties in the **XafSplashScreen** constructor:
+Alternatively, you can open the _XafSplashScreen.cs_ file in code and set these properties in the **XafSplashScreen** constructor:
 
 # [C#](#tab/tabid-csharp)
 

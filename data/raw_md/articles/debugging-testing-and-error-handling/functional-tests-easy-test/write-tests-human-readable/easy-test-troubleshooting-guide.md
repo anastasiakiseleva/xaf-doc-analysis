@@ -46,7 +46,23 @@ If you use a custom splash form, note that EasyTest implies the splash screen fo
 	    (form != null && form.Name == MySolution.Win.MyCustomForm.FormName);
 	};
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	'...
+	AddHandler DevExpress.ExpressApp.EasyTest.WinAdapter.ProcessFormsEnumerator.CheckIsFormAcceptable, _
+	Function(sender, e) AnonymousMethod1(sender, e)
+	
+	Private Function AnonymousMethod1(ByVal sender As Object, _
+	ByVal e As System.ComponentModel.CancelEventArgs) As Boolean
+		Dim form As Form = TryCast(sender, Form)
+		e.Cancel = e.Cancel OrElse (form IsNot Nothing AndAlso _
+	            form.Name = MySolution.Win.MyCustomForm.FormName)
+		Return True
+	End Function
+	```
+	
 	***
 
 
@@ -72,8 +88,20 @@ Solution:
 	    // ...
 	}
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Shared Sub Main()
+	#If EASYTEST Then
+	    DevExpress.ExpressApp.Win.EasyTest.EasyTestRemotingRegistration.Register()
+	#End If
+	    ' ...
+	End Sub
+	```
+	
 	***
+	
 * Check the Windows Forms application definition in the [EasyTest configuration file](xref:113209). The **FileName** attribute must point to an executable that is built with an **EasyTest** configuration (not **Debug** or **Release**). The **CommunicationPort** value must be 4100, as this is the default port listened to by EasyTest.
 	
 	# [XML](#tab/tabid-xml)

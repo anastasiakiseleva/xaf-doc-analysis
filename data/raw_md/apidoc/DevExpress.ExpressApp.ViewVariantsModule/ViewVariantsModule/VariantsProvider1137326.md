@@ -30,6 +30,24 @@ public sealed partial class MySolutionModule : ModuleBase {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+
+    Public Overrides Sub Setup(ByVal application As XafApplication)
+        MyBase.Setup(application)
+        AddHandler application.SetupComplete, AddressOf application_SetupComplete
+    End Sub
+    Private Sub application_SetupComplete(ByVal sender As Object, ByVal e As EventArgs)
+        Application.Modules.FindModule(Of ViewVariantsModule)().VariantsProvider = New DatabaseViewVariantsProvider(Application)
+    End Sub
+    ' ...
+End Class
+```
+
 ***
 
 The **DatabaseViewVariantsProvider** class is used in the snippet above. This class implementation is demonstrated in the [](xref:DevExpress.ExpressApp.ViewVariantsModule.IVariantsProvider) topic.

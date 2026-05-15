@@ -45,4 +45,31 @@ namespace MySolution.Module.Controllers {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{11-12}
+Imports System.Linq
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.SystemModule
+
+Namespace MySolution.Module.Controllers
+    Public Class UpdateShortcutViewController
+        Inherits ViewController(Of ListView)
+        Protected Overrides Sub OnViewControlsCreated()
+            MyBase.OnViewControlsCreated()
+            If View.EditView IsNot Nothing Then
+                Dim detailsPropertyEditor As ListPropertyEditor = View.EditView.Items.OfType(Of ListPropertyEditor)().FirstOrDefault()
+                If detailsPropertyEditor?.Frame IsNot Nothing Then
+                    Dim newObjectViewController As NewObjectViewController = detailsPropertyEditor.Frame.GetController(Of NewObjectViewController)()
+                    If newObjectViewController IsNot Nothing Then
+                        newObjectViewController.NewObjectAction.Shortcut = "CtrlI"
+                    End If
+                End If
+            End If
+        End Sub
+    End Class
+End Namespace
+```
+
 ***

@@ -33,6 +33,26 @@ static class Program {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend Class Program
+   Private Sub New()
+   End Sub
+   Shared Sub Main()
+      '...
+      Dim _application As MySolutionWindowsFormsApplication = 
+      New MySolutionWindowsFormsApplication()
+      _application.ConnectionString = _
+         ConfigurationManager.ConnectionStrings("ConnectionStringForDevelopment").ConnectionString
+      '...
+      _application.Setup()
+      '...
+   End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

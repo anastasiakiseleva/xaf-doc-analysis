@@ -31,4 +31,21 @@ public class MyWinModificationsController : WinModificationsController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Win.SystemModule
+' ...
+Public Class MyWinModificationsController
+    Inherits WinModificationsController
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Me.ModificationsCheckingMode = ModificationsCheckingMode.Always
+    End Sub
+End Class
+```
+
 ***

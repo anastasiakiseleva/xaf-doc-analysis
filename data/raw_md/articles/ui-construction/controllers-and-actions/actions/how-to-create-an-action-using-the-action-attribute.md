@@ -49,6 +49,35 @@ public class Task : BaseObject {
 }
 ```
 
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Public Class Task
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _subject As String
+    Public Property Subject() As String
+        Get
+            Return _subject
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Subject), _subject, value)
+        End Set
+    End Property
+    Private _isCompleted As Boolean
+    Public Property IsCompleted() As Boolean
+        Get
+            Return _isCompleted
+        End Get
+        Set(ByVal value As Boolean)
+            SetPropertyValue(NameOf(IsCompleted), _isCompleted, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Implement an Action that changes the `IsCompleted` property to `true`. Add the following `Complete` method to the `Task` class and decorate it with the [](xref:DevExpress.Persistent.Base.ActionAttribute).
@@ -60,6 +89,15 @@ Implement an Action that changes the `IsCompleted` property to `true`. Add the f
 public void Complete() {
     IsCompleted = true;
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Action(Caption:="Complete", TargetObjectsCriteria := "Not [IsCompleted]")> _
+Public Sub Complete()
+    IsCompleted = True
+End Sub
 ```
 
 ***
@@ -111,6 +149,32 @@ public string Comments {
 }
 ```
 
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+using DevExpress.ExpressApp.Model;
+' ...
+Private _deadline? As DateTime
+Public Property Deadline() As DateTime?
+    Get
+        Return _deadline
+    End Get
+    Set(ByVal value? As DateTime)
+        SetPropertyValue(NameOf(Deadline), _deadline, value)
+    End Set
+End Property
+Private _comments As String
+<Size(SizeAttribute.Unlimited), ModelDefault("AllowEdit", "False")> _
+Public Property Comments() As String
+    Get
+        Return _comments
+    End Get
+    Set(ByVal value As String)
+        SetPropertyValue(NameOf(Comments), _comments, value)
+    End Set
+End Property
+```
+
 ***
 
 Implement an Action that postpones the `Deadline` by a specified number of days and updates the `Comments` text.  First, declare the following [non-persistent class](xref:116516) that holds parameters to be specified when a user postpones a `Task`.
@@ -129,6 +193,38 @@ public class PostponeParametersObject {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+' ...
+<DomainComponent> _
+Public Class PostponeParametersObject
+    Public Sub New()
+        PostponeForDays = 1
+    End Sub
+    Private _postponeForDays As UInteger
+    Public Property PostponeForDays() As UInteger
+        Get
+            Return _postponeForDays
+        End Get
+        Set(ByVal value As UInteger)
+            _postponeForDays = value
+        End Set
+    End Property
+    Private _comment As String
+    <Size(SizeAttribute.Unlimited)> _
+    Public Property Comment() As String
+        Get
+            Return _comment
+        End Get
+        Set(ByVal value As String)
+            _comment = value
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Then, add the following `Postpone` method to the `Task` class. This method takes a parameter of the `PostponeParametersObject` type and is decorated with the `Action` attribute.
@@ -145,6 +241,20 @@ public void Postpone(PostponeParametersObject parameters) {
         parameters.PostponeForDays, Deadline, parameters.Comment);
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Action(Caption := "Postpone", _
+TargetObjectsCriteria := "[Deadline] Is Not Null And Not [IsCompleted]")> _
+Public Sub Postpone(ByVal parameters As PostponeParametersObject)
+    If Deadline.HasValue AndAlso (Not IsCompleted) AndAlso (parameters.PostponeForDays > 0) Then
+        Deadline += TimeSpan.FromDays(parameters.PostponeForDays)
+        Comments += String.Format("Postponed for {0} days, new deadline is {1:d}" & Constants.vbCrLf & _
+        "{2}" & Constants.vbCrLf, parameters.PostponeForDays, Deadline, parameters.Comment)
+    End If
+End Sub
 ```
 
 ***
@@ -178,6 +288,20 @@ public class PostponeParametersObject {
     }
     // ...
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DomainComponent> _
+Public Class PostponeParametersObject
+    Private task As Task
+    Public Sub New(ByVal task As Task)
+        PostponeForDays = 1
+        Me.task = task
+    End Sub
+    ' ...
+End Class
 ```
 
 ***

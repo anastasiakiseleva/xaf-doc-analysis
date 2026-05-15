@@ -36,6 +36,28 @@ public class MyEnumUpdater : ModelNodesGeneratorUpdater<ModelLocalizationNodesGe
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Model.Core
+Imports DevExpress.ExpressApp.Model.NodeGenerators
+'...
+Public Enum MyEnum
+    FirstEnumValue
+    SecondEnumValue
+End Enum
+
+Public Class MyEnumUpdater
+    Inherits ModelNodesGeneratorUpdater(Of ModelLocalizationNodesGenerator)
+    Public Overrides Sub UpdateNode(ByVal node As ModelNode)
+        EnumDescriptor.GenerateDefaultCaptions(node("Enums").AddNode(Of IModelLocalizationGroup) _
+        (GetType(MyEnum).FullName), GetType(MyEnum))
+    End Sub
+End Class
+```
+
 ***
 
 To register the Generator Updater, the [ModuleBase.AddGeneratorUpdaters](xref:DevExpress.ExpressApp.ModuleBase.AddGeneratorUpdaters(DevExpress.ExpressApp.Model.Core.ModelNodesGeneratorUpdaters)) method should be overridden.
@@ -52,6 +74,21 @@ public sealed partial class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MainDemoModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub AddGeneratorUpdaters( _
+    ByVal updaters As DevExpress.ExpressApp.Model.Core.ModelNodesGeneratorUpdaters)
+        MyBase.AddGeneratorUpdaters(updaters)
+        updaters.Add(New MyEnumUpdater())
+    End Sub
+End Class
+```
+
 ***
 
 This will generate a new group under the **Localization** | **Enums** node.

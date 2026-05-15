@@ -54,8 +54,29 @@ class Program {
     }
 }
 ```
-***
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports Microsoft.VisualBasic
+Imports DevExpress.ExpressApp.Xpo
+Imports DevExpress.ExpressApp
+Imports MainDemo.Module.BusinessObjects
+' ...
+Friend Class Program
+    Shared Sub Main(ByVal args() As String)
+        XpoTypesInfoHelper.GetXpoTypeInfoSource()
+        XafTypesInfo.Instance.RegisterEntity(GetType(Department))
+        Dim osProvider As New XPObjectSpaceProvider("integrated security=SSPI;pooling=false;data source=(localdb)\v11.0;initial catalog=MainDemo_", Nothing)
+        Dim objectSpace As IObjectSpace = osProvider.CreateObjectSpace()
+        For Each department As Department In objectSpace.GetObjects(Of Department)()
+            Console.WriteLine(department.Title & vbTab & department.Office)
+        Next department
+    End Sub
+End Class
+```
+
+***
 
 ## Entity Framework Core Example
 
@@ -91,4 +112,15 @@ DatabaseUpdater databaseUpdater = new DatabaseUpdater(
     osProvider, new ModuleBase[0], "", osProvider.ModuleInfoType);
 databaseUpdater.Update();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Updating
+' ...
+Dim databaseUpdater As New DatabaseUpdater( _
+osProvider, New ModuleBase(){}, "", osProvider.ModuleInfoType)
+databaseUpdater.Update()
+```
+
 ***

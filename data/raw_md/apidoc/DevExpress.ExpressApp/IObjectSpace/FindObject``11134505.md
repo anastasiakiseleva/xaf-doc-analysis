@@ -53,6 +53,41 @@ public class AssignTasksController : ObjectViewController<ListView, MainDemo.Mod
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.Base.General
+Imports DevExpress.Persistent.BaseImpl
+
+Public Class AssignTasksController
+    Inherits ObjectViewController(Of ListView, MainDemo.Module.BusinessObjects.DemoTask)
+    Public Sub New()
+        Dim assignTasksAction As New ParametrizedAction(Me, "AssignTasks", PredefinedCategory.Edit, GetType(String))
+        AddHandler assignTasksAction.Execute, AddressOf AssignTasksAction_Execute
+    End Sub
+    Private Sub AssignTasksAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Dim objectSpace As IObjectSpace = View.ObjectSpace
+        Dim personParamValue As String = TryCast(e.ParameterCurrentValue, String)
+        Dim personCriteria As CriteriaOperator = CriteriaOperator.Parse("Contains([LastName], ?)", personParamValue)
+        Dim person As Person = objectSpace.FindObject(Of Person)(personCriteria)
+        If person IsNot Nothing Then
+            Dim taskCriteria As CriteriaOperator = CriteriaOperator.Parse("[Status] = ?", TaskStatus.Deferred)
+            Dim tasks As IList = objectSpace.GetObjects( _
+                GetType(MainDemo.Module.BusinessObjects.DemoTask), taskCriteria)
+            For Each task As MainDemo.Module.BusinessObjects.DemoTask In tasks
+                task.AssignedTo = person
+            Next task
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 When implementing the [](xref:DevExpress.ExpressApp.IObjectSpace) interface in the [](xref:DevExpress.ExpressApp.BaseObjectSpace) class's descendant, you don't have to implement the **FindObject\<ObjectType>** method. The **BaseObjectSpace** class' **FintObject\<ObjectType>(CriteriaOperator criteria)** method invokes a public virtual **FindObject(Type objectType, CriteriaOperator criteria, Boolean inTransaction)** method passing **true** as the _inTransaction_ parameter. So, to implement an object search, override the public virtual **BaseObjectSpace.FindObject** method.

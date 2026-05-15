@@ -26,6 +26,20 @@ public override void Setup(XafApplication application) {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ReportsV2
+' ...
+Public Overrides Sub Setup(ByVal application As XafApplication)
+    AddHandler ReportServiceController.QueryRootReportComponentName, Sub(sender As Object, e As QueryRootReportComponentNameEventArgs)
+        e.Handled = True
+        e.Name = "MyNewReport"
+    End Sub
+    MyBase.Setup(application)
+End Sub
+```
+
 ***
 
 The following image demonstrates the result:

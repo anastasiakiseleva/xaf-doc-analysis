@@ -25,7 +25,7 @@ The following steps outline how to connect a non-XAF .NET application to a datab
 > - [How to Create a Web API Service Backend for a .NET MAUI Application](https://github.com/DevExpress-Examples/XAF_Security_E4908/tree/22.2.4%2B/EFCore/MAUI?utm_source=DevExpress&utm_medium=Website&utm_campaign=XAF&utm_content=XAF_Security_NonXAF_MAUI_EFCore)
 > - [How to Create a Web API Service Backend for a Blazor WebAssembly Application](https://github.com/DevExpress-Examples/XAF_Security_E4908/tree/22.2.4%2B/EFCore/ASP.NetCore/Blazor.WebAssembly?utm_source=DevExpress&utm_medium=NonXAFSecurityLanding&utm_campaign=XAF&utm_content=XAF_Security_NonXAF_Blazor_WebAssembly)
 
-1. Install the following NuGet package: [DevExpress.ExpressApp.EFCore](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.EFCore).
+1. Install the following NuGet package: [DevExpress.ExpressApp.EFCore](https://nuget.org/packages/DevExpress.ExpressApp.EFCore).
 
 2. Create a Middle Tier client:
 

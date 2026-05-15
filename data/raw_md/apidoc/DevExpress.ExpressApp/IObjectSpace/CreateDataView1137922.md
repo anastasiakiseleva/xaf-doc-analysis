@@ -45,4 +45,21 @@ SortProperty[] sorting = new SortProperty[] {
 XafDataView dataView = (XafDataView)objectSpace.CreateDataView(
     typeof(Sale), dataViewExpressions, criteria, sorting);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataViewExpressions As New List(Of DataViewExpression)()
+dataViewExpressions.Add(New DataViewExpression( _
+"ID", New OperandProperty("ID")))
+dataViewExpressions.Add(New DataViewExpression( _
+"Name.UpperCase", New FunctionOperator(FunctionOperatorType.Upper, New OperandProperty("Name"))))
+dataViewExpressions.Add(New DataViewExpression( _
+"Count", New AggregateOperand("Sales", Aggregate.Count)))
+Dim criteria As CriteriaOperator = New BinaryOperator("Sales.Count", 0, BinaryOperatorType.Greater)
+Dim sorting() As SortProperty = { New SortProperty("Name", SortingDirection.Ascending) }
+Dim dataView As XafDataView = CType(objectSpace.CreateDataView( _
+    GetType(Sale), dataViewExpressions, criteria, sorting), XafDataView)
+```
+
 ***

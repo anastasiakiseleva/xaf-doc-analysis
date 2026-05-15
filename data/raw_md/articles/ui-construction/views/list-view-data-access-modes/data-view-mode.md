@@ -19,7 +19,7 @@ The **DataView** mode improves [List View](xref:112611) performance by retrievin
 * Reference properties cannot be displayed in the **DataView** mode. The List Editor automatically replaces reference properties with their default nested properties (which can be defined using the [](xref:DevExpress.ExpressApp.DC.XafDefaultPropertyAttribute) attribute) when retrieving data. For instance, in the **Employee** List View, the **Employee.Department** property is replaced with **Employee.Department.Title**.
 * The **DataView** mode is currently supported by the following built-in List Editors:
 	- Windows Forms: [](xref:DevExpress.ExpressApp.Win.Editors.GridListEditor), [](xref:DevExpress.ExpressApp.Scheduler.Win.SchedulerListEditor), [](xref:DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor)
-    - ASP.NET Core Blazor: [](xref:DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor), [](xref:DevExpress.ExpressApp.Blazor.Editors.DxChartListEditor)
+    - ASP.NET Core Blazor: [](xref:DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor), [](xref:DevExpress.ExpressApp.Blazor.Editors.DxChartListEditor), @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor
 * `SchedulerListEditor` does not support [Resources](xref:112813) in this mode.
 * In nested List Views, the **Link**, **Unlink**, **New**, **Delete** and **Edit** Actions are disabled by design.
 * The **OpenObjectController.OpenObject** Action is inactive in this mode.

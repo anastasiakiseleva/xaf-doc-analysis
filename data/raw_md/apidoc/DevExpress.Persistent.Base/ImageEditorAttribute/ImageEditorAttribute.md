@@ -67,7 +67,34 @@ The following code snippets demonstrate the `ImageEditorAttribute` usage.
     //...
     }
     ```
+    
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+    
+    ```vb
+    Imports System.Drawing
+    Imports DevExpress.Persistent.Base
+    
+    '...
+    
+    Public Class Contact
+      Inherits BaseObject
+    '...
+        <ImageEditor(ListViewImageEditorMode := ImageEditorMode.DropDownPictureEdit, _
+        DetailViewImageEditorMode := ImageEditorMode.DropDownPictureEdit)> _
+        Public Property Photo() As Byte()
+            Get
+                Return GetPropertyValue(Of Byte())(NameOf(Photo))
+            End Get
+            Set(ByVal value As Image)
+                SetPropertyValue(Of Byte())(NameOf(Photo), value)
+            End Set
+        End Property
+    '...
+    End Class
+    ```
+    
     ***
+
 * All the Property Editors that represent the `Photo` property in Detail Views will have a fixed width of 40 pixels :
     
     # [C# (EF Core)](#tab/tabid-csharp-ef)
@@ -105,4 +132,32 @@ The following code snippets demonstrate the `ImageEditorAttribute` usage.
     //...
     }
     ```
+    
+    # [VB.NET (XPO)](#tab/tabid-vb-xpo)
+    
+    ```vb
+    Imports System.Drawing
+    Imports DevExpress.Persistent.Base
+    
+    '...
+    
+    Public Class Contact
+      Inherits BaseObject
+    '...
+    
+        <ImageEditor(DetailViewImageEditorMode := ImageEditorMode.PictureEdit, _
+        DetailViewImageEditorFixedWidth := 40)> _
+        Public Property Photo() As Byte()
+            Get
+                Return GetPropertyValue(Of Byte())(NameOf(Photo))
+            End Get
+            Set(ByVal value As Image)
+                SetPropertyValue(Of Byte())(NameOf(Photo), value)
+            End Set
+        End Property
+    
+    '...
+    End Class
+    ```
+    
     ***

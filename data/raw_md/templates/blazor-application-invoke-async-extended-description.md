@@ -36,7 +36,6 @@ To avoid crashing a user's application, wrap the delegate code with a `try-catch
 
 When your code calls `InvokeAsync`, XAF temporarily restores the [ExecutionContext](https://learn.microsoft.com/en-us/dotnet/api/system.threading.executioncontext) associated with a [BlazorApplication](xref:DevExpress.ExpressApp.Blazor.BlazorApplication) instance. This restoration has the following implications:
 
-- [ValueManager](xref:DevExpress.Persistent.Base.ValueManager) can access data stored by the application.
 - [Localized messages](xref:403669#caption-helper) are displayed in the user's selected language.
 - [`AsyncLocal<T>`](https://learn.microsoft.com/en-us/dotnet/api/system.threading.asynclocal-1) values are restored to the state they were in when `ExecutionContext` was captured:
 

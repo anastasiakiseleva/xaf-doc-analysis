@@ -31,6 +31,40 @@ public class AsyncTasksCountController : ObjectViewController<DetailView, Contac
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Xpo
+Imports System
+Imports System.Threading
+' ...
+Public Class AsyncTasksCountController
+	Inherits ObjectViewController(Of DetailView, Contact)
+	Public Sub New()
+		MyBase.New()
+		Dim EvaluateTasksCountAction As New SimpleAction(Me, "Assigned tasks count", "Edit")
+		EvaluateTasksCountAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+		AddHandler EvaluateTasksCountAction.Execute, AddressOf EvaluateTasksCountAction_Execute
+	End Sub
+	Async Private Sub EvaluateTasksCountAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+		Dim cancellationTokenSource As New CancellationTokenSource()
+		Dim currentContactOid As Guid = ViewCurrentObject.Oid
+		Dim taskObjectSpace As XPObjectSpace = CType(Application.CreateObjectSpace(GetType(DemoTask)), XPObjectSpace)
+		Dim tasksCount As Object = Await taskObjectSpace.EvaluateAsync(GetType(DemoTask), _
+            CriteriaOperator.Parse("Count()"), _
+            CriteriaOperator.Parse(String.Format("[AssignedTo.Oid] = '{0}'", currentContactOid)), _
+            cancellationTokenSource.Token)
+		If tasksCount IsNot Nothing Then
+			ViewCurrentObject.AssignedTasksCount = DirectCast(tasksCount, Integer)
+		End If
+	End Sub
+End Class
+
+```
+
 ***
 
 [!include[CancellationToken-info](~/templates/CancellationToken-info.md)]

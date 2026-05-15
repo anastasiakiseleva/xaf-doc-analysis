@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.Model.IModelOptions.CustomizationFormEnabled
 name: CustomizationFormEnabled
 type: Property
-summary: Controls runtime layout customization and column chooser for the entire application
+summary: Enables/disables runtime layout customization and Column Chooser / Field List for the entire application.
 syntax:
   content: |-
     [DefaultValue(true)]
@@ -10,17 +10,18 @@ syntax:
   parameters: []
   return:
     type: System.Boolean
-    description: "`true` to allow runtime customization of View Items' layout and enable column chooser; `false` to disable runtime customization and column chooser."
+    description: "`true` to allow runtime customization of View Items' layout and enable Column Chooser / Field List; otherwise `false`."
 seealso:
 - linkId: DevExpress.Persistent.Base.HideInUI
+- linkId: "404353"
+- linkId: "2307"
 ---
-ASP.NET Core Blazor applications support runtime layout customization in Detail Views except for the cases described in the following article: [](xref:404353).
+XAF applications support runtime layout customization in Detail Views, List Views, and Dashboard Views. Additionally, the following customization forms are available:
 
-Windows Forms applications support runtime layout customization in Detail Views and Dashboard Views. For more information, refer to the following topic: [](xref:2307).
+* The **Column Chooser** allows users to hide, display, and rearrange columns in a [List Editor](xref:113189) at runtime.
+* The **Field List** allows users to manage component structure in the Pivot Grid List Editor.
 
-The column chooser allows users to hide, display, and rearrange columns in a [List Editor](xref:113189) at runtime.
-
-Use the **Options** node in [Application Model](xref:112579) to control runtime layout customization and column chooser in the entire application.
+Use the `CustomizationFormEnabled` property of the **Options** node in the [Application Model](xref:112579) to control availability of runtime layout customization and customization forms.
 
 To control these options for a specific View, use the following property: [IModelView.CustomizationFormEnabled](xref:DevExpress.ExpressApp.Model.IModelView.CustomizationFormEnabled).
 

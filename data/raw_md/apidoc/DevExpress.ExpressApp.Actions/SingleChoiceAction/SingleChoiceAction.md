@@ -64,4 +64,41 @@ namespace MainDemo.Module {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports MainDemo.Module.BusinessObjects
+
+Namespace MainDemo.Module
+    Public Class DepartmentFilterController
+        Inherits ObjectViewController(Of ListView, Employee)
+
+        Private departmentFilterAction As SingleChoiceAction
+
+        Public Sub New()
+            departmentFilterAction = New SingleChoiceAction(Me, "DepartmentFilter", "Filters")
+            departmentFilterAction.Caption = "Department"
+            departmentFilterAction.Execute += departmentFilterAction
+        End Sub
+
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            departmentFilterAction.Items.Clear()
+
+            For Each department As Department In ObjectSpace.GetObjects(Of Department)()
+                departmentFilterAction.Items.Add(New ChoiceActionItem(department.Title, department.Oid))
+            Next
+        End Sub
+
+        Private Sub departmentFilterAction_Execute(ByVal sender As Object, ByVal e As SingleChoiceActionExecuteEventArgs)
+            View.CollectionSource.Criteria("DepartmentFilter") = New BinaryOperator("Department.Oid", e.SelectedChoiceActionItem.Data)
+        End Sub
+    End Class
+End Namespace
+```
+ 
 ***

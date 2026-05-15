@@ -41,6 +41,33 @@ public class AddDepartmentController : ObjectViewController<DetailView, Contact>
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class AddDepartmentController
+    Inherits ObjectViewController(Of DetailView, Contact)
+    Public Sub New()
+        Dim addDepartmentAction As New ParametrizedAction( _
+            Me, "AddDepartment", PredefinedCategory.Edit, GetType(String))
+        AddHandler addDepartmentAction.Execute, AddressOf AddDepartmentAction_Execute
+    End Sub
+    Private Sub AddDepartmentAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Using objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Department))
+            Dim department As Department = objectSpace.CreateObject(Of Department)()
+            department.Title = TryCast(e.ParameterCurrentValue, String)
+            objectSpace.CommitChanges()
+        End Using
+        View.Refresh()
+    End Sub
+End Class
+```
+
 ***
 
 If you implement the [](xref:DevExpress.ExpressApp.IObjectSpace) interface in the [](xref:DevExpress.ExpressApp.BaseObjectSpace) class' descendant, you don't have to override the **CreateObject** method entirely. The [BaseObjectSpace.CreateObject](xref:DevExpress.ExpressApp.BaseObjectSpace.CreateObject(System.Type)) method invokes a protected virtual **BaseObjectSpace.CreateObjectCore** method and then sets the returned object modified by calling the [BaseObjectSpace.SetModified](xref:DevExpress.ExpressApp.BaseObjectSpace.SetModified*) method for it. So, you should only override the **CreateObjectCore** method.

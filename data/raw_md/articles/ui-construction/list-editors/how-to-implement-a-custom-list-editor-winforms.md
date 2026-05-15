@@ -36,6 +36,19 @@ interface IPictureItem {
     string ID { get; }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Drawing
+'...
+Friend Interface IPictureItem
+    ReadOnly Property Image() As Image
+    ReadOnly Property Text() As String
+    ReadOnly Property ID() As String
+End Interface
+```
+
 ***
 
 Start implementing the List Editor by inheriting its class from the [](xref:DevExpress.ExpressApp.Editors.ListEditor) class, and implement basic functionality by overriding the following members. [!include[PublicEditor](~/templates/publiceditor111797.md)]
@@ -248,5 +261,169 @@ public class WinCustomListEditor : ListEditor, IControlOrderProvider {
     }
     #endregion
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Collections
+Imports System.Collections.Generic
+Imports System.ComponentModel
+Imports System.Drawing
+Imports System.Windows.Forms
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Templates
+Imports DevExpress.ExpressApp.Utils
+Imports DevExpress.ExpressApp.Win.Controls
+Imports DevExpress.ExpressApp.Win.SystemModule
+Imports DevExpress.Utils.Menu
+Imports DevExpress.XtraBars
+' ...
+<ListEditor(GetType(IPictureItem))> _
+Public Class WinCustomListEditor
+    Inherits ListEditor
+
+    Private control As System.Windows.Forms.ListView
+    Private images As System.Windows.Forms.ImageList
+    Private controlDataSource As Object
+    Private Sub dataSource_ListChanged(ByVal sender As Object, ByVal e As ListChangedEventArgs)
+        Refresh()
+    End Sub
+    Private Sub control_MouseDoubleClick(ByVal sender As Object, ByVal e As MouseEventArgs)
+        If e.Button = MouseButtons.Left Then
+            OnProcessSelectedItem()
+        End If
+    End Sub
+    Private Sub control_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs)
+        If e.KeyCode = Keys.Enter Then
+            OnProcessSelectedItem()
+        End If
+    End Sub
+    Private Sub control_ItemSelectionChanged(ByVal sender As Object, ByVal e As System.Windows.Forms.ListViewItemSelectionChangedEventArgs)
+        OnSelectionChanged()
+    End Sub
+    Private Sub control_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
+        OnSelectionChanged()
+        OnFocusedObjectChanged()
+    End Sub
+    Private Function FindByTag(ByVal tag As Object) As System.Windows.Forms.ListViewItem
+        Dim itemToSearch As IPictureItem = CType(tag, IPictureItem)
+        If control IsNot Nothing AndAlso itemToSearch IsNot Nothing Then
+            For Each item As System.Windows.Forms.ListViewItem In control.Items
+                If CType(item.Tag, IPictureItem).ID = itemToSearch.ID Then
+                    Return item
+                End If
+            Next item
+        End If
+        Return Nothing
+    End Function
+    Protected Overrides Function CreateControlsCore() As Object
+        control = New System.Windows.Forms.ListView()
+        control.Sorting = SortOrder.Ascending
+        images = New System.Windows.Forms.ImageList()
+        images.ImageSize = New System.Drawing.Size(104, 150)
+        images.ColorDepth = ColorDepth.Depth32Bit
+        control.LargeImageList = images
+        control.HideSelection = False
+        AddHandler control.SelectedIndexChanged, AddressOf control_SelectedIndexChanged
+        AddHandler control.ItemSelectionChanged, AddressOf control_ItemSelectionChanged
+        AddHandler control.MouseDoubleClick, AddressOf control_MouseDoubleClick
+        AddHandler control.KeyDown, AddressOf control_KeyDown
+        Refresh()
+        Return control
+    End Function
+    Protected Overrides Sub AssignDataSourceToControl(ByVal dataSource As Object)
+        If TypeOf dataSource Is DevExpress.Xpo.XPServerCollectionSource Then
+            Throw New Exception("The WinCustomListEditor doesn't support Server mode and so cannot use an XPServerCollectionSource object as the data source.")
+        End If
+        If controlDataSource IsNot dataSource Then
+            Dim oldBindable As IBindingList = TryCast(controlDataSource, IBindingList)
+            If oldBindable IsNot Nothing Then
+                RemoveHandler oldBindable.ListChanged, AddressOf dataSource_ListChanged
+            End If
+            controlDataSource = dataSource
+            Dim bindable As IBindingList = TryCast(controlDataSource, IBindingList)
+            If bindable IsNot Nothing Then
+                AddHandler bindable.ListChanged, AddressOf dataSource_ListChanged
+            End If
+            Refresh()
+        End If
+    End Sub
+    Public Sub New(ByVal info As IModelListView)
+        MyBase.New(info)
+    End Sub
+    Public Overrides Sub Dispose()
+        controlDataSource = Nothing
+        MyBase.Dispose()
+    End Sub
+    Public Overrides Sub Refresh()
+        If control Is Nothing Then
+            Return
+        End If
+        Dim focused As Object = FocusedObject
+        control.SelectedItems.Clear()
+        Try
+            control.BeginUpdate()
+            images.Images.Clear()
+            control.Items.Clear()
+            If ListHelper.GetList(controlDataSource) IsNot Nothing Then
+                images.Images.Add(ImageLoader.Instance.GetImageInfo("NoImage").Image)
+                For Each item As IPictureItem In ListHelper.GetList(controlDataSource)
+                    Dim imageIndex As Integer = 0
+                    If item.Image IsNot Nothing Then
+                        images.Images.Add(item.Image)
+                        imageIndex = images.Images.Count - 1
+                    End If
+                    Dim lItem As New System.Windows.Forms.ListViewItem(item.Text, imageIndex)
+                    lItem.Tag = item
+                    control.Items.Add(lItem)
+                Next item
+            End If
+        Finally
+            control.EndUpdate()
+        End Try
+
+        FocusedObject = focused
+        If FocusedObject Is Nothing AndAlso control.Items.Count > 1 Then
+            FocusedObject = control.Items(0).Tag
+        End If
+    End Sub
+    Public Overrides Function GetSelectedObjects() As IList
+        If control Is Nothing Then
+            Return New Object() { }
+        End If
+
+        Dim result(control.SelectedItems.Count - 1) As Object
+        For i As Integer = 0 To control.SelectedItems.Count - 1
+            result(i) = control.SelectedItems(i).Tag
+        Next i
+        Return result
+    End Function
+    Public Overrides Sub SaveModel()
+    End Sub
+    Public Overrides ReadOnly Property SelectionType() As SelectionType
+        Get
+            Return SelectionType.Full
+        End Get
+    End Property
+    Public Overrides Property FocusedObject() As Object
+        Get
+            Return If((control IsNot Nothing) AndAlso (control.FocusedItem IsNot Nothing), control.FocusedItem.Tag, Nothing)
+        End Get
+        Set(ByVal value As Object)
+            Dim item As System.Windows.Forms.ListViewItem = FindByTag(value)
+            If item IsNot Nothing Then
+                control.SelectedItems.Clear()
+
+                item.Focused = True
+                item.Selected = True
+            End If
+        End Set
+    End Property
+End Class
 ```
 ***

@@ -42,6 +42,39 @@ public class CustomizeContainerActionsController : Controller {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Win.Templates.Bars.ActionControls
+' ...
+Public Class CustomizeContainerActionsController
+    Inherits Controller
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Frame.GetController(Of ActionControlsSiteController)().CustomizeContainerActions, AddressOf OnCustomizeContainerActions
+        AddHandler Frame.GetController(Of FillActionContainersController)().CustomizeContainerActions, AddressOf OnCustomizeContainerActions
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Frame.GetController(Of ActionControlsSiteController)().CustomizeContainerActions, AddressOf OnCustomizeContainerActions
+        RemoveHandler Frame.GetController(Of FillActionContainersController)().CustomizeContainerActions, AddressOf OnCustomizeContainerActions
+        MyBase.OnDeactivated()
+    End Sub
+    Private Sub OnCustomizeContainerActions(ByVal sender As Object, ByVal e As CustomizeContainerActionsEventArgs)
+        Dim actionToBeMoved As ActionBase = e.AllActions.Find("SaveAndNew")
+        If (actionToBeMoved IsNot Nothing) AndAlso (e.Category = "Save") AndAlso (TypeOf e.Container Is BarLinkActionControlContainer) Then
+            e.ContainerActions.Remove(actionToBeMoved)
+        End If
+        If (actionToBeMoved IsNot Nothing) AndAlso (e.Category = "Edit") Then
+            e.ContainerActions.Add(actionToBeMoved)
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 The result is demonstrated in the image below:

@@ -59,5 +59,29 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
-***
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Linq
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Public Class CustomController
+    Inherits ViewController
+    Public Sub New()
+        Dim myAction1 = New SimpleAction(Me, "MyAction1", String.Empty)
+        AddHandler myAction1.Execute, AddressOf MyAction1_Execute
+    End Sub
+    Private Sub MyAction1_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim lst = Application.Model.BOModel.ToList()
+        Dim bo = Application.Model.BOModel.Where(Function(x) x.Name = "YourSolutionName.Module.BusinessObjects.Contact").FirstOrDefault()
+
+        If bo IsNot Nothing Then
+            Dim oldCaption = bo.Caption
+            bo.Caption = "New test caption"
+        End If
+    End Sub
+End Class
+```
+
+***

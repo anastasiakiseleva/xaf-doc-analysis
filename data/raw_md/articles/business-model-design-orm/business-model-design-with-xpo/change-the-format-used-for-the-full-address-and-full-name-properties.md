@@ -50,6 +50,27 @@ public sealed partial class MainDemoModule : ModuleBase {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.BaseImpl
+Imports System.Configuration
+'...
+Public NotInheritable Partial Class MainDemoModule
+        Inherits ModuleBase
+    Shared Sub New()
+        Address.SetFullAddressFormat(ConfigurationManager.AppSettings("FullAddressFormat"), _
+        ConfigurationManager.AppSettings("FullAddressFormatPersistentAlias"))
+    End Sub
+    Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+        MyBase.CustomizeTypesInfo(typesInfo)
+        CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo)
+    End Sub
+    '...
+End Class
+```
+
 ***
 
 After formatting a FullAddress property using the specified format, the property names that are enclosed in curly brackets will be replaced with the current object's property values (see the image above).
@@ -85,4 +106,33 @@ public class SampleAddress : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class SampleAddress
+        Inherits BaseObject
+    Private Const defaultFullAddressFormat As String = "{Country.Name}; {StateProvince};" & _
+    " {City}; {Street}; {ZipPostal}"
+    Private Shared fFullAddressFormat As String = defaultFullAddressFormat
+    Public Shared Property FullAddressFormat() As String
+        Get
+            Return fFullAddressFormat
+        End Get
+        Set
+            fFullAddressFormat = value
+            If String.IsNullOrEmpty(fFullAddressFormat) Then
+                fFullAddressFormat = defaultFullAddressFormat
+            End If
+        End Set
+    End Property
+    Public ReadOnly Property FullAddress() As String
+        Get
+            Return ObjectFormatter.Format(fFullAddressFormat, Me, _
+            EmptyEntriesMode.RemoveDelimiterWhenEntryIsEmpty )
+        End Get
+    End Property
+End Class
+```
+
 ***

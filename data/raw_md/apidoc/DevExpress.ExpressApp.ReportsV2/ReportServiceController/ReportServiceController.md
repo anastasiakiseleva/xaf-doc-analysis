@@ -9,8 +9,6 @@ seealso:
 - linkId: DevExpress.ExpressApp.ReportsV2.ReportServiceController._members
   altText: ReportServiceController Members
 ---
-The WinForms-specific descendant of this Controller is [](xref:DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController).
-
 `ReportServiceController` exposes methods that invoke dialogs used to create, edit and view reports - [ReportServiceController.ShowWizard](xref:DevExpress.ExpressApp.ReportsV2.ReportServiceController.ShowWizard(System.Type)), [ReportServiceController.ShowDesigner](xref:DevExpress.ExpressApp.ReportsV2.ReportServiceController.ShowDesigner*) and [ReportServiceController.ShowPreview](xref:DevExpress.ExpressApp.ReportsV2.ReportServiceController.ShowPreview*).
 
 To customize the Controller's behavior, you can handle the following events:

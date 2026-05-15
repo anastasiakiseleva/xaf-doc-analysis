@@ -37,6 +37,34 @@ public class ShowPopupViewController : ObjectViewController<ObjectView, Contact>
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.Persistent.Base
+' ...
+Public Class ShowPopupViewController
+    Inherits ObjectViewController(Of ObjectView, Contact)
+    Public Sub New()
+        Dim popupAction As New PopupWindowShowAction(Me, "ShowPopup", PredefinedCategory.View)
+        popupAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler popupAction.CustomizePopupWindowParams, AddressOf PopupAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub PopupAction_CustomizePopupWindowParams(ByVal sender As Object, ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectSpace As IObjectSpace = e.Application.CreateObjectSpace(GetType(Contact))
+        Dim currentObject As Contact = objectSpace.GetObject(ViewCurrentObject)
+        Dim detailView As DetailView = e.Application.CreateDetailView(objectSpace, currentObject)
+        detailView.ViewEditMode = ViewEditMode.Edit
+        e.View = detailView
+        e.Maximized = True
+    End Sub
+End Class
+
+```
+
 ***
 
 In the code above, the new [](xref:DevExpress.ExpressApp.Actions.PopupWindowShowAction) object is created to invoke a pop-up window for the particular **View** when the [PopupWindowShowAction.CustomizePopupWindowParams](xref:DevExpress.ExpressApp.Actions.PopupWindowShowAction.CustomizePopupWindowParams) event raises. The [CustomizePopupWindowParamsEventArgs.Maximized](xref:DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventArgs.Maximized) property is set to **true**, thus the pop-up window will expand to occupy the whole space.

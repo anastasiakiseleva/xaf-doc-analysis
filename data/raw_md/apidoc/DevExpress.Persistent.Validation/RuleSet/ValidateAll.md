@@ -49,4 +49,24 @@ public partial class CustomValidationController : ViewController {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{13}
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.Validation
+' ...
+Partial Public Class CustomValidationController
+    Inherits ViewController
+    Public Sub New()
+        Dim validationAction As New SimpleAction(Me, "ValidateBeforeSave", PredefinedCategory.Edit)
+        AddHandler validationAction.Execute, AddressOf ValidationAction_Execute
+    End Sub
+    Private Sub ValidationAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Validator.RuleSet.ValidateAll(ObjectSpace, ObjectSpace.GetObjectsToSave(False), DefaultContexts.Save, Nothing, Frame)
+    End Sub
+End Class
+```
+
 ***

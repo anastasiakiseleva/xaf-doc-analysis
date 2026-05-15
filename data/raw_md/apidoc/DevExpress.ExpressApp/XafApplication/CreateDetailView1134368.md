@@ -59,4 +59,35 @@ public class ShowDetailViewController : ObjectViewController<ListView, Person> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+
+Public Class ShowDetailViewController
+    Inherits ObjectViewController(Of ListView, Person)
+    Public Sub New()
+        Dim showDetailViewAction As New PopupWindowShowAction(Me, "ShowDetailView", PredefinedCategory.Edit)
+        showDetailViewAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler showDetailViewAction.CustomizePopupWindowParams, _
+            AddressOf ShowDetailViewAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub ShowDetailViewAction_CustomizePopupWindowParams(ByVal sender As Object, _
+        ByVal e As CustomizePopupWindowParamsEventArgs)
+        If View.CurrentObject IsNot Nothing Then
+            Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Person))
+            Dim modelClass As IModelClass = Application.FindModelClass(View.CurrentObject.GetType())
+            Dim defaultDetailView As IModelDetailView = modelClass.DefaultDetailView
+            e.View = Application.CreateDetailView(objectSpace, defaultDetailView, True)
+        End If
+    End Sub
+End Class
+
+```
+
 ***

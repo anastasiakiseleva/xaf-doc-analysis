@@ -27,4 +27,34 @@ namespace MySolution.Module.Controllers {
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Editors
+Imports MySolution.Module.BusinessObjects
+'...
+Namespace MySolution.Module.Controllers
+    Public Class ClearEmployeeTasksController
+        Inherits ViewController
+
+        Private ClearTasksAction As SimpleAction
+        Public Sub New()
+            ClearTasksAction = New SimpleAction()
+            AddHandler ClearTasksAction.Execute, AddressOf ClearTasksAction_Execute
+        End Sub
+
+        Private Sub ClearTasksAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+            Do While DirectCast(View.CurrentObject, Employee).Tasks.Count > 0
+                DirectCast(View.CurrentObject, Employee).Tasks.Remove(DirectCast(View.CurrentObject, Employee).Tasks(0))
+            Loop
+            ObjectSpace.SetModified(View.CurrentObject)
+        End Sub
+    End Class
+End Namespace
+```
+
 ***

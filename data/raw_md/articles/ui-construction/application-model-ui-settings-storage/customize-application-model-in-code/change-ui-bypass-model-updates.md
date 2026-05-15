@@ -45,6 +45,39 @@ namespace YourSolutionName.Module.Win.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{18,24-25}
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Win.Editors
+Imports DevExpress.XtraEditors
+Imports YourSolutionName.Module.BusinessObjects
+
+Public Class CustomWinController
+    Inherits ObjectViewController(Of DetailView, Contact)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        View.CustomizeViewItemControl(Me, AddressOf CustomizeViewItem_Direct, "myStaticText1")
+    End Sub
+
+    ' This code saves the changes to the Application Model.
+    Private Sub CustomizeViewItem_AppModel(ByVal myViewItem As ViewItem)
+        Dim item = CType(myViewItem, StaticTextViewItem)
+        item.Text = "Saved in the Application Model"
+    End Sub
+    
+    ' This code bypasses the Application Model.
+    Private Sub CustomizeViewItem_Direct(ByVal myViewItem As ViewItem)
+        Dim item = CType(myViewItem, StaticTextViewItem)
+        Dim labelControl = CType(item.Control, LabelControl)
+        labelControl.Text = "Reset on Next Startup"
+    End Sub
+End Class
+```
+
 ***
 
 ## Write an Event Handler: Save or Discard Application Model Changes 
@@ -75,4 +108,26 @@ namespace dxT941118.Module.Win.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports YourSolutionName.Module.BusinessObjects
+
+Public Class CustomWinController2
+    Inherits ObjectViewController(Of DetailView, Contact)
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler View.ModelSaving, AddressOf View_ModelSaving
+    End Sub
+
+    Private Sub View_ModelSaving(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
+        e.Cancel = True
+    End Sub
+End Class
+
+```
+
 ***

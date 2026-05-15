@@ -42,6 +42,38 @@ public class CustomizeActionControlController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.XtraBars
+Imports DevExpress.XtraEditors.Repository
+' ...
+Public Class CustomizeActionControlController
+    Inherits WindowController
+
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Frame.GetController(Of ActionControlsSiteController)().CustomizeActionControl, AddressOf ActionControlsSiteController_CustomizeActionControl
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Frame.GetController(Of ActionControlsSiteController)().CustomizeActionControl, AddressOf ActionControlsSiteController_CustomizeActionControl
+        MyBase.OnDeactivated()
+    End Sub
+    Private Sub ActionControlsSiteController_CustomizeActionControl(ByVal sender As Object, ByVal e As ActionControlEventArgs)
+        If e.ActionControl.ActionId = "MyDateFilter" Then
+            Dim barItem As BarEditItem = CType(e.ActionControl.NativeControl, BarEditItem)
+            barItem.Width = 170
+            Dim repositoryItem As RepositoryItemDateEdit = CType(barItem.Edit, RepositoryItemDateEdit)
+            repositoryItem.Mask.UseMaskAsDisplayFormat = True
+            repositoryItem.Mask.EditMask = "yyyy-MMM-dd"
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 > [!TIP]

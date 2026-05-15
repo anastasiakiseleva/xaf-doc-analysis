@@ -37,4 +37,32 @@ public static class MyLogic {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.ExpressApp.DC.Xpo
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Model.DomainLogics
+'...
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub CustomizeLogics(ByVal customLogics As CustomLogics)
+        MyBase.CustomizeLogics(customLogics)
+        customLogics.UnregisterLogic(GetType(IModelDetailView), GetType(ModelDetailViewDomainLogic))
+        customLogics.RegisterLogic(GetType(IModelDetailView), GetType(MyLogic))
+    End Sub
+End Class
+<DomainLogic(GetType(IModelDetailView))> _
+Public NotInheritable Class MyLogic
+    Private Sub New()
+    End Sub
+    Public Shared Function Get_AllowEdit(ByVal modelView As IModelDetailView) As Boolean
+        Return False
+    End Function
+End Class
+```
+
 ***

@@ -62,6 +62,12 @@ You can use the [IObjectSpace.GetObjectsQuery\<T>](xref:DevExpress.ExpressApp.IO
 ```csharp
 IQueryable<Product> query = this.ObjectSpace.GetObjectsQuery<Product>();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Dim query = Me.ObjectSpace.GetObjectsQuery(Of Product)()
+```
+
 ***
 
 Business logic can depend on a number of records in a database. In this scenario, use the [IObjectSpace.GetObjectsCount](xref:DevExpress.ExpressApp.IObjectSpace.GetObjectsCount(System.Type,DevExpress.Data.Filtering.CriteriaOperator)) method to get a number of records without fetching records.
@@ -94,6 +100,32 @@ public class Order : BaseObject {
 
 public class Accessory : BaseObject { }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{10}
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+' ...
+Public Class Order
+    Inherits BaseObject
+    Private fAvailableAccessories As XPCollection(Of Accessory)
+    Public ReadOnly Property AvailableAccessories() As XPCollection(Of Accessory)
+        Get
+            If fAvailableAccessories Is Nothing Then
+                fAvailableAccessories = New XPCollection(Of Accessory)(Session)
+            End If
+            Return fAvailableAccessories
+        End Get
+    End Property
+End Class
+
+Public Class Accessory
+    Inherits BaseObject
+End Class
+
+```
+
 ***
 
 It's possible to use the [](xref:DevExpress.Xpo.Session) methods like [GetObjects](xref:DevExpress.Xpo.Session.GetObjects(DevExpress.Xpo.Metadata.XPClassInfo,DevExpress.Data.Filtering.CriteriaOperator,DevExpress.Xpo.SortingCollection,System.Int32,System.Boolean,System.Boolean)) to fetch a collection of objects.

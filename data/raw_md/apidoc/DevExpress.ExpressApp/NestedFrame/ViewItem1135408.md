@@ -27,4 +27,21 @@ public partial class MyViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Partial Public Class MyViewController
+    Inherits ViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim nestedFrame As NestedFrame = TryCast(Frame, NestedFrame)
+        If nestedFrame IsNot Nothing Then
+            Dim parentView As View = nestedFrame.ViewItem.View
+            Dim parentObject As Object = parentView.CurrentObject
+        End If
+    End Sub
+End Class
+```
+
 ***

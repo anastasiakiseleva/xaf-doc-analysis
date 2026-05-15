@@ -4,7 +4,7 @@ name: SystemModule
 type: Class
 summary: The module contained in the _DevExpress.ExpressApp.v<:xx.x:>.dll_ assembly.
 syntax:
-  content: 'public sealed class SystemModule : ModuleBase, IModelXmlConverter, IModelNodeUpdater<IModelOptions>, IModelNodeUpdater<IModelListView>, IModelNodeUpdater<IModelLayoutManagerOptions>'
+  content: 'public sealed class SystemModule : ModuleBase, IModelXmlConverter, IModelNodeUpdater<IModelOptions>, IModelNodeUpdater<IModelListView>, IModelNodeUpdater<IModelLayoutManagerOptions>, IModelNodesGeneratorUpdater'
 seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.SystemModule._members
   altText: SystemModule Members

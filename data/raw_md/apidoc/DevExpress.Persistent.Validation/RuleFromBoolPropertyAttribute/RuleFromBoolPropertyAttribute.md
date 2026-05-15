@@ -81,6 +81,48 @@ public class Contact: BaseObject {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Data.Filtering
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Persistent.Validation
+Imports DevExpress.Xpo
+' ...
+Public Class Contact
+    Inherits BaseObject
+
+   '... 
+   Private _email As String
+   Public Property Email() As String
+       Get
+           Return _email
+       End Get
+       Set(ByVal value As String)
+           SetPropertyValue(NameOf(Email), _email, value)
+       End Set
+   End Property
+   <Browsable(False), _
+   RuleFromBoolProperty("ContactUniqueEmail", DefaultContexts.Save, "Contact with this Email already exists")> _
+   Public ReadOnly Property IsEmailUnique() As Boolean
+      Get
+         Dim toLowerEmail As String = If(Object.ReferenceEquals(Email, Nothing), String.Empty, Email.ToLower())
+         Dim contacts As New XPCollection(Of Contact)( _
+         PersistentCriteriaEvaluationBehavior.InTransaction, Session, _
+         New BinaryOperator(New FunctionOperator(FunctionOperatorType.Lower, New OperandProperty(NameOf(Email))), _
+         New OperandValue(toLowerEmail), BinaryOperatorType.Equal))
+         For Each contact As Contact In contacts
+            If contact IsNot Me Then
+               Return False
+            End If
+         Next contact
+         Return True
+      End Get
+   End Property
+End Class
+```
+
 ***
 
 You can highlight the property that should be corrected for the current object's validity. In the instance

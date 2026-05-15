@@ -28,7 +28,7 @@ syntax:
     description: The added object permission.
 seealso: []
 ---
-The following example demonstrates how to use this method in @DevExpress.ExpressApp.Updating.ModuleUpdater.UpdateDatabaseAfterUpdateSchema (_MySolution.Module_\\_DatabaseUpdater_\\_Updater.cs_(_.vb_)):
+The following example demonstrates how to use this method in @DevExpress.ExpressApp.Updating.ModuleUpdater.UpdateDatabaseAfterUpdateSchema (_MySolution.Module_\\_DatabaseUpdater_\\_Updater.cs_):
 
 # [C#](#tab/tabid-csharp)
 
@@ -58,6 +58,38 @@ public class Updater : ModuleUpdater {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{17-21}
+Imports DevExpress.Data.Filtering
+Imports DevExpress.ExpressApp.Security
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Updating
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl.PermissionPolicy
+' ...
+Public Class Updater
+    Inherits ModuleUpdater
+    ' ...
+    Public Overrides Sub UpdateDatabaseAfterUpdateSchema()
+        MyBase.UpdateDatabaseAfterUpdateSchema()
+        Dim defaultRole As PermissionPolicyRole = 
+            ObjectSpace.FirstOrDefault(Function(role as PermissionPolicyRole) role.Name = "Default")
+        If defaultRole Is Nothing Then
+            defaultRole = ObjectSpace.CreateObject(Of PermissionPolicyRole)()
+            defaultRole.AddObjectPermissionFromLambda(Of PermissionPolicyUser)(
+                SecurityOperations.Read, 
+                Function(u As PermissionPolicyUser) u.Oid = CType(CurrentUserIdOperator.CurrentUserId(), Guid), 
+                SecurityPermissionState.Allow
+            )
+            ' ...
+        End If
+        ' ...
+    End Sub
+End Class
+
+```
+
 ***
 
 > [!Note]

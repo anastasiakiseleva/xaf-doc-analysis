@@ -50,6 +50,28 @@ public class TestContact : BaseObject {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<CreatableItem> _
+Public Class TestContact
+      Inherits BaseObject
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Private fName As String
+   Public Property Name() As String
+      Get
+         Return fName
+      End Get
+      Set
+         SetPropertyValue(NameOf(Name), fName, value)
+      End Set
+   End Property
+End Class
+```
+
 ***
 
 When you need to apply the [](xref:DevExpress.Persistent.Base.NavigationItemAttribute) and [](xref:DevExpress.Persistent.Base.VisibleInReportsAttribute) attributes, in addition to the **CreatableItem** attribute, it is easier to apply a single [](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) attribute.

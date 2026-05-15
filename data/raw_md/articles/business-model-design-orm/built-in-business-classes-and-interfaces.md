@@ -81,4 +81,25 @@ namespace MySolution.Module {
     }
 }
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.ExpressApp.Updating
+Imports DevExpress.ExpressApp.Model.NodeGenerators
+
+Namespace MySolution.Module
+    Public NotInheritable Partial Class SolutionNameModule
+        Inherits ModuleBase
+
+        Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+            MyBase.CustomizeTypesInfo(typesInfo)
+            ModelNodesGeneratorSettings.SetIdPrefix(GetType([Module].BusinessObjects.Address), "AddressEx")
+        End Sub
+    End Class
+End Namespace
+```
+ 
 ***

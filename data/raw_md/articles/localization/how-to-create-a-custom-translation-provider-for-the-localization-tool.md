@@ -51,6 +51,43 @@ Perform the following steps to implement the translation provider.
 	    #endregion
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Utils
+	' ...
+	Public Class MyTranslatorProvider
+	    Inherits TranslatorProviderBase
+	
+	    Public Sub New()
+	        MyBase.New("<br />", 5000)
+	    End Sub
+	
+	    #Region "ITranslatorProvider Members"
+	    Public Overrides ReadOnly Property Caption() As String
+	        Get
+	            Return "My Translate Provider"
+	        End Get
+	    End Property
+	    Public Overrides ReadOnly Property Description() As String
+	        Get
+	            Return "My Description"
+	        End Get
+	    End Property
+	    Public Overrides Function GetLanguages() As String()
+	        Dim supportedLanguages() As String = {"en", "fr", "de"}
+	        Return supportedLanguages
+	    End Function
+	    Public Overrides Function Translate(ByVal text As String, ByVal sourceLanguageCode As String, ByVal desinationLanguageCode As String) As String
+	        Dim result As String = ""
+	        ' Place the code that translates 'text' from 'sourceLanguageCode' to 'desinationLanguageCode' here
+	        Return result
+	    End Function
+	    #End Region
+	End Class
+	```
+	
 	***
 	
 	Pass the maximum block length and separator to the base class constructor.
@@ -72,5 +109,18 @@ Perform the following steps to implement the translation provider.
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Public NotInheritable Partial Class MySolutionModule 
+	    Inherits ModuleBase
+	    Public Sub New()
+	        InitializeComponent()
+	        TranslatorProvider.RegisterProvider(New MyTranslatorProvider())
+	    End Sub
+	End Class
+	```
+	
 	***
 * Rebuild your solution, and this custom translation provider will replace the default provider used by the **Localization Tool** in Visual Studio and at runtime.

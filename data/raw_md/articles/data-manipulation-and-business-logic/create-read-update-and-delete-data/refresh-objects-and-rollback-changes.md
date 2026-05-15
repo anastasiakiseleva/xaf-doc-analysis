@@ -71,6 +71,39 @@ public class EditTaskController : ObjectViewController<ListView, Task> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Editors
+
+Public Class EditTaskController
+    Inherits ObjectViewController(Of ListView, Task)
+
+    Public Sub New()
+        Dim action As PopupWindowShowAction = New PopupWindowShowAction(Me, "EditTask", DevExpress.Persistent.Base.PredefinedCategory.Edit)
+        action.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler action.CustomizePopupWindowParams, AddressOf Action_CustomizePopupWindowParams
+        AddHandler action.Execute, AddressOf Action_Execute
+    End Sub
+
+    Private Sub Action_Execute(ByVal sender As Object, ByVal e As PopupWindowShowActionExecuteEventArgs)
+        e.PopupWindowView.ObjectSpace.CommitChanges()
+        ObjectSpace.ReloadObject(e.PopupWindowViewCurrentObject)
+    End Sub
+
+    Private Sub Action_CustomizePopupWindowParams(ByVal sender As Object, ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Task))
+        Dim task As Task = CType(objectSpace.GetObject(View.CurrentObject), Task)
+        Dim detailView As DetailView = Application.CreateDetailView(objectSpace, task)
+        detailView.ViewEditMode = ViewEditMode.Edit
+        e.View = detailView
+    End Sub
+End Class
+```
+
 ***
 
 When you use a [Data Access Mode](xref:113683) that does not load real objects ([ServerView](xref:118450), [DataView](xref:118452), and [InstantFeedbackView](xref:118450)), use the [IObjectSpace.Refresh](xref:DevExpress.ExpressApp.IObjectSpace.Refresh) method to reload a changed object in the current List View.

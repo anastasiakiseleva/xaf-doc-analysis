@@ -1,51 +1,36 @@
 ---
 uid: "113672"
-seealso: []
 title: 'How to: Add a Custom Column to the Reports List'
+seealso:
+  - linkId: 113674
 ---
 # How to: Add a Custom Column to the Reports List
 
-This topic describes how to customize the persistent class used to store [reports](xref:113591) to associate additional information with report objects. For instance, if you add the `Category` property, an additional column will be added to the `Reports` List View, and end users will be able to group, sort, or filter by categories.
+This topic describes how to customize the persistent class for storing reports by adding extra information, such as a `Category` property. This property appears in the `Reports` List View and allows users to group, sort, or filter reports accordingly.
 
-**WinForms**  
-![ReportsV2_WizParamsRuntime](~/images/reportsv2_wizparamsruntime117543.png)
+> [!ImageGallery]
+> 
+> ![Custom report column in Blazor App](~/images/xaf-blazor-custom-report-column.png)
+> ![Custom report column in Win App](~/images/xaf-win-custom-report-column.png)
 
-**Blazor**  
-![ReportsV2_WizParamsRuntime_Blazor](~/images/ReportsV2_WizParamsRuntime_Blazor.png)
 
 [!include[ReportsV2ExampleNote](~/templates/reportsv2examplenote111131.md)]
 
-## Inherit ReportDataV2
-### Entity Framework Core
+## Step 1. Create a Custom Report Data Type
 
-If you use Entity Framework Core, create the `MyReportDataV2` entity derived from [](xref:DevExpress.Persistent.BaseImpl.EF).[](xref:DevExpress.Persistent.BaseImpl.EF.ReportDataV2). Then, add your custom entity to the `DbContext`.
+Inherit a new `MyReportDataV2` class from the `ReportDataV2` class and declare the `Category` property.
 
 **File:** _MySolution.Module\BusinessObjects\MyReportDataV2.cs_
 
-# [C#](#tab/tabid-csharp1)
-
+# [EF Core](#tab/tabid-EF-Core)
+ 
 ```csharp
 public class MyReportDataV2 : DevExpress.Persistent.BaseImpl.EF.ReportDataV2 {
     public virtual string Category { get;set; }
 }
-
-public class MySolutionDbContext : DbContext {
-    // ...
-    public DbSet<ReportDataV2> ReportDataV2 { get; set; }
-    public DbSet<MyReportDataV2> MyReportDataV2 { get; set; }
-}
 ```
-
-***
-
-### XPO
-
-If you use XPO, create the `MyReportDataV2` persistent class derived from [](xref:DevExpress.Persistent.BaseImpl).[](xref:DevExpress.Persistent.BaseImpl.ReportDataV2).
-
-**File:** _MySolution.Module\BusinessObjects\MyReportDataV2.cs_
-
-# [C#](#tab/tabid-csharp)
-
+# [XPO](#tab/tabid-XPO)
+ 
 ```csharp
 public class MyReportDataV2 : DevExpress.Persistent.BaseImpl.ReportDataV2 {
     public MyReportDataV2(Session session) : base(session) { }
@@ -58,55 +43,37 @@ public class MyReportDataV2 : DevExpress.Persistent.BaseImpl.ReportDataV2 {
 ```
 ***
 
-## Specify ReportsModuleV2.ReportDataType
+If you use EF Core, add the `MyReportDataV2` class to `DbContext`:
 
-### With Application Builder
-
-In applications that use the Application Builder, assign the type of your custom report data class to the `ReportsOptions.ReportDataType` property as shown below:
-
-**File:** _MySolution.Blazor.Server\Startup.cs_
-
-# [C#](#tab/tabid-csharp1)
+**File:** _SolutionName.Module\BusinessObjects\SolutionNameDbContext.cs_
 
 ```csharp
-builder.Modules
-    .AddReports(options => {
-        options.ReportDataType = typeof(MyReportDataV2);
-    })
-```
-***
-
-### Without Application Builder
-
-In applications that do not use the Application Builder, you can specify the [ReportDataType](xref:DevExpress.ExpressApp.ReportsV2.ReportsModuleV2.ReportDataType) setting as follows.
-
-**File:** _WinApplication.Designer.cs_
-
-# [C#](#tab/tabid-csharp)
-
-```csharp
-partial class MainDemoWinApplication {
-	// ...
-	private void InitializeComponent() {
-		// ...
-        // reportsModuleV21
-		// 
-		this.reportsModuleV21.ReportDataType = typeof(MyReportDataV2);
-		// ...
-	}
+public class SolutionNameDbContext : DbContext {
+    // ...
+    public DbSet<MyReportDataV2> MyReportDataV2 { get; set; }
 }
 ```
-***
 
-## Add the New Property to the Report Wizard
-> [!NOTE]
-> This feature is not supported in **ASP.NET Core Blazor**. See the [Limitations](#limitations) section for more information.
->
-> You can also omit this section if you do not want the additional property to be initialized by a user. Instead, you can [customize the ReportsStorage class](xref:113674) to update the property value in code.
+## Step 2. Specify the ReportDataType Property
 
-To make the newly introduced property visible in the Report Wizard, do the following.
+Assign the  `MyReportDataV2` type to the @DevExpress.ExpressApp.ReportsV2.ReportOptions.ReportDataType property:
 
-* In the platform-agnostic module project, inherit from the `NewXafReportWizardParameters` class and declare the `Category` string property.
+**Files:** _SolutionName.WebApi\Startup.cs_, _SolutionName.Blazor.Server\Startup.cs_, _SolutionName.Win\Startup.cs_, _SolutionName.MiddleTier\Startup.cs_.
+
+
+```csharp
+// ...
+builder.Modules
+	.AddReports(options => {
+		options.ReportDataType = typeof(MyReportDataV2);
+		// ...
+```
+## Step 3. Add the New Property to the Report Wizard
+
+> [!tip]
+> You can [customize the ReportsStorage class](xref:113674) to update the property value in code if you do not want the additional property to be initialized by a user.
+
+1. In the platform-agnostic module project, inherit from the `NewXafReportWizardParameters` class and declare the `Category` string property.
 	
 	**File:** _MySolution.Module\CustomReportWizardParameters.cs_
 
@@ -115,7 +82,6 @@ To make the newly introduced property visible in the Report Wizard, do the follo
 	```csharp
 	using DevExpress.ExpressApp.DC;
 	using DevExpress.ExpressApp.ReportsV2;
-	using DevExpress.ExpressApp.ReportsV2.Win;
 	using DevExpress.XtraReports.UI;
 	// ...
 	[DomainComponent]
@@ -132,9 +98,48 @@ To make the newly introduced property visible in the Report Wizard, do the follo
 	}
 	```
 	***
-* In the [WinForms application project](xref:118045), implement a [View Controller](xref:112621). Override the `OnActivated` method, access the standard [](xref:DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController) and subscribe to its [WinReportServiceController.NewXafReportWizardShowing](xref:DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController.NewXafReportWizardShowing) event. In the event handler, pass an instance of the `CustomReportWizardParameters` class to the Report Wizard.
-	
-	**File:** _MySolution.Win\Controllers.ReportWizardModifyController.cs_
+
+2. In the ASP.NET Core Blazor project, create a [View Controller](xref:112621). Access the standard @DevExpress.ExpressApp.ReportsV2.Blazor.BlazorReportServiceController and subscribe to its @DevExpress.ExpressApp.ReportsV2.Blazor.BlazorReportServiceController.NewReportWizardShowing event. In the event handler, pass an instance of the `CustomReportWizardParameters` class to the Report Wizard.
+
+	**File:** _MySolution.Blazor.Server\Controllers\ReportWizardModifyController.cs_
+
+	# [C#](#tab/tabid-csharp1)
+
+	```csharp
+	using DevExpress.ExpressApp;
+	using DevExpress.ExpressApp.ReportsV2.Blazor;
+	// ...
+	public class ReportWizardModifyController : ViewController {
+		BlazorReportServiceController reportServiceController;
+		public ReportWizardModifyController() { }
+		protected override void OnActivated() {
+			base.OnActivated();
+			reportServiceController = Frame.GetController<BlazorReportServiceController>();
+			if(reportServiceController != null) {
+				reportServiceController.NewReportWizardShowing += ReportServiceController_NewReportWizardShowing;
+			}
+		}
+		private void ReportServiceController_NewReportWizardShowing(object sender, BlazorNewReportWizardShowingEventArgs e) {
+			if(!e.ReportDataType.Equals(typeof(MyReportDataV2)))
+				return;
+			CustomReportWizardParameters newReportParamsObject = 
+			new CustomReportWizardParameters(e.WizardParameters.Report, e.WizardParameters.ReportDataType);
+			newReportParamsObject.Category = "Default";
+			e.WizardParameters = newReportParamsObject;
+		}
+		protected override void OnDeactivated() {
+			reportServiceController.NewReportWizardShowing -= ReportServiceController_NewReportWizardShowing;
+			reportServiceController = null;
+			base.OnDeactivated();
+		}
+	}
+	```
+
+	***
+
+3. In the WinForms project, perform similar actions. Create a [View Controller](xref:112621). Access the standard @DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController and subscribe to its @DevExpress.ExpressApp.ReportsV2.Win.WinReportServiceController.NewXafReportWizardShowing event. In the event handler, pass an instance of the `CustomReportWizardParameters` class to the Report Wizard.
+
+	**File:** _MySolution.Win\Controllers\ReportWizardModifyController.cs_
 
 	# [C#](#tab/tabid-csharp)
 	
@@ -171,57 +176,134 @@ To make the newly introduced property visible in the Report Wizard, do the follo
 	```
 	***
 
-* In the ASP.NET Core Blazor [application project](xref:118045), implement one more [View Controller](xref:112621). Similarly, override the `OnActivated` method, access the standard `DevExpress.ExpressApp.ReportsV2.Blazor.BlazorReportServiceController`, and subscribe to its `BlazorReportServiceController.NewReportWizardShowing` event. In the event handler, pass an instance of the `CustomReportWizardParameters` class to the Report Wizard.
+## Customize the Report Wizard Parameters Window
 
-	**File:** _MySolution.Blazor.Server\Controllers.ReportWizardModifyController.cs_
+Steps in the previous section add the following [Detail Views](xref:112611) to the Application Model:
 
-	# [C#](#tab/tabid-csharp1)
+* **View > CustomReportWizardParameters > CustomReportWizardParameters_DetailView**
+* **View > SolutionName.Module.BusinessObjects > MyReportData > MyReportData_DetailView**
 
+Start the [Model Editor](xref:112582) and adjust these Detail View layouts to customize the Report Wizard Parameters window. For detailed instructions, see the following topic: <xref:112817>.
+
+## Specify Custom Column Values in Predefined Static Reports
+
+The approach described above works for user-created reports generated with the Report Wizard and saved through the standard storage pipeline. Predefined static reports require additional handling because they are created and registered in code and do not use the same UI flow.
+
+To specify a custom property for predefined reports (for example, the `Category` field), assign the value programmatically as follows:
+
+1. Create a `PredefinedReportDataContainer` descendant with a property that holds a category name:
+
+	# [SolutionName.Module.PredefinedReportDataContainerEx.cs](#tab/tabid-sc)
+	```csharp
+	using DevExpress.ExpressApp.ReportsV2;
+
+	namespace SolutionName.Module {
+		public class PredefinedReportDataContainerEx : PredefinedReportDataContainer {
+			public PredefinedReportDataContainerEx(Type reportType, string displayName, string categoryName) : base(reportType, displayName) {
+				Category = categoryName;
+			}
+			public string Category { get; set; }
+		}
+	}
+	```
+	***
+
+2. Use this descendant to create a predefined report with a category name in the @DevExpress.ExpressApp.ReportsV2.ReportsModuleV2.GetModuleUpdaters* method: 
+	# [SolutionName.Module.Module.cs](#tab/tabid-sc)
+	```csharp
+	// ...
+	public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
+		ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
+		PredefinedReportsUpdater predefinedReportsUpdater = new PredefinedReportsUpdater(Application, objectSpace, versionFromDB);
+		predefinedReportsUpdater.PredefinedReports.Add(new PredefinedReportDataContainerEx(typeof(PredefinedReport1), "Employee Information", "Predefined Report"));
+		return new ModuleUpdater[] { updater, predefinedReportsUpdater };
+	}
+	// ...
+	```
+	***
+
+3. Create a `ReportStorageService` descendant and override its `CopyFrom` method so that it copies a category name to a created MyReportDataV2:
+
+	# [SolutionName.Module.CustomReportsStorage.cs](#tab/tabid-sc)
 	```csharp
 	using DevExpress.ExpressApp;
-	using DevExpress.ExpressApp.ReportsV2.Blazor;
-	// ...
-	public class ReportWizardModifyController : ViewController {
-		BlazorReportServiceController reportServiceController;
-		public ReportWizardModifyController() { }
-		protected override void OnActivated() {
-			base.OnActivated();
-			reportServiceController = Frame.GetController<BlazorReportServiceController>();
-			if(reportServiceController != null) {
-				reportServiceController.NewReportWizardShowing += ReportServiceController_NewReportWizardShowing;
+	using DevExpress.ExpressApp.DC;
+	using DevExpress.ExpressApp.ReportsV2;
+	using DevExpress.ExpressApp.ReportsV2.Services;
+	using DevExpress.ExpressApp.Services.Security;
+	using Microsoft.Extensions.Options;
+	using SolutionName.Module.BusinessObjects;
+
+	namespace SolutionName.Module {
+		public class CustomReportsStorage : ReportStorageService {
+			public CustomReportsStorage(ITypesInfo typesInfo, IServiceProvider serviceProvider, IObjectSpaceFactory objectSpaceFactory, IOptions<ReportOptions> options, IDataManipulationRight dataManipulationRight) : base(typesInfo, serviceProvider, objectSpaceFactory, options, dataManipulationRight) { }
+			public override void CopyFrom(IReportDataV2 sourceReportData, IReportDataV2Writable targetReportData) {
+				base.CopyFrom(sourceReportData, targetReportData);
+				if (targetReportData is MyReportDataV2 customReportData) {
+					customReportData.Category = "User Report";
+				}
 			}
+
 		}
-		private void ReportServiceController_NewReportWizardShowing(object sender, BlazorNewReportWizardShowingEventArgs e) {
-			if(!e.ReportDataType.Equals(typeof(MyReportDataV2)))
-				return;
-			CustomReportWizardParameters newReportParamsObject = 
-			new CustomReportWizardParameters(e.WizardParameters.Report, e.WizardParameters.ReportDataType);
-			newReportParamsObject.Category = "Default";
-			e.WizardParameters = newReportParamsObject;
+	}
+	```
+	***
+
+4. Register `CustomReportsStorage` in your XAF application. The required steps differ depending on the target platform:
+
+	* In an **XAF Blazor** application, add a line that registers your service in the `ConfigureServices` method after the `AddXaf` method call.
+	* In an **XAF WinForms** application, add a line that registers your service in the `BuildApplication` method after the `WinApplication.CreateBuilder` method call.
+	* In a **Web API** application, add a line that registers your service in the `ConfigureServices` method after the `AddXafWebApi` method call.
+
+	# [MySolution.Blazor.Server\Startup.cs](#tab/tabid-blazor)
+
+	```csharp{9}
+	using DevExpress.ExpressApp.ReportsV2;
+	//...
+		public class Startup {
+			// ...
+			public void ConfigureServices(IServiceCollection services) {
+				services.AddXaf(Configuration, builder => {
+					//...
+				});
+				services.AddScoped<IReportStorage, CustomReportStorage>();
+			}
+			// ...
 		}
-		protected override void OnDeactivated() {
-			reportServiceController.NewReportWizardShowing -= ReportServiceController_NewReportWizardShowing;
-			reportServiceController = null;
-			base.OnDeactivated();
+	```
+
+	# [MySolution.Win\Startup.cs](#tab/tabid-win)
+
+	```csharp{6}
+	using DevExpress.ExpressApp.ReportsV2;
+	//...
+	public class ApplicationBuilder : IDesignTimeApplicationFactory {
+		public static WinApplication BuildApplication(string connectionString) {
+			var builder = WinApplication.CreateBuilder();
+			builder.Services.AddScoped<IReportStorage, CustomReportStorage>();
+			//...
+		}
+		// ...
+	}
+	```
+
+	# [MySolution.WebApi\Startup.cs](#tab/tabid-webAPI)
+
+	```csharp{10}
+	using DevExpress.ExpressApp.ReportsV2;
+	//...
+	namespace MySolution.WebApi {
+		public class Startup {
+			// ...
+			public void ConfigureServices(IServiceCollection services) {
+				services.AddXafWebApi(builder => {
+					// ...
+				}, Configuration);
+				services.AddScoped<IReportStorage, CustomReportStorage>();
+			}
+			// ...
 		}
 	}
 	```
 
 	***
-
-After you complete these steps, the following [Detail Views](xref:112611) are added to the Application Model:
-
-* **MyReportData_DetailView**
-* **CustomReportWizardParameters_DetailView**
-
-To place the new **Category** item at the desired position, start the [Model Editor](xref:112582) and adjust these Detail View layouts.
-
-![ReportsV2_WizParams](~/images/reportsv2_wizparams117542.png)
-
-For a detailed explanation of how to customize a Detail View's layout, refer to the [View Items Layout Customization](xref:112817) help topic.
-
-## Limitations
-
-XAF does not support the capability to display and edit custom report properties in the New Report Wizard under the ASP.NET Core Blazor platform. An end user can use the Report ListView's _Edit_ action to specify a custom property value:
-
-![Edit Custom Report Properties](~/images/reports-edit-custom-property.png)

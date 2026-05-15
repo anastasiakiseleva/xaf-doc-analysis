@@ -21,4 +21,14 @@ To define how the custom Application Model node is generated, implement a [](xre
 public interface IModelMyNodeWithChildNodes : IModelNode, IModelList<IModelMyChildNode> {
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<ModelNodesGenerator(GetType(MyChildNodesGenerator))> _
+Public Interface IModelMyNodeWithChildNodes
+    Inherits IModelNode, IModelList(Of IModelMyChildNode)
+End Interface
+```
+
 ***

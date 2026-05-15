@@ -54,7 +54,7 @@ This topic demonstrates how create a custom [splash form](xref:112680) and use a
 	***
 
 
-3. Access the _WinApplication.cs_ (_WinApplication.vb_) file. Set the @DevExpress.ExpressApp.Win.WinApplication.SplashScreen property to a new **MySplash** class instance.
+3. Access the _WinApplication.cs_ file. Set the @DevExpress.ExpressApp.Win.WinApplication.SplashScreen property to a new **MySplash** class instance.
 
     # [C#](#tab/tabid-csharp)
 	

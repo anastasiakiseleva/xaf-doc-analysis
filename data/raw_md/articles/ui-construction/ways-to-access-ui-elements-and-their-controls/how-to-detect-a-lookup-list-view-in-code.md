@@ -36,6 +36,27 @@ public class DeactivateNewActionInLookupsController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class DeactivateNewActionInLookupsController
+    Inherits ViewController(Of ListView)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        If Frame.Context = TemplateContext.LookupControl OrElse Frame.Context = TemplateContext.LookupWindow Then
+            Dim controller As NewObjectViewController = Frame.GetController(Of NewObjectViewController)()
+            If controller IsNot Nothing Then
+                controller.NewObjectAction.Active.SetItemValue("LookupListView", False)
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Run an application to ensure that the **New** Action is deactivated in all Lookup List Views.

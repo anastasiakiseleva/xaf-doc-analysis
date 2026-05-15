@@ -39,8 +39,35 @@ public class BarManagerCustomizationWindowController : Controller {
     }
 }
 ```
-***
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Controls
+Imports DevExpress.XtraBars
+' ...
+Public Class BarManagerCustomizationWindowController
+    Inherits Controller
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Frame.TemplateChanged, AddressOf Frame_TemplateChanged
+    End Sub
+    Private Sub Frame_TemplateChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If TypeOf Frame.Template Is IBarManagerHolder Then
+            Dim manager As BarManager = DirectCast(Frame.Template, IBarManagerHolder).BarManager
+            manager.AllowCustomization = False
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Frame.TemplateChanged, AddressOf Frame_TemplateChanged
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
+***
 Run the application to ensure that bar customization is not allowed.
 
 ![BarManager_AllowCustomization](~/images/barmanager_allowcustomization132212.png)

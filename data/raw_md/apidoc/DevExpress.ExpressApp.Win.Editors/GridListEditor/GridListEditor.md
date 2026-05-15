@@ -4,7 +4,7 @@ name: GridListEditor
 type: Class
 summary: Represents the [List Editor](xref:113189) used by default in XAF Windows Forms applications, to display [List Views](xref:112611) in a UI.
 syntax:
-  content: 'public class GridListEditor : WinColumnsListEditor, ISupportNewItemRowPosition, ISupportFooter, ILookupListEditor, IGridListEditorTestable, ILookupEditProvider, IRequireContextMenu, IRequireDXMenuManager, IConfigurableLookupListEditor, ISupportBorderStyle, ISupportFilterEditor'
+  content: 'public class GridListEditor : WinColumnsListEditor, ISupportNewItemRowPosition, ISupportFooter, ILookupListEditor, IGridListEditorTestable, ILookupEditProvider, IRequireContextMenu, IRequireDXMenuManager, IConfigurableLookupListEditor, ISupportBorderStyle, ISupportFilterEditor, IExtendableControlProvider'
 seealso:
 - linkId: DevExpress.ExpressApp.Win.Editors.GridListEditor._members
   altText: GridListEditor Members
@@ -24,7 +24,7 @@ The `GridListEditor` supports a wide range of features out of the box:
     
     ![Export_GridListEditor](~/images/export_gridlisteditor116967.png)
     
-    ![Tutorial_EM_Lesson3_1_0](~/images/tutorial_em_lesson3_1_0115583.png)
+    ![Tutorial_EM_Lesson3_1_0](~/images/xaf-printing-print-preview.png)
 * Implements the [](xref:DevExpress.ExpressApp.SystemModule.IDataAwareExportable) interface - the [data-aware](xref:17733) export type ([](xref:DevExpress.Export.ExportType)) is used by default when exporting to Excel formats.
 * Implements the `ISupportAppearanceCustomization` interface - supports [conditional appearance](xref:113286):
     

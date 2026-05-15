@@ -33,6 +33,21 @@ static class Program {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend Class Program
+   Shared Sub Main()
+      '...
+      Dim _application As MySolutionWindowsFormsApplication = 
+      New MySolutionWindowsFormsApplication()
+      _application.ApplicationName = "MyApplicationName"
+      '...
+   End Sub
+End Class
+```
+
 ***
 
 When you create an XAF application using the [Template Kit](xref:405447), the **ApplicationName** property is set to the application solution name.

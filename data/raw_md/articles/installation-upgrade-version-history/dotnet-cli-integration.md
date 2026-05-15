@@ -17,7 +17,7 @@ This topic describes how to:
 ## Step 1. Install DevExpress XAF Templates
 
 Download the [DevExpress.XAF.ProjectTemplates](https://www.nuget.org/packages/DevExpress.XAF.ProjectTemplates) NuGet package and install it.
-The package is available to everyone at [https://www.nuget.org](https://www.nuget.org/). Users with Universal subscription can find the package in their personal feed at [https://nuget.devexpress.com](https://nuget.devexpress.com/).
+The package is available to everyone at [https://www.nuget.org](https://www.nuget.org/).
 
 ```Console
 dotnet new install DevExpress.XAF.ProjectTemplates
@@ -29,38 +29,9 @@ You can run the command below to see the list of available template options. The
 dotnet new dx.xaf -h
 ```
 
-## Step 2. Obtain Your NuGet Feed Credentials
+## Step 2. Register Your License Key
 
-You need to obtain your personal NuGet feed credentials to access the **DevExpress.ExpressApp** NuGet packages from your project. You can use **NuGet feed URL** or **feed authorization key** to manage DevExpress packages.
-
-1. Make sure your DevExpress.com account has access to XAF. This product line is included in the [Universal](https://www.devexpress.com/subscriptions/universal.xml) subscription.
-
-2. Use your DevExpress credentials to log into [nuget.devexpress.com](https://nuget.devexpress.com/).
-
-3. [Obtain your NuGet feed credentials](xref:116042#devexpresscom-online-nuget-feed-any-os) and copy them to the clipboard.
-
-4. [Select DevExpress Online NuGet Feed as a NuGet Package Source](xref:116698#select-devexpress-online-nuget-feed-as-a-nuget-package-source).
-
-    Alternatively, do it in the console. Run the following commands:
-
-    ```Console
-    # Register packages with an authorization key
-    dotnet nuget add source https://nuget.devexpress.com/api/v3/index.json -n DXFeed -u DevExpress -p {your-feed-authorization-key}
-
-    # Register packages with a feed URL
-    dotnet nuget add source https://nuget.devexpress.com/{your-feed-authorization-key}/api/v3/index.json -n DXFeed
-    ```
-
-    For more information, refer to the following topic: [Install NuGet Packages with Command Line Interface (CLI) Tools](xref:117209).
-
-    An error may occur if the specified source is already in the source list. Run `dotnet nuget list source` to view all the configured sources and ensure the specified and `nuget.org` package sources are enabled. To enable them, use the `dotnet nuget enable source` command.
-
-    You can also pass the NuGet feed as a `-nf` parameter when you create a project.
-
-    ```Console
-    dotnet new dx.xaf -n MyXafApp -p Blazor -nf https://nuget.devexpress.com/{your-feed-authorization-key}/api/v3/index.json
-    ```
-    The command creates a project and adds the _nuget.config_ file with the DevExpress feed to the project folder.
+To obtain DevExpress NuGet packages from nuget.org you need to manually obtain and register your license key as described in the following help topic: [Manual Registration: Obtain and Register Your Key](xref:405494#manual-registration-obtain-and-register-your-key).
 
 ## Step 3. Create an Application
 
@@ -99,8 +70,6 @@ Default `dotnet new` options:
 :   Specifies the template type to instantiate.
 
 Template options:
-`-nf, --nuget-feed <nuget-feed>`
-:   Specifies the [NuGet Feed URL](xref:116042). Refer to [https://nuget.devexpress.com/#feed-url](https://nuget.devexpress.com/#feed-url) and login to your account to obtain your personal feed URL.
 `-db, --database <SqlServer|SqlAzure|...>`
 :   Specifies the database provider for the solution.
     SqlServer (_default_)

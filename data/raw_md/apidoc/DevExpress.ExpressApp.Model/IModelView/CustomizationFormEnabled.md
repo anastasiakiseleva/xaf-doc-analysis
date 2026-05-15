@@ -2,7 +2,7 @@
 uid: DevExpress.ExpressApp.Model.IModelView.CustomizationFormEnabled
 name: CustomizationFormEnabled
 type: Property
-summary: Controls runtime layout customization and column chooser for a specific View.
+summary: Enables/disables runtime layout customization and Column Chooser / Field List for a specific View.
 syntax:
   content: |-
     [DefaultValue(true)]
@@ -10,22 +10,25 @@ syntax:
   parameters: []
   return:
     type: System.Boolean
-    description: "`true` to allow runtime customization of View Items' layout and enable column chooser; `false` to disable runtime customization and column chooser."
+    description: "`true` to allow runtime customization of View Items' layout and enable Column Chooser / Field List; otherwise `false`."
 seealso:
 - linkId: DevExpress.Persistent.Base.HideInUI
+- linkId: "404353"
+- linkId: "2307"
 ---
-ASP.NET Core Blazor applications support runtime layout customization in Detail Views except for the cases described in the following article: [](xref:404353).
+XAF applications support runtime layout customization in Detail Views, List Views, and Dashboard Views. Additionally, the following customization forms are available:
 
-Windows Forms applications support runtime layout customization in Detail Views and Dashboard Views. For more information, refer to the following topic: [](xref:2307).
+* The **Column Chooser** allows users to hide, display, and rearrange columns in a [List Editor](xref:113189) at runtime.
+* The **Field List** allows users to manage component structure in the Pivot Grid List Editor.
 
-The column chooser allows users to hide, display, and rearrange columns in a [List Editor](xref:113189) at runtime.
+Use the `CustomizationFormEnabled` property to control availability of runtime layout customization and customization forms.
 
 Use the following nodes in [Application Model](xref:112579) to control these options in specific Views:
 
-* **Views** | **\<Namespace\>** | **\<Class\>_DetailView** to control customization and column chooser in a specific Detail View.
-* **Views** | **Unspecified** | **\<DashboardView\>** to control customization and column chooser in a specific Dashboard View.
+* **SolutionName** | **Views** | **SolutionName.Module.BusinessObjects** | **ClassName** | **ClassName_ListView**
+* **SolutionName** | **Views** | **SolutionName.Module.BusinessObjects** | **ClassName** | **ClassName_DetailView**
 
-To control these options for the entire application, use the following property: [IModelOptions.CustomizationFormEnabled](xref:DevExpress.ExpressApp.Model.IModelOptions.CustomizationFormEnabled).
+To control these options for the entire application, use the [IModelOptions.CustomizationFormEnabled](xref:DevExpress.ExpressApp.Model.IModelOptions.CustomizationFormEnabled) property.
 
 > [!TIP]
 > You can combine different flags of the @DevExpress.Persistent.Base.HideInUI attribute to hide a property on select customization forms.

@@ -21,6 +21,24 @@ SecuritySystem.CustomIsGranted += delegate (object sender, CustomHasPermissionTo
     }
 };
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+AddHandler SecuritySystem.CustomIsGranted, Sub(sender As Object, e As CustomHasPermissionToEventArgs)
+    If e.Operation = SecurityOperations.Write OrElse e.Operation = SecurityOperations.Delete OrElse e.Operation = SecurityOperations.Create Then
+        e.Result = False
+        e.Handled = True
+    End If
+End Sub
+AddHandler SecuritySystem.CustomIsGranted, Sub(sender As Object, e As CustomHasPermissionToEventArgs)
+    If e.Operation = SecurityOperations.Write OrElse e.Operation = SecurityOperations.Delete OrElse e.Operation = SecurityOperations.Create Then
+        e.Result = False
+        e.Handled = True
+    End If
+End Sub
+```
+
 ***
 
 As the **CustomIsGranted** event is static, you can subscribe to it from any place in your code which is executed before a user is logged on, e.g.:

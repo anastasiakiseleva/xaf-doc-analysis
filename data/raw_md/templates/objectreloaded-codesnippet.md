@@ -24,4 +24,34 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports YourSolutionName.Module.BusinessObjects
+
+Namespace YourSolutionName.Module.Controllers
+    Public Class MyViewController
+        Inherits ObjectViewController(Of DetailView, Parent)
+
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AddHandler ObjectSpace.ObjectReloaded, AddressOf ObjectSpace_ObjectReloaded
+        End Sub
+
+        Private Sub ObjectSpace_ObjectReloaded(ByVal sender As Object, ByVal e As ObjectManipulatingEventArgs)
+            Dim child As Child = TryCast(e.Object, Child)
+
+            If child IsNot Nothing AndAlso ReferenceEquals(child.Parent, View.CurrentObject) Then
+                View.Refresh()
+            End If
+        End Sub
+
+        Protected Overrides Sub OnDeactivated()
+            RemoveHandler ObjectSpace.ObjectReloaded, AddressOf ObjectSpace_ObjectReloaded
+            MyBase.OnDeactivated()
+        End Sub
+    End Class
+End Namespace
+```
 ***

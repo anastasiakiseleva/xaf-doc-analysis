@@ -28,26 +28,6 @@ Specify the type as one of office module options.
 [!include[<options.RichTextMailMergeDataType = typeof(RichTextMailMergeData);>](~/templates/AddOffice_Win_example.md)]
 ---
 
-## In Applications Without Application Builder
-
-Specify the type when you add the office module:
-
-**File**: _MyApplication.Blazor.Server/MyApplication.Designer.cs_ or _MyApplication.Win/MyApplication.Designer.cs_.
-
-```csharp{7}
-using Devexpress.Persistent.BaseImpl.EF
-// ...
-partial class MyApplication {
-    private void InitializeComponent() {
-        // ...
-        this.officeModule = new DevExpress.ExpressApp.Office.OfficeModule();
-        this.officeModule.RichTextMailMergeDataType = typeof(RichTextMailMergeData);
-        // ...
-    }
-    // ...
-}
-```
-
 ## Data Types
 
 You can use one of the following built-in types, depending on your ORM:

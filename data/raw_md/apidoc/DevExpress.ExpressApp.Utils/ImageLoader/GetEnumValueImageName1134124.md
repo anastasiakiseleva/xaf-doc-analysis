@@ -26,4 +26,11 @@ The following code snippet illustrates use of the **GetEnumValueImageName** meth
 ```csharp
 string image = ImageLoader.Instance.GetEnumValueImageName(MyEnum.FirstValue);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim image As String = ImageLoader.Instance.GetEnumValueImageName(MyEnum.FirstValue)
+```
+
 ***

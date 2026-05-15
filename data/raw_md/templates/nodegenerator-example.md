@@ -10,4 +10,17 @@ public class Updater : ModelNodesGeneratorUpdater<<:1:>> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModelNodesGeneratorUpdater(Of <:1:>)
+    Public Overrides Sub UpdateNode(ByVal node As ModelNode)
+        ' Cast the 'node' parameter to IModel<:0:>
+        ' to access the <:0:> node.
+    End Sub
+End Class
+```
+
 ***

@@ -50,6 +50,35 @@ public class MyClass : XPLiteObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.ComponentModel
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions>
+Public Class [MyClass]
+    Inherits XPLiteObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    <Key(AutoGenerate:=True)>
+    <Browsable(False)>
+    Public Property Oid() As Integer
+    Private fMyProperty As String
+    Public Property MyProperty() As String
+        Get
+            Return fMyProperty
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(MyProperty), fMyProperty, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 [`DefaultClassOptions`]: xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute

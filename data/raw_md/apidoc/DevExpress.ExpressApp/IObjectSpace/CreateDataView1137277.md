@@ -36,4 +36,12 @@ This method result can be directly cast to [](xref:DevExpress.ExpressApp.XafData
 XafDataView dataView = (XafDataView)objectSpace.CreateDataView(
     typeof(Product), "ID;Name;Sales.Sum([Count] * Price)", null, null);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataView As XafDataView = CType(objectSpace.CreateDataView( _
+    GetType(Product), "ID;Name;Sales.Sum([Count] * Price)", Nothing, Nothing), XafDataView)
+```
+
 ***

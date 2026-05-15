@@ -20,6 +20,19 @@ public class DemoParameters : ReportParametersObjectBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class DemoParameters
+    Inherits ReportParametersObjectBase
+    ' ...
+    Public Overrides Function ToString() As String
+        Return City
+    End Function
+End Class
+```
+
 ***
 
 As a result, you can refer to the **ToString** result with the "[Parameters.XafReportParametersObject]" expression, e.g.:
@@ -44,4 +57,22 @@ private void calculatedFieldCity_GetValue(object sender, DevExpress.XtraReports.
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub calculatedFieldCity_GetValue(ByVal sender As Object, ByVal e As DevExpress.XtraReports.UI.GetValueEventArgs)
+    Dim param As DevExpress.XtraReports.Parameters.Parameter = _
+    CType(((DevExpress.XtraReports.UI.XtraReport)e.Report).Parameters("XafReportParametersObject"), _
+    DevExpress.XtraReports.Parameters.Parameter)
+    If param IsNot Nothing Then
+        Dim contact As ReportV2Demo.Module.BusinessObjects.Contact = _
+        CType(e.Row, ReportV2Demo.Module.BusinessObjects.Contact)
+        Dim xafParameter As ReportV2Demo.Module.Reports.DemoParameters = _
+        CType(param.Value, ReportV2Demo.Module.Reports.DemoParameters)
+        e.Value = contact.FullName & " from " & xafParameter.City
+    End If
+End Sub
+```
+
 ***

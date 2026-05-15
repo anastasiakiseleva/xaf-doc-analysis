@@ -63,6 +63,58 @@ public class RefreshViewControlsAfterModelChangesViewController :
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Scheduler.Win
+Imports DevExpress.ExpressApp.Win.Editors
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.Base.General
+' ...
+Public Class RefreshViewControlsAfterModelChangesViewController
+    Inherits ObjectViewController(Of ListView, IEvent)
+
+    Public Sub New()
+        New SimpleAction(Me, "SwitchMasterDetailMode",
+         PredefinedCategory.View.ToString(), Sub(s, e)
+            
+            ' Obtain and save the view
+            Dim savedView As ListView = CType(Frame.View, ListView)
+            
+            ' Detach the View from the Frame 
+            ' Don't dispose the old view
+            If Frame.SetView(view:=Nothing, True, Nothing, disposeOldView:=False) Then
+                
+                ' Change the Application Model
+                Dim defaultMasterDetailMode As MasterDetailMode = MasterDetailMode.ListViewOnly
+                savedView.Model.MasterDetailMode = If(savedView.Model.MasterDetailMode Is defaultMasterDetailMode, MasterDetailMode.ListViewAndDetailView, defaultMasterDetailMode)
+                
+                ' Load Model changes into the View
+                savedView.LoadModel(False)
+                
+                ' Re-attach the View back to its Frame
+                Frame.SetView(savedView)
+            End If
+        End Sub)
+        New SimpleAction(Me, "SwitchEditor", PredefinedCategory.View.ToString(), Sub(s, e)
+            ' Same algorithm as above
+            Dim savedView = View
+            If Frame.SetView(view:=Nothing, True, Nothing, disposeOldView:=False) Then
+                Dim defaultListEditorType As Type = Application.Model.Views.DefaultListEditor
+                savedView.Model.EditorType = If(savedView.Model.EditorType = defaultListEditorType, GetType(SchedulerListEditor), defaultListEditorType)
+                savedView.LoadModel(False)
+                Frame.SetView(savedView)
+            End If
+        End Sub)
+    End Sub
+End Class
+```
+[`Frame.View`]: xref:DevExpress.ExpressApp.Frame.View
+[`Frame.SetView`]: xref:DevExpress.ExpressApp.Frame.SetView(DevExpress.ExpressApp.View,System.Boolean,DevExpress.ExpressApp.Frame,System.Boolean)
+[`LoadModel`]: xref:DevExpress.ExpressApp.View.LoadModel*
 ***
 
 > [!CAUTION]

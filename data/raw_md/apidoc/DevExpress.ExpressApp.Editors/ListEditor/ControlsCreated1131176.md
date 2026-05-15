@@ -32,5 +32,27 @@ public class ListEditorController : ViewController<ListView> {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+```vb
+Public Class ListEditorController
+    Inherits ViewController(Of ListView)
+    Private listEditor As GridListEditor = Nothing
+    Private Sub listEditor_ControlsCreated(ByVal sender As Object, ByVal e As EventArgs)
+        DirectCast(sender, GridListEditor).GridView.Appearance.FocusedCell.BackColor = Color.Orange
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        listEditor = TryCast(View.Editor, GridListEditor)
+        If listEditor IsNot Nothing Then
+            AddHandler listEditor.ControlsCreated, AddressOf listEditor_ControlsCreated
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If listEditor IsNot Nothing Then
+            RemoveHandler listEditor.ControlsCreated, AddressOf listEditor_ControlsCreated
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
 ***
-

@@ -4,7 +4,7 @@ name: Frame
 type: Class
 summary: Serves as the site for a nested [View](xref:112611).
 syntax:
-  content: 'public class Frame : IDisposable'
+  content: 'public class Frame : IDisposable, INotifyDisposed'
 seealso:
 - linkId: DevExpress.ExpressApp.Frame._members
   altText: Frame Members

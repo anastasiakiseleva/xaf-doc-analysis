@@ -45,6 +45,33 @@ public class CustomizeWindowController : WindowController {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class CustomizeWindowController
+    Inherits WindowController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim controller As WindowTemplateController = Frame.GetController(Of WindowTemplateController)()
+        AddHandler controller.CustomizeWindowStatusMessages, _
+        AddressOf Controller_CustomizeWindowStatusMessages
+    End Sub
+    Private Sub Controller_CustomizeWindowStatusMessages(ByVal sender As Object, _
+    ByVal e As CustomizeWindowStatusMessagesEventArgs)
+        e.StatusMessages.Add("My custom status message")
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        Dim controller As WindowTemplateController = Frame.GetController(Of WindowTemplateController)()
+        RemoveHandler controller.CustomizeWindowStatusMessages, _
+        AddressOf Controller_CustomizeWindowStatusMessages
+    End Sub
+End Class
+```
+
 ***
 
 Use the @DevExpress.ExpressApp.Window.IsMain property in the `CustomizeWindowStatusMessages` event handler to create a condition that adds a status message only to the main or a child window.
@@ -64,6 +91,16 @@ CustomizeWindowStatusMessagesEventArgs e) {
     e.StatusMessages.Clear();
     e.StatusMessages.Add("My custom status message");
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub Controller_CustomizeWindowStatusMessages(ByVal _
+sender As Object, ByVal e As CustomizeWindowStatusMessagesEventArgs)
+    e.StatusMessages.Clear()
+    e.StatusMessages.Add("My custom status message")
+End Sub
 ```
 
 ***

@@ -98,7 +98,7 @@ With [](xref:DevExpress.ExpressApp.Security.AuthenticationStandard) authenticati
 
    ```
 
-3. Go to the _MySolution.Module\MySolutionDbContext_ file and add the following  properties to `DbSet`:
+3. Go to the _MySolution.Module\BusinessObjects\MySolutionDbContext_ file and add the following  properties to `DbSet`:
 
     ```csharp
     public class MySolutionEFCoreDbContext : DbContext {

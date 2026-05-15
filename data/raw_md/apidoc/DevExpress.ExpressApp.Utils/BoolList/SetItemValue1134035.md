@@ -25,6 +25,15 @@ BoolList mylist = new BoolList();
 mylist.SetItemValue("myKey", true); 
 //myValue == true;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim mylist As New BoolList()
+mylist.SetItemValue("myKey", True) 
+'myValue = True
+```
+
 ***
 
 To get all keys from the **BoolList**'s collection of key/value pairs, use the [BoolList.GetKeys](xref:DevExpress.ExpressApp.Utils.BoolList.GetKeys) method. To check whether a particular key exists, use the [BoolList.Contains](xref:DevExpress.ExpressApp.Utils.BoolList.Contains(System.String)) method.

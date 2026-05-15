@@ -35,7 +35,29 @@ Use one of the following approaches to specify this property:
         }
     }
     ```
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb{14}
+    Imports DevExpress.ExpressApp
+    Imports DevExpress.ExpressApp.Actions
+    Imports DevExpress.ExpressApp.Templates
+    Imports DevExpress.Persistent.Base
+    ' ...
+    Public Class MyController
+        Inherits ObjectViewController(Of ListView, Contact)
+        Public Sub New()
+            Dim customAction As New SimpleAction(Me, "CustomAction", PredefinedCategory.View) With {
+                .Caption = "Custom Action",
+                .ImageName = "ModelEditor_Application"
+            }
+            customAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+            customAction.PaintStyle = ActionItemPaintStyle.Caption
+        End Sub
+    End Class
+    ```
+    
     ***
+    
 * **In the Model Editor**  
     Navigate to an [!include[Node_Action](~/templates/node_action111373.md)] node and specify the [IModelAction.PaintStyle](xref:DevExpress.ExpressApp.Model.IModelAction.PaintStyle) property. 
 

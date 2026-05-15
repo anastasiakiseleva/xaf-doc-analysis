@@ -28,6 +28,18 @@ public class ErrorMessageController : ObjectViewController<DetailView, Employee>
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+View.ErrorMessages.AddMessage( _
+    "Subject", _
+    View.CurrentObject, _
+    "Specifies the task subject", _
+    ImageLoader.Instance.GetImageInfo("Action_AboutInfo") _
+)
+```
+
 ***
 
 The following image demonstrates the result in an ASP.NET Core Blazor application:

@@ -55,7 +55,18 @@ When implementing a custom Controller to modify the behavior of the [](xref:DevE
     }
     //...
     ```
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    '...
+    If TypeOf View Is ListView AndAlso View.Id = "MyBusinessClass_LookupListView" Then
+      '...
+    End If
+    '...
+    ```
+    
     ***
+
 * Check the context of the List View's Frame:
     
     # [C#](#tab/tabid-csharp)
@@ -68,6 +79,17 @@ When implementing a custom Controller to modify the behavior of the [](xref:DevE
     }
     //...
     ```
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    '...
+    If TypeOf View Is ListView AndAlso TypeOf Frame Is Window AndAlso _
+          (CType(Frame, Window)).Context = TemplateContext.LookupWindow Then
+       '...
+    End If
+    '...
+    ```
+    
     ***
 
 The **Link** Action is active under the following conditions by default:

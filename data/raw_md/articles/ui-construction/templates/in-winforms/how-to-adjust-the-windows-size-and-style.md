@@ -46,6 +46,42 @@ OnFormReadyForCustomizations;
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Templates
+'...
+Public Class CustomizeFormSizeController
+    Inherits WindowController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Window.TemplateChanged, AddressOf Window_TemplateChanged
+    End Sub
+    Private Sub Window_TemplateChanged(ByVal sender As Object, ByVal e As EventArgs)
+        If TypeOf Window.Template Is System.Windows.Forms.Form AndAlso _
+TypeOf Window.Template Is ISupportStoreSettings Then
+            AddHandler DirectCast(Window.Template, ISupportStoreSettings).SettingsReloaded, _
+AddressOf OnFormReadyForCustomizations
+        End If
+    End Sub
+    Private Sub OnFormReadyForCustomizations(ByVal sender As Object, ByVal e As EventArgs)
+        If YourCustomBusinessCondition(Window.View) Then
+            DirectCast(sender, System.Windows.Forms.Form).Size = _
+DirectCast(Window.View.CurrentObject, IFormSizeProvider).GetFormSize()
+        End If
+    End Sub
+    Private Function YourCustomBusinessCondition(ByVal view As View) As Boolean
+        Return view IsNot Nothing AndAlso TypeOf view.CurrentObject Is IFormSizeProvider
+    End Function
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Window.TemplateChanged, AddressOf Window_TemplateChanged
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 In this code, the target window template is accessed by subscribing to the **TemplateChanged** event from a Controller. Then, handle the [ISupportStoreSettings.SettingsReloaded](xref:DevExpress.ExpressApp.Templates.ISupportStoreSettings.SettingsReloaded) event to make customizations after the default XAF template settings were applied. Also, you can handle the [Form.HandleCreated](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.control.handlecreated) or [Form.Load](https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.form.load) event. Place your customization code into the **OnFormReadyForCustomizations** event handler.

@@ -31,6 +31,20 @@ public partial class MySolutionWindowsFormsApplication : WinApplication {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Partial Public Class MySolutionWindowsFormsApplication
+    Inherits WinApplication
+    Public Sub New()
+        InitializeComponent()
+        DelayedViewItemsInitialization = False
+    End Sub
+    ' ...
+End Class
+```
+
 ***
 
 To change this behavior for an individual View, use the [CompositeView.DelayedItemsInitialization](xref:DevExpress.ExpressApp.CompositeView.DelayedItemsInitialization) property.

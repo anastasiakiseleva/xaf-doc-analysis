@@ -319,7 +319,7 @@ You can customize how the app displays error information to end-users in debug a
 
 ## Storing Secrets in Version Control and CI/CD Systems
 
-In your CI/CD development routines, you may store "secrets" in version control systems. A secret may be a private NuGet feed URL. For instance, DevExpress customers can use personalized URLs to access **NuGet.DevExpress.com** - a private NuGet server. Another example of a secret is a password for your database connection string. 
+In your CI/CD development routines, you may store "secrets" in version control systems. A secret may be a private NuGet feed URL. Another example of a secret is a password for your database connection string. 
 
 The “shift left” security initiative argues against secret storage in version control systems.  Many CI/CD systems include built-in mechanisms to store sensitive information. For instance, the following help topic describes a secure solution for Azure DevOps. In this example, your _NuGet.config_ contains a placeholder URL (no sensitive information). Azure DevOps securely stores your NuGet feed key as a password.
 

@@ -54,6 +54,25 @@ public sealed partial class MyModule : ModuleBase {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb{4-5}
+Imports DevExpress.ExpressApp.Model
+
+Public Interface IModelMyOptions
+    ' accepts strings "Simple" or "Advanced"
+    Property Mode() As String
+End Interface
+
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub ExtendModelInterfaces(ByVal extenders As ModelInterfaceExtenders)
+        MyBase.ExtendModelInterfaces(extenders)
+        extenders.Add(Of IModelOptions, IModelMyOptions)()
+    End Sub
+End Class
+```
 ***
 
 The new version changes the property's type to an enumeration. (Note that the code also renames one of the modes from "Simple" to "Basic".)
@@ -68,6 +87,21 @@ public interface IModelMyOptions {
     OperatingMode Mode { get; set; }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{1-4,7-8}
+Public Enum OperatingMode
+    Basic
+    Advanced
+End Enum
+
+Public Interface IModelMyOptions
+    ' now accepts enumeration values
+    Property Mode() As OperatingMode
+End Interface
+```
+
 ***
 
 You can implement the following XML Converter to ensure correct transition to the new version. 
@@ -104,6 +138,40 @@ public sealed partial class MyModule : ModuleBase, IModelXmlConverter {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Updating
+
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    Implements IModelXmlConverter
+    '...
+    Public Sub ConvertXml(ByVal parameters As ConvertXmlParameters)
+        ' Check if this is the Options node.
+        If GetType(IModelOptions).IsAssignableFrom(parameters.NodeType) Then
+            ' Check if the user assigned a value to Mode.
+            Dim [property] As String = "Mode"
+            If parameters.ContainsKey([property]) Then
+                ' Retrieve the value.
+                Dim value As String = parameters.Values([property])
+                ' If it's a legacy value, convert.
+                If (Not System.Enum.IsDefined(GetType(OperatingMode), value)) Then
+                    Select Case value.ToLower()
+                        Case "advanced"
+                            parameters.Values([property]) = OperatingMode.Advanced.ToString()
+                        Case Else
+                            parameters.Values([property]) = OperatingMode.Basic.ToString()
+                    End Select
+                End If
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 ### Sample: Property Name Change
@@ -132,6 +200,29 @@ public sealed partial class MyModule : ModuleBase, IModelXmlConverter {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Updating
+
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    Implements IModelXmlConverter
+    '...
+    Public Sub ConvertXml(ByVal parameters As ConvertXmlParameters)
+        If GetType(IModelOptions).IsAssignableFrom(parameters.NodeType) Then
+            Dim oldProperty As String = "Mode"
+            Dim newProperty As String = "OperatingMode"
+            If parameters.ContainsKey(oldProperty) Then
+                parameters.Values(newProperty) = parameters.Values(oldProperty)
+                parameters.Values.Remove(oldProperty)
+            End If
+        End If
+    End Sub
+End Class
+Private < Mod Cod
+```
 ***
 
 ## Node Updater Samples
@@ -156,6 +247,19 @@ public interface IModelMyOptions {
 }
 public enum OperatingMode { Basic, Advanced }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Interface IModelMyOptions
+    Property OperatingMode() As OperatingMode
+End Interface
+Public Enum OperatingMode
+    Basic
+    Advanced
+End Enum
+```
+
 ***
 
 The new version moves the property to a newly introduced child node:
@@ -173,6 +277,25 @@ public interface IModelChildOptions : IModelNode {
 }
 public enum OperatingMode { Basic, Advanced }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+
+Public Interface IModelMyOptions
+    ReadOnly Property ChildOptions() As IModelChildOptions
+End Interface
+Public Interface IModelChildOptions
+    Inherits IModelNode
+    Property OperatingMode() As OperatingMode
+End Interface
+Public Enum OperatingMode
+    Basic
+    Advanced
+End Enum
+```
+
 ***
 
 Create a Node Updater to ensure correct transition to the new version. You can implement the interface in your module class as shown below. 
@@ -201,6 +324,33 @@ public sealed partial class MyModule : ModuleBase, IModelNodeUpdater<IModelOptio
     }        
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Model.Core
+
+' Node Updater interface will process the Options node.
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    Implements IModelNodeUpdater(Of IModelOptions)
+    '...
+    Public Sub UpdateNode(ByVal node As IModelOptions, ByVal application As IModelApplication)
+        Dim myProperty As String = "OperatingMode"
+        ' Try and find the property at its previous location.
+        If node.HasValue(myProperty) Then
+            ' Retrieve the value.
+            Dim value As String = node.GetValue(Of String)(myProperty)
+            ' Clear the legacy property.
+            node.ClearValue(myProperty)
+            ' Assign the value to the new property.
+            CType(node, IModelMyOptions).ChildOptions.OperatingMode = _
+            CType(System.Enum.Parse(GetType(OperatingMode), value), OperatingMode)
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Override the [ModuleBase.AddModelNodeUpdaters](xref:DevExpress.ExpressApp.ModuleBase.AddModelNodeUpdaters(DevExpress.ExpressApp.Model.Core.IModelNodeUpdaterRegistrator)) method and register the Node Updater.
@@ -219,4 +369,23 @@ public sealed partial class MyModule : ModuleBase, IModelNodeUpdater<IModelOptio
     }    
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Model.Core
+
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    Implements IModelNodeUpdater(Of IModelOptions)
+    '...
+    Public Overrides Sub AddModelNodeUpdaters( _
+    ByVal updaterRegistrator As IModelNodeUpdaterRegistrator)
+        MyBase.AddModelNodeUpdaters(updaterRegistrator)
+        updaterRegistrator.AddUpdater(Of IModelOptions)(Me)
+    End Sub
+End Class
+```
+
 ***

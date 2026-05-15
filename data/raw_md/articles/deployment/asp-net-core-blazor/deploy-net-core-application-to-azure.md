@@ -18,8 +18,8 @@ This topic shows how to publish an XAF ASP.NET Core application (Blazor Server U
 
 Make sure you have the correct drawing engine for your application. If your project targets .NET 8+, add the following packages to your **MainDemo.Blazor.Server** project:
 
-* [DevExpress.Drawing](https://nuget.devexpress.com/packages/DevExpress.Drawing/)
-* [DevExpress.Drawing.Skia](https://nuget.devexpress.com/packages/DevExpress.Drawing.Skia) -- For more information on this package, refer to the following topic: [DevExpress.Drawing Graphics Library](xref:404247).
+* [DevExpress.Drawing](https://nuget.org/packages/DevExpress.Drawing/)
+* [DevExpress.Drawing.Skia](https://nuget.org/packages/DevExpress.Drawing.Skia) -- For more information on this package, refer to the following topic: [DevExpress.Drawing Graphics Library](xref:404247).
 
 If you are running your application on Linux or macOS and it includes [Reports](xref:113591), [Office](xref:400003) or [Dashboards](xref:117449) modules, additional setup may be required. If you encounter any issues with rendering or exporting documents and dashboards, review the following help topics:
 
@@ -185,6 +185,15 @@ This tutorial describes how to implement the first two approaches. For detailed 
 1. Ensure that the application runs correctly in your default browser.
 
     ![|DevExpress XAF - Publishing Result](~/images/deployment-tutorial-azure-result.png)
+
+## Reports, Dashboards, and Office Module Deployment
+
+If your application uses the [Reports](xref:113591), [Dashboards](xref:117449), or [Office](xref:400003) module, install additional packages to create report documents and export dashboards and Office files. For details, see the following topic:
+
+* [Reports -- Use Reporting on Linux and macOS](xref:404221)
+* [Dashboards -- Linux and MacOS Specifics](xref:402574)
+* [Office File API --- Use Office File API on Linux](xref:401441)
+* [Reports -- Cloud Integration](xref:404819)
 
 [!include[deployment-tutorial-blazor-disclaimer](~/templates/deployment-tutorial-blazor-disclaimer.md)]
 

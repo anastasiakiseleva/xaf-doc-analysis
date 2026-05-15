@@ -16,6 +16,14 @@ Use the following code to access the Parameters Object from a script.
 object xafParameters = 
     ((DevExpress.XtraReports.UI.XtraReport)sender).Parameters["XafReportParametersObject"].Value
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim xafParameters As Object = _
+CType(sender, DevExpress.XtraReports.UI.XtraReport).Parameters("XafReportParametersObject").Value
+```
+
 ***
 
 For instance, the following script displays the name of the **Position** selected in the parameters dialog as a label text.
@@ -35,4 +43,18 @@ private void ContactsBaseReport_BeforePrint(object sender, System.Drawing.Printi
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub ContactsBaseReport_BeforePrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs)
+    label1.Text =""
+    Dim param As DevExpress.XtraReports.Parameters.Parameter = CType(CType(sender, DevExpress.XtraReports.UI.XtraReport).Parameters("XafReportParametersObject"), DevExpress.XtraReports.Parameters.Parameter)
+    If param IsNot Nothing Then
+        Dim xafParameter As MySolution.DemoParameters = CType(param.Value, MySolution.DemoParameters)
+        label1.Text = xafParameter.ContactPosition.Name
+    End If
+End Sub
+```
+
 ***

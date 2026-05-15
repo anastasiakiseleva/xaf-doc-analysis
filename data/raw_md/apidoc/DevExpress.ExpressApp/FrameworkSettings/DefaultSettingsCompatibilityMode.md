@@ -18,7 +18,11 @@ If you want to automatically enable all the options for the latest version, set 
 
 The following code snippets specify this property in your applications: 
 
-# [MySolution.Win\Program.cs](#tab/tabid-win)
+## WinForms Application
+
+**File:** _MySolution.Win\Program.cs(.vb)_
+
+# [C#](#tab/tabid-win)
 
 ```csharp
 using DevExpress.ExpressApp;
@@ -34,8 +38,29 @@ public class Program {
     // ...
 }
 ```
+# [VB.NET](#tab/tabid-vb)
 
-# [MySolution.Blazor\Program.cs](#tab/tabid-blazor)
+```vb
+Imports DevExpress.ExpressApp
+' ...
+Public Class Program
+    Public Shared Sub Main(ByVal arguments() As String)
+        FrameworkSettings.DefaultSettingsCompatibilityMode = FrameworkSettingsCompatibilityMode.v20_2
+        ' ...
+        Dim winApplication As New MySolutionWinApplication()
+        ' change a feature toggle value here
+        ' ...
+    End Sub
+    ' ...
+End Class
+```
+***
+
+## ASP.NET Core Blazor Application
+
+**File:** _MySolution.Blazor\Program.cs_
+
+# [C#](#tab/tabid-blazor)
 
 ```csharp
 using DevExpress.ExpressApp;
@@ -49,7 +74,6 @@ public class Program {
     // ...
 }
 ```
-
 ***
 
 > [!important]

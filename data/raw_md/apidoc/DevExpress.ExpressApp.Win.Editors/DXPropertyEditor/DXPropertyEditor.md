@@ -38,6 +38,28 @@ public class MyStringPropertyEditor : DXPropertyEditor {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Win.Editors
+'...
+<PropertyEditor(GetType(String), True)> _
+Public Class MyStringPropertyEditor
+    Inherits DXPropertyEditor
+    Public Sub New(ByVal objectType As Type, ByVal model As IModelMemberViewItem)
+        MyBase.New(objectType, model)
+    End Sub
+    Protected Overrides Function CreateControlCore() As Object
+        Dim control As New StringEdit()
+        control.Properties.Appearance.ForeColor = Color.Coral
+        Return control
+    End Function
+End Class
+```
+
 ***
 
 The following image demonstrates a business object's property which is displayed via the implemented Property Editor in a Detail View:
@@ -77,6 +99,33 @@ public class MyStringPropertyEditor : DXPropertyEditor {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.XtraEditors.Repository
+'...
+<PropertyEditor(GetType(String), True)> _
+Public Class MyStringPropertyEditor
+    Inherits DXPropertyEditor
+    Public Sub New(ByVal objectType As Type, ByVal model As IModelMemberViewItem)
+        MyBase.New(objectType, model)
+    End Sub
+    Protected Overrides Function CreateControlCore() As Object
+        Dim control As New StringEdit()
+        control.Properties.Appearance.ForeColor = Color.Coral
+        Return control
+    End Function
+    Protected Overrides Function CreateRepositoryItem() As RepositoryItem
+        Return New RepositoryItemStringEdit()
+    End Function
+    Protected Overrides Sub SetupRepositoryItem(ByVal item As RepositoryItem)
+        MyBase.SetupRepositoryItem(item)
+        item.Appearance.ForeColor = Color.Coral
+    End Sub
+End Class
+```
+
 ***
 
 The following image demonstrates a business object's property, displayed via the implemented Property Editor in a Detail View:

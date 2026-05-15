@@ -32,6 +32,28 @@ namespace MySolution.Module {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Model
+
+Public NotInheritable Class MySolutionModule
+    Inherits ModuleBase
+    Public Overrides Sub Setup(application As XafApplication)
+        MyBase.Setup(application)
+        AddHandler application.ListViewCreating, AddressOf Application_ListViewCreating
+    End Sub
+    Private Sub Application_ListViewCreating(sender As Object, e As ListViewCreatingEventArgs)
+        Dim modeListView As IModelListView = TryCast(CType(sender, XafApplication).FindModelView(e.ViewID), IModelListView)
+        If modeListView IsNot Nothing Then
+            modeListView.MasterDetailMode = MasterDetailMode.ListViewAndDetailView
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 [`ModuleBase`]: xref:DevExpress.ExpressApp.ModuleBase

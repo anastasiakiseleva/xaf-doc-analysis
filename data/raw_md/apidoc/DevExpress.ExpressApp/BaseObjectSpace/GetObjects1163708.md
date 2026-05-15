@@ -31,6 +31,14 @@ seealso: []
 IList activeUsers = objectSpace.GetObjects(
     typeof(PermissionPolicyUser), new BinaryOperator("IsActive", true), true);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim activeUsers As IList = objectSpace.GetObjects( _
+GetType(PermissionPolicyUser), New BinaryOperator("IsActive", True), True)
+```
+
 ***
 
 When implementing the [](xref:DevExpress.ExpressApp.IObjectSpace) interface in the [](xref:DevExpress.ExpressApp.BaseObjectSpace) class's descendant, do not implement the `GetObjects` method. It is implemented in the `BaseObjectSpace` class. To get the specified objects, the `BaseObjectSpace.GetObjects(Type type, CriteriaOperator criteria, bool inTransaction)` method invokes a protected virtual `CreateCollection` method that does nothing and returns `null`. Override the `CreateCollection` method in your descendant.

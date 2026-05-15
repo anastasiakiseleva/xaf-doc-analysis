@@ -36,6 +36,25 @@ public class LookupColumnFilterModeController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+' ...
+Public Class LookupColumnFilterModeController
+    Inherits ViewController(Of ListView)
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim gridListEditor As GridListEditor = TryCast(View.Editor, GridListEditor)
+        If gridListEditor IsNot Nothing Then
+            gridListEditor.LookupColumnFilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 To change the behavior for a specific column only, use the [GridColumn.FilterMode](xref:DevExpress.XtraGrid.Columns.GridColumn.FilterMode) property. To access this property, use the approach demonstrated in the following article [](xref:402154).

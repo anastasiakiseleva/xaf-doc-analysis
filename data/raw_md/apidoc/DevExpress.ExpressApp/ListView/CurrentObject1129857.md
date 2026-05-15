@@ -44,6 +44,30 @@ public class SetNickNameController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class SetNickNameController
+    Inherits ViewController(Of ListView)
+    Public Sub New()
+        Dim setNickNameAction As New SimpleAction(Me, "SetNickName", PredefinedCategory.Edit)
+        AddHandler setNickNameAction.Execute, AddressOf SetNickNameAction_Execute
+    End Sub
+    Private Sub SetNickNameAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim currentObject As Contact = TryCast(View.CurrentObject, Contact)
+        If currentObject IsNot Nothing Then
+            currentObject.NickName = currentObject.FirstName
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Use this property to access the focused object of the current List View's [ListView.Editor](xref:DevExpress.ExpressApp.ListView.Editor). If the focused object changes, the [View.CurrentObjectChanged](xref:DevExpress.ExpressApp.View.CurrentObjectChanged) event is raised.

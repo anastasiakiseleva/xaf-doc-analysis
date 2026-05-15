@@ -25,6 +25,17 @@ public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
         new CollectionModeAttribute(CollectionSourceMode.Normal));
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+    MyBase.CustomizeTypesInfo(typesInfo)
+    XafTypesInfo.Instance.FindTypeInfo(GetType(Person)).FindMember("Phones").AddAttribute( _
+        New CollectionModeAttribute(CollectionSourceMode.Normal))
+End Sub
+```
+
 ***
 
 If you use a [Server](xref:118450) Mode for a nested List View, its Collection Source is created only in the Normal mode .

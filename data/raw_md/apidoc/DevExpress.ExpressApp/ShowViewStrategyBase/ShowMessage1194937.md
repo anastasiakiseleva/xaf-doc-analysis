@@ -61,6 +61,20 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim options As New MessageOptions()
+options.Duration = 2000
+options.Message = String.Format("The task is completed!")
+options.Type = InformationType.Success
+options.Web.Position = InformationPosition.Bottom
+options.Win.Caption = "Success"
+options.Win.Type = WinMessageType.Toast
+Application.ShowViewStrategy.ShowMessage(options)
+```
+
 ***
 
 In this example, `Application` is an [](xref:DevExpress.ExpressApp.XafApplication) object. Use the [Controller.Application](xref:DevExpress.ExpressApp.Controller.Application), [ActionBase.Application](xref:DevExpress.ExpressApp.Actions.ActionBase.Application) or [Frame.Application](xref:DevExpress.ExpressApp.Frame.Application) property to access it.

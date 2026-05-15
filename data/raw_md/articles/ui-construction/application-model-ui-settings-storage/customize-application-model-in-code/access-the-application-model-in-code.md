@@ -46,6 +46,24 @@ using System.Linq;
     }  
 // ...  
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+Imports System.Linq
+' ... 
+    Private Sub MainDemoWinApplication_LoggedOn(ByVal sender As Object, ByVal e As LogonEventArgs)
+        Dim app As XafApplication = CType(sender, XafApplication)
+        Dim navigationItems As IModelApplicationNavigationItems = CType(app.Model, IModelApplicationNavigationItems)
+        Dim targetViewId As String = "Department_ListView"
+        Dim targetNavigationItem As IModelNavigationItem = navigationItems.NavigationItems.AllItems.FirstOrDefault(Function(item) item.View IsNot Nothing And item.View.Id = targetViewId)
+        If targetNavigationItem IsNot Nothing Then
+            navigationItems.NavigationItems.StartupNavigationItem = targetNavigationItem
+        End If
+    End Sub
+' ...    
+```
 [`app.Model`]: xref:DevExpress.ExpressApp.XafApplication.Model
 [`IModelApplicationNavigationItems`]: xref:DevExpress.ExpressApp.SystemModule.IModelApplicationNavigationItems
 [`IModelNavigationItem`]: xref:DevExpress.ExpressApp.SystemModule.IModelNavigationItem
@@ -80,7 +98,34 @@ namespace YourSolutionName.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Linq
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Public Class CustomController
+    Inherits ViewController
+    Public Sub New()
+        Dim myAction1 = New SimpleAction(Me, "MyAction1", String.Empty)
+        AddHandler myAction1.Execute, AddressOf MyAction1_Execute
+    End Sub
+    Private Sub MyAction1_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim bo = Application.Model.BOModel.GetClass(GetType(Contact))
+        If bo IsNot Nothing Then
+            Dim oldCaption = bo.Caption
+            bo.Caption = "New test caption"
+        End If
+    End Sub
+End Class
+```
+[`GetClass`]: xref:DevExpress.ExpressApp.Model.IModelBOModel.GetClass(System.Type)
+[`BOModel`]: xref:DevExpress.ExpressApp.Model.IModelApplication.BOModel
+[`Application.Model`]: xref:DevExpress.ExpressApp.XafApplication.Model
+
 ***
+
 ## Limitations
 
 The XAF UI does not reflect changes made in the Application Model after control creation. Customize the Application Model before the control used to display a target UI element is created and loaded. Access the control directly to customize a UI element after the control's creation. Refer to the following topic for more information: [](xref:402154).

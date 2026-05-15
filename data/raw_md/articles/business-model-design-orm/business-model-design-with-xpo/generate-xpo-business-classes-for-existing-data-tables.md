@@ -37,7 +37,7 @@ If you prefer to watch a video rather than walk through these step-by-step instr
 	> If you do not like to deal with the designer and prefer to do everything in code, create a separate code file and copy the generated classes into it. Then, remove files that are added by the designer.
 
 ## Add XAF-Specific Attributes in Code
-* Open the _Customer.cs_ (_Customer.vb_) file. Decorate the `Customer` class with the [](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) and [](xref:DevExpress.Persistent.Base.ImageNameAttribute) attributes. As the result, the `Customer` object will be added to the [Navigation System](xref:113198) and an icon from the built-in library will be associated with this object.
+* Open the _Customer.cs_ file. Decorate the `Customer` class with the [](xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute) and [](xref:DevExpress.Persistent.Base.ImageNameAttribute) attributes. As the result, the `Customer` object will be added to the [Navigation System](xref:113198) and an icon from the built-in library will be associated with this object.
 	
 	# [C#](#tab/tabid-csharp)
 	
@@ -52,8 +52,28 @@ If you prefer to watch a video rather than walk through these step-by-step instr
 	}
 	```
 	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Persistent.Base
+	' ...
+	<DefaultClassOptions, ImageName("BO_Contact")> _
+	Partial Public Class Customer
+	    Public Sub New(ByVal session As Session)
+	        MyBase.New(session)
+	    End Sub
+	    Public Sub New()
+	        MyBase.New(Session.DefaultSession)
+	    End Sub
+	    Public Overrides Sub AfterConstruction()
+	        MyBase.AfterConstruction()
+	    End Sub
+	End Class
+	```
+	
 	***
-* Open the _Order.cs_ (_Order.vb_) file. Decorate the **Order** class with the **DefaultClassOptions** and **ImageName** attributes.
+
+* Open the _Order.cs_ file. Decorate the **Order** class with the **DefaultClassOptions** and **ImageName** attributes.
 	
 	# [C#](#tab/tabid-csharp)
 	
@@ -67,7 +87,26 @@ If you prefer to watch a video rather than walk through these step-by-step instr
 	    public override void AfterConstruction() { base.AfterConstruction(); }
 	}
 	```
-
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Persistent.Base
+	' ...
+	<DefaultClassOptions, ImageName("BO_Order")> _
+	Partial Public Class Order
+	        Public Sub New(ByVal session As Session)
+	            MyBase.New(session)
+	        End Sub
+	        Public Sub New()
+	            MyBase.New(Session.DefaultSession)
+	        End Sub
+	        Public Overrides Sub AfterConstruction()
+	            MyBase.AfterConstruction()
+	        End Sub
+	End Class
+	```
+	
 	***
 
 You can add more custom code to the auto-generated classes (for example, override base class methods). Do not change code located in files with the _designer_ suffix - they contain designer-generated code and should not be modified manually. The generated classes are declared as _partial_. Designed and custom class parts are located in different files.
@@ -90,6 +129,3 @@ An empty XAF application is generated with a default connection string: `Data So
 Now you can run the application to see the result. The application is completely based on the business model generated for the legacy database.
 
 ![XAF Windows Forms, DevExpress](~/images/xpodesigner_legacydb_runtimewin117145.png)
-
-
-

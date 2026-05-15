@@ -31,7 +31,29 @@ private void MyPopupAction_CustomizeTemplate(object sender, CustomizeTemplateEve
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Templates
+Imports DevExpress.ExpressApp.Win.Templates.ActionContainers
+Imports DevExpress.XtraLayout
+'...
+Private Sub MyPopupAction_CustomizeTemplate( _
+ByVal sender As Object, ByVal e As CustomizeTemplateEventArgs)
+    For Each container As IActionContainer In e.Template.GetContainers()
+        If container.ContainerId = "PopupActions" AndAlso _
+        TypeOf container Is ButtonsContainer Then
+            Dim layoutControl As LayoutControl = _
+            CType((CType(container, ButtonsContainer)).Parent, LayoutControl)
+            layoutControl.Dock = System.Windows.Forms.DockStyle.Top
+            Exit For
+        End If
+    Next container
+End Sub
+```
+
+***
+
 See more examples in the following articles:
 [How to: Adjust Window Size and Style (WinForms)](xref:117231)
 [How to: Adjust the Size and Style of Pop-up Dialogs (Blazor)](xref:404014)
-***

@@ -11,9 +11,9 @@ seealso:
 ---
 # ORM Layer Performance
 
-This article explains how to fix the most frequent SQL-related performance issues caused by ORM data model design, business logic, or UI settings.
+This article explains how to fix most frequent SQL-related performance issues caused by ORM data model design, business logic, or UI settings.
 
-Use the diagnostic information from the [Database Performance](xref:402149) help topic to analyze the code of ORM persistent classes as described in this topic.
+Use diagnostic information from the [Database Performance](xref:402149) help topic to analyze ORM persistent classes code as described in this topic.
 
 ## ORM Best Practices
 
@@ -53,19 +53,21 @@ For more information, refer to the following video: [Data Access in DevExpress X
 
 This may occur if each persistent object contains many fields with images, long text, references to complex persistent objects, etc.
 
-**Solution 1:** For List Editors, set the ListView's [DataAccessMode](xref:DevExpress.ExpressApp.Model.IModelListView.DataAccessMode) to `DataView`, `ServerView` or `InstantFeedbackView` to load only required properties (by default, all object properties are loaded except for collections). For reports, use [ViewDataSource](xref:DevExpress.Persistent.Base.ReportsV2.ViewDataSource).
+**Solution 1:** For List Editors, set the ListView's [DataAccessMode](xref:DevExpress.ExpressApp.Model.IModelListView.DataAccessMode) to `DataView`, `ServerView`, or `InstantFeedbackView` to load only required properties (by default, all object properties are loaded except for collections). For reports, use [ViewDataSource](xref:DevExpress.Persistent.Base.ReportsV2.ViewDataSource).
 
 **Solution 2:** Enable [Delayed Loading](xref:2024) for BLOB and complex reference properties. Note that delayed properties should not be displayed in the ListView.
 
 ### XPO or EF Core sends additional queries to load associated (referenced) objects.
 
-For _XPO_, this behavior is expected; it loads related object IDs in the main query, and then loads all of these objects in the second query by these IDs. In most cases, this behavior should not cause performance issues. If it does, there are two ways to address these issues:
+For _XPO_, this behavior is expected. XPO loads related object IDs in the main query, and then builds the second query that loads objects by IDs. Usually, this behavior should not cause performance issues. If it does, there are three ways to address these issues:
 
 **Solution 1:** Include referenced objects in the main SELECT query by applying the [ExplicitLoading](xref:DevExpress.Xpo.ExplicitLoadingAttribute) attribute to the corresponding properties.
 
 **Solution 2:** If related objects are not used in list views, you can use [Delayed Loading](xref:2024) for them.
 
-In most cases, all referenced objects of the same type are loaded through a single additional query for all records. If additional queries are performed for each record, see the next case.
+**Solution 3:** If Lookup Property Editors use the [AllItems](xref:DevExpress.Persistent.Base.LookupEditorMode) data loading mode, set the editor's display style to **View Mode**. In this case, XAF initially renders the editor as a text box and does not load the associated list at startup. For more information, refer to the following section: [LookupPropertyEditor's View Mode](xref:113572#lookuppropertyeditors-view-mode-for-detailview-only).
+
+Usually, all referenced objects of the same type are loaded through a single additional query for all records. If additional queries are performed for each record, see the next case.
 
 For EF Core, review the following topics:
 - [](xref:404429)
@@ -91,7 +93,7 @@ To resolve such issues, see what additional queries are executed and analyze you
 
     **Solution 1:** For List Editors, set the ListView's DataAccessMode to DataView, ServerView, or InstantFeedbackView. For reports, use ViewDataSource. In this case, when ORM constructs the main SELECT query, it includes all queries that can run server side (PersistentAlias expressions). The application will not use any client-side code that loads data.
 
-    **Solution 2:** Pre-fetch associated collections using the `Session.PreFetch` and `XPObjectSpace.SetPrefetchPropertyNames` methods. In this case, all associated objects will be loaded in a single query. You can find an example in the following ticket: [How do I prefetch related details data to increase performance for calculated fields](https://supportcenter.devexpress.com/ticket/details/q558707/how-do-i-prefetch-related-details-data-to-increase-performance-for-calculated-fields).
+    **Solution 2:** Pre-fetch associated collections using `Session.PreFetch` and `XPObjectSpace.SetPrefetchPropertyNames` methods. In this case, all associated objects will be loaded in a single query. You can find an example in the following ticket: [How do I prefetch related details data to increase performance for calculated fields](https://supportcenter.devexpress.com/ticket/details/q558707/how-do-i-prefetch-related-details-data-to-increase-performance-for-calculated-fields).
 
     **Solution 3:** Use the `Session.Evaluate` method instead of the `EvaluateAlias` method in getters of such properties. The `Session.Evaluate` method evaluates the specified expression on the database side and returns a single value. XPO still sends a separate query for each row, but these queries require less time and memory.
 

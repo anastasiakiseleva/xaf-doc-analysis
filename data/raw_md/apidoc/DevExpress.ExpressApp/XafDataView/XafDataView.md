@@ -19,6 +19,14 @@ The data view column names and [expressions](xref:4928) used to compute column v
 XafDataView dataView = (XafDataView)objectSpace.CreateDataView(
     typeof(Product), "ID;Name;Sales.Sum([Count] * Price)", null, null);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataView As XafDataView = CType(objectSpace.CreateDataView( _
+    GetType(Product), "ID;Name;Sales.Sum([Count] * Price)", Nothing, Nothing), XafDataView)
+```
+
 ***
 
 Alternatively, you can pass the **IList\<**[](xref:DevExpress.ExpressApp.Utils.DataViewExpression)**>** list via the _expressions_ parameter. The data can be filtered and sorted with the _criteria_ and _sorting_ parameters.
@@ -40,6 +48,22 @@ SortProperty[] sorting = new SortProperty[] {
 };
 EFCoreDataView dataView = new EFCoreDataView(objectSpace, typeof(Sale), dataViewExpressions, criteria, sorting);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataViewExpressions As New List(Of DataViewExpression)()
+dataViewExpressions.Add(New DataViewExpression( _
+"ID", New OperandProperty("ID")))
+dataViewExpressions.Add(New DataViewExpression( _
+"Name.UpperCase", New FunctionOperator(FunctionOperatorType.Upper, New OperandProperty("Name"))))
+dataViewExpressions.Add(New DataViewExpression( _
+"Count", New AggregateOperand("Sales", Aggregate.Count)))
+Dim criteria As CriteriaOperator = New BinaryOperator("Sales.Count", 0, BinaryOperatorType.Greater)
+Dim sorting() As SortProperty = { New SortProperty("Name", SortingDirection.Ascending) }
+Dim dataView As New EFCoreDataView(objectSpace, GetType(Sale), dataViewExpressions, criteria, sorting)
+```
+
 ***
 
 When you access a particular data record by its index (see [XafDataView.Item](xref:DevExpress.ExpressApp.XafDataView.Item(System.Int32))), an [](xref:DevExpress.ExpressApp.XafDataViewRecord) object is returned.
@@ -49,6 +73,13 @@ When you access a particular data record by its index (see [XafDataView.Item](xr
 ```csharp
 XafDataViewRecord dataRecord = dataView[0];
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataRecord As XafDataViewRecord = dataView(0)
+```
+
 ***
 
 To get a column value within a particular data record, use the [XafDataViewRecord.Item](xref:DevExpress.ExpressApp.XafDataViewRecord.Item*) property as follows:
@@ -58,6 +89,13 @@ To get a column value within a particular data record, use the [XafDataViewRecor
 ```csharp
 int id = dataView[0]["ID"];
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim id As Integer = dataView(0)("ID")
+```
+
 ***
 
 Here, the "ID" string is the name of the column within the [XafDataView.Expressions](xref:DevExpress.ExpressApp.XafDataView.Expressions) list. If you use a semicolon-separated string to specify the columns set in the **XafDataView** constructor, the column name coincides with the expression text:
@@ -67,6 +105,13 @@ Here, the "ID" string is the name of the column within the [XafDataView.Expressi
 ```csharp
 int total = dataView[0]["Sales.Sum(Count * Price)"];
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim total As Integer = dataView(0)("Sales.Sum(Count * Price)")
+```
+
 ***
 
 Data records are not retrieved from the database when the **XafDataView** object is created. Instead, the database is queried when you access a specific record by its index or call one of the following methods for the first time:

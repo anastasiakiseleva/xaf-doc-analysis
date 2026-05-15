@@ -25,6 +25,23 @@ string FullName2 = ObjectFormatter.Format(
 // FullName1 = "Doe, John"
 // FullName2 = "Doe, John"
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim john As New Contact()
+john.LastName = "Doe"
+john.FirstName = "John"
+
+Dim FullName1 As String = ObjectFormatter.Format( _
+"{LastName}, {FirstName}", john, EmptyEntriesMode.Default) 
+Dim FullName2 As String = ObjectFormatter.Format( _
+"{LastName}, {FirstName}", john, EmptyEntriesMode.RemoveDelimiterWhenEntryIsEmpty ) 
+
+' FullName1 = "Doe, John"
+' FullName2 = "Doe, John"
+```
+
 ***
 
 Since in this code snippet both the **LastName** and **FirstName** properties have non-empty values, the **FullName1** and **FullName2** variables contain the same string - "Doe, John".
@@ -45,6 +62,22 @@ string FullName2 = ObjectFormatter.Format(
 // FullName1 = "Doe,"
 // FullName2 = "Doe"
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim john As New Contact()
+john.LastName = "Doe"
+
+Dim FullName1 As String = ObjectFormatter.Format( _
+"{LastName}, {FirstName}", john, EmptyEntriesMode.Default) 
+Dim FullName2 As String = ObjectFormatter.Format( _
+"{LastName}, {FirstName}", john, EmptyEntriesMode.RemoveDelimiterWhenEntryIsEmpty ) 
+
+' FullName1 = "Doe,"
+' FullName2 = "Doe"
+```
+
 ***
 
 The **FullName1** and **FullName2** variables contain different strings. 

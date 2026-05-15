@@ -67,6 +67,60 @@ public class CollectionElement : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<DefaultClassOptions> _
+Public Class CollectionOwner
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    <RuleUniqueValue("RuleCollectionValidation", _
+    DefaultContexts.Save, TargetPropertyName:=NameOf(CollectionElement.StringProperty)), _
+    Association("CollectionOwner-CollectionElements"), Aggregated()> _
+    Public ReadOnly Property Collection() As XPCollection( _
+    Of CollectionElement)
+        Get
+            Return GetCollection( _
+            Of CollectionElement)(NameOf(Collection))
+        End Get
+    End Property
+End Class
+
+Public Class CollectionElement
+    Inherits BaseObject
+    Private owner_Renamed As CollectionOwner
+    Private stringProperty_Renamed As String
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Public Property StringProperty() As String
+        Get
+            Return stringProperty_Renamed
+        End Get
+        Set(ByVal value As String)
+            stringProperty_Renamed = value
+        End Set
+    End Property
+
+    <Association("CollectionOwner-CollectionElements")> _
+    Public Property Owner() As CollectionOwner
+        Get
+            Return owner_Renamed
+        End Get
+        Set(ByVal value As CollectionOwner)
+            owner_Renamed = value
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 ## Aggregate Functions
@@ -135,6 +189,67 @@ public class AggregateFunctionCollectionElement : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Data.Filtering
+
+'...
+
+<DefaultClassOptions> _
+Public Class AggregateFunction
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    <RuleValueComparison("RuleWithAggregateFunction", _
+    DefaultContexts.Save, ValueComparisonType.NotEquals, 0, _
+    TargetPropertyName:=NameOf(AggregateFunctionCollectionElement.IntegerProperty), _
+    TargetCollectionAggregate:=Aggregate.Sum), _
+    Association("AggregateFunction-AggregateFunctionCollectionElements"), _
+    Aggregated()> _
+    Public ReadOnly Property Collection() As XPCollection( _
+    Of AggregateFunctionCollectionElement)
+        Get
+            Return GetCollection( _
+            Of AggregateFunctionCollectionElement)(NameOf(Collection))
+        End Get
+    End Property
+End Class
+
+Public Class AggregateFunctionCollectionElement
+    Inherits BaseObject
+    Private owner_Renamed As AggregateFunction
+    Private integerProperty_Renamed As Integer
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Public Property IntegerProperty() As Integer
+        Get
+            Return integerProperty_Renamed
+        End Get
+        Set(ByVal value As Integer)
+            integerProperty_Renamed = value
+        End Set
+    End Property
+
+    <Association("AggregateFunction-AggregateFunctionCollectionElements")> _
+    Public Property Owner() As AggregateFunction
+        Get
+            Return owner_Renamed
+        End Get
+        Set(ByVal value As AggregateFunction)
+            owner_Renamed = value
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 If the [RuleBaseAttribute.TargetCriteria](xref:DevExpress.Persistent.Validation.RuleBaseAttribute.TargetCriteria) property has been specified, then the demonstrated rule would calculate the sum over the suitable elements only.
@@ -222,4 +337,67 @@ public class MessageTemplateCollectionElement : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Data.Filtering
+
+'...
+
+<DefaultClassOptions> _
+Public Class MessageTemplate
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    <RuleRange("RuleWithCustomMessageTemplate", DefaultContexts.Save, _
+    0, 50, TargetPropertyName:=NameOf(MessageTemplateCollectionElement.DecimalProperty), _
+    TargetCollectionAggregate:=Aggregate.Sum, _
+    CustomMessageTemplate:= _
+    "The sum of the {TargetPropertyName} values must be " & _
+    "within {MinimumValue} and {MaximumValue} range. The current value is" & _
+    " {AggregatedTargetValue}"), _
+    Association("MessageTemplate-MessageTemplateCollectionElements"), Aggregated()> _
+    Public ReadOnly Property Collection() As XPCollection( _
+    Of MessageTemplateCollectionElement)
+        Get
+            Return GetCollection( _
+            Of MessageTemplateCollectionElement)(NameOf(Collection))
+        End Get
+    End Property
+End Class
+
+Public Class MessageTemplateCollectionElement
+    Inherits BaseObject
+    Private decimalProperty_Renamed As Decimal
+    Private owner_Renamed As MessageTemplate
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Public Property DecimalProperty() As Decimal
+        Get
+            Return decimalProperty_Renamed
+        End Get
+        Set(ByVal value As Decimal)
+            decimalProperty_Renamed = value
+        End Set
+    End Property
+
+    <Association("MessageTemplate-MessageTemplateCollectionElements")> _
+    Public Property Owner() As MessageTemplate
+        Get
+            Return owner_Renamed
+        End Get
+        Set(ByVal value As MessageTemplate)
+            SetPropertyValue(NameOf(Owner), owner_Renamed, value)
+        End Set
+    End Property
+End Class
+```
+
 ***

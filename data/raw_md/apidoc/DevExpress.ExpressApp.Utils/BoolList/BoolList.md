@@ -38,6 +38,18 @@ if(myList) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myList As BoolList = New BoolList()
+myList("myKey") = True
+'...
+If (myList) Then
+    '...
+End If
+```
+
 ***
 
 To add a new key/value pair to a **BoolList** or modify an existing one, use the [BoolList.Item](xref:DevExpress.ExpressApp.Utils.BoolList.Item(System.String)) indexer property. Alternatively, you can use the [BoolList.SetItemValue](xref:DevExpress.ExpressApp.Utils.BoolList.SetItemValue(System.String,System.Boolean)) method. To remove an item from a **BoolList**, use the [BoolList.RemoveItem](xref:DevExpress.ExpressApp.Utils.BoolList.RemoveItem(System.String)) method.

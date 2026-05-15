@@ -9,7 +9,6 @@ title: List View Data Access Modes
 ---
 # List View Data Access Modes
 
-## Choose Data Access Mode
 XAF uses the following default data access modes: 
 
 * [Client](xref:118449): all XAF List Views, with the exception below. 
@@ -23,350 +22,42 @@ You can activate other modes to optimize how a List View loads and processes dat
 
 The following table explains these different modes:
 
-{|
-|-
-! 
-! [Client](xref:118449)
-! [Queryable](xref:402925)
-! [Server](xref:118450)
-! [ServerView](xref:118450)
-! [DataView](xref:118452)
-! [InstantFeedback](xref:118450)
-! [InstantFeedbackView](xref:118450)
-|-
-
-| **Platform**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Blazor
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| WinForms
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| **ORM**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| EF Core
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| XPO
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| **Supported ListEditors**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Blazor Grid
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| Blazor Lookup
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Blazor Tree List
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Blazor Chart
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-|-
-
-| Blazor Scheduler
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| WinForms Grid
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| WinForms Tree List
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-| 
-|-
-
-| WinForms Scheduler
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-|-
-
-| WinForms Pivot Grid
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-|-
-
-| **Processed Object**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Original Object
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-|-
-
-| ObjectRecord
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| XafDataViewRecord
-| 
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-|-
-
-| **Columns Available for Processing**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Displayed Columns
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| Column from the Model
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-|-
-
-| Displayable Collection Properties
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| **Initially Loaded Objects**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| All
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-|-
-
-| Displayed
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| **Non-persistent Properties**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Fully Supported
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Supported with Limitations
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| **Additional Capabilities**
-| 
-| 
-| 
-| 
-| 
-| 
-| 
-|-
-
-| Async Loading
-| 
-| 
-| 
-| 
-| 
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-|-
-
-| In-place Editing
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| ![supports](~/images/feature_suppoted.png)
-| 
-| 
-| 
-| 
-|-
-
-
-|}
+|  | [Client](xref:118449) | [Queryable](xref:402925) | [Server](xref:118450) | [ServerView](xref:118450) | [DataView](xref:118452) | [InstantFeedback](xref:118450) | [InstantFeedbackView](xref:118450) |
+|--|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| **Platform** |  |  |  |  |  |  |  |
+| Blazor | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| WinForms | ✅ |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **ORM** |  |  |  |  |  |  |  |
+| EF Core | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| XPO | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Supported ListEditors** |  |  |  |  |  |  |  |
+| Blazor Grid | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Blazor Lookup | ✅ | ✅ |  |  |  |  |  |
+| Blazor Tree List | ✅ | ✅ |  |  |  |  |  |
+| Blazor Chart | ✅ |  |  |  | ✅ |  |  |
+| Blazor Scheduler | ✅ |  |  |  |  |  |  |
+| Blazor Pivot Grid (CTP) | ✅ | ✅ |  |  | ✅ |  |  |
+| WinForms Grid | ✅ |  | ✅ | ✅ | ✅ | ✅ | ✅ |
+| WinForms Tree List | ✅ | ✅ |  |  |  |  |  |
+| WinForms Scheduler | ✅ |  |  |  | ✅ |  |  |
+| WinForms Pivot Grid | ✅ |  |  |  | ✅ |  |  |
+| **Processed Object** |  |  |  |  |  |  |  |
+| Original Object | ✅ | ✅ | ✅ |  |  |  |  |
+| ObjectRecord |  |  |  | ✅ |  | ✅ | ✅ |
+| XafDataViewRecord |  |  |  |  | ✅ |  |  |
+| **Columns Available for Processing** |  |  |  |  |  |  |  |
+| Displayed Columns | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Column from the Model | ✅ |  | ✅ |  |  |  |  |
+| Displayable Collection Properties |  |  |  | ✅ |  | ✅ | ✅ |
+| **Initially Loaded Objects** |  |  |  |  |  |  |  |
+| All | ✅ |  |  |  | ✅ |  |  |
+| Displayed |  | ✅ | ✅ | ✅ |  | ✅ | ✅ |
+| **Non-persistent Properties** |  |  |  |  |  |  |  |
+| Fully Supported | ✅ |  |  |  |  |  |  |
+| Supported with Limitations |  | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Additional Capabilities** |  |  |  |  |  |  |  |
+| Async Loading |  |  |  |  |  | ✅ | ✅ |
+| In-place Editing | ✅ | ✅ | ✅ |  |  |  |  |
 
 For additional information about a specific data access mode, navigate to the corresponding help article. 
 
@@ -374,7 +65,7 @@ The following video explains the best ways to access and manipulate data in XAF,
 
 > [!video https://www.youtube.com/embed/RUyXX2pJcjM]
 
-### Non-Persistent Properties: Support Limitations
+## Non-Persistent Properties: Support Limitations
 
 Non-persistent properties return a value calculated at runtime or store a temporary value in memory. The following list describes their limitations in various data access modes:
 

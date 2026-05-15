@@ -18,6 +18,8 @@ XAF's ASP.NET Core Blazor UI implements `ColorPropertyEditor` to display @System
 
 ![XAF Color Properties ASP.NET Core Blazor, DevExpress](~/images/blazor-color-properties-editor-devexpress.png)
 
+You can localize color captions in the [Model Editor](xref:112582) under **Localization** > **Enums** > **KnownColor**.
+
 [!include[blazor-editor-descendants](~/templates/blazor-editor-descendants.md)]
 
 The following code snippet applies a custom CSS class to all `ColorPropertyEditor` controls in the application.

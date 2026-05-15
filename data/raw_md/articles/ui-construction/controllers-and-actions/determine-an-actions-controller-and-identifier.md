@@ -61,6 +61,20 @@ if (controller != null) {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+Imports DevExpress.ExpressApp.Actions
+' ...
+Dim controller As ObjectMethodActionsViewController = Frame.GetController(Of ObjectMethodActionsViewController)()
+If controller IsNot Nothing Then
+    Dim postponeAction As PopupWindowShowAction = TryCast(controller.Actions("Task.Postpone.PostponeParametersObject"), PopupWindowShowAction)
+    ' ...
+End If
+```
+
 ***
 
 ## Help Topics that List Built-in Controllers and their Actions

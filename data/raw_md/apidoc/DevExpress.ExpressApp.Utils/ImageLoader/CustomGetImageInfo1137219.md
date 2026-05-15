@@ -83,6 +83,27 @@ Handle the `CustomGetImageInfo` event to supply an [](xref:DevExpress.ExpressApp
         ObjectSpace.CommitChanges();
      }
     ```
+        
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Public Overrides Sub UpdateDatabaseAfterUpdateSchema()
+        MyBase.UpdateDatabaseAfterUpdateSchema()
+        Dim image1 As MyImageObject = ObjectSpace.CreateObject(Of MyImageObject)()
+        image1.Name = "Image 1"
+        Dim stream = New System.IO.MemoryStream()
+        ImageLoader.Instance.GetSmallImageInfo("Action_Save").Image.Save(stream, ImageFormat.Png)
+        image1.Image = stream.ToArray()
+    
+        Dim image2 As MyImageObject = ObjectSpace.CreateObject(Of MyImageObject)()
+        image2.Name = "Image 2"
+        stream = New System.IO.MemoryStream()
+        ImageLoader.Instance.GetSmallImageInfo("Action_Delete").Image.Save(stream, ImageFormat.Png)
+        image2.Image = stream.ToArray()
+        ObjectSpace.CommitChanges()
+    End Sub
+    ```
+    
     ***
 * Edit the _Program.cs_ file and handle the static `CustomGetImageInfo` event before the [XafApplication.Setup](xref:DevExpress.ExpressApp.XafApplication.Setup*) method is called.
     
@@ -109,7 +130,35 @@ Handle the `CustomGetImageInfo` event to supply an [](xref:DevExpress.ExpressApp
         }
     };
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Imports System.IO
+    Imports System.Drawing
+    Imports System.Drawing.Imaging
+    Imports DevExpress.ExpressApp.Web.Editors.ASPx
+    ' ...
+    Private ImageLoader.CustomGetImageInfo += Sub(s, args)
+        If args.ImageName.StartsWith(MyWindowController.MyImagePrefix) Then
+            Dim key As Integer
+            Dim key_string As String = args.ImageName.Split("_"c)(1)
+            If Integer.TryParse(key_string, key) Then
+                Using objectSpace As IObjectSpace = WebApplication.Instance.CreateObjectSpace(GetType(MyImageObject))
+                    Dim imageObject As MyImageObject = objectSpace.GetObjectByKey(Of MyImageObject)(key)
+                    If imageObject IsNot Nothing Then
+                        args.ImageInfo = New ImageInfo(args.ImageName, Image.FromStream(New MemoryStream(imageObject.Image)), _
+                        ImageProcessorsHelper.GetImageUrl(objectSpace, imageObject, "Image"))
+                        args.Handled = True
+                    End If
+                End Using
+            End If
+        End If
+    End Sub
+    ```
+    
     ***
+
 * Now, you can specify images as follows:
     
     # [C#](#tab/tabid-csharp)
@@ -141,4 +190,37 @@ Handle the `CustomGetImageInfo` event to supply an [](xref:DevExpress.ExpressApp
         }
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Imports DevExpress.ExpressApp
+    Imports DevExpress.ExpressApp.Actions
+    ' ...
+    Public Class MyWindowController
+        Inherits WindowController
+        Public Const MyImagePrefix As String = "MyImageObject_"
+        Private action As SingleChoiceAction
+        Public Sub New()
+            MyBase.New()
+            Me.TargetWindowType = WindowType.Main
+            action = New SingleChoiceAction(Me, "My Action", DevExpress.Persistent.Base.PredefinedCategory.Edit)
+            action.ImageMode = ImageMode.UseItemImage
+            action.ItemType = SingleChoiceActionItemType.ItemIsOperation
+        End Sub
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            action.Items.Clear()
+            Using objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(MyImageObject))
+                For Each imageObject As MyImageObject In objectSpace.GetObjects(Of MyImageObject)()
+                    Dim item As New ChoiceActionItem()
+                    item.Caption = imageObject.Name
+                    item.ImageName = MyImagePrefix & imageObject.ID
+                    action.Items.Add(item)
+                Next imageObject
+            End Using
+        End Sub
+    End Class
+    ```
+    
     ***

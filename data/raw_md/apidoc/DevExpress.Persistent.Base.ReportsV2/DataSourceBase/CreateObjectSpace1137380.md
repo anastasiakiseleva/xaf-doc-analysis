@@ -29,4 +29,16 @@ private void report_BeforePrint(object sender, System.Drawing.Printing.PrintEven
         DevExpress.Persistent.Base.ReportsV2.DataSourceBase.CreateObjectSpace(typeof(MyObject), (DevExpress.XtraReports.UI.XtraReport)sender);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub report_BeforePrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs)
+    Dim objectSpace As DevExpress.ExpressApp.IObjectSpace = _
+    DevExpress.Persistent.Base.ReportsV2.DataSourceBase.CreateObjectSpace( _
+    GetType(MyObject), CType(sender, DevExpress.XtraReports.UI.XtraReport))
+End Sub
+End Sub
+```
+
 ***

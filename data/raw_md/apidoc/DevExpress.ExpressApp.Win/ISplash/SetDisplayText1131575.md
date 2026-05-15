@@ -29,6 +29,25 @@ static class Program {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Friend Class Program
+    Shared Sub Main()
+        '..
+        Dim application As MySolutionWindowsFormsApplication = _
+        New MySolutionWindowsFormsApplication()
+        Try
+            application.SplashScreen.SetDisplayText("MyText")
+            application.Setup()
+            application.Start()
+        End Try
+        '...
+    End Sub
+End Class
+```
+
 ***
 
 The **SetDisplayText** method must be called before the **Setup** method call. Otherwise, the splash screen with the default text will be shown.
@@ -43,6 +62,18 @@ public class MySplash : ISplash {
     public void SetDisplayText(string displayText) {}
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MySplash
+        Implements ISplash
+    '...
+    Public Sub SetDisplayText(ByVal displayText As String)
+    End Sub
+End Class
+```
+
 ***
 
 If your splash screen form contains a label, you can set the required text to it explicitely, without additional code.

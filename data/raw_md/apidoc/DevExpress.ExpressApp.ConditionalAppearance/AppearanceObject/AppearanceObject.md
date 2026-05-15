@@ -49,4 +49,44 @@ public partial class ConditionalAppearanceController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports ConditionalAppearanceExample.Module.BusinessObjects
+Imports DevExpress.ExpressApp.Editors
+'...
+Partial Public Class ConditionalAppearanceController
+        Inherits ViewController
+    Public Sub New()
+        InitializeComponent()
+    End Sub
+    Private appearanceController As AppearanceController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        appearanceController = Frame.GetController(Of AppearanceController)()
+        If appearanceController IsNot Nothing Then
+             AddHandler appearanceController.CustomApplyAppearance, _
+             AddressOf appearanceController_CustomApplyAppearance
+        End If
+    End Sub
+    Private Sub appearanceController_CustomApplyAppearance( _
+    ByVal sender As Object, ByVal e As ApplyAppearanceEventArgs)
+        'Customize the AppearanceObject
+        'Apply the modified appearance
+        For Each appearanceItem As AppearanceItemBase In e.AppearanceObject.Items
+                appearanceItem.Apply(e.Item)
+        Next appearanceItem
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If appearanceController IsNot Nothing Then
+            RemoveHandler appearanceController.CustomApplyAppearance, _
+            AddressOf appearanceController_CustomApplyAppearance
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

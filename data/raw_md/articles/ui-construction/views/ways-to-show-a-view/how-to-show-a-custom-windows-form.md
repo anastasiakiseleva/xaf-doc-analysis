@@ -40,6 +40,31 @@ The steps below describe how to show a custom window on an [Action](xref:112622)
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp
+	Imports DevExpress.ExpressApp.Actions
+	Imports System.Windows.Forms
+	'...
+	Public Class ShowWindowController
+	    Inherits ViewController
+	    Public Sub New()
+	        Dim showWindowAction As New SimpleAction(Me, "ShowWindow", _
+	DevExpress.Persistent.Base.PredefinedCategory.View)
+	        showWindowAction.ImageName = "ModelEditor_Views"
+	        AddHandler showWindowAction.Execute, AddressOf showWindowAction_Execute
+	    End Sub
+	    Private Sub showWindowAction_Execute(ByVal sender As Object, _
+	ByVal e As SimpleActionExecuteEventArgs)
+	        Dim form As New NonXAFForm()
+	        //...
+	        form.ShowDialog()
+	    End Sub
+	End Class
+	```
+	
 	***
 
 ![CustomWindowWithoutXAFData](~/images/customwindowwithoutxafdata127583.png)
@@ -82,6 +107,38 @@ new SimpleActionExecuteEventHandler(showWindowAction_Execute);
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports System.Collections
+Imports System.Windows.Forms
+'...
+Public Class ShowWindowController
+    Inherits ViewController
+    Public Sub New()
+        Dim showWindowAction As New SimpleAction(Me, "ShowWindow", _
+DevExpress.Persistent.Base.PredefinedCategory.View)
+        showWindowAction.ImageName = "ModelEditor_Views"
+        AddHandler showWindowAction.Execute, AddressOf showWindowAction_Execute
+    End Sub
+    Private Sub showWindowAction_Execute(ByVal sender As Object, _
+ByVal e As SimpleActionExecuteEventArgs)
+        Dim form As New Form()
+        form.Text = "Form with XAF Data"
+        Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Contact))
+        Dim contactsCollection As IList = objectSpace.CreateCollection(GetType(Contact))
+        Dim dataGridView As New DataGridView()
+        dataGridView.DataSource = contactsCollection
+        dataGridView.Dock = DockStyle.Fill
+        form.Controls.Add(dataGridView)
+        form.ShowDialog()
+    End Sub
+End Class
+```
+
 ***
 
 ![CustomWindowWithXAFData](~/images/customwindowwithxafdata127506.png)
@@ -106,4 +163,26 @@ public partial class NonXAFForm : XtraForm {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Windows.Forms
+Imports DevExpress.ExpressApp
+Imports DevExpress.XtraEditors
+'...
+Partial Public Class NonXAFForm
+    Inherits XtraForm
+    '...
+    Private objectSpace As IObjectSpace
+    Public Sub New(ByVal objectSpace As IObjectSpace)
+        MyBase.New()
+        InitializeComponent()
+        Me.objectSpace = objectSpace
+        dataGridView1.DataSource = objectSpace.GetObjects(GetType(Contact))
+        '...
+    End Sub
+End Class
+```
+
 ***

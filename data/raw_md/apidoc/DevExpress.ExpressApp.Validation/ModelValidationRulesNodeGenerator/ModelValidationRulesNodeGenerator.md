@@ -26,6 +26,19 @@ public class Updater : ModelNodesGeneratorUpdater<ModelValidationRulesNodeGenera
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Updater
+    Inherits ModelNodesGeneratorUpdater(Of )
+    Public Overrides Sub UpdateNode(ByVal node As ModelNode)
+        ' Cast the 'node' parameter to IModelValidationRules
+        ' to access the Rules node.
+    End Sub
+End Class
+```
+
 ***
 
 The Generator Updater above should be registered within the overridden [ModuleBase.AddGeneratorUpdaters](xref:DevExpress.ExpressApp.ModuleBase.AddGeneratorUpdaters(DevExpress.ExpressApp.Model.Core.ModelNodesGeneratorUpdaters)) method.

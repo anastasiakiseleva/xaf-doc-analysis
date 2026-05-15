@@ -82,6 +82,31 @@ public class Account : BaseObject {
    }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Validation
+Imports System.ComponentModel
+'...
+Public Class Account
+      Inherits BaseObject
+   '...
+   Private fAmount As Double
+   <RuleValueComparison("RuleRequiredField for Account .Amount", DefaultContexts.Save, _
+      ValueComparisonType.LessThan,100, _
+      CustomMessageTemplate = "The Amount must not be less than {RightOperand}.")> _
+   Public Property Amount() As Double
+      Get
+         Return fAmount
+      End Get
+      Set
+         SetPropertyValue(NameOf(Amount), fAmount, Value)
+      End Set
+   End Property
+End Class
+```
+
 ***
 
 The **CustomMessageTemplate** property of the corresponding [](xref:DevExpress.ExpressApp.Validation.IModelRuleBase) node stores the message template specified for the validation rule attribute in code. 

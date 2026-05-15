@@ -36,6 +36,34 @@ public class EmployeeDetailViewModelController : WindowController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+'Imports MainDemo.Module.BusinessObjects
+
+Public Class EmployeeDetailViewModelController
+    Inherits WindowController
+    Public Sub New()
+        TargetWindowType = WindowType.Main
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Application.DetailViewCreating, AddressOf Application_DetailViewCreating
+    End Sub
+    Private Sub Application_DetailViewCreating(ByVal sender As Object, ByVal e As DetailViewCreatingEventArgs)
+        If e.ViewID = "Employee_DetailView" AndAlso TypeOf e.Obj Is Employee AndAlso CType(e.Obj, Employee).Position?.Title = "Manager" Then
+            e.ViewID = "Employee_DetailView_Manager"
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        RemoveHandler Application.DetailViewCreating, AddressOf Application_DetailViewCreating
+    End Sub
+End Class
+```
+
 ***
 
 [`ObjectViewController`]: xref:DevExpress.ExpressApp.ObjectViewController`2

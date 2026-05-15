@@ -20,6 +20,19 @@ mySimpleAction.Active["MyReason3"] = "true";
 //...
 mySimpleAction.Active.EndUpdate();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+'...
+mySimpleAction.Active.BeginUpdate()
+mySimpleAction.Active("MyReason1") = "true"
+mySimpleAction.Active("MyReason2") = "true"
+mySimpleAction.Active("MyReason3") = "true"
+'...
+mySimpleAction.Active.EndUpdate()
+```
+
 ***
 
 The **BeginUpdate** and **EndUpdate** methods use an internal counter to implement their functionality. The counter's initial value is **0**. A call to the **BeginUpdate** method increments the counter by one. A call to the **EndUpdate** method decrements the counter by one, and if its new value is zero, a change notification is generated. This means that each call to **BeginUpdate** must be paired with a call to **EndUpdate**. If a call to **BeginUpdate** is made, but without a subsequent corresponding call to **EndUpdate**, or **EndUpdate** is not called because an exception occurred, the **BoolList** will no longer respond to changes. To ensure that **EndUpdate** is always called even if an exception occurs, wrap any calls to these methods in a **try...finally** statement.

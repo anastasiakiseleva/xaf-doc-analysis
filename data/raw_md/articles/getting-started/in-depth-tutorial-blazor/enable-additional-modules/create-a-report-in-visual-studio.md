@@ -13,20 +13,9 @@ The instructions below show how to do the following:
 
 ## Add Reports V2 Module
 
-1. Add the **DevExpress.ExpressApp.ReportsV2** NuGet package to the _MySolution.Module_ project. See the following topic for more information on how to install DevExpress NuGet packages: [](xref:116042).
-	
-2. Add the **DevExpress.ExpressApp.ReportsV2.Blazor** NuGet package to the _MySolution.Blazor.Server_ project and the **DevExpress.ExpressApp.ReportsV2.Win** NuGet package to the _MySolution.Win_ project.
-	
-3. Go to the _MySolution.Module\MySolutionDbContext_ file and add a DbSet of `ReportDataV2` type:
+1. Add the **DevExpress.ExpressApp.ReportsV2.Blazor** NuGet package to the _MySolution.Blazor.Server_ project and the **DevExpress.ExpressApp.ReportsV2.Win** NuGet package to the _MySolution.Win_ project.
 
-   ```csharp
-   public class MySolutionEFCoreDbContext : DbContext {
-       //...
-	   public DbSet<ReportDataV2> ReportData { get; set; }
-   }
-   ```
-
-4. In the _MySolution.Blazor.Server_ project, open the _Startup.cs_ file and add the Reports V2 module to the application builder. Do the same in the _Startup.cs_ file in the _MySolution.Win_ folder.
+2. In the _MySolution.Blazor.Server_ project, open the _Startup.cs_ file and add the Reports V2 module to the application builder. Do the same in the _Startup.cs_ file in the _MySolution.Win_ folder.
 
    # [C# (ASP.NET Core Blazor)](#tab/tabid-csharp-blazor)
  
@@ -73,6 +62,15 @@ The instructions below show how to do the following:
    ```
 
    ***
+
+3. Go to the _MySolution.Module\BusinessObjects\MySolutionDbContext_ file and add a DbSet of `ReportDataV2` type:
+
+   ```csharp
+   public class MySolutionEFCoreDbContext : DbContext {
+       //...
+	   public DbSet<ReportDataV2> ReportData { get; set; }
+   }
+   ```
 
    If you add the Reports V2 module when you create an XAF application, the [Template Kit](xref:405447) generates the code used to add the Reports V2 module automatically.
 

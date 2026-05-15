@@ -52,7 +52,7 @@ The application also creates users with restricted access in each tenant, such a
 
 ## Employee Management Demo (XPO/EF Core)
 
-This demo allows you to store contacts, tasks, events, reports and other related data. It includes reusable XAF modules such Reports, Office, Scheduler, View Variants, PivotChart, AuditTrail, FileAttachments. The EF Core Blazor version is available [online](https://demos.devexpress.com/XAF/BlazorMainDemo/).
+This demo allows you to store contacts, tasks, events, reports and other related data. It includes reusable XAF modules such Reports, Office, Scheduler, View Variants, AuditTrail, FileAttachments. The EF Core Blazor version is available [online](https://demos.devexpress.com/XAF/BlazorMainDemo/).
 
 ### Demo Source Code
 

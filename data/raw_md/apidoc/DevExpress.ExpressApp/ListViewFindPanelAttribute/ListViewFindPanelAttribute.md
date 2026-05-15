@@ -23,6 +23,24 @@ using DevExpress.Persistent.BaseImpl;
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+' ...
+<DefaultClassOptions, ListViewFindPanel>
+Public Class Contact
+    Inherits Person
+    Implements IMapsMarker
+
+    ' ...
+End Class
+
+```
+
 ***
 
 When a business class has the **ListViewFindPanelAttribute** and [Find Panel](xref:8869) (WinForms), the List View's GridListEditor displays the panels at runtime. Alternatively, you can use the @DevExpress.ExpressApp.SystemModule.IModelClassShowFindPanel.DefaultListViewShowFindPanel or @DevExpress.ExpressApp.SystemModule.IModelListViewShowFindPanel.ShowFindPanel properties to activate the panels.

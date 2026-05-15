@@ -31,6 +31,22 @@ public class Contact : Person {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Contact
+    Inherits Person
+'...
+    Public Overrides Sub AfterConstruction()
+        MyBase.AfterConstruction()
+
+        FirstName = "Sam"
+        TitleOfCourtesy = TitleOfCourtesy.Mr
+    End Sub
+End Class
+```
+
 ***
 
 ## Reference Property
@@ -58,6 +74,26 @@ public class Contact : Person {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class Contact
+    Inherits Person
+'...
+    Public Overrides Sub AfterConstruction()
+        MyBase.AfterConstruction()
+
+        Dim phone1 As PhoneNumber = Session.FindObject(Of PhoneNumber)( _
+        CriteriaOperator.Parse("Number = '555-0101'"))
+        Dim phone2 As PhoneNumber = Session.FindObject(Of PhoneNumber)( _
+        CriteriaOperator.Parse("Number = '555-0102'"))
+        PhoneNumbers.Add(phone1)
+        PhoneNumbers.Add(phone2)
+    End Sub
+End Class
+```
+
 ***
 
 ## Calculated Property
@@ -85,6 +121,27 @@ public class ChildObject : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class ChildObject
+    Inherits BaseObject
+    ' ...
+    Public Property MasterObject() As MasterObject
+        Get
+            Return masterObject
+        End Get
+        Set(ByVal value As MasterObject)
+            Dim modified as Boolean = SetPropertyValue(NameOf(MasterObject), masterObject, value)
+            If (Not IsLoading) AndAlso (Not IsSaving) AndAlso value IsNot Nothing AndAlso modified Then
+                Me.SomeProperty = value.DefaultForChildren
+            End If
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 It is impossible to obtain parent object values in a child object's **AfterConstruction** method because this method is called before any properties are initialized from an outside code. If you need to execute some code according to the assigned parent object, do this either in the **ChildObject.MasterObject** property setter or in the [XPBaseCollection.CollectionChanged](xref:DevExpress.Xpo.XPBaseCollection.CollectionChanged) event handler.

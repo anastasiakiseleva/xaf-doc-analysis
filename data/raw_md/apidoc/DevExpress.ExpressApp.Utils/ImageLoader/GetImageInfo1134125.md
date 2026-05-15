@@ -30,4 +30,11 @@ using System.Drawing;
 //...
 var image = ImageLoader.Instance.GetImageInfo("Action_Open", false).Image;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim image As Drawing.Image = ImageLoader.Instance.GetImageInfo("Action_Open", False).Image
+```
+
 ***

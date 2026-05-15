@@ -38,6 +38,27 @@ static void winApplication_LastLogonParametersReading(
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments As String())
+    ' ...
+    AddHandler winApplication.LastLogonParametersReading, _
+    AddressOf winApplication_LastLogonParametersReading
+    ' ...
+    winApplication.Setup()
+    winApplication.Start()
+    ' ...
+End Sub
+Shared Sub winApplication_LastLogonParametersReading( _
+ByVal sender As Object, ByVal e As LastLogonParametersReadingEventArgs)
+    If String.IsNullOrEmpty(e.SettingsStorage.LoadOption("", "UserName")) Then
+        e.SettingsStorage.SaveOption("", "UserName", "Guest")
+    End If
+End Sub
+```
+
 ***
 
 > [!NOTE]

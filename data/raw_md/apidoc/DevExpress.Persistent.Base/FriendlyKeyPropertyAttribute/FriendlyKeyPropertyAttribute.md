@@ -34,4 +34,15 @@ public class Contact : Person {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<FriendlyKeyProperty(NameOf(FullName))> _
+Public Class Contact
+      Inherits Person
+   '...
+End Class
+```
+
 ***

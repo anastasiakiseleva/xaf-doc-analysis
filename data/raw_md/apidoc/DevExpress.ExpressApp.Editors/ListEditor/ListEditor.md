@@ -41,6 +41,34 @@ public partial class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.XtraGrid
+'...
+Partial Public Class MyController
+    Inherits ViewController
+    Public Sub New()
+        TargetViewType = ViewType.ListView
+        AddHandler Activated, AddressOf MyController_Activated
+        AddHandler ViewControlsCreated, AddressOf MyController_ViewControlsCreated
+    End Sub
+    Private Sub MyController_Activated(ByVal sender As Object, ByVal e As EventArgs)
+        Dim listEditor As ListEditor = (CType(View, ListView)).Editor
+        'Do what is required with the List Editor            
+    End Sub
+    Private Sub MyController_ViewControlsCreated(ByVal sender As Object, ByVal e As EventArgs)
+        Dim listEditor As ListEditor = (CType(View, ListView)).Editor
+        Dim gridControl As GridControl = CType(listEditor.Control, GridControl)
+        'Do what is required with the List Editor's control
+    End Sub
+End Class
+```
+
 ***
 
 To display List Views XAF uses @DevExpress.ExpressApp.Win.Editors.GridListEditor in WinForms applications and @DevExpress.ExpressApp.Blazor.Editors.DxGridListEditor in Blazor applications.

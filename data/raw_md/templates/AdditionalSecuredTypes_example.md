@@ -16,6 +16,20 @@ public partial class MainDemoWinApplication : WinApplication {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Security
+' ...
+Partial Public Class MainDemoWinApplication
+    Inherits WinApplication
+    Shared Sub New()
+        SecurityStrategy.AdditionalSecuredTypes.Add(GetType([MyClass]))
+    End Sub
+    ' ...
+End Class
+```
 ***
 
 **ASP.NET Core Blazor**

@@ -41,4 +41,64 @@ public byte ByteProperty {
     set { SetPropertyValue(nameof(ByteProperty), ref byteProperty, value); }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private _doubleProperty As Double
+Public Property DoubleProperty() As Double
+    Get
+        Return _doubleProperty
+    End Get
+    Set(ByVal value As Double)
+        SetPropertyValue(NameOf(DoubleProperty), _doubleProperty, value)
+    End Set
+End Property
+Private _singleProperty As Single
+Public Property SingleProperty() As Single
+    Get
+        Return _singleProperty
+    End Get
+    Set(ByVal value As Single)
+        SetPropertyValue(NameOf(SingleProperty), _singleProperty, value)
+    End Set
+End Property
+Private _longProperty As Long
+Public Property LongProperty() As Long
+    Get
+        Return _longProperty
+    End Get
+    Set(ByVal value As Long)
+        SetPropertyValue(NameOf(LongProperty), _longProperty, value)
+    End Set
+End Property
+Private _integerProperty As Integer
+Public Property IntegerProperty() As Integer
+    Get
+        Return _integerProperty
+    End Get
+    Set(ByVal value As Integer)
+        SetPropertyValue(NameOf(IntegerProperty), _integerProperty, value)
+    End Set
+End Property
+Private _decimalProperty As Decimal
+Public Property DecimalProperty() As Decimal
+    Get
+        Return _decimalProperty
+    End Get
+    Set(ByVal value As Decimal)
+        SetPropertyValue(NameOf(DecimalProperty), _decimalProperty, value)
+    End Set
+End Property
+Private _byteProperty As Byte
+Public Property ByteProperty() As Byte
+    Get
+        Return _byteProperty
+    End Get
+    Set(ByVal value As Byte)
+        SetPropertyValue(NameOf(ByteProperty), _byteProperty, value)
+    End Set
+End Property
+```
+
 ***

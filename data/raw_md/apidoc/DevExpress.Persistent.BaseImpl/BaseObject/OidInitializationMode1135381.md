@@ -20,5 +20,12 @@ The [Template Kit](xref:405447) generates new projects with the [FrameworkSettin
 ```csharp
 BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+BaseObject.OidInitializationMode = OidInitializationMode.AfterConstruction
+```
+
 ***
 

@@ -5,11 +5,10 @@ seealso:
 - linkType: HRef
   linkId: https://www.youtube.com/watch?v=1Q4xZMSs2BU
   altText: 'DevExpress XAF: Grid Designer for ListView'
-title: List View Columns Customization
-seealso:
 - linkType: HRef
   linkId: https://github.com/DevExpress-Examples/xaf-how-to-sort-a-listview-in-code
   altText: 'GitHub example: XAF - How to sort a ListView in code'
+title: List View Columns Customization
 ---
 # List View Columns Customization
 
@@ -79,6 +78,8 @@ Use the **Reset View Settings** Action from the grid row context menu to undo al
 #### Column Chooser
 
 To add new columns, use the **Column Chooser** option.
+
+In the @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor, click the **Customize** button in the [Field List](xref:DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor.ShowFieldList) popup window to display the **Column Chooser**.
 
 You can customize the options available in the Column Chooser itself. In the invoked **Column Chooser** window, click the **Customize** button to open the **Object Model** dialog window where you can select items that you want to hide or display in the **Column Chooser**.
 

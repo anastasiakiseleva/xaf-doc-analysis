@@ -26,7 +26,20 @@ When you are required to set a criteria as a [](xref:DevExpress.Data.Filtering.C
 	    BinaryOperatorType.NotEqual);
 	```
 	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Data.Filtering
+	'...
+	' The criteria that represents a logical expression (City <> "Chicago") 
+	' is represented by the BinaryOperator and two operands.
+	Dim criteria As CriteriaOperator = New BinaryOperator( _
+	    New OperandProperty("City"), New OperandValue("Chicago"), _
+	    BinaryOperatorType.NotEqual)
+	```
+	
 	***
+
 * Use the [CriteriaOperator.Parse](xref:DevExpress.Data.Filtering.CriteriaOperator.Parse*) method. You can represent criteria as a human-readable string and parse it using the static **CriteriaOperator.Parse** method. 
 	
 	# [C#](#tab/tabid-csharp)
@@ -36,6 +49,15 @@ When you are required to set a criteria as a [](xref:DevExpress.Data.Filtering.C
 	//...
 	//The criteria that represents a logical expression (City <> "Chicago") is represented by a string.
 	CriteriaOperator criteria = CriteriaOperator.Parse("City != 'Chicago'");
+	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.Data.Filtering
+	'...
+	'The criteria that represents a logical expression (City <> "Chicago") is represented by a string.
+	Dim criteria As CriteriaOperator = CriteriaOperator.Parse("City != 'Chicago'")
 	```
 	
 	***
@@ -67,6 +89,19 @@ public partial class MyController : ViewController {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Partial Class MyController
+      Inherits ViewController
+   Private Sub MyController_AfterConstruction(ByVal sender As Object, ByVal e As EventArgs)
+      TargetObjectType = GetType(Task)
+      MyAction.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects
+      MyAction.TargetObjectsCriteria = "DueDate <= LocalDateTimeNow()"
+   End Sub
+End Class
+```
+
 ***
 
 The following image demonstrates how the **TargetObjectsCriteria** property is specified in the Model Editor:
@@ -96,6 +131,13 @@ The important concept is that the Criteria Property Editors can generate criteri
 ```csharp
 CriteriaOperator criteria = 
     CriteriaEditorHelper.GetCriteriaOperator(criteriaString, dataType, objectSpace);
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim criteria As CriteriaOperator = _
+CriteriaEditorHelper.GetCriteriaOperator(criteriaString, dataType, objectSpace)
 ```
 
 ***

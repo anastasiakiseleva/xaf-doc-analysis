@@ -37,7 +37,26 @@ public class CustomizeFilterColumnsModeController : ObjectViewController<ListVie
         }
     }
 }
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Win.Editors
+' ...
+Public Class CustomizeFilterColumnsModeController
+    Inherits ObjectViewController(Of ListView, DevExpress.Persistent.BaseImpl.Person)
+    Protected Overrides Sub OnViewControlsCreated()
+        MyBase.OnViewControlsCreated()
+        Dim listEditor As WinColumnsListEditor = TryCast(Me.View.Editor, WinColumnsListEditor)
+        If listEditor IsNot Nothing Then
+            listEditor.FilterColumnsMode = FilterColumnsMode.ColumnsOnly
+        End If
+    End Sub
+End Class
 ```
+
+***
 
 > [!NOTE]
 > When the **Filter Editor** dialog is invoked, the default **StartsWith([**_CurrentColumn_**, ?])** criterion is created automatically (here, _CurrentColumn_ is the column whose header was right-clicked to start the **Filter Editor**). However, if the current column displays a complex property (e.g., **Employee.Department.Office**) and the **FilterColumnsMode** value is **AllProperties**, the **Filter Editor** starts with an empty criterion. This is designed behavior. If you want to autocreate  the default criterion for a complex column, change the **FilterColumnsMode** value to **ColumnsOnly**.

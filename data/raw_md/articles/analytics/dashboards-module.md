@@ -117,32 +117,6 @@ The following additional steps may be required:
         })
     ```
 
-### ASP.NET Core Blazor Application Without Application Builder
-
-1. Open the following file: _MySolution.Blazor.Server\\Startup.cs_.
-
-2. In the `Startup.ConfigureServices` method, call the [AddXafDashboards](xref:DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensions.AddXafDashboards(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{DevExpress.ExpressApp.Dashboards.Blazor.Services.BlazorDashboardConfigurator,System.IServiceProvider})) method to register Dashboards Module services.
-3. In the `Startup.Configure` method, call the [MapXafDashboards](xref:DevExpress.ExpressApp.Dashboards.Blazor.StartupExtensions.MapXafDashboards(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.String)) method to configure endpoints for the Dashboards Module.
-
-    ```csharp
-    using DevExpress.ExpressApp.Dashboards.Blazor;
-    // ...
-    public class Startup {
-        // ...
-        public void ConfigureServices(IServiceCollection services){
-            //...
-            services.AddXafDashboards();
-        }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
-            // ...
-            app.UseEndpoints(endpoints => {
-                endpoints.MapXafDashboards();
-                // ...
-            })
-        }
-    }
-    ```
-
 ## Troubleshooting
 
 For more information on how to resolve problems that can occur when you use the **Dashboards Module**, refer to the following topic: [](xref:404346).

@@ -32,4 +32,23 @@ public IPrintable Printable {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Property Printable() As IPrintable
+    Get
+        Return printable
+    End Get
+    Set(ByVal value As IPrintable)
+        If printable IsNot value Then
+            printable = value
+            If PrintableChanged IsNot Nothing Then
+                PrintableChanged(Me, New PrintableChangedEventArgs(printable))
+            End If
+        End If
+    End Set
+End Property
+```
+
 ***

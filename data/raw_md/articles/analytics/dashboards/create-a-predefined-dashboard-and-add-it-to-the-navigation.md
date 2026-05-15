@@ -38,6 +38,21 @@ This topic describes how to provide a predefined dashboard that is available to 
 	    ObjectSpace.CommitChanges();
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Dashboards
+	Imports MySolution.Module.Properties
+	' ...
+	Public Overrides Sub UpdateDatabaseAfterUpdateSchema()
+	    MyBase.UpdateDatabaseAfterUpdateSchema()
+	    DashboardsModule.AddDashboardData(Of DashboardData)(ObjectSpace, "My Dashboard", Resources.MyDashboard1)
+	    ' ...
+	    ObjectSpace.CommitChanges()
+	End Sub
+	```
+	
 	***
 
 	Note that [multi-tenant applications](xref:404436) have specific implementation features. Refer to the following help topic for more information: [Register Predefined Dashboards in a Multi-Tenant Application](xref:113239#register-predefined-dashboards-in-a-multi-tenant-application).

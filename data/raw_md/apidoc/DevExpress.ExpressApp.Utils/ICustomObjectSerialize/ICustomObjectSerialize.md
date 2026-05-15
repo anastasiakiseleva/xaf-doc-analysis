@@ -49,6 +49,46 @@ public class MyLogonParameters : AuthenticationStandardLogonParameters, ICustomO
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.DC
+Imports DevExpress.ExpressApp.Security
+Imports DevExpress.ExpressApp.Utils
+' ...
+<DomainComponent> _
+Public Class MyLogonParameters
+    Inherits AuthenticationStandardLogonParameters
+    Implements ICustomObjectSerialize
+    Private rememberPassword_Renamed As Boolean
+    Public Property RememberPassword() As Boolean
+        Get
+           Return rememberPassword_Renamed
+        End Get
+        Set(ByVal value As Boolean)
+            rememberPassword_Renamed = value
+        End Set
+    End Property
+    Public Sub ReadPropertyValues(ByVal storage As SettingsStorage) _
+    Implements ICustomObjectSerialize.ReadPropertyValues
+        UserName = storage.LoadOption("", "UserName")
+        Password = storage.LoadOption("", "Password")
+        RememberPassword = storage.LoadBoolOption("", "RememberPassword", false)
+    End Sub
+    Public Sub WritePropertyValues(ByVal storage As SettingsStorage) _
+    Implements ICustomObjectSerialize.WritePropertyValues
+        storage.SaveOption("", "UserName", UserName)
+        If (RememberPassword) Then
+            storage.SaveOption("", "Password", Password)
+        Else
+            storage.SaveOption("", "Password", "")
+        End If
+        storage.SaveOption("", "RememberPassword", RememberPassword.ToString())
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

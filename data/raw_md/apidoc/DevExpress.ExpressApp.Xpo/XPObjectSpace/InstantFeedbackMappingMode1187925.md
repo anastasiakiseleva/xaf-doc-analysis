@@ -40,6 +40,37 @@ XPInstantFeedbackSourceMappingMode.RequiredProperties;
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Xpo
+'...
+Public Class MyController
+    Inherits WindowController
+    Public Sub New()
+        Me.TargetWindowType = WindowType.Main
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler Application.ListViewCreating, AddressOf Application_ListViewCreating
+    End Sub
+    Private Sub Application_ListViewCreating(ByVal sender As Object, ByVal e As ListViewCreatingEventArgs)
+        If (e.CollectionSource.DataAccessMode = CollectionSourceDataAccessMode.InstantFeedback) AndAlso _
+(TypeOf e.ObjectSpace Is XPObjectSpace) AndAlso _
+(e.ViewID = "Customer_ListView") Then
+            CType(e.ObjectSpace, DevExpress.ExpressApp.Xpo.XPObjectSpace).InstantFeedbackMappingMode = _
+XPInstantFeedbackSourceMappingMode.RequiredProperties
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler Application.ListViewCreating, AddressOf Application_ListViewCreating
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 To map other columns which are not visible in the grid, add them to a collection of displayed options as described in the [CollectionSourceBase.DisplayableProperties](xref:DevExpress.ExpressApp.CollectionSourceBase.DisplayableProperties) topic.

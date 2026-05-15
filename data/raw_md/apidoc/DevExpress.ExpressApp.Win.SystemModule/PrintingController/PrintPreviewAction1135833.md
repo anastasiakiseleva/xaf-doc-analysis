@@ -13,12 +13,8 @@ seealso: []
 ---
 The **PrintPreview** Action shows how the current [View](xref:112611) will be printed. An end-user can make changes in the prepared page; for example; add color, margins, header, footer and so on. To accomplish this, there are numerous options in the **Preview** window.
 
-![Tutorial_EM_Lesson3_1_0](~/images/tutorial_em_lesson3_1_0115583.png)
+![Tutorial_EM_Lesson3_1_0](~/images/xaf-printing-print-preview.png)
 
-The **PrintPreview** Action is added to the **Print** [Action Container](xref:112610), which is available in the **File** main menu.
+The **PrintPreview** Action is added to the **Print** [Action Container](xref:112610), which is available in the **File** main menu. This Action is also available in nested List Views.
 
-![PrintingModule](~/images/printingmodule115833.png)
-
-This Action is also available in nested List Views.
-
-![PrintingModule_3](~/images/printingmodule_3116763.png)
+![PrintingModule](~/images/xaf-printing-print-actions.png)

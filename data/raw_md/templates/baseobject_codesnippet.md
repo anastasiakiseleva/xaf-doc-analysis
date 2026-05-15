@@ -31,6 +31,33 @@ public class Contact : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+' ...
+<DefaultClassOptions()>
+Public Class Contact
+    Inherits BaseObject 
+    ' BaseObject contains an auto-generated Guid key, you cannot add a custom key
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fFirstName As String
+    Public Property FirstName() As String
+        Get
+            Return fFirstName
+        End Get
+        Set(ByVal value as String)
+            SetPropertyValue(NameOf(FirstName), fFirstName, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 [`DefaultClassOptions`]: xref:DevExpress.Persistent.Base.DefaultClassOptionsAttribute

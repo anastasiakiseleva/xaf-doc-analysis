@@ -22,6 +22,17 @@ public XPCollection<AssociatedObject> Association {
     get { return GetCollection<AssociatedObject>(nameof(Association)); }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Association("CollectionProperties-AssociatedObject")>
+Public ReadOnly Property Association() As XPCollection(Of AssociatedObject)
+    Get
+        Return GetCollection(Of AssociatedObject)(NameOf(Association))
+    End Get
+End Property
+```
 ***
 
 Refer to the [Relationships Between Persistent Objects in Code and UI](xref:112654#one-to-many-non-aggregated) article for more information on associated collections in XPO.
@@ -35,6 +46,17 @@ Refer to the [Relationships Between Persistent Objects in Code and UI](xref:1126
 public XPCollection<AggregatedObject> AggregatedAssociation {
     get { return GetCollection<AggregatedObject>(nameof(AggregatedAssociation)); }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<Association("CollectionProperties-AggregatedObject"), Aggregated>
+Public ReadOnly Property AggregatedAssociation() As XPCollection(Of AggregatedObject)
+    Get
+        Return GetCollection(Of AggregatedObject)(NameOf(AggregatedAssociation))
+    End Get
+End Property
 ```
 ***
 
@@ -60,6 +82,21 @@ public XPCollection<NoAssociationObject> NoAssociation {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private _noAssociation As XPCollection(Of NoAssociationObject)
+<CollectionOperationSet(AllowAdd := False, AllowRemove := False)>
+Public ReadOnly Property NoAssociation() As XPCollection(Of NoAssociationObject)
+    Get
+        If _noAssociation Is Nothing Then
+            _noAssociation = New XPCollection(Of NoAssociationObject)(Session)
+        End If
+        Return _noAssociation
+    End Get
+End Property
+```
 ***
 
 You can use the @DevExpress.Xpo.XPBaseCollection.Criteria property to filter collection objects, or set the @DevExpress.Xpo.XPBaseCollection.LoadingEnabled property to **false** and add objects to the collection. Subscribe to the collection's [CollectionChanged](xref:DevExpress.Xpo.XPBaseCollection.CollectionChanged) event to implement the required logic for **New**, **Delete**, **Link**, and **Unlink** Actions.
@@ -82,6 +119,22 @@ public BindingList<NoAssociationObject> PersistentBindingList {
     return persistentBindingList;
   }
 }
+```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private _PersistentBindingList As BindingList(Of NoAssociationObject)
+Public ReadOnly Property PersistentBindingList As BindingList(Of NoAssociationObject)
+    Get
+        If _PersistentBindingList Is Nothing Then
+            _PersistentBindingList = New BindingList(Of NoAssociationObject)()
+            For Each obj As NoAssociationObject In NoAssociation
+                _PersistentBindingList.Add(obj)
+            Next
+        End If
+        Return _PersistentBindingList
+    End Get
+End Property
 ```
 ***
 
@@ -107,4 +160,22 @@ public BindingList<SomeObject> NonPersistentBindingList {
   }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private nonPersistentObjectBindingList As BindingList(Of SomeObject)
+Private Sub EnsureNonPersistentObjectBindingList()
+    If nonPersistentObjectBindingList Is Nothing Then
+        nonPersistentObjectBindingList = New BindingList(Of SomeObject)()
+        ' ...
+    End If
+End Sub
+Public ReadOnly Property NonPersistentBindingList As BindingList(Of SomeObject)
+    Get
+        EnsureNonPersistentObjectBindingList()
+        Return nonPersistentObjectBindingList
+    End Get
+End Property
+```
+
 ***

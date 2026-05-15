@@ -30,4 +30,11 @@ using System.Drawing;
 //...
 Image image = ImageLoader.Instance.GetDialogImageInfo("State_Validation_Valid", false").Image;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim image As Drawing.Image = ImageLoader.Instance.GetDialogImageInfo("State_Validation_Valid", False").Image
+```
+
 ***

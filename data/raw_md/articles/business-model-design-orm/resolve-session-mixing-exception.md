@@ -18,6 +18,17 @@ private void AddTaskAction_Execute(Object sender, SimpleActionExecuteEventArgs e
     e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, contact, true);  
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb{5}
+Private Sub AddTaskAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+    Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Contact))
+    Dim contact As Contact = objectSpace.CreateObject(Of Contact)()
+    Dim task As Task = CType(View.CurrentObject, Task)
+    contact.Tasks.Add(task)
+    e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, contact, True)
+End Sub
+```
 ***
 
 When XAF executes the _AddTaskAction_ action, the **Session Mixing Exception** is raised:
@@ -49,6 +60,12 @@ To get an object from one data context in another data context, perform the step
 object taskKey = ((Task)View.CurrentObject).Session.GetKeyValue(View.CurrentObject);
 contact.Tasks.Add(session.GetObjectByKey<Task>(taskKey));
 ```
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Dim taskKey As Object = (CType(View.CurrentObject, Task)).Session.GetKeyValue(View.CurrentObject)
+contact.Tasks.Add(session.GetObjectByKey(Of Task)(taskKey))
+```
 ***
 
 See the following topic for more information: [Query and Shape Data (XPO)](xref:2034).
@@ -68,6 +85,19 @@ private void AddTaskAction_Execute(Object sender, SimpleActionExecuteEventArgs e
     e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, contact, true);
 }
 ```
+ 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb{5}
+Private Sub AddTaskAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+    Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Contact))
+    Dim contact As Contact = objectSpace.CreateObject(Of Contact)()
+    Dim task As Task = CType(View.CurrentObject, Task)
+    contact.Tasks.Add(objectSpace.GetObject(task))
+    e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, contact, True)
+End Sub
+```
+ 
 ***
 See the following topic for details: [Create, Read, Update and Delete Data (XAF)](xref:113711).
 ### Get A Newly Created Object from Another Data Context

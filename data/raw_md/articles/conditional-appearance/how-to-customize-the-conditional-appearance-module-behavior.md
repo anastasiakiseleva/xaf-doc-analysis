@@ -64,6 +64,34 @@ public class Product : BaseObject {
 }
 ```
 
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions, Appearance("CategoryColoredInListView", AppearanceItemType := "ViewItem", _
+TargetItems := "Category", Criteria := "Category = 'Seafood'", Context := "ListView", _
+FontColor := "Blue", Priority := 1)> _
+Public Class Product
+        Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fcategory As Category
+    Public Property Category() As Category
+        Get
+            Return fcategory
+        End Get
+        Set(ByVal value As Category)
+            SetPropertyValue(NameOf(Category), fcategory, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 We should reset the conditional appearance for the Category property in a List View if the context object is currently selected. To do this, we use the [AppearanceController.AppearanceApplied](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.AppearanceApplied) event. In the code below, to reset the font color of the item to which a conditional appearance is currently applied, this item is cast to the [](xref:DevExpress.ExpressApp.Editors.IAppearanceFormat) interface. In your tasks, you can also use the [](xref:DevExpress.ExpressApp.Editors.IAppearanceEnabled) and [](xref:DevExpress.ExpressApp.Editors.IAppearanceVisibility) interfaces to access conditional appearance properties.
@@ -112,6 +140,52 @@ public partial class ConditionalAppearanceController : ViewController {
         base.OnDeactivated();
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.ExpressApp.Editors
+Imports System
+'...
+Partial Public Class ConditionalAppearanceController
+        Inherits ViewController
+    Public Sub New()
+        InitializeComponent()
+        TargetObjectType = GetType(Product)
+    End Sub
+    Private appearanceController As AppearanceController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        appearanceController = Frame.GetController(Of AppearanceController)()
+        If appearanceController IsNot Nothing Then
+             AddHandler appearanceController.AppearanceApplied, _
+             AddressOf appearanceController_AppearanceApplied
+        End If
+    End Sub
+    Private Sub appearanceController_AppearanceApplied( _
+    ByVal sender As Object, ByVal e As ApplyAppearanceEventArgs)
+        If (TypeOf View Is ListView) AndAlso _
+        (e.ItemType = AppearanceItemType.ViewItem.ToString()) AndAlso _
+        (e.ItemName = "Category") AndAlso (e.ContextObjects.Length > 0) Then
+            If View.SelectedObjects.Contains(e.ContextObjects(0)) Then
+                Dim formattedItem As IAppearanceFormat = TryCast(e.Item, IAppearanceFormat)
+                If formattedItem IsNot Nothing Then
+                    formattedItem.ResetFontColor()
+                End If
+            End If
+        End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If appearanceController IsNot Nothing Then
+            RemoveHandler appearanceController.AppearanceApplied, _
+            AddressOf appearanceController_AppearanceApplied
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
 ```
 
 ***
@@ -169,6 +243,36 @@ public class Product : BaseObject {
 }
 ```
 
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions, Appearance("CategoryColoredInListView", _
+AppearanceItemType := "ViewItem", TargetItems := "Category", _
+Criteria := "Category = 'Seafood'", Context := "ListView", FontColor := "Blue", _
+Priority := 1)> _
+Public Class Product
+        Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private disabledProperty_Renamed As String
+    <Appearance("DisableProperty", Criteria := "1=1", Enabled := False)> _
+    Public Property DisabledProperty() As String
+        Get
+            Return disabledProperty_Renamed
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(DisabledProperty), disabledProperty_Renamed, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 To change the appearance of disabled Property Editors, we use the [AppearanceController.CustomApplyAppearance](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.CustomApplyAppearance) event. In the code below, the border style of the item to which a conditional appearance has been just applied by the AppearanceController is changed. This item cannot be cast to the `IAppearanceFormat` interface, since it doesn't allow you to change the border style. We cast it to the [](xref:DevExpress.ExpressApp.Win.Editors.DXPropertyEditor) or `BlazorPropertyEditorBase` class (a base class for all built-in Property Editors in Windows Form and ASP.NET Core Blazor applications respectively). See the [AppearanceController.CustomApplyAppearance](xref:DevExpress.ExpressApp.ConditionalAppearance.AppearanceController.CustomApplyAppearance) event description to learn which item types can be passed as the `item` parameter in the `AppearanceApplied` and `CustomApplyAppearance` event handlers.
@@ -220,6 +324,48 @@ public partial class ConditionalAppearanceController : ViewController {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports System
+'...
+Partial Public Class ConditionalAppearanceController
+        Inherits ViewController
+    Public Sub New()
+        InitializeComponent()
+        TargetObjectType = GetType(Product)
+    End Sub
+    Private appearanceController As AppearanceController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        appearanceController = Frame.GetController(Of AppearanceController)()
+        If appearanceController IsNot Nothing Then
+             AddHandler appearanceController.CustomApplyAppearance, _
+             AddressOf appearanceController_CustomApplyAppearance
+        End If
+    End Sub
+    Private Sub appearanceController_CustomApplyAppearance( _
+    ByVal sender As Object, ByVal e As ApplyAppearanceEventArgs)
+        If e.AppearanceObject.Enabled = False Then
+            CustomizeDisabledEditorsAppearance(e)
+            ' e.Handled = True
+        End If
+    End Sub
+    Protected Overridable Sub CustomizeDisabledEditorsAppearance( _
+    ByVal e As ApplyAppearanceEventArgs)
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If appearanceController IsNot Nothing Then
+            RemoveHandler appearanceController.CustomApplyAppearance, _
+            AddressOf appearanceController_CustomApplyAppearance
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]
@@ -247,6 +393,28 @@ public partial class WinConditionalAppearanceController : ConditionalAppearanceC
         }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.ExpressApp.Win.Editors
+Imports DevExpress.XtraEditors.Controls
+Imports System.Drawing
+'...
+Partial Public Class WinConditionalAppearanceController
+Inherits ConditionalAppearanceController
+    Protected Overrides Sub CustomizeDisabledEditorsAppearance( _
+    ByVal e As ApplyAppearanceEventArgs)
+        MyBase.CustomizeDisabledEditorsAppearance(e)
+        Dim dxEditor As DXPropertyEditor = TryCast(e.Item, DXPropertyEditor)
+        If dxEditor IsNot Nothing AndAlso dxEditor.Control IsNot Nothing Then
+            dxEditor.Control.Properties.BorderStyle = BorderStyles.Simple
+            dxEditor.Control.Properties.Appearance.BackColor = Color.RosyBrown
+        End If
+    End Sub
+End Class
 ```
 
 ***
@@ -315,6 +483,27 @@ public class StateMachineAppearanceController : StateMachineControllerBase<Objec
         }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class StateMachineAppearanceController
+Inherits StateMachineControllerBase(Of ObjectView)
+'...
+    Private Sub appearanceController_CollectAppearanceRules( _
+    ByVal sender As Object, ByVal e As CollectAppearanceRulesEventArgs)
+        Dim stateMachines As IList(Of IStateMachine) = GetStateMachines()
+        For Each stateMachine As IStateMachine In stateMachines
+            For Each state As IState In stateMachine.States
+                If TypeOf state Is IStateAppearancesProvider Then
+                    e.AppearanceRules.AddRange( _
+                    (CType(state, IStateAppearancesProvider)).Appearances)
+                End If
+            Next state
+        Next stateMachine
+    End Sub
+End Class
 ```
 
 ***

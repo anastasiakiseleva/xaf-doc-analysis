@@ -22,7 +22,27 @@ public class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vbChoiceActionItem)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+' ...
+Public Class MyController
+    Inherits ViewController
+    ' ...
+    Public Sub New()
+        ' ...
+        Dim MySingleChoiceAction As SingleChoiceAction = New SingleChoiceAction(Me, "MySingleChoiceActionId", Nothing)
+        Dim MyChoiceActionItem As ChoiceActionItem = New ChoiceActionItem("MyChoiceActionItemId", Nothing)
+        MySingleChoiceAction.Items.Add(MyChoiceActionItem)
+    End Sub
+End Class
+```
+
 ***
+
 The following code snippet adds and remove Action identifiers from the @DevExpress.ExpressApp.Security.NonSecureActionsInitializingEventArgs.NonSecureActions collection.
 
 # [C#](#tab/tabid-csharp)
@@ -47,4 +67,28 @@ public partial class MySolutionWin : WinApplication {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Security
+Imports DevExpress.ExpressApp.Win
+' ...
+Partial Public Class MySolutionWin
+    Inherits WinApplication
+    Public Sub New()
+        ' ...
+        AddHandler securityModule1.NonSecureActionsInitializing, AddressOf securityModule1_NonSecureActionsInitializing
+    End Sub
+    ' ...
+    Private Sub securityModule1_NonSecureActionsInitializing(ByVal sender As Object, _
+    ByVal e As NonSecureActionsInitializingEventArgs)
+        ' SimpleAction, PopupWindowShowAction, or ParametrizedAction
+        e.NonSecureActions.Add("Demo About Info")
+        e.NonSecureActions.Remove("Export")
+        ' ChoiceActionItem
+        e.NonSecureActions.Add("SetTaskAction.Priority")
+    End Sub
+End Class
+```
+
 ***

@@ -1,9 +1,9 @@
 ---
 uid: "119740"
 seealso: []
-title: 'How to: Display a List View as a Pivot Grid Table and Chart'
+title: 'How to: Display a List View as a Pivot Grid Table and Chart (WinForms)'
 ---
-# How to: Display a List View as a Pivot Grid Table and Chart
+# How to: Display a List View as a Pivot Grid Table and Chart (WinForms)
 
 This topic demonstrates how to display a default [List View](xref:112611) as a pivot table in XAF applications:
 
@@ -11,9 +11,6 @@ This topic demonstrates how to display a default [List View](xref:112611) as a p
 * [Change the List View's List Editor](#change-the-list-views-list-editor)
 * [Specify Chart Settings](#specify-pivot-grid-settings)
 * [Run the Application](#run-the-application)
-
-> [!Note]
-> ASP.NET Core Blazor applications do not support the [Pivot Grid Module](xref:113303).
 
 The article uses a sample `Order` [business object](xref:112570) with the `Customer`, `Product Name`, `Product Category`, `Price`, and `Units Purchased` fields.
 

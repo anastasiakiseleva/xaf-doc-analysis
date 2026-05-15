@@ -44,6 +44,8 @@ Defines a tab content's layout and appearance in TabbedMDI mode when the applica
 
 ![XAF ASP.NET Core Blazor Detail Form Template, DevExpress](~/images/xaf-blazor-detail-ribbon-form-template.png)
 
+**See Also:** @DevExpress.ExpressApp.Blazor.SystemModule.IModelOptionsBlazor.RestoreTabbedMdiLayout, @DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.MaxTabLimit, @DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.TabOverflowStrategy
+
 ## Logon Window Template (LogonWindowTemplate)
 
 Defines the logon window layout and appearance.

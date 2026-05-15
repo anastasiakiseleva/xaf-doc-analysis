@@ -39,6 +39,45 @@ public class AsyncChangeDueDateController : ObjectViewController<DetailView, Dem
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.ExpressApp.Win
+Imports DevExpress.ExpressApp.Xpo
+Imports DevExpress.Persistent.Base
+Imports DevExpress.XtraSplashScreen
+Imports System.Threading
+Imports System.Windows.Forms
+' ...
+Public Class AsyncChangeDueDateController
+    Inherits ObjectViewController(Of DetailView, DemoTask)
+    Public Sub New()
+        Dim changeDueDateAction As New SimpleAction(Me, "ChangeDueDate", PredefinedCategory.Edit)
+        changeDueDateAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler changeDueDateAction.Execute, AddressOf ChangeDueDateAction_Execute
+    End Sub
+    Private Async Sub ChangeDueDateAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim handle As IOverlaySplashScreenHandle = Nothing
+        Dim control As Control = TryCast(Frame.Template, Control)
+        Dim _application As WinApplication = TryCast(Application, WinApplication)
+        Dim cancellationTokenSource As New CancellationTokenSource()
+        ViewCurrentObject.DueDate = New Date(2019, 10, 21)
+        Try
+            If control IsNot Nothing AndAlso control.IsHandleCreated Then
+                handle = _application.StartOverlayForm(control)
+            End If
+            Await (CType(ObjectSpace, XPObjectSpace)).CommitChangesAsync(cancellationTokenSource.Token)
+        Finally
+            If handle IsNot Nothing Then
+                _application.StopOverlayForm(handle)
+            End If
+        End Try
+    End Sub
+End Class
+```
+
 ***
 
 [!include[CancellationToken-info](~/templates/CancellationToken-info.md)]

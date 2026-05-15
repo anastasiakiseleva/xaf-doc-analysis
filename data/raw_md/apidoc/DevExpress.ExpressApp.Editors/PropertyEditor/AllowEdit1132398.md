@@ -27,6 +27,21 @@ public class FirstNameController : ObjectViewController<DetailView, MainDemo.Mod
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+
+Public Class FirstNameController
+    Inherits ObjectViewController(Of DetailView, MainDemo.Module.BusinessObjects.Contact)
+    Protected Overrides Sub OnActivated()
+        Dim firstNamePropertyEditor As PropertyEditor = CType(View.FindItem("FirstName"), PropertyEditor)
+        firstNamePropertyEditor.AllowEdit("Read-Only") = False
+    End Sub
+End Class
+```
 ***
 
 The **AllowEdit** is a collection whose elements represent a pair of string and Boolean values. The string value specifies a reason and the Boolean value specifies whether to make the Property Editor editable for this reason. A Property Editor is considered read-only if at least one of the **AllowEdit** collection elements contains a **false** value.
@@ -43,6 +58,18 @@ if (editableList) {
     //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myEditor As PropertyEditor
+'...
+Dim editableList As BoolList = myEditor.AllowEdit
+If editableList.ResultValue Then
+    '...
+End If
+```
+
 ***
 
 To make an editable Property Editor read-only, use the [BoolList.SetItemValue](xref:DevExpress.ExpressApp.Utils.BoolList.SetItemValue(System.String,System.Boolean)) method of the **BoolList** object returned by this property. Pass the reason for making the Property Editor read-only as the first parameter, and **false**, or a Boolean expression, as the second parameter. Alternatively, you can use the **[_key_]** operator of the **BoolList** object returned by the **AllowEdit** property, to get or set the specified key's value.
@@ -55,6 +82,16 @@ PropertyEditor myEditor;
 BoolList editableList = myEditor.AllowEdit;
 editableList["myKey"] = false;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myEditor As PropertyEditor
+'...
+Dim editableList As BoolList = myEditor.AllowEdit
+editableList("myKey") = False
+```
+
 ***
 
 To make a read-only Property Editor editable, use the [BoolList.RemoveItem](xref:DevExpress.ExpressApp.Utils.BoolList.RemoveItem(System.String)) method of the **BoolList** object returned by this property. Pass the key (reason) of the item with the **false** value. If this is a single item that has the false value, the Property Editor will become editable. Alternatively, you can use the [BoolList.SetItemValue](xref:DevExpress.ExpressApp.Utils.BoolList.SetItemValue(System.String,System.Boolean)) method by passing the key, which has false as a value, and true as a new value for it.
@@ -67,6 +104,16 @@ PropertyEditor myEditor;
 BoolList editableList = myEditor.AllowEdit;
 editableList["disablingKey"] = true;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myEditor As PropertyEditor
+'...
+Dim editableList As BoolList = myEditor.AllowEdit
+editableList("disablingKey") = True
+```
+
 ***
 
 When a Property Editor's read-only state is changed, the [PropertyEditor.AllowEditChanged](xref:DevExpress.ExpressApp.Editors.PropertyEditor.AllowEditChanged) event is raised.

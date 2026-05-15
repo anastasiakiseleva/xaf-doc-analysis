@@ -13,7 +13,7 @@ By default, this method is automatically called to save the current properties o
 
 Handle the [View.ModelSaving](xref:DevExpress.ExpressApp.View.ModelSaving) event to cancel saving information on a View's editors to the Application Model.
 
-Handle the [View.CustomModelSaving](xref:DevExpress.ExpressApp.View.CustomModelSaving) event to perform a custom technique for saving the information.
+Handle the `View.CustomModelSaving` event to perform a custom technique for saving the information.
 
 Handle the [View.ModelSaved](xref:DevExpress.ExpressApp.View.ModelSaved) event to save custom information on a View to the Application Model before it is updated.
 ## Example

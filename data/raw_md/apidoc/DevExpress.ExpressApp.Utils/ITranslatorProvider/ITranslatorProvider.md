@@ -21,6 +21,19 @@ public sealed partial class MySolutionModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+    Public Sub New()
+        InitializeComponent()
+        TranslatorProvider.RegisterProvider(New MyTranslationProvider())
+    End Sub
+End Class
+```
+
 ***
 
 In this snippet, the **MyTranslationProvider** is the class implementing **ITranslatorProvider** interface.

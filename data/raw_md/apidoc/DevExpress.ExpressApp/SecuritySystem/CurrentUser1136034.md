@@ -36,4 +36,27 @@ public class ShowCurrentUserController : WindowController {
 }
 
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+
+Public Class ShowCurrentUserController
+    Inherits WindowController
+    Public Sub New()
+        Dim showCurrentUserAction As New PopupWindowShowAction(Me, "ShowCurrentUser", PredefinedCategory.Edit)
+        AddHandler showCurrentUserAction.CustomizePopupWindowParams, _
+            AddressOf ShowCurrentUserAction_CustomizePopupWindowParams
+    End Sub
+    Private Sub ShowCurrentUserAction_CustomizePopupWindowParams(ByVal sender As Object, _
+        ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim newObjectSpace As IObjectSpace = Application.CreateObjectSpace(SecuritySystem.CurrentUser.GetType())
+        Dim currentUser As Object = newObjectSpace.GetObject(SecuritySystem.CurrentUser)
+        e.View = Application.CreateDetailView(newObjectSpace, currentUser)
+    End Sub
+End Class
+```
 ***

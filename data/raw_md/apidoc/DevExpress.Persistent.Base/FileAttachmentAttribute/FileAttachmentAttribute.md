@@ -52,6 +52,30 @@ public class FileData : BaseObject, IFileData {
    // ...
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<FileAttachmentAttribute(NameOf(File))>
+Public Class MyFileAttachment
+    Inherits BaseObject
+    ' ...
+    Private _file As FileData
+    Public Property File() As FileData
+        Get
+            Return _file
+        End Get
+        Set(ByVal value As FileData)
+            SetPropertyValue(NameOf(File), _file, value)
+        End Set
+    End Property
+End Class
+Public Class FileData
+    Implements IFileData
+   ' ...
+End Class
+```
+
 ***
 
 As an alternative to using the **FileAttachmentAttribute**, you can inherit from the **FileAttachmentBase** class. It has the **FileAttachmentAttribute** applied, and exposes the **File** property to store file attachments.

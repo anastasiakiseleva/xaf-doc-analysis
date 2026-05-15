@@ -72,6 +72,38 @@ public class Order : BaseObject {
 
 }
 ```
+	
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+	
+```vb
+Public Class Customer
+    Inherits BaseObject
+    ' ...
+    <Association> _
+    Public ReadOnly Property Orders() As XPCollection(Of Order)
+        Get
+            Return GetCollection(Of Order)(NameOf(Orders))
+        End Get
+    End Property
+End Class
+
+Public Class Order
+    Inherits BaseObject
+    ' ...
+    <Association> _
+    Public Property Customer() As Customer
+        Get
+            Return fCustomer
+        End Get
+        Set(ByVal value as Customer)
+            SetPropertyValue(NameOf(Customer), fCustomer, value)
+        End Set
+    End Property
+    Private fCustomer As Customer
+
+End Class
+```
+	
 ***
 
 A user has the 'A' and 'B' roles and the [SecurityStrategy.RolesMergingMode](xref:DevExpress.ExpressApp.Security.SecurityStrategy.RolesMergingMode) property is set to **GrantedInAnyRole**. To allow accessing the **Order.Customer** property and deny the **Customer.Orders** collection, follow the steps below:
@@ -116,6 +148,25 @@ public class Order : BaseObject {
 
 }
 ```
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+	
+```vb
+Public Class Order
+    Inherits BaseObject
+    ' ...    
+    Public Property Customer() As Customer
+        Get
+            Return fCustomer
+        End Get
+        Set(ByVal value as Customer)
+            SetPropertyValue(NameOf(Customer), fCustomer, value)
+        End Set
+    End Property
+    Private fCustomer As Customer
+
+End Class
+```
+	
 ***
 
 The user cannot read the **Order.Customer** property when:

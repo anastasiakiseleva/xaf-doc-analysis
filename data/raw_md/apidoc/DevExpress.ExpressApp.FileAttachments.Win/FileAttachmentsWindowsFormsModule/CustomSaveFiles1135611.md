@@ -37,4 +37,39 @@ public class MyViewController : ViewController {
     }        
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.FileAttachments.Win
+Imports DevExpress.Persistent.Base
+'...
+Public Class MyViewController
+    Inherits ViewController
+    Private fileAttachmentsModule As FileAttachmentsWindowsFormsModule
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        fileAttachmentsModule = Application.Modules.FindModule( _
+        Of FileAttachmentsWindowsFormsModule)()
+        AddHandler fileAttachmentsModule.CustomSaveFiles, _
+        AddressOf fileAttachmentsModule_CustomSaveFiles
+    End Sub
+    Private Sub fileAttachmentsModule_CustomSaveFiles( _
+    ByVal sender As Object, ByVal e As CustomFileListOperationEventArgs)
+        For Each fileData As IFileData In e.FileDataList
+            'manually save attached files to a disk
+            '...
+        Next fileData
+        e.Handled = True
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler fileAttachmentsModule.CustomSaveFiles, _
+        AddressOf fileAttachmentsModule_CustomSaveFiles
+        fileAttachmentsModule = Nothing
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

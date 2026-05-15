@@ -44,6 +44,31 @@ static void winApplication_LastLogonParametersWriting(
     e.Handled = true;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments As String())
+    ' ...
+    AddHandler winApplication.LastLogonParametersWriting, _
+    AddressOf winApplication_LastLogonParametersWriting
+    ' ...
+    winApplication.Setup()
+    winApplication.Start()
+    ' ...
+End Sub
+Shared Sub winApplication_LastLogonParametersWriting( _
+ByVal sender As Object, ByVal e As LastLogonParametersWritingEventArgs)
+    If (CType(e.LogonObject, AuthenticationStandardLogonParameters)).UserName <> "Admin" Then
+        e.SettingsStorage.SaveOption( _
+        "", "UserName", (CType(e.LogonObject, AuthenticationStandardLogonParameters)).UserName)
+        e.SettingsStorage.SaveOption( _
+        "", "Password", (CType(e.LogonObject, AuthenticationStandardLogonParameters)).Password)
+    End If
+    e.Handled = True
+End Sub
+```
+
 ***
 
 With the code above, the "Admin" user name will not be saved in the _LogonParameters_ file, and the previously saved user name will not be changed. So, end-user will not have to type a user name after the application administrator has logged in to work with the application at the end-user workstation.
@@ -56,6 +81,14 @@ Additionally, the password can be saved together with the user name. To enable p
 e.SettingsStorage.SaveOption(
     "", "Password", ((AuthenticationStandardLogonParameters)e.LogonObject).Password);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+e.SettingsStorage.SaveOption( _
+"", "Password", (CType(e.LogonObject, AuthenticationStandardLogonParameters)).Password)
+```
+
 ***
 
 > [!NOTE]

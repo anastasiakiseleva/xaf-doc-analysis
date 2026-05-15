@@ -98,7 +98,7 @@ Solution: Follow the steps below to collect diagnostic information and send it t
 
 1. Close your Visual Studio, navigate to `%USERPROFILE%\AppData\Roaming\eXpressAppFramework\`, and archive the folder content.
 2. If the Model Editor frame was not created or you received **NotImplementedException** or "The operation could not be completed" errors, collect the inner exception message and callstacks using another Visual Studio instance. The following article describes how to do this: [How to obtain a design-time exception call stack](xref:403685#get-exception-call-stack-of-design-time-errors-in-visual-studio). 
-3. Create a new Support Center ticket ([https://supportcenter.devexpress.com/ticket/create](https://supportcenter.devexpress.com/ticket/create)) and attach the resulting diagnostic information as well as screenshots showing the exact steps to reproduce, the actual and expected results, your Visual Studio "About" information, and the CSPROJ/VBPROJ of the projects you tested. Optionally, attach a small debuggable sample where this behavior can be reproduced in a stable manner.
+3. Create a new Support Center ticket ([https://supportcenter.devexpress.com/ticket/create](https://supportcenter.devexpress.com/ticket/create)) and attach the resulting diagnostic information as well as screenshots showing the exact steps to reproduce, the actual and expected results, your Visual Studio "About" information, and the CSPROJ of the projects you tested. Optionally, attach a small debuggable sample where this behavior can be reproduced in a stable manner.
 
 ### Other Issues
 

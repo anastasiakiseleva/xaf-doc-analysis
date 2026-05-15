@@ -5,6 +5,7 @@ type: Property
 summary: Specifies the Rich Text Editor cell height in pixels. When set to **-1**, the editor's height is calculated automatically based on the editor's contents.
 syntax:
   content: |-
+    [DefaultValue(-1)]
     [ModelBrowsable(typeof(WinRichTextPropertyEditorCalculator))]
     int CustomHeight { get; set; }
   parameters: []

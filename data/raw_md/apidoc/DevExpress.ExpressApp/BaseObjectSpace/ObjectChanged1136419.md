@@ -36,4 +36,30 @@ public class MyExampleViewController : ObjectViewController<DetailView, DemoObje
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+'...
+Public Class MyExampleViewController
+    Inherits ObjectViewController(Of DetailView, DemoObject)
+
+    Private Sub ObjectSpace_ObjectChanged(ByVal sender As Object, ByVal e As ObjectChangedEventArgs)
+        If ViewCurrentObject IsNot Nothing Then
+            If e.PropertyName = "EffectiveDate" Then
+                ViewCurrentObject.RetroDate = ViewCurrentObject.EffectiveDate
+            End If
+        End If
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler View.ObjectSpace.ObjectChanged, AddressOf ObjectSpace_ObjectChanged
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        MyBase.OnDeactivated()
+        RemoveHandler View.ObjectSpace.ObjectChanged, AddressOf ObjectSpace_ObjectChanged
+    End Sub
+End Class
+```
 ***

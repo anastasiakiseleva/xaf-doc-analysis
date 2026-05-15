@@ -30,4 +30,16 @@ foreach(object enumValue in myDescriptor.Values) {
     //process caption and image
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim myDescriptor As New EnumDescriptor(GetType(MyEnum))
+For Each enumValue As Object In myDescriptor.Values
+    Dim caption As String = myDescriptor.GetCaption(enumValue)
+    Dim image As Drawing.Image = myDescriptor.GetImageInfo(enumValue).Image
+    'process caption and image
+Next enumValue
+```
+
 ***

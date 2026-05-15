@@ -17,7 +17,7 @@ seealso:
 - linkId: DevExpress.ExpressApp.SystemModule.FilterController.GetFullTextSearchProperties
 ---
 
-When the `FullTextSearchTargetPropertiesMode` property is set to `VisibleColumns`, the **FullTextSearch** Action performs only scans properties if their corresponding columns are visibile.
+When the `FullTextSearchTargetPropertiesMode` property is set to `VisibleColumns`, the **FullTextSearch** Action performs only scans properties if their corresponding columns are visible.
 
 > [!NOTE]
 > [!include[FullTextSearchFriendlyKeyNote](~/templates/fulltextsearchfriendlykeynote11178.md)]
@@ -37,4 +37,4 @@ Some properties that are added to the search because they satisfy the currently 
 If you need to manually specify a set of properties to be included in search criteria, handle the [FilterController.CustomGetFullTextSearchProperties](xref:DevExpress.ExpressApp.SystemModule.FilterController.CustomGetFullTextSearchProperties) event.
 
 > [!TIP]
-> For information on how to filter search in Lookup Property Editors that do not use List Views, refer to the following topic: [Search in LookupProperty Editor](xref:113572#search-in-lookupproperty-editor).
+> For information on how to filter search in Lookup Property Editors that do not use List Views, refer to the following topic: [Search in LookupProperty Editor](xref:113572#search-in-lookuppropertyeditor).

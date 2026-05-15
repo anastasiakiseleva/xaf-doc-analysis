@@ -61,6 +61,70 @@ public class Product : BaseObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<CalculatedPersistentAlias(NameOf(ProductName), NameOf(ProductNameAlias)), DefaultClassOptions> _
+Public Class Product
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Private Shared productNameFormat As String = "{Manufacturer} {Model}"
+    Private Shared productNameAlias_Renamed As String = "concat(Manufacturer, Model)"
+
+    Public ReadOnly Property ProductName() As String
+        Get
+            Return ObjectFormatter.Format( _
+            productNameFormat, Me, EmptyEntriesMode.RemoveDelimiterWhenEntryIsEmpty )
+        End Get
+    End Property
+    <Browsable(False)> _
+    Public Shared ReadOnly Property ProductNameAlias() As String
+        Get
+            Return Product.productNameAlias_Renamed
+        End Get
+    End Property
+
+    Public Shared Sub SetProductNameFormat( _
+    ByVal productNameFormat As String, ByVal productNameAlias As String)
+        If (Not String.IsNullOrEmpty(productNameFormat)) Then
+            Product.productNameFormat = productNameFormat
+        End If
+        If (Not String.IsNullOrEmpty(productNameAlias)) Then
+    Product.productNameAlias_Renamed = productNameAlias
+        End If
+    End Sub
+
+    Public Property Manufacturer() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Manufacturer))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Manufacturer), value)
+        End Set
+    End Property
+    Public Property Model() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Model))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Model), value)
+        End Set
+    End Property
+    Public Property Revision() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Revision))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Revision), value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Note that a property which returns the persistent alias' expression must be declared as `public` and `static`.
@@ -81,7 +145,24 @@ public sealed partial class CalculatedAliasModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class CalculatedAliasModule
+    Inherits ModuleBase
+    Public Sub New()
+        InitializeComponent()
+
+        Product.SetProductNameFormat( _
+        ConfigurationManager.AppSettings("ProductNameFormat"), _
+        ConfigurationManager.AppSettings(NameOf(ProductNameAlias)))
+    End Sub
+End Class
+```
+
 ***
+
 In addition, it is required to override the [ModuleBase.CustomizeTypesInfo](xref:DevExpress.ExpressApp.ModuleBase.CustomizeTypesInfo(DevExpress.ExpressApp.DC.ITypesInfo)) method in the following manner:
 
 # [C#](#tab/tabid-csharp)
@@ -94,6 +175,18 @@ public override void CustomizeTypesInfo(ITypesInfo typesInfo) {
     CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Xpo
+'...
+Public Overrides Sub CustomizeTypesInfo(ByVal typesInfo As ITypesInfo)
+    MyBase.CustomizeTypesInfo(typesInfo)
+    CalculatedPersistentAliasHelper.CustomizeTypesInfo(typesInfo)
+End Sub
+```
+
 ***
 
 Note that two business classes from the [Business Class Library](xref:112571) use the **CalculatedPersistentAliasAttribute** attribute. The **Person** class uses this attribute to configure the format of the calculated **FullName** property, and the **Address** class uses this attribute to configure the calculated **FullAddress** property. To learn how to configure the format of these properties, refer to the [How to: Change the Format Used for the FullAddress and FullName Properties](xref:113173) topic.

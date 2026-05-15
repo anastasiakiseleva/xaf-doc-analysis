@@ -28,6 +28,23 @@ public FileData Document {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private _document As FileData
+<Aggregated, ExpandObjectMembers(ExpandObjectMembers.Never), _
+FileTypeFilter("DocumentFiles", 1, "*.txt", "*.doc"), _
+FileTypeFilter("AllFiles", 2, "*.*")>
+Public Property Document() As FileData
+    Get
+        Return _document
+    End Get
+    Set(ByVal value As FileData)
+        SetPropertyValue(NameOf(Document), _document, value)
+    End Set
+End Property
+```
+
 ***
 
 You can use the [](xref:DevExpress.Persistent.Base.FileAttachmentAttribute) to enable Actions that manage file attachments in addition to the Property Editor functionality.

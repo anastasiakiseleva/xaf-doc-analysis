@@ -29,6 +29,23 @@ public double Rate {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.Base
+' ...
+<ImmediatePostData>
+Public Property Rate() As Double
+    Get
+        '...
+    End Get
+    Set(ByVal value As Double)
+        '...           
+    End Set
+End Property
+```
+
 ***
 
 ### Impact on Other Properties

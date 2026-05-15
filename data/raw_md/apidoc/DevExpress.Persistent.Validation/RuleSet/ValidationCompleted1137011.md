@@ -39,6 +39,36 @@ namespace MySolution.Module.Controllers {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.Persistent.Validation
+
+Namespace MySolution.Module.Controllers
+    Public Class CustomizeValidationMessageController
+        Inherits WindowController
+
+        Public Sub New()
+            TargetWindowType = WindowType.Main
+        End Sub
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AddHandler Validator.RuleSet.ValidationCompleted, AddressOf RuleSet_ValidationCompleted
+        End Sub
+        Private Sub RuleSet_ValidationCompleted(ByVal sender As Object, ByVal e As ValidationCompletedEventArgs)
+            If e.Exception IsNot Nothing Then
+                e.Exception.ObjectHeaderFormat = ""
+            End If
+        End Sub
+        Protected Overrides Sub OnDeactivated()
+            MyBase.OnDeactivated()
+            RemoveHandler Validator.RuleSet.ValidationCompleted, AddressOf RuleSet_ValidationCompleted
+        End Sub
+    End Class
+End Namespace
+```
+
 ***
 
 If the validation was performed by the [RuleSet.ValidateTarget](xref:DevExpress.Persistent.Validation.RuleSet.ValidateTarget(DevExpress.ExpressApp.IObjectSpace,System.Object,DevExpress.Persistent.Validation.ContextIdentifiers)) or [RuleSet.ValidateAllTargets](xref:DevExpress.Persistent.Validation.RuleSet.ValidateAllTargets*) method, the **ValidationCompleted** event is not raised.

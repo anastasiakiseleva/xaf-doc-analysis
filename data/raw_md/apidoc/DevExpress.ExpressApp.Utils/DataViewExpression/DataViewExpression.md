@@ -24,4 +24,18 @@ dataViewExpressions.Add(new DataViewExpression(
     "Count", new AggregateOperand("Sales", Aggregate.Count)));
 var dataView = objectSpace.CreateDataView(typeof(Sale), dataViewExpressions, null, null);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim dataViewExpressions As New List(Of DataViewExpression)()
+dataViewExpressions.Add(New DataViewExpression( _
+"ID", New OperandProperty("ID")))
+dataViewExpressions.Add(New DataViewExpression( _
+"Name.UpperCase", New FunctionOperator(FunctionOperatorType.Upper, New OperandProperty("Name"))))
+dataViewExpressions.Add(New DataViewExpression( _
+"Count", New AggregateOperand("Sales", Aggregate.Count)))
+Dim dataView = objectSpace.CreateDataView(GetType(Sale), dataViewExpressions, Nothing, Nothing)
+```
+
 ***

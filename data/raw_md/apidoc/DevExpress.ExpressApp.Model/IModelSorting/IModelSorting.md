@@ -38,4 +38,24 @@ public class MyViewController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+' ...
+Public Class MyViewController
+    Inherits ViewController(Of ListView)
+
+    Public Sub New()
+        Me.TargetObjectType = GetType(MyBusinessObject)
+        Me.TargetViewNesting = DevExpress.ExpressApp.Nesting.Nested
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Me.View.CollectionSource.CanApplySorting = True
+    End Sub
+End Class
+```
+
 ***

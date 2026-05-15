@@ -63,6 +63,46 @@ public class CustomStringEditor : StringPropertyEditor {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Globalization
+
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+Imports DevExpress.ExpressApp.Win.Editors
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraEditors.Controls
+Imports DevExpress.XtraEditors.Repository
+Imports DevExpress.ExpressApp.Model
+'...
+<PropertyEditor(GetType(String), "CultureInfoPropertyEditor", False)> _
+Public Class CustomStringEditor
+    Inherits StringPropertyEditor
+    Public Sub New(ByVal objectType As Type, ByVal info As IModelMemberViewItem)
+        MyBase.New(objectType, info)
+    End Sub
+    Protected Overrides Function CreateControlCore() As Object
+        Return New ComboBoxEdit()
+    End Function
+    Protected Overrides Function CreateRepositoryItem() As RepositoryItem
+        Return New RepositoryItemComboBox()
+    End Function
+    Protected Overrides Sub SetupRepositoryItem( _
+    ByVal item As DevExpress.XtraEditors.Repository.RepositoryItem)
+        MyBase.SetupRepositoryItem(item)
+        For Each culture As CultureInfo In CultureInfo.GetCultures( _
+        CultureTypes.InstalledWin32Cultures)
+            CType(item, RepositoryItemComboBox).Items.Add( _
+            culture.EnglishName & "(" & culture.Name & ")")
+        Next culture
+        CType(item, RepositoryItemComboBox).TextEditStyle = TextEditStyles.DisableTextEditor
+    End Sub
+End Class
+```
+
 ***
 
 Apply the [](xref:DevExpress.Persistent.Base.EditorAliasAttribute) attribute to use the implemented Property Editor for a business object's **CultureCode** property:
@@ -78,6 +118,23 @@ public String CultureCode {
    set { SetPropertyValue(nameof(CultureCode), value); }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Model
+'...
+<EditorAlias("CultureInfoPropertyEditor")> _
+Public Property CultureCode() As String
+   Get
+      Return GetPropertyValue(Of String)(NameOf(CultureCode))
+   End Get
+   Set(ByVal value As String)
+      SetPropertyValue(NameOf(CultureCode), value)
+   End Set
+End Property
+```
+
 ***
 
 Here, the **EditorAlias** attribute changes the **PropertyEditorType** property of the Application Model's [](xref:DevExpress.ExpressApp.Model.IModelMember) node, that defines the **CultureCode** property. Alternatively, you can do it via the [Model Editor](xref:112582).

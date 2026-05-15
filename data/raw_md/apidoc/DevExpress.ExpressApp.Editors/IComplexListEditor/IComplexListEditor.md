@@ -42,4 +42,32 @@ XafApplication application) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Editors
+'...
+Public Class CustomListEditor
+    Inherits ListEditor
+    Implements IComplexListEditor
+
+    Private collectionSource As CollectionSourceBase
+    Private application As XafApplication
+    #Region "IComplexListEditor Members"
+        Public Sub Setup(ByVal collectionSource As CollectionSourceBase, _
+ByVal application As XafApplication) Implements IComplexListEditor.Setup
+            Me.collectionSource = collectionSource
+            Me.application = application
+        End Sub
+    #End Region
+    ' Example:
+    Protected Overrides Function CreateControlsCore() As Object
+        Dim objectsCollection As IList = collectionSource.List
+        ' ...
+    End Function
+End Class
+```
+
 ***

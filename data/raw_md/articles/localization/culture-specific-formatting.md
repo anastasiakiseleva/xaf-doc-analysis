@@ -22,6 +22,17 @@ static void Main() {
 }
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments() As String)
+    ' ...
+    Dim winApplication As New MySolutionWindowsFormsApplication()
+    winApplication.SetFormattingCulture("de")
+    ' ... 
+End Sub
+```
+
 ***
 
 The following image illustrates the result.
@@ -57,6 +68,22 @@ static void winApplication_CustomizeFormattingCulture(
     object sender, CustomizeFormattingCultureEventArgs e) {
     e.FormattingCulture.NumberFormat.CurrencySymbol = "USD";
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments() As String)
+    '...
+    Dim winApplication As New MySolutionWindowsFormsApplication()
+    AddHandler winApplication.CustomizeFormattingCulture, _
+    AddressOf winApplication_CustomizeFormattingCulture
+      ' ...
+End Sub
+Shared Sub winApplication_CustomizeFormattingCulture( _
+ByVal sender As Object, ByVal e As CustomizeFormattingCultureEventArgs)
+    e.FormattingCulture.NumberFormat.CurrencySymbol = "USD"
+End Sub
 ```
 
 ***

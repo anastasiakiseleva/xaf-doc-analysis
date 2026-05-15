@@ -102,8 +102,8 @@ The [Template Kit](xref:405447) uses Microsoft SQL Server as the default databas
 
 1. Make sure an appropriate drawing engine is available. Add the following packages to your **MainDemo.Blazor.Server** project:
 
-    * [DevExpress.Drawing](https://nuget.devexpress.com/packages/DevExpress.Drawing/)
-    * [DevExpress.Drawing.Skia](https://nuget.devexpress.com/packages/DevExpress.Drawing.Skia) -- For more information on this package, refer to the following topic: [DevExpress.Drawing Graphics Library](xref:404247).
+    * [DevExpress.Drawing](https://nuget.org/packages/DevExpress.Drawing/)
+    * [DevExpress.Drawing.Skia](https://nuget.org/packages/DevExpress.Drawing.Skia) -- For more information on this package, refer to the following topic: [DevExpress.Drawing Graphics Library](xref:404247).
 
 ### Set Up Forwarded Header Middleware
 
@@ -182,13 +182,7 @@ Refer the following topic for details: [Date and Time Handling](https://github.c
 
 ### Publish and Copy the Application
 
-1. Make sure that the DevExpress NuGet source URL is registered in your source list. Use the following link to locate this URL: [Your DevExpress NuGet Feed URL](https://nuget.devexpress.com/#feed-url). We also recommend that you use the NuGet v3 source URL.
-
-    The command below adds `DevExpressNuget` to your source list.
-
-    ```Console
-    dotnet nuget add source -n DevExpressNuget https://nuget.devexpress.com/{your-feed-authorization-key}/api/v3/index.json 
-    ```
+1. Make sure that DevExpress XAF libraries are installed as NuGet packages. Refer to the following topic for details: [How to Install DevExpress Products](xref:116042#devexpress-net-products-unified-installer-and-nugetorg).
 
 1. Execute the [dotnet publish](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-publish) command from the development environment to package an application into a directory that can be run on the server.
 
@@ -402,6 +396,15 @@ Refer the following topic for details: [Date and Time Handling](https://github.c
     ```
 
     ![DevExpress XAF - The Service Is Running](~/images/deployment-tutorial-linux-service-is-running.png)
+
+## Reports, Dashboards, and Office Module Deployment
+
+If your application uses [Reports](xref:113591), [Dashboards](xref:117449), or [Office](xref:400003) module, install additional packages to create report documents and export dashboards and Office files. For details, see the following topic:
+
+* [Reports -- Use Reporting on Linux and macOS](xref:404221)
+* [Dashboards -- Linux and MacOS Specifics](xref:402574)
+* [Office File API --- Use Office File API on Linux](xref:401441)
+* [Reports -- Cloud Integration](xref:404819)
 
 [!include[deployment-tutorial-blazor-disclaimer](~/templates/deployment-tutorial-blazor-disclaimer.md)]
 

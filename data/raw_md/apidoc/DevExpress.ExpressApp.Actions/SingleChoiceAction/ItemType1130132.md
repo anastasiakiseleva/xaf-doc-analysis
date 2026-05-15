@@ -58,6 +58,47 @@ public class SingleChoiceActionController : ObjectViewController<ListView, Perso
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+
+Public Class SingleChoiceActionController
+    Inherits ObjectViewController(Of ListView, Person)
+
+    Public Sub New()
+        Dim contactAction As New SingleChoiceAction(Me, "ContactAction", PredefinedCategory.Edit)
+        contactAction.ItemType = SingleChoiceActionItemType.ItemIsOperation
+        Dim openContact As New ChoiceActionItem("openContact", "Open Contact", Nothing)
+        Dim deleteContact As New ChoiceActionItem("deleteContact", "Delete Contact", Nothing)
+        contactAction.Items.Add(openContact)
+        contactAction.Items.Add(deleteContact)
+        AddHandler contactAction.Execute, AddressOf ContactAction_Execute
+    End Sub
+    Private Sub ContactAction_Execute(ByVal sender As Object, ByVal e As SingleChoiceActionExecuteEventArgs)
+        If View.CurrentObject IsNot Nothing Then
+            If e.SelectedChoiceActionItem.Id = "openContact" Then
+                Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Person))
+                Dim currentObject As Object = objectSpace.GetObject(View.CurrentObject)
+                If currentObject IsNot Nothing Then
+                    e.ShowViewParameters.CreatedView = Application.CreateDetailView(objectSpace, currentObject)
+                Else
+                    objectSpace.Dispose()
+                End If
+            ElseIf e.SelectedChoiceActionItem.Id = "deleteContact" Then
+                View.ObjectSpace.Delete(View.CurrentObject)
+                View.ObjectSpace.CommitChanges()
+                View.Refresh(True)
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 Items represent modes

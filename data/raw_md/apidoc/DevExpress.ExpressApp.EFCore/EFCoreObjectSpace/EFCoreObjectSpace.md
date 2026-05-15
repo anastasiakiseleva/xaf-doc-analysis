@@ -11,7 +11,7 @@ seealso:
 ---
 XAF creates Object Spaces of the `EFCoreObjectSpace` type if an application calls the @DevExpress.ExpressApp.ApplicationBuilder.EFCoreObjectSpaceProviderBuilderExtensions.AddEFCore* method at startup.
 
-In XAF application, use the [XafApplication.CreateObjectSpace](xref:DevExpress.ExpressApp.XafApplication.CreateObjectSpace) method to create this Object Space if the default Object Space Provider is @DevExpress.ExpressApp.EFCore.EFCoreObjectSpaceProvider`1.
+In XAF application, use the `XafApplication.CreateObjectSpace` method to create this Object Space if the default Object Space Provider is @DevExpress.ExpressApp.EFCore.EFCoreObjectSpaceProvider`1.
 
 The following example demonstrates how to use @DevExpress.ExpressApp.EFCore.EFCoreObjectSpaceProvider`1 to create **EFCoreObjectSpace** in a non-XAF application. 
 

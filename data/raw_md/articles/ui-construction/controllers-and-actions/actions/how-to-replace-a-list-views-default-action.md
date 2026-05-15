@@ -47,6 +47,46 @@ public class AddressBookRecord : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+<DefaultClassOptions, ImageName("BO_Contact")> _
+Public Class AddressBookRecord
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _name As String
+    Public Property Name() As String
+        Get
+            Return _name
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Name), _name, value)
+        End Set
+    End Property
+    Private _email As String
+    Public Property Email() As String
+        Get
+            Return _email
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Email), _email, value)
+        End Set
+    End Property
+    Private _phoneNumber As String
+    Public Property PhoneNumber() As String
+        Get
+            Return _phoneNumber
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(PhoneNumber), _phoneNumber, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Let us consider the `WriteMailController` [View Controller](xref:112621) that provides the **WriteMail** Action for `AddressBookRecord` objects. This Action invokes the program that is associated with the **MailTo** protocol on an end-user's computer.
@@ -77,6 +117,33 @@ public class WriteMailController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Diagnostics
+' ...
+Public Class WriteMailController
+    Inherits ViewController
+    Private writeMailAction As SimpleAction
+    Public Sub New()
+        TargetObjectType = GetType(AddressBookRecord)
+        writeMailAction = New SimpleAction(Me, "WriteMail", PredefinedCategory.Edit)
+        writeMailAction.ToolTip = "Write e-mail to the selected address book record"
+        writeMailAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        writeMailAction.ImageName = "BO_Contact"
+        AddHandler writeMailAction.Execute, AddressOf writeMailAction_Execute
+    End Sub
+    Private Sub writeMailAction_Execute( _
+    ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim record As AddressBookRecord = CType(e.CurrentObject, AddressBookRecord)
+        Dim startInfo As String = String.Format( _
+        "mailto:{0}?body=Hello, {1}!%0A%0A", record.Email, record.Name)
+        Process.Start(startInfo)
+    End Sub
+End Class
+```
+
 ***
 
 By default, the Action specified by the `ProcessCurrentObjectAction` property of the `ListViewProcessCurrentObjectController` invokes a Detail View with the clicked object (the **ListViewShowObject** Action is specified by default). However, the `ListViewProcessCurrentObjectController` exposes the [ListViewProcessCurrentObjectController.CustomProcessSelectedItem](xref:DevExpress.ExpressApp.SystemModule.ListViewProcessCurrentObjectController.CustomProcessSelectedItem) event, which you can handle to replace the default Action. The code below demonstrates how to handle this event in `WriteMailController` to execute a **WriteMail** Action instead of **ListViewShowObject**. Subscribe to the `CustomProcessSelectedItem` event in the overridden `OnActivated` method. In the event handler, execute the **WriteMail** Action by invoking the [SimpleAction.DoExecute](xref:DevExpress.ExpressApp.Actions.SimpleAction.DoExecute) method.
@@ -112,6 +179,37 @@ public class WriteMailController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class WriteMailController
+    Inherits ViewController
+
+    ' ...
+    Private processCurrentObjectController As ListViewProcessCurrentObjectController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        processCurrentObjectController = Frame.GetController(Of ListViewProcessCurrentObjectController)()
+        If processCurrentObjectController IsNot Nothing Then
+            AddHandler processCurrentObjectController.CustomProcessSelectedItem, AddressOf processCurrentObjectController_CustomProcessSelectedItem
+        End If
+    End Sub
+    Private Sub processCurrentObjectController_CustomProcessSelectedItem(ByVal sender As Object, ByVal e As CustomProcessListViewSelectedItemEventArgs)
+        e.Handled = True
+        writeMailAction.DoExecute()
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        If processCurrentObjectController IsNot Nothing Then
+            RemoveHandler processCurrentObjectController.CustomProcessSelectedItem, AddressOf processCurrentObjectController_CustomProcessSelectedItem
+        End If
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 The following image illustrates that the **WriteMail** action is executed when clicking a record in the `AddressBookRecord` objects' List View.
@@ -141,6 +239,32 @@ public class EditAddressBookRecordController : ViewController<ListView> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Public Class EditAddressBookRecordController
+    Inherits ViewController(Of ListView)
+    Public Sub New()
+        TargetObjectType = GetType(AddressBookRecord)
+        Dim editAddressBookRecordAction As New SimpleAction( _
+        Me, "EditAddressBookRecord", PredefinedCategory.Edit)
+        editAddressBookRecordAction.ImageName = "Action_Edit"
+        editAddressBookRecordAction.SelectionDependencyType = _
+        SelectionDependencyType.RequireSingleObject
+        AddHandler editAddressBookRecordAction.Execute, _
+        AddressOf editAddressBookRecordAction_Execute
+    End Sub
+    Private Sub editAddressBookRecordAction_Execute( _
+    ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        ListViewProcessCurrentObjectController.ShowObject( _
+        e.CurrentObject, e.ShowViewParameters, Application, Frame, View)
+    End Sub
+End Class
+```
+
 ***
 
 ![ReplaceDefaultActionWin1](~/images/replacedefaultactionwin1116906.png)
@@ -158,6 +282,24 @@ public class WriteMailController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class WriteMailController
+    Inherits ViewController
+    ' ...
+    Public Property DefaultListViewAction() As SimpleAction
+        Get
+            Return writeMailAction
+        End Get
+        Set(ByVal value As SimpleAction)
+            writeMailAction = value
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 Proceed to the next section of this topic to see how this property can be used.
@@ -191,6 +333,36 @@ public class PhoneCallController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class PhoneCallController
+    Inherits ViewController
+    Private phoneCallAction As SimpleAction
+    Public Sub New()
+        TargetObjectType = GetType(AddressBookRecord)
+        phoneCallAction = New SimpleAction(Me, "PhoneCall", PredefinedCategory.Edit)
+        phoneCallAction.ToolTip = "Call the current record via Skype"
+        phoneCallAction.ImageName = "BO_Phone"
+        phoneCallAction.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+        AddHandler phoneCallAction.Execute, AddressOf skypeCallAction_Execute
+    End Sub
+    Private Sub skypeCallAction_Execute( _
+    ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Process.Start("skype:" & (CType(e.CurrentObject, AddressBookRecord)).PhoneNumber)
+    End Sub
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler View.CurrentObjectChanged, AddressOf View_CurrentObjectChanged
+    End Sub
+    Private Sub View_CurrentObjectChanged(ByVal sender As Object, ByVal e As EventArgs)
+        phoneCallAction.Enabled.SetItemValue("PhoneIsSpecified", (Not String.IsNullOrEmpty(( _
+        CType(View.CurrentObject, AddressBookRecord)).PhoneNumber)))
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]
@@ -208,6 +380,19 @@ protected override void OnActivated() {
         writeMailController.DefaultListViewAction = phoneCallAction;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Protected Overrides Sub OnActivated()
+    ' ...
+    Dim writeMailController As WriteMailController = Frame.GetController(Of WriteMailController)()
+    If writeMailController IsNot Nothing Then
+        writeMailController.DefaultListViewAction = phoneCallAction
+    End If
+End Sub
+```
+
 ***
 
 The following image illustrates that the **PhoneCall** action is executed when clicking a record in the `AddressBookRecord` objects' List View.

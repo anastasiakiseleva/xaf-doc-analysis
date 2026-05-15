@@ -4,7 +4,7 @@ name: TreeListEditor
 type: Class
 summary: Represents a Windows Forms [List Editor](xref:113189) that displays data in the form of a tree-like structure.
 syntax:
-  content: 'public class TreeListEditor : ColumnsListEditor, IDXPopupMenuHolder, IComplexListEditor, IControlOrderProvider, IOrderProvider, ILookupListEditor, IFocusedElementCaptionProvider, INodeObjectAdapterProvider, ISupportFooter, IExportable, ISupportUpdate, IRequireContextMenu, IRequireDXMenuManager, ISupportBorderStyle, ISupportFilterEditor'
+  content: 'public class TreeListEditor : ColumnsListEditor, IDXPopupMenuHolder, IComplexListEditor, IControlOrderProvider, IOrderProvider, ILookupListEditor, IFocusedElementCaptionProvider, INodeObjectAdapterProvider, ISupportFooter, IExportable, ISupportUpdate, IRequireContextMenu, IRequireDXMenuManager, ISupportBorderStyle, ISupportFilterEditor, IExtendableControlProvider'
 seealso:
 - linkId: DevExpress.ExpressApp.TreeListEditors.Win.TreeListEditor._members
   altText: TreeListEditor Members

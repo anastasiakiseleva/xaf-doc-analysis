@@ -26,6 +26,18 @@ static void Main() {
     winApplication.Start();
 }
 ```
+
+# [VB.NET (Program.vb)](#tab/tabid-vb)
+
+```vb
+Private Shared Sub Main()
+    '...
+    winApplication.EnableModelCache = True
+    winApplication.Setup()
+    winApplication.Start()
+End Sub
+```
+
 ***
 
 As a result, [Nodes Generators and Generator Updaters](xref:112810) will be executed and the _Model.Cache.xafml_ cache file will be created only when the application is started for the first time. Note that the first startup can take more time than usual. However, the time taken by subsequent startups will be reduced, because the Application Model content will be recovered from the cache. The cache is recreated when the version of any application module is incremented.

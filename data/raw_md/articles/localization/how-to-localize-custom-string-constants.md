@@ -20,6 +20,18 @@ if (MessageBox.Show("Do you wish to cancel your changes?", "", MessageBoxButtons
    // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Windows.Forms
+' ...
+If MessageBox.Show("Do you wish to cancel your changes?", "", MessageBoxButtons.YesNo) = _
+DialogResult.Yes Then
+   ' ...
+End If
+```
+
 ***
 
 To localize custom strings from the WebApi context, refer to the following article: [Access Caption Helper in Custom Endpoint Methods](xref:403861).
@@ -43,6 +55,19 @@ if (MessageBox.Show(CaptionHelper.GetLocalizedText("Messages", "DoYouWishToCance
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Windows.Forms
+Imports DevExpress.ExpressApp.Utils
+' ...
+If MessageBox.Show(CaptionHelper.GetLocalizedText("Messages", "DoYouWishToCancelChanges"), _
+    "", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+    ' ...
+End If
+```
+
 ***
 
 If you need to localize multiple custom strings, add the **LocalizationGroup** node to the **Localization** node and specify your strings there. In this example, this node is called **Confirmations**:
@@ -61,6 +86,20 @@ if (MessageBox.Show(CaptionHelper.GetLocalizedText(
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Windows.Forms
+Imports DevExpress.ExpressApp.Utils
+' ...
+If MessageBox.Show(CaptionHelper.GetLocalizedText( _
+"Messages\Confirmations", "DoYouWishToCancelChanges"), _
+"", MessageBoxButtons.YesNo) = DialogResult.Yes Then
+    ' ...
+End If
+```
+
 ***
 
 The **LocalizationGroup** node can have a multilevel structure. You can use the **CaptionHelper.GetLocalizedText** method to create a complex hierarchy. This method accepts a path as an input parameter. For instance, to access the **Localization** | **Messages** | **Confirmations** | **DataChangingConfirmations** group, use the "Messages\Confirmations\DataChangingConfirmations" path. Do not include the **Localization** node itself in the path.
@@ -86,6 +125,22 @@ public class MyXafResourceLocalizer : XafResourceLocalizer {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Localization
+' ...
+Public Class MyXafResourceLocalizer
+    Inherits XafResourceLocalizer
+    Protected Overrides Function GetXafResourceManagerParameters() As IXafResourceManagerParameters
+        Dim localizationGroupPath() As String = { "Messages", "Confirmations" }
+        Return New XafResourceManagerParameters(localizationGroupPath, _
+        "MySolution.Module.MyResource", "", Me.GetType().Assembly)
+    End Function
+End Class
+```
+
 ***
 
 In this snippet, "MySolution.Module.MyResource" is the resource name. Items from this resource are added to the **Localization** | **Messages** | **Confirmations** Localization Group. Add the Resource Localizer type to the [ModuleBase.ResourcesExportedToModel](xref:DevExpress.ExpressApp.ModuleBase.ResourcesExportedToModel) collection to register the Resource Localizer in a module.
@@ -101,6 +156,20 @@ public sealed partial class MySolutionModule : ModuleBase {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+    Public Sub New()
+        ' ...
+        ResourcesExportedToModel.Add(GetType(MyXafResourceLocalizer))
+    End Sub
+    ' ...
+End Class
+```
+
 ***
 
 Alternatively, you can register a resource localizer in the overridden [ModuleBase.GetXafResourceLocalizerTypes](xref:DevExpress.ExpressApp.ModuleBase.GetXafResourceLocalizerTypes) method.
@@ -117,6 +186,21 @@ public sealed partial class ResourceLocalizerModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class ResourceLocalizerModule
+    Inherits ModuleBase
+    ' ...
+    Public Overrides Function GetXafResourceLocalizerTypes() As ICollection(Of Type)
+        Dim localizers As ICollection(Of Type) = MyBase.GetXafResourceLocalizerTypes()
+        localizers.Add(GetType(MyXafResourceLocalizer))
+        Return localizers
+    End Function
+End Class
+```
+
 ***
 
 Rebuild the solution and invoke the Model Editor. You can see that items from the _MyResource.resx_ resource are exported to the Application Model.

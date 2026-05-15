@@ -31,7 +31,22 @@ public class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyModule
+    Inherits ModuleBase
+    ' ...
+    Public Overrides Function GetModuleUpdaters(ByVal objectSpace As IObjectSpace, _
+    ByVal versionFromDB As Version) As IEnumerable(Of ModuleUpdater)
+        Return New ModuleUpdater() { New Updater(objectSpace, versionFromDB) }
+    End Function
+End Class
+```
+
 ***
+
 This code is already added to a module template. Change it if you need to register extra module updater classes. If your custom module is not supposed to provide any updates to the database, then override the method as follows.
 
 # [C#](#tab/tabid-csharp)
@@ -42,4 +57,14 @@ public override IEnumerable<ModuleUpdater> GetModuleUpdaters(
      return ModuleUpdater.EmptyModuleUpdaters;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Function GetModuleUpdaters(ByVal objectSpace As IObjectSpace, _
+ByVal versionFromDB As Version) As IEnumerable(Of ModuleUpdater)
+     Return ModuleUpdater.EmptyModuleUpdaters
+End Function
+```
+
 ***

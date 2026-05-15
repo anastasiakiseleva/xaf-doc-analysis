@@ -22,4 +22,12 @@ You can pass an object that is an actual member value, or an @DevExpress.Express
 ITypeInfo typeInfo = objectSpace.TypesInfo.FindTypeInfo(objectSpace.GetObjectType(objectRecord));
 Object val = typeInfo.FindMember(propertyName).GetValue(objectRecord);
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim typeInfo As ITypeInfo = objectSpace.TypesInfo.FindTypeInfo(objectSpace.GetObjectType(objectRecord))
+Dim val As Object = typeInfo.FindMember(propertyName).GetValue(objectRecord)
+```
+
 ***

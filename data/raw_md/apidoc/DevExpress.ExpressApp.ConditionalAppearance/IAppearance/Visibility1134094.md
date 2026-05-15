@@ -25,4 +25,13 @@ using DevExpress.ExpressApp.Editors;
 // ...
 ((IAppearanceVisibility)thePropertyEditor).Visibility = ViewItemVisibility.Hide;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Editors
+' ...
+CType(thePropertyEditor, IAppearanceVisibility).Visibility = ViewItemVisibility.Hide
+```
+
 ***

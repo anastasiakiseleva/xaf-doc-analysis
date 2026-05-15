@@ -55,6 +55,28 @@ public class TaskViewController : ObjectViewController<ListView, Task> {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+' ...
+Public Class TaskViewController
+    Inherits ObjectViewController(Of ListView, Task)
+    Public Sub New()
+        Dim addTaskAction As New SimpleAction(Me, "AddTask", PredefinedCategory.Edit)
+        AddHandler addTaskAction.Execute, AddressOf AddTaskAction_Execute
+    End Sub
+    Private Sub AddTaskAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim _task As Task = ObjectSpace.CreateObject(Of Task)()
+        task.Subject = "Demo Task"
+        View.CollectionSource.Add(_task)
+        ObjectSpace.CommitChanges()
+        View.Refresh()
+    End Sub
+End Class
+```
 ***
 
 ### Example 2
@@ -86,6 +108,31 @@ public class EmployeeViewController : ObjectViewController<DetailView, Employee>
         listPropertyEditor.ListView.Refresh();
     }
 }
+```
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.ExpressApp.Editors
+' ...
+Public Class EmployeeViewController
+    Inherits ObjectViewController(Of DetailView, Employee)
+    Public Sub New()
+        Dim addTaskAction As New SimpleAction(Me, "AddTask", PredefinedCategory.Edit)
+        AddHandler addTaskAction.Execute, AddressOf AddTaskAction_Execute
+    End Sub
+    Private Sub AddTaskAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim listPropertyEditor As ListPropertyEditor = TryCast(View.FindItem(NameOf(Employee.Tasks)), ListPropertyEditor)
+        Dim os As IObjectSpace = listPropertyEditor.ListView.ObjectSpace
+        Dim task As Task = os.CreateObject(Of Task)()
+        task.Subject = "Demo Task"
+        listPropertyEditor.ListView.CollectionSource.Add(task)
+        os.CommitChanges()
+        listPropertyEditor.ListView.Refresh()
+    End Sub
+End Class
 ```
 ***
 

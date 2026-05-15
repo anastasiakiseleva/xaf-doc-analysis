@@ -25,6 +25,23 @@ public sealed partial class MySolutionModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public NotInheritable Partial Class MySolutionModule
+    Inherits ModuleBase
+    ' ...
+    Public Overrides Sub Setup(ByVal application As XafApplication)
+        MyBase.Setup(application)
+        AddHandler application.CreateCustomLogonWindowControllers, AddressOf application_CreateCustomLogonWindowControllers
+    End Sub
+    Private Sub application_CreateCustomLogonWindowControllers(ByVal sender As Object, ByVal e As CreateCustomLogonWindowControllersEventArgs)
+        e.Controllers.Add(CType(sender, XafApplication).CreateController(Of MyController)())
+    End Sub
+End Class
+```
+
 ***
 
 Certain built-it Controllers (for example, Controllers of the [Validation](xref:113684) and [Conditional Appearance](xref:113286) modules) are active on logon. This enables you to apply appearance and validation rules to the logon parameters object.

@@ -25,6 +25,20 @@ public class ComplexValidationSettingsObject : BaseObject {
    //...
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<RuleIsReferenced("ComplexValidationSettingsObject_RuleIsReferenced", _
+   DefaultContexts.Delete, GetType(ComplexValidationSettingsObject), _
+   "ReferencedObject", MessageTemplateMustBeReferenced := _
+   "To delete the '{TargetObject}' object, you must be sure that it is not referenced anywhere.", _
+   InvertResult := True)> _
+Public Class ComplexValidationSettingsObject
+   Inherits BaseObject
+   '...
+End Class
+```
+
 ***
 
 [!include[<`MessageTemplateMustBeReferenced` property>](~/templates/main-demo-tip.md)]

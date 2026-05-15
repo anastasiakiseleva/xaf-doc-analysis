@@ -1,6 +1,10 @@
 ---
 uid: "404978"
 title: How to Access the Tab Control to Customize Tabbed UI Behavior in Code
+seealso:
+- linkId: DevExpress.ExpressApp.Blazor.SystemModule.IModelOptionsBlazor.RestoreTabbedMdiLayout
+- linkId: DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.MaxTabLimit
+- linkId: DevExpress.ExpressApp.Blazor.BlazorMdiShowViewStrategy.TabOverflowStrategy
 ---
 # How to Access the Tab Control to Customize Tabbed UI Behavior in Code
 

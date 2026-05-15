@@ -21,4 +21,18 @@ public partial class MyCustomController : ViewController {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Partial Class MyCustomController
+      Inherits ViewController
+   '...
+   Private Sub MyCustomController_AfterConstruction(ByVal sender As System.Object, _
+         ByVal e As System.EventArgs) Handles MyBase.AfterConstruction
+      TargetObjectType = GetType(MyBusinessClass)
+   End Sub
+End Class
+```
+
 ***

@@ -25,6 +25,22 @@ void CustomGetAggregatedObjectsToValidate(object sender, CustomGetAggregatedObje
     e.Handled = true;
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Private Sub CustomGetAggregatedObjectsToValidate(ByVal sender As Object, ByVal e As CustomGetAggregatedObjectsToValidateEventArgs)
+    If TypeOf e.OwnerObject Is Contact Then
+        For Each number As PhoneNumber In CType(e.OwnerObject, Contact).PhoneNumbers
+            If ObjectSpace.IsObjectToSave(number) Then
+                e.AggregatedObjects.Add(number)
+            End If
+        Next number
+    End If
+    e.Handled = True
+End Sub
+```
+
 ***
 
 > [!IMPORTANT]

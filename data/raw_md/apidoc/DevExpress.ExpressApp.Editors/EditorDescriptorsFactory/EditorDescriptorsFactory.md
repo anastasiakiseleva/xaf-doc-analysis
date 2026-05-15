@@ -20,6 +20,17 @@ protected override void RegisterEditorDescriptors(
         typeof(MyBusinessObject), typeof(MyListEditor), true);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Protected Overrides Sub RegisterEditorDescriptors( _
+    ByVal editorDescriptorsFactory As EditorDescriptorsFactory)
+    editorDescriptorsFactory.RegisterListEditor( _
+    GetType(MyBusinessObject), GetType(MyListEditor), True)
+End Sub
+```
+
 ***
 
 To learn more about the **RegisterEditorDescriptor** method, refer to the [](xref:DevExpress.ExpressApp.ModuleBase) class description.

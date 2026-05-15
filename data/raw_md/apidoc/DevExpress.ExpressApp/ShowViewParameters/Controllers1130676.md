@@ -39,6 +39,24 @@ void myAction_Execute(Object sender, SimpleActionExecuteEventArgs e) {
    e.ShowViewParameters.Controllers.Add(Application.CreateController<DialogController>());
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.SystemModule
+' ...
+Private Sub MyAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+   Dim objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(MyBusinessClass))
+   Dim listViewId As String = Application.FindListViewId(GetType(MyBusinessClass))
+   e.ShowViewParameters.CreatedView = Application.CreateListView( _
+      listViewId, _
+      Application.CreateCollectionSource(objectSpace,GetType(MyBusinessClass),listViewId), _
+      True)
+   e.ShowViewParameters.TargetWindow = TargetWindow.NewWindow
+   e.ShowViewParameters.Controllers.Add(Application.CreateController(Of DialogController)())
+End Sub
+```
+
 ***
 
 If you invoke a popup Window with @DevExpress.ExpressApp.Actions.PopupWindowShowAction, the system automatically adds @DevExpress.ExpressApp.SystemModule.DialogController. You can use the [CustomizePopupWindowParamsEventArgs.DialogController](xref:DevExpress.ExpressApp.Actions.CustomizePopupWindowParamsEventArgs.DialogController) parameter to replace it with your custom Controller.

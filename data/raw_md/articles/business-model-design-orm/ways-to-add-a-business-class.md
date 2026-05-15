@@ -49,6 +49,22 @@ public sealed class MySolutionModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+'...
+Public NotInheritable Class MySolutionModule
+    Inherits ModuleBase
+    Public Sub New()
+        '...
+        AdditionalExportedTypes.AddRange( _
+        ModuleHelper.CollectExportedTypesFromAssembly( _
+        GetType(MyNamespace.MyModule).Assembly, AddressOf ExportedTypeHelpers.IsExportedType))
+    End Sub
+End Class
+```
 ***
 
 #### Import Select Classes from an Assembly (In Code)
@@ -67,6 +83,23 @@ public sealed class MySolutionModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.Persistent.BaseImpl
+'...
+Public NotInheritable Class MySolutionModule
+    Inherits ModuleBase
+    Public Sub New()
+        '...
+        AdditionalExportedTypes.AddRange( _
+        New Type() { GetType(Address), GetType(Note) })
+    End Sub
+End Class
+```
+
 ***
 
 If you use EF Core, add all the new classes and their ancestors to the solution's DbContext.

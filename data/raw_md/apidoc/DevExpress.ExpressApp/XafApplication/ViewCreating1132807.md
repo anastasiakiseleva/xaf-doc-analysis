@@ -45,6 +45,40 @@ namespace MySolution.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports MySolutionName.[Module].BusinessObjects
+
+Namespace MySolutionName.[Module].Controllers
+    Public Class MyWindowController
+        Inherits WindowController
+        Public Sub New()
+            TargetWindowType = WindowType.Main
+        End Sub
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AddHandler Application.ViewCreating, AddressOf Application_ViewCreating
+        End Sub
+        Private Sub Application_ViewCreating(ByVal sender As Object, ByVal e As ViewCreatingEventArgs)
+            If e.ViewID = "Contact_DetailView" Then
+                Dim os As IObjectSpace = Application.CreateObjectSpace(GetType(MyTask))
+                Dim obj As MyTask = os.CreateObject(Of MyTask)()
+                obj.Subject = "New MyTask"
+                Dim view As DetailView = Application.CreateDetailView(os, obj)
+                e.View = view
+            End If
+        End Sub
+        Protected Overrides Sub OnDeactivated()
+            MyBase.OnDeactivated()
+            RemoveHandler Application.ViewCreating, AddressOf Application_ViewCreating
+        End Sub
+    End Class
+End Namespace
+```
+
 ***
 
 [`WindowController`]: xref:DevExpress.ExpressApp.WindowController

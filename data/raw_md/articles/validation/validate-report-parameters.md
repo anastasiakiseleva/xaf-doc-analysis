@@ -48,6 +48,41 @@ public class MyReportParametersObject : ReportParametersObjectBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DomainComponent> _
+Public Class MyReportParametersObject
+    Inherits ReportParametersObjectBase
+    Public Sub New(ByVal provider As IObjectSpaceCreator)
+        MyBase.New(provider)
+    End Sub
+    Public Overrides Function GetCriteria() As CriteriaOperator
+        Return CriteriaOperator.Parse( _
+        "[FullName] = '" & _showTasksAssignedTo.FullName & "'")
+    End Function
+    Public Overrides Function GetSorting() As SortProperty()
+        Dim sorting As New List(Of SortProperty)()
+        Return sorting.ToArray()
+    End Function
+    Protected Overrides Function CreateObjectSpace() As IObjectSpace
+        Return objectSpaceCreator.CreateObjectSpace(GetType(Contact))
+    End Function
+    Private showTasksAssignedTo As Contact
+    <RuleRequiredField("RuleRequiredField for MyReportParametersObject", "PreviewReport", _
+"Assigned To cannot be empty")> _
+    Public Property ShowTasksAssignedTo() As Contact
+        Get
+            Return _showTasksAssignedTo
+        End Get
+        Set(ByVal value As Contact)
+            _showTasksAssignedTo = value
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 The following image illustrates the rule's node in the Model Editor.

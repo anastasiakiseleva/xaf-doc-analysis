@@ -52,8 +52,6 @@ All platform-dependent code should be rewritten. Blazor applications have a diff
 **A:** Review the list of DevExpress [Blazor](https://demos.devexpress.com/blazor/) and [JavaScript (DevExtreme)](https://js.devexpress.com/Demos/WidgetsGallery/) UI components and the following XAF integration articles: 
 
 - [Implement a List Editor Based on a Custom Component](xref:403258)
-    * [Pivot Grid](https://supportcenter.devexpress.com/ticket/details/t994515/blazor-how-to-integrate-the-pivot-grid-into-an-xaf-app)
-    * [TreeList](xref:DevExpress.ExpressApp.Blazor.Editors.DxTreeListEditor)
 - [Access Grid Control Settings](xref:402154)
 - [Implement a Property Editor Based on a Custom Component](xref:402189)
     * [Simple Button](xref:113653)

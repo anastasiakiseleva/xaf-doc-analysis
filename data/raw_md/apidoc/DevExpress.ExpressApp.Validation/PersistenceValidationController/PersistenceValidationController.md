@@ -142,6 +142,99 @@ public class Story : XPObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.Validation
+Imports DevExpress.Xpo
+'...
+<DefaultClassOptions, RuleCriteria("AssressRule", DefaultContexts.Save, _
+"City == 'Tokyo' or Owner.Name != 'Sam'", "Address message", SkipNullOrEmptyValues := False)>
+Public Class Address
+    Inherits XPObject
+    Private _city As String
+    Public Property City() As String
+        Get
+            Return _city
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(City), _city, value)
+        End Set
+    End Property
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _owner As Person
+    <Association("PersonAddresses")>
+    Public Property Owner() As Person
+        Get
+            Return _owner
+        End Get
+        Set(ByVal value as Person)
+            SetPropertyValue(NameOf(Owner), _owner, value)
+        End Set
+    End Property
+End Class
+<DefaultClassOptions, RuleCriteria("PersonRule", DefaultContexts.Save, "Name != 'John'", _
+"Person message", SkipNullOrEmptyValues := False)>
+Public Class Person
+    Inherits XPObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _name As String
+    Public Property Name() As String
+        Get
+            Return _name
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Name), _name, value)
+        End Set
+    End Property
+    <DevExpress.Xpo.Aggregated, Association("PersonAddresses")>
+    Public ReadOnly Property Addresses() As XPCollection(Of Address)
+        Get
+            Return GetCollection(Of Address)(NameOf(Addresses))
+        End Get
+    End Property
+    <Association("PersonStory")>
+    Public ReadOnly Property Stories() As XPCollection(Of Story)
+        Get
+            Return GetCollection(Of Story)(NameOf(Stories))
+        End Get
+    End Property
+End Class
+<DefaultClassOptions, RuleCriteria("HistoryRule", DefaultContexts.Save, _
+"Owner == null or Owner.Name != 'Bob'", "History message", SkipNullOrEmptyValues := False)>
+Public Class Story
+    Inherits XPObject
+    Private _story As String
+    Public Property StoryText() As String
+        Get
+            Return _story
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(StoryText), _story, value)
+        End Set
+    End Property
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private _owner As Person
+    <Association("PersonStory")>
+    Public Property Owner() As Person
+        Get
+            Return _owner
+        End Get
+        Set(ByVal value As Person)
+            SetPropertyValue(NameOf(Owner), _owner, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 The following rules are formed for validating the objects above.
@@ -197,4 +290,53 @@ CustomGetAggregatedObjectsToValidateEventArgs e) {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Validation
+'...
+Public Class CustomValidationController
+    Inherits ViewController
+    Private pController As PersistenceValidationController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        pController = Frame.GetController(Of PersistenceValidationController)()
+        If pController IsNot Nothing Then
+            AddHandler pController.ContextValidating, AddressOf PController_ContextValidating
+            AddHandler pController.NeedToValidateObject, AddressOf PController_NeedToValidateObject
+            AddHandler pController.CustomGetAggregatedObjectsToValidate, _
+AddressOf PController_CustomGetAggregatedObjectsToValidate
+        End If
+    End Sub
+    Private Sub PController_CustomGetAggregatedObjectsToValidate(ByVal sender As Object, _
+ByVal e As CustomGetAggregatedObjectsToValidateEventArgs)
+        If Not ObjectSpace.IsObjectToSave(e.OwnerObject) Then
+            e.Handled = True
+        End If
+    End Sub
+    Private Sub PController_NeedToValidateObject(ByVal sender As Object, _
+ByVal e As NeedToValidateObjectEventArgs)
+        If TypeOf e.CurrentObject Is Address AndAlso _
+CType(e.CurrentObject, Address).City = "Tokyo" Then
+            e.NeedToValidate = False
+        End If
+    End Sub
+    Private Sub PController_ContextValidating(ByVal sender As Object, _
+ByVal e As ContextValidatingEventArgs)
+        Dim person As Person = TryCast(View.CurrentObject, Person)
+        If e.Context.Id = "Save" AndAlso person IsNot Nothing Then
+            If ObjectSpace.IsObjectToSave(person) Then
+                For Each obj As Object In person.Stories
+                    e.TargetObjects.Add(obj)
+                Next obj
+            Else
+                e.TargetObjects.Remove(person)
+            End If
+        End If
+    End Sub
+End Class
+```
+
 ***

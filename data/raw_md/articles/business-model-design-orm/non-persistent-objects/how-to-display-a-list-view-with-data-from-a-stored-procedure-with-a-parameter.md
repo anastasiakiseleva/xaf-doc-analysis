@@ -7,7 +7,7 @@ title: 'How to: Display a List View With Data From a Stored Procedure With a Par
 ---
 # How to: Display a List View With Data From a Stored Procedure With a Parameter
 
-This example demonstrates how to show a List View for data fetched from a stored procedure that accepts a parameter. This example uses [Non-Persistent Objects](xref:116516) to temporally store data from the stored procedure and the Northwind database.
+This example shows a List View for data fetched from a stored procedure that accepts a parameter. This example uses [Non-Persistent Objects](xref:116516) to temporally store data from the stored procedure and the Northwind database.
 
 The Northwind database has the _CustOrderHist_ stored procedure that returns the number of products a customer purchased. In this example, a [](xref:DevExpress.ExpressApp.Actions.PopupWindowShowAction) from the Customers List View invokes a pop-up window that shows data from the stored procedure.
 
@@ -52,6 +52,33 @@ namespace YourSolutionName.Module.BusinessObjects {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Xpo
+
+Namespace YourSolutionName.Module.BusinessObjects
+    <DefaultClassOptions>
+    Public Class Customers
+        Inherits XPLiteObject
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+        Private fCustomerID As String
+        <DevExpress.Xpo.Key>
+        Public Property CustomerID As String
+            Get
+                Return fCustomerID
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue(NameOf(CustomerID), fCustomerID, value)
+            End Set
+        End Property
+        ' other properties
+    End Class
+End Namespace
+```
 ***
 
 **File**: _YourSolutionName.Module\\BusinessObjects\\YourSolutionNameDbContext.cs_.
@@ -84,6 +111,37 @@ public class YourSolutionNameEFCoreDbContext : DbContext {
         }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Imports DevExpress.ExpressApp.DC
+
+    Namespace YourSolutionName.Module.BusinessObjects
+        <DomainComponent>
+        Public Class OrderHist
+            Dim _productName As String
+            <DevExpress.ExpressApp.Data.Key>
+            Property ProductName As String
+                Get
+                    Return _productName
+                End Get
+                Friend Set
+                    _productName = Value
+                End Set
+            End Property
+
+            Dim _total As Integer
+            Property Total As Integer
+                Get
+                    Return _total
+                End Get
+                Friend Set
+                    _total = Value
+                End Set
+            End Property
+        End Class
+    End Namespace
+    ```
     ***
 
     > [!NOTE]
@@ -113,6 +171,29 @@ public class YourSolutionNameEFCoreDbContext : DbContext {
         }
     }
     ```
+
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Imports DevExpress.ExpressApp
+    Imports DevExpress.ExpressApp.Actions
+    Imports YourSolutionName.Module.BusinessObjects
+
+    Namespace YourSolutionName.Module.Controllers
+        Public Class CustomersViewController
+            Inherits ObjectViewController(Of ObjectView, Customers)
+
+            Public Sub New()
+                Dim action As PopupWindowShowAction = New PopupWindowShowAction(Me, "Order Hist", DevExpress.Persistent.Base.PredefinedCategory.View)
+                action.SelectionDependencyType = SelectionDependencyType.RequireSingleObject
+                AddHandler action.CustomizePopupWindowParams, AddressOf Action_CustomizePopupWindowParams
+            End Sub
+
+            Private Sub Action_CustomizePopupWindowParams(ByVal sender As Object, ByVal e As CustomizePopupWindowParamsEventArgs)
+                ' ...
+            End Sub
+        End Class
+    End Namespace
+    ```
     ***
 
 3. In the **CustomizePopupWindowParams** event handler, call the [XafApplication.CreateObjectSpace(Type)](xref:DevExpress.ExpressApp.XafApplication.CreateObjectSpace(System.Type)) method to create a **NonPersistentObjectSpace** from the **OrderHist** class and handle the [NonPersistentObjectSpace.ObjectsGetting](xref:DevExpress.ExpressApp.NonPersistentObjectSpace.ObjectsGetting) event. Call the [XafApplication.CreateListView(IObjectSpace, Type, Boolean)](xref:DevExpress.ExpressApp.XafApplication.CreateListView(DevExpress.ExpressApp.IObjectSpace,System.Type,System.Boolean)) method to create a List View from the **OrderHist** and pass this List View to the **e.View** parameter.
@@ -129,9 +210,21 @@ public class YourSolutionNameEFCoreDbContext : DbContext {
         // ...
     }
     ```
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Private Sub Action_CustomizePopupWindowParams(ByVal sender As Object, ByVal e As CustomizePopupWindowParamsEventArgs)
+        Dim objectSpace As NonPersistentObjectSpace = CType(Application.CreateObjectSpace(GetType(OrderHist)), NonPersistentObjectSpace)
+        AddHandler objectSpace.ObjectsGetting, AddressOf ObjectSpace_ObjectsGetting
+        e.View = Application.CreateListView(objectSpace, GetType(OrderHist), True)
+    End Sub
+
+    Private Sub ObjectSpace_ObjectsGetting(ByVal sender As Object, ByVal e As ObjectsGettingEventArgs)
+        ' ...
+    End Sub
+    ```
     ***
 
-4. To allow users to filter and sort a List View, use the **DynamicCollection** class in the **ObjectsGetting** event handler to populate the **e.Objects** collection. The following example demonstrates how to implement this: [How to filter and sort Non-Persistent Objects](https://github.com/DevExpress-Examples/XAF_Non-Persistent-Objects-Filtering-Demo).
+4. To allow users to filter and sort a List View, use the **DynamicCollection** class in the **ObjectsGetting** event handler to populate the **e.Objects** collection. The following example implements this: [How to filter and sort Non-Persistent Objects](https://github.com/DevExpress-Examples/XAF_Non-Persistent-Objects-Filtering-Demo).
 
     > [!NOTE]
     > Filtering and sorting non-persistent object is supported only in the [Client](xref:118449) data access mode. In XAF Blazor, List Views have the [Queryable](xref:402925) data access mode by default. Change the non-persistent List View  data access mode to **Client** in XAF Blazor applications as described in [List View Data Access Modes](xref:113683).
@@ -156,6 +249,30 @@ public class YourSolutionNameEFCoreDbContext : DbContext {
     List<OrderHist> GetDataFromSproc(string key) {
         // ...
     }
+    ```
+
+    # [VB.NET](#tab/tabid-vb)
+    ```vb
+    Imports DevExpress.ExpressApp
+    Imports System.Collections.Generic
+
+    ' ...
+    Private Sub ObjectSpace_ObjectsGetting(ByVal sender As Object, ByVal e As ObjectsGettingEventArgs)
+        Dim objectSpace As NonPersistentObjectSpace = CType(sender, NonPersistentObjectSpace)
+        Dim collection = New DynamicCollection(objectSpace, e.ObjectType, e.Criteria, e.Sorting, e.InTransaction)
+        AddHandler collection.FetchObjects, AddressOf DynamicCollection_FetchObjects
+        e.Objects = collection
+    End Sub
+
+    Private Sub DynamicCollection_FetchObjects(ByVal sender As Object, ByVal e As FetchObjectsEventArgs)
+        Dim customer As Customers = CType(View.SelectedObjects(0), Customers)
+        e.Objects = GetDataFromSproc(customer.CustomerID)
+        e.ShapeData = True
+    End Sub
+
+    Private Function GetDataFromSproc(ByVal key As String) As List(Of OrderHist)
+        ' ...
+    End Function
     ```
     ***
 
@@ -192,6 +309,37 @@ List<OrderHist> GetDataFromSproc(string key) {
     }
     return objects;
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp.Xpo
+Imports DevExpress.Xpo.DB
+Imports DevExpress.Xpo
+
+' ...
+Private Function GetDataFromSproc(ByVal key As String) As List(Of OrderHist)
+    Dim persistentObjectSpace As XPObjectSpace = CType(ObjectSpace, XPObjectSpace)
+    Dim session As Session = persistentObjectSpace.Session
+    Dim results As SelectedData = session.ExecuteQueryWithMetadata($"CustOrderHist @CustomerID={key}")
+    Dim columnNames As Dictionary(Of String, Integer) = New Dictionary(Of String, Integer)()
+
+    For columnIndex As Integer = 0 To results.ResultSet(0).Rows.Length - 1
+        Dim columnName As String = TryCast(results.ResultSet(0).Rows(columnIndex).Values(0), String)
+        columnNames.Add(columnName, columnIndex)
+    Next
+
+    Dim objects As List(Of OrderHist) = New List(Of OrderHist)()
+
+    For Each row As SelectStatementResultRow In results.ResultSet(1).Rows
+        Dim obj As OrderHist = New OrderHist()
+        obj.ProductName = TryCast(row.Values(columnNames("ProductName")), String)
+        obj.Total = CInt(row.Values(columnNames("Total")))
+        objects.Add(obj)
+    Next
+
+    Return objects
+End Function
 ```
 ***
 

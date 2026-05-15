@@ -1,7 +1,9 @@
 ---
 uid: "113645"
-seealso: []
 title: Create Predefined Static Reports
+seealso:
+  - linkId: 113672#specify-custom-column-values-in-predefined-static-reports
+    altText: Specify Custom Column Values in Predefined Static Reports
 ---
 # Create Predefined Static Reports
 

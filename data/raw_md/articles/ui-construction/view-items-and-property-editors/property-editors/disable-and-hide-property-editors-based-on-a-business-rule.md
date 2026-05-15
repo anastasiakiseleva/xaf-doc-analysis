@@ -13,7 +13,7 @@ title: 'Disable and Hide Property Editors Based on a Business Rule'
 
 [!include[<Conditional Appearance>](~/templates/main-demo-tip.md)]
 
-Use the [Template Kit](xref:405447) to create a new XAF Solution. Add the Conditional Appearance module to the module project. To do this, open the _MySolution.Module_\\_Module.cs_ (_Module.vb_) file and add the following code to the Module constructor:
+Use the [Template Kit](xref:405447) to create a new XAF Solution. Add the Conditional Appearance module to the module project. To do this, open the _MySolution.Module_\\_Module.cs_ file and add the following code to the Module constructor:
 
 # [C#](#tab/tabid-csharp)
 
@@ -28,6 +28,22 @@ namespace MySolution.Module {
         }
     }
 }
+```
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+' ...
+Namespace MySolution.Module
+    Public NotInheritable Partial Class MySolutionModule
+        Inherits ModuleBase
+
+        Public Sub New()
+            ' ...
+            RequiredModuleTypes.Add(GetType(ConditionalAppearanceModule))
+        End Sub
+    End Class
+End Namespace
+
 ```
 ***
 
@@ -78,6 +94,58 @@ public class Contact : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Public Class Contact
+    Inherits BaseObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Public Property Name() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Name))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Name), value)
+        End Set
+    End Property
+    Public Property IsMarried() As Boolean
+        Get
+            Return GetPropertyValue(Of Boolean)(NameOf(IsMarried))
+        End Get
+        Set(ByVal value As Boolean)
+            SetPropertyValue(Of Boolean)(NameOf(IsMarried), value)
+        End Set
+    End Property
+    Public Property SpouseName() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(SpouseName))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(SpouseName), value)
+        End Set
+    End Property
+    Public Property Address1() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Address1))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Address1), value)
+        End Set
+    End Property
+    Public Property Address2() As String
+        Get
+            Return GetPropertyValue(Of String)(NameOf(Address2))
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(Of String)(NameOf(Address2), value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 The sample **Contact** class contains five properties: Name, IsMarried, SpouseName, Address1, Address2.
@@ -99,6 +167,23 @@ public string SpouseName {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.ExpressApp.Editors
+'...
+<ImmediatePostData> _
+Public ReadOnly Property IsMarried() As Boolean
+    ' ...
+End Property
+<Appearance("Single", Visibility := ViewItemVisibility.Hide, Criteria := "!IsMarried", Context := "DetailView")> _
+Public ReadOnly Property SpouseName() As String
+    ' ...
+End Property
+```
+
 ***
 
 The appearance rule, declared by the following attribute, ensures that the **Address2** Property Editor is enabled only if the **Address1** field is filled. Otherwise, the **Address2** Property Editor should is disabled.
@@ -115,4 +200,18 @@ public string Address2 {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<ImmediatePostData> _
+Public Property Address1() As String
+    ' ...
+End Property
+<Appearance("AddressOneIsEmpty", Enabled := False, Criteria := "IsNullOrEmpty(Address1)", Context := "DetailView")> _
+Public Property Address2() As String
+    ' ...
+End Property
+```
+
 ***

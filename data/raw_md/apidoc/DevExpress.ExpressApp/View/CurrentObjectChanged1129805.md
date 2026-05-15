@@ -45,4 +45,27 @@ public class MyController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyController
+    Inherits ViewController
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        AddHandler View.CurrentObjectChanged, AddressOf View_CurrentObjectChanged
+        View_CurrentObjectChanged(View, New EventArgs())
+    End Sub
+    Private Sub View_CurrentObjectChanged(ByVal sender As Object, ByVal e As EventArgs)
+       If TypeOf View.CurrentObject Is Task Then
+           View.AllowEdit("CurrentUser") = CType(View.CurrentObject, Task).Owner.Id = SecuritySystem.CurrentUserId
+       End If
+    End Sub
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler View.CurrentObjectChanged, AddressOf View_CurrentObjectChanged
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***

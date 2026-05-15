@@ -42,6 +42,40 @@ namespace MySolution.Module.Controllers {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Linq
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Model
+Imports DevExpress.Persistent.Validation
+' ...
+Namespace MySolution.Module.Controllers
+    Public Class CustomizeValidationMessageController
+        Inherits ObjectViewController(Of DetailView, Employee)
+
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AddHandler RuleBase.CustomFormatValidationMessage, AddressOf RuleBase_CustomFormatValidationMessage
+        End Sub
+        Private Sub RuleBase_CustomFormatValidationMessage(ByVal sender As Object, ByVal e As CustomFormatValidationMessageEventArgs)
+            Dim rule As RuleBase = DirectCast(sender, RuleBase)
+            If Not e.Handled AndAlso rule.Id = "MyRule" AndAlso TypeOf e.Object Is Employee Then
+                Dim propertyCaption As String = rule.UsedProperties(0)
+                Dim modelViewItem As IModelViewItem = View.Model.Items.FirstOrDefault(Function(x) x.Id = propertyCaption)
+                propertyCaption = If(modelViewItem Is Nothing, propertyCaption, modelViewItem.Caption)
+                e.ResultMessage = e.MessageFormat.Replace("{TargetPropertyName}", propertyCaption)
+                e.Handled = True
+            End If
+        End Sub
+        Protected Overrides Sub OnDeactivated()
+            MyBase.OnDeactivated()
+            RemoveHandler RuleBase.CustomFormatValidationMessage, AddressOf RuleBase_CustomFormatValidationMessage
+        End Sub
+    End Class
+End Namespace
+```
+
 ***
 
 If you want to customize this message for all Views in the application, subscribe to this event in the [ModuleBase.Setup](xref:DevExpress.ExpressApp.ModuleBase.Setup(DevExpress.ExpressApp.XafApplication)) method.

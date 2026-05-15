@@ -14,6 +14,13 @@ Since the **ForceInitialize** method is static, you can call in from any appropr
 ```csharp
 XpoTypesInfoHelper.ForceInitialize();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+XpoTypesInfoHelper.ForceInitialize()
+```
+
 ***
 
 The [XpoTypesInfoHelper.GetXpoTypeInfoSource](xref:DevExpress.ExpressApp.Xpo.XpoTypesInfoHelper.GetXpoTypeInfoSource) calls the **ForceInitialize** method internally. So, there is no need to call **ForceInitialize** manually before using **GetXpoTypeInfoSource**.

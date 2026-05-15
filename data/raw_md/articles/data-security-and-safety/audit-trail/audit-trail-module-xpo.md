@@ -73,6 +73,13 @@ IObjectSpace objectSpace = Application.CreateObjectSpace<MyBusinessClass>();
 // Session session = new Session(...);
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim objectSpace As IObjectSpace = Application.CreateObjectSpace<MyBusinessClass>()
+' do not write a statement like the following
+' Dim session As Session = New Session(...)
+```
 ***
 
 ## Middle Tier Security Specifics

@@ -35,6 +35,23 @@ You can customize the `AboutInfoString` property value in any of the following w
         }
     }
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    Imports System
+    Imports DevExpress.ExpressApp
+    Imports DevExpress.ExpressApp.SystemModule
+    '...
+    Public Class MyController
+        Inherits WindowController
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AboutInfo.Instance.ProductName = "New Product"
+        End Sub
+    End Class
+    ```
+    
     ***
     
     The values that are set in code override the default values from the Application Model.

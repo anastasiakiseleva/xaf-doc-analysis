@@ -20,4 +20,4 @@ seealso: []
 ---
 The following example demonstrates how to use this method:
 
-[!include[<options.EnableInplaceReports = true;>](~/templates/AddReports_Win_example.md)]
+[!include[<options.ReportDataType = typeof(DevExpress.Persistent.BaseImpl.EF.ReportDataV2);>](~/templates/AddReports_Win_example.md)]

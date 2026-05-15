@@ -5,5 +5,8 @@ title: Reporting (Shape, Export & Print Data)
 # Reporting (Shape, Export & Print Data)
 
 
-- [Reports](xref:113591)
-- [Printing and Exporting in ListViews](xref:403199)
+- <xref:113591>
+- <xref:113012>
+- <xref:113362>
+- <xref:113283>
+- <xref:113287>

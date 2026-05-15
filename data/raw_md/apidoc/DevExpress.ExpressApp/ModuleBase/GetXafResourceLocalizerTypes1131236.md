@@ -27,4 +27,20 @@ public class Module : ModuleBase {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class [Module]
+      Inherits ModuleBase
+   Public Overrides Function GetXafResourceLocalizerTypes() As ICollection(Of Type)
+      Dim result As ICollection(Of Type) = New List(Of Type)()
+      result.Add(GetType(GridControlLocalizer))
+      result.Add(GetType(LayoutControlLocalizer))
+      Return result
+   End Function
+   '...
+End Class
+```
+
 ***

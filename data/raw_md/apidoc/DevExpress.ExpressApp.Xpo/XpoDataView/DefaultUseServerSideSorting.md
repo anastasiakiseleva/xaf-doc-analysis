@@ -31,6 +31,21 @@ public partial class MySolutionWindowsFormsApplication : WinApplication {
     }
 }
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Win
+Imports DevExpress.ExpressApp.Xpo
+' ...
+Partial Public Class MySolutionWindowsFormsApplication
+    Inherits WinApplication
+    ' ...
+    Public Sub New()
+        XpoDataView.DefaultUseServerSideSorting = False
+        ' ...
+    End Sub
+End Class
+```
 ***
 
 [!include[<DefaultUseServerSideSorting>](~/templates/solution_wizard_enables_property_in_new_projects.md)]

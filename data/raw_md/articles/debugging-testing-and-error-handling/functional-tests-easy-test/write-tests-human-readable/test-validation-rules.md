@@ -63,6 +63,50 @@ public class Employee : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Persistent.Validation
+Imports DevExpress.Xpo
+
+' ...
+<DefaultClassOptions, ImageName("BO_Employee")>
+Public Class Employee
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Private nameField As String
+
+    <RuleRequiredField("EmployeeIsAdult", DefaultContexts.Save)>
+    Public Property Name As String
+        Get
+            Return nameField
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(Employee.Name), nameField, value)
+        End Set
+    End Property
+
+    Private ageField As Integer
+
+    <RuleValueComparison("EmployeeNameIsRequired", DefaultContexts.Save, ValueComparisonType.GreaterThanOrEqual, 18)>
+    Public Property Age As Integer
+        Get
+            Return ageField
+        End Get
+        Set(ByVal value As Integer)
+            SetPropertyValue(NameOf(Employee.Age), ageField, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 ## CheckValidationResult Command

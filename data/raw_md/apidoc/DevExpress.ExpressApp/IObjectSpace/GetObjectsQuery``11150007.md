@@ -26,6 +26,14 @@ You can use the following code to query data in EF Core and XPO applications:
 IQueryable<Payment> query = objectSpace.GetObjectsQuery<Payment>(true);
 object obj = query.Where(p => p.Hours == 4).FirstOrDefault();
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim query As IQueryable(Of Payment) = objectSpace.GetObjectsQuery(Of Payment)(True)
+Dim obj As Object = query.Where(Function(p) p.Hours = 4).FirstOrDefault()
+```
+
 ***
 
 The **GetObjectsQuery\<T>** method has implementations in [](xref:DevExpress.ExpressApp.Xpo.XPObjectSpace), [](xref:DevExpress.ExpressApp.EFCore.EFCoreObjectSpace), and [](xref:DevExpress.ExpressApp.NonPersistentObjectSpace) classes:

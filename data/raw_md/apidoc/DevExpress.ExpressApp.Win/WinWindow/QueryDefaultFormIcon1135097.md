@@ -36,4 +36,34 @@ public class Program {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Drawing
+'...
+Public Class Program
+    Private Shared smallIcon As Icon
+    Private Shared largeIcon As Icon
+    '...
+    Public Shared Sub Main(ByVal arguments() As String)
+        '...
+        AddHandler WinWindow.QueryDefaultFormIcon, AddressOf WinWindow_QueryDefaultFormIcon
+        winApplication.Setup()
+        winApplication.Start()
+    End Sub
+    Private Shared Sub WinWindow_QueryDefaultFormIcon(ByVal sender As Object, _
+    ByVal e As QueryIconEventArgs)
+        If smallIcon Is Nothing Then
+            smallIcon = Icon.ExtractAssociatedIcon("C:\MyIcon.ico")
+        End If
+        If largeIcon Is Nothing Then
+            largeIcon = Icon.ExtractAssociatedIcon("C:\MyIcon2.ico")
+        End If
+        e.IconLarge = largeIcon
+        e.IconSmall = smallIcon
+    End Sub
+End Class
+```
+
 ***

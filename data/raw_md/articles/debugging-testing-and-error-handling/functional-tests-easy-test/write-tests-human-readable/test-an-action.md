@@ -63,6 +63,47 @@ namespace MySolution.Module.BusinessObjects {
 }
 ```
 
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+
+Namespace MySolution.Module.BusinessObjects
+    <DefaultClassOptions>
+    Public Class Task
+        Inherits BaseObject
+
+        Public Sub New(ByVal session As Session)
+            MyBase.New(session)
+        End Sub
+
+        Private descriptionField As String
+
+        Public Property Description As String
+            Get
+                Return descriptionField
+            End Get
+            Set(ByVal value As String)
+                SetPropertyValue(NameOf(Task.Description), descriptionField, value)
+            End Set
+        End Property
+
+        Private dueDateField As Date
+
+        Public Property DueDate As Date
+            Get
+                Return dueDateField
+            End Get
+            Set(ByVal value As Date)
+                SetPropertyValue(NameOf(Task.DueDate), dueDateField, value)
+            End Set
+        End Property
+    End Class
+End Namespace
+```
+
 ***
 
 The custom Controller is targeted for [List Views](xref:112611) and contains the **Postpone** Action. This Action processes the selected objects in a `Task` List View. The Action adds one day to the objects' `DueDate` property values.
@@ -91,6 +132,33 @@ namespace MySolution.Module.Controllers {
         }
     }
 }
+```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MySolution.Module.BusinessObjects
+
+Namespace MySolution.Module.Controllers
+    Public Class PostponeController
+        Inherits ViewController
+
+        Public Sub New()
+            TargetObjectType = GetType(Task)
+            Dim postpone = New SimpleAction(Me, "Postpone", PredefinedCategory.Edit)
+            postpone.SelectionDependencyType = SelectionDependencyType.RequireMultipleObjects
+            postpone.Execute += Sub(s, e)
+                                    For Each selectedObject As Object In View.SelectedObjects
+                                        Dim selectedTask As Task = CType(selectedObject, Task)
+                                        selectedTask.DueDate = If(selectedTask.DueDate = Date.MinValue, Date.Today, selectedTask.DueDate.AddDays(1))
+                                    Next
+                                End Sub
+        End Sub
+    End Class
+End Namespace
 ```
 
 ***

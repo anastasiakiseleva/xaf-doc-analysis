@@ -49,6 +49,48 @@ public class MyViewController : ObjectViewController<ListView, Customer> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System
+Imports System.Collections.Generic
+Imports DevExpress.ExpressApp
+'...
+Public Class MyViewController
+    Inherits ObjectViewController(Of ListView, Customer)
+
+    Private additionalDisplayableProperties As New List(Of String)() From _ 
+        {"LocationContext.Flag", "LocationContext.Location.EntityNumberGenerationType"}
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        If View.CollectionSource.DataAccessMode = CollectionSourceDataAccessMode.InstantFeedback Then
+            View.CollectionSource.DisplayableProperties = _
+                GetUpdatedDisplayableProperties(View.CollectionSource.DisplayableProperties)
+            AddHandler View.CustomizeDisplayableProperties, AddressOf View_CustomizeDisplayableProperties
+        End If
+    End Sub
+    Private Sub View_CustomizeDisplayableProperties(ByVal sender As Object, _
+    ByVal e As CustomizeDisplayablePropertiesEventArgs)
+        e.DisplayableProperties = GetUpdatedDisplayableProperties(e.DisplayableProperties)
+    End Sub
+    Private Function GetUpdatedDisplayableProperties(ByVal displayableProperties As String) As String
+        Dim result As String = displayableProperties
+        Dim displayablePropertiesList As IList(Of String) = displayableProperties.Replace("[", "").Replace("]", "").Split(";"c)
+        For Each propertyName As String In additionalDisplayableProperties
+            If Not displayablePropertiesList.Contains(propertyName) Then
+                result = result & ";" & propertyName
+            End If
+        Next propertyName
+        Return result
+    End Function
+    Protected Overrides Sub OnDeactivated()
+        RemoveHandler View.CustomizeDisplayableProperties, AddressOf View_CustomizeDisplayableProperties
+        MyBase.OnDeactivated()
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

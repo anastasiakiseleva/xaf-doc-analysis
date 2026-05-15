@@ -20,6 +20,14 @@ using DevExpress.Persistent.Base;
 Tracing.Tracer.LogText("Some text");
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.Base
+' ...
+Tracing.Tracer.LogText("Some text")
+```
+
 ***
 
 ## Tracing Methods
@@ -85,7 +93,23 @@ public class MyTracing : Tracing {
 }
 ```
 
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.Base
+' ...
+Public Class MyTracing
+    Inherits Tracing
+    Public Overrides Sub LogError(ByVal exception As Exception)
+        ' Implement custom logging for exceptions here.
+    End Sub
+    ' You can also override other virtual methods of Tracing 
+End Class
+```
+
 ***
+
 The static `Tracing.CreateCustomTracer` event occurs when the `Tracing.Tracer` instance is initialized. Handle this event to replace the default `Tracing` instance with a custom instance.
 If you call the `Tracing.Initialize` method, handle the `Tracing.CreateCustomTracer` event before the `Tracing.Initialize` method call.
 
@@ -103,6 +127,18 @@ Tracing.Initialize((int)TraceLevel.Info);
 //...
 ```
 
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.Persistent.Base
+' ...
+AddHandler Tracing.CreateCustomTracer, Sub(s As Object, args As CreateCustomTracerEventArgs)
+    args.Tracer = New MyTracing()
+End Sub
+' ...
+Tracing.Initialize()
+' ...
+```
 ***
 
 You can handle the `Tracing.CreateCustomTracer` event in the `Main` method of the Windows Forms application located in the _Program.cs_ file, before the `Tracing.Initialize` method call;

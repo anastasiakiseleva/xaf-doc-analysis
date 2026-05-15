@@ -27,6 +27,14 @@ using DevExpress.ExpressApp.Security;
 // ...
 MyDetailsController.CanGenerateMyDetailsNavigationItem = false;
 ```
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp.Security
+' ...
+MyDetailsController.CanGenerateMyDetailsNavigationItem = False
+```
+
 ***
 
 In a Windows Forms application project, add this code to the **Main** method located in _Program.cs_ file, before invoking the [WinApplication.Start](xref:DevExpress.ExpressApp.Win.WinApplication.Start) method.
@@ -45,4 +53,18 @@ currentComparer.AllowModifyCurrentUserObject = false;
 // for users who have no "Navigate" permission to User object:
 currentComparer.AllowNavigateToCurrentUserObject= false;
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Dim currentComparer As ObjectAccessComparer = _
+CType(ObjectAccessComparerBase.CurrentComparer, ObjectAccessComparer)
+' Prohibit changing the current user's properties in My Details Detail View
+' for users who have no "Write" permission to User object:
+currentComparer.AllowModifyCurrentUserObject = False
+' Hide the My Details Navigation Item and Action
+' for users who have no "Navigate" permission to User object:
+currentComparer.AllowNavigateToCurrentUserObject= False
+```
+
 ***

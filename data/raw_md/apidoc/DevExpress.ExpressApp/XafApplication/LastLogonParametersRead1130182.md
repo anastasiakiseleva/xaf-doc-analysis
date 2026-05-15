@@ -40,6 +40,28 @@ public sealed partial class MySolutionModule : ModuleBase {
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Shared Sub Main(ByVal arguments As String())
+    ' ...
+    AddHandler winApplication.LastLogonParametersRead, _
+    AddressOf winApplication_LastLogonParametersRead
+    ' ...
+    winApplication.Setup();
+    winApplication.Start()
+    ' ...
+End Sub
+Shared Sub winApplication_LastLogonParametersRead( _
+ByVal sender As Object, ByVal e As LastLogonParametersReadEventArgs)
+    If String.IsNullOrEmpty( _
+        (CType(e.LogonObject, AuthenticationStandardLogonParameters)).UserName) Then
+        CType(e.LogonObject, AuthenticationStandardLogonParameters).UserName = "Guest"
+    End If
+End Sub
+```
+
 ***
 
 > [!NOTE]

@@ -39,6 +39,28 @@ public class SetNickNameController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class SetNickNameController
+    Inherits ViewController
+    Public Sub New()
+        Dim setNickNameAction As New SimpleAction(Me, "SetNickName", PredefinedCategory.Edit)
+        AddHandler setNickNameAction.Execute, AddressOf SetNickNameAction_Execute
+    End Sub
+    Private Sub SetNickNameAction_Execute(ByVal sender As Object, ByVal e As SimpleActionExecuteEventArgs)
+        Dim currentObject As Contact = TryCast(View.CurrentObject, Contact)
+        If currentObject IsNot Nothing Then
+            currentObject.NickName = currentObject.FirstName
+        End If
+    End Sub
+End Class
+```
 ***
 
 This property returns **null** and is intended to be overridden in [](xref:DevExpress.ExpressApp.View) descendants. See [ListView.CurrentObject](xref:DevExpress.ExpressApp.ListView.CurrentObject) and [DetailView.CurrentObject](xref:DevExpress.ExpressApp.DetailView.CurrentObject).

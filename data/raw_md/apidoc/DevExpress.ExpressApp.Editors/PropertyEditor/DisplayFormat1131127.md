@@ -42,7 +42,23 @@ namespace MySolution.Blazor.Server.Controllers {
     }
 }
 ```
-*** 
+# [VB.NET](#tab/tabid-vb)
+ 
+```vb
+Public Partial Class ViewController1
+    Inherits ViewController(Of DetailView)
+
+    ' ...
+    Protected Overrides Sub OnActivated()
+        MyBase.OnActivated()
+        Dim editor As ASPxStringPropertyEditor = TryCast(View.FindItem("ZipPostal"), ASPxStringPropertyEditor)
+        editor.DisplayFormat = "Zip Code: {0}"
+    End Sub
+    ' ...
+End Class
+```
+ 
+***
 
 ### Change Display Format Dynamically
 

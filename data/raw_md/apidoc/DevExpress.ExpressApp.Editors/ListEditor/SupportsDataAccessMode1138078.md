@@ -23,4 +23,13 @@ public override Boolean SupportsDataAccessMode(CollectionSourceDataAccessMode da
     return (dataAccessMode == CollectionSourceDataAccessMode.Client);
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Function SupportsDataAccessMode(ByVal dataAccessMode As CollectionSourceDataAccessMode) As Boolean
+    Return (dataAccessMode Is CollectionSourceDataAccessMode.Client)
+End Function
+```
+
 ***

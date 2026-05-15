@@ -57,6 +57,34 @@ public partial class MyViewController : ViewController {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+'...
+<AttributeUsage(AttributeTargets.Class, Inherited := False)> _
+Public Class MyCustomAttribute
+    Inherits Attribute
+End Class
+
+<MyCustomAttribute> _
+Public Class DemoContact
+    Inherits BaseObject
+'...
+End Class
+
+'...
+Partial Public Class MyViewController
+    Inherits ViewController
+    '...
+    Private Sub MyViewController_Activated(ByVal sender As Object, ByVal e As EventArgs)
+        If View.ObjectTypeInfo.FindAttribute(Of MyCustomAttribute)() IsNot Nothing Then
+            ' Place your code here.
+        End If
+    End Sub
+End Class
+```
+
 ***
 
 > [!NOTE]

@@ -285,6 +285,106 @@ public class MyRuleAttribute : RuleBaseAttribute {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+'Declare the new Properties interface
+<GenerateMessageTemplatesModel("MyRule")> _
+Public Interface IRuleMyProperties
+    Inherits IRuleSearchObjectProperties
+    <Category("Data")> _
+    Property AdditionalProperty() As String
+End Interface
+<DomainComponent> _
+Public Class MyRuleProperties
+    Inherits RuleSearchObjectProperties
+    Implements IRuleMyProperties
+    Private additionalProperty_Renamed As String
+    Public Property AdditionalProperty() As String Implements IRuleMyProperties.AdditionalProperty
+        Get
+            Return additionalProperty_Renamed
+        End Get
+        Set(ByVal value As String)
+            additionalProperty_Renamed = value
+        End Set
+    End Property
+End Class
+'Here the RuleSearchObject is used as a base class
+Public Class MyRule
+    Inherits RuleSearchObject
+    'A custom rule must have at least two constructors
+    'The default constructor
+    Public Sub New()
+        MyBase.New()
+    End Sub
+    'A constructor which takes an IRuleBaseProperties-descendant interface type parameter
+    Public Sub New(ByVal properties As IRuleSearchObjectProperties)
+        MyBase.New(properties)
+    End Sub
+    Protected Overrides Function IsValidInternal(ByVal target As Object, _
+    <System.Runtime.InteropServices.Out()> ByRef errorMessageTemplate As String) As Boolean
+        'Check whether the rule is satisfied
+    End Function
+    Public Overrides ReadOnly Property UsedProperties() As ReadOnlyCollection(Of String)
+        Get
+            'Specify the properties that will be highlighted when the rule is broken
+        End Get
+    End Property
+    'If you have a custom Properties type, return the Properties object
+    'cast to the corresponding interface type
+    Protected Shadows ReadOnly Property Properties() As IRuleMyProperties
+        Get
+            Return CType(MyBase.Properties, IRuleMyProperties)
+        End Get
+    End Property
+    'If you have a custom Properties type, return it here
+    Public Overrides ReadOnly Property PropertiesType() As Type
+        Get
+            Return GetType(MyRuleProperties)
+        End Get
+    End Property
+End Class
+'Here an abstract RuleBaseAttribute class is used as a base class
+Public Class MyRuleAttribute
+    Inherits RuleBaseAttribute
+    'Return the type of the rule for which you implement this attribute
+    Protected Overrides ReadOnly Property RuleType() As Type
+        Get
+            Return GetType(MyRule)
+        End Get
+    End Property
+    'If you have a custom Properties type, return it
+    Protected Overrides ReadOnly Property PropertiesType() As Type
+        Get
+            Return GetType(MyRuleProperties)
+        End Get
+    End Property
+    Public Sub New(ByVal id As String, ByVal targetContextIDs As String, _
+    ByVal additionalProperty As String)
+        MyBase.New(id, targetContextIDs)
+        Properties.AdditionalProperty = additionalProperty
+    End Sub
+    Public Sub New(ByVal id As String, ByVal targetContexts As DefaultContexts, _
+    ByVal additionalProperty As String)
+        MyBase.New(id, targetContexts)
+        Properties.AdditionalProperty = additionalProperty
+    End Sub
+    'If you have a custom Properties type, return the Properties object
+    'cast to the corresponding interface type
+    Protected Shadows ReadOnly Property Properties() As IRuleMyProperties
+        Get
+            Return CType(MyBase.Properties, IRuleMyProperties)
+        End Get
+    End Property
+    Public ReadOnly Property AdditionalProperty() As String
+        Get
+            Return Properties.AdditionalProperty
+        End Get
+    End Property
+End Class
+```
+
 ***
 
 > [!NOTE]
@@ -323,6 +423,46 @@ When implementing a custom Properties type, the following attributes can be usef
 	    }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<DomainComponent> _
+	Public Class MyRuleProperties
+	    Inherits RuleSearchObjectProperties
+	    Implements IRuleMyProperties
+	    Private fSomeType As Type
+	    Public Property SomeType() As Type
+	        Get
+	            Return fSomeType
+	        End Get
+	        Set
+	            fSomeType = Value
+	        End Set
+	    End Property
+	    Private fProperty1Name As String
+	    <RulePropertiesMemberOf("SomeType ")> _
+	    Public Property Property1Name() As String
+	        Get
+	            Return fProperty1Name
+	        End Get
+	        Set
+	            fProperty1Name = Value
+	        End Set
+	    End Property
+	    Private fProperty2Name As String
+	    <RulePropertiesMemberOf("SomeType ")> _
+	    Public Property Property2Name() As String
+	        Get
+	            Return fProperty2Name
+	        End Get
+	        Set
+	            fProperty2Name = Value
+	        End Set
+	    End Property
+	End Class
+	```
+	
 	***
 * **RulePropertiesIndex**
 	
@@ -344,6 +484,23 @@ public sealed partial class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Validation
+'...
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub Setup(ByVal moduleManager As ApplicationModulesManager)
+        MyBase.Setup(moduleManager)
+        ValidationRulesRegistrator.RegisterRule(moduleManager, GetType(MyRule), GetType(IRuleMyProperties))
+    End Sub
+End Class
+```
+
 ***
 
 To see an example of implementing a custom rule and its attributes and properties, refer to the **FeatureCenter** demo installed with **XAF** that have the **RuleStringLengthComparison**, **RuleStringLengthComparisonAttribute**, and  **RuleStringLengthComparisonProperties** implemented. This demo is in the _[!include[PathToFeatureCenter](~/templates/path-to-feature-center.md)]_ folder.
@@ -371,6 +528,26 @@ The rule's target class can be specified in the rule's declaration using one of 
 	    public MyCodeRule(IRuleBaseProperties properties) : base(properties) { }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<CodeRule> _
+	Public Class MyCodeRule
+	    Inherits RuleBase(Of Contact)
+	    Protected Overrides Function IsValidInternal(ByVal target As Contact, _
+	    <System.Runtime.InteropServices.Out()> ByRef errorMessageTemplate As String) As Boolean
+	        'Check whether the rule is satisfied
+	    End Function
+	    Public Sub New()
+	        MyBase.New("", "Save")
+	    End Sub
+	    Public Sub New(ByVal properties As IRuleBaseProperties)
+	        MyBase.New(properties)
+	    End Sub
+	End Class
+	```
+	
 	***
 * The target type is passed as a parameter of the base rule's constructor:
 	
@@ -387,6 +564,26 @@ The rule's target class can be specified in the rule's declaration using one of 
 	    public MyCodeRule(IRuleBaseProperties properties) : base(properties) { }
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	<CodeRule> _
+	Public Class MyCodeRule
+	    Inherits RuleBase
+	    Protected Overrides Function IsValidInternal(ByVal target As Object, _
+	    <System.Runtime.InteropServices.Out()> ByRef errorMessageTemplate As String) As Boolean
+	        'Check whether the rule is satisfied
+	    End Function
+	    Private Function MyCodeRule() As [Public]
+	        MyBase.New("", "Save", GetType(Contact))
+	    End Function
+	    Private Function MyCodeRule(ByVal properties As IRuleBaseProperties) As [Public]
+	        MyBase.New(properties)
+	    End Function
+	End Class
+	```
+	
 	***
 
 You can specify the rule's target properties (properties that XAF highlights in the UI when the rule is broken) in the overridden [IRule.UsedProperties](xref:DevExpress.Persistent.Validation.IRule.UsedProperties) property getter. In ASP.NET Core Blazor, the editors for the listed properties trigger the re-evaluation of the rule when they are changed. You should specify all the affected properties before the first evaluation because the subscription takes place when XAF creates the controls.
@@ -402,6 +599,19 @@ public override ReadOnlyCollection<string> UsedProperties {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports System.Collections.ObjectModel
+' ...
+Public Overrides ReadOnly Property UsedProperties() As ReadOnlyCollection(Of String)
+    Get
+        Return New ReadOnlyCollection(Of String)(New List(Of String)() From {"Amount"})
+    End Get
+End Property
+```
+
 ***
 
 To access the [](xref:DevExpress.ExpressApp.IObjectSpace) instance in the `RuleBase` descendant, use the [](xref:DevExpress.ExpressApp.IObjectSpaceLink) interface:
@@ -429,6 +639,23 @@ public sealed partial class MyModule : ModuleBase {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Validation
+'...
+Public NotInheritable Partial Class MyModule
+    Inherits ModuleBase
+    '...
+    Public Overrides Sub Setup(ByVal moduleManager As ApplicationModulesManager)
+        MyBase.Setup(moduleManager)
+        ValidationRulesRegistrator.RegisterRule(moduleManager, GetType(MyCodeRule), GetType(IRuleBaseProperties))
+    End Sub
+End Class
+```
+
 ***
 
 [!include[<`CodeRule` attribute>](~/templates/main-demo-tip.md)]

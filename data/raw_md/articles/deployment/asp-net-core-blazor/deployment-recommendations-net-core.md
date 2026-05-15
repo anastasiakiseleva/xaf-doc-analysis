@@ -37,7 +37,7 @@ Popular Azure deployment options for Blazor Server applications include:
 
 > [!NOTE]
 >
-> Set the static [AzureCompatibility.Enable](xref:DevExpress.Utils.AzureCompatibility.Enable) property to **true** at the application startup (at the top of the ConfigureServices method in the _SolutionName.Blazor.Server/Startup.cs_ file) to resolve issues with rendering and printing in Rich Text Editor, RichEditDocumentServer, Reports and PDF Export libraries on the Microsoft Azure Web Sites.
+> Set the static [AzureCompatibility.Enable](xref:DevExpress.Utils.AzureCompatibility.Enable) property to **true** at application startup (at the beginning of the ConfigureServices method in the _SolutionName.Blazor.Server/Startup.cs_ file) to resolve rendering and printing issues in the Rich Text Editor on Microsoft Azure Web Sites.
 
 
 ## Windows and Linux Deployment

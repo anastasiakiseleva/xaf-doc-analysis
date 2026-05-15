@@ -78,6 +78,62 @@ public class MyPerson : BaseObject {
     }
 }
 ```
+
+# [VB.NET (XPO)](#tab/tabid-vb-xpo)
+
+```vb
+Imports DevExpress.ExpressApp.ConditionalAppearance
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Persistent.BaseImpl
+Imports DevExpress.Xpo
+
+' ...
+<DefaultClassOptions>
+Public Class MyPerson
+    Inherits BaseObject
+
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+
+    Private nameField As String
+
+    Public Property Name As String
+        Get
+            Return nameField
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(MyPerson.Name), nameField, value)
+        End Set
+    End Property
+
+    Private isMarriedField As Boolean
+
+    <ImmediatePostData>
+    Public Property IsMarried As Boolean
+        Get
+            Return isMarriedField
+        End Get
+        Set(ByVal value As Boolean)
+            SetPropertyValue(NameOf(MyPerson.IsMarried), isMarriedField, value)
+            If Not String.IsNullOrEmpty(SpouseName) AndAlso Not value Then SpouseName = String.Empty
+        End Set
+    End Property
+
+    Private spouseNameField As String
+
+    <Appearance("DisableSpouseName", Criteria:="!IsMarried", Enabled:=False)>
+    Public Property SpouseName As String
+        Get
+            Return spouseNameField
+        End Get
+        Set(ByVal value As String)
+            SetPropertyValue(NameOf(MyPerson.SpouseName), spouseNameField, value)
+        End Set
+    End Property
+End Class
+```
+
 ***
 
 ![TestConditionalAppearanceRules](~/images/testconditionalappearancerules116897.png)

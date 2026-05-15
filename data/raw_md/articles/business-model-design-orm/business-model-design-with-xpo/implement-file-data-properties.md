@@ -61,6 +61,72 @@ public class PortfolioFileData : FileAttachmentBase {
 public enum DocumentType { SourceCode = 1, Tests = 2, Documentation = 3, 
    Diagrams = 4, ScreenShots = 5, Unknown = 6 };
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<DefaultClassOptions()> _
+Public Class [Resume]
+   Inherits BaseObject
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Private fFile As FileData
+   <Aggregated, ExpandObjectMembers(ExpandObjectMembers.Never)> _
+   Public Property File() As FileData
+      Get
+         Return file
+      End Get
+      Set
+         SetPropertyValue(NameOf(File), fFile, value)
+      End Set
+   End Property
+   <Aggregated(), Association("Resume-PortfolioFileData", GetType(PortfolioFileData))> _
+   Public ReadOnly Property Portfolio() As XPCollection(Of PortfolioFileData)
+      Get
+         Return GetCollection(Of PortfolioFileData)(NameOf(Portfolio))
+      End Get
+   End Property
+End Class
+Public Class PortfolioFileData
+   Inherits FileAttachmentBase
+   Public Sub New(ByVal session As Session)
+      MyBase.New(session)
+   End Sub
+   Private fDocumentType As DocumentType
+   Protected fResume As Resume
+   <Persistent, Association("Resume-PortfolioFileData")> _
+   Public Property Resume() As Resume
+      Get
+         Return fResume
+      End Get
+      Set
+         SetPropertyValue(NameOf(Resume), fResume, Value)
+      End Set
+   End Property
+   Public Overrides Sub AfterConstruction()
+      MyBase.AfterConstruction()
+      fDocumentType = DocumentType.Unknown
+   End Sub
+   Public Property DocumentType() As DocumentType
+      Get
+         Return fDocumentType
+      End Get
+      Set(ByVal value As DocumentType)
+         SetPropertyValue(NameOf(DocumentType), fDocumentType, value)
+      End Set
+   End Property
+End Class
+Public Enum DocumentType
+   SourceCode = 1
+   Tests = 2
+   Documentation = 3
+   Diagrams = 4
+   ScreenShots = 5
+   Unknown = 6
+End Enum
+```
+
 ***
 
 To create a collection of an employee's files, the **Resume** class has the **Portfolio** property of the `XPCollection<PortfolioFileData>` type. The **PortfolioFileData** class is inherited from the **FileAttachmentBase** class, which in turn, uses the **FileAttachment** interface. The **FileAttachmentBase** class and the **FileAttachment** attribute are the parts of the **Business Objects Library**.

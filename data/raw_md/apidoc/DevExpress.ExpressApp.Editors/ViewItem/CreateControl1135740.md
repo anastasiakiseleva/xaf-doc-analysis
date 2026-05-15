@@ -24,6 +24,22 @@ public class MyViewItem : ViewItem {
    }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Class MyViewItem
+      Inherits ViewItem
+   Protected Overrides Function CreateControlCore() As Object
+      Dim result As DevExpress.XtraEditors.LabelControl = New DevExpress.XtraEditors.LabelControl()
+      result.Dock = DockStyle.Fill
+      result.Text = Info.GetAttributeValue("Text")
+      result.AutoSizeMode = LabelAutoSizeMode.Vertical
+      Return result
+   End Function
+End Class
+```
+
 ***
 
 To access the control returned by the `Control` property, use the [ViewItem.Control](xref:DevExpress.ExpressApp.Editors.ViewItem.Control) property. If you need to execute a custom action when this control is created, use the @DevExpress.ExpressApp.DetailViewExtensions.CustomizeViewItemControl* extension method.

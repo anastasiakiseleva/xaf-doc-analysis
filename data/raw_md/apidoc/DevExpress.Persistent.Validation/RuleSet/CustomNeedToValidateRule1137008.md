@@ -36,6 +36,36 @@ namespace MySolution.Module.Controllers {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.Persistent.Validation
+' ...
+Namespace MySolution.Module.Controllers
+    Public Class ValidateMyRuleAlwaysController
+        Inherits ObjectViewController(Of DetailView, Employee)
+
+        Protected Overrides Sub OnActivated()
+            MyBase.OnActivated()
+            AddHandler RuleSet.CustomNeedToValidateRule, AddressOf RuleSet_CustomNeedToValidateRule
+        End Sub
+        Private Sub RuleSet_CustomNeedToValidateRule(ByVal sender As Object, ByVal e As CustomNeedToValidateRuleEventArgs)
+            If Not e.Handled AndAlso e.Rule.Id = "MyRule" Then
+                e.NeedToValidateRule = True
+                e.Handled = True
+            End If
+        End Sub
+        Protected Overrides Sub OnDeactivated()
+            RemoveHandler RuleSet.CustomNeedToValidateRule, AddressOf RuleSet_CustomNeedToValidateRule
+            MyBase.OnDeactivated()
+        End Sub
+    End Class
+End Namespace
+
+```
+
 ***
 
 If you want to enable this rule for all Views in the application, subscribe to this event in the [ModuleBase.Setup](xref:DevExpress.ExpressApp.ModuleBase.Setup(DevExpress.ExpressApp.XafApplication)) method.

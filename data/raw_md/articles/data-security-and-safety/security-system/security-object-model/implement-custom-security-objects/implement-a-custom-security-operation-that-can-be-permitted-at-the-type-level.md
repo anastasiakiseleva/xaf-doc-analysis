@@ -59,7 +59,7 @@ In the XAF [Security System](xref:113366), you can permit _Read_, _Write_, _Crea
 
 * If you are using the EF Core ORM, add a DbSet for the `CustomTypePermissionObject` type to the DbContext:
 
-	**File:** _MySolution.Module\MySolutionDbContext.cs_ 
+	**File:** _MySolution.Module\BusinessObjects\MySolutionDbContext.cs_ 
 
 	# [C#](#tab/tabid-csharp)
 

@@ -4,7 +4,7 @@ name: BaseObjectSpace
 type: Class
 summary: A base class for the classes that implement the [](xref:DevExpress.ExpressApp.IObjectSpace) interface.
 syntax:
-  content: 'public class BaseObjectSpace : IObjectSpace, IDisposable, IObjectSpaceTaskRunner, ICriteriaProcessor'
+  content: 'public class BaseObjectSpace : ISharedLifetime, IObjectSpace, IDisposable, IObjectSpaceTaskRunner, ICriteriaProcessor'
 seealso:
 - linkId: "113707"
 - linkId: DevExpress.ExpressApp.NonPersistentObjectSpace

@@ -21,6 +21,16 @@ public string UniqueValue {
    //...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+<RuleUniqueValue(DefaultContexts.Save, SkipNullOrEmptyValues := False)> _
+Public Property UniqueValue() As String
+   '...
+End Property
+```
+
 ***
 
 By default, **SkipNullOrEmptyValues** is set to **false** in the **RuleRequiredField** rule; in the remaning validation rules, it is set to **true**.

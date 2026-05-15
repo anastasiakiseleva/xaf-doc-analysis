@@ -24,4 +24,30 @@ public class AddContactController : ObjectViewController<ListView, Contact> {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Imports DevExpress.ExpressApp
+Imports DevExpress.ExpressApp.Actions
+Imports DevExpress.Persistent.Base
+Imports MainDemo.Module.BusinessObjects
+
+Public Class AddContactController
+    Inherits ObjectViewController(Of ListView, Contact)
+    Public Sub New()
+        Dim addContactAction As New ParametrizedAction(Me, "AddContact", PredefinedCategory.Edit, GetType(String))
+        AddHandler addContactAction.Execute, AddressOf AddContactAction_Execute
+    End Sub
+    Private Sub AddContactAction_Execute(ByVal sender As Object, ByVal e As ParametrizedActionExecuteEventArgs)
+        Using objectSpace As IObjectSpace = Application.CreateObjectSpace(GetType(Contact))
+            Dim contact As Contact = objectSpace.CreateObject(Of Contact)()
+            contact.FirstName = TryCast(e.ParameterCurrentValue, String)
+            objectSpace.CommitChanges()
+        End Using
+        View.ObjectSpace.Refresh()
+    End Sub
+End Class
+
+```
 ***

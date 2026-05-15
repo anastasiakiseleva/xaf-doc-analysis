@@ -32,6 +32,17 @@ Follow the steps below to make localization items related to your custom templat
 	// ...
 	public class MyTemplateLocalizer : FrameTemplateLocalizer<DetailRibbonForm1> { }
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Imports DevExpress.ExpressApp.Win.Templates
+	' ...
+	Public Class MyTemplateLocalizer
+	    Inherits FrameTemplateLocalizer(Of DetailRibbonForm1)
+	End Class
+	```
+	
 	***
 * In the [](xref:DevExpress.ExpressApp.Win.WinApplication) descendant's constructor, add the **MyTemplateLocalizer** to the [XafApplication.ResourcesExportedToModel](xref:DevExpress.ExpressApp.XafApplication.ResourcesExportedToModel) list.
 	
@@ -46,6 +57,20 @@ Follow the steps below to make localization items related to your custom templat
 	    // ...
 	}
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Partial Public Class MySolutionWindowsFormsApplication
+	    Inherits WinApplication
+	    Public Sub New()
+	        InitializeComponent()
+	        Me.ResourcesExportedToModel.Add(GetType(MyTemplateLocalizer))
+	    End Sub
+	    ' ...
+	End Class
+	```
+	
 	***
 * In the code-behind file of your custom template (for example, _DetailRibbonForm1.Designer.cs_), find the line where the **resources** private field is declared and initialized.
 	
@@ -55,6 +80,13 @@ Follow the steps below to make localization items related to your custom templat
 	System.ComponentModel.ComponentResourceManager resources = 
 	    new System.ComponentModel.ComponentResourceManager(typeof(DetailRibbonForm1));
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Dim resources As New System.ComponentModel.ComponentResourceManager(GetType(DetailRibbonForm1))
+	```
+	
 	***
 	
 	Replace the **ComponentResourceManager** type with **XafComponentResourceManager**.
@@ -65,7 +97,15 @@ Follow the steps below to make localization items related to your custom templat
 	DevExpress.ExpressApp.Win.Templates.XafComponentResourceManager resources = 
 	    new DevExpress.ExpressApp.Win.Templates.XafComponentResourceManager(typeof(DetailRibbonForm1));
 	```
+	
+	# [VB.NET](#tab/tabid-vb)
+	
+	```vb
+	Dim resources As New DevExpress.ExpressApp.Win.Templates.XafComponentResourceManager(GetType(DetailRibbonForm1))
+	```
+	
 	***
+	
 * Rebuild the solution and run the [Model Editor](xref:112582). Expand the **Localization** | **FrameTemplates** | **DetailRibbonForm1** node. The localization items related to your custom templates are available here.
 	
 	![LocalizeCustomTemplateME](~/images/localizecustomtemplateme118950.png)

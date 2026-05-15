@@ -63,4 +63,76 @@ public class ContactTask : XPObject {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb{41}
+Imports DevExpress.ExpressApp.Security
+Imports DevExpress.Persistent.Base
+Imports DevExpress.Xpo
+Imports System.Collections.Generic
+Imports System.ComponentModel
+' ...
+<DefaultClassOptions>
+Public Class Contact
+    Inherits XPObject
+    ' ...
+    <Browsable(False), Association("Contact-ContactTasks"), Aggregated>
+    Public ReadOnly Property ContactTasks() As XPCollection(Of ContactTask)
+        Get
+            Return GetCollection(Of ContactTask)(NameOf(ContactTasks))
+        End Get
+    End Property
+    <ManyToManyAlias(nameof(ContactTasks), nameof(ContactTask.Task))>
+    Public ReadOnly Property TaskCollection() As IList(Of Task)
+        Get
+            Return GetList(Of Task)(NameOf(TaskCollection))
+        End Get
+    End Property
+End Class
+<DefaultClassOptions>
+Public Class Task
+    Inherits XPObject
+    ' ...
+    <Browsable(False), Association("Task-ContactTasks"), Aggregated>
+    Public ReadOnly Property ContactTasks() As XPCollection(Of ContactTask)
+        Get
+            Return GetCollection(Of ContactTask)(NameOf(ContactTasks))
+        End Get
+    End Property
+    <ManyToManyAlias(nameof(ContactTasks), nameof(ContactTask.Contact))>
+    Public ReadOnly Property ContactCollection() As IList(Of Contact)
+        Get
+            Return GetList(Of Contact)(NameOf(ContactCollection))
+        End Get
+    End Property
+End Class
+<IntermediateObject(nameof(Contact), nameof(Task))>
+Public Class ContactTask
+    Inherits XPObject
+    Public Sub New(ByVal session As Session)
+        MyBase.New(session)
+    End Sub
+    Private fContact As Contact
+    <Association("Contact-ContactTasks")>
+    Public Property Contact() As Contact
+        Get
+            Return fContact
+        End Get
+        Set(ByVal value As Contact)
+            SetPropertyValue(Of Contact)(NameOf(Contact), fContact, value)
+        End Set
+    End Property
+    Private fTask As Task
+    <Association("Task-ContactTasks")>
+    Public Property Task() As Task
+        Get
+            Return fTask
+        End Get
+        Set(ByVal value As Task)
+            SetPropertyValue(Of Task)(NameOf(Task), fTask, value)
+        End Set
+    End Property
+End Class
+```
 ***

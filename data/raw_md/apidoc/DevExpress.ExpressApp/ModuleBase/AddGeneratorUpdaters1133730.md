@@ -24,6 +24,18 @@ public override void AddGeneratorUpdaters(ModelNodesGeneratorUpdaters updaters) 
     // ...
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Public Overrides Sub AddGeneratorUpdaters(ByVal updaters As ModelNodesGeneratorUpdaters)
+    MyBase.AddGeneratorUpdaters(updaters)
+    updaters.Add(New MyGeneratorUpdater1())
+    updaters.Add(New MyGeneratorUpdater2())
+    ' ...
+End Sub
+```
+
 ***
 
 To see a full example for implementing the Generator Updaters classes and registering them via this method, refer to the [How to: Create Additional ListView Nodes in Code using a Generator Updater](xref:113315) topic.

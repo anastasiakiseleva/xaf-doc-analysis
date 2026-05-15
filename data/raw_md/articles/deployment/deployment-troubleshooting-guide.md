@@ -13,15 +13,15 @@ This topic lists common deployment issues and ways to resolve them when the appl
 
 ### The “An attempt to load the "DevExpress.Drawing.v<:xx.x:>.Skia.dll" assembly failed.” error occurs on Linux and MacOS platforms.
 
-Issue Description:
+**Issue Description:**
 
 An application displays the following error message on Linux or MacOS:
 
 _An attempt to load the "DevExpress.Drawing.v<:xx.x:>.Skia.dll" assembly failed._
 
-Solution:
+**Solution:**
 
-The `DevExpress.Drawing.Skia` assembly is a part of the [DevExpress.Drawing.Skia](https://nuget.devexpress.com/packages/DevExpress.Drawing.Skia) NuGet package. In .NET 8+, the `DevExpress.Drawing` library uses the [SkiaSharp](https://www.nuget.org/packages/SkiaSharp/) drawing engine for Office API and Reports modules. To resolve this error, install the `DevExpress.Drawing.Skia` NuGet package to your **MySolutionName.Blazor.Server** project.
+The `DevExpress.Drawing.Skia` assembly is a part of the [DevExpress.Drawing.Skia](https://nuget.org/packages/DevExpress.Drawing.Skia) NuGet package. In .NET 8+, the `DevExpress.Drawing` library uses the [SkiaSharp](https://www.nuget.org/packages/SkiaSharp/) drawing engine for Office API and Reports modules. To resolve this error, install the `DevExpress.Drawing.Skia` NuGet package to your **MySolutionName.Blazor.Server** project.
 
 Refer to the following topic for details: [](xref:404247).
 
@@ -29,13 +29,13 @@ Refer to the following topic for details: [](xref:404247).
 
 ### The “System.PlatformNotSupportedException: System.Drawing.Common is not supported on this platform.” error occurs on Linux and MacOS platforms.
 
-Issue Description:
+**Issue Description:**
 
 An application displays the following error message on Linux or MacOS:
 
 _System.PlatformNotSupportedException: System.Drawing.Common is not supported on this platform._
 
-Solution:
+**Solution:**
 
 Make sure that your project does not reference the `System.Drawing.Common` library v.7+. You also need to upgrade to the latest DevExpress component version that does not contain direct `System.Drawing` API calls.
 
@@ -43,11 +43,11 @@ Make sure that your project does not reference the `System.Drawing.Common` libra
 
 ### Problems with documents rendering or exporting when using Reports module, Office module, or Dashboards module on Linux and MacOS platforms.
 
-Issue Description:
+**Issue Description:**
 
 An application with the [Reports](xref:113591), [Office](xref:400003), or [Dashboards](xref:117449) module renders or exports documents incorrectly when deployed on Linux or MacOS. 
 
-Solution:
+**Solution:**
 
 Ensure that all required libraries and packages are installed. Refer to the following topics for more information: 
 
@@ -55,19 +55,38 @@ Ensure that all required libraries and packages are installed. Refer to the foll
 
 ***
 
+### Problems with documents rendering or exporting when using Reports module or Office module module when hosting on Azure (Linux).
+
+**Issue Description:**
+
+An application with the [Reports](xref:113591) and [Office](xref:400003) module renders or exports documents incorrectly when deployed on Azure.
+
+**Solution:**
+
+1. If you encounter an issue with `RichTextPropertyEditor`, ensure that the static [AzureCompatibility.Enable](xref:DevExpress.Utils.AzureCompatibility.Enable) property is set to `true` at application startup (at the beginning of the `ConfigureServices` method in the _SolutionName.Blazor.Server/Startup.cs_ file).
+
+2. Create an [Azure Storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create) to persist documents in Azure Storage. Call the following methods at application startup and pass the Azure Storage connection string as a parameter:
+
+    * [AzureWebDocumentViewerContainer.UseAzureEnvironment](xref:DevExpress.XtraReports.Web.Azure.WebDocumentViewer.AzureWebDocumentViewerContainer.UseAzureEnvironment*)
+    * [AzureReportingConfigurator.UseAzureEnvironment](xref:DevExpress.AspNetCore.Reporting.Azure.AzureReportingConfigurator.UseAzureEnvironment*)
+    * [AzureReportDesignerContainer.UseAzureEnvironment](xref:DevExpress.XtraReports.Web.Azure.ReportDesigner.AzureReportDesignerContainer.UseAzureEnvironment*)
+
+    The methods replace internal Document Viewer and Report Designer services with Azure-compatible implementations. For additional information, see the following topics: [Hosting Specifics -- Call the UseAzureEnvironment Method](xref:10769#option-2-call-the-useazureenvironment-method)
+***
+
 ### The “Could not find 'xaf.focusViewItem' ('xaf' was undefined).” error occurs.
 
-Issue Description:
+**Issue Description:**
 
 An application displays the following error message:
 
 _Could not find 'xaf.focusViewItem' ('xaf' was undefined)._
 
-Solution:
+**Solution:**
 
 This error can occur if the application is being run with an incorrect working directory or from outside of its location. For example: 
 
-` dotnet C:\Some\Path\MySolutionName.NET.EFCore\CS\MySolutionName.Blazor.Server\bin\Debug\net7.0\MySolutionName.Blazor.Server.dll ` 
+`dotnet C:\Some\Path\MySolutionName.NET.EFCore\CS\MySolutionName.Blazor.Server\bin\Debug\net7.0\ MySolutionName.Blazor.Server.dll`
 
 To resolve the issue, make sure that you run the application from its working directory:
 
@@ -79,11 +98,11 @@ For more information, refer to the following Microsoft topic: [ASP.NET Core Blaz
 
 ### A deployed application loses styles or displays other scripting errors in production.
 
-Problem Description:
+**Issue Description:**
 
 An application loses styles applied to its elements or displays style-related scripting errors. 
 
-Solution:
+**Solution:**
 
 This happens when a Blazor application cannot load scripts and styles from the _content/DevExpress.Blazor_ folder. This folder stores [static web assets](https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/static-files) (see also the `UseStaticFiles` call in _Startup.cs_). This problem usually occurs in Linux-based or Docker-based deployments due to DevExpress assemblies that are incorrectly integrated into a project. You need to use NuGet package references instead of assembly references because our NuGet packages contain all the required static web assets in their _staticwebassets_ folder (e.g., _C:\Program Files\DevExpress <:xx.x:>\Components\Offline Packages\devexpress.blazor\\<:xx.x.x:>\staticwebassets_).
 
@@ -91,7 +110,7 @@ This happens when a Blazor application cannot load scripts and styles from the _
 
 ### The "The application cannot connect to the specified database, because the database doesn't exist, its version is older than that of the application, or its schema does not match the ORM data model structure." error occurs.
 
-Issue Description:
+**Issue Description:**
 
 An application displays one of the following error messages:
 
@@ -99,7 +118,7 @@ An application displays one of the following error messages:
 
 * _Login failed for `UserName`. User name or password is incorrect._
 
-Solution:
+**Solution:**
 
 Initialize the database and populate it with initial data.
 
@@ -137,13 +156,13 @@ Make sure that this mode is available in the configuration in which the applicat
 
 ### The "Could not copy `PackagePath` to `AnotherPackagePath`. Exceeded retry count of 10. Failed." error occurs.
 
-Problem Description:
+**Issue Description:**
 
 An application displays the following error message:
 
 _Could not copy `PackagePath` to `AnotherPackagePath`. Exceeded retry count of 10. Failed._
 
-Solution:
+**Solution:**
 
 This problem usually occurs because the file path is too long. To solve this, move the folder containing your application closer to the root of your drive.
 
@@ -153,13 +172,13 @@ This problem usually occurs because the file path is too long. To solve this, mo
 
 ### The "application failed to initialize properly" error message is displayed
 
-Issue Description:
+**Issue Description:**
 
 Windows displays an **Application Error** window with the following text.
 
 _The application failed to initialize properly (0xc0000135). Click OK to terminate the application._
 
-Solution:
+**Solution:**
 
 This may happen if you try to launch an XAF Windows Forms application at the workstation with Windows XP or an older Windows version installed. These systems do not have .NET installed by default. Download and install the correct version of .NET from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
 
@@ -167,7 +186,7 @@ This may happen if you try to launch an XAF Windows Forms application at the wor
 
 ### The "could not load file or assembly" error message is displayed
 
-Issue Description:
+**Issue Description:**
 
 When loading, the application displays the following error message:
 
@@ -185,7 +204,7 @@ The assembly mentioned in the error message is missing from the application fold
 
 ### An error message containing insufficient information is displayed
 
-Issue Description:
+**Issue Description:**
 
 When loading, the application displays an error message that appears as follows:
 
@@ -196,7 +215,7 @@ The type initializer for 'DevExpress.ExpressApp.Win.SystemModule.DefaultSkinList
 
 The details of the message may be different. Generally, the message does not contain enough information on how to resolve the error.
 
-Solution:
+**Solution:**
 
 To find the cause of the error, open the application log file. The log file is a text file located in the application folder or in the user's application data folder, and has the most recent modification time. Find the text matching the error message and analyze what happened before the error occurred. For instance, this error can be caused by a missing assembly. For details, see the next item.
 
@@ -206,7 +225,7 @@ To find the cause of the error, open the application log file. The log file is a
 
 ### Resolve the 'DevExpress.Assembly.Name.vXX.X' assembly Exception thrown: 'System.IO.FileNotFoundException'
 
-Issue Description:
+**Issue Description:**
 
 The following text is written to the application log before a warning occurs:
 
@@ -217,7 +236,7 @@ Exception thrown: 'System.IO.FileNotFoundException' in mscorlib.dll_
 
 An assembly name and version may be different.
 
-Solution:
+**Solution:**
 
 Outdated records in the XPObjectType table cause these warnings. Use one of the following options to avoid them:
 
@@ -233,11 +252,11 @@ Outdated records in the XPObjectType table cause these warnings. Use one of the 
 
 ### Logged errors are not available, although the application fails to start
 
-Issue Description:
+**Issue Description:**
 
 The application log file does not contain errors or you cannot find the log file, although the application fails to start; and it is not possible to determine exactly what happens from the displayed error message.
 
-Solution:
+**Solution:**
 
 Check that logging is enabled in the application configuration file. This is the _\<Application_Name>.Win.exe.config_ XML file located in the application folder. Open this file in a text editor and check that the **TraceLogLocation** key in the **appSettings** section is not set to **None**.
 
@@ -268,11 +287,11 @@ Check that the user account that you use to start the application has the approp
 
 ### Cannot store individual customizations in a multi-user environment
 
-Issue Description:
+**Issue Description:**
 
 A Windows Forms application is installed on a Terminal Server and multiple users use it simultaneously, or it is installed on an End-User Workstation with multiple local logins enabled. User customizations interfere with each other, making individual customizations impossible.
 
-Solution:
+**Solution:**
 
 Open the configuration file and set the **UserModelDiffsLocation** key in the **appSettings** section to **CurrentUserApplicationDataFolder**.
 
@@ -298,7 +317,7 @@ Another solution is provided in the [How to: Store the Application Model Differe
 
 ### "Unable to save customization information" error is displayed on exit
 
-Issue Description:
+**Issue Description:**
 
 A Windows Forms application launches and runs normally, however the following error message is displayed on exit.
 
@@ -306,7 +325,7 @@ A Windows Forms application launches and runs normally, however the following er
 
 _Unable to save customization information_.
 
-Solution:
+**Solution:**
 
 Check that the user account used to start the application has appropriate permissions to write to the _Model.User.xafml_ file. This file location is specified by the **UserModelDiffsLocation** key in the application configuration file. By default, the _Model.User.xafml_ file is located in the application folder. Typically, non-administrative users have no permission to write anything to _Program Files_ subfolders. To resolve this issue, you can do one of the following:
 
@@ -319,13 +338,13 @@ Check that the user account used to start the application has appropriate permis
 
 ### The LogonParameters file is inaccessible
 
-Issue Description:
+**Issue Description:**
 
 The following error is displayed after clicking the **Log On** button.
 
 _Access to the path 'C:\Program Files\MySolution\LogonParameters' is denied._
 
-Solution:
+**Solution:**
 
 Check that the user account used to start the application has appropriate permissions to write to the _LogonParameters_ file. This file is used to save the logon parameters (user name by default), and is located together with the _Model.User.xafml_ file. The location is specified by the **UserModelDiffsLocation** key in the application configuration file. By default, the _LogonParameters_ file is located in the application folder. Typically, non-administrative users do not have permission to write anything to _Program Files_ subfolders. To resolve this issue, you can do one of the following:
 
@@ -338,7 +357,7 @@ Check that the user account used to start the application has appropriate permis
 
 ### The application cannot find the Updater executable
 
-Issue Description:
+**Issue Description:**
 
 When loading, the application displays the following error message.
 
@@ -348,7 +367,7 @@ _Could not find file '\\FILESERVER\MySolutionUpdateSource
 
 \DevExpress.ExpressApp.Updater.exe'._
 
-Solution:
+**Solution:**
 
 The database was updated and an automatic update was initiated. The **NewVersionServer** value in the application configuration file is not empty. However, the Updater utility was not found. Check that the _DevExpress.ExpressApp.Updater.exe_ file exists in the update source folder. You can get this file from the Developer Workstation (this file path is _[!include[PathToXafTools](~/templates/path-to-xaf-tools.md)]\DBUpdater\DBUpdater.v<:xx.x:>.exe_). Check that the **NewVersionServer** value is correct.
 
@@ -358,7 +377,7 @@ The database was updated and an automatic update was initiated. The **NewVersion
 
 ### The '1113' error occurs
 
-Issue Description:
+**Issue Description:**
 
 When loading, the application displays the following error message.
 
@@ -367,7 +386,7 @@ When loading, the application displays the following error message.
 _An error with number 1113 has occurred.
 Error message: Cannot run the application. The database version is newer than the application version, but the server with the new application version is not found. Ask the administrator to check that the configuration file contains a correct path to the new application version._
 
-Solution:
+**Solution:**
 
 The database was updated and an automatic update was initiated. The **NewVersionServer** value in the application configuration file is not empty. However, the update source folder cannot be accessed. Ensure that the **NewVersionServer** key value is correct and that the shared folder referenced by it is accessible.
 
@@ -377,7 +396,7 @@ The database was updated and an automatic update was initiated. The **NewVersion
 
 ### "Cannot create temporary file" error message is displayed
 
-Issue Description:
+**Issue Description:**
 
 When loading, the application displays the following error message.
 
@@ -386,7 +405,7 @@ When loading, the application displays the following error message.
 _Cannot compile generated code. Please inspect generated code using this exception's SourceCode property. 
 The following errors occurred: (0,0): Cannot create temporary file 'c:\Program Files\MySolution\CSC27CD.tmp' -- Access is denied._
 
-Solution:
+**Solution:**
 
 Starting with version v2011 vol 1, XAF can dynamically create assemblies at run time to cache the structure of Application Model used in the application (see [XAF – Core & Performance Improvements](https://community.devexpress.com/blogs/xaf/archive/2011/04/28/xaf-core-amp-performance-improvements-coming-in-v2011-vol1.aspx)). This can be done, for instance, to store the [Application Model Structure](xref:112580). By default, your application will try to create temporary files in the folder it is installed. If the application is not allowed to write to this folder, you will see an error message. To solve the issue, you can specify exact cache file names that the application will be allowed to create and modify. This is done by overriding [](xref:DevExpress.ExpressApp.XafApplication)'s protected **GetDcAssemblyFilePath**, **GetModelAssemblyFilePath** and **GetModulesVersionInfoFilePath** methods. Alternatively, you can override these methods to return `null` to specify that caching should be disabled.
 
@@ -408,6 +427,25 @@ public partial class MySolutionWindowsFormsApplication : WinApplication {
     }
 }
 ```
+
+# [VB.NET](#tab/tabid-vb)
+
+```vb
+Partial Public Class MySolutionWindowsFormsApplication
+    Inherits WinApplication
+    '...
+    Protected Overrides Function GetDcAssemblyFilePath() As String
+        Return Nothing
+    End Function
+    Protected Overrides Function GetModelAssemblyFilePath() As String
+        Return Nothing
+    End Function
+    Protected Overrides Function GetModulesVersionInfoFilePath() As String
+        Return Nothing
+    End Function
+End Class
+```
+
 ***
 
 **See also:** [Application Model Structure](xref:112580)
@@ -416,11 +454,11 @@ public partial class MySolutionWindowsFormsApplication : WinApplication {
 
 ### User customizations are lost after updating the ClickOnce deployment
 
-Issue Description:
+**Issue Description:**
 
 A Windows Forms application is deployed using [Publish Wizard Deployment of a Windows Forms Application](xref:113234). User customizations are lost each time the application is updated.
 
-Solution:
+**Solution:**
 
 The solution is the same as for the [Cannot store individual customizations in a multi-user environment](#cannot-store-individual-customizations-in-a-multi-user-environment) issue.
 
@@ -430,11 +468,11 @@ The solution is the same as for the [Cannot store individual customizations in a
 
 ### Numerous assemblies are missing
 
-Issue Description:
+**Issue Description:**
 
 After deploying an application with Xcopy, you find numerous assemblies missing from the Windows Forms application folder.
 
-Solution:
+**Solution:**
 
 Open the application solution at the Developer Workstation and check that you have correctly followed all the pre-deployment steps from the [Xcopy Deployment of a Windows Forms Application](xref:113232) lesson.
 
@@ -446,7 +484,7 @@ Open the application solution at the Developer Workstation and check that you ha
 
 ### "The application cannot connect to the specified database" error is displayed
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when you run the application.
 
@@ -456,7 +494,7 @@ _The application cannot connect to the specified database, because the latter do
 The automatic update is disabled, because the application was started without debugging.
 You should start the application under Visual Studio, or modify the source code of the 'DatabaseVersionMismatch' event handler to enable an automatic database update, or manually create a database using the 'DBUpdater' tool._
 
-Solution:
+**Solution:**
 
 To find out what is wrong with the application database, use the **DBUpdater** tool. If the **DBUpdater** reports an error, check if it is described later in this topic.
 
@@ -466,7 +504,7 @@ To find out what is wrong with the application database, use the **DBUpdater** t
 
 ### The '1111' error occurs when running the application or DBUpdater (or the application’s -updateDatabase CLI command)
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when running the application, or **DBUpdater** tool, or `-updateDatabase` CLI command.
 
@@ -476,7 +514,7 @@ _An error with number 1111 has occurred.
 Error message: The database version is greater than the application version. The application needs to be updated. Please contact your system administrator or download a new version.
 Additional information: the local version 1.0.3603.18312 of module 'MySolutionModule' is smaller than version 1.0.3603.21783 in the database._
 
-Solution:
+**Solution:**
 
 One possible reason for a version mismatch is that you restored the database from the Developer Workstation backup and did not update the application. Another possible reason is that you updated the database from another End-User Workstation running a more recent application version. In both cases, you need to update your application.
 
@@ -486,7 +524,7 @@ One possible reason for a version mismatch is that you restored the database fro
 
 ### The application cannot connect to the database, although the DBUpdater (or the application's -updateDatabase CLI command) reports no error
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when you run the application.
 
@@ -496,7 +534,7 @@ _An error has occurred connecting to database. Please contact your system admini
 
 At the same time, the **DBUpdater** tool (or the application's -updateDatabase CLI command) reports no error.
 
-Solution:
+**Solution:**
 
 A possible reason is that the application does not have sufficient permissions to access the application database. Confirm that the account used to connect to the Database Server is provided with proper permissions or ask the database administrator to do it. Another solution is to switch to an account having proper permissions.
 
@@ -506,7 +544,7 @@ A possible reason is that the application does not have sufficient permissions t
 
 ### The DBUpdater reports that the database does not exist
 
-Issue Description:
+**Issue Description:**
 
 The **DBUpdater** reports:
 
@@ -518,7 +556,7 @@ _..._
 
 _Database update completed successfully._
 
-Solution:
+**Solution:**
 
 This behavior is normal when creating an initial database. The database mentioned in the connection string was absent and the **DBUpdater** created it. Restore the database from a backup if you need specific data in the created database or check the connection string - you may be connecting to a different database.
 
@@ -528,7 +566,7 @@ This behavior is normal when creating an initial database. The database mentione
 
 ### The DBUpdater reports the '1110' error
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when running the **DBUpdater** tool.
 
@@ -538,7 +576,7 @@ _An error with number 1110 has occurred.
 Error message: The database is an older version than the application. The database
 needs to be updated._
 
-Solution:
+**Solution:**
 
 * The database is empty. Press ENTER and the **DBUpdater** will populate it with initial data.
 * The application was updated, so the database must be updated as well. Press ENTER and the **DBUpdater** will fix this issue.
@@ -549,7 +587,7 @@ Solution:
 
 ### The DBUpdater (or the application's -updateDatabase CLI command) cannot update the database as it cannot connect to the database server
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when running the **DBUpdater** tool or `-updateDatabase` CLI command.
 
@@ -557,7 +595,7 @@ The following error message is displayed when running the **DBUpdater** tool or 
 
 _The database cannot be updated: An error has occurred while establishing a connection to the server._
 
-Solution:
+**Solution:**
 
 The possible reasons are:
 
@@ -574,7 +612,7 @@ Ask the Database Server administrator for assistance if required.
 
 ### The DBUpdater (or the application's -updateDatabase CLI command) cannot update the database due to invalid credentials
 
-Issue Description:
+**Issue Description:**
 
 The following error message is displayed when running the **DBUpdater** tool or `-updateDatabase` CLI command.
 
@@ -582,7 +620,7 @@ The following error message is displayed when running the **DBUpdater** tool or 
 
 _The database cannot be updated: Login failed for the user 'username'._
 
-Solution:
+**Solution:**
 
 The possible reasons are:
 
@@ -597,11 +635,11 @@ Check that the account used to connect to the database has the proper permission
 
 ### Performance issues when working with a large amount of data
 
-Issue Description:
+**Issue Description:**
 
 List Views with thousands of records load too slowly.
 
-Solution:
+**Solution:**
 
 * Set the [IModelOptions.DataAccessMode](xref:DevExpress.ExpressApp.Model.IModelOptions.DataAccessMode) option to `Server`, `ServerView`, `InstantFeedback`, or `InstantFeedbackView`. When [Server, ServerView, InstantFeedback, or InstantFeedbackView](xref:118450) mode is enabled in an XAF application, only visible records are retrieved from the server (50 records instead of thousands).
 * XPO uses [GCRecord](xref:2632) in queries by default, and XAF sorts records by the [IModelClass.DefaultProperty](xref:DevExpress.ExpressApp.Model.IModelClass.DefaultProperty) property. You need to create indexes for these columns, run your application, and trace the sent queries with the help of the [XPO Profiler](xref:10646) to check the _where_ and _order_ clauses, and add other necessary indexes.
@@ -612,7 +650,7 @@ Solution:
 
 ### The "An attempt was made to load a program with an incorrect format" error occurs when starting the DBUpdater or standalone Model Editor tool on an x64 system
 
-Issue Description:
+**Issue Description:**
 
 The DBUpdater or Model Editor tool states that it cannot load your application's assembly or executable; for example:
 
@@ -630,7 +668,7 @@ The DBUpdater or Model Editor tool states that it cannot load your application's
 
 ``An attempt was made to load a program with an incorrect format.``
 
-Solution:
+**Solution:**
 
 To fix this issue, do one of the following:
 

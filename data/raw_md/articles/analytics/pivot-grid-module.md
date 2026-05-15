@@ -15,85 +15,107 @@ title: Pivot Grid Module
 ---
 # Pivot Grid Module
 
-The Pivot Grid module is a comprehensive data analysis, data mining, and visual reporting solution for XAF applications. The module contains [List Editors](xref:113189) that adapt DevExpress [WinForms Pivot Grid](xref:3409) controls for XAF.
+The Pivot Grid module is a comprehensive data analysis, data mining, and visual reporting solution for XAF ASP.NET Core Blazor and Windows Forms applications. The module includes [List Editors](xref:113189) that adapt DevExpress Pivot Grid controls to XAF.
 
-The feature enables you to summarize large amounts of data in a multi-dimensional pivot table where you can sort, group, and filter the data.
+The module allows you to summarize large amounts of data in a multidimensional pivot table where users can sort, group, and filter the data.
 
-![PivotGridListEditor](~/images/pivotgridlisteditor116777.png)
-
-End-users can customize the table's layout according to their analysis requirements with simple drag-and-drop operations.
-
-For the Pivot Grid module's demonstration, access the **List Editors** | **PivotGrid** section in the **Feature Center** application supplied with XAF. [!include[FeatureCenterLocationNote](~/templates/featurecenterlocationnote111102.md)]
-
-> [!Note]
-> Until the Pivot Grid Module supports Blazor UI, it is possible to integrate the [Blazor PivotGrid control](xref:DevExpress.Blazor.DxPivotGrid`1) into your Blazor application manually. The following topic describes how to do this: [Blazor - How to integrate the Pivot Grid into an XAF app](https://supportcenter.devexpress.com/ticket/details/t994515/blazor-how-to-integrate-the-pivot-grid-into-an-xaf-app).
-
-## Getting Started
-You can add the Pivot Grid module to an existing project by following the [How to: Display a List View as a Pivot Grid Table and Chart](xref:119740) tutorial.
-
-> [!NOTE]
-> [!include[ExtraModulesNote](~/templates/extramodulesnote11181.md)]
-> * [!include[<@DevExpress.ExpressApp.Win.ApplicationBuilder.PivotGridApplicationBuilderExtensions.AddPivotGrid(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder})>,<WinForms>](~/templates/ExtraModulesNote_ApplicationBuilder.md)]
+> [!ImageGallery]
+> ![Blazor Pivot Grid List Editor](~/images/pivot-grid/xaf-blazor-pivot-grid-module.png)
+> ![Windows Forms Pivot Grid List Editor](~/images/pivot-grid/xaf-win-pivot-grid-module.png)
 
 ## DevExpress Controls Used by the Pivot Grid Module
 The Pivot Grid module uses the following DevExpress controls:
 
-| Class | Description |
-|---|---|
-| [](xref:DevExpress.XtraPivotGrid.PivotGridControl) | Allows creating a pivot table in a WinForms application. |
+| Platform | XAF List Editor | Underlying Control |
+|---|---|---|
+| ASP.NET Core Blazor | @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor | @DevExpress.Blazor.PivotTable.DxPivotTable
+| Windows Forms | @DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor | @DevExpress.XtraPivotGrid.PivotGridControl
 
-You can access these controls and change their behavior in code. For more details, study the [](xref:402154) topic.
+You can access these controls and change their behavior in code. For additional details, refer to the [](xref:402154) topic.
 
-## Pivot Grid Module Components
-The Pivot Grid module consists of the following platform-agnostic and platform-specific components:
 
-![PivotGridModulesInToolbox](~/images/pivotgridmodulesintoolbox131707.png)
+## Add the Pivot Grid Module to Your Application
 
-* [](xref:DevExpress.ExpressApp.PivotGrid.PivotGridModule)
-	
-	The module adds references to the _DevExpress.ExpressApp.PivotGrid.v<:xx.x:>.dll_ assembly.
-* [](xref:DevExpress.ExpressApp.PivotGrid.Win.PivotGridWindowsFormsModule)
-	
-	The module references the _DevExpress.ExpressApp.PivotGrid.v<:xx.x:>.dll_ and _DevExpress.ExpressApp.PivotGrid.Win.v<:xx.x:>.dll_ assemblies.
+The Pivot Grid module for **Blazor** is included in the main Blazor module (_DevExpress.ExpressApp.Blazor_), making it readily available without any additional configuration.
 
-For the Pivot Grid Module's best performance, add it to platform-specific projects only and customize the module there. Do not use the **PivotGridModule** component intended for the base module project.
+To enable the Pivot Grid module in your **Windows Forms** application, follow the steps below:
 
-## Pivot Grid Module Settings
+1. Install the NuGet package that contains the Office module: [DevExpress.ExpressApp.PivotGrid.Win](https://nuget.devexpress.com/packages/DevExpress.ExpressApp.PivotGrid.Win).
+2. Navigate to the _SolutionName.Win\Startup.cs_ file and call the [AddPivotGrid](xref:DevExpress.ExpressApp.Win.ApplicationBuilder.PivotGridApplicationBuilderExtensions.AddPivotGrid(DevExpress.ExpressApp.ApplicationBuilder.IModuleBuilder{DevExpress.ExpressApp.Win.ApplicationBuilder.IWinApplicationBuilder})) method:
+
+    # [SolutionName.Win\Startup.cs](#tab/tabid-appbuilder-winforms)
+          
+    ```csharp{11}
+    using DevExpress.ExpressApp;
+    using DevExpress.ExpressApp.Design;
+    using DevExpress.ExpressApp.Win;
+    using DevExpress.ExpressApp.Win.ApplicationBuilder;
+    // ...
+    public class ApplicationBuilder : IDesignTimeApplicationFactory {
+        public static WinApplication BuildApplication(string connectionString) {
+            var builder = WinApplication.CreateBuilder();
+            builder.UseApplication<SolutionNameWindowsFormsApplication>();
+            builder.Modules
+                .AddPivotGrid()
+                // ...
+    ```
+    ***
+
+XAF offers other methods to integrate the Pivot Module into a newly created or existing application. For additional information, refer to the following topic: <xref:118047>.
+
+
+## Display Pivot Grid List Editors in a List View
+
+To display a List View as a Pivot Grid, follow these steps:
+
+1. Open the [Model Editor](xref:112582) for the following files:
+    * **Blazor**: _SolutionName.Blazor.Server\Model.xafml_
+    * **WinForms**: _SolutionName.Win\Model.xafml_
+2. Navigate to the required List View node: **SolutionName** | **Views** | **SolutionName.Module.BusinessObjects** | **ClassName** | **ClassName_ListView**.
+3. Set the @DevExpress.ExpressApp.Model.IModelListView.EditorType property to the following values:
+    * **Blazor**: `DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor`
+    * **WinForms**: `DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor`
+
+![PivotGrid list editor in the Model Editor](~/images/pivot-grid/xaf-blazor-pivot-grid-model-editor.png)
+
+## Customize Pivot Grid Settings (Blazor)
+
+You can customize the Pivot Grid settings in the following ways:
+
+Specify Column Model Settings
+:   Use the [Model Editor](xref:112582) to configure the following Pivot Grid column settings: @DevExpress.ExpressApp.Blazor.SystemModule.IModelColumnPivotGridBlazor.PivotFieldArea, @DevExpress.ExpressApp.Blazor.SystemModule.IModelColumnPivotGridBlazor.PivotGroupInterval, and @DevExpress.ExpressApp.Blazor.SystemModule.IModelColumnPivotGridBlazor.PivotSummaryType.
+Customize the Pivot Grid Model
+:   The @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor.PivotGridModel replicates parameters of the underlying @DevExpress.Blazor.PivotTable.DxPivotTable component. Use these parameters to configure the Pivot Grid before it is created. 
+Handle the ComponentCaptured Event
+:   The @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor.PivotGridModel does not allow direct access to the current component state or its methods. Handle the @DevExpress.ExpressApp.Blazor.Editors.DxPivotGridListEditor.ComponentCaptured event to access the underlying component instance and its full API.
+
+## Customize Pivot Grid Settings (WinForms)
 The entities below allow you to adjust the Pivot Grid module's settings in the [Application Model](xref:112580):
 
 | Interface | Description |
 |---|---|
 | [](xref:DevExpress.ExpressApp.PivotGrid.IModelPivotListView) | Extends the [Application Model](xref:112580) with the PivotSettings node. |
-| [](xref:DevExpress.ExpressApp.PivotGrid.IModelPivotSettings) | Provides access to the pivot grid List Editor a [List View](xref:112611) displays. |
-| [](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings) | Declares members of classes that specify settings of the pivot grid List Editor a [List View](xref:112611) displays. |
+| [](xref:DevExpress.ExpressApp.PivotGrid.IModelPivotSettings) | Includes settings for the pivot grid List Editor that a [List View](xref:112611) displays. |
+| [](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings) | Declares members of classes that specify settings of the pivot grid List Editor that a [List View](xref:112611) displays. |
 
 These settings are available in the [Application Model](xref:112579)'s [!include[Node_Views_ListView](~/templates/node_views_listview111381.md)] | **PivotSettings** node.
 
 ![PivotGridSettingsAppModel](~/images/pivotgridsettingsappmodel131932.png)
 
-The [IPivotSettings.CustomizationEnabled](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.CustomizationEnabled) property is set to **true** by default and allows end-users to modify their pivot table's settings.
+The [IPivotSettings.CustomizationEnabled](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.CustomizationEnabled) property is set to `true` (**default**) and allows end users to modify their pivot table settings.
 [!include[PivotGrid_xafmlConflict](~/templates/pivotgrid_xafmlconflict112048.md)]
 
-The [IPivotSettings.Settings](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.Settings) property value is a complex XML-formatted string. To manage these settings, click the **Settings**’ ellipsis button (![EllipsisButton](~/images/ellipsisbutton116182.png)).
+The [IPivotSettings.Settings](xref:DevExpress.ExpressApp.PivotGrid.IPivotSettings.Settings) property value is a complex XML-formatted string. To manage these settings, click the **Settings** ellipsis button (![EllipsisButton](~/images/ellipsisbutton116182.png)).
 
 ![Ellipsis](~/images/ellipsis131933.png)
 
-The button invokes the **PivotGrid** designer that allows you to modify the pivot table's layout and its other preferences.
+The button invokes the **PivotGrid** designer that allows you to modify the pivot table's layout and other preferences.
 
 ![PivotGrid013-Designer](~/images/pivotgrid013-designer131901.png)
 
-## Pivot Grid Module List Editors
-The Pivot Grid module ships with the following [List Editors](xref:113189):
 
-| Class | Description |
-|---|---|
-| [](xref:DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor) | Represents the pivot grid [List Editor](xref:113189) XAF WinForms applications use. |
+## Examples
+You can find examples of the Pivot Grid List Editor implementation in the following demos:
 
-You can set the [IModelListView.EditorType](xref:DevExpress.ExpressApp.Model.IModelListView.EditorType) property value to this editor in the [Application Model](xref:112579) as the screenshot below illustrates:
-
-The **EditorType** property value is set to "DevExpress.ExpressApp.PivotGrid.Win.PivotGridListEditor" in the [WinForms module project](xref:118045).
-
-![PivotGrid008-ChangeEditorWin](~/images/pivotgrid008-changeeditorwin131893.png)
-
-> [!NOTE]
-> Alternatively, you can invoke the [Model Editor](xref:112830) from the [application projects](xref:118045) and change the **EditorType** property value there.
+* In the [Employee Management Demo (Blazor)](xref:113577#employee-management-demo-xpoef-core), navigate to **Payroll** > **Views** > **Pivot View** (see the [online demo](https://demos.devexpress.com/XAF/BlazorMainDemo/)).
+* In the [Feature Center Demo (XPO)](xref:113577#feature-center-demo-xpo), navigate to **List Editors** > **Pivot Grid** (see the [online demo](https://demos.devexpress.com/XAF/featurecenter)).

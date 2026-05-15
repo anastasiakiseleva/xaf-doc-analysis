@@ -32,6 +32,17 @@ When implementing a custom Controller to modify the behavior of the [](xref:DevE
     }
     //...
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    '...
+    If TypeOf View Is ListView AndAlso View.Id = "MyBusinessClass1_MyBusinessClass2_ListView" Then
+      '...
+    End If
+    '...
+    ```
+    
     ***
 * Use the List View's CollectionSource type:
     
@@ -45,6 +56,18 @@ When implementing a custom Controller to modify the behavior of the [](xref:DevE
     }
     //...
     ```
+    
+    # [VB.NET](#tab/tabid-vb)
+    
+    ```vb
+    '...
+    If TypeOf View Is ListView AndAlso (Not View.IsRoot) AndAlso _
+          TypeOf (CType(View, ListView)).CollectionSource Is PropertyCollectionSource Then
+       '...
+    End If
+    '...
+    ```
+    
     ***
 
 By default, the **Unlink** Action is active under the following conditions:
